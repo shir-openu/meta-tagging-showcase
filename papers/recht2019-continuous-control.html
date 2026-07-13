@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Tour of Reinforcement Learning: The View from Continuous Control — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>A Tour of Reinforcement Learning: The View from Continuous Control — TEI-tagged view</h1>
+<div class="meta">Benjamin Recht · 2019 · <a href="https://en.wikipedia.org/wiki/Control_theory">control-theory</a> · <a href="https://doi.org/10.1146/annurev-control-053018-023825">doi:10.1146/annurev-control-053018-023825</a> · <a href="https://doi.org/10.1146/annurev-control-053018-023825" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1146/annurev-control-053018-023825" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Recht</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Berkeley</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Annual Review of Control, Robotics, and Autonomous Systems / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2019</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">optimal control</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch ai">reinforcement learning</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr><tr><td><span class="swatch method">linear-quadratic regulator</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Benjamin Recht<span class="tag">persName</span></span> (<span class="date">2019<span class="tag">date</span></span>). &ldquo;A Tour of Reinforcement Learning: The View from Continuous Control.&rdquo; <span class="work">Annual Review of Control, Robotics, and Autonomous Systems / arXiv<span class="tag">title·j</span></span>, <span class="place">Berkeley<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> <span class="ai">Reinforcement learning<span class="tag">term·ai</span></span> viewed through the lens of optimal and continuous control.</p>
+  <p><b>Research question —</b> How do <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> and classical <span class="concept">optimal control<span class="tag">term·dom</span></span> relate, and what does control theory contribute to understanding modern RL?</p>
+  <p><b>Contribution —</b> Recasts <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> as an instance of <span class="concept">optimal control<span class="tag">term·dom</span></span>, analyzing sample complexity and stability through the <span class="method">linear-quadratic regulator<span class="tag">term·mth</span></span> and arguing that control-theoretic tools clarify when and why RL works.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>continuous control (bridging reinforcement learning and optimal control)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>control theory (optimal control)</b>: framing and analyzing reinforcement learning with the tools of optimal control, using the Linear Quadratic Regulator as the baseline<span class="ev"> &mdash; &ldquo;the Linear Quadratic Regulator (LQR) with unknown dynamics, perhaps the simplest and best-studied problem in optimal control&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>reinforcement learning and optimal control theory</b><span class="ev"> &mdash; &ldquo;tools from reinforcement learning and control might be combined&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>significant challenges remain at the control-learning interface<span class="ev"> &mdash; &ldquo;Challenges at the control-learning interface&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>A Tour of <span class="ai">Reinforcement Learning<span class="tag">term·ai</span></span>: The View from Continuous Control</p>
+  <p>8 1 0 2</p>
+  <p>v o N 0 1</p>
+  <p>C O . h t a m</p>
+  <p>2 v 0 6 4 9 0 . 6 0 8 1 : v i X r a</p>
+  <p>A Tour of <span class="ai">Reinforcement Learning<span class="tag">term·ai</span></span>: The View from Continuous Control</p>
+  <p>Benjamin <span class="person">Recht<span class="tag">persName</span></span> Department of Electrical Engineering and Computer Sciences University of California, Berkeley</p>
+  <p>June 25, 2018. Last updated: November 9, 2018.</p>
+  <p>Abstract</p>
+  <p>This manuscript surveys <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> from the perspective of optimization and It surveys the general formulation, control with a focus on continuous control applications. terminology, and typical experimental implementations of <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> and reviews competing solution paradigms.</p>
+  <p>In order to compare the relative merits of various techniques, this survey presents a case study of the Linear Quadratic Regulator (LQR) with unknown dynamics, perhaps the simplest and best-studied problem in <span class="concept">optimal control<span class="tag">term·dom</span></span>. The manuscript describes how merging techniques from learning theory and control can provide non-asymptotic characterizations of LQR performance and shows that these characterizations tend to match experimental behavior. In turn, when In revisiting more complex applications, many of the observed phenomena in LQR persist. particular, theory and experiment demonstrate the role and importance of models and the cost of generality in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> algorithms.</p>
+  <p>This survey concludes with a discussion of some of the challenges in designing learning systems that safely and reliably interact with complex and uncertain environments and how tools from <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> and control might be combined to approach these challenges.</p>
+  <p>1 Introduction</p>
+  <p><span class="ai">Reinforcement learning<span class="tag">term·ai</span></span> (RL) is the subfield of machine learning that studies how to use past data to enhance the future manipulation of a <span class="concept">dynamical system<span class="tag">term·dom</span></span>. A control engineer might be puzzled by such a definition and interject that this is precisely the scope of control theory. That the RL and control communities remain practically disjoint has led to the co-development of vastly different approaches to the same problems. However, it should be impossible for a control engineer not to be impressed by the recent successes of the RL community such as solving Go [68].</p>
+  <p>Indeed, given this dramatic recent progress in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>, a tremendous opportunity lies in deploying its data-driven systems in more demanding interactive tasks including self-driving vehicles, distributed sensor networks, and agile robotic systems. For RL to expand into such technologies, however, the methods must be both safe and reliable—the failure of such systems has severe societal and economic consequences, including the loss of human life. How can we guarantee that our new data-driven automated systems are robust? These types of reliability concerns are at the core of control engineering, and <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> practitioners might be able to make their methods robust by applying appropriate control tools for engineering systems to match prescribed safety guarantees.</p>
+  <p>This survey aims to provide a language for the control and <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> communities to begin communicating, highlighting what each can learn from the other. Controls is the theory of designing complex actions from well-specified models, while <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> often makes intricate, model-free predictions from data alone. Yet both RL and control aim to design systems that use richly structured perception, perform planning and control that adequately adapt to environmental changes, and exploit safeguards when surprised by a new scenario. Understanding how to properly analyze, predict, and certify such systems requires insights from current machine learning practice and from the applied mathematics of optimization, statistics, and control theory. With a focus on problems in continuous control, I will try to disentangle the similarities and differences of methods of the complementary perspectives and present a set of challenging problems whose solution will require significant input from both sets of practitioners.</p>
+  <p>I focus first on casting RL problems in an optimization framework, establishing the sorts of methodological tools brought to bear in contemporary RL. I then lay out the main solution tech- niques of RL including the dichotomy between the model-free and model-based methodologies. Next, I try to put RL and control techniques on the same footing through a case study of the linear quadratic regulator (LQR) with unknown dynamics. This baseline will illuminate the var- ious trade-offs associated with techniques from RL and control. In particular, we will see that the so-called “model-free” methods popular in deep <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> are considerably less effective in both theory and practice than simple model-based schemes when applied to LQR. Per- haps surprisingly, I also show cases where these observations continue to hold on more challenging nonlinear applications. I then argue that model-free and model-based perspectives can be unified, combining their relative merits. This leads to a concluding discussion of some of the challenges at the interface of control and learning that must be solved before we can build robust, safe learning systems that interact with an uncertain physical environment, which will surely require tools from both the machine learning and control communities.</p>
+  <p>2 What is <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>?</p>
+  <p><span class="ai">Reinforcement learning<span class="tag">term·ai</span></span> is the study of how to use past data to enhance the future manipulation of a <span class="concept">dynamical system<span class="tag">term·dom</span></span>. How does this differ from ordinary machine learning? The main view of this survey is of <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> as <span class="concept">optimal control<span class="tag">term·dom</span></span> when the dynamics are unknown. Our goal will be to find a sequence of inputs that drives a <span class="concept">dynamical system<span class="tag">term·dom</span></span> to maximize some objective beginning with minimal knowledge of how the system responds to inputs.</p>
+  <p>In the classic <span class="concept">optimal control<span class="tag">term·dom</span></span> problem, we begin with a <span class="concept">dynamical system<span class="tag">term·dom</span></span> governed by the difference equation xt+1 = ft(xt, ut, et) where xt is the state of the system, ut is the control action, and et is a random disturbance. ft is the rule that maps the current state, control action, and disturbance at time t to a new state. Assume that at every time, we receive some reward R(xt, ut) for our current xt and ut. The goal is to maximize this reward. In terms of mathematical optimization, we aim to solve the problem</p>
+  <p>maximize Eet[(cid:80)N t=0 Rt[xt, ut]] subject to xt+1 = ft(xt, ut, et)</p>
+  <p>(x0 given).</p>
+  <p>(2.1)</p>
+  <p>That is, we aim to maximize the expected reward over N time steps with respect to the control sequence ut, subject to the dynamics specified by the state-transition rule ft. The expected value is</p>
+  <p>over the disturbance, and assumes that ut is to be chosen having seen only the states x0 through xt and previous inputs u0 through ut−1. Rt is the reward gained at each time step and is determined by the state and control action. Note that xt is not really a decision variable in the optimization problem: it is determined entirely by the previous state, control action, and disturbance. I will refer to a trajectory, τt, as a sequence of states and control actions generated by a <span class="concept">dynamical system<span class="tag">term·dom</span></span>.</p>
+  <p>τt = (u1, . . . , ut−1, x0, . . . , xt) .</p>
+  <p>(2.2)</p>
+  <p>Since the dynamics are stochastic, the <span class="concept">optimal control<span class="tag">term·dom</span></span> problem typically allows a controller to observe the state before deciding upon the next action [12]. This allows a controller to continually mitigate uncertainty through feedback. Hence, rather than optimizing over deterministic sequences of controls ut, we instead optimize over policies. A control policy (or simply “a policy”) is a function, π, that takes a trajectory from a <span class="concept">dynamical system<span class="tag">term·dom</span></span> and outputs a new control action. Note that π gets access only to previous states and control actions.</p>
+  <p>To slightly lower the notational burden, I will hereon work with the time-invariant version of Problem (2.1), assuming that the dynamical update rule is constant over time and that the rewards for state-action pairs are also constant:</p>
+  <p>maximize Eet[(cid:80)N subject to xt+1 = f (xt, ut, et), ut = πt(τt)</p>
+  <p>t=0 R(xt, ut)]</p>
+  <p>(x0 given).</p>
+  <p>(2.3)</p>
+  <p>The policies πt are the decision variables of the problem.</p>
+  <p>Let us now directly bring machine learning into the picture. What happens when we don’t know the state-transition rule f ? There are a variety of commonly occurring scenarios when we might lack such knowledge. We may have unknown relationships between control forces and torques in a mechanical system. Or we could have a considerably more complicated system such as a massive data center with complex heat transfer interactions between the servers and the cooling systems. Can we still solve Problem (2.3) well without a precise model of the dynamics? Some lines of work even assume that we don’t know the reward function R, but for the purpose of this survey, it makes no difference whether R is known or unknown. The important point is that we can’t solve this optimization problem using standard optimization methods unless we know the dynamics. We must learn something about the <span class="concept">dynamical system<span class="tag">term·dom</span></span> and subsequently choose the best policy based on our knowledge.</p>
+  <p>The main paradigm in contemporary RL is to play the following game. We decide on a policy π and horizon length L. Then we pass this policy either to a simulation engine or to a real physical system and are returned a trajectory τL and a sequence of rewards {R(xt, ut)}. We want to find a policy that maximizes the reward with the fewest total number of samples computed by the oracle, and we are allowed to do whatever we’d like with the previously observed trajectories and reward information when computing a new policy. If we were to run m queries with horizon length L, we would pay a total cost of mL. However, we are free to vary our horizon length for each experiment. This is our oracle model and is called episodic <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> (See, for example Chapter 3 of Sutton and Barto [76], Chapter 2 of Puterman [58], or Dann and Brunskill [24]). We want the expected reward to be high for our derived policy, but we also need the number of oracle queries to be small.</p>
+  <p>This oracle model is considerably more complicated than those typically considered in oracle models for optimization [53]. Each episode returns a complex feedback signal of states and rewards.</p>
+  <p>What is the best way to tie this information together in order to improve performance? What is the best way to query and probe a system to achieve high quality control with as few interventions as possible? Here “best” is also not clearly defined. Do we decide an algorithm is best if it crosses some reward threshold in the fewest number of samples? Or is it best if it achieves the highest reward given a fixed budget of samples? Or maybe there’s a middle ground? This oracle provides a rich and complex model for interacting with a system and brings with it considerably more complexity than in standard stochastic optimization settings. What’s the most efficient way to use all of the collected data in order to improve future performance?</p>
+  <p>2.1 Connections to supervised learning</p>
+  <p>The predominant paradigm of machine learning is supervised learning or prediction. In prediction, the goal is to predict the variable y from a vector of features x such that on new data you are predicting y from x with high accuracy. This form of machine learning includes classification and regression as special cases. Most of the time when the term machine learning is used colloquially, it refers to this sort of prediction. From this perspective, niche topics like semi-supervised learning [91] and matrix completion [34] are prediction tasks as well.</p>
+  <p>By contrast, there are two special variables in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>, u and r. The goal now is to analyze the features x and then subsequently choose a policy that emits u so that r is large.1 There are an endless number of problems where this formulation is applied [14, 39, 76] from online decision making in games [20, 51, 68, 79] to engagement maximization on internet platforms [19, 72]. A key distinguishing aspect of RL is the control action u. Unlike in prediction, the practitioner can vary u, which has implications both for learning (e.g., designing experiments to learn about a given system) and for control (e.g., choosing inputs to maximize reward).</p>
+  <p><span class="ai">Reinforcement learning<span class="tag">term·ai</span></span> is clearly more challenging than supervised learning, but, at the same time, it can be considerably more valuable. <span class="ai">Reinforcement learning<span class="tag">term·ai</span></span> provides a useful framework to conceptualize interaction in machine learning, and promises to help mitigate changing distributions, gaming, adversarial behavior, and unexpected amplification. There is a precarious trade-off that must be carefully considered: <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> demands interventions with the promise that these actions will directly lead to valuable returns, but the resulting complicated feedback loops are hard to study in theory, and failures can have catastrophic consequences.</p>
+  <p>3 Strategies for solving <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> problems</p>
+  <p>Let us now turn to a taxonomy of the varied algorithmic frameworks for <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>, focused on solving Problem (2.3) when the state-transition function is unknown. Model-Based <span class="ai">Reinforcement learning<span class="tag">term·ai</span></span> fits a model to previously observed data and then uses this model in some fashion to approximate the solution to Problem (2.3). Model-Free <span class="ai">Reinforcement learning<span class="tag">term·ai</span></span> eschews the need for a system’s model, directly seeking a map from observations to actions.</p>
+  <p>The role of models in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> remains hotly debated. Model-free methods, as discussed below, aim to solve <span class="concept">optimal control<span class="tag">term·dom</span></span> problems only by probing the system and improving strategies based on past rewards and states. Many researchers argue for algorithms that can innately learn to control without access to the complex details required to simulate a dynamical</p>
+  <p>1To achieve notational consistency, I am throughout adopting the control-centric notation of denoting state-action</p>
+  <p>pairs as (x, u) rather than (s, a) as is commonly used in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>.</p>
+  <p>system. They argue that it is often easier to find a policy for a task than it is to fit a general purpose model of the system dynamics (see for example, the discussion in Chapter 3 of Volume 2 of Bertsekas [11]). Model-free methods are primarily divided into two approaches: Policy Search and Approximate Dynamic Programming. Policy Search directly searches for policies by using data from previous episodes in order to improve the reward. Approximate Dynamic Programming uses Bellman’s principle of optimality to approximate Problem (2.3) using previously observed data.</p>
+  <p>Throughout, my aim will be to highlight the main conceptual ideas of different approaches and to avoid embroiling myself in a thorough discussion of the myriad of technical details required to make all of the statements crisply precise. What is important is that all of the approaches surveyed reduce to some sort of function fitting from noisy observations of the <span class="concept">dynamical system<span class="tag">term·dom</span></span>, though performance can be drastically different depending on how you fit this function. In model-based <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>, we fit a model of the state transitions to best match observed trajectories. In approximate dynamic programming, we estimate a function that best characterizes the “cost to go” for experimentally observed states. And in direct policy search, we attempt to find a policy that directly maximizes the <span class="concept">optimal control<span class="tag">term·dom</span></span> problem using only input-output data. The main question is which of these approaches makes the best use of samples and how quickly do the derived policies converge to optimality.</p>
+  <p>3.1 Model-based <span class="ai">reinforcement learning<span class="tag">term·ai</span></span></p>
+  <p>One of the simplest and perhaps most obvious strategies to solve the core RL Problem (2.3) is to estimate a predictive model for the dynamical process and then to use it in a dynamic programming solution to the prescribed control problem. The estimated model is called the nominal model, and I will refer to control design assuming the estimated model is true as nominal control. Nominal control, commonly verbosely referred to as “control under the principle of certainty equivalence,” serves as a useful baseline algorithm.</p>
+  <p>Estimation of dynamical systems is called system identification in the control community [48]. System Identification differs from conventional estimation because one needs to carefully choose the right inputs to excite various degrees of freedom and because dynamical outputs are correlated over time with the parameters we hope to estimate, the inputs we feed to the system, and the stochastic disturbances. Once data are collected, however, conventional machine learning tools can be used to find the system that best agrees with the data and can be applied to analyze the number of samples required to yield accurate models [23, 83].</p>
+  <p>Suppose we want to build a predictor of xt+1 from the trajectory history. A simple, classic strategy is simply to inject a random probing sequence ut for control and then measure how the state responds. Up to stochastic noise, we should have that</p>
+  <p>xt+1 ≈ φ(xt, ut) ,</p>
+  <p>(3.1)</p>
+  <p>where φ is some model aiming to approximate the true dynamics. φ might arise from a first- principles physical model or might be a non-parametric approximation by a neural network. The state-transition function can then be fit using supervised learning. For instance, a model can be fit by solving the least squares problem</p>
+  <p>minimizeφ</p>
+  <p>(cid:80)N −1</p>
+  <p>t=0 ||xt+1 − φ(xt, ut)||2 .</p>
+  <p>Let ˆφ denote the function fit to the collected data to model the dynamics. Let ωt denote a random variable that we will use as a model for the noise process. With such a point estimate for</p>
+  <p>the model, we might solve the <span class="concept">optimal control<span class="tag">term·dom</span></span> problem</p>
+  <p>maximize Eωt[(cid:80)N subject to xt+1 = ˆφ(xt, ut) + ωt, ut = πt(τt) .</p>
+  <p>t=0 R(xt, ut)]</p>
+  <p>In this case, we are solving the wrong problem to get our control policies πt. Not only is the model incorrect, but this formulation requires some plausible model of the noise process. But if ˆφ and f are close, this approach might work well in practice.</p>
+  <p>3.2 Approximate Dynamic Programming</p>
+  <p>Approximate dynamic programming approaches the RL problem by directly approximating the <span class="concept">optimal control<span class="tag">term·dom</span></span> cost and then solving this approximation with techniques from dynamic program- ming. The dynamic programming solution to Problem (2.3) is based on the principle of optimality: if you’ve found an <span class="concept">optimal control<span class="tag">term·dom</span></span> policy for a time horizon of length N , π1, . . . , πN , and you want to know the optimal strategy starting at state x at time t, then you just have to take the optimal policy starting at time t, πt, . . . , πN . Dynamic programming then lets us recursively find a control policy by starting at the final time and recursively solving for policies at earlier times.</p>
+  <p>Define the Q-function for (2.3) to be the mapping</p>
+  <p>Q(x, u) = max</p>
+  <p>(cid:40)</p>
+  <p>Eet</p>
+  <p>(cid:34) N (cid:88)</p>
+  <p>t=0</p>
+  <p>(cid:35)</p>
+  <p>(cid:41)</p>
+  <p>R(xt, ut)</p>
+  <p>: xt+1 = f (xt, ut, et), (x0, u0) = (x, u)</p>
+  <p>(3.2)</p>
+  <p>The Q-function determines the value of the <span class="concept">optimal control<span class="tag">term·dom</span></span> problem that is attained when the first action is set to be u and the initial condition is x. Note that it then trivially follows that the optimal value of Problem (2.3) is maxu Q(x0, u), and the optimal policy is π(x0) = arg maxu Q(x0, u). If we had access to the Q-function, we’d have everything we’d need to know to take the first step in the <span class="concept">optimal control<span class="tag">term·dom</span></span> problem. We can use dynamic programming to compute this Q-function and the Q-function associated with every subsequent action. That is, we define the terminal Q-function to be</p>
+  <p>QN (x, u) = R(x, u) ,</p>
+  <p>and then define recursively</p>
+  <p>Qk(x, u) = R(x, u) + Ee</p>
+  <p>(cid:20)</p>
+  <p>max u(cid:48)</p>
+  <p>(cid:21) Qk+1(f (x, u, e), u(cid:48))</p>
+  <p>(3.3)</p>
+  <p>This is the dynamic programing algorithm in a nutshell: we can recursively define the Q-functions by passing backward in time, and then compute the optimal controls from any starting x0 by applying the policy that maximizes the right hand side of (3.3) at each time step. (3.3) is known as Bellman’s equation. Note that for all time, the optimal policy is uk = arg maxu Qk(xk, u) and depends only on the current state.</p>
+  <p>Approximate Dynamic Programming methods typically try to compute these action-value func- tions from data. They do so by assuming that the Q-function is stationary. (i.e., Qk(x, u) = Q(x, u) for all k and some function Q). Such stationarity indeed arises assuming the time horizon is infinite. Consider the limit:</p>
+  <p>maximize t=0 R(xt, ut)] subject to xt+1 = f (xt, ut, et), ut = πt(τt)</p>
+  <p>limN →∞ Eet[ 1 N</p>
+  <p>(cid:80)N</p>
+  <p>(3.4)</p>
+  <p>(x0 given).</p>
+  <p>And we define the Q-function Q(x0, u0) to be the average reward accrued running from state x0 with initial action u0. Unfortunately, Problem (3.4) is not directly amenable to dynamic programming without introducing further technicalities. For mathematical convenience and also to connect to common practice in RL, it’s useful to instead consider the discounted reward problem</p>
+  <p>maximize subject to xt+1 = f (xt, ut, et), ut = πt(τt)</p>
+  <p>t=0 γtR(xt, ut)]</p>
+  <p>(1 − γ)Eet[(cid:80)∞</p>
+  <p>(3.5)</p>
+  <p>(x0 given).</p>
+  <p>where γ is a scalar in (0, 1) called the discount factor. For γ close to 1, the discounted reward is approximately equal to the average reward [11]. The discounted cost has particularly clean optimality conditions that make it amenable to estimation. If we define Qγ(x, u) to be the Q- function obtained from solving Problem (3.5) with initial condition x, then we have a discounted version of dynamic programming, now with the same Q-functions on the left and right hand sides:</p>
+  <p>Qγ(x, u) = R(x, u) + γEe</p>
+  <p>(cid:20)</p>
+  <p>max u(cid:48)</p>
+  <p>(cid:21) Qγ(f (x, u, e), u(cid:48))</p>
+  <p>The optimal policy is now for all times to let</p>
+  <p>ut = arg max</p>
+  <p>Qγ(xt, u) .</p>
+  <p>(3.6)</p>
+  <p>This is a remarkably simple formula which is part of what makes Q-learning methods so attractive. We can try to solve for the Q-function using stochastic approximation. If we draw a sample trajectory using the policy given by (3.6), then we should have (approximately and in expectation)</p>
+  <p>Qγ(xk, uk) ≈ R(xk, uk) + γ max</p>
+  <p>u(cid:48)</p>
+  <p>Qγ(xk+1, u(cid:48)) .</p>
+  <p>Thus, beginning with some initial guess Q(old)</p>
+  <p>for the Q-function, we can update</p>
+  <p>Q(new) γ</p>
+  <p>(xk, uk) = (1 − η)Q(old)</p>
+  <p>(xk, uk) + η</p>
+  <p>(cid:18)</p>
+  <p>R(xk, uk) + γ max</p>
+  <p>u(cid:48)</p>
+  <p>Q(old) γ</p>
+  <p>(xk+1, u(cid:48))</p>
+  <p>(cid:19)</p>
+  <p>(3.7)</p>
+  <p>where η is a step-size or learning rate. (3.7) forms the basis of Q-learning algorithms [81, 85].</p>
+  <p>Surveying ADP using only Q-functions is somewhat unorthodox. Most introductions to ADP</p>
+  <p>instead focus on value functions where</p>
+  <p>V (x) = max</p>
+  <p>Q(x, u) .</p>
+  <p>Methods for estimating value functions are also widely used in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> and devel- oped through the perspective of estimation and stochastic approximation. In particular, Temporal Difference algorithms are derived from the value-function-centric perspective [75, 26, 21, 13, 89].</p>
+  <p>Note that in all cases here, though we have switched away from models, there’s no free lunch. We are still estimating functions here, and we need to assume that the functions have some reason- able structure or we can’t learn them. Choosing a parameterization of the Q-function is a modeling assumption. The term “model-free” almost always means “no model of the state transition func- tion” when casually claimed in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> research. However, this does not mean that</p>
+  <p>modeling is not heavily built into the assumptions of model-free RL algorithms. Moreover, for con- tinuous control problems these methods appear to make an inefficient use of samples. Suppose the internal state of the system is of dimension d. When modeling the state-transition function, (3.1) provides d equations per time step. By contrast, we are only using 1 equation per time step in ADP. Such inefficiency is certainly seen in practice below. Also troubling is the fact that we had to introduce the discount factor in order to get a simple Bellman equation. One can avoid discount factors, but this requires considerably more sophisticated analysis. Large discount factors do in practice lead to brittle methods, and the discount becomes a hyperparameter that must be tuned to stabilize performance. We will determine below when and how these issues arise in practice in control.</p>
+  <p>3.3 Direct Policy Search</p>
+  <p>The most ambitious form of control without models attempts to directly learn a policy function from episodic experiences without ever building a model or appealing to the Bellman equation. From the oracle perspective, these policy driven methods turn the problem of RL into derivative-free optimization.</p>
+  <p>3.3.1 A generic algorithm for sampling to optimize</p>
+  <p>In turn, let’s first begin with a <span class="method">review<span class="tag">term·mth</span></span> of a general paradigm for leveraging random sampling to solve optimization problems. Consider the general unconstrained optimization problem</p>
+  <p>maximizez∈Rd R(z) .</p>
+  <p>(3.8)</p>
+  <p>Any optimization problem like this is equivalent to an optimization over probability distributions on z:</p>
+  <p>maximizep(z) Ep[R(z)] .</p>
+  <p>If z(cid:63) is the optimal solution, then we’ll get the same value if we put a δ-function around z(cid:63). Moreover, if p is a probability distribution, it is clear that the expected value of the reward function can never be larger than the maximal reward achievable by a fixed z. So we can either optimize over z or we can optimize over distributions over z.</p>
+  <p>Since optimizing over the space of all probability densities is intractable, we must restrict the class of densities over which we optimize. For example, we can consider a family parameterized by a parameter vector θ: p(u; θ) and attempt to optimize</p>
+  <p>maximizeθ Ep(z;θ)[R(z)] .</p>
+  <p>(3.9)</p>
+  <p>If this family of distributions contains all of the Delta functions, then the optimal value will coincide with the non-random optimization problem. But if the family does not contain the Delta functions, the resulting optimization problem only provides a lower bound on the optimal value no matter how good of a probability distribution we find.</p>
+  <p>That said, this reparameterization provides a powerful and general algorithmic framework for In particular, we can compute the derivative of J(θ) := Ep(z;θ)[R(z)] using the</p>
+  <p>optimization.</p>
+  <p>following calculation (called “the log-likelihood trick”):</p>
+  <p>∇θJ(θ) =</p>
+  <p>(cid:90)</p>
+  <p>(cid:90)</p>
+  <p>(cid:90)</p>
+  <p>R(z)∇θp(z; θ)dz (cid:18) ∇θp(z; θ) p(z; θ)</p>
+  <p>R(z)</p>
+  <p>(cid:19)</p>
+  <p>p(z; θ)dz</p>
+  <p>(R(z)∇θ log p(z; θ)) p(z; θ)dz</p>
+  <p>= Ep(z;θ) [R(z)∇θ log p(z; θ)] .</p>
+  <p>This derivation reveals that the gradient of J with respect to θ is the expected value of the function</p>
+  <p>G(z, θ) = R(z)∇θ log p(z; θ)</p>
+  <p>(3.10)</p>
+  <p>Hence, if we sample z from the distribution defined by p(z; θ), we can compute G(z, θ) and will have an unbiased estimate of the gradient of J. We can follow this direction and will be running stochastic gradient descent on J, defining Algorithm 1.</p>
+  <p>Algorithm 1 REINFORCE 1: Hyperparameters: step-sizes αj &gt; 0. 2: Initialize: θ0 and k = 0. 3: while ending condition not satisfied do 4:</p>
+  <p>Sample zk ∼ p(z; θk). Set θk+1 = θk + αkR(zk)∇θ log p(zk; θk). k ← k + 1</p>
+  <p>6: 7: end while</p>
+  <p>Algorithm 1 is typically called REINFORCE [87] and its main appeal is that it is trivial to implement. If you can efficiently sample from p(z; θ), you can run this algorithm on essentially any problem. But such generality must and does come with a significant cost. The algorithm operates on stochastic gradients of the sampling distribution, but the function we cared about optimizing—R—is only accessed through function evaluations. Direct search methods that use the log-likelihood trick are necessarily derivative free optimization methods, and, in turn, are necessarily less effective than methods that compute actual gradients, especially when the function evaluations are noisy [37]. Another significant concern is that the choice of distribution can lead to very high variance in the stochastic gradients. Such high variance in turn implies that many samples need to be drawn to find a stationary point.</p>
+  <p>That said, the ease of implementation should not be readily discounted. Direct search methods are trivial to implement, and oftentimes reasonable results can be achieved with considerably less effort than custom solvers tailored to the structure of the optimization problem. There are two primary ways that this sort of stochastic search arises in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>: Policy Gradient and Pure Random Search.</p>
+  <p>3.3.2 Policy Gradient</p>
+  <p>As seen from Bellman’s equation, the optimal policy for Problem (2.3) is always deterministic. Nonetheless, the main idea behind policy gradient is to use probabilistic policies. Probabilistic policies are optimal for other optimization-based control problems such as control of partially observed Markov decision processes [7, 38] or in zero-sum games. Hence, exploring their value for the RL problems studied in this survey does not appear too outlandish at first glance.</p>
+  <p>We fix our attention on parametric, randomized policies such that ut is sampled from a distri- bution p(u|τt; θ) that is a function only of the currently observed trajectory and a parameter vector θ. A probabilistic policy induces a probability distribution over trajectories:</p>
+  <p>p(τ ; θ) =</p>
+  <p>L−1 (cid:89)</p>
+  <p>t=0</p>
+  <p>p(xt+1|xt, ut)p(ut|τt; θ) .</p>
+  <p>(3.11)</p>
+  <p>Moreover, we can overload notation and define the reward of a trajectory to be</p>
+  <p>R(τ ) =</p>
+  <p>N (cid:88)</p>
+  <p>t=0</p>
+  <p>Rt(xt, ut)</p>
+  <p>Then our optimization problem for <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> tidily takes the form of Problem (3.9). Policy gradient thus proceeds by sampling a trajectory using the probabilistic policy with param- eters θk, and then updating using REINFORCE.</p>
+  <p>Using the log-likelihood trick and (3.11), it is straightforward to verify that the gradient of J with respect to θ is not an explicit function of the underlying dynamics. However, at this point this should not be surprising. By shifting to distributions over policies, we push the burden of optimization onto the sampling procedure.</p>
+  <p>3.3.3 Pure Random Search</p>
+  <p>An older and more widely applied method to solve Problem (3.8) is to directly perturb the current decision variable z by random noise and then update the model based on the received reward at this perturbed value. That is, we apply Algorithm 1 with sampling distribution p(z; θ) = p0(z − θ) for some distribution p0. The simplest examples for p0 would be the uniform distribution on a sphere or a normal distribution. Perhaps less surprisingly here, REINFORCE can again be run without any knowledge of the underlying dynamics. Note that in this case, the REINFORCE algorithm has a simple interpretation in terms of gradient approximation. Indeed, REINFORCE is equivalent to approximate gradient ascent of R</p>
+  <p>with the gradient approximation</p>
+  <p>θt+1 = θt + αgσ(θk)</p>
+  <p>gσ(θ) =</p>
+  <p>R(θ + σ(cid:15)) − R(θ − σ(cid:15)) 2σ</p>
+  <p>(cid:15) .</p>
+  <p>This update says to compute a finite difference approximation to the gradient along the direction (cid:15) and move along the gradient. One can reduce the variance of such a finite-difference estimate by sampling along multiple random directions and averaging:</p>
+  <p>g(m) σ</p>
+  <p>(θ) =</p>
+  <p>1 m</p>
+  <p>m (cid:88)</p>
+  <p>i=1</p>
+  <p>R(θ + σ(cid:15)i) − R(θ − σ(cid:15)i) 2σ</p>
+  <p>(cid:15)i .</p>
+  <p>This is akin to approximating the gradient in the random subspace spanned by the (cid:15)i</p>
+  <p>This particular algorithm and its generalizations go by many different names. Probably the earliest proposal for this method was made by Rastrigin [60]. In an unexpected historical surprise, Rastrigin initially developed this method to solve <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> problems! His main moti- vating example was an inverted pendulum. A rigorous analysis using contemporary techniques was provided by Nesterov and Spokoiny [54]. Random search was also discovered by the evolutionary algorithms community, where it is called a (μ, λ)-Evolution Strategy [15, 66]. Random search has also been studied in the context of stochastic approximation [71] and bandits [31, 5]. Algorithms that are invented independently by four different communities probably have something good going for them.</p>
+  <p>The random search method is considerably simpler than the policy gradient algorithm but it uses much less structure from the problem as well. Since RL problems tend to be nonconvex, it is not clear which of these approaches is best unless we focus on specific instances. In light of this, in the next section we turn to a set of instances where we may be able to glean more insights about the relative merits of all of the approaches to RL covered in this section.</p>
+  <p>3.4 Deep <span class="ai">reinforcement learning<span class="tag">term·ai</span></span></p>
+  <p>Note that in this section I have spent no time discussing deep <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>. That is because there is nothing conceptually different other than the use of neural networks for function approximation. That is, if one wants to take any of the described methods and make them deep, they simply need to add a neural net. In model-based RL, φ is parameterized as a neural net, in ADP, the Q-functions or Value Functions are assumed to be well-approximated by neural nets, and in policy search, the policies are set to be neural nets. The algorithmic concepts themselves don’t change. However, convergence analysis certainly will change, and algorithms like Q-learning might not even converge. The classic text Neuro-dynamic Programming by Bertsekas and Tsitisklis discusses the adaptations needed to admit function approximation [14]. By eliminating the complicating variable of function approximation, we can get better insights into the relative merits of these methods, especially when focusing on a simple set of instances of <span class="concept">optimal control<span class="tag">term·dom</span></span>, namely, the Linear Quadratic Regulator.</p>
+  <p>4 Simplifying theme: The Linear Quadratic Regulator</p>
+  <p>With this varied list of approaches to <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>, it is difficult from afar to judge which method fares better on which problems. It is likely best to start simple and small and find the simplest non-trivial problem that can assist in distinguishing the various approaches to control. Though simple models are not the end of the story in analysis, it tends to be the case that if a complicated method fails to perform on a simple problem, then this indicates a flaw in the method. I’d argue that in controls, the simplest non-trivial class of instances of <span class="concept">optimal control<span class="tag">term·dom</span></span> is those with convex quadratic rewards and linear dynamics. That is, the problem of the Linear Quadratic Regulator (LQR):</p>
+  <p>2 xT t=0 xT minimize subject to xt+1 = Axt + But + et, ut = πt(τt)</p>
+  <p>t Qxt + uT</p>
+  <p>t Rut + 1</p>
+  <p>Eet</p>
+  <p>(cid:80)N</p>
+  <p>(cid:104) 1 2</p>
+  <p>N +1SxN +1</p>
+  <p>(cid:105)</p>
+  <p>(4.1)</p>
+  <p>(x0 given).</p>
+  <p>Here, Q, R, and S are positive semidefinite matrices. Do note that we have switched to minimization from maximization, as is conventional in <span class="concept">optimal control<span class="tag">term·dom</span></span>. The state transitions are governed by a linear update rule with A and B appropriately sized matrices.</p>
+  <p>A few words are in order to defend this baseline as instructive for general problems in continuous control and RL. Though linear dynamics are somewhat restrictive, many systems are linear over the range we’d like them to operate. Indeed, enormous engineering effort goes into designing systems so that their responses are as close to linear as possible. From an optimization perspective, linear dynamics are the only class where we are guaranteed that our constraint set is convex, which is another appealing feature for analysis.</p>
+  <p>What about cost functions? Whereas dynamics are typically handed to the engineer, cost functions are completely at their discretion. Designing and refining cost functions are part of <span class="concept">optimal control<span class="tag">term·dom</span></span> design, and different characteristics can be extracted by iteratively refining cost functions to meet specifications. This is no different in machine learning where, for example, combinatorial losses in classification are replaced with smooth losses like logistic or squared loss. Designing cost functions is a major challenge and tends to be an art form in engineering. But since we’re designing our cost functions, we should focus our attention on costs that are easier to solve. Quadratic cost is particularly attractive not only because it is convex, but also for how it interacts with noise. The cost of the stochastic problem is equal to that of the noiseless problem plus a constant that is independent of the choice of ut. The noise will degrade the achievable cost, but it will not affect how control actions are chosen.</p>
+  <p>Note that when the parameters of the <span class="concept">dynamical system<span class="tag">term·dom</span></span> are known, the standard LQR problem admits an elegant dynamic programming solution [90]. The control action is a linear function of the state</p>
+  <p>ut = −Ktxt</p>
+  <p>for some matrix Kt that can be computed via a simple linear algebraic recursion with only knowledge of (A, B, Q, R).</p>
+  <p>In the limit as the time horizon tends to infinity, the <span class="concept">optimal control<span class="tag">term·dom</span></span> policy is static, linear state</p>
+  <p>feedback :</p>
+  <p>where K is a fixed matrix defined by</p>
+  <p>ut = −Kxt</p>
+  <p>and M is a solution to the Discrete Algebraic Riccati Equation</p>
+  <p>K = (R + BT M B)−1BT M A</p>
+  <p>M = Q + AT M A − (AT M B)(R + BT M B)−1(BT M A) .</p>
+  <p>(4.2)</p>
+  <p>That is, for LQR on an infinite time horizon, πt(xt) = −Kxt. Here, M is the unique solution of the Riccati equation where all of the eigenvalues of A − BK have magnitude less than 1. Finding this specific solution is relatively easy using standard linear algebraic techniques [90].</p>
+  <p>There are a variety of ways to derive these formulae.</p>
+  <p>In particular, one can use dynamic programming as in Section 3.2. In this case, one can check that the Q-function on a finite time horizon satisfies a recursion</p>
+  <p>Qk(x, u) = xT Qx + uT Ru + (Ax + Bu)T Mk+1(Ax + Bu) + ck .</p>
+  <p>for some positive definite matrix Mk+1. The limit of these matrices are the solution of (4.2)</p>
+  <p>Though LQR cannot capture every interesting <span class="concept">optimal control<span class="tag">term·dom</span></span> problem, it has many of the salient features of the generic <span class="concept">optimal control<span class="tag">term·dom</span></span> problem. Dynamic programming recursion lets us compute the control actions efficiently and, for long time horizons, a static policy is nearly optimal. Now the main question to consider in the context of RL: What happens when we don’t know A and B? What’s the right way to interact with the <span class="concept">dynamical system<span class="tag">term·dom</span></span> in order to quickly and efficiently get it under control? Let us now dive into the different styles of <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> and connect them to ideas in controls, using LQR as a guiding baseline.</p>
+  <p>4.1 The sample complexity of model-based RL for LQR</p>
+  <p>For LQR, maximum likelihood estimation of a nominal model is a least squares problem:</p>
+  <p>minimizeA,B</p>
+  <p>(cid:80)N −1</p>
+  <p>t=0 ||xt+1 − Axt − But||2 .</p>
+  <p>How well do these model estimates work for the LQR problem? Suppose we treat the estimates as true and use them to compute a state feedback control from a Riccati equation. While we might expect this to work well in practice, how can we verify the performance? As a simple case, suppose that the true dynamics are slightly unstable so that A has at least one eigenvalue of magnitude larger than 1. It is fully possible for the least squares estimates of such a mode is less than one, and, consequently, the <span class="concept">optimal control<span class="tag">term·dom</span></span> strategy using the estimate will fail to account for the poorly estimated unstable eigenvalue. How can we include the knowledge that our model is just an estimate and not accurate with a small sample count? One possible solution is to use tools from robust control to mitigate this uncertainty.</p>
+  <p>4.1.1 Coarse-ID Control: a new paradigm for learning to control.</p>
+  <p>My collaborators and I have been considering an approach to merge robust control and high- dimensional statistics dubbed “Coarse-ID Control.” The general framework consists of the following three steps:</p>
+  <p>1. Use supervised learning to learn a coarse model of the <span class="concept">dynamical system<span class="tag">term·dom</span></span> to be controlled. I</p>
+  <p>will refer to the system estimate as the nominal system.</p>
+  <p>2. Using either prior knowledge or statistical tools like the bootstrap, build probabilistic guar- antees about the distance between the nominal system and the true, unknown dynamics.</p>
+  <p>3. Solve a robust optimization problem that optimizes control of the nominal system while penalizing signals with respect to the estimated uncertainty, ensuring stable, robust execution.</p>
+  <p>As long as the true system behavior lies in the estimated uncertainty set, we’ll be guaranteed to find a performant controller. The key here is that we are using machine learning to identify not only the plant to be controlled, but the uncertainty as well. Indeed, the main advances in the past two decades of estimation theory consist of providing reasonable estimates of such uncertainty sets with guaranteed bounds on their errors as a function of the number of observed samples. Taking these new tools and merging them with old and new ideas from robust control allow us to bound the end-to-end performance of a controller in terms of the number of observations.</p>
+  <p>The coarse-ID procedure is well illustrated through the case study of LQR [27]. We can guaran- tee the accuracy of the least squares estimates for A and B using novel probabilistic analysis [70].</p>
+  <p>With the estimate of model error in hand, one can pose a robust variant of the standard LQR <span class="concept">optimal control<span class="tag">term·dom</span></span> problem that computes a robustly stabilizing controller seeking to minimize the worst-case performance of the system given the (high-probability) norm bounds on our modeling errors.</p>
+  <p>To design a good control policy, we here turn to state-of-the-art tools from robust control. We leverage the recently developed System Level Synthesis (SLS) framework [50, 84] to solve this robust optimization problem. SLS lifts the system description into a higher dimensional space that enables efficient search for controllers. The proposed approach provides non-asymptotic bounds that guarantee finite performance on the infinite time horizon, and quantitatively bound the gap between the computed solution and the true optimal controller.</p>
+  <p>Suppose in LQR that we have a state dimension d and control dimension p. Denote the minimum cost achievable by the optimal controller as J(cid:63). Our analysis guarantees that after a observing a trajectory of length T , we can design a controller that will have infinite-time-horizon cost ˆJ with</p>
+  <p>ˆJ − J(cid:63) J(cid:63)</p>
+  <p>= ̃O</p>
+  <p>(cid:18)(cid:113) d+p</p>
+  <p>(cid:19)</p>
+  <p>Here, the notation ̃O(·) suppresses logarithmic factors and instance-dependent constants. In par- ticular, we can guarantee that we stabilize the system after seeing only a finite amount of data.</p>
+  <p>Where Coarse-ID control differs from nominal control is that it explicitly accounts for the uncertainty in the least squares estimate. By appending this uncertainty to the original LQR optimization problem, we can circumvent the need to study perturbations of Riccati equations. Moreover, since the approach is optimization based, it can be readily applied to other <span class="concept">optimal control<span class="tag">term·dom</span></span> problems beyond the LQR baseline.</p>
+  <p>4.2 The sample complexity of model-free RL for LQR</p>
+  <p>Since we know that the Q-function for LQR is quadratic, we can try to estimate it by dynamic programming. Such a method was probably first proposed by Bradtke, Barto, and Ydstie [22]. More recently, Tu showed that the Least-squares Temporal Differencing algorithm, also due to (cid:19) Bradtke and Barto [21], could estimate the value function of LQR to low error with ̃O</p>
+  <p>(cid:18)(cid:113)</p>
+  <p>d2 T</p>
+  <p>samples [82]. This estimator can then be combined with a method to improve the estimated policy over time.</p>
+  <p>Note that the bound on the efficiency of the estimator here is worse than the error obtained for estimating the model of the <span class="concept">dynamical system<span class="tag">term·dom</span></span>. While comparing worst-case upper bounds is certainly not valid, it is suggestive that, as mentioned above, temporal differencing methods use only one defining equation per time step whereas model estimation uses d equations per time step. So while the conventional wisdom suggests that estimating Q-functions for specific tasks should be simpler than estimating models, the current methods appear to be less efficient with aggregated data than system identification methods.</p>
+  <p>With regard to direct search methods, we can already see variance issues enter the picture even</p>
+  <p>for small LQR instances. Consider the most trivial example of LQR:</p>
+  <p>Let p(u; θ) be a multivariate Gaussian with mean θ and variance σ2I. Then</p>
+  <p>R(u) = ||u||2</p>
+  <p>Ep(u;θ)[R(u)] = (cid:107)θ(cid:107)2 + σ2d</p>
+  <p>Obviously, the best thing to do would be to set θ = 0. Note that the expected reward is off by σ2d at this point, but at least this would be finding a good guess for u. Also, as a function of θ, the cost is strongly convex, and the most important thing to know is the expected norm of the gradient as this will control the number of iterations. Now, after sampling u from a Gaussian with mean θ0 and variance σ2I and using formula (3.10), the first gradient will be</p>
+  <p>g = −</p>
+  <p>||ω − θ0||2ω σ2</p>
+  <p>where ω is a normally distributed random vector with mean zero and covariance σ2I. The expected norm of this stochastic gradient is on the order of</p>
+  <p>O (cid:0)σd1.5 + σ−1d0.5(cid:107)θ0(cid:107)(cid:1) ,</p>
+  <p>which indicates a significant scaling with dimension.</p>
+  <p>Several works have analyzed the complexity of this method [31, 5, 37], and the upper and lower bounds strongly depend on the dimension of the search space. The upper bounds also If the function values are noisy, even for typically depend on the largest magnitude reward B. convex functions, the convergence rate is O((d2B2/T )−1/3), and this assumes you get the algorithm parameters exactly right. For strongly convex functions, this can be reduced to O((d2B2/T )−1/2) function evaluations, but this result is also rather fragile to the choice of parameters. Finally, note that just adding an constant offset to the reward dramatically slows down the algorithm. If you start with a reward function whose values are in [0, 1] and subtract one million from each reward, this will increase the running time of the algorithm by a factor of a million, even though the ordering of the rewards amongst parameter values remains the same.</p>
+  <p>5 Numerical comparisons</p>
+  <p>The preceding analyses of the RL paradigms when applied to LQR are striking. A model-based approach combining supervised learning and robust control achieves nearly optimal performance given its sampling budget. Approximate dynamic programming appears to fare worse in terms of worst-case performance. And direct policy search seems to be of too high variance to work in practice. In this section, we implement these various methods and test them on some simple LQR instances to see how these theoretical predictions reflect practice.</p>
+  <p>5.1 A Double Integrator</p>
+  <p>As a simple test case, consider the classic problem of a discrete-time double integrator with the dynamical model</p>
+  <p>xt+1 =</p>
+  <p>xt +</p>
+  <p>(5.1)</p>
+  <p>(cid:21)</p>
+  <p>(cid:20)1 1 0 1</p>
+  <p>(cid:21)</p>
+  <p>(cid:20)0 1</p>
+  <p>Such a system could model, say, the position (first state) and velocity (second state) of a unit mass object under force u.</p>
+  <p>As an instance of LQR, we can try to steer this system to reach point 0 from initial condition</p>
+  <p>x0 = [−1, 0] without expending much force:</p>
+  <p>Q =</p>
+  <p>(cid:21)</p>
+  <p>(cid:20)1 0 0 0</p>
+  <p>R = r0</p>
+  <p>(5.2)</p>
+  <p>Figure 1: Cost for the double integrator model for various RL algorithms. The solid plots denote the median performance. Shaded regions capture the maximum and minimum performance. Nominal control and LSPI are indistinguishable from the optimal controller in this experiment and hence are omitted.</p>
+  <p>for some scalar r0. Note that even in this simple instance there is an element of design: Changing the value of r0 will change the character of the control law balancing expending energy versus speed or reaching the desired destination.</p>
+  <p>To compare the different approaches, I ran experiments on this instance with a small amount of noise (et zero mean with covariance 10−4I), and training episode length L = 10. The goal was to design a controller that works on an arbitrarily long time horizon using the fewest number of simulations of length L.</p>
+  <p>With one simulation (10 samples) using a white noise input with unit variance, the nominal estimate is correct to 3 digits of precision. And, not surprisingly, this returns a nearly <span class="concept">optimal control<span class="tag">term·dom</span></span> policy. Right out of the box, this nominal control strategy works well on this simple example. Note that using a least squares estimator makes the nominal controller’s life hard here because all prior information about sparsity on the state transition matrices is discarded. In a more realistic situation, the only parameter that would need to be estimated would be the (2, 1) entry in B which governs how much force is put out by the actuator and how much mass the system has. Now, let’s compare with approximate dynamic programming and policy search methods. For policy search, let us restrict to policies that use a static, linear gain as would be optimal on an infinite time horizon. Note that a static linear policy works almost as well as a time-varying policy for this simple LQR problem with two state dimensions. Moreover, there are only two decision variables for this simple problem. For Policy Gradient, I used the Adam algorithm to shape the iterates [41]. I also subtracted the mean reward of previous iterates, a popular baseline subtraction heuristic to reduce variance (Dayan [25] attributes this heuristic to Sutton [74] and Williams [86]). I was unable to get policy gradient to converge without these additional algorithmic ornamentations. I also compared against a simple ADP method based called Least Squares Policy Iteration proposed by Lagoudakis and Parr [42]. I ran each of these methods using 10 different random seeds. Figure 1 plots the median performance of the various methods with error bars encompassing the maximum and minimum over all trials. Both nominal control and LSPI are able to find high quality controllers with only ten observations. Direct policy methods, on the other hand, require many times as many samples. Policy gradient, in particular requires thousands of times as many samples as simple nominal control.</p>
+  <p>050001000015000200002500030000samples5678910costpolicy gradientrandom searchoptimal Figure 2: (left) Cost for the Laplacian model for varied models. The blue curve shows the performance of robust LQR when provided with the true distance between the estimate and model. The green curve displays the performance when the uncertainty is learned from data. (right) the fraction of the time that the synthesized control strategy returns a stabilizing controller.</p>
+  <p>5.2 Unstable Laplacian dynamics</p>
+  <p>As an illustrative example of the power of LQR as a baseline, let’s now move to a considerably harder instance of LQR and show how it highlights issues of robustness and safety. Consider an idealized instance of “data center cooling,” a popularized application of <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> [32]. Define the model to have three heat sources coupled to their own cooling devices. Each com- ponent of the state x is the internal temperature of one each heat source, and the sources heat up under a constant load. They also shed heat to their neighbors. This can be approximately modeled by a linear <span class="concept">dynamical system<span class="tag">term·dom</span></span> with state-transition matrices</p>
+  <p>A =</p>
+  <p>1.01 0.01 0.01 1.01 0.01 0.01 1.01</p>
+  <p>B = I .</p>
+  <p>Note that the open loop system here is unstable: With any nonzero initial condition, the state vector will blow up because the limit of Ak is infinite. Moreover, if a method estimates one of the diagonal entries of A to be less than 1, we might guess that this mode is actually stable and put less effort into cooling that source. So it is imperative to obtain a high quality estimate of the system’s true behavior for near <span class="concept">optimal control<span class="tag">term·dom</span></span>. Or rather, we must be able to ascertain whether or not our current policy is safe or the consequences can be disastrous.</p>
+  <p>Let’s try to solve the LQR problem with the settings Q = I and R = 1000I. This models a high relative cost for power consumption and hence may encourage small control inputs on modes that are estimated as stable. What happens for our RL methods on this instance?</p>
+  <p>Figure 2 compares nominal control to two versions of the robust LQR problem described in section 4.1. To solve the robust LQR problem, we end up solving a small semidefinite programming problem as described by Dean et al [27]. These semidefinite programs are solved on my laptop in well under a second. The blue line denotes performance when we tell the robust optimization solver what the actual distance is from the nominal model to the true model. The green curve depicts what happens when we estimate this difference between the models using a bootstrap simulation [29, 67]. Note that estimating the error from data only yields slightly worse LQR performance than exactly knowing the true model error.</p>
+  <p>100200300400500600samples101100cost100200300400500600samples0.00.20.40.60.81.0fraction stableNominalRobust LQRRobust LQR (bootstrap) Figure 3: (left) Cost for the Laplacian model for varied models over 5000 iterations. (right) The fraction of the time that the synthesized control strategy returns a stabilizing controller.</p>
+  <p>Note also that the nominal controller does tend to frequently find controllers that fail to stabilize the true system. A necessary and sufficient condition for stabilization is for the matrix A + BK to have all of its eigenvalues to be less than 1. We can plot how frequently the various search methods find stabilizing control policies when looking at a finite horizon in Figure 1 (right). The robust optimization really helps here to provide controllers that are guaranteed to find a stabilizing solution. On the other hand, in industrial practice nominal control does seem to work quite well. A great open problem is to find reasonable assumptions under which the nominal controller is stabilizing.</p>
+  <p>Figure 3 additionally compares the performance to model-free methods on this instance. Here we again see that they are indeed far off from their model-based counterparts. The x axis has increased by a factor of 10, and yet even the approximate dynamic programming approach does not find a decent solution. Surprisingly, LSPI, which worked very well on the double integrator, now performs worse than random search. This is likely because the LSPI subroutine requires a stabilizing controller for all iterations and also requires careful tuning of the discount factor. Not only are model-free methods sample hungry, but they fail to be safe. And safety is much more critical than sample complexity.</p>
+  <p>6 Beyond the Linear Quadratic Regulator</p>
+  <p>Studying simple baselines such as LQR often provides insights into how to approach more chal- lenging problems. In this section, we explore some directions inspired by our analysis of LQR.</p>
+  <p>6.1 Derivative Free Methods for <span class="concept">Optimal Control<span class="tag">term·dom</span></span></p>
+  <p>Random search works well on simple linear problems and appears better than more complex meth- ods like policy gradient. Does simple random search work less well on more difficult problems?</p>
+  <p>The answer, it turns out, is yes. The deep RL community has recently been using a suite of benchmarks to compare methods, maintained by OpenAI2 and based on the MuJoCo simulator [80]. Here, the <span class="concept">optimal control<span class="tag">term·dom</span></span> problem is to get the simulation of a legged robot to walk as far and quickly</p>
+  <p>2https://gym.openai.com/envs/#mujoco</p>
+  <p>10002000300040005000samples102101100cost10002000300040005000samples0.00.20.40.60.81.0fraction stableNominalRobust LQRRobust LQR (bootstrap)LSPIRandom SearchPolicy Gradient as possible in one direction. Some of the tasks are very simple, but some are quite difficult like the complicated humanoid models with 22 degrees of freedom. The dynamics of legged robots are well specified by Lagrange’s equations [52], but planning locomotion from these models is challenging because it is not clear how to best design the objective function and because the model is piecewise linear. The model changes whenever part of the robot comes into contact with a solid object, and hence a normal force is introduced that was not previously acting upon the robot. Hence, getting robots to work without having to deal with complicated nonconvex nonlinear models seems like a solid and interesting challenge for the RL paradigm. Moreover, seminal work by Tedrake, Zhang, and Seung demonstrated that direct policy search could rapidly find feedback control policies for certain constrained legged robot designs [78].</p>
+  <p>Levine and Koltun were among the first to use MuJoCo as a testbed for learning-based control, and were able to achieve walking in complex simulators without special-purpose techniques [45]. Since then, these techniques have become standard continuous control benchmarks for <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> (see, for example [69, 47, 64, 65, 88]). Recently, Salimans and his collaborators at OpenAI showed that random search worked quite well on these benchmarks [63]. In particular, they fit neural network controllers using random search with a few algorithmic enhancements. Random Search had indeed enjoyed significant success in some corners of the robotics community, and others had noted that in their applications, random search outperformed policy gradient [73]. In another piece of great work, Rajeswaran et al showed that Natural Policy Gradient could learn linear policies that could complete these benchmarks [59]. That is, they showed that static linear state feedback, like the kind we use in LQR, was also sufficient to control these complex robotic simulators. This of course left an open question: Can simple random search find linear controllers for these MuJoCo tasks?</p>
+  <p>Guy, Mania, and I tested this out, coding up a rather simple version of random search with a couple of small algorithmic enhancements. Many RL papers were using statistics of the states and whitening the states before passing them into the neural net mapping from state to action. We found that when random search performed the same whitening with linear controls, this algorithm was able to get state-of-the-art results on all of the MuJoCo benchmark tasks [49].</p>
+  <p>There are a few of important takeaways from this study. On the one hand, the results suggest that these MuJoCo demos are easy, or at least considerably easier than they were believed to be. Benchmarking is difficult, and having only a few simulation benchmarks encourages overfitting to these benchmarks. Indeed, it does seem like these benchmarks are more about taking advantage of simulation approximations in MuJoCo than they are about learning reasonable policies for walking. In terms of benchmarking, this is what makes LQR so attractive: LQR with unknown dynamics is a reasonable task to master as it is easy to specify new instances, and it is relatively easy to understand the limits of achievable performance.</p>
+  <p>Second, note that since our random search method is fast, we can evaluate its performance on many random seeds. All model-free methods exhibit alarmingly high variance on these benchmarks. For instance, on the humanoid task, the the model is slow to train almost a quarter of the time even when supplied with what we thought were good parameters (see Figure 4 (middle)). And, for those random seeds, we found the method returned rather peculiar gaits. Henderson et al and Islam et al observed this phenomenon with deep <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> methods, but our results on linear controllers suggest that such high variability will be a symptom of all model-free methods [35, 36]. Though direct policy search methods are easy to code up, their reliability on any reasonable control task remains in question.</p>
+  <p>Figure 4: (left) Sample frame of the MuJoCo humanoid. (middle) Variance of learning perfor- mance on 100 runs of random search on the humanoid model. Note that though high rewards are often achieved, it is more common to observe poor control performance from a random initializa- tion. (right) Using MPC and a poor model, complex actions with humanoid simulations can be executed, such as climbing into a vehicle (image from supplementary video of Erez et al. [30]).</p>
+  <p>6.2 Receding Horizon Control</p>
+  <p>Approximate dynamic programming is closely related to canonical receding horizon control (RHC) (also known as Model Predictive Control (MPC)). In RHC an agent makes a plan based on a simulation from the present until a short time into the future. The agent then executes one step of this plan, and then, based on what it observes after taking this action, returns to short-time simulation to plan the next action. This feedback loop allows the agent to link the actual impact of its choice of action with what was simulated, and hence can correct for model mismatch, noise realizations, and other unexpected errors.</p>
+  <p>To relate RHC to ADP, note that the discounted problem</p>
+  <p>(1 − γ)Eet[(cid:80)N −1 maximize subject to xt+1 = f (xt, ut, et)</p>
+  <p>t=0 γtR(xt, ut) + γN Qγ(xN +1, uT +1)]</p>
+  <p>(x0 given).</p>
+  <p>is equivalent to Problem (3.5). Here we have just unrolled the cost beyond one step. Though this is trivial, it is again incredibly powerful: the longer we make the time horizon, the less we need to worry about the Q-function being accurate. Of course, now we need to worry about the accuracy of the state-transition map, f . But, especially in problems with continuous variables, it is not at all obvious which accuracy is more important in terms of finding algorithms with fast learning rates and short computation times. There is a trade-off between learning models and learning value functions, and this is a trade-off that needs to be better understood.</p>
+  <p>Though RHC methods appear fragile to model mismatch, the repeated feedback inside RHC can correct for many modeling errors. As an example, it is worth revisiting the robotic locomotion tasks inside the MuJoCo framework. These tasks were actually designed to test the power of a nonlinear RHC algorithm developed by Tassa, Erez, and Todorov [77]. The receding horizon controller works to keep the robot upright even when the model is poorly specified. Moreover, the RHC approach to humanoid control solved for the controller in 7x real time in 2012. In 2013, the same research group published a cruder version of their controller that they used during the DARPA Robotics Challenge [30]. All these behaviors are generated by RHC in real-time. Though the resulting walking is not of the same quality as what can be obtained from computationally</p>
+  <p>intensive long-horizon trajectory optimization, it does look considerably better than the sort of gaits typically obtained by popular RL methods.</p>
+  <p>Is there a middle ground between expensive offline trajectory optimization and real time RHC? I think the answer is yes in the same way that there is a middle ground between learning dynamical models and learning Q-functions. The performance of a RHC system can be improved by better modeling of the Q-function that defines the terminal cost: The better a model you make of the Q-function, the shorter a time horizon you need for simulation, and the closer you get to real-time operation. Of course, if you had a perfect model of the Q-function, you could just solve the Bellman equation and you would have the <span class="concept">optimal control<span class="tag">term·dom</span></span> policy. But by having an approximation to the Q-function, high performance can still be extracted in real time.</p>
+  <p>So what if we learn to iteratively improve the Q-function while running RHC? This idea has been explored in a project by Rosolia, Carvalho, and Borrelli [61]. In their “Learning MPC” approach, the terminal cost is learned by a method akin to nearest neighbors. The terminal cost of a state is the value obtained last time that state was tried. If a state has not yet been visited, the cost is infinite. This formulation constrains the terminal condition to be in a state observed before. It enables the control system to explore new ways to decrease cost as long as it maintains the ability to reach a state that has already been demonstrated to be safe. This “nearest-neighbors” approach works surprisingly well in practice: in RC car demonstrations, the learned controller works better than a human operator after only a few laps around a fixed track.</p>
+  <p>Another reason to like this blended RHC approach to learning to control is that one can hard code in constraints on controls and states and easily incorporate models of disturbance directly into the optimization problem. Some of the most challenging problems in control are how to execute safely while continuing to learn more about a system’s capability, and an RHC approach provides a direct route toward balancing safety and performance. Indeed, an interesting direction of future work would be merging the robust learning of Coarse-ID Control with receding horizon control.</p>
+  <p>7 Challenges at the control-learning interface</p>
+  <p>We have set out to bridge the gap between the learning-centric views of RL and the model-centric views of control. Perhaps surprisingly, we found that for continuous control problems, machine learning seems best suited for model fitting rather than for direct control. Moreover, perhaps less surprisingly, we could seamlessly merge learned models and control action by accounting for the uncertainty in our model fits. Moreover, we showed how value functions and models could be learned in chorus and could provide impressive results on real embodied agents. These distinctions and connections are merely the beginning of what the control and machine learning communities can learn from each other. Let me close by discussing three particularly exciting and important research challenges that may be best solved with input from both perspectives.</p>
+  <p>7.1 Merging perception and control</p>
+  <p>One of the grand aspirations of <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> is end-to-end control, mapping directly from sensors like pixels to actions. Computer vision has made major advances by adopting an “all-conv- net” end-to-end approach, and many, including industrial research at NVIDIA [18], suggest the same can be done for complex control tasks.</p>
+  <p>In general, this problem gets into very old intractability issues of nonlinear output feedback</p>
+  <p>in control [17] and partially observed Markov decision processes in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> [57]. Nonetheless, some early results in RL have shown promise in training optimal controllers directly from pixels [47, 51]. Of course, these results have even worse sample complexity than the same methods trained from states, but they are making progress.</p>
+  <p>In my opinion, the most promising approaches in this space follow the ideas of Guided Policy Search, which bootstraps standard state feedback to provide training data for a map from sensors directly to optimal action [45, 44]. That is, a mapping from sensor to action can be learned iteratively by first finding the optimal action and then finding a map to that control setting. A coupling along these lines where reliance on a precise state estimator is reduced over time could potentially provide a reasonably efficient method for learning to control from sensors.</p>
+  <p>However, these problems remain daunting. Moving from fully observed scenarios to partially observed scenarios makes the control problem exponentially more difficult. How to use diverse sensor measurements in a safe and reliable manner remains an active and increasingly important research challenge [6, 8, 10].</p>
+  <p>7.2 Rethinking adaptive control</p>
+  <p>This survey has focused on “episodic” <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> and has steered clear of a much harder problem: adaptive control. In the adaptive setting, we want to learn the policy online. We only get one trajectory. The goal is, after a few steps, to have a model whose reward from here to eternity will be large. This is very different, and much harder that what people are doing in RL. In episodic RL, you get endless access to a simulator. In adaptive control, you get one go.</p>
+  <p>Even for LQR, the best approach to adaptive control is not settled. Pioneering work in the eighties used stochastic gradient-like techniques to find adaptive controls, but the guarantees for these schemes are all asymptotic [33]. More recently, there has been a groundswell of activity in trying to understand this problem from the perspective of online learning. Beginning with work by Abbasi-Yadkori and Szepesvari [2], a variety of approaches have been devised to provide efficient schemes that yield near <span class="concept">optimal control<span class="tag">term·dom</span></span> cost. Abbasi-Yadkori and Szepesvari’s approach achieves an optimal reward building on techniques that give optimal algorithms for the multiarmed bandit [9, 43]. But their method requires solving a hard nonconvex optimization problem as a subroutine. Follow-up work has proposed methods using Thompson sampling [3, 4, 56], approximate dynamic programming [1], and even coarse-ID control [28], though no method has been found that is efficiently implementable and achieves optimal cost. Again, this emphasizes that even the simple LQR problem is not at all simple. New techniques must be developed to fully understand this baseline problem, but it is clear that insights from both machine learning and control will be necessary to develop efficient adaptive control that can cope with an ever-evolving world.</p>
+  <p>7.3 Humans in the loop</p>
+  <p>One final important problem, which might be the most daunting of all, is how machines should learn when humans are in the loop. What can humans who are interacting with the robots do and how can we model human actions? Though economists may have a different opinion, humans are challenging to model.</p>
+  <p>One popular approach to modeling human-robot interaction is game theoretic. Humans can be modeled as solving their own <span class="concept">optimal control<span class="tag">term·dom</span></span> problem, and then the human’s actions enter as In this way, modeling humans is similar to a disturbance in the <span class="concept">optimal control<span class="tag">term·dom</span></span> problem [62].</p>
+  <p>modeling uncertain dynamic environments. But thinking of the humans as optimizers means that their behavior is constrained. If we know the cost, then we get a complex game theoretic version of receding horizon control [16, 46]. But as is usually the case, humans are bad at specifying their objectives, and hence what they are optimizing must be learned. This becomes a problem of inverse <span class="concept">optimal control<span class="tag">term·dom</span></span> [40] or inverse <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> [55], where we have to estimate the reward functions of the human and understand the loss accrued for crudely modeling these rewards.</p>
+  <p>7.4 Towards Actionable Intelligence</p>
+  <p>As I’ve expressed before, I think that all of the daunting problems in machine learning are now RL problems. Whether they be autonomous transportation system or seemingly mundane social network engagement systems, actively interacting with reality has high stakes. Indeed, as soon as a machine learning system is unleashed in feedback with humans, that system is a <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> system. The broad engineering community must take responsibility for the now ubiquitous machine learning systems and understand what happens when we set them loose on the world.</p>
+  <p>Solving these problems is going to need advances in both machine learning and control. Perhaps this intersection needs a new name so that researchers can stop arguing about territory. I personally am fond of actionable intelligence as it sums up not only robotics but smarter, safer analytics. But I don’t really care what we call it: There is a large community spanning multiple disciplines that is invested in making progress on these problems. Hopefully this tour has set the stage for a lot of great research at the intersection of machine learning and control, and I’m excited to see what progress the communities can make working together.</p>
+  <p>Acknowledgements</p>
+  <p>Countless individuals have helped to shape the contents here. First, this work was generously sup- ported in part by two forward-looking programs at DOD: the Mathematical Data Science program at ONR and the Foundations and Limits of Learning program at DARPA. Second, this survey was distilled from a series on my blog argmin.net. I greatly appreciated the lively debates on Twitter, and I hope that even those who disagree with my perspectives here find their input incorporated into this survey.</p>
+  <p>I’d like to thank Chris Wiggins for sharing his taxonomy on machine learning, Roy Frostig for shaping the Section 3.3, Pavel Pravdin for consulting on how to get policy gradient methods up and running, Max Raginsky for perspectives on adaptive control and translations of Russian. I’d like to thank Moritz Hardt, Eric Jonas, and Ali Rahimi for helping to shape the language, rhetoric, and focus of the blog series and this survey. I’d also like to thank Nevena Lazic and Gergely Neu for many helpful suggestions for improving the readability and accuracy of this manuscript. Additionally, I’d like to thank my other colleagues in machine learning and control for many helpful conversations and pointers about this material: Murat Arcak, Karl Astrom, Francesco Borrelli, John Doyle, Andy Packard, Anders Rantzer, Lorenzo Rosasco, Shankar Sastry, Yoram Singer, Csaba Szepesvari, Claire Tomlin, and Stephen Wright. I’d also like to thank my colleagues in robotics, Anca Dragan, Leslie Kaebling, Sergey Levine, Pierre-Yves Oudeyer, Olivier Sigaud, Russ Tedrake, and Emo Todorov for sharing their perspectives on the sorts of RL and optimization technology works for them and the challenges they face in their research.</p>
+  <p>I’d like to thank everyone who took CS281B with me in the Spring of 2017 where I first tried to</p>
+  <p>make sense of the problems in learning to control. And most importantly, a big thanks everyone in my research group who has been wrestling with these ideas with me for the past several years and for who have done much of the research that shaped my views on this space. In particular, Ross Boczar, Nick Boyd, Sarah Dean, Animesh Garg, Aurelia Guy, Qingqing Huang, Kevin Jamieson, Sanjay Krishnan, Laurent Lessard, Horia Mania, Nik Matni, Becca Roelofs, Ugo Rosolia, Ludwig Schmidt, Max Simchowitz, Stephen Tu, and Ashia Wilson.</p>
+  <p>Finally, special thanks to Camon Coffee in Berlin for letting me haunt their shop while writing.</p>
+  <p>References</p>
+  <p>[1] Y. Abbasi-Yadkori, N. Lazic, and C. Szepesv ́ari. The return of (cid:15)-greedy: sublinear regret for model-free</p>
+  <p>linear quadratic control. arXiv:1804.06021, 2018.</p>
+  <p>[2] Y. Abbasi-Yadkori and C. Szepesv ́ari. Regret Bounds for the Adaptive Control of Linear Quadratic</p>
+  <p>Systems. In Conference on Learning Theory (COLT), 2011.</p>
+  <p>[3] Y. Abbasi-Yadkori and C. Szepesv ́ari. Bayesian <span class="concept">Optimal Control<span class="tag">term·dom</span></span> of Smoothly Parameterized Systems: The Lazy Posterior Sampling Algorithm. In Conference on Uncertainty in Artificial Intelligence, 2015.</p>
+  <p>[4] M. Abeille and A. Lazaric. Thompson Sampling for Linear-Quadratic Control Problems. In AISTATS,</p>
+  <p>2017.</p>
+  <p>[5] A. Agarwal, O. Dekel, and L. Xiao. Optimal algorithms for online convex optimization with multi-point</p>
+  <p>bandit feedback. In Conference on Learning Theory (COLT), 2010.</p>
+  <p>[6] A. K. Akametalu, J. F. Fisac, J. H. Gillula, S. Kaynama, M. N. Zeilinger, and C. J. Tomlin. Reachability- based safe learning with gaussian processes. In Proceedings of the 53rd Conference on Decision and Control, pages 1424–1431. IEEE, 2014.</p>
+  <p>[7] K. J. ̊Astr ̈om. <span class="concept">Optimal control<span class="tag">term·dom</span></span> of Markov processes with incomplete state information. Journal of</p>
+  <p>Mathematical Analysis and Applications, 10(1):174–205, 1965.</p>
+  <p>[8] A. Aswani, H. Gonzalez, S. S. Sastry, and C. Tomlin. Provably safe and robust learning-based model</p>
+  <p>predictive control. Automatica, 49(5):1216–1226, 2013.</p>
+  <p>[9] P. Auer, N. Cesa-Bianchi, and P. Fischer. Finite-time analysis of the multiarmed bandit problem.</p>
+  <p>Machine learning, 47(2-3):235–256, 2002.</p>
+  <p>[10] F. Berkenkamp, M. Turchetta, A. Schoellig, and A. Krause. Safe model-based <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> with stability guarantees. In Advances in Neural Information Processing Systems (NIPS), 2017.</p>
+  <p>[11] D. P. Bertsekas. Dynamic Programming and <span class="concept">Optimal Control<span class="tag">term·dom</span></span>, volume 2. Athena Scientific, Nashua,</p>
+  <p>NH, 4th edition, 2012.</p>
+  <p>[12] D. P. Bertsekas. Dynamic Programming and <span class="concept">Optimal Control<span class="tag">term·dom</span></span>, volume 1. Athena Scientific, Nashua,</p>
+  <p>NH, 4th edition, 2017.</p>
+  <p>[13] D. P. Bertsekas and S. Ioffe. Temporal differences-based policy iteration and applications in neuro- dynamic programming. Technical Report LIDS-P-2349, MIT Laboratory for Information and Decision Systems Report, 1996.</p>
+  <p>[14] D. P. Bertsekas and J. N. Tsitsiklis. Neuro-Dynamic Programming. Athena Scientific, 1996.</p>
+  <p>[15] H.-G. Beyer and H.-P. Schwefel. Evolution Strategies - a comprehensive introduction. Natural Comput-</p>
+  <p>ing, 1(1):3–52, 2002.</p>
+  <p>[16] W. F. Bialas. Cooperative n-person Stackelberg games.</p>
+  <p>In Proceedings of the 28th Conference on</p>
+  <p>Decision and Control’, 1989.</p>
+  <p>[17] V. D. Blondel and J. N. Tsitsiklis. A survey of computational complexity results in systems and control.</p>
+  <p>Automatica, 36(9):1249–1274, 2000.</p>
+  <p>[18] M. Bojarski, D. Del Testa, D. Dworakowski, B. Firner, B. Flepp, P. Goyal, L. D. Jackel, M. Monfort, U. Muller, J. Zhang, et al. End to end learning for self-driving cars. Techni- cal report, NVIDIA, 2016. arXiv:1604.07316. Press Release at https://devblogs.nvidia.com/ explaining-deep-learning-self-driving-car/.</p>
+  <p>[19] L. Bottou, J. Peters, J. Qui ̃nonero-Candela, D. X. Charles, D. M. Chickering, E. Portugaly, D. Ray, P. Simard, and E. Snelson. Counterfactual reasoning and learning systems: The example of computa- tional advertising. The Journal of Machine Learning Research, 14(1):3207–3260, 2013.</p>
+  <p>[20] M. Bowling, N. Burch, M. Johanson, and O. Tammelin. Heads-up limit hold’em poker is solved. Science,</p>
+  <p>347(6218):145–149, 2015.</p>
+  <p>[21] S. J. Bradtke and A. G. Barto. Linear least-squares algorithms for temporal difference learning. Machine</p>
+  <p>Learning, 22(1-3):33–57, 1996.</p>
+  <p>[22] S. J. Bradtke, B. E. Ydstie, and A. G. Barto. Adaptive linear quadratic control using policy iteration.</p>
+  <p>In Proceedings of the 1994 American Control Conference, 1994.</p>
+  <p>[23] M. C. Campi and E. Weyer. Finite Sample Properties of System Identification Methods. IEEE Trans-</p>
+  <p>actions on Automatic Control, 47(8), 2002.</p>
+  <p>[24] C. Dann and E. Brunskill. Sample complexity of episodic fixed-horizon <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>.</p>
+  <p>Advances in Neural Information Processing Systems (NIPS), 2015.</p>
+  <p>[25] P. Dayan. Reinforcement comparison. In Connectionist Models, pages 45–51. Elsevier, 1991.</p>
+  <p>[26] P. Dayan. The convergence of TD (λ) for general λ. Machine Learning, 8(3-4):341–362, 1992.</p>
+  <p>[27] S. Dean, H. Mania, N. Matni, B. <span class="person">Recht<span class="tag">persName</span></span>, and S. Tu. On the sample complexity of the linear quadratic regulator. Foundations of Computational Mathematics, 2018. To appear. Preprint available at arXiv: 1710.01688.</p>
+  <p>[28] S. Dean, H. Mania, N. Matni, B. <span class="person">Recht<span class="tag">persName</span></span>, and S. Tu. Regret bounds for robust adaptive control of the</p>
+  <p>linear quadratic regulator. arXiv:1805.09388, 2018.</p>
+  <p>[29] B. Efron. Bootstrap Methods: Another Look at the Jackknife. The Annals of Statistics, 7(1), 1979.</p>
+  <p>[30] T. Erez, K. Lowrey, Y. Tassa, V. Kumar, S. Kolev, and E. Todorov. An integrated system for real- time model predictive control of humanoid robots. In Proceedings of the 13th IEEE-RAS International Conference on Humanoid Robots (Humanoids), 2013.</p>
+  <p>[31] A. D. Flaxman, A. T. Kalai, and H. B. McMahan. Online convex optimization in the bandit setting: gradient descent without a gradient. Proceedings of the 16th annual ACM-SIAM symposium on Discrete algorithms, pages 385–394, 2005.</p>
+  <p>[32] J. Gao and R. Jamidar. Machine learning applications for data center optimization. Technical report,</p>
+  <p>Google White Paper, 2014.</p>
+  <p>[33] G. C. Goodwin, P. J. Ramadge, and P. E. Caines. Discrete time stochastic adaptive control. SIAM</p>
+  <p>Journal on Control and Optimization, 19(6):829–853, 1981.</p>
+  <p>[34] E. Hazan, S. Kale, and S. Shalev-Shwartz. Near-optimal algorithms for online matrix prediction. In</p>
+  <p>Conference on Learning Theory (COLT), 2012.</p>
+  <p>[35] P. Henderson, R. Islam, P. Bachman, J. Pineau, D. Precup, and D. Meger. Deep <span class="ai">reinforcement learning<span class="tag">term·ai</span></span></p>
+  <p>that matters. arXiv:1709.06560, 2017.</p>
+  <p>[36] R. Islam, P. Henderson, M. Gomrokchi, and D. Precup. Reproducibility of benchmarked deep reinforce-</p>
+  <p>ment learning tasks for continuous control. arxiv:1708.04133, 2017.</p>
+  <p>[37] K. G. Jamieson, R. D. Nowak, and B. <span class="person">Recht<span class="tag">persName</span></span>. Query complexity of derivative-free optimization.</p>
+  <p>Advances in Neural Information Processing Systems (NIPS), 2012.</p>
+  <p>[38] L. P. Kaelbling, M. L. Littman, and A. R. Cassandra. Planning and acting in partially observable</p>
+  <p>stochastic domains. Artificial intelligence, 101(1-2):99–134, 1998.</p>
+  <p>[39] L. P. Kaelbling, M. L. Littman, and A. W. Moore. <span class="ai">Reinforcement learning<span class="tag">term·ai</span></span>: A survey. Journal of</p>
+  <p>artificial intelligence research, 4:237–285, 1996.</p>
+  <p>[40] R. E. Kalman. When is a linear control system optimal? Journal of Basic Engineering, 86(1):51–60,</p>
+  <p>1964.</p>
+  <p>[41] D. Kingma and J. Ba. Adam: A method for stochastic optimization. arxiv:1412.6980, 2014.</p>
+  <p>[42] M. G. Lagoudakis and R. Parr. Least-squares policy iteration. Journal of machine learning research,</p>
+  <p>4(Dec):1107–1149, 2003.</p>
+  <p>[43] T. L. Lai and H. Robbins. Asymptotically efficient adaptive allocation rules. Advances in Applied</p>
+  <p>Mathematics, 6(1):4–22, 1985.</p>
+  <p>[44] S. Levine, C. Finn, T. Darrell, and P. Abbeel. End-to-end training of deep visuomotor policies. Journal</p>
+  <p>of Machine Learning Research, 17(39):1–40, 2016.</p>
+  <p>[45] S. Levine and V. Koltun. Guided policy search.</p>
+  <p>In International Conference on Machine Learning</p>
+  <p>(ICML), 2013.</p>
+  <p>[46] N. Li, D. W. Oyler, M. Zhang, Y. Yildiz, I. Kolmanovsky, and A. R. Girard. Game theoretic modeling of driver and vehicle interactions for verification and validation of autonomous vehicle control systems. IEEE Transactions on control systems technology, PP(99):1–16, 2017.</p>
+  <p>[47] T. P. Lillicrap, J. J. Hunt, A. Pritzel, N. Heess, T. Erez, Y. Tassa, D. Silver, and D. Wierstra. Continuous</p>
+  <p>control with deep <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>. arxiv:1509.02971, 2015.</p>
+  <p>[48] L. Ljung. System Identification. Theory for the user. Prentice Hall, Upper Saddle River, NJ, 2nd</p>
+  <p>edition, 1998.</p>
+  <p>[49] H. Mania, A. Guy, and B. <span class="person">Recht<span class="tag">persName</span></span>. Simple random search provides a competitive approach to rein- In Advances in Neural Information Processing Systems (NIPS), 2018. arXiv:</p>
+  <p>forcement learning. 1803.07055.</p>
+  <p>[50] N. Matni, Y.-S. Wang, and J. Anderson. Scalable system level synthesis for virtually localizable systems.</p>
+  <p>In Proceedings of the 56th Conference on Decision and Control, 2017.</p>
+  <p>[51] V. Mnih, K. Kavukcuoglu, D. Silver, A. A. Rusu, J. Veness, M. G. Bellemare, A. Graves, M. Riedmiller, A. K. Fidjeland, G. Ostrovski, et al. Human-level control through deep <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>. Nature, 518(7540):529, 2015.</p>
+  <p>[52] R. M. Murray. A mathematical introduction to robotic manipulation. CRC press, 2017.</p>
+  <p>[53] A. Nemirovski and D. Yudin. Problem complexity and method efficiency in optimization. Wiley, New</p>
+  <p>York, 1983.</p>
+  <p>[54] Y. Nesterov and V. Spokoiny. Random gradient-free minimization of convex functions. Foundations of</p>
+  <p>Computational Mathematics, 17(2):527–566, 2017.</p>
+  <p>[55] A. Y. Ng, S. J. Russell, et al. Algorithms for inverse <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>. In International Conference</p>
+  <p>on Machine Learning (ICML), 2000.</p>
+  <p>[56] Y. Ouyang, M. Gagrani, and R. Jain. Learning-based control of unknown linear systems with thompson</p>
+  <p>sampling. arXiv:1709.04047, 2017.</p>
+  <p>[57] C. H. Papadimitriou and J. N. Tsitsiklis. The complexity of Markov Decision Processes. Mathematics</p>
+  <p>of Operations Research, 12(3):441–450, 1987.</p>
+  <p>[58] M. L. Puterman. Markov Decision Processes: Discrete Stochastic Dynamic Programming. Wiley-</p>
+  <p>Interscience, 1994.</p>
+  <p>[59] A. Rajeswaran, K. Lowrey, E. Todorov, and S. Kakade. Towards generalization and simplicity in</p>
+  <p>continuous control. In Advances in Neural Information Processing Systems (NIPS), 2017.</p>
+  <p>[60] L. A. Rastrigin. About convergence of random search method in extremal control of multi-parameter</p>
+  <p>systems. Avtomat. i Telemekh., 24(11):1467—1473, 1963.</p>
+  <p>[61] U. Rosolia and F. Borrelli. Learning model predictive control for iterative tasks. a data-driven control</p>
+  <p>framework. IEEE Transactions on Automatic Control, PP(99), 2017.</p>
+  <p>[62] D. Sadigh, S. Sastry, S. A. Seshia, and A. D. Dragan. Planning for autonomous cars that leverage effects</p>
+  <p>on human actions. In Robotics: Science and Systems, 2016.</p>
+  <p>[63] T. Salimans, J. Ho, X. Chen, and I. Sutskever. Evolution strategies as a scalable alternative to rein-</p>
+  <p>forcement learning. arXiv:1703.03864, 2017.</p>
+  <p>[64] J. Schulman, S. Levine, P. Abbeel, M. Jordan, and P. Moritz. Trust region <span class="method">policy optimization<span class="tag">term·mth</span></span>. In</p>
+  <p>International Conference on Machine Learning (ICML), 2015.</p>
+  <p>[65] J. Schulman, P. Moritz, S. Levine, M. Jordan, and P. Abbeel. High-dimensional continuous control</p>
+  <p>using generalized advantage estimation. arxiv:1506.02438, 2015.</p>
+  <p>[66] H.-P. Schwefel. Evolutionsstrategie und numerische Optimierung. PhD thesis, TU Berlin, 1975.</p>
+  <p>[67] J. Shao and D. Tu. The Jackknife and Bootstrap. Springer Series in Statistics. Springer-Verlag, New</p>
+  <p>York, 1995.</p>
+  <p>[68] D. Silver, A. Huang, C. J. Maddison, A. Guez, L. Sifre, G. Van Den Driessche, J. Schrittwieser, I. Antonoglou, V. Panneershelvam, M. Lanctot, et al. Mastering the game of Go with deep neural networks and tree search. Nature, 529(7587):484–489, 2016.</p>
+  <p>[69] D. Silver, G. Lever, N. Heess, T. Degris, D. Wierstra, and M. Riedmiller. Deterministic policy gradient</p>
+  <p>algorithms. In ICML, 2014.</p>
+  <p>[70] M. Simchowitz, H. Mania, S. Tu, M. I. Jordan, and B. <span class="person">Recht<span class="tag">persName</span></span>. Learning without mixing. In Conference</p>
+  <p>on Learning Theory (COLT), 2018.</p>
+  <p>[71] J. C. Spall. Multivariate stochastic approximation using a simultaneous perturbation gradient approx-</p>
+  <p>imation. IEEE Transactions on Automatic Control, 37(3):332–341, 1992.</p>
+  <p>[72] A. Strehl, J. Langford, L. Li, and S. M. Kakade. Learning from logged implicit exploration data. In</p>
+  <p>Advances in Neural Information Processing Systems (NIPS), 2010.</p>
+  <p>[73] F. Stulp and O. Sigaud. Robot skill learning: From <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> to evolution strategies.</p>
+  <p>PALADYN Journal of Behavioral Robotics, 4(1):49–61, 2013.</p>
+  <p>[74] R. S. Sutton. Temporal credit assignment in <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>. PhD thesis, University of Mas-</p>
+  <p>sachusetts, Amherst, 1984.</p>
+  <p>[75] R. S. Sutton. Learning to predict by the method of temporal differences. Machine learning, 3(1):9–44,</p>
+  <p>1988.</p>
+  <p>[76] R. S. Sutton and A. G. Barto. <span class="ai">Reinforcement learning<span class="tag">term·ai</span></span>: An introduction. MIT press Cambridge, 1998.</p>
+  <p>[77] Y. Tassa, T. Erez, and E. Todorov. Synthesis and stabilization of complex behaviors through online trajectory optimization. In International Conference on Intelligent Robots and Systems (IROS), 2012.</p>
+  <p>[78] R. Tedrake, T. W. Zhang, and H. S. Seung. Stochastic policy gradient <span class="ai">reinforcement learning<span class="tag">term·ai</span></span> on a</p>
+  <p>simple 3D biped. In International Conference on Intelligent Robots and Systems (IROS), 2004.</p>
+  <p>[79] G. Tesauro. TD-gammon: A self-teaching backgammon program. In Applications of Neural Networks,</p>
+  <p>pages 267–285. Springer, 1995.</p>
+  <p>[80] E. Todorov, T. Erez, and Y. Tassa. MuJoCo: A physics engine for model-based control. In International</p>
+  <p>Conference on Intelligent Robots and Systems (IROS), 2012.</p>
+  <p>[81] J. N. Tsitsiklis. Asynchronous stochastic approximation and Q-learning. Machine learning, 16(3):185–</p>
+  <p>202, 1994.</p>
+  <p>[82] S. L. Tu and B. <span class="person">Recht<span class="tag">persName</span></span>. Least-squares temporal difference learning for the linear quadratic regulator. In</p>
+  <p>International Conference on Machine Learning (ICML), 2018.</p>
+  <p>[83] M. Vidyasagar and R. L. Karandikar. A learning theory approach to system identification and stochastic</p>
+  <p>adaptive control. Journal of Process Control, 18(3), 2008.</p>
+  <p>[84] Y.-S. Wang, N. Matni, and J. C. Doyle. A system level approach to controller synthesis. arxiv:</p>
+  <p>1610.04815, 2016.</p>
+  <p>[85] C. J. Watkins and P. Dayan. Q-learning. Machine learning, 8(3-4):279–292, 1992.</p>
+  <p>[86] R. J. Williams. Toward a theory of reinforcement-learning connectionist systems. Technical Report</p>
+  <p>NU-CCS-88-3, College of Computer Science, Northeastern University, 1988.</p>
+  <p>[87] R. J. Williams. Simple statistical gradient-following algorithms for connectionist <span class="ai">reinforcement learning<span class="tag">term·ai</span></span>.</p>
+  <p>Machine Learning, 8(3-4):229–256, 1992.</p>
+  <p>[88] Y. Wu, E. Mansimov, S. Liao, R. Grosse, and J. Ba. Scalable trust-region method for deep reinforcement</p>
+  <p>learning using Kronecker-factored approximation. arXiv:1708.05144, 2017.</p>
+  <p>[89] H. Yu and D. P. Bertsekas. Convergence results for some temporal difference methods based on least</p>
+  <p>squares. IEEE Transactions on Automatic Control, 54(7):1515–1531, 2009.</p>
+  <p>[90] K. Zhou, J. C. Doyle, and K. Glover. Robust and <span class="concept">Optimal Control<span class="tag">term·dom</span></span>. Prentice Hall, New Jersey, 1995.</p>
+  <p>[91] X. Zhu. Semi-supervised learning literature survey. Technical Report 1530, Department of Computer</p>
+  <p>Sciences, University of Wisconsin, Madison., 2005.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 8 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 50 <code>concept</code> · 60 <code>ai</code> · 3 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>recht2019-continuous-control</code>.</div>
+</body></html>

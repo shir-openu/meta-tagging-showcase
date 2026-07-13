@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>On the Ill-Posedness of the Prandtl Equation — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>On the Ill-Posedness of the Prandtl Equation — TEI-tagged view</h1>
+<div class="meta">David Gérard-Varet, Emmanuel Dormy · 2010 · <a href="https://en.wikipedia.org/wiki/Mathematics">mathematics</a> · <a href="https://doi.org/10.1090/S0894-0347-09-00652-3">doi:10.1090/S0894-0347-09-00652-3</a> · <a href="https://doi.org/10.1090/S0894-0347-09-00652-3" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1090/S0894-0347-09-00652-3" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Gérard-Varet</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Paris</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Journal of the American Mathematical Society / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2010</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">Prandtl equation</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">Cauchy problem</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">David Gérard-Varet<span class="tag">persName</span></span>, <span class="person">Emmanuel Dormy<span class="tag">persName</span></span> (<span class="date">2010<span class="tag">date</span></span>). &ldquo;On the Ill-Posedness of the Prandtl Equation.&rdquo; <span class="work">Journal of the American Mathematical Society / arXiv<span class="tag">title·j</span></span>, <span class="place">Paris<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> The <span class="method">Cauchy problem<span class="tag">term·mth</span></span> - well-posedness or <span class="concept">ill-posedness<span class="tag">term·dom</span></span> - for the Prandtl boundary-layer equation of fluid dynamics.</p>
+  <p><b>Research question —</b> Is the Prandtl boundary-layer equation well-posed in <span class="method">Sobolev spaces<span class="tag">term·mth</span></span> once analyticity and monotonicity assumptions are dropped?</p>
+  <p><b>Contribution —</b> Proves that the <span class="concept">Prandtl equation<span class="tag">term·dom</span></span> is linearly ill-posed in Sobolev-type spaces around shear flows with a non-degenerate critical point, by constructing unstable high-frequency quasimodes - so analyticity or monotonicity is essentially necessary for well-posedness.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>well-posedness of the Prandtl boundary-layer equation</td></tr><tr><td class="k ct">claim-type</td><td>existence</td></tr><tr><td class="k cr">extends</td><td> <b>prior well-posedness results for the Prandtl equation (analytic or monotone data)</b><span class="ev"> &mdash; &ldquo;This problem is known to be well-posed for analytic data [13, 10], or for data with monotonicity properties [11, 15].&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>the relevance of the asymptotics in Lp and in the absence of Rayleigh instabilities remains open<span class="ev"> &mdash; &ldquo;However, the relevance of this asymptotics in Lp, or its relevance in the absence of Rayleigh instabilities, are still open issues.&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>On the <span class="concept">Ill-Posedness<span class="tag">term·dom</span></span> of the <span class="concept">Prandtl Equation<span class="tag">term·dom</span></span></p>
+  <p>9 0 0 2</p>
+  <p>r p A 3</p>
+  <p>] P A . h t a m</p>
+  <p>2 v 4 3 4 0 . 4 0 9 0 : v i X r a</p>
+  <p>On the <span class="concept">ill-posedness<span class="tag">term·dom</span></span> of the <span class="concept">Prandtl equation<span class="tag">term·dom</span></span></p>
+  <p>∗David G ́erard-Varet, †Emmanuel <span class="person">Dormy<span class="tag">persName</span></span></p>
+  <p>Abstract</p>
+  <p>The concern of this paper is the <span class="method">Cauchy problem<span class="tag">term·mth</span></span> for the <span class="concept">Prandtl equation<span class="tag">term·dom</span></span>. This problem is known to be well-posed for <span class="method">analytic<span class="tag">term·mth</span></span> data [13, 10], or for data with monotonicity properties [11, 15]. We prove here that it is linearly ill-posed in Sobolev type spaces. The key of the analysis is the construction, at high tangential frequencies, of unstable quasimodes for the linearization around solutions with non-degenerate critical points. Interestingly, the strong instability is due to vicosity, which is coherent with well-posedness results obtained for the inviscid version of the equation [8]. A numerical study of this instability is also provided.</p>
+  <p>Introduction</p>
+  <p>One challenging open problem of fluid dynamics is to understand the inviscid limit of the <span class="concept">Navier-Stokes equations<span class="tag">term·dom</span></span></p>
+  <p>∂tuν + uν</p>
+  <p>uν +</p>
+  <p>· ∇</p>
+  <p> </p>
+  <p>ν∆uν = 0, x uν = 0, x |∂Ω = 0,</p>
+  <p>∇ · uν</p>
+  <p>(1.1)</p>
+  <p>in a domain Ω with boundaries, endowed with a no-slip boundary condition. Mathematically, the main difficulty is the lack of uniform bounds on the vorticity field, as the viscosity ν goes to zero. In terms of fluid dynamics, this corresponds to a <span class="concept">boundary layer<span class="tag">term·dom</span></span> phenomenon near ∂Ω.</p>
+  <p>A natural approach to describe this <span class="concept">boundary layer<span class="tag">term·dom</span></span> is to look for a double-scale asymp- R2. At least</p>
+  <p>totics, with a parabolic scaling in the normal direction. Consider the case Ω locally, any point x in a neighborhood of ∂Ω has a unique decomposition</p>
+  <p>x = y n(x) + ̃x(x),</p>
+  <p>∂Ω,</p>
+  <p>where y &gt; 0, x is an arc length parametrization of the boundary, and n is the inward unit normal vector at ∂Ω. The velocity field can be written</p>
+  <p>uν (t, x) = uν (t, x, y) τ (x) + vν(t, x, y) n(x),</p>
+  <p>where (τ , n) is the Fr ́enet frame. It is then natural to consider an approximation of the type:</p>
+  <p>uν(t, x, y) vν(t, x, y)</p>
+  <p>u0(t, x, y) + uBL(t, x, y/√ν), v0(t, x, y) + √ν vBL(t, x, y/√ν),</p>
+  <p>(1.2)</p>
+  <p>∗DMA/CNRS, Ecole Normale Sup ́erieure, 45 rue d’Ulm,75005 Paris †ENS/IPGP/CNRS, Ecole Normale Sup ́erieure, 29 rue Lhomond,75005 Paris</p>
+  <p>where</p>
+  <p>u0(t, x, y) = u0(t, x, y) τ (x) + v0(t, x, y) n(x)</p>
+  <p>satisfies the Euler equation with the no penetration condition, and</p>
+  <p>(uBL, vBL) = (uBL, vBL)(t, x, Y )</p>
+  <p>describes a <span class="concept">boundary layer<span class="tag">term·dom</span></span> corrector with typical scale √ν in the normal direction. slightly more convenient to introduce</p>
+  <p>It is</p>
+  <p>u(t, x, Y ) := u0(t, x, 0) + uBL(t, x, Y ),</p>
+  <p>v(t, x, Y ) := Y ∂yv0(t, x, 0) + vBL(t, x, Y ).</p>
+  <p>Indeed, inserting this Ansatz in the <span class="concept">Navier-Stokes equations<span class="tag">term·dom</span></span>, we get formally</p>
+  <p>∂tu + u∂xu + v∂Y u</p>
+  <p>∂2 Y u =</p>
+  <p>(cid:0)</p>
+  <p>∂tu0 + u0∂xu0</p>
+  <p>(cid:1)</p>
+  <p>|y=0, Y &gt; 0, ∂xu + ∂Y v = 0, Y &gt; 0, (u, v) = 0, Y = 0, u = u0 |y=0.</p>
+  <p>lim + →</p>
+  <p>(1.3)</p>
+  <p> </p>
+  <p>These are the so-called Prandtl equations, derived by Ludwig Prandtl [12]. Note that the curvature of the boundary does not appear explicitly in the system. It is however involved in (1.3) through the Euler field, and through the interval of definition of the arc length parametrization x. Up to our knowledge, all studies deal with one of the three following T, or 0 &lt; x &lt; L, supplemented with a condition on u at x = 0. The first cases: x T and second choices are convenient to describe phenomena that are local in x. The case x may also model the outside of a bounded convex obstacle. Finally, the third configuration is adapted to the spreading of a flow around a thin obstacle, where x = 0 corresponds to the tip of the obstacle.</p>
+  <p>R, x</p>
+  <p>Although this formal asymptotics is very natural, its validity is not clear. As emphasized by physicists, including Prantdl himself, it may not hold uniformly in space and time. One reason is the so-called <span class="concept">boundary layer<span class="tag">term·dom</span></span> separation, which is observed for flows around obstacles, see [7]. Nevertheless, the description (1.2) fits with many experiments, upstream from the separation zone. In any case, to understand the relevance and limitations of the Prandtl model is a crucial issue.</p>
+  <p>From the mathematical point of view, one must address two problems:</p>
+  <p>1. The well-posedness of the <span class="concept">Prandtl equation<span class="tag">term·dom</span></span>.</p>
+  <p>2. The justification of the expansion (1.2).</p>
+  <p>These two problems depend crucially on the choice of the underlying functional spaces, es- pecially on the regularity that is required in the tangential variable x. Indeed, the main mathematical difficulty is the lack of control of the x derivatives. For example, v is recovered in (1.3) through the divergence condition, and in terms of x-regularity, behaves broadly like ∂xu. This loss of one derivative is not balanced by any horizontal diffusion term, so that standard energy estimates do not apply.</p>
+  <p>Within spaces of functions that are <span class="method">analytic<span class="tag">term·mth</span></span> in x</p>
+  <p>R+, Sammartino and Caflish have overcome these problems, justifying locally in time the <span class="concept">boundary layer<span class="tag">term·dom</span></span> asymptotics</p>
+  <p>R, Y</p>
+  <p>[13, 14]. But for more “realistic” functional settings, the way solutions of (1.1) behave is still poorly understood. Various instability mechanisms, that are filtered out in an <span class="method">analytic<span class="tag">term·mth</span></span> framework, become a huge source of trouble. For example, when the viscosity is small, the Navier-Stokes equation admits exponentially growing solutions which are both small-scale and isotropic in x, y. Their evolution is lost in the anisotropic Prandtl description.</p>
+  <p>This remark was used by Emmanuel Grenier in [6], who relied on the so-called Rayleigh instability for inviscid flows to show that the asymptotics (1.2) does not (always) hold in the Sobolev space H 1 (see [6] for a precise statement). However, the relevance of this asymptotics in Lp, or its relevance in the absence of Rayleigh instabilities, are still open issues.</p>
+  <p>Above all, the local in time well-posedness of the <span class="concept">Prandtl equation<span class="tag">term·dom</span></span> for smooth (say Sobolev) initial data has been so far an open problem. Up to our knowledge, the <span class="method">Cauchy problem<span class="tag">term·mth</span></span> has only been solved in two settings:</p>
+  <p>i) x</p>
+  <p>R, with data that are <span class="method">analytic<span class="tag">term·mth</span></span> in x : see [13, 10] for more.</p>
+  <p>ii) 0 &lt; x &lt; L, with data that are monotonic in y : see [11, 15] for more.</p>
+  <p>Y u in the equation).</p>
+  <p>One may also cite article [4], in which blow up in time of some smooth solutions is exhibited. Finally, let us mention the interesting work [8], in which the inviscid version of (1.3) is analyzed (no ∂2 Interestingly, for a smooth initial data, this equation turns out to have an explicit solution through the method of characteristics. In particular, starting from a smooth data, one recovers locally in time a smooth data. More precisely, there is only a finite loss of x-derivatives, so that the <span class="method">Cauchy problem<span class="tag">term·mth</span></span> is (weakly) well-posed. We refer to [8] for all details. See also papers [5, 1] on the hydrostatic equations, that share some features with Prandtl equations. For more on Prandtl equations, see the review [3].</p>
+  <p>On the basis of the inviscid result, it seems reasonable to bet for well-posedness of the <span class="concept">Prandtl equation<span class="tag">term·dom</span></span> (1.3) in Sobolev type spaces. The aim of this paper is to show that it is actually linearly ill-posed in this framework. As we shall see later on, the reason for ill- posedness is a strong destabilization mechanism due to two ingredients: viscosity, and critical points in the base velocity profile. In particular, it does not contradict the positive results obtained in the inviscid case and for monotonic data.</p>
+  <p>Let us now describe our results. We restrict ourselves to (x, Y )</p>
+  <p>To lighten notations, we write y instead of Y . The <span class="concept">Prandtl equation<span class="tag">term·dom</span></span> comes down to</p>
+  <p>R+, and u0 = 0.</p>
+  <p> </p>
+  <p>∂tu + u∂xu + v∂yu</p>
+  <p>∂2 y u = 0, ∂xu + ∂yv = 0, |y=0 = (0, 0),  Let us = us(t, y) a smooth solution of the heat equation ∂tus − +</p>
+  <p>us|y=0 = 0,</p>
+  <p>∂2 y us = 0,</p>
+  <p>(u, v)</p>
+  <p>R+. R+, × u = 0.</p>
+  <p>in T in T lim + →</p>
+  <p>us|t=0 = Us,</p>
+  <p>(1.4)</p>
+  <p>(1.5)</p>
+  <p>. Clearly, the shear velocity profile (us, vs) = (us(t, y), 0) satisfies</p>
+  <p>with good decay as y the system (1.4). We consider the linearization around (us, vs), that is R+. ∂tu + us∂xu + v∂yus − R+, × u = 0.</p>
+  <p>∂2 y u = 0, ∂xu + ∂yv = 0, |y=0 = (0, 0),</p>
+  <p>(u, v)</p>
+  <p>in T in T lim + →</p>
+  <p>(1.6)</p>
+  <p>  </p>
+  <p>We wish to study well-posedness properties of (1.6), for a certain class of velocities us. In this view, we introduce the following functional spaces:</p>
+  <p>W s,</p>
+  <p>(R+) :=</p>
+  <p>f = f (y),</p>
+  <p>eαyf</p>
+  <p>W s,</p>
+  <p>∞(R+)</p>
+  <p>α, s</p>
+  <p>with</p>
+  <p>f k</p>
+  <p>kW s,</p>
+  <p>eαyf k</p>
+  <p>kW s,</p>
+  <p>(cid:8) ∞, and</p>
+  <p>(cid:9)</p>
+  <p>Eα,β :=</p>
+  <p>u = u(x, y) =</p>
+  <p>ˆuk(y)eikx,</p>
+  <p>ˆuk k</p>
+  <p>kW 0,</p>
+  <p>∞α ≤</p>
+  <p>Cα,β e−</p>
+  <p>α, β &gt; 0,</p>
+  <p>with</p>
+  <p>kEα,β := supk eβ u k</p>
+  <p>| k</p>
+  <p>kW 0,</p>
+  <p>Z Xk ∈ ˆuk</p>
+  <p>Note that the functions of Eα,β have <span class="method">analytic<span class="tag">term·mth</span></span> regularity in x. They have only L∞ regularity in y, with an exponential weight. More regularity in y could be considered as well. Let α, β &gt; 0. We prove in the appendix the following result:</p>
+  <p>Proposition 1 (Well-posedness in the <span class="method">analytic<span class="tag">term·mth</span></span> setting)</p>
+  <p>Let us ∈ and all u0 ∈</p>
+  <p>(cid:0)</p>
+  <p>R+; W 1,</p>
+  <p>C 0 Eα,β, the linear equation (1.6) has a unique solution</p>
+  <p>. There exists ρ &gt; 0 such that: for all T with β</p>
+  <p>(R+)</p>
+  <p>ρT &gt; 0,</p>
+  <p>(cid:1)</p>
+  <p>C ([0, T ); Eα,β</p>
+  <p>ρT ) ,</p>
+  <p>u(t,</p>
+  <p>) ·</p>
+  <p>Eα,β</p>
+  <p>ρt,</p>
+  <p>|t=0 = u0. u</p>
+  <p>In short, the <span class="method">Cauchy problem<span class="tag">term·mth</span></span> for (1.6) is locally well-posed in the <span class="method">analytic<span class="tag">term·mth</span></span> setting. We shall denote</p>
+  <p>where u is the solution of (1.6) with u</p>
+  <p>) ·</p>
+  <p>T (t, s)u0 := u(t, |t=s = u0. As the spaces Eα,β are dense in the spaces 0,</p>
+  <p>(R+</p>
+  <p>y )), m</p>
+  <p>H m := H m(Tx, W 0,</p>
+  <p>this makes sense to introduce the following notation: for all T</p>
+  <p>(Eα,β, Eα,β′),</p>
+  <p>∈ L</p>
+  <p>T k</p>
+  <p>(Hm1 ,Hm2 ) = sup</p>
+  <p>T u0kHm2 k u0kHm1 k . In particular, it is infinite when T does not extend to a bounded</p>
+  <p>Eα,β</p>
+  <p>that belongs to R+ ∪ { + operator from H m1 to H m2. The main result of our paper is</p>
+  <p>Theorem 1 (<span class="concept">Ill-posedness<span class="tag">term·dom</span></span> in the Sobolev setting)</p>
+  <p>i) Let us ∈</p>
+  <p>(R+) . Assume that the initial velocity has a non-degenerate critical point over R+. Then, there exists σ &gt; 0, such that for all δ &gt; 0,</p>
+  <p>R+; W 4,</p>
+  <p>R+; W 2,</p>
+  <p>(R+)</p>
+  <p>C 0</p>
+  <p>C 1</p>
+  <p>(cid:1)</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>(cid:0)</p>
+  <p>sup t s ≤</p>
+  <p>σ(t</p>
+  <p>s)√</p>
+  <p>δ k</p>
+  <p>| T (t, s)</p>
+  <p>(Hm,Hm</p>
+  <p>μ) = +</p>
+  <p>0, μ</p>
+  <p>[0, 1/2).</p>
+  <p>ii) Moreover, one can find solutions us of (1.5) and σ &gt; 0 such that: for all δ &gt; 0,</p>
+  <p>sup t s ≤</p>
+  <p>σ(t</p>
+  <p>s)√</p>
+  <p>δ k</p>
+  <p>| T (t, s)</p>
+  <p>(Hm1 ,Hm2 ) = +</p>
+  <p>m1, m2 ≥</p>
+  <p>This theorem expresses strong linear <span class="concept">ill-posedness<span class="tag">term·dom</span></span> of the <span class="concept">Prandtl equation<span class="tag">term·dom</span></span> in the Sobolev framework. It is a consequence of an instability process, that holds at high tangential fre- quencies. We will show that some perturbations with tangential frequency k 1 grow like e√kt.</p>
+  <p>The outline of the paper is as follows. Section 2 gives a formal description of the instability mechanism. It relies on an asymptotic analysis of (1.6), in the high tangential frequency limit. Thanks to this analysis, we show that <span class="concept">ill-posedness<span class="tag">term·dom</span></span> for the PDE (1.6) comes down to a “spectral condition” for a reduced ODE, namely: C with</p>
+  <p>m τ &lt; 0, and a solution W = W (z) of</p>
+  <p>(SC) There exists τ</p>
+  <p>I z2)2 d dz W = 1.</p>
+  <p>W + i</p>
+  <p>d3 dz3</p>
+  <p>(cid:0)</p>
+  <p>z2)W</p>
+  <p>= 0,</p>
+  <p>(cid:1)</p>
+  <p>(1.7)</p>
+  <p>such that</p>
+  <p>W = 0,</p>
+  <p>lim →−∞</p>
+  <p>lim + →</p>
+  <p>This spectral condition is studied in section 3, and shown to be satisfied. On these grounds, we prove theorem 1, cf section 4. We end up the paper with numerical computations, which emphasize that our instability mechanism is effective.</p>
+  <p>2 The instability mechanism</p>
+  <p>In this section, we describe the destabilization of system (1.6), leading to the <span class="concept">ill-posedness<span class="tag">term·dom</span></span> theorem. As we shall see, it takes place at high tangential frequencies, say O(1/ε), and has a typical time O(√ε). At this timescale, the time dependence of the base velocity (us(t, y), 0) will not play an important role. Thus, to understand the instability mechanism, we can consider the simpler equation</p>
+  <p>∂tu + Us∂xu + vU ′s −</p>
+  <p>∂2 y u = 0, ∂xu + ∂yv = 0, |y=0 = (0, 0).</p>
+  <p>(u, v)</p>
+  <p> </p>
+  <p>in T in T</p>
+  <p>R+. R+,</p>
+  <p>(2.1)</p>
+  <p>Handling of the real equation, that is with us instead of Us, will require minor modifications, to be achieved in section 4.</p>
+  <p>System (1.6) has constant coefficients in t and y, so that we can perform a Fourier analysis:</p>
+  <p>we look for solutions in the form</p>
+  <p>u(t, y) = eik(ω(k)t+x) ˆuk(y),</p>
+  <p>v = k eik(ω(k)t+x)ˆvk(y),</p>
+  <p>k &gt; 0.</p>
+  <p>(2.2)</p>
+  <p>1, and write As we are interested in high tangential frequencies, we denote ε := 1/k ω(ε) instead of ω(k), uε(y), vε(y) instead of ˆuk(y), ˆvk(y). The divergence condition yields iuε(y). Using this relation in the first equation in (2.1), one ends up with v′ε(y) =</p>
+  <p>(ω(ε) + Us) v′ε −</p>
+  <p>U ′svε + i εv(3) ε = 0, vε|y=0 = v′ε|y=0 = 0.</p>
+  <p>y &gt; 0,</p>
+  <p>(2.3)</p>
+  <p>Thus, the high frequency limit ε variable y. To investigate this problem, one must first consider the inviscid case ε = 0.</p>
+  <p>0 in variable x yields a singular perturbation problem in</p>
+  <p>2.1 The inviscid case</p>
+  <p>When ε = 0, one can a priori only retain the impermeability condition. The appropriate problem is</p>
+  <p>(ω + Us) v′</p>
+  <p>U ′sv = 0,</p>
+  <p>y &gt; 0,</p>
+  <p>|y=0 = 0.</p>
+  <p>(2.4)</p>
+  <p>This spectral problem, as well as the corresponding evolution equation, have been studied exhaustively in [8]. Clearly, there are non-trivial solutions if and only if ω belongs to the range of</p>
+  <p>Us. Moreover, the couples</p>
+  <p>ωa =</p>
+  <p>Us(a),</p>
+  <p>va = H(y</p>
+  <p>a) (Us −</p>
+  <p>Us(a)) ,</p>
+  <p>a &gt; 0</p>
+  <p>where H is the Heaviside function, satisfy (2.4). Note that the regularity of va depends on the choice of a. When a is a critical point, it belongs to W 2, (R+) with a discontinuous second derivative. Otherwise, it is only in W 1, (R+), with a discontinuous first derivative. Luckily enough, the additional boundary condition v′a|y=0 = 0 is also satisfied.</p>
+  <p>2.2 The viscous perturbation</p>
+  <p>When ε is not 0, the inviscid eigenelements ωa, va do not solve (2.3). All boundary conditions are satisfied, cf the above remark, but the equation is not. First, there is a O(ε) remaining term for y &gt; a. More importantly, va is not smooth at y = a, whereas a solution of this parabolic equation should be.</p>
+  <p>Nevertheless, at least if a is a non-degenerate critical point, there is an approximate solution near (ωa, va). We shall establish this rigorously in section 4. We just give here a formal expansion. It reads</p>
+  <p>ω(ε)</p>
+  <p> </p>
+  <p>vε(y)</p>
+  <p>ωa + ε1/2τ,</p>
+  <p>va + ε1/2τ H(y</p>
+  <p>a) + ε1/2 V</p>
+  <p>where τ of vε has two parts: the “regular” part</p>
+  <p>C, and V = V (z) quickly tends to zero as z</p>
+  <p>→ ±∞</p>
+  <p>a y − ε1/4</p>
+  <p>(2.5)</p>
+  <p>(cid:19)</p>
+  <p>(cid:18) . Note that the approximation</p>
+  <p>vreg ε</p>
+  <p>(y) = H(y</p>
+  <p>and the “shear layer part”</p>
+  <p>Us(y)</p>
+  <p>(cid:16)</p>
+  <p>Us(a) + ε1/2τ</p>
+  <p>(cid:17)</p>
+  <p>ε (y) = ε1/2 V vsl</p>
+  <p>y a − ε1/4</p>
+  <p>(cid:19)</p>
+  <p>(cid:18)</p>
+  <p>Us(a) + ε1/2τ , the function vreg</p>
+  <p>solves (2.3) up to O(ε), away from the critical For ω(ε) = point y = a. However, it has a jump at y = a, together with its second derivative. The role of the shear layer vsl ε , which concentrates near y = a, is to cancel these discontinuities. Still formally, we obtain the system satisfied by the profile V :</p>
+  <p>z2 2 τ,</p>
+  <p>τ + U ′′s (a)</p>
+  <p>z=0</p>
+  <p>(cid:18) [V ] − | V = 0. lim ±∞</p>
+  <p> </p>
+  <p>(cid:19)</p>
+  <p>V ′</p>
+  <p>U ′′s (a) z V + i V (3) = 0,</p>
+  <p>= 0,</p>
+  <p>V ′</p>
+  <p>(cid:2)</p>
+  <p>z=0</p>
+  <p>(cid:3)</p>
+  <p>= 0,</p>
+  <p>V ′′</p>
+  <p>(cid:3)</p>
+  <p>(cid:2)</p>
+  <p>z=0</p>
+  <p>U ′′(a),</p>
+  <p>(2.6)</p>
+  <p>6 Let us point out that this system is a priori overdetermined, as jump and boundary conditions provide too many constraints. This justifies the introduction of the parameter τ in the Ansatz (2.5). As we shall see below, there is a τ for which system (2.6) has a solution. Moreover, m τ is negative. Hence, back to the Fourier representation (2.2), the k-th mode will grow in I time like e√kt. This is the key of the instability mechanism.</p>
+  <p>To see how the condition (SC) of the introduction steps in, we need a few rewritings.</p>
+  <p>First, τ + U ′′s (a) z2</p>
+  <p>2 satisfies the equation in (2.6). We therefore introduce</p>
+  <p>̃V (z) = V (z) + 1R+</p>
+  <p>τ + U ′′s (a)</p>
+  <p>(cid:18)</p>
+  <p>z2 2</p>
+  <p>(cid:19)</p>
+  <p>which leads to</p>
+  <p> </p>
+  <p> Then, we introduce W such that</p>
+  <p>τ + U ′′s (a)</p>
+  <p>(cid:18)</p>
+  <p>̃V = 0,</p>
+  <p>lim −∞</p>
+  <p>z2 2</p>
+  <p>(cid:19) ̃V</p>
+  <p>̃V ′</p>
+  <p>U ′′s (a) z ̃V + i ̃V (3) = 0,</p>
+  <p>τ + U ′′s (a)</p>
+  <p>z2 2</p>
+  <p>We get:</p>
+  <p>̃V =</p>
+  <p>τ + U ′′s (a) z2/2</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>τ + U ′′s (a) z2/2</p>
+  <p> </p>
+  <p>(cid:0) lim −∞</p>
+  <p>W = 0,</p>
+  <p>(cid:1) lim + ∞</p>
+  <p>W + i</p>
+  <p>2 d dz W = 1.</p>
+  <p>d3 dz3</p>
+  <p>(cid:0)(cid:0)</p>
+  <p>τ + U ′′s (a) z2/2</p>
+  <p>= 0,</p>
+  <p>(cid:1)</p>
+  <p>(cid:1)</p>
+  <p>Finally, we perform the change of variables</p>
+  <p>τ =</p>
+  <p>1 √2 |</p>
+  <p>1/2 ̃τ , U ′′(a) |</p>
+  <p>z = 21/4</p>
+  <p>U ′′(a) − | |</p>
+  <p>1/4 ̃z.</p>
+  <p>Dropping the tildes leaves us with the reduced ODE</p>
+  <p>τ + sign(U ′′s (a)) z2</p>
+  <p> </p>
+  <p>(cid:0) lim −∞</p>
+  <p>W = 0,</p>
+  <p>W = 1.</p>
+  <p>(cid:1)</p>
+  <p>lim + ∞</p>
+  <p>2 d dz</p>
+  <p>W + i</p>
+  <p>d3 dz3</p>
+  <p>τ + sign(U ′′s (a)) z2</p>
+  <p>= 0,</p>
+  <p>(cid:0)(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>(cid:1)</p>
+  <p>If U ′′s (a) &lt; 0, it is exactly the system in (SC). If on the contrary U ′′s (a) &gt; 0, and if (τ, W ) satisfies the system in (SC), then (τ := τ , W := W ) satisfies the above system. In both − m τ &lt; 0. cases, back to the original system (2.6), condition (SC) gives a solution (τ, V ) with In particular, this √ε correction to the eigenvalue is a source of strong instability, leading to <span class="concept">ill-posedness<span class="tag">term·dom</span></span>.</p>
+  <p>The proof of Theorem 1, which is based on this formal shear layer phenomenon, is post- poned to section 4. In the next paragraph, we focus on condition (SC), and prove that it is satisfied.</p>
+  <p>3 The spectral condition (SC)</p>
+  <p>We need to study the existence of heteroclinic orbits for the ODE (1.7). Note that W = 1 is a solution. Equation (1.7) can be written as a second order equation in X = W ′:</p>
+  <p>z2)X ′′</p>
+  <p>i(τ</p>
+  <p>6i z X ′ +</p>
+  <p>z2)2</p>
+  <p>X = 0.</p>
+  <p>To show that (SC) holds, we proceed in three steps.</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>Step 1. We consider an auxiliary eigenvalue problem:</p>
+  <p>Au :=</p>
+  <p>1 z2 + 1</p>
+  <p>u′′ +</p>
+  <p>(z2 + 1)2 u′ +</p>
+  <p>(z2 + 1)2 u = α u.</p>
+  <p>For its study, we introduce the weighted spaces</p>
+  <p>(3.1)</p>
+  <p>(3.2)</p>
+  <p>2 :=</p>
+  <p>(cid:26)</p>
+  <p>1 :=</p>
+  <p>(cid:26)</p>
+  <p>loc,</p>
+  <p>H 1 loc</p>
+  <p>(z2 + 1)4</p>
+  <p>2 &lt; + u | |</p>
+  <p>(z2 + 1)4</p>
+  <p>2 + u | |</p>
+  <p>(cid:27) (z2 + 1)3</p>
+  <p>u′ |</p>
+  <p>2 &lt; + |</p>
+  <p>→ L</p>
+  <p>(cid:27)</p>
+  <p>with their obvious Hilbert norms. We see A as an operator from D(A) := into</p>
+  <p>2. Our goal is to show that A has a positive eigenvalue.</p>
+  <p>L By standard arguments, the domain D(A) is dense in</p>
+  <p>(cid:9) 2. Moreover, for any u in D(A), 1 H 2. Integration by parts and use of this density property give easily that</p>
+  <p>there is a sequence un of smooth functions with compact support, such that un → and Aun → L A is symmetric, i.e.</p>
+  <p>Au in</p>
+  <p>u in</p>
+  <p>(cid:8)</p>
+  <p>∈ H</p>
+  <p>1, Au</p>
+  <p>∈ L</p>
+  <p>∀ and that for λ large enough</p>
+  <p>u, v</p>
+  <p>D(A),</p>
+  <p>(Au</p>
+  <p>2 = (Av</p>
+  <p>(3.3)</p>
+  <p>((λ</p>
+  <p>A)u</p>
+  <p>2 = λ</p>
+  <p>(z2 + 1)4</p>
+  <p>2 u | |</p>
+  <p>(z2 + 1)2</p>
+  <p>2 + u | |</p>
+  <p>(z2 + 1)3</p>
+  <p>u′ |</p>
+  <p>2 |</p>
+  <p>1 2 k</p>
+  <p>2 u k H</p>
+  <p>1. (3.4)</p>
+  <p>Then, the coercivity condition (3.4) allows to apply the Lax-Milgram lemma. It implies the invertibility of λ</p>
+  <p>A, with</p>
+  <p>A)−</p>
+  <p>1 f</p>
+  <p>A)−</p>
+  <p>1 f</p>
+  <p>≤ k</p>
+  <p>1 kH 1 is selfadjoint, and so is A.</p>
+  <p>Moreover, from (3.3), (λ</p>
+  <p>A)−</p>
+  <p>f k</p>
+  <p>First, let us prove that A has positive spectrum. To do so, we claim that it is enough to 2 &gt; 0. Indeed, suppose a contrario that σ(A) is contained in</p>
+  <p>D(A) with (Au</p>
+  <p>find u R</p>
+  <p>. Then, by the spectral theorem,</p>
+  <p>α &gt; 0,</p>
+  <p>(A k</p>
+  <p>α)−</p>
+  <p>d(α, σ(A)) ≤</p>
+  <p>We deduce: for all u</p>
+  <p>D(A)</p>
+  <p>2 u k k L</p>
+  <p>2 ≤</p>
+  <p>(A k</p>
+  <p>2 α)u k L</p>
+  <p>Expanding the scalar products, we obtain</p>
+  <p>In the limit α there, we simply take u = e−</p>
+  <p>, we get (Au</p>
+  <p>2z2</p>
+  <p>. A straightforward computation gives</p>
+  <p>D(A). This proves our claim. From</p>
+  <p>2α−</p>
+  <p>2 Au 2 − k k L 0 for all u</p>
+  <p>1(Au</p>
+  <p>(Au</p>
+  <p>u) =</p>
+  <p>439 512</p>
+  <p>√π &gt; 0,</p>
+  <p>and so σ(A) has a positive subset.</p>
+  <p>It remains to exhibit a positive eigenvalue inside this positive subset of the spectrum. We</p>
+  <p>remark that the operator A can be split into</p>
+  <p>A = A1 + A2, A1u :=</p>
+  <p>1 z2 + 1</p>
+  <p>u′′ +</p>
+  <p>(z2 + 1)2 u′, A2u :=</p>
+  <p>6 (z2 + 1)2 u.</p>
+  <p>R 2. This implies that un is bounded in</p>
+  <p>λ is invertible On one hand, the operator A1 is negative, and by Lax-Milgram Lemma, A1 − . On the other hand, let un a sequence with un and A1un for any λ &gt; 0. Thus, σ(A1) 1, and so has a convergent subsequence in bounded in 2 is equi-integrable over R. Finally, it implies that A2un has a convergent L2 loc. Moreover, compact. Hence, the essential spectra of A subsequence in and A1 are the same, see [9]. In particular, the positive part of σ(A) is made of isolated eigenvalues with finite multiplicity. Eventually, we state: there exists α &gt; 0, and u in D(A) satisfying (3.2).</p>
+  <p>un| | 2, which means that A2 is A1− L</p>
+  <p>Step 2. We wish to convert the eigenelements (α, u) of the previous step into an appro- 1/4z, Y ( ̃z) = u(z). Dropping</p>
+  <p>α1/2, and ̃z = α−</p>
+  <p>priate solution (τ, X) of (3.1). We set ̃τ = the tildes, we obtain a solution of</p>
+  <p>z2)Y ′′</p>
+  <p>6 z Y ′ +</p>
+  <p>z2)2</p>
+  <p>Y = 0.</p>
+  <p>(3.5)</p>
+  <p>(cid:0) By a classical bootstrap argument, Y is smooth. Moreover, it inherits from u its integrability properties at infinity. Actually, the behaviour of Y can be further specified, as shown in:</p>
+  <p>(cid:1)</p>
+  <p>Proposition 2 The function Y admits a unique extension, still denoted by Y , that is holo- morphic in z and satisfies (3.5) in the simply connected domain</p>
+  <p>Uτ := C</p>
+  <p>Moreover, in the sectors arg z it satisfies the inequality</p>
+  <p>(cid:16)h ( −</p>
+  <p>i ∞</p>
+  <p>τ i |</p>
+  <p>1/2 |</p>
+  <p>τ i |</p>
+  <p>1/2, +i |</p>
+  <p>π/4 + δ, π/4</p>
+  <p>i δ) and arg z −</p>
+  <p>i(cid:17)</p>
+  <p>(3π/4 + δ, 5π/4</p>
+  <p>δ), δ &gt; 0,</p>
+  <p>Y (z) |</p>
+  <p>| ≤</p>
+  <p>Cδ exp(</p>
+  <p>z2/4).</p>
+  <p>Proof. This proposition follows from the general theory of ODE’s with holomorphic coef- z2 ficients. The existence of a holomorphic solution is well-known, because the coefficient τ does not vanish on Uτ . As regards the inequality, we rewrite equation (3.1) as the first order system:</p>
+  <p>d dz Y</p>
+  <p>= z</p>
+  <p>(z)</p>
+  <p>Y 1 d dz Y</p>
+  <p>(cid:16)</p>
+  <p>(cid:17)</p>
+  <p>(z) =</p>
+  <p>(cid:18)</p>
+  <p>(τ 6 − z2(τ</p>
+  <p>− −</p>
+  <p>z2)2 z2)</p>
+  <p>6 z2 −</p>
+  <p>1 z2</p>
+  <p>(cid:19)</p>
+  <p>(3.6)</p>
+  <p>In particular,</p>
+  <p>is holomorphic at infinity, with</p>
+  <p>1, with eigenvectors</p>
+  <p>1 1</p>
+  <p>( ∞</p>
+  <p>) = ( 0 1</p>
+  <p>1 0 ). It has two distinct eigenvalues</p>
+  <p>Hence, we can apply [2, Theorem 5.1 p163]: in any closed sector S inside which Re z2 does (depending a priori on S) with the following asymptotic</p>
+  <p>(cid:1)</p>
+  <p>(cid:0)</p>
+  <p>not cancel, there exists solutions behaviour as</p>
+  <p>z |</p>
+  <p>| →</p>
+  <p>Y± ∼ </p>
+  <p>(z),</p>
+  <p>(3.7)</p>
+  <p>Xi 0 ≥ (z) is a polynomial of degree 2. Moreover, the leading</p>
+  <p>is a complex constant, and P</p>
+  <p> ±</p>
+  <p>where α ± term of P</p>
+  <p>z2 2 . Following the same scheme of proof, we get in the present case:</p>
+  <p>1 2 As our solution Y is integrable over R, it is necessarily proportional to the decaying solution. The bounds in proposition 2 follow.</p>
+  <p>τ + 7) , P</p>
+  <p>z2/2.</p>
+  <p>, α</p>
+  <p>(3.8)</p>
+  <p>1 1</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>Now, as Y is defined on Uτ , we can perform the complex change of variable:</p>
+  <p>̃z := eiπ/8z,</p>
+  <p>̃τ := eiπ/4τ</p>
+  <p>Note that ̃τ has a negative imaginary part. Moreover, for ̃z real, the original variable z belongs δ), with δ = 1/16. By to the sectors arg z 1/4 ̃z2). the proposition 2, the function X( ̃z) = Y (z) satisfies the estimate Finally, dropping the tildes yields a solution τ, X of (3.1), where X decays at infinity. This concludes step 1.</p>
+  <p>(3π/4 + δ, 5π/4</p>
+  <p>− X( ̃z) |</p>
+  <p>π/4 + δ, π/4</p>
+  <p>δ) or arg z</p>
+  <p>C exp(</p>
+  <p>( −</p>
+  <p>| ≤</p>
+  <p>Step 3. To deduce from the previous step that (SC) holds, it is enough that</p>
+  <p>R X(z)dz be</p>
+  <p>non zero. If so, one can consider</p>
+  <p>R (cid:18)Z which clearly satisfies all requirements.</p>
+  <p>W (z) :=</p>
+  <p>X(z′)dz′</p>
+  <p>(cid:19)</p>
+  <p>X(z′) dz′,</p>
+  <p>Let us assume a contrario that</p>
+  <p>R X(z)dz = 0. Then, the function</p>
+  <p>is a solution of</p>
+  <p>R V (z) := (τ</p>
+  <p>z2)</p>
+  <p>X(z′) dz′</p>
+  <p>V ′ + 2 z V + i V (3) = 0,</p>
+  <p>which decays exponentially as z goes to of the equation gives</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>, together with all its derivatives. Differentiation</p>
+  <p>Then, we multiply by V ′′, that is the complex conjugate of V ′′, and integrate over R. Simple integrations by parts yield:</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>V ′′ + 2 V + i V (4) = 0,</p>
+  <p>z2) V ′′ |</p>
+  <p>2 |</p>
+  <p>V ′</p>
+  <p>R |</p>
+  <p>2 |</p>
+  <p>V (3)</p>
+  <p>R |</p>
+  <p>2 = 0. |</p>
+  <p>The imaginary part of this identity yields</p>
+  <p>m τ</p>
+  <p>V ′′</p>
+  <p>R |</p>
+  <p>2 = |</p>
+  <p>V (3)</p>
+  <p>ZR |</p>
+  <p>2 |</p>
+  <p>which contradicts the fact that</p>
+  <p>m τ &lt; 0. Thus, the condition (SC) is satisfied.</p>
+  <p>4 Proof of <span class="concept">ill-posedness<span class="tag">term·dom</span></span></p>
+  <p>Theorem 1 will be deduced from the formal analysis of section 2. This analysis was performed on (2.1), in which possible time variations of uswere neglected. To account for the original system (1.6) will require a few modifications, notably in the choice of the approximation (2.5). We will distinguish between the parts i) and ii) of the theorem.</p>
+  <p>4.1</p>
+  <p><span class="concept">Ill-posedness<span class="tag">term·dom</span></span> for general us</p>
+  <p>Let us satisfying the assumptions of part i). Let a be the non-degenerate critical point of us|t=0 = Us. For the sake of brevity, we consider the case U ”s(a) &lt; 0, the other one being strictly similar. The differential equation</p>
+  <p>∂t∂yus(t, a(t)) + ∂2</p>
+  <p>y us(t, a(t)) a′(t) = 0,</p>
+  <p>a(0) = a</p>
+  <p>defines for small time t &lt; t0 a non-degenerate critical point a(t) of us(t, given by condition (SC). We set</p>
+  <p>). Let then τ, W ·</p>
+  <p>− In the light of section 2, we introduce, for ε &gt; 0 and t &lt; t0:</p>
+  <p>(cid:0)</p>
+  <p>V := (τ</p>
+  <p>z2)W</p>
+  <p>1R+</p>
+  <p>(cid:1)</p>
+  <p>ω(ε, t) :=</p>
+  <p>us(t, a(t)) +</p>
+  <p>ε1/2 √2 |</p>
+  <p>1/2τ ∂2 y us(t, a(t)) |</p>
+  <p>as well as the “regular” velocity</p>
+  <p>vreg ε</p>
+  <p>(t, y) := H(y</p>
+  <p>a(t))</p>
+  <p>us(t, y)</p>
+  <p>us(t, a(t)) +</p>
+  <p>ε1/2 √2 |</p>
+  <p>1/2τ ∂2 y us(t, a(t)) |</p>
+  <p>and the shear layer velocity</p>
+  <p>vsl ε (t, y) :=</p>
+  <p>ε1/2 √2</p>
+  <p>φ(y</p>
+  <p>a(t))</p>
+  <p>1/2 V ∂2 y us(t, a(t)) | |</p>
+  <p>(cid:18)</p>
+  <p>1/4 (y ∂2 y us(t, a(t)) | |</p>
+  <p>− (2ε)1/4</p>
+  <p>a(t))</p>
+  <p>(cid:19)</p>
+  <p>where φ is a smooth truncation function near 0. We then consider the following velocity field:</p>
+  <p>uε(t, x, y) := eiε−</p>
+  <p>1xUε(t, y), Uε(t, y) = i eiε−</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s)ds ∂y</p>
+  <p>vε(t, x, y) := eiε−</p>
+  <p>1xVε(t, y),</p>
+  <p>Vε(t, y) = ε−</p>
+  <p>1 eiε−</p>
+  <p>1 R</p>
+  <p>t 0 ω(ε,s)ds</p>
+  <p>vreg ε (cid:16)</p>
+  <p>vreg ε</p>
+  <p>(t, y) + vsl</p>
+  <p>ε (t, y)</p>
+  <p>(t, y) + vsl</p>
+  <p>(cid:17) ε (t, y)</p>
+  <p>(cid:17) In order to have a field that is 2π-periodic in x and growing in time, we take ε := 1 n , with n ∞ in t, y. Moreover, we have the bounds</p>
+  <p>1x Uε(t, y) is <span class="method">analytic<span class="tag">term·mth</span></span> in x, and W 2,</p>
+  <p>. One verifies easily that uε = eiε−</p>
+  <p>(cid:16)</p>
+  <p>σ0t √ε</p>
+  <p>c e</p>
+  <p>Uε(t,</p>
+  <p>≤ k</p>
+  <p>) kW 2, ·</p>
+  <p>∞α ≤</p>
+  <p>σ0t √ε ,</p>
+  <p>C e</p>
+  <p>(4.1)</p>
+  <p>for positive constants c, C and σ0 that do not depend on ε.</p>
+  <p>Inserting the expression for uε, vε into the linearized <span class="concept">Prandtl equation<span class="tag">term·dom</span></span> (1.6), we obtain</p>
+  <p>∂tuε + us∂xuε + vε∂yus −</p>
+  <p>∂2 y uε = rε, ∂xuε + ∂yvε = 0, |y=0 = (0, 0). 1xRε(t, y), with</p>
+  <p>(u, v)</p>
+  <p> </p>
+  <p>The remainder term rε reads rε = eiε−</p>
+  <p>in T in T</p>
+  <p>R+. R+,</p>
+  <p>(4.2)</p>
+  <p>Rε(t, y) = eiε−</p>
+  <p>1 R</p>
+  <p>t 0 ω(ε,s)ds</p>
+  <p>(cid:16)</p>
+  <p>− + ε−</p>
+  <p>(cid:16) 1</p>
+  <p>us(t, y)</p>
+  <p>us(t, a(t))</p>
+  <p>∂2 y us(t, a(t))</p>
+  <p>y2 2 vsl ε (t, y)</p>
+  <p>− ∂2 y us(t, a(t))y</p>
+  <p>∂yvsl</p>
+  <p>ε (t, y)</p>
+  <p>(cid:17)</p>
+  <p>∂yus(t, a(t))</p>
+  <p>(cid:16) i ε ∂3 y vreg ε</p>
+  <p>(t, y) + i ∂t∂y</p>
+  <p>vreg ε (cid:16)</p>
+  <p>(cid:17) (t, y) + vsl</p>
+  <p>ε (t, y)</p>
+  <p>+ O(ε∞)</p>
+  <p>(cid:17)</p>
+  <p>(cid:17)</p>
+  <p>The O(ε∞) gathers terms with derivatives of φ: as the shear layer profile V decreases ex- ponentially, and the derivatives of φ( a) are supported away from a, their contribution is indeed exponentially small. Straightforwardly,</p>
+  <p>· −</p>
+  <p>Rε(t, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≤</p>
+  <p>σ0t √ε ,</p>
+  <p>(4.3)</p>
+  <p>with the same σ0 as in (4.1).</p>
+  <p>We are now in a position to prove part i) of Theorem 1. Let us assume a contrario that</p>
+  <p>for all σ &gt; 0, there exists m</p>
+  <p>0, μ</p>
+  <p>[0, 1/2) and δ &gt; 0 such that</p>
+  <p>∈ s)√</p>
+  <p>σ(t</p>
+  <p>sup t s ≤</p>
+  <p>δ k</p>
+  <p>| T (t, s)</p>
+  <p>(Hm,Hm</p>
+  <p>μ) &lt; +</p>
+  <p>Let</p>
+  <p>Tε(t, s) : W 0,</p>
+  <p>(R+)</p>
+  <p>W 0,</p>
+  <p>(R+)</p>
+  <p>the restriction of T (t, s) to the tangential Fourier mode ε− eiε− operator around us. We have, for all 0</p>
+  <p>1x Tε(t, s)U0. Similarly, we denote Lε = e− t</p>
+  <p>1x L eiε− δ,</p>
+  <p>iε−</p>
+  <p>1. Namely, T (t, s)</p>
+  <p>= 1x, where L is the linearized Prandtl</p>
+  <p>eiε−</p>
+  <p>1x U0</p>
+  <p>(cid:16)</p>
+  <p>(cid:17)</p>
+  <p>T (t, s) k</p>
+  <p>(W 0,</p>
+  <p>) ≤</p>
+  <p>C ε−</p>
+  <p>μ e</p>
+  <p>σ(t</p>
+  <p>− √ε</p>
+  <p>Let U = U (t, y) the solution of ∂tU + LεU = 0, that coincides initially with the approximation Uε. On one hand, we get</p>
+  <p>U (t, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≤</p>
+  <p>C ε−</p>
+  <p>μ e</p>
+  <p>σt √ε</p>
+  <p>U (0, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≤</p>
+  <p>C ′ ε−</p>
+  <p>μ e</p>
+  <p>σt √ε .</p>
+  <p>(4.4)</p>
+  <p>On the other hand, the difference ̃U = U</p>
+  <p>Uε satisfies, for all t &lt; δ,</p>
+  <p>̃U (t,</p>
+  <p>) = ·</p>
+  <p>0 Z</p>
+  <p>Tε(t, s)Rε(s)ds.</p>
+  <p>Estimate (4.3) implies</p>
+  <p>̃U (t, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≤</p>
+  <p>C ε−</p>
+  <p>σ(t</p>
+  <p>s) − √ε e</p>
+  <p>σ0s √ε ds</p>
+  <p>C ′ ε1/2 −</p>
+  <p>μ e</p>
+  <p>σ0t √ | , ε |</p>
+  <p>as soon as σ &lt; σ0. Combining this with the estimate (4.1), we obtain the lower bound</p>
+  <p>U (t, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≥ k</p>
+  <p>Uε(t, σ0t √ε</p>
+  <p>c e</p>
+  <p>) kW 0, · Cεμ −</p>
+  <p>∞α − k 1/2 e</p>
+  <p>̃U (t, σ0t √ε</p>
+  <p>) kW 0, ·</p>
+  <p>For ε small enough, we get</p>
+  <p>U (t, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≥</p>
+  <p>σ0t √ε ,</p>
+  <p>c′ e</p>
+  <p>which contradicts the upper bound (4.4), as soon as σ &lt; σ0 and t achieves the proof of part i).</p>
+  <p>σ |</p>
+  <p>ln(ε) |</p>
+  <p>√ε. This</p>
+  <p>4.2 Stronger <span class="concept">ill-posedness<span class="tag">term·dom</span></span> for specific us</p>
+  <p>It remains to handle part ii) of Theorem 1. Roughly, we must find some us for which 0 arbitrary. Using no- e− tations of the previous paragraph, the keypoint is to build, for any N , a growing solution Uε,N of</p>
+  <p>s) T (t, s) fails to be bounded from H m to H m</p>
+  <p>μ, μ</p>
+  <p>∂tUε,N + LεUε,N = Rε,N ,</p>
+  <p>where</p>
+  <p>Rε,N (t, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≤</p>
+  <p>εN + t2N</p>
+  <p>σ0t √ε .</p>
+  <p>Indeed, we can then take N + 1/2 &gt; μ, and conclude along the same lines as above.</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>So far, we have not managed to improve the approximation of the previous paragraph for [0, 1/2) of part i). In order to obtain general us. This explains the technical restriction μ a refined approximation, we consider some special profiles: we assume that us(0, y) = Us(y), for some exponentially decreasing Us, satisfying in the neighborhood of a &gt; 0:</p>
+  <p>Us(y) = U ′′s (a)</p>
+  <p>a)2</p>
+  <p>− 2</p>
+  <p>, U ′′s (a) &lt; 0.</p>
+  <p>Notice that a is a non-degenerate critical point of Us. For such profiles, the approximation of the previous paragraph reads</p>
+  <p>Uε(t, y) = i eiε−</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds ∂y</p>
+  <p>vreg ε</p>
+  <p>(t, y) + vsl</p>
+  <p>ε (t, y)</p>
+  <p>ε =</p>
+  <p>1 n</p>
+  <p>, n</p>
+  <p>(cid:16)</p>
+  <p>(cid:17)</p>
+  <p>Using that Us is quadratic near y = a, one can improve this approximation through an expansion of the type</p>
+  <p>Uε,N (t, y) = Uε(t, y) + i eiε−</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds ∂y</p>
+  <p>εi vi,reg ε</p>
+  <p>(t, y),</p>
+  <p>with additional terms vi,reg error terms due to Uε divide into three categories:</p>
+  <p>Xi=1 . Let us briefly explain the construction of these extra terms. The</p>
+  <p>1. Shear layer terms involving derivatives of φ. As mentioned before, they are O (ε∞), and</p>
+  <p>require no correction.</p>
+  <p>2. Terms that come from the replacement of us by its Taylor expansion in the shear layer</p>
+  <p>equation.They read</p>
+  <p>Rε,1 :=</p>
+  <p>− Rε,2 := ε−</p>
+  <p>1eiε−</p>
+  <p>1 R</p>
+  <p>t 0 ω(ε,s) ds</p>
+  <p>1eiε−</p>
+  <p>1 R</p>
+  <p>t 0 ω(ε,s) ds</p>
+  <p>us(t, y)</p>
+  <p>− (cid:16) ∂yus(t, a(t))</p>
+  <p>us(t, a(t))</p>
+  <p>∂2 y us(t, a(t))</p>
+  <p>y2 2 vsl ε (t, y).</p>
+  <p>− ∂2 y us(t, a(t))y</p>
+  <p>(cid:17)</p>
+  <p>∂yvsl</p>
+  <p>ε (t, y),</p>
+  <p>(cid:17)</p>
+  <p>(cid:16)</p>
+  <p>a(t))2 2</p>
+  <p>We write</p>
+  <p>Rε,1| |</p>
+  <p>= ε−</p>
+  <p>σ0t √ε</p>
+  <p>a(t)</p>
+  <p>(cid:12) Z (cid:12) (cid:12) (cid:12) (z (cid:12)</p>
+  <p>a(t))2 2</p>
+  <p>σ0t √ε</p>
+  <p>a(t)</p>
+  <p>σ0t √ε</p>
+  <p>a(t)</p>
+  <p>a(t))2 2</p>
+  <p>∂3 y us(t, z) dz</p>
+  <p>(cid:12) (cid:12) (cid:12) (cid:12) (cid:12)</p>
+  <p>∂yvsl (cid:12) (cid:12) (cid:12) y us(0, z) (cid:12) (cid:12) (cid:12) dz</p>
+  <p>t ∂3 ∂k (cid:12) (cid:12) (cid:12) ∂3+2k y</p>
+  <p>Us(z) (cid:12) (cid:12) (cid:12)</p>
+  <p>+ O(t2N )e</p>
+  <p>ε (t, y) (cid:12) (cid:12) (cid:12) ∂yvsl ε (t, y) (cid:12) (cid:12) (cid:12) (cid:12) (cid:12) (cid:12) ∂yvsl + O(t2N )e (cid:12) (cid:12) (cid:12)</p>
+  <p>ε (t, y) (cid:12) (cid:12) (cid:12)</p>
+  <p>σ0t √ε</p>
+  <p>σ0t √ε .</p>
+  <p>tk k!</p>
+  <p>tk k!</p>
+  <p>Xk=0 1 2N −</p>
+  <p>Xk=0</p>
+  <p>(cid:12) (cid:12) (cid:12)</p>
+  <p>The second inequality stems from a Taylor expansion of us with respect to t. As us satisfies the heat equation, each time derivative can be replaced by two space derivatives, so the third line. Because Us is quadratic in a vicinity of a(t) (for short times), and vsl ε and its derivatives decay exponentially fast, we end up with</p>
+  <p>Rε,1| ≤ |</p>
+  <p>t2N + εN</p>
+  <p>σ0t √ε .</p>
+  <p>(cid:0) A similar bound holds for Rε,2. Hence, these remainders do not require correction.</p>
+  <p>(cid:1)</p>
+  <p>3. Terms that come from the time derivative and the diffusion. We focus here on the time</p>
+  <p>derivative, as the diffusion term is simpler and has smaller amplitude. This is</p>
+  <p>Rε,3 := i eiε−</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds ∂t∂y</p>
+  <p>(t, y) + vsl</p>
+  <p>ε (t, y)</p>
+  <p>vreg ε (cid:16)</p>
+  <p>(cid:17)</p>
+  <p>Proceeding as for Rε,2, that is with Taylor expansions in t, leads to</p>
+  <p>eiε− (cid:12) (cid:12) (cid:12)</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds ∂t∂yvsl</p>
+  <p>t2N + εN</p>
+  <p>σ0t √ε .</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>ε (t, y) (cid:12) (cid:12) (cid:12)</p>
+  <p>As regards the regular part,</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds ∂t∂yvreg</p>
+  <p>eiε−</p>
+  <p>where</p>
+  <p>(t, y) = eiε−</p>
+  <p>= eiε−</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds H(y</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds H(y</p>
+  <p>a(t)) ∂t∂yus</p>
+  <p>a(t)) F (t, y) + O</p>
+  <p>σ0t √ε</p>
+  <p>t2N e</p>
+  <p>(cid:18)</p>
+  <p>(cid:19)</p>
+  <p>F (t, y) :=</p>
+  <p>∂3+2k y</p>
+  <p>Us(y)</p>
+  <p>tk k!</p>
+  <p>Xk=0</p>
+  <p>comes again from a Taylor expansion in t. The nice thing about this O(1) term is that it is identically zero in the vicinity of y = a(t) (for short times). As a result, the Heaviside function H(y a(t)) in front of it does not create any discontinuity, and no extra shear layer term is necessary. One takes care of this source term by the introduction of</p>
+  <p>v1,reg ε</p>
+  <p>= H(y</p>
+  <p>a(t))</p>
+  <p>us(t, y)</p>
+  <p>(cid:16)</p>
+  <p>ω(ε, t)</p>
+  <p>(cid:17) Z</p>
+  <p>F (t, z)</p>
+  <p>a(t)</p>
+  <p>(us(t, z)</p>
+  <p>ω(ε, t))2 dz,</p>
+  <p>so that</p>
+  <p>solves</p>
+  <p>U 1</p>
+  <p>ε :=</p>
+  <p>i ε eiε−</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) ds∂yv1,reg</p>
+  <p>∂tU 1</p>
+  <p>ε + LεU 1</p>
+  <p>ε = i eiε−</p>
+  <p>1 R</p>
+  <p>0 ω(ε,s) dsH(y</p>
+  <p>a(t))F (t, y) + O(ε).</p>
+  <p>Proceeding recursively, we obtain an approximation as accurate as we want. This ends the proof of the theorem.</p>
+  <p>5 Numerical study</p>
+  <p>In this last section, we present numerical illustrations of the instability process.</p>
+  <p>5.1 Numerical test of (SC)</p>
+  <p>To check (SC) numerically, it is more convenient to reformulate it with an Evans function. (z) of (3.6) satisfying (3.7)-(3.8). We know from Step 2, section 3, that there are solutions ) respectively (τ, Back to the ODE (3.1), this yields independent solutions X+(τ, · growing and decaying as z goes to +</p>
+  <p>. Furthermore, the following asymptotics holds:</p>
+  <p>) and X ·</p>
+  <p>(τ, z)</p>
+  <p>iτ 2λ −</p>
+  <p>7 2 exp(</p>
+  <p>1 2</p>
+  <p>λz2),</p>
+  <p>∂zX</p>
+  <p>(τ, z)</p>
+  <p>λz±</p>
+  <p>iτ 2λ −</p>
+  <p>3 2 exp(</p>
+  <p>∼ ±</p>
+  <p>with λ = 1</p>
+  <p>i − √2</p>
+  <p>. Thus, the functions</p>
+  <p>λz2),</p>
+  <p>1 2</p>
+  <p>(τ, z) :=</p>
+  <p>(τ, s) ds, W+(τ, z) :=</p>
+  <p>X+(τ, s) ds, W0(τ, z) = 1,</p>
+  <p>0 Z</p>
+  <p>seen as functions of z, form a basis of solutions of (1.7). They are respectively decaying, . As (1.7) is preserved by the change of variable z growing and constant at + z, the ∞ z), W0 form a basis as well. They are respectively decaying, z), W+(τ, functions W − − growing and constant at . The existence of the heteroclinic orbit is the same as the −∞ existence of some constants A and B such that</p>
+  <p>7→ −</p>
+  <p>(τ,</p>
+  <p>for all z, or equivalently</p>
+  <p>1 = AW</p>
+  <p>( −</p>
+  <p>z, τ ) + BW</p>
+  <p>(z, τ )</p>
+  <p>1 0 0</p>
+  <p>(cid:16)</p>
+  <p>(cid:17)</p>
+  <p>Vect</p>
+  <p>(cid:18)(cid:18)</p>
+  <p>W − ∂zW ∂2 z W</p>
+  <p>(τ,0)</p>
+  <p>(τ,0) (τ,0) (cid:19)</p>
+  <p>(cid:18)</p>
+  <p>W − ∂zW − ∂2 z W</p>
+  <p>(τ,0)</p>
+  <p>(τ,0) (τ,0) (cid:19)(cid:19)</p>
+  <p>This last condition is easily seen to be equivalent to</p>
+  <p>(τ, 0)</p>
+  <p>= 0,</p>
+  <p>and ∂2</p>
+  <p>z W</p>
+  <p>(τ, 0) = 0.</p>
+  <p>Hence, we must find τ with</p>
+  <p>m τ &lt; 0 such that</p>
+  <p>0 Z</p>
+  <p>(τ, s) ds</p>
+  <p>= 0,</p>
+  <p>and ∂zX</p>
+  <p>(τ, 0) = 0.</p>
+  <p>Moreover, we know from Step 3, section 3 that for I satisfied. Finally, the condition (SC) comes down to:</p>
+  <p>m τ &lt; 0, the constraint</p>
+  <p>+ ∞0 X</p>
+  <p>= 0 is</p>
+  <p>∂zX</p>
+  <p>(τ, 0) = 0,</p>
+  <p>for some τ with</p>
+  <p>m τ &lt; 0.</p>
+  <p>To check this, and get a value for τ , one can use a shooting method. For any τ and any</p>
+  <p>z0 ≫</p>
+  <p>1, one can start from the approximation</p>
+  <p>(τ, z0)</p>
+  <p>iτ z − 2λ − 0</p>
+  <p>7 2</p>
+  <p>exp(</p>
+  <p>1 2</p>
+  <p>λz2</p>
+  <p>0),</p>
+  <p>∂zX</p>
+  <p>(τ, z0)</p>
+  <p>iτ λz − 2λ − 0</p>
+  <p>3 2</p>
+  <p>exp(</p>
+  <p>1 2</p>
+  <p>λz2</p>
+  <p>0),</p>
+  <p>≈ −</p>
+  <p>and integrate backwards (3.1) using a Runge-Kutta scheme. This gives access to the function z0. Then, a Newton-Raphson procedure allows to find a ∂zX (τ, 0). Using such a procedure, we have found zero in</p>
+  <p>(τ, z), for any τ and any z</p>
+  <p>for the function τ</p>
+  <p>m τ &lt; 0 }</p>
+  <p>∂zX</p>
+  <p>Note that this value is proportional to 1 + i, as expected from the analysis.</p>
+  <p>0.706</p>
+  <p>≈ −</p>
+  <p>0.706 i.</p>
+  <p>5.2 Simulation of the instability mechanism</p>
+  <p>To observe the instability mechanism described in section 2, we have performed direct simu- lations of system (2.1). More precisely, we have considered the velocity</p>
+  <p>(already studied in [8] in the inviscid case), and solutions of the type</p>
+  <p>us(t, y) = Us(y) := 2y exp(</p>
+  <p>y2)</p>
+  <p>uε(t, x, y) = i eiε−</p>
+  <p>1x ∂yVε(ε−</p>
+  <p>1t, y),</p>
+  <p>vε(t, y) = ε−</p>
+  <p>1Vε(ε−</p>
+  <p>1t, y).</p>
+  <p>The profiles Vε = Vε(θ, y) satisfy the singular perturbation problem</p>
+  <p>(∂θ + iUs) ∂yVε −</p>
+  <p>i U ′sVε −</p>
+  <p>ε eiε−</p>
+  <p>1x ∂3</p>
+  <p>y Vε = 0</p>
+  <p>on Vε(θ, y). One more differentiation gives the parabolic like equation</p>
+  <p>(∂θ + iUs) ∂2</p>
+  <p>y Vε −</p>
+  <p>i U ′′s Vε −</p>
+  <p>ε ∂4</p>
+  <p>y Vε = 0,</p>
+  <p>fulfilled with the boundary conditions</p>
+  <p>Vε|y=0 = ∂yVε|y=0 = ∂3</p>
+  <p>y Vε|y=0 = 0.</p>
+  <p>6 6 6 -0.8</p>
+  <p>-0.9</p>
+  <p>-0.8</p>
+  <p>-0.9</p>
+  <p>5e+06</p>
+  <p>1e+07</p>
+  <p>1.5e+07</p>
+  <p>2e+07</p>
+  <p>2.5e+07</p>
+  <p>3e+07</p>
+  <p>5e+06</p>
+  <p>1e+07</p>
+  <p>1.5e+07</p>
+  <p>2e+07</p>
+  <p>2.5e+07</p>
+  <p>3e+07</p>
+  <p>Figure 1: The correction to the inviscid eigenvalue. Plot of function of the tangential frequency k = ε− expected from the theory, both approximately converge to</p>
+  <p>√ε (ωnum(ε) + Us(a)), seen as a 1. Top: real part. Bottom: imaginary part. As</p>
+  <p>0.9, as k goes to infinity.</p>
+  <p>We have discretized this equation in space using finite differences on a stretched grid, and in time through a Crank-Nicholson scheme. Starting from initial random data (i.e. with random 1 ranging values at each gridpoint), we have computed its time evolution for values of k = ε− from 1 to 3.107. For sufficiently large times, one observes that the numerical solution V num behaves like</p>
+  <p>in the sense that</p>
+  <p>V num ε</p>
+  <p>(θ, y)</p>
+  <p>eiωnum(ε)θvnum</p>
+  <p>(y)</p>
+  <p>ωnum(ε) :=</p>
+  <p>V num ε</p>
+  <p>(θ + ∆θ, y) ∆θ V num ε</p>
+  <p>V num ε − (t, y)</p>
+  <p>(θ, y)</p>
+  <p>gets independent of θ and y. Computations show a relation of the type</p>
+  <p>see figure 1. Here a = 1 √2 agreement with the theoretical prediction.</p>
+  <p>ωnum(ε)</p>
+  <p>Us(a) + √ε (</p>
+  <p>0.92</p>
+  <p>0.91i),</p>
+  <p>∼ −</p>
+  <p>− is as usual the critical point of Us. This relation is in very good</p>
+  <p>ωth(ε) :=</p>
+  <p>Us(a) + ε1/2 |</p>
+  <p>1/2τ U ”s(a) | √2</p>
+  <p>Us(a) + √ε (</p>
+  <p>0.92</p>
+  <p>0.92i),</p>
+  <p>≈ −</p>
+  <p>if we take for τ the value 0.706i found in the previous subsection. Moreover, with this value of τ , one can compute directly the solution V of the shear layer equation. After proper rescaling, this allows for comparison between the “numerical” and “theoretical” eigenmodes. More precisely, using the notations of (2.5), one can compare the functions</p>
+  <p>0.706</p>
+  <p>vth out(y) :=</p>
+  <p>1 √ε</p>
+  <p>(cid:18)</p>
+  <p>vreg (y) ε vreg ( ε ∞</p>
+  <p>) −</p>
+  <p>va(y) ) va(</p>
+  <p>and</p>
+  <p>vnum out (y) =</p>
+  <p>(cid:19)</p>
+  <p>1 √ε</p>
+  <p>(cid:18)</p>
+  <p>vnum (y) ε vnum ( ε ∞</p>
+  <p>) −</p>
+  <p>va(y) ) va(</p>
+  <p>(cid:19)</p>
+  <p>which should both describe the correction to the inviscid eigenmode outside the shear layer. As regards the shear layer, one can compare ε (ε1/4(z + a)) vsl ( ∞</p>
+  <p>out (ε1/4(z + a)). vnum</p>
+  <p>(ε1/4(z + a))</p>
+  <p>vth in(z) :=</p>
+  <p>1 √ε</p>
+  <p>1 √ε</p>
+  <p>vnum in</p>
+  <p>vnum ε</p>
+  <p>(z) :=</p>
+  <p>vnum ε</p>
+  <p>vreg ε</p>
+  <p>and</p>
+  <p>0.5</p>
+  <p>0.5</p>
+  <p>0.5</p>
+  <p>0.6</p>
+  <p>0.7</p>
+  <p>0.8</p>
+  <p>0.9</p>
+  <p>0.5</p>
+  <p>0.6</p>
+  <p>0.7</p>
+  <p>0.8</p>
+  <p>0.9</p>
+  <p>7. Figure 2: Plots of vth Left and right figures correspond respectively to the real and imaginary parts. They match, as expected, outside the shear layer.</p>
+  <p>(full line), seen as functions of y, at ε = 10−</p>
+  <p>out (dashed line) and vnum out</p>
+  <p>Illustrations of these comparisons are given in figures 2 and 3. Again, we obtain an excellent agreement. This confirms that the instability mechanism we have described is indeed effective, and moreover dominates the linear dynamics (1.6).</p>
+  <p>Acknowledgements</p>
+  <p>The first author would like to thank Guy M ́etivier, Jeffrey Rauch, and Mikael de la Salle for fruitful discussions. He acknowledges grant ANR-08-JCJC-0104-01.</p>
+  <p>References</p>
+  <p>[1] Brenier, Y. Homogeneous hydrostatic flows with convex velocity profiles. Nonlinearity 12, 3</p>
+  <p>(1999), 495–512.</p>
+  <p>[2] Coddington, E. A., and Levinson, N. Theory of ordinary differential equations. McGraw-Hill</p>
+  <p>Book Company, Inc., New York-Toronto-London, 1955.</p>
+  <p>[3] E, W. <span class="concept">Boundary layer<span class="tag">term·dom</span></span> theory and the zero-viscosity limit of the Navier-Stokes equation. Acta</p>
+  <p>Math. Sin. (Engl. Ser.) 16, 2 (2000), 207–218.</p>
+  <p>[4] E, W., and Engquist, B. Blowup of solutions of the unsteady Prandtl’s equation. Comm.</p>
+  <p>Pure Appl. Math. 50, 12 (1997), 1287–1293.</p>
+  <p>[5] Grenier, E. On the derivation of homogeneous hydrostatic equations. M2AN Math. Model.</p>
+  <p>Numer. Anal. 33, 5 (1999), 965–970.</p>
+  <p>[6] Grenier, E. On the nonlinear instability of Euler and Prandtl equations. Comm. Pure Appl.</p>
+  <p>Math. 53, 9 (2000), 1067–1091.</p>
+  <p>[7] Guyon, E., Hulin, J., and Petit, L. Hydrodynamique physique, vol. 142 of EDP Sciences.</p>
+  <p>CNRS Editions, Paris, 2001.</p>
+  <p>0.4</p>
+  <p>0.2</p>
+  <p>-0.2</p>
+  <p>-0.4</p>
+  <p>0.4</p>
+  <p>0.2</p>
+  <p>-0.2</p>
+  <p>-0.4</p>
+  <p>Figure 3: Plots of the shear layer corrections vth functions of z, at ε = 10− imaginary parts.</p>
+  <p>in (dashed line) and vnum (full line), seen as 7. Left and right figures correspond respectively to the real and</p>
+  <p>[8] Hong, L., and Hunter, J. K. Singularity formation and instability in the unsteady inviscid</p>
+  <p>and viscous Prandtl equations. Commun. Math. Sci. 1, 2 (2003), 293–316.</p>
+  <p>[9] Kato, T. Perturbation theory for linear operators. Classics in Mathematics. Springer-Verlag,</p>
+  <p>Berlin, 1995. Reprint of the 1980 edition.</p>
+  <p>[10] Lombardo, M. C., Cannone, M., and Sammartino, M. Well-posedness of the boundary</p>
+  <p>layer equations. SIAM J. Math. Anal. 35, 4 (2003), 987–1004 (electronic).</p>
+  <p>[11] Oleinik, O. A., and Samokhin, V. N. Mathematical models in <span class="concept">boundary layer<span class="tag">term·dom</span></span> theory, vol. 15 of Applied Mathematics and Mathematical Computation. Chapman &amp; Hall/CRC, Boca Raton, FL, 1999.</p>
+  <p>[12] Prandtl, L. Uber fl ̈ussigkeits-bewegung bei sehr kleiner reibung.</p>
+  <p>In Actes du 3me Congr ́es</p>
+  <p>international dse Math ́ematiciens, Heidelberg. Teubner, Leipzig, 1904, pp. 484–491.</p>
+  <p>[13] Sammartino, M., and Caflisch, R. E. Zero viscosity limit for <span class="method">analytic<span class="tag">term·mth</span></span> solutions, of the Navier-Stokes equation on a half-space. I. Existence for Euler and Prandtl equations. Comm. Math. Phys. 192, 2 (1998), 433–461.</p>
+  <p>[14] Sammartino, M., and Caflisch, R. E. Zero viscosity limit for <span class="method">analytic<span class="tag">term·mth</span></span> solutions of the Navier- Stokes equation on a half-space. II. Construction of the Navier-Stokes solution. Comm. Math. Phys. 192, 2 (1998), 463–491.</p>
+  <p>[15] Xin, Z., and Zhang, L. On the global existence of solutions to the Prandtl’s system. Adv.</p>
+  <p>Math. 181, 1 (2004), 88–133.</p>
+  <p>Appendix : Well-posedness in the <span class="method">analytic<span class="tag">term·mth</span></span> setting</p>
+  <p>We start from a simple estimate on the heat equation: For U0 ∈</p>
+  <p>L1(0, T ; W 0,</p>
+  <p>(R+), F</p>
+  <p>W 0,</p>
+  <p>(R+)), the solution U of</p>
+  <p>∈ y U = F on R ∂2</p>
+  <p>∂tU</p>
+  <p>R+, U</p>
+  <p>|t=0 = U0, U</p>
+  <p>|y=0 = 0,</p>
+  <p>satisfies</p>
+  <p>U k</p>
+  <p>kL∞(W 0,</p>
+  <p>) ≤</p>
+  <p>This estimate follows directly from the representation formula</p>
+  <p>U0kW 0, k (cid:16)</p>
+  <p>F k</p>
+  <p>kL1(W 0,</p>
+  <p>(cid:17)</p>
+  <p>(5.1)</p>
+  <p>U (t, y) =</p>
+  <p>S(t, y, z)U0(z) dz +</p>
+  <p>S(t</p>
+  <p>0 Z</p>
+  <p>s, y, z)F (s, z) dz ds</p>
+  <p>where the heat kernel in the half plane S(t, y, z) reads</p>
+  <p>S(t, y, z) := G(t, y</p>
+  <p>G(t, y + z), G(t, y) :=</p>
+  <p>1 √4πt</p>
+  <p>y2/4t).</p>
+  <p>exp(</p>
+  <p>Details are left to the reader. This estimate allows to prove proposition 1. decomposing</p>
+  <p>Indeed, by</p>
+  <p>u(t, x, y) =</p>
+  <p>eikx U k(t, y),</p>
+  <p>the well-posedness is an easy consequence of the a priori estimate</p>
+  <p>Z Xk ∈</p>
+  <p>for some ρ. Now, the equation satisfied by U k is</p>
+  <p>U k(t, k</p>
+  <p>) kW 0,α ·</p>
+  <p>C eρkt</p>
+  <p>U k(0, k</p>
+  <p>) kW 0,α ·</p>
+  <p>∂tU k</p>
+  <p>y U k = i k ∂2</p>
+  <p>U ′s</p>
+  <p>(cid:18)</p>
+  <p>U k(t, z) dz</p>
+  <p>UsU k</p>
+  <p>(cid:19)</p>
+  <p>Using (5.1), we get</p>
+  <p>U k(t, k</p>
+  <p>) kW 0, ·</p>
+  <p>∞α ≤</p>
+  <p>U k(0, k</p>
+  <p>) kW 0, ·</p>
+  <p>+ Cs k</p>
+  <p>0 k</p>
+  <p>U k(s,</p>
+  <p>) kW 0, ·</p>
+  <p>where Cs depends on us. We conclude by the Gronwall lemma.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 3 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 30 <code>concept</code> · 17 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>gerardvaret2010-prandtl-illposedness</code>.</div>
+</body></html>

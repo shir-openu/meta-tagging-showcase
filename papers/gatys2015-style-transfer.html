@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Neural Algorithm of Artistic Style — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>A Neural Algorithm of Artistic Style — TEI-tagged view</h1>
+<div class="meta">Leon A. Gatys, Alexander S. Ecker, Matthias Bethge · 2015 · <a href="https://en.wikipedia.org/wiki/Art_history">art-history</a> · <a href="https://arxiv.org/abs/1508.06576">arXiv:1508.06576</a> · <a href="https://arxiv.org/abs/1508.06576" target="_blank" rel="noopener">full text</a> · <a href="https://arxiv.org/abs/1508.06576" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Gatys</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Tübingen</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">arXiv preprint</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2015</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">image generation</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch ai">neural style transfer</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Leon A. Gatys<span class="tag">persName</span></span>, <span class="person">Alexander S. Ecker<span class="tag">persName</span></span>, <span class="person">Matthias Bethge<span class="tag">persName</span></span> (<span class="date">2015<span class="tag">date</span></span>). &ldquo;A Neural Algorithm of Artistic Style.&rdquo; <span class="work">arXiv preprint<span class="tag">title·j</span></span>, <span class="place">Tübingen<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Separating and recombining the content and the artistic <span class="concept">style<span class="tag">term·dom</span></span> of images using neural networks.</p>
+  <p><b>Research question —</b> Can the artistic <span class="concept">style<span class="tag">term·dom</span></span> of one image (e.g. a painting) be transferred onto the content of another using deep network representations?</p>
+  <p><b>Contribution —</b> Introduces <span class="ai">neural style transfer<span class="tag">term·ai</span></span> - using convolutional-network feature statistics to render a photograph in the <span class="concept">style<span class="tag">term·dom</span></span> of an artwork - connecting deep learning with art and aesthetics.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>neural style transfer (separating and recombining image content and style)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>artificial intelligence (computer vision)</b>: convolutional neural networks trained for object recognition, repurposed to synthesize artistic images<span class="ev"> &mdash; &ldquo;biologically inspired vision models called Deep Neural Networks&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>separating and recombining the content and style representations that a CNN learns across its layers<span class="ev"> &mdash; &ldquo;two terms for content and style respectively, that are well separated&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>Deep Neural Networks for object recognition</b><span class="ev"> &mdash; &ldquo;Here we introduce an artificial system based on a Deep Neural Network that creates artistic images of high perceptual quality.&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>image content and style cannot be completely disentangled<span class="ev"> &mdash; &ldquo;Of course, image content and style cannot be completely disentangled.&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>A Neural Algorithm of Artistic <span class="concept">Style<span class="tag">term·dom</span></span></p>
+  <p>5 1 0 2</p>
+  <p>p e S 2</p>
+  <p>V C . s c [</p>
+  <p>2 v 6 7 5 6 0 . 8 0 5 1 : v i X r a</p>
+  <p>A Neural Algorithm of Artistic <span class="concept">Style<span class="tag">term·dom</span></span></p>
+  <p>Leon A. <span class="person">Gatys<span class="tag">persName</span></span>,1,2,3∗ Alexander S. <span class="person">Ecker<span class="tag">persName</span></span>,1,2,4,5 Matthias Bethge1,2,4</p>
+  <p>1Werner Reichardt Centre for Integrative Neuroscience and Institute of Theoretical Physics, University of T ̈ubingen, Germany 2Bernstein Center for Computational Neuroscience, T ̈ubingen, Germany 3Graduate School for Neural Information Processing, T ̈ubingen, Germany 4Max Planck Institute for Biological Cybernetics, T ̈ubingen, Germany 5Department of Neuroscience, Baylor College of Medicine, Houston, TX, USA ∗To whom correspondence should be addressed; E-mail: leon.<span class="person">gatys<span class="tag">persName</span></span>@bethgelab.org</p>
+  <p>In fine art, especially painting, humans have mastered the skill to create unique</p>
+  <p>visual experiences through composing a complex interplay between the con-</p>
+  <p>tent and <span class="concept">style<span class="tag">term·dom</span></span> of an image. Thus far the algorithmic basis of this process is</p>
+  <p>unknown and there exists no artificial system with similar capabilities. How-</p>
+  <p>ever, in other key areas of visual perception such as object and face recognition</p>
+  <p>near-human performance was recently demonstrated by a class of biologically</p>
+  <p>inspired vision models called Deep Neural Networks.1, 2 Here we introduce an</p>
+  <p>artificial system based on a Deep Neural Network that creates artistic images</p>
+  <p>of high perceptual quality. The system uses neural representations to sepa-</p>
+  <p>rate and recombine content and <span class="concept">style<span class="tag">term·dom</span></span> of arbitrary images, providing a neural</p>
+  <p>algorithm for the creation of artistic images. Moreover, in light of the strik-</p>
+  <p>ing similarities between performance-optimised artificial neural networks and</p>
+  <p>biological vision,3–7 our work offers a path forward to an algorithmic under-</p>
+  <p>standing of how humans create and perceive artistic imagery.</p>
+  <p>The class of Deep Neural Networks that are most powerful in image processing tasks are</p>
+  <p>called Convolutional Neural Networks. Convolutional Neural Networks consist of layers of</p>
+  <p>small computational units that process visual information hierarchically in a feed-forward man-</p>
+  <p>ner (Fig 1). Each layer of units can be understood as a collection of image filters, each of which</p>
+  <p>extracts a certain feature from the input image. Thus, the output of a given layer consists of</p>
+  <p>so-called feature maps: differently filtered versions of the input image.</p>
+  <p>When Convolutional Neural Networks are trained on object recognition, they develop a</p>
+  <p>representation of the image that makes object information increasingly explicit along the pro-</p>
+  <p>cessing hierarchy.8 Therefore, along the processing hierarchy of the network, the input image</p>
+  <p>is transformed into representations that increasingly care about the actual content of the im-</p>
+  <p>age compared to its detailed pixel values. We can directly visualise the information each layer</p>
+  <p>contains about the input image by reconstructing the image only from the feature maps in that</p>
+  <p>layer9 (Fig 1, content reconstructions, see Methods for details on how to reconstruct the im-</p>
+  <p>age). Higher layers in the network capture the high-level content in terms of objects and their</p>
+  <p>arrangement in the input image but do not constrain the exact pixel values of the reconstruc-</p>
+  <p>tion. (Fig 1, content reconstructions d,e). In contrast, reconstructions from the lower layers</p>
+  <p>simply reproduce the exact pixel values of the original image (Fig 1, content reconstructions</p>
+  <p>a,b,c). We therefore refer to the feature responses in higher layers of the network as the content</p>
+  <p>representation.</p>
+  <p>To obtain a representation of the <span class="concept">style<span class="tag">term·dom</span></span> of an input image, we use a feature space originally</p>
+  <p>designed to capture texture information.8 This feature space is built on top of the filter responses</p>
+  <p>in each layer of the network. It consists of the correlations between the different filter responses</p>
+  <p>over the spatial extent of the feature maps (see Methods for details). By including the feature</p>
+  <p>correlations of multiple layers, we obtain a stationary, multi-scale representation of the input</p>
+  <p>image, which captures its texture information but not the global arrangement.</p>
+  <p>Figure 1: <span class="ai">Convolutional Neural Network<span class="tag">term·ai</span></span> (CNN). A given input image is represented as a set of filtered images at each processing stage in the CNN. While the number of different filters increases along the processing hierarchy, the size of the filtered images is reduced by some downsampling mechanism (e.g. max-pooling) leading to a decrease in the total number of units per layer of the network. Content Reconstructions. We can visualise the information at different processing stages in the CNN by reconstructing the input image from only know- ing the network’s responses in a particular layer. We reconstruct the input image from from layers ‘conv1 1’ (a), ‘conv2 1’ (b), ‘conv3 1’ (c), ‘conv4 1’ (d) and ‘conv5 1’ (e) of the orig- inal VGG-Network. We find that reconstruction from lower layers is almost perfect (a,b,c). In higher layers of the network, detailed pixel information is lost while the high-level content of the image is preserved (d,e). <span class="concept">Style<span class="tag">term·dom</span></span> Reconstructions. On top of the original CNN representations we built a new feature space that captures the <span class="concept">style<span class="tag">term·dom</span></span> of an input image. The <span class="concept">style<span class="tag">term·dom</span></span> representation computes correlations between the different features in different layers of the CNN. We recon- struct the <span class="concept">style<span class="tag">term·dom</span></span> of the input image from <span class="concept">style<span class="tag">term·dom</span></span> representations built on different subsets of CNN layers ( ‘conv1 1’ (a), ‘conv1 1’ and ‘conv2 1’ (b), ‘conv1 1’, ‘conv2 1’ and ‘conv3 1’ (c), ‘conv1 1’, ‘conv2 1’, ‘conv3 1’ and ‘conv4 1’ (d), ‘conv1 1’, ‘conv2 1’, ‘conv3 1’, ‘conv4 1’ and ‘conv5 1’ (e)). This creates images that match the <span class="concept">style<span class="tag">term·dom</span></span> of a given image on an increasing scale while discarding information of the global arrangement of the scene.</p>
+  <p>Again, we can visualise the information captured by these <span class="concept">style<span class="tag">term·dom</span></span> feature spaces built on</p>
+  <p>different layers of the network by constructing an image that matches the <span class="concept">style<span class="tag">term·dom</span></span> representation</p>
+  <p>of a given input image (Fig 1, <span class="concept">style<span class="tag">term·dom</span></span> reconstructions).10, 11 Indeed reconstructions from the <span class="concept">style<span class="tag">term·dom</span></span></p>
+  <p>features produce texturised versions of the input image that capture its general appearance in</p>
+  <p>terms of colour and localised structures. Moreover, the size and complexity of local image</p>
+  <p>structures from the input image increases along the hierarchy, a result that can be explained</p>
+  <p>by the increasing receptive field sizes and feature complexity. We refer to this multi-scale</p>
+  <p>representation as <span class="concept">style<span class="tag">term·dom</span></span> representation.</p>
+  <p>The key finding of this paper is that the representations of content and <span class="concept">style<span class="tag">term·dom</span></span> in the Convo-</p>
+  <p>lutional Neural Network are separable. That is, we can manipulate both representations inde-</p>
+  <p>pendently to produce new, perceptually meaningful images. To demonstrate this finding, we</p>
+  <p>generate images that mix the content and <span class="concept">style<span class="tag">term·dom</span></span> representation from two different source images.</p>
+  <p>In particular, we match the content representation of a photograph depicting the “Neckarfront”</p>
+  <p>in T ̈ubingen, Germany and the <span class="concept">style<span class="tag">term·dom</span></span> representations of several well-known artworks taken from</p>
+  <p>different periods of art (Fig 2).</p>
+  <p>The images are synthesised by finding an image that simultaneously matches the content</p>
+  <p>representation of the photograph and the <span class="concept">style<span class="tag">term·dom</span></span> representation of the respective piece of art (see</p>
+  <p>Methods for details). While the global arrangement of the original photograph is preserved,</p>
+  <p>the colours and local structures that compose the global scenery are provided by the artwork.</p>
+  <p>Effectively, this renders the photograph in the <span class="concept">style<span class="tag">term·dom</span></span> of the artwork, such that the appearance of</p>
+  <p>the synthesised image resembles the work of art, even though it shows the same content as the</p>
+  <p>photograph.</p>
+  <p>As outlined above, the <span class="concept">style<span class="tag">term·dom</span></span> representation is a multi-scale representation that includes mul-</p>
+  <p>tiple layers of the neural network. In the images we have shown in Fig 2, the <span class="concept">style<span class="tag">term·dom</span></span> representation</p>
+  <p>included layers from the whole network hierarchy. <span class="concept">Style<span class="tag">term·dom</span></span> can also be defined more locally by</p>
+  <p>Figure 2: Images that combine the content of a photograph with the <span class="concept">style<span class="tag">term·dom</span></span> of several well-known artworks. The images were created by finding an image that simultaneously matches the content representation of the photograph and the <span class="concept">style<span class="tag">term·dom</span></span> representation of the artwork (see Methods). The original photograph depicting the Neckarfront in T ̈ubingen, Germany, is shown in A (Photo: Andreas Praefcke). The painting that provided the <span class="concept">style<span class="tag">term·dom</span></span> for the respective generated image is shown in the bottom left corner of each panel. B The Shipwreck of the Minotaur by J.M.W. 5 Turner, 1805. C The Starry Night by Vincent van Gogh, 1889. D Der Schrei by Edvard Munch, 1893. E Femme nue assise by Pablo Picasso, 1910. F Composition VII by Wassily Kandinsky, 1913.</p>
+  <p>including only a smaller number of lower layers, leading to different visual experiences (Fig 3,</p>
+  <p>along the rows). When matching the <span class="concept">style<span class="tag">term·dom</span></span> representations up to higher layers in the network,</p>
+  <p>local images structures are matched on an increasingly large scale, leading to a smoother and</p>
+  <p>more continuous visual experience. Thus, the visually most appealing images are usually cre-</p>
+  <p>ated by matching the <span class="concept">style<span class="tag">term·dom</span></span> representation up to the highest layers in the network (Fig 3, last</p>
+  <p>row).</p>
+  <p>Of course, image content and <span class="concept">style<span class="tag">term·dom</span></span> cannot be completely disentangled. When synthesising</p>
+  <p>an image that combines the content of one image with the <span class="concept">style<span class="tag">term·dom</span></span> of another, there usually does</p>
+  <p>not exist an image that perfectly matches both constraints at the same time. However, the</p>
+  <p>loss function we minimise during image synthesis contains two terms for content and <span class="concept">style<span class="tag">term·dom</span></span></p>
+  <p>respectively, that are well separated (see Methods). We can therefore smoothly regulate the</p>
+  <p>emphasis on either reconstructing the content or the <span class="concept">style<span class="tag">term·dom</span></span> (Fig 3, along the columns). A strong</p>
+  <p>emphasis on <span class="concept">style<span class="tag">term·dom</span></span> will result in images that match the appearance of the artwork, effectively</p>
+  <p>giving a texturised version of it, but hardly show any of the photograph’s content (Fig 3, first</p>
+  <p>column). When placing strong emphasis on content, one can clearly identify the photograph,</p>
+  <p>but the <span class="concept">style<span class="tag">term·dom</span></span> of the painting is not as well-matched (Fig 3, last column). For a specific pair of</p>
+  <p>source images one can adjust the trade-off between content and <span class="concept">style<span class="tag">term·dom</span></span> to create visually appealing</p>
+  <p>images.</p>
+  <p>Here we present an artificial neural system that achieves a separation of image content from</p>
+  <p><span class="concept">style<span class="tag">term·dom</span></span>, thus allowing to recast the content of one image in the <span class="concept">style<span class="tag">term·dom</span></span> of any other image. We</p>
+  <p>demonstrate this by creating new, artistic images that combine the <span class="concept">style<span class="tag">term·dom</span></span> of several well-known</p>
+  <p>paintings with the content of an arbitrarily chosen photograph.</p>
+  <p>In particular, we derive the</p>
+  <p>neural representations for the content and <span class="concept">style<span class="tag">term·dom</span></span> of an image from the feature responses of high-</p>
+  <p>performing Deep Neural Networks trained on object recognition. To our knowledge this is the</p>
+  <p>first demonstration of image features separating content from <span class="concept">style<span class="tag">term·dom</span></span> in whole natural images.</p>
+  <p>Figure 3: Detailed results for the <span class="concept">style<span class="tag">term·dom</span></span> of the painting Composition VII by Wassily Kandinsky. The rows show the result of matching the <span class="concept">style<span class="tag">term·dom</span></span> representation of increasing subsets of the CNN layers (see Methods). We find that the local image structures captured by the <span class="concept">style<span class="tag">term·dom</span></span> represen- tation increase in size and complexity when including <span class="concept">style<span class="tag">term·dom</span></span> features from higher layers of the network. This can be explained by the increasing receptive field sizes and feature complex- ity along the network’s processing hierarchy. The columns show different relative weightings between the content and <span class="concept">style<span class="tag">term·dom</span></span> reconstruction. The number above each column indicates the ratio α/β between the emphasis on matching the content of the photograph and the <span class="concept">style<span class="tag">term·dom</span></span> of the artwork (see Methods).</p>
+  <p>Previous work on separating content from <span class="concept">style<span class="tag">term·dom</span></span> was evaluated on sensory inputs of much lesser</p>
+  <p>complexity, such as characters in different handwriting or images of faces or small figures in</p>
+  <p>different poses.12, 13</p>
+  <p>In our demonstration, we render a given photograph in the <span class="concept">style<span class="tag">term·dom</span></span> of a range of well-known</p>
+  <p>artworks. This problem is usually approached in a branch of computer vision called non-</p>
+  <p>photorealistic rendering (for recent review see14). Conceptually most closely related are meth-</p>
+  <p>ods using texture transfer to achieve artistic <span class="concept">style<span class="tag">term·dom</span></span> transfer.15–19 However, these previous ap-</p>
+  <p>proaches mainly rely on non-parametric techniques to directly manipulate the pixel representa-</p>
+  <p>tion of an image. In contrast, by using Deep Neural Networks trained on object recognition, we</p>
+  <p>carry out manipulations in feature spaces that explicitly represent the high level content of an</p>
+  <p>image.</p>
+  <p>Features from Deep Neural Networks trained on object recognition have been previously</p>
+  <p>used for <span class="concept">style<span class="tag">term·dom</span></span> recognition in order to classify artworks according to the period in which they</p>
+  <p>were created.20 There, classifiers are trained on top of the raw network activations, which we</p>
+  <p>call content representations. We conjecture that a transformation into a stationary feature space</p>
+  <p>such as our <span class="concept">style<span class="tag">term·dom</span></span> representation might achieve even better performance in <span class="concept">style<span class="tag">term·dom</span></span> classification.</p>
+  <p>In general, our method of synthesising images that mix content and <span class="concept">style<span class="tag">term·dom</span></span> from different</p>
+  <p>sources, provides a new, fascinating tool to study the perception and neural representation of</p>
+  <p>art, <span class="concept">style<span class="tag">term·dom</span></span> and content-independent image appearance in general. We can design novel stimuli</p>
+  <p>that introduce two independent, perceptually meaningful sources of variation: the appearance</p>
+  <p>and the content of an image. We envision that this will be useful for a wide range of experimen-</p>
+  <p>tal studies concerning visual perception ranging from psychophysics over functional imaging</p>
+  <p>to even electrophysiological neural recordings. In fact, our work offers an algorithmic under-</p>
+  <p>standing of how neural representations can independently capture the content of an image and</p>
+  <p>the <span class="concept">style<span class="tag">term·dom</span></span> in which it is presented. Importantly, the mathematical form of our <span class="concept">style<span class="tag">term·dom</span></span> representa-</p>
+  <p>tions generates a clear, testable hypothesis about the representation of image appearance down</p>
+  <p>to the single neuron level. The <span class="concept">style<span class="tag">term·dom</span></span> representations simply compute the correlations between</p>
+  <p>different types of neurons in the network. Extracting correlations between neurons is a bio-</p>
+  <p>logically plausible computation that is, for example, implemented by so-called complex cells</p>
+  <p>in the primary visual system (V1).21 Our results suggest that performing a complex-cell like</p>
+  <p>computation at different processing stages along the ventral stream would be a possible way to</p>
+  <p>obtain a content-independent representation of the appearance of a visual input.</p>
+  <p>All in all it is truly fascinating that a neural system, which is trained to perform one of the</p>
+  <p>core computational tasks of biological vision, automatically learns image representations that</p>
+  <p>allow the separation of image content from <span class="concept">style<span class="tag">term·dom</span></span>. The explanation could be that when learning</p>
+  <p>object recognition, the network has to become invariant to all image variation that preserves</p>
+  <p>object identity. Representations that factorise the variation in the content of an image and the</p>
+  <p>variation in its appearance would be extremely practical for this task. Thus, our ability to</p>
+  <p>abstract content from <span class="concept">style<span class="tag">term·dom</span></span> and therefore our ability to create and enjoy art might be primarily a</p>
+  <p>preeminent signature of the powerful inference capabilities of our visual system.</p>
+  <p>Methods</p>
+  <p>The results presented in the main text were generated on the basis of the VGG-Network,22</p>
+  <p>a <span class="ai">Convolutional Neural Network<span class="tag">term·ai</span></span> that rivals human performance on a common visual object</p>
+  <p>recognition benchmark task23 and was introduced and extensively described in.22 We used the</p>
+  <p>feature space provided by the 16 convolutional and 5 pooling layers of the 19 layer VGG-</p>
+  <p>Network. We do not use any of the fully connected layers.The model is publicly available and</p>
+  <p>can be explored in the caffe-framework.24 For image synthesis we found that replacing the</p>
+  <p>max-pooling operation by average pooling improves the gradient flow and one obtains slightly</p>
+  <p>more appealing results, which is why the images shown were generated with average pooling.</p>
+  <p>Generally each layer in the network defines a non-linear filter bank whose complexity in-</p>
+  <p>creases with the position of the layer in the network. Hence a given input image (cid:126)x is encoded</p>
+  <p>in each layer of the CNN by the filter responses to that image. A layer with Nl distinct filters</p>
+  <p>has Nl feature maps each of size Ml, where Ml is the height times the width of the feature map.</p>
+  <p>So the responses in a layer l can be stored in a matrix F l ∈ RNl×Ml where F l</p>
+  <p>ij is the activation</p>
+  <p>of the ith filter at position j in layer l. To visualise the image information that is encoded at</p>
+  <p>different layers of the hierarchy (Fig 1, content reconstructions) we perform gradient descent</p>
+  <p>on a white noise image to find another image that matches the feature responses of the original</p>
+  <p>image. So let (cid:126)p and (cid:126)x be the original image and the image that is generated and P l and F l their</p>
+  <p>respective feature representation in layer l. We then define the squared-error loss between the</p>
+  <p>two feature representations</p>
+  <p>Lcontent((cid:126)p, (cid:126)x, l) =</p>
+  <p>1 2</p>
+  <p>(cid:88)</p>
+  <p>i,j</p>
+  <p>(cid:0)F l</p>
+  <p>ij − P l ij</p>
+  <p>(cid:1)2</p>
+  <p>The derivative of this loss with respect to the activations in layer l equals</p>
+  <p>∂Lcontent ∂F l ij</p>
+  <p>(cid:40)(cid:0)F l − P l(cid:1)</p>
+  <p>if F l if F l</p>
+  <p>ij &gt; 0 ij &lt; 0 .</p>
+  <p>(1)</p>
+  <p>(2)</p>
+  <p>from which the gradient with respect to the image (cid:126)x can be computed using standard error</p>
+  <p>back-propagation. Thus we can change the initially random image (cid:126)x until it generates the same</p>
+  <p>response in a certain layer of the CNN as the original image (cid:126)p. The five content reconstructions</p>
+  <p>in Fig 1 are from layers ‘conv1 1’ (a), ‘conv2 1’ (b), ‘conv3 1’ (c), ‘conv4 1’ (d) and ‘conv5 1’</p>
+  <p>(e) of the original VGG-Network.</p>
+  <p>On top of the CNN responses in each layer of the network we built a <span class="concept">style<span class="tag">term·dom</span></span> representation</p>
+  <p>that computes the correlations between the different filter responses, where the expectation is</p>
+  <p>taken over the spatial extend of the input image. These feature correlations are given by the</p>
+  <p>Gram matrix Gl ∈ RNl×Nl, where Gl</p>
+  <p>ij is the inner product between the vectorised feature map</p>
+  <p>i and j in layer l:</p>
+  <p>k To generate a texture that matches the <span class="concept">style<span class="tag">term·dom</span></span> of a given image (Fig 1, <span class="concept">style<span class="tag">term·dom</span></span> reconstructions),</p>
+  <p>(cid:88)</p>
+  <p>ij =</p>
+  <p>ikF l F l</p>
+  <p>jk.</p>
+  <p>(3)</p>
+  <p>we use gradient descent from a white noise image to find another image that matches the <span class="concept">style<span class="tag">term·dom</span></span></p>
+  <p>representation of the original image. This is done by minimising the mean-squared distance</p>
+  <p>between the entries of the Gram matrix from the original image and the Gram matrix of the</p>
+  <p>image to be generated. So let (cid:126)a and (cid:126)x be the original image and the image that is generated and</p>
+  <p>Al and Gl their respective <span class="concept">style<span class="tag">term·dom</span></span> representations in layer l. The contribution of that layer to the</p>
+  <p>total loss is then</p>
+  <p>and the total loss is</p>
+  <p>El =</p>
+  <p>1 l M 2 4N 2 l</p>
+  <p>(cid:88)</p>
+  <p>i,j</p>
+  <p>(cid:0)Gl</p>
+  <p>ij − Al ij</p>
+  <p>(cid:1)2</p>
+  <p>Lstyle((cid:126)a, (cid:126)x) =</p>
+  <p>L (cid:88)</p>
+  <p>l=0</p>
+  <p>wlEl</p>
+  <p>(4)</p>
+  <p>(5)</p>
+  <p>where wl are weighting factors of the contribution of each layer to the total loss (see below for</p>
+  <p>specific values of wl in our results). The derivative of El with respect to the activations in layer</p>
+  <p>l can be computed analytically:</p>
+  <p>∂El ∂F l ij</p>
+  <p>(cid:40) 1 N 2 0</p>
+  <p>l M 2 l</p>
+  <p>(cid:0)(F l)T (cid:0)Gl − Al(cid:1)(cid:1)</p>
+  <p>if F l if F l</p>
+  <p>ij &gt; 0 ij &lt; 0 .</p>
+  <p>(6)</p>
+  <p>The gradients of El with respect to the activations in lower layers of the network can be readily</p>
+  <p>computed using standard error back-propagation. The five <span class="concept">style<span class="tag">term·dom</span></span> reconstructions in Fig 1 were</p>
+  <p>generated by matching the <span class="concept">style<span class="tag">term·dom</span></span> representations on layer ‘conv1 1’ (a), ‘conv1 1’ and ‘conv2 1’</p>
+  <p>(b), ‘conv1 1’, ‘conv2 1’ and ‘conv3 1’ (c), ‘conv1 1’, ‘conv2 1’, ‘conv3 1’ and ‘conv4 1’ (d),</p>
+  <p>‘conv1 1’, ‘conv2 1’, ‘conv3 1’, ‘conv4 1’ and ‘conv5 1’ (e).</p>
+  <p>To generate the images that mix the content of a photograph with the <span class="concept">style<span class="tag">term·dom</span></span> of a painting</p>
+  <p>(Fig 2) we jointly minimise the distance of a white noise image from the content representation</p>
+  <p>of the photograph in one layer of the network and the <span class="concept">style<span class="tag">term·dom</span></span> representation of the painting in a</p>
+  <p>number of layers of the CNN. So let (cid:126)p be the photograph and (cid:126)a be the artwork. The loss function</p>
+  <p>we minimise is</p>
+  <p>Ltotal((cid:126)p, (cid:126)a, (cid:126)x) = αLcontent((cid:126)p, (cid:126)x) + βLstyle((cid:126)a, (cid:126)x)</p>
+  <p>(7)</p>
+  <p>where α and β are the weighting factors for content and <span class="concept">style<span class="tag">term·dom</span></span> reconstruction respectively. For</p>
+  <p>the images shown in Fig 2 we matched the content representation on layer ‘conv4 2’ and the</p>
+  <p><span class="concept">style<span class="tag">term·dom</span></span> representations on layers ‘conv1 1’, ‘conv2 1’, ‘conv3 1’, ‘conv4 1’ and ‘conv5 1’ (wl =</p>
+  <p>1/5 in those layers, wl = 0 in all other layers) . The ratio α/β was either 1×10−3 (Fig 2 B,C,D)</p>
+  <p>or 1 × 10−4 (Fig 2 E,F). Fig 3 shows results for different relative weightings of the content and</p>
+  <p><span class="concept">style<span class="tag">term·dom</span></span> reconstruction loss (along the columns) and for matching the <span class="concept">style<span class="tag">term·dom</span></span> representations only</p>
+  <p>on layer ‘conv1 1’ (A), ‘conv1 1’ and ‘conv2 1’ (B), ‘conv1 1’, ‘conv2 1’ and ‘conv3 1’ (C),</p>
+  <p>‘conv1 1’, ‘conv2 1’, ‘conv3 1’ and ‘conv4 1’ (D), ‘conv1 1’, ‘conv2 1’, ‘conv3 1’, ‘conv4 1’</p>
+  <p>and ‘conv5 1’ (E). The factor wl was always equal to one divided by the number of active layers</p>
+  <p>with a non-zero loss-weight wl.</p>
+  <p>Acknowledgments This work was funded by the German National Academic Foundation</p>
+  <p>(L.A.G.), the Bernstein Center for Computational Neuroscience (FKZ 01GQ1002) and the Ger-</p>
+  <p>man Excellency Initiative through the Centre for Integrative Neuroscience T ̈ubingen (EXC307)(M.B.,</p>
+  <p>A.S.E, L.A.G.)</p>
+  <p>References and Notes</p>
+  <p>1. Krizhevsky, A., Sutskever, I. &amp; Hinton, G. E. Imagenet classification with deep convolu-</p>
+  <p>tional neural networks. In Advances in neural information processing systems, 1097–1105</p>
+  <p>(2012). URL http://papers.nips.cc/paper/4824-imagenet.</p>
+  <p>2. Taigman, Y., Yang, M., Ranzato, M. &amp; Wolf, L. Deepface: Closing the gap to human-level</p>
+  <p>performance in face verification.</p>
+  <p>In Computer Vision and Pattern Recognition (CVPR),</p>
+  <p>2014 IEEE Conference on, 1701–1708 (IEEE, 2014). URL http://ieeexplore.</p>
+  <p>ieee.org/xpls/abs_all.jsp?arnumber=6909616.</p>
+  <p>3. G ̈uc ̧l ̈u, U. &amp; Gerven, M. A. J. v. Deep Neural Networks Reveal a Gradient in the Com-</p>
+  <p>plexity of Neural Representations across the Ventral Stream. The Journal of Neuroscience</p>
+  <p>35, 10005–10014 (2015). URL http://www.jneurosci.org/content/35/27/</p>
+  <p>10005.</p>
+  <p>4. Yamins, D. L. K. et al. Performance-optimized hierarchical models predict neural re-</p>
+  <p>sponses in higher visual cortex. Proceedings of the National Academy of Sciences</p>
+  <p>201403112 (2014). URL http://www.pnas.org/content/early/2014/05/</p>
+  <p>08/1403112111.</p>
+  <p>5. Cadieu, C. F. et al. Deep Neural Networks Rival the Representation of Primate IT Cortex</p>
+  <p>for Core Visual Object Recognition. PLoS Comput Biol 10, e1003963 (2014). URL http:</p>
+  <p>//dx.doi.org/10.1371/journal.pcbi.1003963.</p>
+  <p>6. K ̈ummerer, M., Theis, L. &amp; <span class="person">Bethge<span class="tag">persName</span></span>, M. Deep Gaze I: Boosting Saliency Prediction</p>
+  <p>with Feature Maps Trained on ImageNet.</p>
+  <p>In ICLR Workshop (2015). URL /media/</p>
+  <p>publications/1411.1045v4.pdf.</p>
+  <p>7. Khaligh-Razavi, S.-M. &amp; Kriegeskorte, N. Deep Supervised, but Not Unsupervised, Mod-</p>
+  <p>els May Explain IT Cortical Representation. PLoS Comput Biol 10, e1003915 (2014). URL</p>
+  <p>http://dx.doi.org/10.1371/journal.pcbi.1003915.</p>
+  <p>8. <span class="person">Gatys<span class="tag">persName</span></span>, L. A., <span class="person">Ecker<span class="tag">persName</span></span>, A. S. &amp; <span class="person">Bethge<span class="tag">persName</span></span>, M. Texture synthesis and the controlled generation of</p>
+  <p>natural stimuli using convolutional neural networks. arXiv:1505.07376 [cs, q-bio] (2015).</p>
+  <p>URL http://arxiv.org/abs/1505.07376. ArXiv: 1505.07376.</p>
+  <p>9. Mahendran, A. &amp; Vedaldi, A. Understanding Deep Image Representations by Inverting</p>
+  <p>Them. arXiv:1412.0035 [cs] (2014). URL http://arxiv.org/abs/1412.0035.</p>
+  <p>ArXiv: 1412.0035.</p>
+  <p>10. Heeger, D. J. &amp; Bergen, J. R. Pyramid-based Texture Analysis/Synthesis.</p>
+  <p>In Pro-</p>
+  <p>ceedings of the 22Nd Annual Conference on Computer Graphics and Interactive Tech-</p>
+  <p>niques, SIGGRAPH ’95, 229–238 (ACM, New York, NY, USA, 1995). URL http:</p>
+  <p>//doi.acm.org/10.1145/218380.218446.</p>
+  <p>11. Portilla, J. &amp; Simoncelli, E. P. A Parametric Texture Model Based on Joint Statis-</p>
+  <p>tics of Complex Wavelet Coefficients.</p>
+  <p>International Journal of Computer Vision</p>
+  <p>40, 49–70 (2000). URL http://link.springer.com/article/10.1023/A%</p>
+  <p>3A1026553619983.</p>
+  <p>12. Tenenbaum, J. B. &amp; Freeman, W. T. Separating <span class="concept">style<span class="tag">term·dom</span></span> and content with bilinear models. Neu-</p>
+  <p>ral computation 12, 1247–1283 (2000). URL http://www.mitpressjournals.</p>
+  <p>org/doi/abs/10.1162/089976600300015349.</p>
+  <p>13. Elgammal, A. &amp; Lee, C.-S. Separating <span class="concept">style<span class="tag">term·dom</span></span> and content on a nonlinear manifold.</p>
+  <p>Computer Vision and Pattern Recognition, 2004. CVPR 2004. Proceedings of the 2004</p>
+  <p>IEEE Computer Society Conference on, vol. 1, I–478 (IEEE, 2004). URL http://</p>
+  <p>ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1315070.</p>
+  <p>14. Kyprianidis, J. E., Collomosse, J., Wang, T. &amp; Isenberg, T. State of the ”Art”: A Taxon-</p>
+  <p>omy of Artistic Stylization Techniques for Images and Video. Visualization and Computer</p>
+  <p>Graphics, IEEE Transactions on 19, 866–885 (2013). URL http://ieeexplore.</p>
+  <p>ieee.org/xpls/abs_all.jsp?arnumber=6243138.</p>
+  <p>15. Hertzmann, A., Jacobs, C. E., Oliver, N., Curless, B. &amp; Salesin, D. H. Image analogies.</p>
+  <p>In Proceedings of the 28th annual conference on Computer graphics and interactive tech-</p>
+  <p>niques, 327–340 (ACM, 2001). URL http://dl.acm.org/citation.cfm?id=</p>
+  <p>383295.</p>
+  <p>16. Ashikhmin, N. Fast texture transfer. IEEE Computer Graphics and Applications 23, 38–43</p>
+  <p>(2003).</p>
+  <p>17. Efros, A. A. &amp; Freeman, W. T. Image quilting for texture synthesis and transfer. In Pro-</p>
+  <p>ceedings of the 28th annual conference on Computer graphics and interactive techniques,</p>
+  <p>341–346 (ACM, 2001). URL http://dl.acm.org/citation.cfm?id=383296.</p>
+  <p>18. Lee, H., Seo, S., Ryoo, S. &amp; Yoon, K. Directional Texture Transfer. In Proceedings of the</p>
+  <p>8th International Symposium on Non-Photorealistic Animation and Rendering, NPAR ’10,</p>
+  <p>43–48 (ACM, New York, NY, USA, 2010). URL http://doi.acm.org/10.1145/</p>
+  <p>1809939.1809945.</p>
+  <p>19. Xie, X., Tian, F. &amp; Seah, H. S. Feature Guided Texture Synthesis (FGTS) for Artistic <span class="concept">Style<span class="tag">term·dom</span></span></p>
+  <p>Transfer. In Proceedings of the 2Nd International Conference on Digital Interactive Media</p>
+  <p>in Entertainment and Arts, DIMEA ’07, 44–49 (ACM, New York, NY, USA, 2007). URL</p>
+  <p>http://doi.acm.org/10.1145/1306813.1306830.</p>
+  <p>20. Karayev, S. et al. Recognizing image <span class="concept">style<span class="tag">term·dom</span></span>. arXiv preprint arXiv:1311.3715 (2013). URL</p>
+  <p>http://arxiv.org/abs/1311.3715.</p>
+  <p>21. Adelson, E. H. &amp; Bergen, J. R. Spatiotemporal energy models for the perception of motion.</p>
+  <p>JOSA A 2, 284–299 (1985). URL http://www.opticsinfobase.org/josaa/</p>
+  <p>fulltext.cfm?uri=josaa-2-2-284.</p>
+  <p>22. Simonyan, K. &amp; Zisserman, A. Very Deep Convolutional Networks for Large-Scale Image</p>
+  <p>Recognition. arXiv:1409.1556 [cs] (2014). URL http://arxiv.org/abs/1409.</p>
+  <p>1556. ArXiv: 1409.1556.</p>
+  <p>23. Russakovsky, O. et al.</p>
+  <p>ImageNet Large Scale Visual Recognition Challenge.</p>
+  <p>arXiv:1409.0575 [cs] (2014). URL http://arxiv.org/abs/1409.0575. ArXiv:</p>
+  <p>1409.0575.</p>
+  <p>24. Jia, Y. et al. Caffe: Convolutional architecture for fast feature embedding. In Proceedings</p>
+  <p>of the ACM International Conference on Multimedia, 675–678 (ACM, 2014). URL http:</p>
+  <p>//dl.acm.org/citation.cfm?id=2654889.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 10 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 80 <code>concept</code> · 3 <code>ai</code>.<br>Meta-Tagging Project &middot; record <code>gatys2015-style-transfer</code>.</div>
+</body></html>

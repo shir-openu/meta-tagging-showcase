@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latent Dirichlet Allocation — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>Latent Dirichlet Allocation — TEI-tagged view</h1>
+<div class="meta">David M. Blei, Andrew Y. Ng, Michael I. Jordan · 2003 · <a href="https://en.wikipedia.org/wiki/Digital_humanities">digital-humanities</a> · <a href="https://jmlr.org/papers/v3/blei03a.html">source</a> · <a href="https://jmlr.org/papers/v3/blei03a.html" target="_blank" rel="noopener">full text</a> · <a href="https://jmlr.org/papers/v3/blei03a.html" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Blei</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Berkeley</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Journal of Machine Learning Research</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2003</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch ai">latent Dirichlet allocation</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr><tr><td><span class="swatch method">topic model</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">David M. Blei<span class="tag">persName</span></span>, <span class="person">Andrew Y. Ng<span class="tag">persName</span></span>, <span class="person">Michael I. Jordan<span class="tag">persName</span></span> (<span class="date">2003<span class="tag">date</span></span>). &ldquo;Latent Dirichlet Allocation.&rdquo; <span class="work">Journal of Machine Learning Research<span class="tag">title·j</span></span>, <span class="place">Berkeley<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> How to discover the latent thematic structure (topics) in large collections of text.</p>
+  <p><b>Research question —</b> Can documents be modelled as mixtures over a small set of latent topics, each a distribution over words, learned unsupervised?</p>
+  <p><b>Contribution —</b> Introduces <span class="ai">Latent Dirichlet Allocation<span class="tag">term·ai</span></span>, the generative <span class="method">topic model<span class="tag">term·mth</span></span> that became the core method of computational text analysis and <span class="method">distant reading<span class="tag">term·mth</span></span> in the digital humanities.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>topic modeling (latent Dirichlet allocation; discovering topics in text)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k mc">mechanism</td><td>a generative probabilistic model: each document is a finite mixture over latent topics, and each topic a distribution over words<span class="ev"> &mdash; &ldquo;each item of a collection is modeled as a finite mixture over an underlying set of topics&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>hierarchical Bayesian modeling</b><span class="ev"> &mdash; &ldquo;LDA is a three-level hierarchical Bayesian model&rdquo;</span></td></tr><tr><td class="k cr">contradicts</td><td> <b>LSI (latent semantic indexing) methodology</b><span class="ev"> &mdash; &ldquo;it is not clear why one should adopt the LSI methodology&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p><span class="ai">Latent Dirichlet Allocation<span class="tag">term·ai</span></span></p>
+  <p>Journal of Machine Learning Research 3 (2003) 993-1022</p>
+  <p>Submitted 2/02; Published 1/03</p>
+  <p><span class="ai">Latent Dirichlet Allocation<span class="tag">term·ai</span></span></p>
+  <p>David M. <span class="person">Blei<span class="tag">persName</span></span> Computer Science Division University of California Berkeley, CA 94720, USA</p>
+  <p><span class="person">Andrew<span class="tag">persName</span></span> Y. Ng Computer Science Department Stanford University Stanford, CA 94305, USA</p>
+  <p>Michael I. <span class="person">Jordan<span class="tag">persName</span></span> Computer Science Division and Department of Statistics University of California Berkeley, CA 94720, USA</p>
+  <p>Editor: John Lafferty</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>@CS.BERKELEY.EDU</p>
+  <p>ANG@CS.STANFORD.EDU</p>
+  <p><span class="person">JORDAN<span class="tag">persName</span></span>@CS.BERKELEY.EDU</p>
+  <p>Abstract</p>
+  <p>We describe <span class="ai">latent Dirichlet allocation<span class="tag">term·ai</span></span> (LDA), a generative probabilistic model for collections of discrete data such as text corpora. LDA is a three-level hierarchical Bayesian model, in which each item of a collection is modeled as a finite mixture over an underlying set of topics. Each topic is, in turn, modeled as an infinite mixture over an underlying set of topic probabilities. In the context of text modeling, the topic probabilities provide an explicit representation of a document. We present efficient approximate inference techniques based on variational methods and an EM algorithm for empirical Bayes parameter estimation. We report results in document modeling, text classification, and collaborative filtering, comparing to a mixture of unigrams model and the probabilistic LSI model.</p>
+  <p>1. Introduction</p>
+  <p>In this paper we consider the problem of modeling text corpora and other collections of discrete data. The goal is to find short descriptions of the members of a collection that enable efficient processing of large collections while preserving the essential statistical relationships that are useful for basic tasks such as classification, novelty detection, summarization, and similarity and relevance judgments.</p>
+  <p>Significant progress has been made on this problem by researchers in the field of informa- tion retrieval (IR) (Baeza-Yates and Ribeiro-Neto, 1999). The basic methodology proposed by IR researchers for text corporaa methodology successfully deployed in modern Internet search enginesreduces each document in the corpus to a vector of real numbers, each of which repre- sents ratios of counts. In the popular tf-idf scheme (Salton and McGill, 1983), a basic vocabulary of words or terms is chosen, and, for each document in the corpus, a count is formed of the number of occurrences of each word. After suitable normalization, this term frequency count is compared to an inverse document frequency count, which measures the number of occurrences of a</p>
+  <p>c(cid:13)2003 David M. <span class="person">Blei<span class="tag">persName</span></span>, <span class="person">Andrew<span class="tag">persName</span></span> Y. Ng and Michael I. <span class="person">Jordan<span class="tag">persName</span></span>.</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>word in the entire corpus (generally on a log scale, and again suitably normalized). The end result is a term-by-document matrix X whose columns contain the tf-idf values for each of the documents in the corpus. Thus the tf-idf scheme reduces documents of arbitrary length to fixed-length lists of numbers.</p>
+  <p>While the tf-idf reduction has some appealing featuresnotably in its basic identification of sets of words that are discriminative for documents in the collectionthe approach also provides a rela- tively small amount of reduction in description length and reveals little in the way of inter- or intra- document statistical structure. To address these shortcomings, IR researchers have proposed several other dimensionality reduction techniques, most notably latent semantic indexing (LSI) (Deerwester et al., 1990). LSI uses a singular value decomposition of the X matrix to identify a linear subspace in the space of tf-idf features that captures most of the variance in the collection. This approach can achieve significant compression in large collections. Furthermore, Deerwester et al. argue that the derived features of LSI, which are linear combinations of the original tf-idf features, can capture some aspects of basic linguistic notions such as synonymy and polysemy.</p>
+  <p>To substantiate the claims regarding LSI, and to study its relative strengths and weaknesses, it is useful to develop a generative probabilistic model of text corpora and to study the ability of LSI to recover aspects of the <span class="ai">generative model<span class="tag">term·ai</span></span> from data (Papadimitriou et al., 1998). Given a <span class="ai">generative model<span class="tag">term·ai</span></span> of text, however, it is not clear why one should adopt the LSI methodologyone can attempt to proceed more directly, fitting the model to data using maximum likelihood or Bayesian methods. A significant step forward in this regard was made by Hofmann (1999), who presented the probabilistic LSI (pLSI) model, also known as the aspect model, as an alternative to LSI. The pLSI approach, which we describe in detail in Section 4.3, models each word in a document as a sample from a mixture model, where the mixture components are multinomial random variables that can be viewed as representations of topics. Thus each word is generated from a single topic, and different words in a document may be generated from different topics. Each document is represented as a list of mixing proportions for these mixture components and thereby reduced to a probability distribution on a fixed set of topics. This distribution is the reduced description associated with the document.</p>
+  <p>While Hofmanns work is a useful step toward probabilistic modeling of text, it is incomplete in that it provides no probabilistic model at the level of documents. In pLSI, each document is represented as a list of numbers (the mixing proportions for topics), and there is no generative probabilistic model for these numbers. This leads to several problems: (1) the number of parame- ters in the model grows linearly with the size of the corpus, which leads to serious problems with overfitting, and (2) it is not clear how to assign probability to a document outside of the training set. To see how to proceed beyond pLSI, let us consider the fundamental probabilistic assumptions underlying the class of dimensionality reduction methods that includes LSI and pLSI. All of these methods are based on the bag-of-words assumptionthat the order of words in a document can be neglected. In the language of probability theory, this is an assumption of exchangeability for the words in a document (Aldous, 1985). Moreover, although less often stated formally, these methods also assume that documents are exchangeable; the specific ordering of the documents in a corpus can also be neglected.</p>
+  <p>A classic representation theorem due to de Finetti (1990) establishes that any collection of ex- changeable random variables has a representation as a mixture distributionin general an infinite mixture. Thus, if we wish to consider exchangeable representations for documents and words, we need to consider mixture models that capture the exchangeability of both words and documents.</p>
+  <p>994</p>
+  <p><span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>This line of thinking leads to the <span class="ai">latent Dirichlet allocation<span class="tag">term·ai</span></span> (LDA) model that we present in the current paper.</p>
+  <p>It is important to emphasize that an assumption of exchangeability is not equivalent to an as- sumption that the random variables are independent and identically distributed. Rather, exchange- ability essentially can be interpreted as meaning conditionally independent and identically dis- tributed, where the conditioning is with respect to an underlying latent parameter of a probability distribution. Conditionally, the joint distribution of the random variables is simple and factored while marginally over the latent parameter, the joint distribution can be quite complex. Thus, while an assumption of exchangeability is clearly a major simplifying assumption in the domain of text modeling, and its principal justification is that it leads to methods that are computationally efficient, the exchangeability assumptions do not necessarily lead to methods that are restricted to simple frequency counts or linear operations. We aim to demonstrate in the current paper that, by taking the de Finetti theorem seriously, we can capture significant intra-document statistical structure via the mixing distribution.</p>
+  <p>It is also worth noting that there are a large number of generalizations of the basic notion of exchangeability, including various forms of partial exchangeability, and that representation theo- rems are available for these cases as well (Diaconis, 1988). Thus, while the work that we discuss in the current paper focuses on simple bag-of-words models, which lead to mixture distributions for single words (unigrams), our methods are also applicable to richer models that involve mixtures for larger structural units such as n-grams or paragraphs.</p>
+  <p>The paper is organized as follows. In Section 2 we introduce basic notation and terminology. The LDA model is presented in Section 3 and is compared to related latent variable models in Section 4. We discuss inference and parameter estimation for LDA in Section 5. An illustrative example of fitting LDA to data is provided in Section 6. Empirical results in text modeling, text classification and collaborative filtering are presented in Section 7. Finally, Section 8 presents our conclusions.</p>
+  <p>2. Notation and terminology</p>
+  <p>We use the language of text collections throughout the paper, referring to entities such as words, documents, and corpora. This is useful in that it helps to guide intuition, particularly when we introduce latent variables which aim to capture abstract notions such as topics. It is important to note, however, that the LDA model is not necessarily tied to text, and has applications to other problems involving collections of data, including data from domains such as collaborative filtering, content-based image retrieval and bioinformatics. Indeed, in Section 7.3, we present experimental results in the collaborative filtering domain. Formally, we define the following terms: (cid:15) A word is the basic unit of discrete data, defined to be an item from a vocabulary indexed by f1, . . . ,V g. We represent words using unit-basis vectors that have a single component equal to one and all other components equal to zero. Thus, using superscripts to denote components, the vth word in the vocabulary is represented by a V -vector w such that wv = 1 and wu = 0 for u 6= v.</p>
+  <p>(cid:15) A document is a sequence of N words denoted by w = (w1, w2, . . . , wN), where wn is the nth</p>
+  <p>word in the sequence.</p>
+  <p>(cid:15) A corpus is a collection of M documents denoted by D = fw1, w2, . . . , wMg.</p>
+  <p>995</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>We wish to find a probabilistic model of a corpus that not only assigns high probability to</p>
+  <p>members of the corpus, but also assigns high probability to other similar documents.</p>
+  <p>3. <span class="ai">Latent Dirichlet allocation<span class="tag">term·ai</span></span></p>
+  <p><span class="ai">Latent Dirichlet allocation<span class="tag">term·ai</span></span> (LDA) is a generative probabilistic model of a corpus. The basic idea is that documents are represented as random mixtures over latent topics, where each topic is charac- terized by a distribution over words.1</p>
+  <p>LDA assumes the following generative process for each document w in a corpus D:</p>
+  <p>1. Choose N (cid:24) Poisson(x ). 2. Choose q (cid:24) Dir(a ).</p>
+  <p>3. For each of the N words wn:</p>
+  <p>(a) Choose a topic zn (cid:24) Multinomial(q ). (b) Choose a word wn from p(wn j zn, b ), a multinomial probability conditioned on the topic</p>
+  <p>zn.</p>
+  <p>Several simplifying assumptions are made in this basic model, some of which we remove in subse- quent sections. First, the dimensionality k of the Dirichlet distribution (and thus the dimensionality of the topic variable z) is assumed known and fixed. Second, the word probabilities are parameter- i j = p(w j = 1 j zi = 1), which for now we treat as a fixed quantity ized by a k (cid:2)V matrix b where b that is to be estimated. Finally, the Poisson assumption is not critical to anything that follows and more realistic document length distributions can be used as needed. Furthermore, note that N is independent of all the other data generating variables (q and z). It is thus an ancillary variable and we will generally ignore its randomness in the subsequent development.</p>
+  <p>A k-dimensional Dirichlet random variable q can take values in the (k 1)-simplex (a k-vector i = 1), and has the following probability density on this</p>
+  <p>lies in the (k 1)-simplex if q</p>
+  <p>i (cid:21) 0, (cid:229)</p>
+  <p>k i=1</p>
+  <p>simplex:</p>
+  <p>(cid:0)</p>
+  <p>p(q</p>
+  <p>j a ) =</p>
+  <p>k i=1 G (a</p>
+  <p>k i=1</p>
+  <p>(cid:1)</p>
+  <p>i i)</p>
+  <p>a 11 1</p>
+  <p>(cid:1) (cid:1) (cid:1) q</p>
+  <p>a k1 k</p>
+  <p>(1)</p>
+  <p>is a k-vector with components a</p>
+  <p>where the parameter a i &gt; 0, and where G (x) is the Gamma function. The Dirichlet is a convenient distribution on the simplex it is in the exponential family, has finite dimensional sufficient statistics, and is conjugate to the multinomial distribution. In Section 5, these properties will facilitate the development of inference and parameter estimation algorithms for LDA. , a set of N topics z, and</p>
+  <p>, the joint distribution of a topic mixture q</p>
+  <p>Given the parameters a and b a set of N words w is given by:</p>
+  <p>p(q , z, w j a</p>
+  <p>, b ) = p(q</p>
+  <p>j a )</p>
+  <p>n=1</p>
+  <p>p(zn j q )p(wn j zn, b ),</p>
+  <p>(2)</p>
+  <p>1. We refer to the latent multinomial variables in the LDA model as topics, so as to exploit text-oriented intuitions, but we make no epistemological claims regarding these latent variables beyond their utility in representing probability distributions on sets of words.</p>
+  <p>996</p>
+  <p>q q G (cid:229) a (cid:213) q (cid:213) <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>Figure 1: Graphical model representation of LDA. The boxes are plates representing replicates. The outer plate represents documents, while the inner plate represents the repeated choice of topics and words within a document.</p>
+  <p>where p(zn j q ) is simply q z, we obtain the marginal distribution of a document:</p>
+  <p>i for the unique i such that zi n</p>
+  <p>p(w j a</p>
+  <p>, b ) =</p>
+  <p>p(q</p>
+  <p>j a )</p>
+  <p>n=1</p>
+  <p>= 1. Integrating over q and summing over</p>
+  <p>p(zn j q )p(wn j zn, b )</p>
+  <p>dq .</p>
+  <p>(3)</p>
+  <p>Finally, taking the product of the marginal probabilities of single documents, we obtain the proba- bility of a corpus:</p>
+  <p>p(D j a</p>
+  <p>, b ) =</p>
+  <p>d=1</p>
+  <p>p(q d j a )</p>
+  <p>n=1</p>
+  <p>zdn</p>
+  <p>p(zdn j q d)p(wdn j zdn, b )</p>
+  <p>dq d.</p>
+  <p>The LDA model is represented as a probabilistic graphical model in Figure 1. As the figure makes clear, there are three levels to the LDA representation. The parameters a and b are corpus- level parameters, assumed to be sampled once in the process of generating a corpus. The variables q d are document-level variables, sampled once per document. Finally, the variables zdn and wdn are word-level variables and are sampled once for each word in each document.</p>
+  <p>It is important to distinguish LDA from a simple Dirichlet-multinomial clustering model. A classical clustering model would involve a two-level model in which a Dirichlet is sampled once for a corpus, a multinomial clustering variable is selected once for each document in the corpus, and a set of words are selected for the document conditional on the cluster variable. As with many clustering models, such a model restricts a document to being associated with a single topic. LDA, on the other hand, involves three levels, and notably the topic node is sampled repeatedly within the document. Under this model, documents can be associated with multiple topics.</p>
+  <p>Structures similar to that shown in Figure 1 are often studied in Bayesian statistical modeling, where they are referred to as hierarchical models (Gelman et al., 1995), or more precisely as con- ditionally independent hierarchical models (Kass and Steffey, 1989). Such models are also often referred to as parametric empirical Bayes models, a term that refers not only to a particular model structure, but also to the methods used for estimating parameters in the model (Morris, 1983). In- deed, as we discuss in Section 5, we adopt the empirical Bayes approach to estimating parameters such as a and b in simple implementations of LDA, but we also consider fuller Bayesian approaches as well.</p>
+  <p>997</p>
+  <p>a q b</p>
+  <p>(cid:213) (cid:229) (cid:213)</p>
+  <p>(cid:213) (cid:229) <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>3.1 LDA and exchangeability A finite set of random variables fz1, . . . , zNg is said to be exchangeable if the joint distribution is invariant to permutation. If p</p>
+  <p>is a permutation of the integers from 1 to N:</p>
+  <p>p(z1, . . . , zN) = p(zp (1), . . . , zp (N)).</p>
+  <p>An infinite sequence of random variables is infinitely exchangeable if every finite subsequence is exchangeable.</p>
+  <p>De Finettis representation theorem states that the joint distribution of an infinitely exchangeable sequence of random variables is as if a random parameter were drawn from some distribution and then the random variables in question were independent and identically distributed, conditioned on that parameter.</p>
+  <p>In LDA, we assume that words are generated by topics (by fixed conditional distributions) and that those topics are infinitely exchangeable within a document. By de Finettis theorem, the prob- ability of a sequence of words and topics must therefore have the form:</p>
+  <p>p(w, z) =</p>
+  <p>p(q )</p>
+  <p>n=1</p>
+  <p>p(zn j q )p(wn j zn)</p>
+  <p>dq ,</p>
+  <p>where q is the random parameter of a multinomial over topics. We obtain the LDA distribution on documents in Eq. (3) by marginalizing out the topic variables and endowing q with a Dirichlet distribution.</p>
+  <p>3.2 A continuous mixture of unigrams</p>
+  <p>The LDA model shown in Figure 1 is somewhat more elaborate than the two-level models often studied in the classical hierarchical Bayesian literature. By marginalizing over the hidden topic variable z, however, we can understand LDA as a two-level model. In particular, let us form the word distribution p(w j q , b ):</p>
+  <p>p(w j q , b ) = (cid:229)</p>
+  <p>p(w j z, b )p(z j q ).</p>
+  <p>Note that this is a random quantity since it depends on q</p>
+  <p>We now define the following generative process for a document w: 1. Choose q (cid:24) Dir(a ). 2. For each of the N words wn:</p>
+  <p>(a) Choose a word wn from p(wn j q , b ).</p>
+  <p>This process defines the marginal distribution of a document as a continuous mixture distribution:</p>
+  <p>p(w j a</p>
+  <p>, b ) =</p>
+  <p>p(q</p>
+  <p>j a )</p>
+  <p>n=1</p>
+  <p>p(wn j q , b )</p>
+  <p>dq ,</p>
+  <p>where p(wn j q , b ) are the mixture components and p(q</p>
+  <p>j a ) are the mixture weights.</p>
+  <p>Figure 2 illustrates this interpretation of LDA. It depicts the distribution on p(w j q , b ) which is induced from a particular instance of an LDA model. Note that this distribution on the (V 1)- simplex is attained with only k + kV parameters yet exhibits a very interesting multimodal structure.</p>
+  <p>998</p>
+  <p>(cid:213)</p>
+  <p>(cid:213) <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>Figure 2: An example density on unigram distributions p(w j q , b ) under LDA for three words and four topics. The triangle embedded in the x-y plane is the 2-D simplex representing all possible multinomial distributions over three words. Each of the vertices of the trian- gle corresponds to a deterministic distribution that assigns probability one to one of the words; the midpoint of an edge gives probability 0.5 to two of the words; and the centroid of the triangle is the uniform distribution over all three words. The four points marked with an x are the locations of the multinomial distributions p(w j z) for each of the four topics, and the surface shown on top of the simplex is an example of a density over the (V 1)-simplex (multinomial distributions of words) given by LDA.</p>
+  <p>4. Relationship with other latent variable models</p>
+  <p>In this section we compare LDA to simpler latent variable models for textthe unigram model, a mixture of unigrams, and the pLSI model. Furthermore, we present a unified geometric interpreta- tion of these models which highlights their key differences and similarities.</p>
+  <p>4.1 Unigram model</p>
+  <p>Under the unigram model, the words of every document are drawn independently from a single multinomial distribution:</p>
+  <p>p(w) =</p>
+  <p>n=1</p>
+  <p>p(wn).</p>
+  <p>This is illustrated in the graphical model in Figure 3a.</p>
+  <p>999</p>
+  <p>(cid:213) <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>(a) unigram</p>
+  <p>(b) mixture of unigrams</p>
+  <p>(c) pLSI/aspect model</p>
+  <p>Figure 3: Graphical model representation of different models of discrete data.</p>
+  <p>4.2 Mixture of unigrams</p>
+  <p>If we augment the unigram model with a discrete random topic variable z (Figure 3b), we obtain a mixture of unigrams model (Nigam et al., 2000). Under this mixture model, each document is gen- erated by first choosing a topic z and then generating N words independently from the conditional multinomial p(w j z). The probability of a document is:</p>
+  <p>p(w) = (cid:229)</p>
+  <p>p(z)</p>
+  <p>n=1</p>
+  <p>p(wn j z).</p>
+  <p>When estimated from a corpus, the word distributions can be viewed as representations of topics under the assumption that each document exhibits exactly one topic. As the empirical results in Section 7 illustrate, this assumption is often too limiting to effectively model a large collection of documents.</p>
+  <p>In contrast, the LDA model allows documents to exhibit multiple topics to different degrees. This is achieved at a cost of just one additional parameter: there are k 1 parameters associated with p(z) in the mixture of unigrams, versus the k parameters associated with p(q</p>
+  <p>j a ) in LDA.</p>
+  <p>4.3 Probabilistic latent semantic indexing</p>
+  <p>Probabilistic latent semantic indexing (pLSI) is another widely used document model (Hofmann, 1999). The pLSI model, illustrated in Figure 3c, posits that a document label d and a word wn are</p>
+  <p>1000</p>
+  <p>(cid:213) <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>conditionally independent given an unobserved topic z:</p>
+  <p>p(d, wn) = p(d)(cid:229)</p>
+  <p>p(wn j z)p(z j d).</p>
+  <p>The pLSI model attempts to relax the simplifying assumption made in the mixture of unigrams model that each document is generated from only one topic. In a sense, it does capture the possibility that a document may contain multiple topics since p(z j d) serves as the mixture weights of the topics for a particular document d. However, it is important to note that d is a dummy index into the list of documents in the training set. Thus, d is a multinomial random variable with as many possible values as there are training documents and the model learns the topic mixtures p(z j d) only for those documents on which it is trained. For this reason, pLSI is not a well-defined <span class="ai">generative model<span class="tag">term·ai</span></span> of documents; there is no natural way to use it to assign probability to a previously unseen document. A further difficulty with pLSI, which also stems from the use of a distribution indexed by train- ing documents, is that the number of parameters which must be estimated grows linearly with the number of training documents. The parameters for a k-topic pLSI model are k multinomial distri- butions of size V and M mixtures over the k hidden topics. This gives kV + kM parameters and therefore linear growth in M. The linear growth in parameters suggests that the model is prone to overfitting and, empirically, overfitting is indeed a serious problem (see Section 7.1). In prac- tice, a tempering heuristic is used to smooth the parameters of the model for acceptable predic- tive performance. It has been shown, however, that overfitting can occur even when tempering is used (Popescul et al., 2001).</p>
+  <p>LDA overcomes both of these problems by treating the topic mixture weights as a k-parameter hidden random variable rather than a large set of individual parameters which are explicitly linked to the training set. As described in Section 3, LDA is a well-defined <span class="ai">generative model<span class="tag">term·ai</span></span> and generalizes easily to new documents. Furthermore, the k + kV parameters in a k-topic LDA model do not grow with the size of the training corpus. We will see in Section 7.1 that LDA does not suffer from the same overfitting issues as pLSI.</p>
+  <p>4.4 A geometric interpretation</p>
+  <p>A good way of illustrating the differences between LDA and the other latent topic models is by considering the geometry of the latent space, and seeing how a document is represented in that geometry under each model.</p>
+  <p>All four of the models described aboveunigram, mixture of unigrams, pLSI, and LDA operate in the space of distributions over words. Each such distribution can be viewed as a point on the (V 1)-simplex, which we call the word simplex.</p>
+  <p>The unigram model finds a single point on the word simplex and posits that all words in the corpus come from the corresponding distribution. The latent variable models consider k points on the word simplex and form a sub-simplex based on those points, which we call the topic simplex. Note that any point on the topic simplex is also a point on the word simplex. The different latent variable models use the topic simplex in different ways to generate a document.</p>
+  <p>(cid:15) The mixture of unigrams model posits that for each document, one of the k points on the word simplex (that is, one of the corners of the topic simplex) is chosen randomly and all the words of the document are drawn from the distribution corresponding to that point.</p>
+  <p>1001</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>topic simplex</p>
+  <p>(cid:1)(cid:1) (cid:0)(cid:0) (cid:0)(cid:0) (cid:1)(cid:1) (cid:0)(cid:0) (cid:1)(cid:1)</p>
+  <p>topic 1</p>
+  <p>(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) x (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) x (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) x (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)</p>
+  <p>word simplex</p>
+  <p>topic 2</p>
+  <p>(cid:1)(cid:1) (cid:0)(cid:0) (cid:0)(cid:0) (cid:1)(cid:1)</p>
+  <p>(cid:1) (cid:0) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:1) (cid:0) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1) (cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0)(cid:0) (cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)(cid:1)</p>
+  <p>topic 3</p>
+  <p>Figure 4: The topic simplex for three topics embedded in the word simplex for three words. The corners of the word simplex correspond to the three distributions where each word (re- spectively) has probability one. The three points of the topic simplex correspond to three different distributions over words. The mixture of unigrams places each document at one of the corners of the topic simplex. The pLSI model induces an empirical distribution on the topic simplex denoted by x. LDA places a smooth distribution on the topic simplex denoted by the contour lines.</p>
+  <p>(cid:15) The pLSI model posits that each word of a training document comes from a randomly chosen topic. The topics are themselves drawn from a document-specific distribution over topics, i.e., a point on the topic simplex. There is one such distribution for each document; the set of training documents thus defines an empirical distribution on the topic simplex.</p>
+  <p>(cid:15) LDA posits that each word of both the observed and unseen documents is generated by a randomly chosen topic which is drawn from a distribution with a randomly chosen parameter. This parameter is sampled once per document from a smooth distribution on the topic simplex.</p>
+  <p>These differences are highlighted in Figure 4.</p>
+  <p>5. Inference and Parameter Estimation</p>
+  <p>We have described the motivation behind LDA and illustrated its conceptual advantages over other latent topic models. In this section, we turn our attention to procedures for inference and parameter estimation under LDA.</p>
+  <p>1002</p>
+  <p><span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>Figure 5: (Left) Graphical model representation of LDA. (Right) Graphical model representation</p>
+  <p>of the variational distribution used to approximate the posterior in LDA.</p>
+  <p>5.1 Inference</p>
+  <p>The key inferential problem that we need to solve in order to use LDA is that of computing the posterior distribution of the hidden variables given a document:</p>
+  <p>p(q , z j w, a</p>
+  <p>, b ) = p(q , z, w j a</p>
+  <p>, b )</p>
+  <p>p(w j a</p>
+  <p>, b )</p>
+  <p>Unfortunately, this distribution is intractable to compute in general. Indeed, to normalize the distri- bution we marginalize over the hidden variables and write Eq. (3) in terms of the model parameters:</p>
+  <p>p(w j a</p>
+  <p>, b ) =</p>
+  <p>G ((cid:229)</p>
+  <p>i G (a</p>
+  <p>i) i)</p>
+  <p>i=1</p>
+  <p>n=1</p>
+  <p>i=1</p>
+  <p>(q j=1</p>
+  <p>i j)w j</p>
+  <p>dq ,</p>
+  <p>a function which is intractable due to the coupling between q and b in the summation over latent topics (Dickey, 1983). Dickey shows that this function is an expectation under a particular extension to the Dirichlet distribution which can be represented with special hypergeometric functions. It has been used in a Bayesian context for censored discrete data to represent the posterior on q which, in that setting, is a random parameter (Dickey et al., 1987).</p>
+  <p>Although the posterior distribution is intractable for exact inference, a wide variety of approxi- mate inference algorithms can be considered for LDA, including Laplace approximation, variational approximation, and Markov chain Monte Carlo (<span class="person">Jordan<span class="tag">persName</span></span>, 1999). In this section we describe a simple convexity-based variational algorithm for inference in LDA, and discuss some of the alternatives in Section 8.</p>
+  <p>5.2 Variational inference</p>
+  <p>The basic idea of convexity-based variational inference is to make use of Jensens inequality to ob- tain an adjustable lower bound on the log likelihood (<span class="person">Jordan<span class="tag">persName</span></span> et al., 1999). Essentially, one considers a family of lower bounds, indexed by a set of variational parameters. The variational parameters are chosen by an optimization procedure that attempts to find the tightest possible lower bound.</p>
+  <p>A simple way to obtain a tractable family of lower bounds is to consider simple modifications of the original graphical model in which some of the edges and nodes are removed. Consider in particular the LDA model shown in Figure 5 (left). The problematic coupling between q and b</p>
+  <p>1003</p>
+  <p>b a q q f g a (cid:213)</p>
+  <p>(cid:213) q a (cid:213) (cid:229) (cid:213) <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>arises due to the edges between q , z, and w. By dropping these edges and the w nodes, and endow- ing the resulting simplified graphical model with free variational parameters, we obtain a family of distributions on the latent variables. This family is characterized by the following variational distribution:</p>
+  <p>q(q , z j g , f ) = q(q</p>
+  <p>j g )</p>
+  <p>n=1</p>
+  <p>q(zn j f n),</p>
+  <p>(4)</p>
+  <p>where the Dirichlet parameter g and the multinomial parameters (f 1, . . . , f N) are the free variational parameters.</p>
+  <p>Having specified a simplified family of probability distributions, the next step is to set up an optimization problem that determines the values of the variational parameters g and f . As we show in Appendix A, the desideratum of finding a tight lower bound on the log likelihood translates directly into the following optimization problem:</p>
+  <p>(g (cid:3), f (cid:3)) = arg min (g ,f )</p>
+  <p>D(q(q , z j g , f ) k p(q , z j w, a</p>
+  <p>, b )).</p>
+  <p>(5)</p>
+  <p>Thus the optimizing values of the variational parameters are found by minimizing the Kullback- Leibler (KL) divergence between the variational distribution and the true posterior p(q , z j w, a , b ). This minimization can be achieved via an iterative fixed-point method. In particular, we show in Appendix A.3 that by computing the derivatives of the KL divergence and setting them equal to zero, we obtain the following pair of update equations:</p>
+  <p>f ni</p>
+  <p>i = a</p>
+  <p>iwn expfEq[log(q i + (cid:229) N n=1</p>
+  <p>f ni.</p>
+  <p>i) j g ]g</p>
+  <p>(6)</p>
+  <p>(7)</p>
+  <p>As we show in Appendix A.1, the expectation in the multinomial update can be computed as follows:</p>
+  <p>Eq[log(q</p>
+  <p>i) j g ] = Y</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>k j=1</p>
+  <p>(8)</p>
+  <p>where Y tions (Abramowitz and Stegun, 1970).</p>
+  <p>is the first derivative of the log G</p>
+  <p>function which is computable via Taylor approxima-</p>
+  <p>Eqs. (6) and (7) have an appealing intuitive interpretation. The Dirichlet update is a poste- rior Dirichlet given expected observations taken under the variational distribution, E[zn j f n]. The multinomial update is akin to using Bayes theorem, p(zn j wn) (cid:181) p(wn j zn)p(zn), where p(zn) is approximated by the exponential of the expected value of its logarithm under the variational distri- bution.</p>
+  <p>It is important to note that the variational distribution is actually a conditional distribution, varying as a function of w. This occurs because the optimization problem in Eq. (5) is conducted for fixed w, and thus yields optimizing parameters (g (cid:3), f (cid:3)) that are a function of w. We can write the resulting variational distribution as q(q , z j g (cid:3)(w), f (cid:3)(w)), where we have made the dependence on w explicit. Thus the variational distribution can be viewed as an approximation to the posterior distribution p(q , z j w, a</p>
+  <p>In the language of text, the optimizing parameters (g (cid:3)(w), f (cid:3)(w)) are document-specific. In particular, we view the Dirichlet parameters g (cid:3)(w) as providing a representation of a document in the topic simplex.</p>
+  <p>, b ).</p>
+  <p>1004</p>
+  <p>(cid:213) (cid:181) b g (cid:229) g <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>initialize f 0 initialize g repeat</p>
+  <p>ni := 1/k for all i and n i := a</p>
+  <p>i + N/k for all i</p>
+  <p>for n = 1 to N</p>
+  <p>for i = 1 to k t+1 := b ni normalize f g t+1 := a + (cid:229) N until convergence</p>
+  <p>(g t i</p>
+  <p>iwn exp(Y t+1 n n=1</p>
+  <p>)) to sum to 1. t+1 n</p>
+  <p>(1) (2) (3) (4) (5) (6) (7) (8) (9)</p>
+  <p>Figure 6: A variational inference algorithm for LDA.</p>
+  <p>We summarize the variational inference procedure in Figure 6, with appropriate starting points for g and f n. From the pseudocode it is clear that each iteration of variational inference for LDA requires O((N + 1)k) operations. Empirically, we find that the number of iterations required for a single document is on the order of the number of words in the document. This yields a total number of operations roughly on the order of N2k.</p>
+  <p>5.3 Parameter estimation</p>
+  <p>In this section we present an empirical Bayes method for parameter estimation in the LDA model (see Section 5.4 for a fuller Bayesian approach). In particular, given a corpus of documents D = fw1, w2, . . . , wMg, we wish to find parameters a and b that maximize the (marginal) log likelihood of the data:</p>
+  <p>(cid:96)(a</p>
+  <p>, b ) =</p>
+  <p>d=1</p>
+  <p>log p(wd j a</p>
+  <p>, b ).</p>
+  <p>As we have described above, the quantity p(w j a</p>
+  <p>, b ) cannot be computed tractably. However, variational inference provides us with a tractable lower bound on the log likelihood, a bound which we can maximize with respect to a and b . We can thus find approximate empirical Bayes estimates for the LDA model via an alternating variational EM procedure that maximizes a lower bound with respect to the variational parameters g and f , and then, for fixed values of the variational parameters, maximizes the lower bound with respect to the model parameters a and b</p>
+  <p>We provide a detailed derivation of the variational EM algorithm for LDA in Appendix A.4.</p>
+  <p>The derivation yields the following iterative algorithm:</p>
+  <p>1. (E-step) For each document, find the optimizing values of the variational parameters fg (cid:3) d</p>
+  <p>d 2 Dg. This is done as described in the previous section.</p>
+  <p>, f (cid:3) d :</p>
+  <p>2. (M-step) Maximize the resulting lower bound on the log likelihood with respect to the model parameters a and b . This corresponds to finding maximum likelihood estimates with expected sufficient statistics for each document under the approximate posterior which is computed in the E-step.</p>
+  <p>1005</p>
+  <p>f f (cid:229) <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>Figure 7: Graphical model representation of the smoothed LDA model.</p>
+  <p>These two steps are repeated until the lower bound on the log likelihood converges.</p>
+  <p>In Appendix A.4, we show that the M-step update for the conditional multinomial parameter b</p>
+  <p>can be written out analytically:</p>
+  <p>i j (cid:181)</p>
+  <p>d=1</p>
+  <p>n=1</p>
+  <p>f (cid:3) dniw j</p>
+  <p>(9)</p>
+  <p>We further show that the M-step update for Dirichlet parameter a efficient Newton-Raphson method in which the Hessian is inverted in linear time.</p>
+  <p>can be implemented using an</p>
+  <p>5.4 Smoothing</p>
+  <p>The large vocabulary size that is characteristic of many document corpora creates serious problems of sparsity. A new document is very likely to contain words that did not appear in any of the documents in a training corpus. Maximum likelihood estimates of the multinomial parameters assign zero probability to such words, and thus zero probability to new documents. The standard approach to coping with this problem is to smooth the multinomial parameters, assigning positive probability to all vocabulary items whether or not they are observed in the training set (Jelinek, 1997). Laplace smoothing is commonly used; this essentially yields the mean of the posterior distribution under a uniform Dirichlet prior on the multinomial parameters.</p>
+  <p>Unfortunately, in the mixture model setting, simple Laplace smoothing is no longer justified as a maximum a posteriori method (although it is often implemented in practice; cf. Nigam et al., 1999). In fact, by placing a Dirichlet prior on the multinomial parameter we obtain an intractable posterior in the mixture model setting, for much the same reason that one obtains an intractable posterior in the basic LDA model. Our proposed solution to this problem is to simply apply variational inference methods to the extended model that includes Dirichlet smoothing on the multinomial parameter.</p>
+  <p>In the LDA setting, we obtain the extended graphical model shown in Figure 7. We treat b as a k (cid:2) V random matrix (one row for each mixture component), where we assume that each row is independently drawn from an exchangeable Dirichlet distribution.2 We now extend our infer- ence procedures to treat the b i as random variables that are endowed with a posterior distribution,</p>
+  <p>2. An exchangeable Dirichlet is simply a Dirichlet distribution with a single scalar parameter h</p>
+  <p>. The density is the same</p>
+  <p>as a Dirichlet (Eq. 1) where a</p>
+  <p>i = h</p>
+  <p>for each component.</p>
+  <p>1006</p>
+  <p>a q b h b (cid:229) (cid:229) <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>conditioned on the data. Thus we move beyond the empirical Bayes procedure of Section 5.3 and consider a fuller Bayesian approach to LDA.</p>
+  <p>We consider a variational approach to Bayesian inference that places a separable distribution on</p>
+  <p>the random variables b</p>
+  <p>, q</p>
+  <p>, and z (Attias, 2000):</p>
+  <p>q(b 1:k, z1:M, q 1:M j l , f , g ) =</p>
+  <p>i=1</p>
+  <p>Dir(b</p>
+  <p>i j l</p>
+  <p>d=1</p>
+  <p>qd(q d, zd j f d, g d),</p>
+  <p>where qd(q , z j f , g ) is the variational distribution defined for LDA in Eq. (4). As is easily verified, the resulting variational inference procedure again yields Eqs. (6) and (7) as the update equations and g , respectively, as well as an additional update for the new for the variational parameters f variational parameter l :</p>
+  <p>i j = h +</p>
+  <p>d=1</p>
+  <p>n=1</p>
+  <p>f (cid:3) dniw j</p>
+  <p>Iterating these equations to convergence yields an approximate posterior distribution on b</p>
+  <p>, and z. We are now left with the hyperparameter h on the exchangeable Dirichlet, as well as the hy- perparameter a from before. Our approach to setting these hyperparameters is again (approximate) empirical Bayeswe use variational EM to find maximum likelihood estimates of these parameters based on the marginal likelihood. These procedures are described in Appendix A.4.</p>
+  <p>, q</p>
+  <p>6. Example</p>
+  <p>In this section, we provide an illustrative example of the use of an LDA model on real data. Our data are 16,000 documents from a subset of the TREC AP corpus (Harman, 1992). After removing a standard list of stop words, we used the EM algorithm described in Section 5.3 to find the Dirichlet and conditional multinomial parameters for a 100-topic LDA model. The top words from some of the resulting multinomial distributions p(w j z) are illustrated in Figure 8 (top). As we have hoped, these distributions seem to capture some of the underlying topics in the corpus (and we have named them according to these topics).</p>
+  <p>As we emphasized in Section 4, one of the advantages of LDA over related latent variable mod- els is that it provides well-defined inference procedures for previously unseen documents. Indeed, we can illustrate how LDA works by performing inference on a held-out document and examining the resulting variational posterior parameters.</p>
+  <p>Figure 8 (bottom) is a document from the TREC AP corpus which was not used for parameter estimation. Using the algorithm in Section 5.1, we computed the variational posterior Dirichlet parameters g for the article and variational posterior multinomial parameters f n for each word in the article.</p>
+  <p>Recall that the ith posterior Dirichlet parameter g</p>
+  <p>i is approximately the ith prior Dirichlet pa- rameter a i plus the expected number of words which were generated by the ith topic (see Eq. 7). Therefore, the prior Dirichlet parameters subtracted from the posterior Dirichlet parameters indicate the expected number of words which were allocated to each topic for a particular document. For the example article in Figure 8 (bottom), most of the g i. Four topics, however, are significantly larger (by this, we mean g i (cid:21) 1). Looking at the corresponding distributions over i a words identifies the topics which mixed to form this document (Figure 8, top).</p>
+  <p>i are close to a</p>
+  <p>1007</p>
+  <p>(cid:213) (cid:213) l (cid:229) (cid:229) <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>Further insight comes from examining the f n parameters. These distributions approximate p(zn j w) and tend to peak towards one of the k possible topic values. In the article text in Figure 8, = 1) &gt; 0.9). the words are color coded according to these values (i.e., the ith color is used if qn(zi n With this illustration, one can identify how the different topics mixed in the document text.</p>
+  <p>While demonstrating the power of LDA, the posterior analysis also highlights some of its lim- itations. In particular, the bag-of-words assumption allows words that should be generated by the same topic (e.g., William Randolph Hearst Foundation) to be allocated to several different top- ics. Overcoming this limitation would require some form of extension of the basic LDA model; in particular, we might relax the bag-of-words assumption by assuming partial exchangeability or Markovianity of word sequences.</p>
+  <p>7. Applications and Empirical Results</p>
+  <p>In this section, we discuss our empirical evaluation of LDA in several problem domainsdocument modeling, document classification, and collaborative filtering.</p>
+  <p>In all of the mixture models, the expected complete log likelihood of the data has local max- ima at the points where all or some of the mixture components are equal to each other. To avoid these local maxima, it is important to initialize the EM algorithm appropriately. In our experiments, we initialize EM by seeding each conditional multinomial distribution with five documents, reduc- ing their effective total length to two words, and smoothing across the whole vocabulary. This is essentially an approximation to the scheme described in Heckerman and Meila (2001).</p>
+  <p>7.1 Document modeling</p>
+  <p>We trained a number of latent variable models, including LDA, on two text corpora to compare the generalization performance of these models. The documents in the corpora are treated as unlabeled; thus, our goal is density estimationwe wish to achieve high likelihood on a held-out test set. In particular, we computed the perplexity of a held-out test set to evaluate the models. The perplexity, used by convention in language modeling, is monotonically decreasing in the likelihood of the test data, and is algebraicly equivalent to the inverse of the geometric mean per-word likelihood. A lower perplexity score indicates better generalization performance.3 More formally, for a test set of M documents, the perplexity is:</p>
+  <p>(cid:26)</p>
+  <p>perplexity(Dtest) = exp</p>
+  <p>d=1 log p(wd) (cid:229) M (cid:229) M d=1 Nd</p>
+  <p>(cid:27)</p>
+  <p>In our experiments, we used a corpus of scientific abstracts from the C. Elegans community (Av- ery, 2002) containing 5,225 abstracts with 28,414 unique terms, and a subset of the TREC AP corpus containing 16,333 newswire articles with 23,075 unique terms. In both cases, we held out 10% of the data for test purposes and trained the models on the remaining 90%. In preprocessing the data,</p>
+  <p>3. Note that we simply use perplexity as a figure of merit for comparing models. The models that we compare are all unigram (bag-of-words) models, whichas we have discussed in the Introductionare of interest in the informa- tion retrieval context. We are not attempting to do language modeling in this paperan enterprise that would require us to examine trigram or other higher-order models. We note in passing, however, that extensions of LDA could be considered that involve Dirichlet-multinomial over trigrams instead of unigrams. We leave the exploration of such extensions to language modeling to future work.</p>
+  <p>1008</p>
+  <p><span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>\Arts&quot;</p>
+  <p>\Budgets&quot;</p>
+  <p>\Children&quot; \Education&quot;</p>
+  <p>NEW</p>
+  <p>MILLION</p>
+  <p>CHILDREN</p>
+  <p>SCHOOL</p>
+  <p>FILM</p>
+  <p>TAX</p>
+  <p>WOMEN</p>
+  <p>STUDENTS</p>
+  <p>SHOW</p>
+  <p>PROGRAM</p>
+  <p>PEOPLE</p>
+  <p>SCHOOLS</p>
+  <p>MUSIC</p>
+  <p>BUDGET</p>
+  <p>CHILD</p>
+  <p>EDUCATION</p>
+  <p>MOVIE</p>
+  <p>BILLION</p>
+  <p>YEARS</p>
+  <p>TEACHERS</p>
+  <p>PLAY</p>
+  <p>FEDERAL</p>
+  <p>FAMILIES</p>
+  <p>HIGH</p>
+  <p>MUSICAL YEAR</p>
+  <p>WORK</p>
+  <p>PUBLIC</p>
+  <p>BEST</p>
+  <p>SPENDING</p>
+  <p>PARENTS</p>
+  <p>TEACHER</p>
+  <p>ACTOR</p>
+  <p>NEW</p>
+  <p>SAYS</p>
+  <p>BENNETT</p>
+  <p>FIRST</p>
+  <p>STATE</p>
+  <p>FAMILY</p>
+  <p>MANIGAT</p>
+  <p>YORK</p>
+  <p>PLAN</p>
+  <p>WELFARE</p>
+  <p>NAMPHY</p>
+  <p>OPERA</p>
+  <p>MONEY</p>
+  <p>MEN</p>
+  <p>STATE</p>
+  <p>THEATER PROGRAMS</p>
+  <p>PERCENT</p>
+  <p>PRESIDENT</p>
+  <p>ACTRESS GOVERNMENT CARE</p>
+  <p>ELEMENTARY</p>
+  <p>LOVE</p>
+  <p>CONGRESS</p>
+  <p>LIFE</p>
+  <p>HAITI</p>
+  <p>The William Randolph Hearst Foundation will give $1.25 million to Lincoln Center, Metropoli- tan Opera Co., New York Philharmonic and Juilliard School. Our board felt that we had a real opportunity to make a mark on the future of the performing arts with these grants an act every bit as important as our traditional areas of support in health, medical research, education and the social services, Hearst Foundation President Randolph A. Hearst said Monday in announcing the grants. Lincoln Centers share will be $200,000 for its new building, which will house young artists and provide new public facilities. The Metropolitan Opera Co. and New York Philharmonic will receive $400,000 each. The Juilliard School, where music and the performing arts are taught, will get $250,000. The Hearst Foundation, a leading supporter of the Lincoln Center Consolidated Corporate Fund, will make its usual annual $100,000 donation, too.</p>
+  <p>Figure 8: An example article from the AP corpus. Each color codes a different factor from which</p>
+  <p>the word is putatively generated.</p>
+  <p>1009</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>3400</p>
+  <p>3200</p>
+  <p>3000</p>
+  <p>2800</p>
+  <p>2600</p>
+  <p>2400</p>
+  <p>2200</p>
+  <p>2000</p>
+  <p>1800</p>
+  <p>1600</p>
+  <p>y t i x e p r e P</p>
+  <p>1400 0</p>
+  <p>7000</p>
+  <p>6500</p>
+  <p>6000</p>
+  <p>5500</p>
+  <p>5000</p>
+  <p>4500</p>
+  <p>4000</p>
+  <p>3500</p>
+  <p>3000</p>
+  <p>y t i x e p r e P</p>
+  <p>2500 0</p>
+  <p>Smoothed Unigram Smoothed Mixt. Unigrams LDA Fold in pLSI</p>
+  <p>100</p>
+  <p>Smoothed Unigram Smoothed Mixt. Unigrams LDA Fold in pLSI</p>
+  <p>140</p>
+  <p>160</p>
+  <p>180</p>
+  <p>200</p>
+  <p>50 Number of Topics</p>
+  <p>100 Number of Topics</p>
+  <p>120</p>
+  <p>Figure 9: Perplexity results on the nematode (Top) and AP (Bottom) corpora for LDA, the unigram</p>
+  <p>model, mixture of unigrams, and pLSI.</p>
+  <p>1010</p>
+  <p><span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>Num. topics (k) Perplexity (Mult. Mixt.) Perplexity (pLSI) 2 5 10 20 50 100 200</p>
+  <p>22,266 2.20 (cid:2) 108 1.93 (cid:2) 1017 1.20 (cid:2) 1022 4.19 (cid:2) 10106 2.39 (cid:2) 10150 3.51 (cid:2) 10264</p>
+  <p>7,052 17,588 63,800 2.52 (cid:2) 105 5.04 (cid:2) 106 1.72 (cid:2) 107 1.31 (cid:2) 107</p>
+  <p>Table 1: Overfitting in the mixture of unigrams and pLSI models for the AP corpus. Similar behav-</p>
+  <p>ior is observed in the nematode corpus (not reported).</p>
+  <p>we removed a standard list of 50 stop words from each corpus. From the AP data, we further removed words that occurred only once.</p>
+  <p>We compared LDA with the unigram, mixture of unigrams, and pLSI models described in Sec- tion 4. We trained all the hidden variable models using EM with exactly the same stopping criteria, that the average change in expected log likelihood is less than 0.001%.</p>
+  <p>Both the pLSI model and the mixture of unigrams suffer from serious overfitting issues, though for different reasons. This phenomenon is illustrated in Table 1. In the mixture of unigrams model, overfitting is a result of peaked posteriors in the training set; a phenomenon familiar in the super- vised setting, where this model is known as the naive Bayes model (Rennie, 2001). This leads to a nearly deterministic clustering of the training documents (in the E-step) which is used to determine the word probabilities in each mixture component (in the M-step). A previously unseen document may best fit one of the resulting mixture components, but will probably contain at least one word which did not occur in the training documents that were assigned to that component. Such words will have a very small probability, which causes the perplexity of the new document to explode. As k increases, the documents of the training corpus are partitioned into finer collections and thus induce more words with small probabilities.</p>
+  <p>In the mixture of unigrams, we can alleviate overfitting through the variational Bayesian smooth- ing scheme presented in Section 5.4. This ensures that all words will have some probability under every mixture component.</p>
+  <p>In the pLSI case, the hard clustering problem is alleviated by the fact that each document is allowed to exhibit a different proportion of topics. However, pLSI only refers to the training doc- uments and a different overfitting problem arises that is due to the dimensionality of the p(zjd) parameter. One reasonable approach to assigning probability to a previously unseen document is by marginalizing over d:</p>
+  <p>p(w) = (cid:229)</p>
+  <p>n=1</p>
+  <p>p(wn j z)p(z j d)p(d).</p>
+  <p>Essentially, we are integrating over the empirical distribution on the topic simplex (see Figure 4).</p>
+  <p>This method of inference, though theoretically sound, causes the model to overfit. The document- specific topic distribution has some components which are close to zero for those topics that do not appear in the document. Thus, certain words will have very small probability in the estimates of</p>
+  <p>1011</p>
+  <p>(cid:213) (cid:229) <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>each mixture component. When determining the probability of a new document through marginal- ization, only those training documents which exhibit a similar proportion of topics will contribute to the likelihood. For a given training documents topic proportions, any word which has small probability in all the constituent topics will cause the perplexity to explode. As k gets larger, the chance that a training document will exhibit topics that cover all the words in the new document decreases and thus the perplexity grows. Note that pLSI does not overfit as quickly (with respect to k) as the mixture of unigrams.</p>
+  <p>This overfitting problem essentially stems from the restriction that each future document exhibit the same topic proportions as were seen in one or more of the training documents. Given this constraint, we are not free to choose the most likely proportions of topics for the new document. An alternative approach is the folding-in heuristic suggested by Hofmann (1999), where one ignores the p(zjd) parameters and refits p(zjdnew). Note that this gives the pLSI model an unfair advantage by allowing it to refit k 1 parameters to the test data.</p>
+  <p>LDA suffers from neither of these problems. As in pLSI, each document can exhibit a different proportion of underlying topics. However, LDA can easily assign probability to a new document; no heuristics are needed for a new document to be endowed with a different set of topic proportions than were associated with documents in the training corpus.</p>
+  <p>Figure 9 presents the perplexity for each model on both corpora for different values of k. The pLSI model and mixture of unigrams are suitably corrected for overfitting. The latent variable models perform better than the simple unigram model. LDA consistently performs better than the other models.</p>
+  <p>7.2 Document classification</p>
+  <p>In the text classification problem, we wish to classify a document into two or more mutually ex- clusive classes. As in any classification problem, we may wish to consider generative approaches or discriminative approaches. In particular, by using one LDA module for each class, we obtain a <span class="ai">generative model<span class="tag">term·ai</span></span> for classification. It is also of interest to use LDA in the discriminative framework, and this is our focus in this section.</p>
+  <p>A challenging aspect of the document classification problem is the choice of features. Treating individual words as features yields a rich but very large feature set (Joachims, 1999). One way to reduce this feature set is to use an LDA model for dimensionality reduction. In particular, LDA reduces any document to a fixed set of real-valued featuresthe posterior Dirichlet parameters g (cid:3)(w) associated with the document. It is of interest to see how much discriminatory information we lose in reducing the document description to these parameters.</p>
+  <p>We conducted two binary classification experiments using the Reuters-21578 dataset. The</p>
+  <p>dataset contains 8000 documents and 15,818 words.</p>
+  <p>In these experiments, we estimated the parameters of an LDA model on all the documents, without reference to their true class label. We then trained a support vector machine (SVM) on the low-dimensional representations provided by LDA and compared this SVM to an SVM trained on all the word features.</p>
+  <p>Using the SVMLight software package (Joachims, 1999), we compared an SVM trained on all the word features with those trained on features induced by a 50-topic LDA model. Note that we reduce the feature space by 99.6 percent in this case.</p>
+  <p>1012</p>
+  <p><span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>y c a r u c c A</p>
+  <p>85 0</p>
+  <p>y c a r u c c A</p>
+  <p>0.25</p>
+  <p>93 0</p>
+  <p>LDA Features</p>
+  <p>Word Features</p>
+  <p>0.05</p>
+  <p>0.2 Proportion of data used for training</p>
+  <p>0.15</p>
+  <p>0.1</p>
+  <p>LDA Features</p>
+  <p>Word Features</p>
+  <p>0.05</p>
+  <p>0.2 Proportion of data used for training</p>
+  <p>0.15</p>
+  <p>0.1</p>
+  <p>0.25</p>
+  <p>(a)</p>
+  <p>(b)</p>
+  <p>Figure 10: Classification results on two binary classification problems from the Reuters-21578 dataset for different proportions of training data. Graph (a) is EARN vs. NOT EARN. Graph (b) is GRAIN vs. NOT GRAIN.</p>
+  <p>y t i x e p r e P e v i t c d e r P</p>
+  <p>600</p>
+  <p>550</p>
+  <p>500</p>
+  <p>450</p>
+  <p>400</p>
+  <p>350</p>
+  <p>300</p>
+  <p>250</p>
+  <p>200 0</p>
+  <p>LDA Fold in pLSI Smoothed Mixt. Unigrams</p>
+  <p>Number of Topics</p>
+  <p>Figure 11: Results for collaborative filtering on the EachMovie data.</p>
+  <p>Figure 10 shows our results. We see that there is little reduction in classification performance in using the LDA-based features; indeed, in almost all cases the performance is improved with the LDA features. Although these results need further substantiation, they suggest that the topic-based representation provided by LDA may be useful as a fast filtering algorithm for feature selection in text classification.</p>
+  <p>1013</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>7.3 Collaborative filtering</p>
+  <p>Our final experiment uses the EachMovie collaborative filtering data. In this data set, a collection of users indicates their preferred movie choices. A user and the movies chosen are analogous to a document and the words in the document (respectively).</p>
+  <p>The collaborative filtering task is as follows. We train a model on a fully observed set of users. Then, for each unobserved user, we are shown all but one of the movies preferred by that user and are asked to predict what the held-out movie is. The different algorithms are evaluated according to the likelihood they assign to the held-out movie. More precisely, define the predictive perplexity on M test users to be:</p>
+  <p>predictive-perplexity(Dtest) = exp</p>
+  <p>(cid:26)</p>
+  <p>d=1 log p(wd,Nd (cid:229) M M</p>
+  <p>j wd,1:Nd1)</p>
+  <p>(cid:27) )</p>
+  <p>We restricted the EachMovie dataset to users that positively rated at least 100 movies (a positive rating is at least four out of five stars). We divided this set of users into 3300 training users and 390 testing users.</p>
+  <p>Under the mixture of unigrams model, the probability of a movie given a set of observed movies</p>
+  <p>is obtained from the posterior distribution over topics:</p>
+  <p>p(wjwobs) = (cid:229)</p>
+  <p>p(wjz)p(zjwobs).</p>
+  <p>In the pLSI model, the probability of a held-out movie is given by the same equation except that p(zjwobs) is computed by folding in the previously seen movies. Finally, in the LDA model, the probability of a held-out movie is given by integrating over the posterior Dirichlet: Z</p>
+  <p>p(wjwobs) =</p>
+  <p>p(wjz)p(zjq )p(q jwobs)dq ,</p>
+  <p>where p(q jwobs) is given by the variational inference method described in Section 5.2. Note that this quantity is efficient to compute. We can interchange the sum and integral sign, and compute a linear combination of k Dirichlet expectations.</p>
+  <p>With a vocabulary of 1600 movies, we find the predictive perplexities illustrated in Figure 11. Again, the mixture of unigrams model and pLSI are corrected for overfitting, but the best predictive perplexities are obtained by the LDA model.</p>
+  <p>8. Discussion</p>
+  <p>We have described <span class="ai">latent Dirichlet allocation<span class="tag">term·ai</span></span>, a flexible generative probabilistic model for collec- tions of discrete data. LDA is based on a simple exchangeability assumption for the words and topics in a document; it is therefore realized by a straightforward application of de Finettis repre- sentation theorem. We can view LDA as a dimensionality reduction technique, in the spirit of LSI, but with proper underlying generative probabilistic semantics that make sense for the type of data that it models.</p>
+  <p>Exact inference is intractable for LDA, but any of a large suite of approximate inference algo- rithms can be used for inference and parameter estimation within the LDA framework. We have presented a simple convexity-based variational approach for inference, showing that it yields a fast</p>
+  <p>1014</p>
+  <p>(cid:229) <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>algorithm resulting in reasonable comparative performance in terms of test set likelihood. Other approaches that might be considered include Laplace approximation, higher-order variational tech- In particular, Leisink and Kappen (2002) have presented a niques, and Monte Carlo methods. general methodology for converting low-order variational lower bounds into higher-order varia- tional bounds. It is also possible to achieve higher accuracy by dispensing with the requirement of maintaining a bound, and indeed Minka and Lafferty (2002) have shown that improved inferential accuracy can be obtained for the LDA model via a higher-order variational technique known as ex- pectation propagation. Finally, Griffiths and Steyvers (2002) have presented a Markov chain Monte Carlo algorithm for LDA.</p>
+  <p>LDA is a simple model, and although we view it as a competitor to methods such as LSI and pLSI in the setting of dimensionality reduction for document collections and other discrete cor- pora, it is also intended to be illustrative of the way in which probabilistic models can be scaled up to provide useful inferential machinery in domains involving multiple levels of structure. In- deed, the principal advantages of generative models such as LDA include their modularity and their extensibility. As a probabilistic module, LDA can be readily embedded in a more complex model a property that is not possessed by LSI. In recent work we have used pairs of LDA modules to model relationships between images and their corresponding descriptive captions (<span class="person">Blei<span class="tag">persName</span></span> and <span class="person">Jordan<span class="tag">persName</span></span>, 2002). Moreover, there are numerous possible extensions of LDA. For example, LDA is readily extended to continuous data or other non-multinomial data. As is the case for other mixture models, including finite mixture models and hidden Markov models, the emission probability p(wn j zn) contributes only a likelihood value to the inference procedures for LDA, and other likelihoods are readily substituted in its place. In particular, it is straightforward to develop a continuous variant of LDA in which Gaussian observables are used in place of multinomials. Another simple extension of LDA comes from allowing mixtures of Dirichlet distributions in the place of the single Dirichlet of LDA. This allows a richer structure in the latent topic space and in particular allows a form of document clustering that is different from the clustering that is achieved via shared topics. Finally, a variety of extensions of LDA can be considered in which the distributions on the topic variables are elaborated. For example, we could arrange the topics in a time series, essentially relaxing the full exchangeability assumption to one of partial exchangeability. We could also consider partially exchangeable models in which we condition on exogenous variables; thus, for example, the topic distribution could be conditioned on features such as paragraph or sentence, providing a more powerful text model that makes use of information obtained from a parser.</p>
+  <p>Acknowledgements</p>
+  <p>This work was supported by the National Science Foundation (NSF grant IIS-9988642) and the Multidisciplinary Research Program of the Department of Defense (MURI N00014-00-1-0637). <span class="person">Andrew<span class="tag">persName</span></span> Y. Ng and David M. <span class="person">Blei<span class="tag">persName</span></span> were additionally supported by fellowships from the Microsoft Corporation.</p>
+  <p>References</p>
+  <p>M. Abramowitz and I. Stegun, editors. Handbook of Mathematical Functions. Dover, New York,</p>
+  <p>1970.</p>
+  <p>1015</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>D. Aldous. Exchangeability and related topics. In ́Ecole d ́et ́e de probabilit ́es de Saint-Flour, XIII</p>
+  <p>1983, pages 1198. Springer, Berlin, 1985.</p>
+  <p>H. Attias. A variational Bayesian framework for graphical models. In Advances in Neural Informa-</p>
+  <p>tion Processing Systems 12, 2000.</p>
+  <p>L. Avery.</p>
+  <p>Caenorrhabditis</p>
+  <p>genetic</p>
+  <p>center</p>
+  <p>bibliography.</p>
+  <p>2002.</p>
+  <p>URL</p>
+  <p>http://elegans.swmed.edu/wli/cgcbib.</p>
+  <p>R. Baeza-Yates and B. Ribeiro-Neto. Modern Information Retrieval. ACM Press, New York, 1999.</p>
+  <p>D. <span class="person">Blei<span class="tag">persName</span></span> and M. <span class="person">Jordan<span class="tag">persName</span></span>. Modeling annotated data. Technical Report UCB//CSD-02-1202, U.C.</p>
+  <p>Berkeley Computer Science Division, 2002.</p>
+  <p>B. de Finetti. Theory of probability. Vol. 1-2. John Wiley &amp; Sons Ltd., Chichester, 1990. Reprint</p>
+  <p>of the 1975 translation.</p>
+  <p>S. Deerwester, S. Dumais, T. Landauer, G. Furnas, and R. Harshman. Indexing by latent semantic</p>
+  <p>analysis. Journal of the American Society of Information Science, 41(6):391407, 1990.</p>
+  <p>P. Diaconis. Recent progress on de Finettis notions of exchangeability. In Bayesian statistics, 3</p>
+  <p>(Valencia, 1987), pages 111125. Oxford Univ. Press, New York, 1988.</p>
+  <p>J. Dickey. Multiple hypergeometric functions: Probabilistic interpretations and statistical uses.</p>
+  <p>Journal of the American Statistical Association, 78:628637, 1983.</p>
+  <p>J. Dickey, J. Jiang, and J. Kadane. Bayesian methods for censored categorical data. Journal of the</p>
+  <p>American Statistical Association, 82:773781, 1987.</p>
+  <p>A. Gelman, J. Carlin, H. Stern, and D. Rubin. Bayesian data analysis. Chapman &amp; Hall, London,</p>
+  <p>1995.</p>
+  <p>T. Griffiths and M. Steyvers. A probabilistic approach to semantic representation. In Proceedings</p>
+  <p>of the 24th Annual Conference of the Cognitive Science Society, 2002.</p>
+  <p>D. Harman. Overview of the first text retrieval conference (TREC-1). In Proceedings of the First</p>
+  <p>Text Retrieval Conference (TREC-1), pages 120, 1992.</p>
+  <p>D. Heckerman and M. Meila. An experimental comparison of several clustering and initialization</p>
+  <p>methods. Machine Learning, 42:929, 2001.</p>
+  <p>T. Hofmann. Probabilistic latent semantic indexing. Proceedings of the Twenty-Second Annual</p>
+  <p>International SIGIR Conference, 1999.</p>
+  <p>F. Jelinek. Statistical Methods for Speech Recognition. MIT Press, Cambridge, MA, 1997.</p>
+  <p>T. Joachims. Making large-scale SVM learning practical. In Advances in Kernel Methods - Support</p>
+  <p>Vector Learning. M.I.T. Press, 1999.</p>
+  <p>M. <span class="person">Jordan<span class="tag">persName</span></span>, editor. Learning in Graphical Models. MIT Press, Cambridge, MA, 1999.</p>
+  <p>1016</p>
+  <p><span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>M. <span class="person">Jordan<span class="tag">persName</span></span>, Z. Ghahramani, T. Jaakkola, and L. Saul. Introduction to variational methods for graph-</p>
+  <p>ical models. Machine Learning, 37:183233, 1999.</p>
+  <p>R. Kass and D. Steffey. Approximate Bayesian inference in conditionally independent hierarchical models (parametric empirical Bayes models). Journal of the American Statistical Association, 84 (407):717726, 1989.</p>
+  <p>M. Leisink and H. Kappen. General lower bounds based on computer generated higher order ex- In Uncertainty in Artificial Intelligence, Proceedings of the Eighteenth Conference,</p>
+  <p>pansions. 2002.</p>
+  <p>T. Minka. Estimating a Dirichlet distribution. Technical report, M.I.T., 2000.</p>
+  <p>T. P. Minka and J. Lafferty. Expectation-propagation for the generative aspect model. In Uncertainty</p>
+  <p>in Artificial Intelligence (UAI), 2002.</p>
+  <p>C. Morris. Parametric empirical Bayes inference: Theory and applications. Journal of the American</p>
+  <p>Statistical Association, 78(381):4765, 1983. With discussion.</p>
+  <p>K. Nigam, J. Lafferty, and A. McCallum. Using maximum entropy for text classification. IJCAI-99</p>
+  <p>Workshop on Machine Learning for Information Filtering, pages 6167, 1999.</p>
+  <p>K. Nigam, A. McCallum, S. Thrun, and T. Mitchell. Text classification from labeled and unlabeled</p>
+  <p>documents using EM. Machine Learning, 39(2/3):103134, 2000.</p>
+  <p>C. Papadimitriou, H. Tamaki, P. Raghavan, and S. Vempala. Latent semantic indexing: A proba-</p>
+  <p>bilistic analysis. pages 159168, 1998.</p>
+  <p>A. Popescul, L. Ungar, D. Pennock, and S. Lawrence. Probabilistic models for unified collaborative In Uncertainty in Artificial</p>
+  <p>and content-based recommendation in sparse-data environments. Intelligence, Proceedings of the Seventeenth Conference, 2001.</p>
+  <p>J. Rennie. Improving multi-class text classification with naive Bayes. Technical Report AITR-2001-</p>
+  <p>004, M.I.T., 2001.</p>
+  <p>G. Ronning. Maximum likelihood estimation of Dirichlet distributions. Journal of Statistcal Com-</p>
+  <p>putation and Simulation, 34(4):215221, 1989.</p>
+  <p>G. Salton and M. McGill, editors. Introduction to Modern Information Retrieval. McGraw-Hill,</p>
+  <p>1983.</p>
+  <p>Appendix A. Inference and parameter estimation</p>
+  <p>In this appendix, we derive the variational inference procedure (Eqs. 6 and 7) and the parameter maximization procedure for the conditional multinomial (Eq. 9) and for the Dirichlet. We begin by deriving a useful property of the Dirichlet distribution.</p>
+  <p>1017</p>
+  <p><span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>A.1 Computing E[log(q</p>
+  <p>i j a )]</p>
+  <p>The need to compute the expected value of the log of a single probability component under the Dirichlet arises repeatedly in deriving the inference and parameter estimation procedures for LDA. This value can be easily computed from the natural parameterization of the exponential family representation of the Dirichlet distribution.</p>
+  <p>Recall that a distribution is in the exponential family if it can be written in the form:</p>
+  <p>p(x j h ) = h(x) exp</p>
+  <p>(cid:8) (cid:9) h T T (x) A(h )</p>
+  <p>is the natural parameter, T (x) is the sufficient statistic, and A(h ) is the log of the normal-</p>
+  <p>where h ization factor.</p>
+  <p>We can write the Dirichlet in this form by exponentiating the log of Eq. (1):</p>
+  <p>p(q</p>
+  <p>j a ) = exp</p>
+  <p>(cid:8)(cid:0)</p>
+  <p>k i=1</p>
+  <p>i 1) log q</p>
+  <p>(cid:1)</p>
+  <p>+ log G</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>(cid:229)</p>
+  <p>k i=1</p>
+  <p>i=1 log G (a k</p>
+  <p>(cid:9) i)</p>
+  <p>i 1 and From this form, we immediately see that the natural parameter of the Dirichlet is h the sufficient statistic is T (q i. Furthermore, using the general fact that the derivative of the log normalization factor with respect to the natural parameter is equal to the expectation of the sufficient statistic, we obtain:</p>
+  <p>i) = log q</p>
+  <p>i = a</p>
+  <p>E[log q</p>
+  <p>i j a</p>
+  <p>] = Y</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>k j=1</p>
+  <p>where Y</p>
+  <p>is the digamma function, the first derivative of the log Gamma function.</p>
+  <p>A.2 Newton-Raphson methods for a Hessian with special structure</p>
+  <p>In this section we describe a linear algorithm for the usually cubic Newton-Raphson optimization method. This method is used for maximum likelihood estimation of the Dirichlet distribution (Ron- ning, 1989, Minka, 2000).</p>
+  <p>The Newton-Raphson optimization technique finds a stationary point of a function by iterating:</p>
+  <p>a new = a old H(a old)1g(a old)</p>
+  <p>where H(a ) and g(a ) are the Hessian matrix and gradient respectively at the point a this algorithm scales as O(N3) due to the matrix inversion.</p>
+  <p>. In general,</p>
+  <p>If the Hessian matrix is of the form:</p>
+  <p>H = diag(h) + 1z1T,</p>
+  <p>(10)</p>
+  <p>where diag(h) is defined to be a diagonal matrix with the elements of the vector h along the diagonal, then we can apply the matrix inversion lemma and obtain:</p>
+  <p>H1 = diag(h)1 diag(h)111Tdiag(h)1</p>
+  <p>z1 + (cid:229)</p>
+  <p>j=1 h1</p>
+  <p>Multiplying by the gradient, we obtain the ith component: (H1g)i = gi c hi</p>
+  <p>1018</p>
+  <p>(cid:229) (cid:229) a (cid:229) a <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>where</p>
+  <p>c =</p>
+  <p>j=1 g j/h j k k</p>
+  <p>j=1 h1</p>
+  <p>z1 + (cid:229)</p>
+  <p>Observe that this expression depends only on the 2k values hi and gi and thus yields a Newton- Raphson algorithm that has linear time complexity.</p>
+  <p>A.3 Variational inference</p>
+  <p>In this section we derive the variational inference algorithm described in Section 5.1. Recall that this involves using the following variational distribution:</p>
+  <p>q(q , z j g , f ) = q(q</p>
+  <p>j g )</p>
+  <p>n=1</p>
+  <p>q(zn j f n)</p>
+  <p>(11)</p>
+  <p>as a surrogate for the posterior distribution p(q , z, w j a f are set via an optimization procedure that we now describe.</p>
+  <p>, b ), where the variational parameters g and</p>
+  <p>Following <span class="person">Jordan<span class="tag">persName</span></span> et al. (1999), we begin by bounding the log likelihood of a document using</p>
+  <p>Jensens inequality. Omitting the parameters g and f</p>
+  <p>for simplicity, we have:</p>
+  <p>log p(w j a</p>
+  <p>, b ) = log</p>
+  <p>= log Z</p>
+  <p>(cid:21)</p>
+  <p>p(q , z, w j a</p>
+  <p>, b )dq</p>
+  <p>p(q , z, w j a</p>
+  <p>, b )q(q , z)</p>
+  <p>q(q , z)</p>
+  <p>z q(q , z) log p(q , z, w j a</p>
+  <p>, b )dq</p>
+  <p>q(q , z) log q(q , z)dq</p>
+  <p>= Eq[log p(q , z, w j a</p>
+  <p>z , b )] Eq[log q(q , z)].</p>
+  <p>(12)</p>
+  <p>Thus we see that Jensens inequality provides us with a lower bound on the log likelihood for an arbitrary variational distribution q(q , z j g , f ).</p>
+  <p>It can be easily verified that the difference between the left-hand side and the right-hand side of the Eq. (12) is the KL divergence between the variational posterior probability and the true posterior probability. That is, letting L(g , f ; a , b ) denote the right-hand side of Eq. (12) (where we have restored the dependence on the variational parameters g and f</p>
+  <p>in our notation), we have:</p>
+  <p>log p(w j a</p>
+  <p>, b ) = L(g , f ; a</p>
+  <p>, b ) + D(q(q , z j g , f ) k p(q , z j w, a</p>
+  <p>, b )).</p>
+  <p>(13)</p>
+  <p>This shows that maximizing the lower bound L(g , f ; a is equivalent to minimizing the KL divergence between the variational posterior probability and the true posterior probability, the optimization problem presented earlier in Eq. (5).</p>
+  <p>, b ) with respect to g and f</p>
+  <p>We now expand the lower bound by using the factorizations of p and q:</p>
+  <p>L(g , f ; a</p>
+  <p>, b ) = Eq[log p(q</p>
+  <p>j a )] + Eq[log p(z j q )] + Eq[log p(w j z, b )]</p>
+  <p>Eq[log q(q )] Eq[log q(z)].</p>
+  <p>(14)</p>
+  <p>1019</p>
+  <p>(cid:229) (cid:213) (cid:229) (cid:229) (cid:229) (cid:229) <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>Finally, we expand Eq. (14) in terms of the model parameters (a (g , f ). Each of the five lines below expands one of the five terms in the bound:</p>
+  <p>, b ) and the variational parameters</p>
+  <p>L(g , f ; a</p>
+  <p>, b ) = log G</p>
+  <p>(cid:0)</p>
+  <p>k j=1</p>
+  <p>(cid:1)</p>
+  <p>i=1</p>
+  <p>log G (a</p>
+  <p>i) +</p>
+  <p>(a i=1</p>
+  <p>(cid:0)</p>
+  <p>i 1)</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>n=1 N</p>
+  <p>i=1 k</p>
+  <p>i=1 (cid:0)</p>
+  <p>n=1</p>
+  <p>log G</p>
+  <p>n=1</p>
+  <p>i=1</p>
+  <p>(cid:0)</p>
+  <p>f ni</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>j=1</p>
+  <p>f niw j</p>
+  <p>n log b</p>
+  <p>i j</p>
+  <p>k j=1</p>
+  <p>(cid:1)</p>
+  <p>i=1</p>
+  <p>log G (g</p>
+  <p>(g i=1</p>
+  <p>(cid:0)</p>
+  <p>i 1)</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>f ni log f ni,</p>
+  <p>(15)</p>
+  <p>where we have made use of Eq. (8).</p>
+  <p>In the following two sections, we show how to maximize this lower bound with respect to the</p>
+  <p>variational parameters f and g .</p>
+  <p>A.3.1 VARIATIONAL MULTINOMIAL</p>
+  <p>We first maximize Eq. (15) with respect to f ni, the probability that the nth word is generated by latent topic i. Observe that this is a constrained maximization since (cid:229)</p>
+  <p>f ni = 1.</p>
+  <p>k i=1</p>
+  <p>We form the Lagrangian by isolating the terms which contain f ni and adding the appropriate Lagrange multipliers. Let b = 1 j zi = 1) for the appropriate v. (Recall that each wn is a vector of size V with exactly one component equal to one; we can select the unique v such that wv n</p>
+  <p>iv be p(wv n</p>
+  <p>= 1):</p>
+  <p>L[f ni] = f ni</p>
+  <p>(cid:0)</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>+ f ni log b</p>
+  <p>iv f ni log f ni + l n</p>
+  <p>(cid:0)</p>
+  <p>(cid:1) f ni 1</p>
+  <p>k j=1</p>
+  <p>where we have dropped the arguments of L for simplicity, and where the subscript f ni denotes that we have retained only those terms in L that are a function of f ni. Taking derivatives with respect to f ni, we obtain:</p>
+  <p>= Y</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>k j=1</p>
+  <p>¶ L ni</p>
+  <p>+ log b</p>
+  <p>iv log f ni 1 + l .</p>
+  <p>Setting this derivative to zero yields the maximizing value of the variational parameter f ni (cf. Eq. 6):</p>
+  <p>f ni (cid:181)</p>
+  <p>iv exp</p>
+  <p>(cid:0)</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>(16)</p>
+  <p>1020</p>
+  <p>(cid:229) a (cid:229) (cid:229) Y (cid:229) g (cid:229) (cid:229) Y (cid:229) g (cid:229) (cid:229) (cid:229) (cid:229) g (cid:229) (cid:229) Y (cid:229) g (cid:229) (cid:229) Y (cid:229) g (cid:229) ¶ f (cid:229) g b Y (cid:229) g <span class="ai">LATENT DIRICHLET ALLOCATION<span class="tag">term·ai</span></span></p>
+  <p>A.3.2 VARIATIONAL DIRICHLET</p>
+  <p>Next, we maximize Eq. (15) with respect to g eter. The terms containing g</p>
+  <p>i are:</p>
+  <p>i, the ith component of the posterior Dirichlet param-</p>
+  <p>L[g ] =</p>
+  <p>(a i=1</p>
+  <p>(cid:0)</p>
+  <p>i 1)</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>k j=1</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>n=1</p>
+  <p>(cid:0)</p>
+  <p>f ni</p>
+  <p>i) Y</p>
+  <p>log G</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>k j=1</p>
+  <p>+ log G (g</p>
+  <p>(cid:0)</p>
+  <p>i 1)</p>
+  <p>i) Y</p>
+  <p>(g i=1</p>
+  <p>(cid:0)</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>This simplifies to:</p>
+  <p>L[g ] =</p>
+  <p>(cid:0)</p>
+  <p>i=1</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1) (cid:0)</p>
+  <p>k j=1</p>
+  <p>i + (cid:229) N</p>
+  <p>n=1</p>
+  <p>f ni g</p>
+  <p>(cid:1)</p>
+  <p>log G</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>k j=1</p>
+  <p>+ log G (g</p>
+  <p>i).</p>
+  <p>We take the derivative with respect to g</p>
+  <p>(cid:0)</p>
+  <p>= Y</p>
+  <p>0(g</p>
+  <p>¶ L i</p>
+  <p>i + (cid:229) N</p>
+  <p>n=1</p>
+  <p>f ni g</p>
+  <p>(cid:1)</p>
+  <p>(cid:0)</p>
+  <p>k j=1</p>
+  <p>(cid:1) k</p>
+  <p>(cid:0)</p>
+  <p>j=1</p>
+  <p>j + (cid:229) N</p>
+  <p>n=1</p>
+  <p>f n j g</p>
+  <p>(cid:1)</p>
+  <p>Setting this equation to zero yields a maximum at:</p>
+  <p>i = a</p>
+  <p>i + (cid:229) N</p>
+  <p>n=1</p>
+  <p>f ni.</p>
+  <p>(17)</p>
+  <p>Since Eq. (17) depends on the variational multinomial f alternating between Eqs. (16) and (17) until the bound converges.</p>
+  <p>, full variational inference requires</p>
+  <p>A.4 Parameter estimation</p>
+  <p>and b</p>
+  <p>In this final section, we consider the problem of obtaining empirical Bayes estimates of the model parameters a . We solve this problem by using the variational lower bound as a surrogate for the (intractable) marginal log likelihood, with the variational parameters f and g fixed to the values found by variational inference. We then obtain (approximate) empirical Bayes estimates by maximizing this lower bound with respect to the model parameters.</p>
+  <p>We have thus far considered the log likelihood for a single document. Given our assumption of exchangeability for the documents, the overall log likelihood of a corpus D = fw1, w2, . . . , wMg is the sum of the log likelihoods for individual documents; moreover, the overall variational lower bound is the sum of the individual variational bounds. In the remainder of this section, we abuse notation by using L for the total variational bound, indexing the document-specific terms in the individual bounds by d, and summing over all the documents.</p>
+  <p>Recall from Section 5.3 that our overall approach to finding empirical Bayes estimates is based on a variational EM procedure. In the variational E-step, discussed in Appendix A.3, we maximize the bound L(g , f ; a , b ) with respect to the variational parameters g and f . In the M-step, which we describe in this section, we maximize the bound with respect to the model parameters a and b . The overall procedure can thus be viewed as coordinate ascent in L.</p>
+  <p>1021</p>
+  <p>(cid:229) Y (cid:229) g (cid:229) Y (cid:229) g (cid:229) g (cid:229) Y (cid:229) g (cid:229) Y (cid:229) g a (cid:229) g ¶ g a (cid:229) g (cid:229) a g <span class="person">BLEI<span class="tag">persName</span></span>, NG, AND <span class="person">JORDAN<span class="tag">persName</span></span></p>
+  <p>A.4.1 CONDITIONAL MULTINOMIALS To maximize with respect to b</p>
+  <p>, we isolate terms and add Lagrange multipliers:</p>
+  <p>L[b ] =</p>
+  <p>d=1</p>
+  <p>n=1</p>
+  <p>i=1</p>
+  <p>j=1</p>
+  <p>f dniw j</p>
+  <p>dn log b</p>
+  <p>i j +</p>
+  <p>(cid:16)</p>
+  <p>(cid:229) V</p>
+  <p>j=1</p>
+  <p>(cid:17) i j 1</p>
+  <p>i=1</p>
+  <p>We take the derivative with respect to b</p>
+  <p>i j, set it to zero, and find:</p>
+  <p>i j (cid:181)</p>
+  <p>d=1</p>
+  <p>n=1</p>
+  <p>f dniw j dn</p>
+  <p>A.4.2 DIRICHLET The terms which contain a are:</p>
+  <p>L[a</p>
+  <p>] =</p>
+  <p>d=1</p>
+  <p>(cid:0)</p>
+  <p>log G</p>
+  <p>k j=1</p>
+  <p>(cid:1)</p>
+  <p>i=1</p>
+  <p>log G (a</p>
+  <p>i) +</p>
+  <p>(cid:0) (a</p>
+  <p>i=1</p>
+  <p>(cid:0)</p>
+  <p>i 1)</p>
+  <p>(g di) Y</p>
+  <p>(cid:0)</p>
+  <p>k j=1</p>
+  <p>g d j</p>
+  <p>Taking the derivative with respect to a</p>
+  <p>i gives:</p>
+  <p>(cid:0)</p>
+  <p>(cid:0)</p>
+  <p>= M</p>
+  <p>k j=1</p>
+  <p>(cid:1)</p>
+  <p>(cid:1) i)</p>
+  <p>¶ L i</p>
+  <p>(cid:0)</p>
+  <p>d=1</p>
+  <p>(g di) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)(cid:1)</p>
+  <p>k j=1</p>
+  <p>g d j</p>
+  <p>(cid:1)(cid:1)(cid:1)</p>
+  <p>This derivative depends on a the maximal a</p>
+  <p>. In particular, the Hessian is in the form found in Eq. (10):</p>
+  <p>j, where j 6= i, and we therefore must use an iterative method to find</p>
+  <p>¶ L ia</p>
+  <p>= d (i, j)MY</p>
+  <p>0(a</p>
+  <p>i) Y</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>k j=1</p>
+  <p>and thus we can invoke the linear-time Newton-Raphson algorithm described in Appendix A.2.</p>
+  <p>Finally, note that we can use the same algorithm to find an empirical Bayes point estimate of h</p>
+  <p>the scalar parameter for the exchangeable Dirichlet in the smoothed LDA model in Section 5.4.</p>
+  <p>1022</p>
+  <p>(cid:229) (cid:229) (cid:229) (cid:229) (cid:229) l b b (cid:229) (cid:229) (cid:229)</p>
+  <p>(cid:229) a (cid:229) (cid:229) Y (cid:229) ¶ a Y (cid:229) a (cid:229) Y (cid:229) ¶ a (cid:229) a</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 52 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 27 <code>ai</code> · 2 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>blei2003-lda</code>.</div>
+</body></html>

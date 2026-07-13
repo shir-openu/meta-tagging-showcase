@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning — TEI-tagged view</h1>
+<div class="meta">Pranav Rajpurkar, Jeremy Irvin, Andrew Y. Ng, et al. · 2017 · <a href="https://en.wikipedia.org/wiki/Medicine">medicine</a> · <a href="https://arxiv.org/abs/1711.05225">arXiv:1711.05225</a> · <a href="https://arxiv.org/abs/1711.05225" target="_blank" rel="noopener">full text</a> · <a href="https://arxiv.org/abs/1711.05225" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Rajpurkar</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Stanford</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">arXiv preprint</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2017</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">medical imaging</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch ai">deep learning</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Pranav Rajpurkar<span class="tag">persName</span></span>, <span class="person">Jeremy Irvin<span class="tag">persName</span></span>, <span class="person">Andrew Y. Ng<span class="tag">persName</span></span> (<span class="date">2017<span class="tag">date</span></span>). &ldquo;CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning.&rdquo; <span class="work">arXiv preprint<span class="tag">title·j</span></span>, <span class="place">Stanford<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Automated detection of disease (pneumonia) from chest X-ray images.</p>
+  <p><b>Research question —</b> Can a deep convolutional network detect pneumonia from chest radiographs at the level of practicing radiologists?</p>
+  <p><b>Contribution —</b> Shows a deep convolutional network (CheXNet) detects pneumonia and other pathologies from chest X-rays at radiologist level - <span class="ai">deep learning<span class="tag">term·ai</span></span> applied to medical diagnosis.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>automated medical image diagnosis (pneumonia detection from chest X-rays with deep learning)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>artificial intelligence (deep learning / computer vision)</b>: a deep convolutional network (DenseNet) applied to detect disease from chest X-rays at radiologist level<span class="ev"> &mdash; &ldquo;a 121-layer convolutional neural network trained on ChestX-ray14&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>convolutional neural networks (deep learning)</b><span class="ev"> &mdash; &ldquo;CheXNet, is a 121-layer convolutional neural network&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>the paper identifies three limitations of its radiologist comparison<span class="ev"> &mdash; &ldquo;We identify three limitations of this comparison.&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>Pranav <span class="person">Rajpurkar<span class="tag">persName</span></span> * 1 Jeremy <span class="person">Irvin<span class="tag">persName</span></span> * 1 Kaylie Zhu 1 Brandon Yang 1 Hershel Mehta 1 Tony Duan 1 Daisy Ding 1 Aarti Bagul 1 Robyn L. Ball 2 Curtis Langlotz 3 Katie Shpanskaya 3 Matthew P. Lungren 3 <span class="person">Andrew<span class="tag">persName</span></span> Y. Ng 1</p>
+  <p>7 1 0 2 c e D 5 2</p>
+  <p>V C . s c [</p>
+  <p>3 v 5 2 2 5 0 . 1 1 7 1 : v i X r a</p>
+  <p>Abstract</p>
+  <p>We develop an algorithm that can detect pneumonia from chest X-rays at a level ex- ceeding practicing radiologists. Our algo- rithm, CheXNet, is a 121-layer <span class="ai">convolutional neural network<span class="tag">term·ai</span></span> trained on ChestX-ray14, cur- rently the largest publicly available chest X- ray dataset, containing over 100,000 frontal- view X-ray images with 14 diseases. Four practicing academic radiologists annotate a test set, on which we compare the perfor- mance of CheXNet to that of radiologists. We find that CheXNet exceeds average ra- diologist performance on the F1 metric. We extend CheXNet to detect all 14 diseases in ChestX-ray14 and achieve state of the art re- sults on all 14 diseases.</p>
+  <p>1. Introduction</p>
+  <p>More than 1 million adults are hospitalized with pneu- monia and around 50,000 die from the disease every year in the US alone (CDC, 2017). Chest X-rays are currently the best available method for diagnosing pneumonia (WHO, 2001), playing a crucial role in clin- ical care (Franquet, 2001) and epidemiological studies (Cherian et al., 2005). However, detecting pneumo- nia in chest X-rays is a challenging task that relies on the availability of expert radiologists. In this work, we present a model that can automatically detect pneu- monia from chest X-rays at a level exceeding practicing radiologists.</p>
+  <p>*Equal contribution</p>
+  <p>1Stanford University Depart- ment of Computer Science 2Stanford University De- 3Stanford University Depart- partment of Medicine ment of Radiology. Pranav Correspondence <span class="person">Rajpurkar<span class="tag">persName</span></span> &lt;pranavsr@cs.stanford.edu&gt;, Jeremy <span class="person">Irvin<span class="tag">persName</span></span> &lt;jirvin16@cs.stanford.edu&gt;.</p>
+  <p>to:</p>
+  <p>Project website</p>
+  <p>https://stanfordmlgroup.</p>
+  <p>github.io/projects/chexnet</p>
+  <p>Figure 1. CheXNet is a 121-layer convolutional neural net- work that takes a chest X-ray image as input, and outputs the probability of a pathology. On this example, CheXnet correctly detects pneumonia and also localizes areas in the image most indicative of the pathology.</p>
+  <p>Our model, ChexNet (shown in Figure 1), is a 121- layer <span class="ai">convolutional neural network<span class="tag">term·ai</span></span> that inputs a chest X-ray image and outputs the probability of pneumonia along with a heatmap localizing the areas of the im- age most indicative of pneumonia. We train CheXNet on the recently released ChestX-ray14 dataset (Wang et al., 2017), which contains 112,120 frontal-view chest X-ray images individually labeled with up to 14 differ- ent thoracic diseases, including pneumonia. We use</p>
+  <p>OutputPneumonia Positive (85%)InputChest X-Ray ImageCheXNet121-layer CNN</p>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>Radiologist 1 Radiologist 2 Radiologist 3 Radiologist 4</p>
+  <p>Radiologist Avg. CheXNet</p>
+  <p>F1 Score (95% CI)</p>
+  <p>0.383 (0.309, 0.453) 0.356 (0.282, 0.428) 0.365 (0.291, 0.435) 0.442 (0.390, 0.492)</p>
+  <p>0.387 (0.330, 0.442) 0.435 (0.387, 0.481)</p>
+  <p>Table 1. We compare radiologists and our model on the F1 metric, which is the harmonic average of the precision and recall of the models. CheXNet achieves an F1 score of 0.435 (95% CI 0.387, 0.481), higher than the radiologist average of 0.387 (95% CI 0.330, 0.442). We use the bootstrap to find that the difference in performance is statistically sig- nificant.</p>
+  <p>dense connections (Huang et al., 2016) and batch nor- malization (Ioffe &amp; Szegedy, 2015) to make the opti- mization of such a deep network tractable.</p>
+  <p>Detecting pneumonia in chest radiography can be diffi- cult for radiologists. The appearance of pneumonia in X-ray images is often vague, can overlap with other di- agnoses, and can mimic many other benign abnormal- ities. These discrepancies cause considerable variabil- ity among radiologists in the diagnosis of pneumonia (Neuman et al., 2012; Davies et al., 1996; Hopstaken et al., 2004). To estimate radiologist performance, we collect annotations from four practicing academic radi- ologists on a subset of 420 images from ChestX-ray14. On these 420 images, we measure performance of in- dividual radiologists and the model.</p>
+  <p>We find that the model exceeds the average ra- diologist performance on the pneumonia detection task. To compare CheXNet against previous work us- ing ChestX-ray14, we make simple modifications to CheXNet to detect all 14 diseases in ChestX-ray14, and find that we outperform best published results on all 14 diseases. Automated detection of diseases from chest X-rays at the level of expert radiologists would not only have tremendous benefit in clinical settings, it would also be invaluable in delivery of health care to populations with inadequate access to diagnostic imaging specialists.</p>
+  <p>2. CheXNet</p>
+  <p>2.1. Problem Formulation</p>
+  <p>The pneumonia detection task is a binary classification problem, where the input is a frontal-view chest X- ray image X and the output is a binary label y ∈ {0, 1} indicating the absence or presence of pneumonia</p>
+  <p>respectively. For a single example in the training set, we optimize the weighted binary cross entropy loss</p>
+  <p>L(X, y) = −w+ · y log p(Y = 1|X)</p>
+  <p>−w− · (1 − y) log p(Y = 0|X),</p>
+  <p>where p(Y = i|X) is the probability that the network assigns to the label i, w+ = |N |/(|P |+|N |), and w− = |P |/(|P |+|N |) with |P | and |N | the number of positive cases and negative cases of pneumonia in the training set respectively.</p>
+  <p>2.2. Model Architecture and Training</p>
+  <p>CheXNet is a 121-layer Dense Convolutional Net- work (DenseNet) (Huang et al., 2016) trained on the ChestX-ray 14 dataset. DenseNets improve flow of in- formation and gradients through the network, making the optimization of very deep networks tractable. We replace the final fully connected layer with one that has a single output, after which we apply a sigmoid nonlinearity.</p>
+  <p>The weights of the network are initialized with weights from a model pretrained on ImageNet (Deng et al., 2009). The network is trained end-to-end using Adam with standard parameters (β1 = 0.9 and β2 = 0.999) (Kingma &amp; Ba, 2014). We train the model using mini- batches of size 16. We use an initial learning rate of 0.001 that is decayed by a factor of 10 each time the validation loss plateaus after an epoch, and pick the model with the lowest validation loss.</p>
+  <p>3. Data</p>
+  <p>3.1. Training</p>
+  <p>We use the ChestX-ray14 dataset released by Wang et al. (2017) which contains 112,120 frontal-view X-ray images of 30,805 unique patients. Wang et al. (2017) annotate each image with up to 14 different thoracic pathology labels using automatic extraction methods on radiology reports. We label images that have pneu- monia as one of the annotated pathologies as positive examples and label all other images as negative exam- ples. For the pneumonia detection task, we randomly split the dataset into training (28744 patients, 98637 images), validation (1672 patients, 6351 images), and test (389 patients, 420 images). There is no patient overlap between the sets.</p>
+  <p>Before inputting the images into the network, we downscale the images to 224×224 and normalize based on the mean and standard deviation of images in the ImageNet training set. We also augment the training data with random horizontal flipping.</p>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>Pathology</p>
+  <p>Wang et al. (2017) Yao et al. (2017) CheXNet (ours)</p>
+  <p>Atelectasis Cardiomegaly Effusion Infiltration Mass Nodule Pneumonia Pneumothorax Consolidation Edema Emphysema Fibrosis Pleural Thickening Hernia</p>
+  <p>0.716 0.807 0.784 0.609 0.706 0.671 0.633 0.806 0.708 0.835 0.815 0.769 0.708 0.767</p>
+  <p>0.772 0.904 0.859 0.695 0.792 0.717 0.713 0.841 0.788 0.882 0.829 0.767 0.765 0.914</p>
+  <p>0.8094 0.9248 0.8638 0.7345 0.8676 0.7802 0.7680 0.8887 0.7901 0.8878 0.9371 0.8047 0.8062 0.9164</p>
+  <p>Table 2. CheXNet outperforms the best published results on all 14 pathologies in the ChestX-ray14 dataset. In detecting Mass, Nodule, Pneumonia, and Emphysema, CheXNet has a margin of &gt;0.05 AUROC over previous state of the art results.</p>
+  <p>3.2. Test</p>
+  <p>We collected a test set of 420 frontal chest X-rays. An- notations were obtained independently from four prac- ticing radiologists at Stanford University, who were asked to label all 14 pathologies in Wang et al. (2017). The radiologists had 4, 7, 25, and 28 years of experi- ence, and one of the radiologists is a sub-specialty fel- lowship trained thoracic radiologist. Radiologists did not have access to any patient information or knowl- edge of disease prevalence in the data. Labels were entered into a standardized data entry program.</p>
+  <p>4. CheXNet vs. Radiologist</p>
+  <p>Performance</p>
+  <p>4.1. Comparison</p>
+  <p>We assess the performance of both radiologists and CheXNet on the test set for the pneumonia detection task. Recall that for each of the images in the test set, we have 4 labels from four practicing radiologists and 1 label from CheXNet. We compute the F1 score for each individual radiologist and for CheXNet against each of the other 4 labels as ground truth. We report the mean of the 4 resulting F1 scores for each radi- ologist and for CheXNet, along with the average F1 across the radiologists. We use the bootstrap to con- struct 95% bootstrap confidence intervals (CIs), cal- culating the average F1 score for both the radiologists and CheXNet on 10,000 bootstrap samples, sampled with replacement from the test set. We take the 2.5th and 97.5th percentiles of the F1 scores as the 95%</p>
+  <p>bootstrap CI. We find that CheXNet achieves an F1 score of 0.435 (95% CI 0.387, 0.481), higher than the radiologist average of 0.387 (95% CI 0.330, 0.442). Ta- ble 1 summarizes the performance of each radiologist and of CheXNet.</p>
+  <p>To determine whether CheXNet’s performance is sta- tistically significantly higher than radiologist perfor- mance, we also calculate the difference between the average F1 score of CheXNet and the average F1 score of the radiologists on the same bootstrap samples. If the 95% CI on the difference does not include zero, we conclude there was a significant difference between the F1 score of CheXNet and the F1 score of the ra- diologists. We find that the difference in F1 scores — 0.051 (95% CI 0.005, 0.084) — does not contain 0, and therefore conclude that the performance of CheXNet is statistically significantly higher than radiologist per- formance.</p>
+  <p>4.2. Limitations</p>
+  <p>We identify three limitations of this comparison. First, only frontal radiographs were presented to the radi- ologists and model during diagnosis, but it has been shown that up to 15% of accurate diagnoses require the lateral view (Raoof et al., 2012); we thus expect that this setup provides a conservative estimate of per- formance. Third, neither the model nor the radiolo- gists were not permitted to use patient history, which has been shown to decrease radiologist diagnostic per- formance in interpreting chest radiographs (Berbaum et al., 1985; Potchen et al., 1979); for example, given a pulmonary abnormality with a history of fever and</p>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>(a) Patient with multifocal com- munity acquired pneumonia. The model correctly detects the airspace disease in the left lower and right up- per lobes to arrive at the pneumonia diagnosis.</p>
+  <p>(b) Patient with a left lung nodule. The model identifies the left lower lobe lung nodule and correctly clas- sifies the pathology.</p>
+  <p>(c) Patient with primary lung ma- lignancy and two large masses, one in the left lower lobe and one in the right upper lobe adjacent to the mediastinum. The model correctly identifies both masses in the X-ray.</p>
+  <p>(d) Patient with a right-sided pneu- The mothroax and chest tube. model detects the abnormal lung to correctly predict the presence of pneumothorax (collapsed lung).</p>
+  <p>(e) Patient with a large right pleural effusion (fluid in the pleural space). The model correctly labels the effu- sion and focuses on the right lower chest.</p>
+  <p>(f) Patient with congestive heart failure and cardiomegaly (enlarged heart). The model correctly identi- fies the enlarged cardiac silhouette.</p>
+  <p>Figure 2. CheXNet localizes pathologies it identifies using Class Activation Maps, which highlight the areas of the X-ray that are most important for making a particular pathology classification. The captions for each image are provided by one of the practicing radiologists.</p>
+  <p>cough, pneumonia would be appropriate rather than less specific terms such as infiltration or consolidation) (Potchen et al., 1979).</p>
+  <p>5. ChexNet vs. Previous State of the Art on the ChestX-ray14 Dataset</p>
+  <p>We extend the algorithm to classify multiple thoracic pathologies by making three changes. First, instead of outputting one binary label, ChexNet outputs a vec- tor t of binary labels indicating the absence or presence of each of the following 14 pathology classes: Atelec- tasis, Cardiomegaly, Consolidation, Edema, Effusion, Emphysema, Fibrosis, Hernia, Infiltration, Mass, Nod-</p>
+  <p>ule, Pleural Thickening, Pneumonia, and Pneumotho- rax. Second, we replace the final fully connected layer in CheXNet with a fully connected layer producing a 14-dimensional output, after which we apply an ele- mentwise sigmoid nonlinearity. The final output is the predicted probability of the presence of each pathology class. Third, we modify the loss function to optimize the sum of unweighted binary cross entropy losses</p>
+  <p>L(X, y) =</p>
+  <p>14 (cid:88)</p>
+  <p>[−yc log p(Yc = 1|X)</p>
+  <p>c=1</p>
+  <p>−(1 − yc) log p(Yc = 0|X)],</p>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>where p(Yc = 1|X) is the predicted probability that the image contains the pathology c and p(Yc = 0|X) is the predicted probability that the image does not contain the pathology c.</p>
+  <p>We randomly split the dataset into training (70%), val- idation (10%), and test (20%) sets, following previous work on ChestX-ray14 (Wang et al., 2017; Yao et al., 2017). We ensure that there is no patient overlap be- tween the splits. We compare the per-class AUROC of the model against the previous state of the art held by Yao et al. (2017) on 13 classes and Wang et al. (2017) on the remaining 1 class.</p>
+  <p>We find that CheXNet achieves state of the art results on all 14 pathology classes. Table 2 illustrates the per- class AUROC comparison on the test set. On Mass, Nodule, Pneumonia, and Emphysema, we outperform previous state of the art considerably (&gt; 0.05 increase in AUROC).</p>
+  <p>6. Model Interpretation</p>
+  <p>To interpret the network predictions, we also produce heatmaps to visualize the areas of the image most in- dicative of the disease using class activation mappings (CAMs) (Zhou et al., 2016). To generate the CAMs, we feed an image into the fully trained network and extract the feature maps that are output by the final convolutional layer. Let fk be the kth feature map and let wc,k be the weight in the final classification layer for feature map k leading to pathology c. We obtain a map Mc of the most salient features used in classi- fying the image as having pathology c by taking the weighted sum of the feature maps using their associ- ated weights. Formally,</p>
+  <p>Mc =</p>
+  <p>(cid:88)</p>
+  <p>wc,kfk.</p>
+  <p>We identify the most important features used by the model in its prediction of the pathology c by upscal- ing the map Mc to the dimensions of the image and overlaying the image.</p>
+  <p>Figure 2 shows several examples of CAMs on the pneu- monia detection task as well as the 14-class pathology classification task.</p>
+  <p>7. Related Work</p>
+  <p>Recent advancements in <span class="ai">deep learning<span class="tag">term·ai</span></span> and large datasets have enabled algorithms to surpass the per- formance of medical professionals in a wide variety of <span class="concept">medical imaging<span class="tag">term·dom</span></span> tasks, including diabetic retinopathy detection (Gulshan et al., 2016), skin cancer classifica-</p>
+  <p>tion (Esteva et al., 2017), arrhythmia detection (Ra- jpurkar et al., 2017), and hemorrhage identification (Grewal et al., 2017).</p>
+  <p>Automated diagnosis from chest radiographs has re- ceived increasing attention with algorithms for pul- monary tuberculosis classification (Lakhani &amp; Sun- daram, 2017) and lung nodule detection (Huang et al., 2017). Islam et al. (2017) studied the performance of various convolutional architectures on different ab- normalities using the publicly available OpenI dataset (Demner-Fushman et al., 2015). Wang et al. (2017) released ChestX-ray-14, an order of magnitude larger than previous datasets of its kind, and also bench- marked different <span class="ai">convolutional neural network<span class="tag">term·ai</span></span> archi- tectures pre-trained on ImageNet. Recently Yao et al. (2017) exploited statistical dependencies between la- bels in order make more accurate predictions, outper- forming Wang et al. (2017) on 13 of 14 classes.</p>
+  <p>8. Conclusion</p>
+  <p>Pneumonia accounts for a significant proportion of patient morbidity and mortality (Gon ̧calves-Pereira et al., 2013). Early diagnosis and treatment of pneu- monia is critical to preventing complications including death (Aydogdu et al., 2010). With approximately 2 billion procedures per year, chest X-rays are the most common imaging examination tool used in practice, critical for screening, diagnosis, and management of a variety of diseases including pneumonia (Raoof et al., 2012). However, two thirds of the global population lacks access to radiology diagnostics, according to an estimate by the World Health Organization (Mollura et al., 2010). There is a shortage of experts who can in- terpret X-rays, even when imaging equipment is avail- able, leading to increased mortality from treatable dis- eases (Kesselman et al., 2016).</p>
+  <p>We develop an algorithm which detects pneumonia from frontal-view chest X-ray images at a level ex- ceeding practicing radiologists. We also show that a simple extension of our algorithm to detect multi- ple diseases outperforms previous state of the art on ChestX-ray14, the largest publicly available chest X- ray dataset. With automation at the level of experts, we hope that this technology can improve healthcare delivery and increase access to <span class="concept">medical imaging<span class="tag">term·dom</span></span> ex- pertise in parts of the world where access to skilled radiologists is limited.</p>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>9. Acknowledgements</p>
+  <p>We would like to acknowledge the Stanford Center for Artificial Intelligence in Medicine and Imaging for clin- ical dataset infrastructure support (AIMI.stanford. edu).</p>
+  <p>References</p>
+  <p>Aydogdu, M, Ozyilmaz, E, Aksoy, Handan, Gursel, G, and Ekim, Numan. Mortality prediction in community-acquired pneumonia requiring mechan- ical ventilation; values of pneumonia and intensive care unit severity scores. Tuberk Toraks, 58(1):25– 34, 2010.</p>
+  <p>Berbaum, K, Franken Jr, EA, and Smith, WL. The effect of comparison films upon resident interpre- tation of pediatric chest radiographs. Investigative radiology, 20(2):124–128, 1985.</p>
+  <p>CDC, 2017. URL https://www.cdc.gov/features/</p>
+  <p>pneumonia/index.html.</p>
+  <p>Cherian, Thomas, Mulholland, E Kim, Carlin, John B, Ostensen, Harald, Amin, Ruhul, Campo, Mar- garet de, Greenberg, David, Lagos, Rosanna, Lucero, Marilla, Madhi, Shabir A, et al. Standard- ized interpretation of paediatric chest radiographs for the diagnosis of pneumonia in epidemiological studies. Bulletin of the World Health Organization, 83(5):353–359, 2005.</p>
+  <p>Davies, H Dele, Wang, Elaine E-l, Manson, David, Babyn, Paul, and Shuckett, Bruce. Reliability of the chest radiograph in the diagnosis of lower res- piratory infections in young children. The Pediatric infectious disease journal, 15(7):600–604, 1996.</p>
+  <p>Demner-Fushman, Dina, Kohli, Marc D, Rosenman, Marc B, Shooshan, Sonya E, Rodriguez, Laritza, Antani, Sameer, Thoma, George R, and McDonald, Clement J. Preparing a collection of radiology ex- aminations for distribution and retrieval. Journal of the American Medical Informatics Association, 23 (2):304–310, 2015.</p>
+  <p>Deng, Jia, Dong, Wei, Socher, Richard, Li, Li-Jia, Li, Kai, and Fei-Fei, Li. Imagenet: A large-scale hier- archical image database. In Computer Vision and Pattern Recognition, 2009. CVPR 2009. IEEE Con- ference on, pp. 248–255. IEEE, 2009.</p>
+  <p>Esteva, Andre, Kuprel, Brett, Novoa, Roberto A, Ko, Justin, Swetter, Susan M, Blau, Helen M, and Thrun, Sebastian. Dermatologist-level classification of skin cancer with deep neural networks. Nature, 542(7639):115–118, 2017.</p>
+  <p>Franquet, T. Imaging of pneumonia: trends and algo- rithms. European Respiratory Journal, 18(1):196– 208, 2001.</p>
+  <p>Gon ̧calves-Pereira, Jo ̃ao, Concei ̧c ̃ao, Catarina, and Community-acquired pneumo- P ́ovoa, Pedro. nia: identification and evaluation of nonresponders. Therapeutic advances in infectious disease, 1(1):5– 17, 2013.</p>
+  <p>Grewal, Monika, Srivastava, Muktabh Mayank, Ku- mar, Pulkit, and Varadarajan, Srikrishna. Radnet: Radiologist level accuracy using <span class="ai">deep learning<span class="tag">term·ai</span></span> for hemorrhage detection in ct scans. arXiv preprint arXiv:1710.04934, 2017.</p>
+  <p>Gulshan, Varun, Peng, Lily, Coram, Marc, Stumpe, Martin C, Wu, Derek, Narayanaswamy, Arunacha- lam, Venugopalan, Subhashini, Widner, Kasumi, Madams, Tom, Cuadros, Jorge, et al. Development and validation of a <span class="ai">deep learning<span class="tag">term·ai</span></span> algorithm for de- tection of diabetic retinopathy in retinal fundus pho- tographs. Jama, 316(22):2402–2410, 2016.</p>
+  <p>Hopstaken, RM, Witbraad, T, Van Engelshoven, JMA, and Dinant, GJ. Inter-observer variation in the interpretation of chest radiographs for pneumo- nia in community-acquired lower respiratory tract infections. Clinical radiology, 59(8):743–752, 2004.</p>
+  <p>Huang, Gao, Liu, Zhuang, Weinberger, Kilian Q, and van der Maaten, Laurens. Densely connected convo- lutional networks. arXiv preprint arXiv:1608.06993, 2016.</p>
+  <p>Huang, Peng, Park, Seyoun, Yan, Rongkai, Lee, Junghoon, Chu, Linda C, Lin, Cheng T, Hussien, Amira, Rathmell, Joshua, Thomas, Brett, Chen, Chen, et al. Added value of computer-aided ct image features for early lung cancer diagnosis with small pulmonary nodules: A matched case-control study. Radiology, pp. 162725, 2017.</p>
+  <p>Ioffe, Sergey and Szegedy, Christian. Batch normaliza- tion: Accelerating deep network training by reduc- ing internal covariate shift. In International Confer- ence on Machine Learning, pp. 448–456, 2015.</p>
+  <p>Islam, Mohammad Tariqul, Aowal, Md Abdul, Min- haz, Ahmed Tahseen, and Ashraf, Khalid. Ab- normality detection and localization in chest x-rays using deep convolutional neural networks. arXiv preprint arXiv:1705.09850, 2017.</p>
+  <p>Kesselman, <span class="person">Andrew<span class="tag">persName</span></span>, Soroosh, Garshasb, Mollura, Daniel J, and Group, RAD-AID Conference Writ- ing. 2015 rad-aid conference on international radi- ology for developing countries: The evolving global</p>
+  <p>CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with <span class="ai">Deep Learning<span class="tag">term·ai</span></span></p>
+  <p>Yao, Li, Poblenz, Eric, Dagunts, Dmitry, Covington, Ben, Bernard, Devon, and Lyman, Kevin. Learning to diagnose from scratch by exploiting dependen- cies among labels. arXiv preprint arXiv:1710.10501, 2017.</p>
+  <p>Zhou, Bolei, Khosla, Aditya, Lapedriza, Agata, Oliva, Aude, and Torralba, Antonio. Learning deep fea- tures for discriminative localization. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 2921–2929, 2016.</p>
+  <p>radiology landscape. Journal of the American Col- lege of Radiology, 13(9):1139–1144, 2016.</p>
+  <p>Kingma, Diederik and Ba, Jimmy.</p>
+  <p>Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014.</p>
+  <p>Lakhani, Paras and Sundaram, Baskaran. Deep learn- ing at chest radiography: Automated classification of pulmonary tuberculosis by using convolutional neural networks. Radiology, pp. 162326, 2017.</p>
+  <p>Mollura, Daniel J, Azene, Ezana M, Starikovsky, Anna, Thelwell, Aduke, Iosifescu, Sarah, Kimble, Cary, Polin, Ann, Garra, Brian S, DeStigter, Kris- ten K, Short, Brad, et al. White paper report of the rad-aid conference on international radiology for developing countries: identifying challenges, oppor- tunities, and strategies for imaging services in the developing world. Journal of the American College of Radiology, 7(7):495–500, 2010.</p>
+  <p>Neuman, Mark I, Lee, Edward Y, Bixby, Sarah, Diperna, Stephanie, Hellinger, Jeffrey, Markowitz, Richard, Servaes, Sabah, Monuteaux, Michael C, and Shah, Samir S. Variability in the interpretation of chest radiographs for the diagnosis of pneumo- nia in children. Journal of hospital medicine, 7(4): 294–298, 2012.</p>
+  <p>Potchen, EJ, Gard, JW, Lazar, P, Lahaie, P, and Andary, M. Effect of clinical history data on chest film interpretation-direction or distraction. In Inves- tigative Radiology, volume 14, pp. 404–404, 1979.</p>
+  <p><span class="person">Rajpurkar<span class="tag">persName</span></span>, Pranav, Hannun, Awni Y, Haghpanahi, Masoumeh, Bourn, Codie, and Ng, <span class="person">Andrew<span class="tag">persName</span></span> Y. Cardiologist-level arrhythmia detection with con- volutional neural networks. arXiv preprint arXiv:1707.01836, 2017.</p>
+  <p>Raoof,</p>
+  <p>Suhail, Feigin, David,</p>
+  <p>Sung, Arthur, Raoof, Sabiha, Irugulpati, Lavanya, and Rosenow, Edward C. Interpretation of plain chest roentgenogram. CHEST Journal, 141(2):545–558, 2012.</p>
+  <p>Wang, Xiaosong, Peng, Yifan, Lu, Le, Lu, Zhiyong, Bagheri, Mohammadhadi, and Summers, Ronald M. Chestx-ray8: Hospital-scale chest x-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases. arXiv preprint arXiv:1705.02315, 2017.</p>
+  <p>WHO. Standardization of interpretation of chest ra- diographs for the diagnosis of pneumonia in chil- dren. 2001.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 11 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 2 <code>concept</code> · 15 <code>ai</code>.<br>Meta-Tagging Project &middot; record <code>rajpurkar2017-chexnet</code>.</div>
+</body></html>

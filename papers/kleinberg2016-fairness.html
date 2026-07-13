@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inherent Trade-Offs in the Fair Determination of Risk Scores — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>Inherent Trade-Offs in the Fair Determination of Risk Scores — TEI-tagged view</h1>
+<div class="meta">Jon Kleinberg, Sendhil Mullainathan, Manish Raghavan · 2016 · <a href="https://en.wikipedia.org/wiki/Law">law</a> · <a href="https://arxiv.org/abs/1609.05807">arXiv:1609.05807</a> · <a href="https://arxiv.org/abs/1609.05807" target="_blank" rel="noopener">full text</a> · <a href="https://arxiv.org/abs/1609.05807" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Kleinberg</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Ithaca</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">ITCS / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2016</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">risk score</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch ai">algorithmic fairness</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr><tr><td><span class="swatch method">calibration</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Jon Kleinberg<span class="tag">persName</span></span>, <span class="person">Sendhil Mullainathan<span class="tag">persName</span></span>, <span class="person">Manish Raghavan<span class="tag">persName</span></span> (<span class="date">2016<span class="tag">date</span></span>). &ldquo;Inherent Trade-Offs in the Fair Determination of Risk Scores.&rdquo; <span class="work">ITCS / arXiv<span class="tag">title·j</span></span>, <span class="place">Ithaca<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Whether algorithmic risk scores (e.g. in criminal justice) can satisfy competing definitions of fairness at once.</p>
+  <p><b>Research question —</b> Can a risk-assignment satisfy <span class="method">calibration<span class="tag">term·mth</span></span> and balanced error rates across groups simultaneously?</p>
+  <p><b>Contribution —</b> Proves that, except in degenerate cases, key fairness criteria for risk scores are mutually incompatible - a foundational <span class="concept">impossibility result<span class="tag">term·dom</span></span> for <span class="ai">algorithmic fairness<span class="tag">term·ai</span></span> and the law.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>algorithmic fairness (inherent trade-offs between fairness criteria)</td></tr><tr><td class="k ct">claim-type</td><td>existence</td></tr><tr><td class="k tf">transfer</td><td>from <b>statistics / machine learning</b>: probabilistic fairness criteria (calibration, error-rate balance) applied to risk scores used in consequential legal / policy decisions<span class="ev"> &mdash; &ldquo;concern over discrimination in machine learning has led to a large body of new work seeking to better understand and prevent it&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>an impossibility theorem: calibration and balanced error rates across groups cannot all hold simultaneously except when base rates are equal or prediction is perfect<span class="ev"> &mdash; &ldquo;there is no method that can satisfy these three conditions simultaneously&rdquo;</span></td></tr><tr><td class="k cr">contradicts</td><td> <b>the assumption that fairness criteria can be jointly satisfied</b><span class="ev"> &mdash; &ldquo;there is no method that can satisfy these three conditions simultaneously&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>the incompatibility holds except in highly constrained special cases<span class="ev"> &mdash; &ldquo;except in highly constrained special cases&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>Inherent Trade-Offs in the Fair Determination of Risk Scores</p>
+  <p>6 1 0 2</p>
+  <p>v o N 7 1</p>
+  <p>G L . s c [</p>
+  <p>2 v 7 0 8 5 0 . 9 0 6 1 : v i X r a</p>
+  <p>Inherent Trade-Offs in the Fair Determination of Risk Scores</p>
+  <p>Jon <span class="person">Kleinberg<span class="tag">persName</span></span> ∗</p>
+  <p>Sendhil <span class="person">Mullainathan<span class="tag">persName</span></span> †</p>
+  <p>Manish <span class="person">Raghavan<span class="tag">persName</span></span> ‡</p>
+  <p>Abstract</p>
+  <p>Recent discussion in the public sphere about algorithmic classification has involved tension between competing notions of what it means for a probabilistic classification to be fair to different groups. We formalize three fairness conditions that lie at the heart of these debates, and we prove that except in highly constrained special cases, there is no method that can satisfy these three conditions simultaneously. Moreover, even satisfying all three conditions approximately requires that the data lie in an approximate version of one of the constrained special cases identified by our theorem. These results suggest some of the ways in which key notions of fairness are incompatible with each other, and hence provide a framework for thinking about the trade-offs between them.</p>
+  <p>1 Introduction</p>
+  <p>There are many settings in which a sequence of people comes before a decision-maker, who must make a judgment about each based on some observable set of features. Across a range of applications, these judg- ments are being carried out by an increasingly wide spectrum of approaches ranging from human expertise to algorithmic and statistical frameworks, as well as various combinations of these approaches.</p>
+  <p>Along with these developments, a growing line of work has asked how we should reason about issues of bias and discrimination in settings where these algorithmic and statistical techniques, trained on large datasets of past instances, play a significant role in the outcome. Let us consider three examples where such issues arise, both to illustrate the range of relevant contexts, and to surface some of the challenges.</p>
+  <p>A set of example domains. First, at various points in the criminal justice system, including decisions about bail, sentencing, or parole, an officer of the court may use quantitative risk tools to assess a defendant’s probability of recidivism — future arrest — based on their past history and other attributes. Several recent analyses have asked whether such tools are mitigating or exacerbating the sources of bias in the criminal justice system; in one widely-publicized report, Angwin et al. analyzed a commonly used statistical method for assigning risk scores in the criminal justice system — the COMPAS risk tool — and argued that it was biased against African-American defendants [2, 23]. One of their main contentions was that the tool’s errors were asymmetric: African-American defendants were more likely to be incorrectly labeled as higher-risk than they actually were, while white defendants were more likely to be incorrectly labeled as lower-risk than they actually were. Subsequent analyses raised methodological objections to this report, and also observed that despite the COMPAS risk tool’s errors, its estimates of the probability of recidivism are equally well calibrated to the true outcomes for both African-American and white defendants [1, 10, 13, 17].</p>
+  <p>∗Cornell University †Harvard University ‡Cornell University</p>
+  <p>Second, in a very different domain, researchers have begun to analyze the ways in which different genders and racial groups experience advertising and commercial content on the Internet differently [9, 26]. We could ask, for example: if a male user and female user are equally interested in a particular product, does it follow that they’re equally likely to be shown an ad for it? Sometimes this concern may have broader implications, for example if women in aggregate are shown ads for lower-paying jobs. Other times, it may represent a clash with a user’s leisure interests: if a female user interacting with an advertising platform is interested in an activity that tends to have a male-dominated viewership, like professional football, is the platform as likely to show her an ad for football as it is to show such an ad to an interested male user?</p>
+  <p>A third domain, again quite different from the previous two, is medical testing and diagnosis. Doctors making decisions about a patient’s treatment may rely on tests providing probability estimates for different diseases and conditions. Here too we can ask whether such decision-making is being applied uniformly across different groups of patients [16, 27], and in particular how medical tests may play a differential role for conditions that vary widely in frequency between these groups.</p>
+  <p>Providing guarantees for decision procedures. One can raise analogous questions in many other do- mains of fundamental importance, including decisions about hiring, lending, or school admissions [24], but we will focus on the three examples above for the purposes of this discussion. In these three example do- mains, a few structural commonalities stand out. First, the algorithmic estimates are often being used as “input” to a larger framework that makes the overall decision — a <span class="concept">risk score<span class="tag">term·dom</span></span> provided to a human expert in the legal and medical instances, and the output of a machine-learning algorithm provided to a larger adver- tising platform in the case of Internet ads. Second, the underlying task is generally about classifying whether people possess some relevant property: recidivism, a medical condition, or interest in a product. We will refer to people as being positive instances if they truly possess the property, and negative instances if they do not. Finally, the algorithmic estimates being provided for these questions are generally not pure yes-no decisions, but instead probability estimates about whether people constitute positive or negative instances.</p>
+  <p>Let us suppose that we are concerned about how our decision procedure might operate differentially between two groups of interest (such as African-American and white defendants, or male and female users of an advertising system). What sorts of guarantees should we ask for as protection against potential bias?</p>
+  <p>A first basic goal in this literature is that the probability estimates provided by the algorithm should be well-calibrated: if the algorithm identifies a set of people as having a probability z of constituting positive instances, then approximately a z fraction of this set should indeed be positive instances [8, 14]. Moreover, this condition should hold when applied separately in each group as well [13]. For example, if we are thinking in terms of potential differences between outcomes for men and women, this means requiring that a z fraction of men and a z fraction of women assigned a probability z should possess the property in question.</p>
+  <p>A second goal focuses on the people who constitute positive instances (even if the algorithm can only imperfectly recognize them): the average score received by people constituting positive instances should be the same in each group. We could think of this as balance for the positive class, since a violation of it would mean that people constituting positive instances in one group receive consistently lower probability estimates than people constituting positive instances in another group. In our initial criminal justice example, for instance, one of the concerns raised was that white defendants who went on to commit future crimes were assigned risk scores corresponding to lower probability estimates in aggregate; this is a violation of the condition here. There is a completely analogous property with respect to negative instances, which we could call balance for the negative class. These balance conditions can be viewed as generalizations of the notions that both groups should have equal false negative and false positive rates.</p>
+  <p>It is important to note that balance for the positive and negative classes, as defined here, is distinct in</p>
+  <p>crucial ways from the requirement that the average probability estimate globally over all members of the two groups be equal. This latter global requirement is a version of statistical parity [12, 4, 21, 22]. In some cases statistical parity is a central goal (and in some it is legally mandated), but the examples considered so far suggest that classification and risk assessment are much broader activities where statistical parity is often neither feasible nor desirable. Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person, the chance of making a mistake on them should not depend on which group they belong to.</p>
+  <p>The present work: Trade-offs among the guarantees. Despite their different formulations, the calibra- tion condition and the balance conditions for the positive and negative classes intuitively all seem to be asking for variants of the same general goal — that our probability estimates should have the same effec- tiveness regardless of group membership. One might therefore hope that it would be feasible to achieve all of them simultaneously.</p>
+  <p>Our main result, however, is that these conditions are in general incompatible with each other; they can only be simultaneously satisfied in certain highly constrained cases. Moreover, this incompatibility applies to approximate versions of the conditions as well.</p>
+  <p>In the remainder of this section we formulate this main result precisely, as a theorem building on a model that makes the discussion thus far more concrete.</p>
+  <p>1.1 Formulating the Goal</p>
+  <p>Let’s start with some basic definitions. As above, we have a collection of people each of whom constitutes either a positive instance or a negative instance of the classification problem. We’ll say that the positive class consists of the people who constitute positive instances, and the negative class consists of the people who constitute negative instances. For example, for criminal defendants, the positive class could consist of those defendants who will be arrested again within some fixed time window, and the negative class could consist of those who will not. The positive and negative classes thus represent the “correct” answer to the classification problem; our decision procedure does not know them, but is trying to estimate them.</p>
+  <p>Feature vectors. Each person has an associated feature vector σ, representing the data that we know about them. Let pσ denote the fraction of people with feature vector σ who belong to the positive class. Conceptually, we will picture that while there is variation within the set of people who have feature vector σ, this variation is invisible to whatever decision procedure we apply; all people with feature vector σ are indistinguishable to the procedure. Our model will assume that the value pσ for each σ is known to the procedure.1</p>
+  <p>Groups. Each person also belongs to one of two groups, labeled 1 or 2, and we would like our decisions to be unbiased with respect to the members of these two groups.2 In our examples, the two groups could correspond to different races or genders, or other cases where we want to look for the possibility of bias between them. The two groups have different distributions over feature vectors: a person of group t has a probability atσ of exhibiting the feature vector σ. However, people of each group have the same probability</p>
+  <p>1Clearly the case in which the value of pσ is unknown is an important version of the problem as well; however, since our main results establish strong limitations on what is achievable, these limitations are only stronger because they apply even to the case of known pσ.</p>
+  <p>2We focus on the case of two groups for simplicity of exposition, but it is straightforward to extend all of our definitions to the</p>
+  <p>case of more than two groups.</p>
+  <p>pσ of belonging to the positive class provided their feature vector is σ. In this respect, σ contains all the relevant information available to us about the person’s future behavior; once we know σ, we do not get any additional information from knowing their group as well.3</p>
+  <p>Risk Assignments. We say that an instance of our problem is specified by the parameters above: a feature vector and a group for each person, with a value pσ for each feature vector, and distributions giving the frequency of the feature vectors in each group.</p>
+  <p>atσ {</p>
+  <p>Informally, risk assessments are ways of dividing people up into sets based on their feature vectors σ (po- tentially using randomization), and then assigning each set a probability estimate that the people in this set belong to the positive class. Thus, we define a risk assignment to consist of a set of “bins” (the sets), where each bin is labeled with a score vb that we intend to use as the probability for everyone assigned to bin b. We then create a rule for assigning people to bins based on their feature vector σ; we allow the rule to di- vide people with a fixed feature vector σ across multiple bins (reflecting the possible use of randomization). Thus, the rule is specified by values Xσb: a fraction Xσb of all people with feature vector σ are assigned to bin b. Note that the rule does not have access to the group t of the person being considered, only their feature vector σ. (As we will see, this does not mean that the rule is incapable of exhibiting bias between the two groups.) In summary, a risk assignment is specified by a set of bins, a score for each bin, and values Xσb that define a mapping from people with feature vectors to bins.</p>
+  <p>Fairness Properties for Risk Assignments. Within the model, we now express the three conditions dis- cussed at the outset, each reflecting a potentially different notion of what it means for the risk assignment to be “fair.”</p>
+  <p>(A) <span class="method">Calibration<span class="tag">term·mth</span></span> within groups requires that for each group t, and each bin b with associated score vb, the expected number of people from group t in b who belong to the positive class should be a vb fraction of the expected number of people from group t assigned to b.</p>
+  <p>(B) Balance for the negative class requires that the average score assigned to people of group 1 who belong to the negative class should be the same as the average score assigned to people of group 2 who belong to the negative class. In other words, the assignment of scores shouldn’t be systematically more inaccurate for negative instances in one group than the other.</p>
+  <p>(C) Balance for the positive class symmetrically requires that the average score assigned to people of group 1 who belong to the positive class should be the same as the average score assigned to people of group 2 who belong to the positive class.</p>
+  <p>Why Do These Conditions Correspond to Notions of Fairness?. All of these are natural conditions to impose on a risk assignment; and as indicated by the discussion above, all of them have been proposed as versions of fairness. The first one essentially asks that the scores mean what they claim to mean, even when considered separately in each group. In particular, suppose a set of scores lack the first property for some bin b, and these scores are given to a decision-maker; then if people of two different groups both belong to bin b, the decision-maker has a clear incentive to treat them differently, since the lack of <span class="method">calibration<span class="tag">term·mth</span></span> within groups on bin b means that these people have different aggregate probabilities of belonging to the positive class. Another way of stating the property of <span class="method">calibration<span class="tag">term·mth</span></span> within groups is to say that, conditioned on the bin to which an individual is assigned, the likelihood that the individual is a member of the positive class is independent of the group to which the individual belongs. This means we are justified in treating people</p>
+  <p>3As we will discuss in more detail below, the assumption that the group provides no additional information beyond σ does not restrict the generality of the model, since we can always consider instances in which people of different groups never have the same feature vector σ, and hence σ implicitly conveys perfect information about a person’s group.</p>
+  <p>with the same score comparably with respect to the outcome, rather than treating people with the same score differently based on the group they belong to.</p>
+  <p>The second and third ask that if two individuals in different groups exhibit comparable future behavior (negative or positive), they should be treated comparably by the procedure. In other words, a violation of, say, the second condition would correspond to the members of the negative class in one group receiving consistently higher scores than the members of the negative class in the other group, despite the fact that the members of the negative class in the higher-scoring group have done nothing to warrant these higher scores.</p>
+  <p>We can also interpret some of the prior work around our earlier examples through the lens of these condi- tions. For example, in the analysis of the COMPAS risk tool for criminal defendants, the critique by Angwin et al. focused on the risk tool’s violation of conditions (B) and (C); the counter-arguments established that it satisfies condition (A). While it is clearly crucial for a risk tool to satisfy (A), it may still be important to know that it violates (B) and (C). Similarly, to think in terms of the example of Internet advertising, with male and female users as the two groups, condition (A) as before requires that our estimates of ad-click probability mean the same thing in aggregate for men and women. Conditions (B) and (C) are distinct; con- dition (C), for example, says that a female user who genuinely wants to see a given ad should be assigned the same probability as a male user who wants to see the ad.</p>
+  <p>1.2 Determining What is Achievable: A Characterization Theorem</p>
+  <p>When can conditions (A), (B), and (C) be simultaneously achieved? We begin with two simple cases where it’s possible.</p>
+  <p>Perfect prediction. Suppose that for each feature vector σ, we have either pσ = 0 or pσ = 1. This means that we can achieve perfect prediction, since we know each person’s class label (positive or negative) for certain. In this case, we can assign all feature vectors σ with pσ = 0 to a bin b with score vb = 0, and all σ with pσ = 1 to a bin b′ with score vb′ = 1. It is easy to check that all three of the conditions (A), (B), and (C) are satisfied by this risk assignment.</p>
+  <p>Equal base rates. Suppose, alternately, that the two groups have the same fraction of members in the positive class; that is, the average value of pσ is the same for the members of group 1 and group 2. (We can refer to this as the base rate of the group with respect to the classification problem.) In this case, we can create a single bin b with score equal to this average value of pσ, and we can assign everyone to bin b. While this is not a particularly informative risk assignment, it is again easy to check that it satisfies fairness conditions (A), (B), and (C).</p>
+  <p>Our first main result establishes that these are in fact the only two cases in which a risk assignment can achieve all three fairness guarantees simultaneously.</p>
+  <p>Theorem 1.1 Consider an instance of the problem in which there is a risk assignment satisfying fairness conditions (A), (B), and (C). Then the instance must either allow for perfect prediction (with pσ equal to 0 or 1 for all σ) or have equal base rates.</p>
+  <p>Thus, in every instance that is more complex than the two cases noted above, there will be some natural fairness condition that is violated by any risk assignment. Moreover, note that this result applies regardless of how the risk assignment is computed; since our framework considers risk assignments to be arbitrary functions from feature vectors to bins labeled with probability estimates, it applies independently of the method — algorithmic or otherwise — that is used to construct the risk assignment.</p>
+  <p>The conclusions of the first theorem can be relaxed in a continuous fashion when the fairness conditions are only approximate. In particular, for any ε &gt; 0 we can define ε-approximate versions of each of conditions (A), (B), and (C) (specified precisely in the next section), each of which requires that the corresponding equalities between groups hold only to within an error of ε. For any δ &gt; 0, we can also define a δ- approximate version of the equal base rates condition (requiring that the base rates of the two groups be within an additive δ of each other) and a δ-approximate version of the perfect prediction condition (requiring that in each group, the average of the expected scores assigned to members of the positive class is at least δ; by the <span class="method">calibration<span class="tag">term·mth</span></span> condition, this can be shown to imply a complementary bound on the average of 1 the expected scores assigned to members of the negative class).</p>
+  <p>In these terms, our approximate version of Theorem 1.1 is the following.</p>
+  <p>Theorem 1.2 There is a continuous function f , with f (x) going to 0 as x goes to 0, so that the following holds. For all ε &gt; 0, and any instance of the problem with a risk assignment satisfying the ε-approximate versions of fairness conditions (A), (B), and (C), the instance must satisfy either the f (ε)-approximate version of perfect prediction or the f (ε)-approximate version of equal base rates.</p>
+  <p>Thus, anything that approximately satisfies the fairness constraints must approximately look like one of the two simple cases identified above.</p>
+  <p>Finally, in connection to Theorem 1.1, we note that when the two groups have equal base rates, then one can ask for the most accurate risk assignment that satisfies all three fairness conditions (A), (B), and (C) simultaneously. Since the risk assignment that gives the same score to everyone satisfies the three conditions, we know that at least one such risk assignment exists; hence, it is natural to seek to optimize over the set of all such assignments. We consider this algorithmic question in the final technical section of the paper.</p>
+  <p>To reflect a bit further on our main theorems and what they suggest, we note that our intention in the present work isn’t to make a recommendation on how conflicts between different definitions of fairness should be handled. Nor is our intention to analyze which definitions of fairness are violated in particular applications or datasets. Rather, our point is to establish certain unavoidable trade-offs between the definitions, regardless of the specific context and regardless of the method used to compute risk scores. Since each of the definitions reflect (and have been proposed as) natural notions of what it should mean for a <span class="concept">risk score<span class="tag">term·dom</span></span> to be fair, these trade-offs suggest a striking implication: that outside of narrowly delineated cases, any assignment of risk scores can in principle be subject to natural criticisms on the grounds of bias. This is equally true whether the <span class="concept">risk score<span class="tag">term·dom</span></span> is determined by an algorithm or by a system of human decision-makers.</p>
+  <p>Special Cases of the Model. Our main results, which place strong restrictions on when the three fairness conditions can be simultaneously satisfied, have more power when the underlying model of the input is more general, since it means that the restrictions implied by the theorems apply in greater generality. However, it is also useful to note certain special cases of our model, obtained by limiting the flexibility of certain parameters in intuitive ways. The point is that our results apply a fortiori to these more limited special cases.</p>
+  <p>First, we have already observed one natural special case of our model: cases in which, for each feature vector σ, only members of one group (but not the other) can exhibit σ. This means that σ contains perfect information about group membership, and so it corresponds to instances in which risk assignments would have the potential to use knowledge of an individual’s group membership. Note that we can convert any instance of our problem into a new instance that belongs to this special case as follows. For each feature vector σ, we create two new feature vectors σ(1) and σ(2); then, for each member of group 1 who had feature vector σ, we assign them σ(1), and for each member of group 2 who had feature vector σ, we assign them</p>
+  <p>σ(2). The resulting instance has the property that each feature vector is associated with members of only one group, but it preserves the essential aspects of the original instance in other respects.</p>
+  <p>Second, we allow risk assignments in our model to split people with a given feature vector σ over several bins. Our results also therefore apply to the natural special case of the model with integral risk assignments, in which all people with a given feature σ must go to the same bin.</p>
+  <p>Third, our model is a generalization of binary classification, which only allows for 2 bins. Note that although binary classification does not explicitly assign scores, we can consider the probability that an individual belongs to the positive class given that they were assigned to a specific bin to be the score for that bin. Thus, our results hold in the traditional binary classification setting as well.</p>
+  <p>Data-Generating Processes. Finally, there is the question of where the data in an instance of our problem comes from. Our results do not assume any particular process for generating the positive/negative class labels, feature vectors, and group memberships; we simply assume that we are given such a collection of values (regardless of where they came from), and then our results address the existence or non-existence of certain risk assignments for these values.</p>
+  <p>This increases the generality of our results, since it means that they apply to any process that produces data of the form described by our model. To give an example of a natural generative model that would produce instances with the structure that we need, one could assume that each individual starts with a “hidden” class label (positive or negative), and a feature vector σ is then probabilistically generated for this individual from a distribution that can depend on their class label and their group membership. (If feature vectors produced for the two groups are disjoint from one another, then the requirement that the value of pσ is independent of group membership given σ necessarily holds.) Since a process with this structure produces instances from our model, our results apply to data that arises from such a generative process.</p>
+  <p>It is also interesting to note that the basic set-up of our model, with the population divided across a set of feature vectors for which race provides no additional information, is in fact a very close match to the information one gets from the output of a well-calibrated risk tool. In this sense, one setting for our model would be the problem of applying post-processing to the output of such a risk tool to ensure additional fairness guarantees. Indeed, since much of the recent controversy about fair risk scores has involved risk tools that are well-calibrated but lack the other fairness conditions we consider, such an interpretation of the model could be a useful way to think about how one might work with these tools in the context of a broader system.</p>
+  <p>1.3 Further Related Work</p>
+  <p>Mounting concern over discrimination in machine learning has led to a large body of new work seeking to better understand and prevent it. Barocas and Selbst survey a range of ways in which data-analysis algorithms can lead to discriminatory outcomes [3], and review articles by Romei and Ruggieri [25] and Zliobaite [30] survey data-analytic and algorithmic methods for measuring discrimination.</p>
+  <p>Kamiran and Calders [21] and Hajian and Domingo-Ferrer [18] seek to modify datasets to remove any information that might permit discrimination. Similarly, Zemel et al. look to learn fair intermediate repre- sentations of data while preserving information needed for classification [29]. Joseph et al. consider how fairness issues can arise during the process of learning, modeling this using a multi-armed bandit framework [20].</p>
+  <p>One common notion of fairness is “statistical parity” – equal fractions of each group should be treated as belonging to the positive class [4, 21, 22]. Recent papers have also considered approximate relaxations of statistical parity, motivated by the formulation of disparate impact in the U.S. legal code [12, 28]. Work in these directions has developed learning algorithms that penalize violations of statistical parity [4, 22]. As noted above, we consider definitions other than statistical parity that take into account the class membership (positive or negative) of the people being classified.</p>
+  <p>Dwork et al. propose a framework based on a task-specific externally defined similarity metric between individuals, seeking to achieve fairness through the goal that “similar people [be] treated similarly” [11]. They strive towards individual fairness, which is a stronger notion of fairness than the definitions we use; however, our approach shares some of the underlying motivation (though not the specifics) in that our balance conditions for the positive and negative classes also reflect the notion that similar people should be treated similarly.</p>
+  <p>Much of the applied work on risk scores, as noted above, focuses on <span class="method">calibration<span class="tag">term·mth</span></span> as a central goal [8, 10, 13]. In particular, responding to the criticism of their risk scores as displaying asymmetric errors for different groups, Dietrich et al. note that empirically, both in their domain and in similar settings, it is typically difficult to achieve symmetry in the error rates across groups when base rates differ significantly. Our formulation of the balance conditions for the positive and negative classes, and our result showing the incompatibility of these conditions with <span class="method">calibration<span class="tag">term·mth</span></span>, provides a theoretical basis for such observations.</p>
+  <p>In recent work concurrent with ours, Hardt et al. consider the natural analogues of our conditions (B) and (C), balance for the negative and positive classes, in the case of classifiers that output binary “yes/no” predictions rather than real-valued scores as in our case [19]. Since they do not require an analogue of <span class="method">calibration<span class="tag">term·mth</span></span>, it is possible to satisfy the two balance constraints simultaneously, and they provide methods for optimizing performance measures of the prediction rule subject to satisfying these two constraints. Also concurrent with our work and that of Hardt et al., Chouldechova [5] and Corbett-Davies et al. [6] (and see also [7]) consider binary prediction subject to these same analogues of the balance conditions for the negative and positive classes, together with a form of <span class="method">calibration<span class="tag">term·mth</span></span> adapted to binary prediction (requiring that for all people given a positive label, the same fraction of people in each group should truly belong to the positive class). Among other results, they show that no classification rule satisfying the required constraints is possible. Finally, a recent paper of Friedler et al. [15] defines two axiomatic properties of feature generation and shows that no mechanism can be fair under these two properties.</p>
+  <p>2 The Characterization Theorems</p>
+  <p>Starting with the notation and definitions from the previous section, we now give a proof of Theorem 1.1.</p>
+  <p>Informal overview. Let us begin with a brief overview of the proof, before going into a more detailed version of it. For this discussion, let Nt denote the number of people in group t, and μt be the number of people in group t who belong to the positive class.</p>
+  <p>Roughly speaking, the proof proceeds in two steps. First, consider a single bin b. By the <span class="method">calibration<span class="tag">term·mth</span></span> condi- tion, the expected total score given to the group-t people in bin b is equal to the expected number of group-t people in bin b who belong to the positive class. Summing over all bins, we find that the total score given to all people in group t (that is, the sum of the scores received by everyone in group t) is equal to the total number of people in the positive class in group t, which is μt.</p>
+  <p>Now, let x be the average score given to a member of the negative class, and let y be the average score given to a member of the positive class. By the balance conditions for the negative and positive classes, these values of x and y are the same for both groups.</p>
+  <p>Given the values of x and y, the total number of people in the positive class μt, and the total score given out to people in group t — which, as argued above, is also μt — we can write the total score as</p>
+  <p>μt)x + μty = μt.</p>
+  <p>This defines a line for each group t in the two variables x and y, and hence we obtain a system of two linear equations (one for each group) in the unknowns x and y.</p>
+  <p>If all three conditions — <span class="method">calibration<span class="tag">term·mth</span></span>, and balance for the two classes — are to be satisfied, then we must be at a set of parameters that represents a solution to the system of two equations. If the base rates are equal, then μ1 = μ2 and hence the two lines are the same; in this case, the system of equations is satisfied by any choice of x and y. If the base rates are not equal, then the two lines are distinct, and they intersect only at the point (x, y) = (0, 1), which implies perfect prediction — an average score of 0 for members of the negative class and 1 for members of the positive class. Thus, the three conditions can be simultaneously satisfied if and only if we have equal base rates or perfect prediction.</p>
+  <p>This concludes the overview of the proof; in the remainder of the section we describe the argument at a more detailed level.</p>
+  <p>Definitions and notation. Recall from our notation in the previous section that an atσ fraction of the people in group t have feature vector σ; we thus write ntσ = atσNt for the number of people in group t with feature vector σ. Many of the components of the risk assignment and its evaluation can be written in terms of operations on a set of underlying matrices and vectors, which we begin by specifying.</p>
+  <p>σ |</p>
+  <p>denote the number of feature vectors in the instance, and let p</p>
+  <p>R|σ| be a vector indexed First, let R|σ| by the possible feature vectors, with the coordinate in position σ equal to pσ. For group t, let nt also be a vector indexed by the possible feature vectors, with the coordinate in position σ equal to ntσ. Finally, it will be useful to have a representation of p as a diagonal matrix; thus, let P be a σ diagonal matrix with Pσσ = pσ.</p>
+  <p>| × |</p>
+  <p>σ |</p>
+  <p>We now specify a risk assignment as follows. The risk assignment involves a set of B bins with RB be a vector indexed by the bins, with the coordinate in position b equal associated scores; let v B matrix with Vbb = vb. to the score vb of bin b. Let V be a diagonal matrix version of v: it is a B Finally, let X be the B matrix of Xσb values, specifying the fraction of people with feature vector σ who get mapped to bin b under the assignment procedure.</p>
+  <p>σ |</p>
+  <p>| ×</p>
+  <p>There is an important point to note about the Xσb values. If all of them are equal to 0 or 1, this corresponds to a procedure in which all people with the same feature vector σ get assigned to the same bin. When some of the Xσb values are not equal to 0 or 1, the people with vector σ are being divided among multiple bins. In this case, there is an implicit randomization taking place with respect to the positive and negative classes, and with respect to the two groups, which we can think of as follows. Since the procedure cannot distinguish among people with vector σ, in the case that it distributes these people across multiple bins, the subset of people with vector σ who belong to the positive and negative classes, and to the two groups, are divided up randomly across these bins in proportions corresponding to Xσb. In particular, if there are ntσ group-t people with vector σ, the expected number of these people who belong to the positive class and are assigned to bin b is ntσpσXσb.</p>
+  <p>Let us now proceed with the proof of Theorem 1.1, starting with the assumption that our risk assignment satisfies conditions (A), (B), and (C).</p>
+  <p><span class="method">Calibration<span class="tag">term·mth</span></span> within groups. We begin by working out some useful expressions in terms of the matrices t P is a vector in R|σ| whose coordinate corresponding to and vectors defined above. We observe that n⊤ feature vector σ equals the number of people in group t who have feature vector σ and belong to the positive t X is a vector in RB whose coordinate corresponding to bin b equals the expected number of people class. n⊤ in group t assigned to bin b.</p>
+  <p>By further multiplying these vectors on the right, we get additional useful quantities. Here are two in particular:</p>
+  <p>t XV is a vector in RB whose coordinate corresponding to bin b equals the expected sum of the n⊤ scores assigned to all group-t people in bin b. That is, using the subscript b to denote the coordinate corresponding to bin b, we can write (n⊤ t X)b by the definition of the diagonal matrix V . t P X is a vector in RB whose coordinate corresponding to bin b equals the expected number of n⊤ group-t people in the positive class who are placed in bin b.</p>
+  <p>t XV )b = vb(n⊤</p>
+  <p>Now, condition (A), that the risk assignment is calibrated within groups, implies that the two vectors above are equal coordinate-wise, and so we have the following equation for all t:</p>
+  <p>t P X = n⊤ n⊤</p>
+  <p>t XV</p>
+  <p>(1)</p>
+  <p><span class="method">Calibration<span class="tag">term·mth</span></span> condition (A) also has an implication for the total score received by all people in group t. RB whose coordinates are all 1, Suppose we multiply the two sides of (1) on the right by the vector e obtaining</p>
+  <p>t P Xe = n⊤ n⊤</p>
+  <p>t XV e.</p>
+  <p>(2)</p>
+  <p>The left-hand-side is the number of group-t people in the positive class. The right-hand-side, which we can also write as n⊤ t Xv, is equal to the sum of the expected scores received by all group-t people. These two quantities are thus the same, and we write their common value as μt.</p>
+  <p>Fairness to the positive and negative classes. We now want to write down vector equations corresponding to the fairness conditions (B) and (C) for the negative and positive classes. First, recall that for the B- dimensional vector n⊤ t P X, the coordinate corresponding to bin b equals the expected number of group-t people in the positive class who are placed in bin b. Thus, to compute the sum of the expected scores received by all group-t people in the positive class, we simply need to take the inner product with the vector v, yielding n⊤ t P Xv. Since μt is the total number of group-t people in the positive class, the average of the n⊤ t P Xv. Thus, condition (C), that members of the positive class should receive the same average score in each group, can be written</p>
+  <p>expected scores received by a group-t person in the positive class is the ratio</p>
+  <p>1 μt</p>
+  <p>1 μ1</p>
+  <p>n⊤ 1 P Xv =</p>
+  <p>1 μ2</p>
+  <p>n⊤ 2 P Xv</p>
+  <p>(3)</p>
+  <p>Applying strictly analogous reasoning but to the fractions 1 pσ of people in the negative class, we can write condition (B), that members of the negative class should receive the same average score in each group, as</p>
+  <p>2 (I</p>
+  <p>P )Xv</p>
+  <p>(4)</p>
+  <p>1 N1 −</p>
+  <p>1 (I</p>
+  <p>P )Xv =</p>
+  <p>1 N2 −</p>
+  <p>Using (1), we can rewrite (3) to get</p>
+  <p>Similarly, we can rewrite (4) as</p>
+  <p>1 μ1</p>
+  <p>1 XV v =</p>
+  <p>1 μ2</p>
+  <p>2 XV v</p>
+  <p>1 N1 −</p>
+  <p>(μ1 −</p>
+  <p>1 XV v) =</p>
+  <p>1 N2 −</p>
+  <p>(μ2 −</p>
+  <p>2 XV v)</p>
+  <p>(5)</p>
+  <p>(6)</p>
+  <p>The portion of the score received by the positive class. We think of the ratios on the two sides of (3), and equivalently (5), as the average of the expected scores received by a member of the positive class in group t: the numerator is the sum of the expected scores received by the members of the positive class, and the denominator is the size of the positive class. Let us denote this fraction by γt; we note that this is the quantity y used in the informal overview of the proof at the start of the section. By (2), we can alternately think of the denominator as the sum of the expected scores received by all group-t people. Hence, the two sides of (3) and (5) can be viewed as representing the ratio of the sum of the expected scores in the positive class of group t to the sum of the expected scores in group t as a whole. (3) requires that γ1 = γ2; let us denote this common value by γ.</p>
+  <p>Now, we observe that γ = 1 corresponds to a case in which the sum of the expected scores in just the positive class of group t is equal to the sum of the expected scores in all of group t. In this case, it must be that all members of the negative class are assigned to bins of score 0. If any members of the positive class were assigned to a bin of score 0, this would violate the <span class="method">calibration<span class="tag">term·mth</span></span> condition (A); hence all members of the positive class are assigned to bins of positive score. Moreover, these bins of positive score contain no members of the negative class (since they’ve all been assigned to bins of score 0), and so again by the <span class="method">calibration<span class="tag">term·mth</span></span> condition (A), the members of the positive class are all assigned to bins of score 1. Finally, applying the <span class="method">calibration<span class="tag">term·mth</span></span> condition once more, it follows that the members of the negative class all have feature vectors σ with pσ = 0 and the members of the positive class all have feature vectors σ with pσ = 1. Hence, when γ = 1 we have perfect prediction.</p>
+  <p>Finally, we use our definition of γt as</p>
+  <p>1 μt</p>
+  <p>n⊤ t XV v, and the fact that γ1 = γ2 = γ to write (6) as</p>
+  <p>(μ1 − μ1(1</p>
+  <p>1 μ1 N1 − 1 N1 −</p>
+  <p>μ1 μ1/N1</p>
+  <p>μ1/N1</p>
+  <p>γμ1) =</p>
+  <p>γ) =</p>
+  <p>γ) =</p>
+  <p>(μ2 − μ2(1</p>
+  <p>1 N2 − 1 N2 −</p>
+  <p>μ2 μ2/N2</p>
+  <p>μ2/N2</p>
+  <p>γμ2)</p>
+  <p>Now, this last equality implies that one of two things must be the case. Either 1 γ = 1 and we have perfect prediction; or</p>
+  <p>γ = 0, in which case</p>
+  <p>μ1/N1</p>
+  <p>μ1/N1</p>
+  <p>μ2/N2</p>
+  <p>μ2/N2</p>
+  <p>in which case μ1/N1 = μ2/N2 and we have equal base rates. This completes the proof of Theorem 1.1.</p>
+  <p>Some Comments on the Connection to Statistical Parity. Earlier we noted that conditions (B) and (C) — the balance conditions for the positive and negative classes — are quite different from the requirement of statistical parity, which asserts that the average of the scores over all members of each group be the same.</p>
+  <p>When the two groups have equal base rates, then the risk assignment that gives the same score to everyone in the population achieves statistical parity along with conditions (A), (B), and (C). But when the two groups do not have equal base rates, it is immediate to show that statistical parity is inconsistent with both the <span class="method">calibration<span class="tag">term·mth</span></span> condition (A) and with the conjunction of the two balance conditions (B) and (C). To see the inconsistency of statistical parity with the <span class="method">calibration<span class="tag">term·mth</span></span> condition, we take Equation (1) from the proof above, sum the coordinates of the vectors on both sides, and divide by Nt, the number of people in group t. Statistical parity requires that the right-hand sides of the resulting equation be the same for t = 1, 2, while the assumption that the two groups have unequal base rates implies that the left-hand sides of the equation must be different for t = 1, 2. To see the inconsistency of statistical parity with the two balance conditions (B) and (C), we simply observe that if the average score assigned to the positive class and to the negative class are the same in the two groups, then the average of the scores over all members of the two groups cannot be the same provided they do not contain the same proportion of positive-class and negative-class members.</p>
+  <p>3 The Approximate Theorem</p>
+  <p>In this section we prove Theorem 1.2. First, we must first give a precise specification of the approximate fairness conditions:</p>
+  <p>1 N2 −</p>
+  <p>(cid:18)</p>
+  <p>μ2 (cid:19)</p>
+  <p>− n⊤ t (I</p>
+  <p>ε)[n⊤</p>
+  <p>t XV ]b</p>
+  <p>[n⊤</p>
+  <p>ε)[n⊤</p>
+  <p>t XV ]b</p>
+  <p>t P X]b 1 N1 −</p>
+  <p>(cid:18)</p>
+  <p>μ1 (cid:19)</p>
+  <p>− n⊤ t (I</p>
+  <p>P )Xv</p>
+  <p>(1 + ε)</p>
+  <p>1 N2 −</p>
+  <p>(cid:18)</p>
+  <p>μ2 (cid:19)</p>
+  <p>1 μ2 (cid:19)</p>
+  <p>1 μ1 (cid:19)</p>
+  <p>t P Xv</p>
+  <p>(1 + ε)</p>
+  <p>1 μ2 (cid:19)</p>
+  <p>t P Xv</p>
+  <p>(cid:18) For (B’) and (C’), we also require that these hold when μ1 and μ2 are interchanged.</p>
+  <p>(cid:18)</p>
+  <p>(cid:18)</p>
+  <p>P )Xv</p>
+  <p>t P Xv</p>
+  <p>(A’)</p>
+  <p>n⊤ t (I</p>
+  <p>P )Xv</p>
+  <p>(B’)</p>
+  <p>(C’)</p>
+  <p>We also specify the approximate versions of perfect prediction and equal base rates in terms of f (ε), which is a function that goes to 0 as ε goes to 0.</p>
+  <p>f (ε)</p>
+  <p>− μ1/N1 − |</p>
+  <p>Approximate perfect prediction. γ1 ≥ Approximately equal base rates.</p>
+  <p>f (ε) and γ2 ≥ f (ε) μ2/N2| ≤ A brief overview of the proof of Theorem 1.2 is as follows. It proceeds by first establishing an approximate form of Equation (1) above, which implies that the total expected score assigned in each group is approxi- mately equal to the total size of the positive class. This in turn makes it possible to formulate approximate forms of Equations (3) and (4). When the base rates are close together, the approximation is too loose to derive bounds on the predictive power; but this is okay since in this case we have approximately equal base rates. Otherwise, when the base rates differ significantly, we show that most of the expected score must be assigned to the positive class, giving us approximately perfect prediction.</p>
+  <p>The remainder of this section provides the full details of the proof.</p>
+  <p>Total scores and the number of people in the positive class. First, we will show that the total score for each group is approximately μt, the number of people in the positive class. Define ˆμt = n⊤ t Xv. Using (A’),</p>
+  <p>we have</p>
+  <p>ˆμt = n⊤ t Xv = n⊤ t XV e B</p>
+  <p>[n⊤</p>
+  <p>t P X]b</p>
+  <p>Xb=1</p>
+  <p>(1 + ε)</p>
+  <p>[n⊤</p>
+  <p>t P X]b</p>
+  <p>b=1 X = (1 + ε)n⊤ t P Xe = (1 + ε)μt</p>
+  <p>Similarly, we can lower bound ˆμt as</p>
+  <p>ˆμt =</p>
+  <p>[n⊤</p>
+  <p>t P X]b</p>
+  <p>b=1 X</p>
+  <p>= (1</p>
+  <p>[n⊤</p>
+  <p>t P X]b</p>
+  <p>Xb=1</p>
+  <p>ε)μt</p>
+  <p>Combining these, we have</p>
+  <p>ε)μt</p>
+  <p>ˆμt</p>
+  <p>(1 + ε)μt.</p>
+  <p>(7)</p>
+  <p>γ2. Recall The portion of the score received by the positive class. We can use (C’) to show that γ1 ≈ that γt, the average of the expected scores assigned to members of the positive class in group t, is defined as γt = 1 μt</p>
+  <p>ntP Xv. Then, it follows trivially from (C’) that</p>
+  <p>ε)γ2 ≤</p>
+  <p>γ1 ≤</p>
+  <p>(1 + ε)γ2.</p>
+  <p>(8)</p>
+  <p>The relationship between the base rates. We can apply this to (B’) to relate μ1 and μ2, using the obser- vation that the score not received by people of the positive class must fall instead to people of the negative class. Examining the left inequality of (B’), we have</p>
+  <p>1 N2 −</p>
+  <p>(cid:18)</p>
+  <p>μ2 (cid:19)</p>
+  <p>n⊤ t (I</p>
+  <p>P )Xv = (1</p>
+  <p>= (1</p>
+  <p>= (1</p>
+  <p>= (1</p>
+  <p>(cid:18)</p>
+  <p>(cid:18)</p>
+  <p>(cid:18)</p>
+  <p>(cid:18)</p>
+  <p>1 N2 − 1 N2 − 1 N2 − μ2 N2 − μ2 N2 −</p>
+  <p>(cid:18) 2ε + ε2</p>
+  <p>(n⊤</p>
+  <p>t Xv</p>
+  <p>n⊤ t P Xv)</p>
+  <p>(ˆμ2 −</p>
+  <p>γ2μ2)</p>
+  <p>((1</p>
+  <p>ε)μ2 −</p>
+  <p>γ2μt)</p>
+  <p>γ2)</p>
+  <p>μ2 (cid:19)</p>
+  <p>μ2 (cid:19)</p>
+  <p>μ2 (cid:19)</p>
+  <p>μ2 (cid:19)</p>
+  <p>(cid:19)</p>
+  <p>μ2 (cid:19) (cid:18) γ1)</p>
+  <p>(cid:18)</p>
+  <p>− μ2 N2 −</p>
+  <p>μ2 (cid:19)</p>
+  <p>Thus, the left inequality of (B’) becomes</p>
+  <p>2ε + ε2</p>
+  <p>1 N1 − μ2 (cid:19) (cid:18) t Xv and γtμt = n⊤ t P Xv, so this becomes</p>
+  <p>μ2 N2 −</p>
+  <p>γ1)</p>
+  <p>(cid:18)</p>
+  <p>By definition, ˆμ1 = n⊤</p>
+  <p>t (I</p>
+  <p>P )Xv</p>
+  <p>μ1 (cid:19)</p>
+  <p>2ε + ε2</p>
+  <p>γ1)</p>
+  <p>μ2 N2 −</p>
+  <p>(cid:18)</p>
+  <p>μ2 (cid:19)</p>
+  <p>(cid:18)</p>
+  <p>1 N1 −</p>
+  <p>μ1 (cid:19)</p>
+  <p>(ˆμ1 −</p>
+  <p>γ1μ1)</p>
+  <p>(9)</p>
+  <p>(10)</p>
+  <p>If the base rates differ. Let ρ1 and ρ2 be the respective base rates, i.e. ρ1 = μ1/N1 and ρ2 = μ2/N2. ρ2 (otherwise we can switch μ1 and μ2 in the above analysis), and assume towards Assume that ρ1 ≤ contradiction that the base rates differ by at least √ε, meaning ρ1 + √ε &lt; ρ2. Using (10),</p>
+  <p>ρ1 + √ε</p>
+  <p>ρ1 = √ε ≤</p>
+  <p>ρ2 1 + ε − 2ε + ε2 ρ1 − − (ρ1 + √ε)(1</p>
+  <p>γ1 (cid:19) (cid:18) √ε)(1 + ε ρ1) − − ρ1) + √ερ1]</p>
+  <p>ρ1 (cid:19) − γ1) ρ1(1</p>
+  <p>√ε)</p>
+  <p>ρ1 −</p>
+  <p>(cid:3)</p>
+  <p>(ρ1 + √ε)(1</p>
+  <p>ρ1)(1</p>
+  <p>− ρ1(1</p>
+  <p>(ρ1 + √ε)(1 ρ1)(1 − ρ1 −</p>
+  <p>2ε)</p>
+  <p>− √ε)(1 + ε)] + √ε(1 2ε</p>
+  <p>− ρ1 − −</p>
+  <p>ε + ερ1 + √ε + ε√ε) + √ε(1</p>
+  <p>3ε + 3ερ1 + √ε + ε√ε</p>
+  <p>2ε + ε2</p>
+  <p>γ1) − √ε)(1 + ε) ρ1)(1 2ε) − ρ1 + 2ερ1) 2ε)</p>
+  <p>ρ1[(1 ρ1(</p>
+  <p>ρ1)(1 2ε) − 2ε + 2ερ1 − ρ1( −</p>
+  <p>ερ1(</p>
+  <p>− √ε + 2ε√ε) + √ε(1 − 3 + 3ρ1 + 3√ε) + √ε(1 1 + ρ1) + √ε(1 3ερ1( − 3√ερ1(1 1</p>
+  <p>− 2√ε +</p>
+  <p>− √ε</p>
+  <p>(cid:18)</p>
+  <p>2ε)</p>
+  <p>2ε) ρ1) 3 4</p>
+  <p>(cid:19)</p>
+  <p>Recall that γ2 ≥</p>
+  <p>γ1(1</p>
+  <p>ε), so</p>
+  <p>1 (cid:18) − ρ1(1 γ1 γ1[√ε(1 (cid:2) γ1√ε γ1√ε γ1√ε γ1√ε γ1</p>
+  <p>γ2 ≥</p>
+  <p>ε)γ1</p>
+  <p>2√ε +</p>
+  <p>(cid:18) √ε</p>
+  <p>(cid:18) 2√ε +</p>
+  <p>(cid:18) 3√ε +</p>
+  <p>3 4</p>
+  <p>3 4</p>
+  <p>(cid:19)</p>
+  <p>= 1</p>
+  <p>3 4</p>
+  <p>(cid:19)(cid:19)</p>
+  <p>(cid:18) Let f (ε) = √ε max(1, 3√ε + 3/4). Note that we assumed that ρ1 and ρ2 differ by an additive √ε f (ε). Therefore if the ε-fairness conditions are met and the base rates are not within an additive f (ε), then γ1 ≥ 1 −</p>
+  <p>f (ε). This completes the proof of Theorem 1.2.</p>
+  <p>f (ε) and γ2 ≥</p>
+  <p>(cid:19)</p>
+  <p>4 Reducing Loss with Equal Base Rates</p>
+  <p>In a risk assignment, we would like as much of the score as possible to be assigned to members of the positive class. With this in mind, if an individual receives a score of v, we define their individual loss to</p>
+  <p>v if they belong to the positive class. The loss of the risk be v if they belong to the negative class, and 1 assignment in group t is then the sum of the expected individual losses to each member of group t. In terms of the matrix-vector products used in the proof of Theorem 1.1, one can show that the loss for group t may be written as</p>
+  <p>lt(X) = n⊤ t (I = 2(μt</p>
+  <p>P )Xv + (μt n⊤ t P Xv),</p>
+  <p>t P Xv)</p>
+  <p>and the total loss is just the weighted sum of the losses for each group.</p>
+  <p>Now, let us say that a fair assignment is one that satisfies our three conditions (A), (B), and (C). As noted above, when the base rates in the two groups are equal, the set of fair assignments is non-empty, since the calibrated risk assignment that places everyone in a single bin is fair. We can therefore ask, in the case of equal base rates, whether there exists a fair assignment whose loss is strictly less than that of the trivial one-bin assignment. It is not hard to show that this is possible if and only if there is any assignment using more than one bin; we will call such an assignment a non-trivial assignment.</p>
+  <p>Note that the assignment that minimizes loss is simply the one that assigns each σ to a separate bin with a score of pσ, meaning X is the identity matrix. While this assignment, which we refer to as the identity assignment I, is well-calibrated, it may violate fairness conditions (B) and (C). It is not hard to show that the loss for any other assignment is strictly greater than the loss for I. As a result, unless the identity assignment happens to be fair, every fair assignment must have larger loss than that of I, forcing a tradeoff between performance and fairness.</p>
+  <p>4.1 Characterization of Well-Calibrated Solutions</p>
+  <p>To better understand the space of feasible solutions, suppose we drop the fairness conditions (B) and (C) for now and study risk assignments that are simply well-calibrated, satisfying (A). As in the proof of Theorem 1.1, we write γt for the average of the expected scores assigned to members of the positive class in group t, γ2. If this is nonnegative, we say the risk assignment weakly and we define the fairness difference to be γ1 − favors group 1; if it is nonpositive, it weakly favors group 2. Since a risk assignment is fair if and only if γ1 = γ2, it is fair if and only if the fairness difference is 0.</p>
+  <p>We wish to characterize when non-trivial fair risk assignments are possible. First, we observe that without the fairness requirements, the set of possible fairness differences under well-calibrated assignments is an interval.</p>
+  <p>Lemma 4.1 If group 1 and group 2 have equal base rates, then for any two non-trivial well-calibrated [d1, d2], there exists a non-trivial risk assignments with fairness differences d1 and d2 and for any d3 ∈ well-calibrated risk assignment with fairness difference d3.</p>
+  <p>Proof: The basic idea is that we can effectively take convex combinations of well-calibrated assignments to produce any well-calibrated assignment “in between” them. We carry this out as follows.</p>
+  <p>Let X (1) and X (2) be the allocation matrices for assignments with fairness differences d1 and d2 respectively, where d1 &lt; d2. Choose λ such that λd1 + (1 d1). Then, X (3) = [λX (1)</p>
+  <p>λ)X (2)] is a nontrivial well-calibrated assignment with fairness difference d3.</p>
+  <p>λ)d2 = d3, meaning λ = (d2 −</p>
+  <p>d3)/(d2 −</p>
+  <p>First, we observe that X (3) is a valid assignment because each row sums to 1 (meaning everyone from every σ gets assigned to a bin), since each row of λX (1) sums to λ and each row of (1 λ).</p>
+  <p>λ)X (2) sums to (1</p>
+  <p>Moreover, it is nontrivial because every nonempty bin created by X (1) and X (2) is a nonempty bin under X (3).</p>
+  <p>Let v(1) and v(2) be the respective bin labels for assignments X (1) and X (2). Define v(3) =</p>
+  <p>Finally, let V (3) = diag(v(3)). Define V (1) and V (2) analogously. Note that V (3) =</p>
+  <p>V (1) 0</p>
+  <p>(cid:20)</p>
+  <p>We observe that X (3) is calibrated because</p>
+  <p>v(1) v(2)</p>
+  <p>(cid:21)</p>
+  <p>(cid:20)</p>
+  <p>0 V (2)</p>
+  <p>(cid:21)</p>
+  <p>t P X (3) = n⊤ n⊤</p>
+  <p>t P [λX (1) t P X (1) (1 t X (1)V (1) (1</p>
+  <p>t [λX (1) t X (3)V (3)</p>
+  <p>= [λn⊤ = [λn⊤ = n⊤ = n⊤</p>
+  <p>λ)X (2)] λ)n⊤</p>
+  <p>t P X (2)] − λ)n⊤ (1 λ)X (2)]V (3)</p>
+  <p>t X (2)V (2)]</p>
+  <p>Finally, we show that the fairness difference is d3. Let γ(1) 1 score received by the positive class from each group respectively. Define γ(2)</p>
+  <p>and γ(1) 2</p>
+  <p>be the portions of the total expected 1 , γ(3)</p>
+  <p>2 , γ(3)</p>
+  <p>1 , γ(2)</p>
+  <p>similarly.</p>
+  <p>γ(3) 1 −</p>
+  <p>γ(3) 2 =</p>
+  <p>1 P X (3)v(3) n⊤</p>
+  <p>2 P X (3)v(3) n⊤</p>
+  <p>1 μ</p>
+  <p>− 2 )P X (3)v(3) n⊤</p>
+  <p>(n⊤</p>
+  <p>(n⊤</p>
+  <p>1 −</p>
+  <p>1 −</p>
+  <p>1 μ 1 μ 1 μ 1 μ = λ(γ(1) 1 − = λd1 + (1 = d3</p>
+  <p>(λ(n⊤</p>
+  <p>2 )P [λX (1)v(1) n⊤</p>
+  <p>− 2 )P X (1)v(1) + (1 n⊤</p>
+  <p>1 −</p>
+  <p>γ(1) 2 ) + (1 λ)d2</p>
+  <p>λ)(γ(2)</p>
+  <p>1 −</p>
+  <p>λ)X (2)v(2)]</p>
+  <p>λ)(n⊤</p>
+  <p>1 −</p>
+  <p>− γ(2) 2 )</p>
+  <p>2 )X (2)v(2)]) n⊤</p>
+  <p>Corollary 4.2 There exists a non-trivial fair assignment if and only if there exist non-trivial well-calibrated assignments X (1) and X (2) such that X (1) weakly favors group 1 and X (2) weakly favors group 2.</p>
+  <p>Proof: one direction.</p>
+  <p>If there is a non-trivial fair assignment, then it weakly favors both group 1 and group 2, proving</p>
+  <p>To prove the other direction, observe that the fairness differences d1 and d2 of X (1) and X (2) are nonnegative and nonpositive respectively. Since the set of fairness differences achievable by non-trivial well-calibrated assignments is an interval by Lemma 4.1, there exists a non-trivial well-calibrated assignment with fairness difference 0, meaning there exists a non-trivial fair assignment.</p>
+  <p>It is an open question whether there is a polynomial-time algorithm to find a fair assignment of minimum loss, or even to determine whether a non-trivial fair solution exists.</p>
+  <p>4.2 NP-Completeness of Non-Trivial Integral Fair Risk Assignments</p>
+  <p>As discussed in the introduction, risk assignments in our model are allowed to split people with a given feature vector σ over several bins; however, it is also of interest to consider the special case of integral risk assignments, in which all people with a given feature σ must go to the same bin. For the case of equal base rates, we can show that determining whether there is a non-trivial integral fair assignment is NP-complete. The proof uses a reduction from the Subset Sum problem and is given in the Appendix.</p>
+  <p>The basic idea of the reduction is as follows. We have an instance of Subset Sum with numbers w1, . . . , wm and a target number T ; the question is whether there is a subset of the wi’s that sums to T . As before, γt denotes the average of the expected scores received by members of the positive class in group t. We first ensure that there is exactly one non-trivial way to allocate the people of group 1, allowing us to control γ1. The fairness conditions then require that γ2 = γ1, which we can use to encode the target value in the instance of Subset Sum. For every input number wi in the Subset Sum instance, we create pσ2i−1 and pσ2i, close to each other in value and far from all other pσ values, such that grouping σ2i−1 and σ2i together into a bin corresponds to choosing wi for the subset, while not grouping them corresponds to not taking wi. This ensures that group 2 can be assigned with the correct value of γ2 if and only if there is a solution to the Subset Sum instance.</p>
+  <p>5 Conclusion</p>
+  <p>In this work we have formalized three fundamental conditions for risk assignments to individuals, each of which has been proposed as a basic measure of what it means for the risk assignment to be fair. Our main results show that except in highly constrained special cases, it is not possible to satisfy these three constraints simultaneously; and moreover, a version of this fact holds in an approximate sense as well.</p>
+  <p>Since these results hold regardless of the method used to compute the risk assignment, it can be phrased in fairly clean terms in a number of domains where the trade-offs among these conditions do not appear to be well-understood. To take one simple example, suppose we want to determine the risk that a person is a carrier for a disease X, and suppose that a higher fraction of women than men are carriers. Then our results imply that in any test designed to estimate the probability that someone is a carrier of X, at least one of the following undesirable properties must hold: (a) the test’s probability estimates are systematically skewed upward or downward for at least one gender; or (b) the test assigns a higher average risk estimate to healthy people (non-carriers) in one gender than the other; or (c) the test assigns a higher average risk estimate to carriers of the disease in one gender than the other. The point is that this trade-off among (a), (b), and (c) is not a fact about medicine; it is simply a fact about risk estimates when the base rates differ between two groups.</p>
+  <p>Finally, we note that our results suggest a number of interesting directions for further work. First, when the base rates between the two underlying groups are equal, our results do not resolve the computational tractability of finding the most accurate risk assignment, subject to our three fairness conditions, when the people with a given feature vector can be split across multiple bins. (Our NP-completeness result applies only to the case in which everyone with a given feature vector must be assigned to the same bin.) Second, there may be a number of settings in which the cost (social or otherwise) of false positives may differ greatly from the cost of false negatives. In such cases, we could imagine searching for risk assignments that satisfy the <span class="method">calibration<span class="tag">term·mth</span></span> condition together with only one of the two balance conditions, corresponding to the class for whom errors are more costly. Determining when two of our three conditions can be simultaneously satisfied in this way is an interesting open question. More broadly, determining how the trade-offs discussed here can</p>
+  <p>be incorporated into broader families of proposed fairness conditions suggests interesting avenues for future research.</p>
+  <p>References</p>
+  <p>[1] Propublica analysis. https://docs.google.com/document/d/1pKtyl8XmJH7Z09lxkb70n6fa2Fiitd7ydbxgCT wCXs/edit?pref=2&amp;pli=1.</p>
+  <p>[2] Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner. Machine bias: There’s software used across the country to predict future criminals. And it’s biased against blacks. ProPublica, May 23, 2016. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing.</p>
+  <p>[3] Solon Barocas and Andrew D Selbst. Big data’s disparate impact. California Law Review, 104, 2016.</p>
+  <p>[4] Toon Calders and Sicco Verwer. Three naive bayes approaches for discrimination-free classification.</p>
+  <p>Data Mining and Knowledge Discovery, 21(2):277–292, 2010.</p>
+  <p>[5] Alexandra Chouldechova. Fair prediction with disparate impact: A study of bias in recidivism predic-</p>
+  <p>tion instruments. arXiv preprint arXiv:1610.07524, October 2016.</p>
+  <p>[6] Sam Corbett-Davies, Emma Pierson, Avi Feller, and Sharad Goel. A computer program used for bail and sentencing decisions was labeled biased against blacks. its actually not that clear. Washington Post, October 7, 2016.</p>
+  <p>[7] Sam Corbett-Davies, Emma Pierson, Avi Feller, Sharad Goel, and Aziz Huq. Fair algorithms and the</p>
+  <p>equal treatment principle. Working paper, to appear.</p>
+  <p>[8] Cynthia S. Crowson, Elizabeth J. Atkinson, and Terry M. Therneau. Assessing <span class="method">calibration<span class="tag">term·mth</span></span> of prognos-</p>
+  <p>tic risk scores. Statistical Methods in Medical Research, 25(4):1692–1706, 2016.</p>
+  <p>[9] Amit Datta, Michael Carl Tschantz, and Anupam Datta. Automated experiments on ad privacy settings.</p>
+  <p>Proceedings on Privacy Enhancing Technologies, 2015(1):92–112, 2015.</p>
+  <p>[10] William Dieterich, Christina Mendoza, and Tim Brennan.</p>
+  <p>strating accuracy equity and predictive parity. http://www.northpointeinc.com/northpointe-analysis.</p>
+  <p>Technical</p>
+  <p>COMPAS risk scales: Demon- July 2016. report, Northpointe,</p>
+  <p>[11] Cynthia Dwork, Moritz Hardt, Toniann Pitassi, Omer Reingold, and Richard S. Zemel. Fairness In Innovations in Theoretical Computer Science 2012, Cambridge, MA, USA,</p>
+  <p>through awareness. January 8-10, 2012, pages 214–226, 2012.</p>
+  <p>[12] Michael Feldman, Sorelle A. Friedler, John Moeller, Carlos Scheidegger, and Suresh Venkatasubrama- nian. Certifying and removing disparate impact. In Proceedings of the 21th ACM SIGKDD Interna- tional Conference on Knowledge Discovery and Data Mining, KDD ’15, pages 259–268, New York, NY, USA, 2015. ACM.</p>
+  <p>[13] Anthony Flores, Christopher Lowenkamp, and Kristin Bechtel. False positives, false negatives, and false analyses: A rejoinder to “machine bias: Theres software used across the country to predict future criminals. and its biased against blacks.”. Technical report, Crime &amp; Justice Institute, September 2016. http://www.crj.org/cji/entry/false-positives-false-negatives-and-false-analyses-a-rejoinder.</p>
+  <p>[14] Dean P. Foster and Rakesh V. Vohra. Asymptotic <span class="method">calibration<span class="tag">term·mth</span></span>. Biometrika, 85(2):379–390, 1998.</p>
+  <p>[15] Sorelle A Friedler, Carlos Scheidegger, and Suresh Venkatasubramanian. On the (im) possibility of</p>
+  <p>fairness. arXiv preprint arXiv:1609.07236, September 2016.</p>
+  <p>[16] Howard N. Garb. Race bias, social class bias, and gender bias in clinical judgment. Clinical Psychol-</p>
+  <p>ogy: Science and Practice, 4(2):99–120, 1997.</p>
+  <p>[17] Abe Gong.</p>
+  <p>Ethics</p>
+  <p>for powerful algorithms</p>
+  <p>(1 of 4).</p>
+  <p>Medium,</p>
+  <p>July 12,</p>
+  <p>2016.</p>
+  <p>https://medium.com/@AbeGong/ethics-for-powerful-algorithms-1-of-3-a060054efd84#.dhsd2ut3i.</p>
+  <p>[18] Sara Hajian and Josep Domingo-Ferrer. A methodology for direct and indirect discrimination pre- IEEE transactions on knowledge and data engineering, 25(7):1445–1459,</p>
+  <p>vention in data mining. 2013.</p>
+  <p>[19] Moritz Hardt, Eric Price, and Nathan Srebro. Equality of opportunity in supervised learning.</p>
+  <p>Advances in Neural Information Processing Systems, 2016.</p>
+  <p>[20] Matthew Joseph, Michael Kearns, Jamie Morgenstern, and Aaron Roth. Fairness in learning: Classic</p>
+  <p>and contextual bandits. In Advances in Neural Information Processing Systems, 2016.</p>
+  <p>[21] Faisal Kamiran and Toon Calders. Classifying without discriminating. 2009 2nd International Con-</p>
+  <p>ference on Computer, Control and Communication, IC4 2009, 2009.</p>
+  <p>[22] Toshihiro Kamishima, Shotaro Akaho, and Jun Sakuma. Fairness-aware learning through regulariza- tion approach. Proceedings - IEEE International Conference on Data Mining, ICDM, pages 643–650, 2011.</p>
+  <p>[23] Jeff Larson, Surya Mattu, Lauren Kirchner, and Julia Angwin. How we analyzed the COMPAS recidi- vism algorithm. ProPublica, May 23, 2016. https://www.propublica.org/article/how-we-analyzed-the- compas-recidivism-algorithm.</p>
+  <p>[24] Executive Office of the President. Big data: A report on algorithmic systems, opportunity, and civil</p>
+  <p>rights. Technical report, May 2016.</p>
+  <p>[25] Andrea Romei and Salvatore Ruggieri. A multidisciplinary survey on discrimination analysis. The</p>
+  <p>Knowledge Engineering Review, 29(05):582–638, 2014.</p>
+  <p>[26] Latanya Sweeney. Discrimination in online ad delivery. Communications of the ACM, 56(5):44–54,</p>
+  <p>2013.</p>
+  <p>[27] David R. Williams and Selina A. Mohammed. Discrimination and racial disparities in health: Evidence</p>
+  <p>and needed research. J. Med. Behav., 32(1), 2009.</p>
+  <p>[28] Muhammad Bilal Zafar, Isabel Valera, Manuel Gomez Rodriguez, and Krishna Gummadi. Learning</p>
+  <p>fair classifiers. arXiv preprint arXiv:1507.05259, 2015.</p>
+  <p>[29] Richard S Zemel, Yu Wu, Kevin Swersky, Toniann Pitassi, and Cynthia Dwork. Learning Fair Rep- resentations. Proceedings of the 30th International Conference on Machine Learning, 28:325–333, 2013.</p>
+  <p>[30] Indre Zliobaite. A survey on measuring indirect discrimination in machine learning. arXiv preprint</p>
+  <p>arXiv:1511.00148, 2015.</p>
+  <p>Appendix: NP-Completeness of Non-Trivial Integral Fair Risk Assignments</p>
+  <p>We can reduce to the integral assignment problem, parameterized by a1σ, a2σ, and pσ, from subset sum as follows.</p>
+  <p>Suppose we have an instance of the subset sum problem specified by m numbers w1, . . . , wm and a target T ; the goal is to determine whether a subset of the wi add up to T . We create an instance of the integral assignment problem with σ1, . . . , σ2m+2. a1,σi = 1/2 if i and 0 otherwise. a2,σi = 1/(2m) if i</p>
+  <p>2m and 0 otherwise. We make the following definitions:</p>
+  <p>2m + 1, 2m + 2 }</p>
+  <p>∈ {</p>
+  <p>ˆwi = wi/(T m4)</p>
+  <p>εi =</p>
+  <p>ˆwi/2</p>
+  <p>pσ2i−1 = i/(m + 1) p</p>
+  <p>εi pσ2i = i/(m + 1) + εi</p>
+  <p>γ = 1/m</p>
+  <p>p2 σi −</p>
+  <p>1/m5</p>
+  <p>i=1 X</p>
+  <p>1)/2</p>
+  <p>1)/2</p>
+  <p>pσ2m+1 = (1</p>
+  <p>− pσ2m+2 = (1 +</p>
+  <p>(1 (1</p>
+  <p>m) m)</p>
+  <p>p With this definition, the subset sum instance has a solution if and only if the integral assignment instance given by a1,σ, a2,σ, pσ1, . . . , pσ2m+2 has a solution.</p>
+  <p>Before we prove this, we need the following lemma.</p>
+  <p>Lemma 5.1 For any z1, . . . , zk</p>
+  <p>∈ k</p>
+  <p>i=1 X</p>
+  <p>Proof:</p>
+  <p>z2 i −</p>
+  <p>1 k</p>
+  <p>i=1 X</p>
+  <p>1 k</p>
+  <p>(zi</p>
+  <p>i&lt;j X</p>
+  <p>zj)2</p>
+  <p>i=1 X</p>
+  <p>z2 i −</p>
+  <p>1 k</p>
+  <p>z2 i + 2</p>
+  <p>zizj</p>
+  <p>z2 i −</p>
+  <p>1 k </p>
+  <p>i=1 X 2 k</p>
+  <p> z2 i −</p>
+  <p>i=1 X k</p>
+  <p>i=1 X</p>
+  <p>− k</p>
+  <p>(z2</p>
+  <p>i + z2 j )</p>
+  <p>i&lt;j X</p>
+  <p>zizj</p>
+  <p>zizj</p>
+  <p>i&lt;j X 2 k</p>
+  <p>i&lt;j X</p>
+  <p>z2 i −</p>
+  <p>2zizj + z2 j</p>
+  <p>i=1 X</p>
+  <p>1 k</p>
+  <p>1 k</p>
+  <p>1 k</p>
+  <p>i&lt;j X k</p>
+  <p>i&lt;j X k</p>
+  <p>zj)2</p>
+  <p>(zi</p>
+  <p>i&lt;j X</p>
+  <p>Now, we can prove that the integral assignment problem is NP-hard.</p>
+  <p>First, we observe that for any nontrivial solution to the integral assignment instance, there must Proof: = b′ such that Xσ2m+1,b = 1 and Xσ2m+2,b′ = 1. In other words, the people with σ2m+1 be two bins b and σ2m+2 must be split up. If not, then all the people of group 1 would be in the same bin, meaning that bin must be labeled with the base rate ρ1 = 1/2. In order to maintain fairness, the same would have to be done for all the people of group 2, resulting in the trivial solution. Moreover, b and b′ must be labeled 1)/2 respectively because those are the fraction of people of group 1 in those bins who belong (1 to the positive class.</p>
+  <p>√2γ</p>
+  <p>This means that γ1 = 1/ρ We know that a well-calibrated assignment is fair only if γ1 = γ2, so we know γ2 = γ.</p>
+  <p>σ2m+1 + a1,σ2m+2p2</p>
+  <p>σ2m+2 ) = p2</p>
+  <p>(a1,σ2m+1 p2</p>
+  <p>σ2m+1 + p2</p>
+  <p>σ2m+2 = γ as defined above.</p>
+  <p>Next, we observe that ρ2 = ρ1 = 1/2 because all of the positive a2,σ’s are 1/(2m), so ρ2 is just the average of</p>
+  <p>, which is 1/2 by symmetry.</p>
+  <p>pσ1 , . . . , pσ2m } {</p>
+  <p>Let Q be the partition of [2m] corresponding to the assignment, meaning that for a given q bin bq containing all people with σi such that i</p>
+  <p>q. The label on that bin is</p>
+  <p>Q, there is a</p>
+  <p>vq =</p>
+  <p>i∈q a2,σipσi i∈q a2,σi</p>
+  <p>P 1/(2m) P</p>
+  <p>i∈q pσi</p>
+  <p>q |</p>
+  <p>/(2m) P | pσi</p>
+  <p>1 q |</p>
+  <p>i∈q | X i∈q a2,σipσi = 1/(2m)</p>
+  <p>i∈q pσi positive fraction. Using this, we can come</p>
+  <p>Furthermore, bin bq contains up with an expression for γ2.</p>
+  <p>1 m</p>
+  <p>Setting this equal to γ, we have</p>
+  <p>1 2m</p>
+  <p>γ2 =</p>
+  <p>1 ρ</p>
+  <p>q∈Q X</p>
+  <p>pσi </p>
+  <p>i∈q X</p>
+  <p>pσi </p>
+  <p> 1 q |</p>
+  <p>q∈Q X</p>
+  <p>i∈q X</p>
+  <p>1 m</p>
+  <p>p2 σi −</p>
+  <p>1 m5</p>
+  <p>1 m</p>
+  <p>1 q |</p>
+  <p>i=1 X</p>
+  <p>i∈q X</p>
+  <p>q∈Q X</p>
+  <p>pσi  pσi q∈Q X  2m i=1 p2 σi and using Lemma 5.1, we have</p>
+  <p>p2 σi −</p>
+  <p>1 q |</p>
+  <p>i∈q X</p>
+  <p>i=1 X</p>
+  <p>1 m4</p>
+  <p>Subtracting both sides from</p>
+  <p>1 q |</p>
+  <p>i&lt;j∈q | X</p>
+  <p>q∈Q X</p>
+  <p>(pσi −</p>
+  <p>pσj )2 =</p>
+  <p>1 m4</p>
+  <p>(11)</p>
+  <p>6 Thus, Q is a fair nontrivial assignment if and only if (11) holds.</p>
+  <p>Next, we show that there exists Q that satisfies (11) if and only if there there exists some S</p>
+  <p>i∈S ˆwi = 1/m4.</p>
+  <p>[m] such that</p>
+  <p>Assume Q satisfies (11). Then, we first observe that any q P it does not contribute to the left hand side of (11), or q = that the closest two elements of However, we find that</p>
+  <p>pσ1, . . . , pσ2m } {</p>
+  <p>∈ 2i { not of the form</p>
+  <p>Q must either contain a single i, meaning for some i. To show this, observe . pσ2i, pσ2i+1 } {</p>
+  <p>1, 2i − } pσ2i−1 , pσ2i} {</p>
+  <p>must be some</p>
+  <p>(pσ2i+1 −</p>
+  <p>pσ2i)2 =</p>
+  <p>i + 1 m + 1 −</p>
+  <p>εi+1 −</p>
+  <p>m + 1 −</p>
+  <p>εi+1 −</p>
+  <p>(cid:18)</p>
+  <p>(cid:18)</p>
+  <p>(cid:18)</p>
+  <p>ˆwi+1</p>
+  <p>(cid:19)</p>
+  <p>i m + 1 2</p>
+  <p>+ εi</p>
+  <p>(cid:19)(cid:19)</p>
+  <p>m + 1 − r</p>
+  <p>2 − r 2</p>
+  <p>ˆwi 2 !</p>
+  <p>( ˆwi</p>
+  <p>1/m4)</p>
+  <p>2 m4</p>
+  <p>! 2</p>
+  <p>m + 1 − r √2 m2</p>
+  <p>m + 1 −</p>
+  <p>1 2m −</p>
+  <p>√2 m2</p>
+  <p>! 2</p>
+  <p>2√2</p>
+  <p>− 2m2</p>
+  <p>(cid:17) 2</p>
+  <p>(cid:19)</p>
+  <p>(cid:16)</p>
+  <p>m 4m2 1 4m 1 16m2</p>
+  <p>(cid:18)</p>
+  <p>1, 2i, then (11) will have a term on the left hand side at least 1/(16m2) = 1/(16m3) &gt; 1/m4 for large enough m, and since there can be no negative terms on the</p>
+  <p>If any q contains any j, k not of the form 2i 1/m left hand side, this immediately makes it impossible for Q to satisfy (11).</p>
+  <p>1, 2i</p>
+  <p>2i { Q. In the latter case, neither pσ2i−1 nor pσ2i contributes to (11). If qi</p>
+  <p>Consider every 2i Q 2i ∈ { and Q, then qi contributes 1/2(pσ2i −pσ2i−1 )2 = 1/2(2εi)2 = ˆwi to the overall sum on the left hand side. Therefore, we can write the left hand side of (11) as</p>
+  <p>. As shown above, either qi 1, 2i }</p>
+  <p>[2m]. Let qi =</p>
+  <p>1 } ∈</p>
+  <p>2i {</p>
+  <p>Q or</p>
+  <p>} ∈</p>
+  <p>1 q |</p>
+  <p>i&lt;j∈q | X</p>
+  <p>q∈Q X</p>
+  <p>(pσi −</p>
+  <p>pσj )2 =</p>
+  <p>1 2</p>
+  <p>qi∈Q X</p>
+  <p>(pσ2i−pσ2i−1 )2 =</p>
+  <p>ˆwi =</p>
+  <p>1 m4</p>
+  <p>qi∈Q X i : qi {</p>
+  <p>Then, we can build a solution to the original subset sum instance as S = 1 m4 . Multiplying both sides by T m4, we get instance.</p>
+  <p>i∈S ˆwi = i∈S wi = T , meaning S is a solution for the subset sum</p>
+  <p>, giving us }</p>
+  <p>i∈S wi = T . Dividing both To prove the other direction, assume we have a solution S i∈S ˆwi = 1/m4. We build a partition Q of 2m by starting with the empty set and sides by T m4, we get adding qi = to Q otherwise. Clearly, each element of [2m] to Q if i and 1, 2i } P appears in Q at most once, making this a valid partition. Moreover, when checking to see if (11) is satisfied = 1 because they (which is true if and only if Q is a fair assignment), we can ignore all q don’t contribute to the left hand side. Since, we again have</p>
+  <p>[m] such that</p>
+  <p>Q such that</p>
+  <p>2i } {</p>
+  <p>S and</p>
+  <p>2i {</p>
+  <p>2i {</p>
+  <p>1 }</p>
+  <p>q |</p>
+  <p>1 q |</p>
+  <p>i&lt;j∈q | X</p>
+  <p>q∈Q X</p>
+  <p>(pσi −</p>
+  <p>pσj )2 =</p>
+  <p>1 2</p>
+  <p>qi∈Q X</p>
+  <p>(pσ2i−pσ2i−1 )2 =</p>
+  <p>ˆwi =</p>
+  <p>1 m4</p>
+  <p>qi∈Q X</p>
+  <p>meaning Q is a fair assignment. This completes the reduction.</p>
+  <p>We have shown that the integral assignment problem is NP-hard, and it is clearly in NP because given an integral assignment, we can verify in polynomial time whether such an assignment satisfies the conditions (A), (B), and (C). Thus, the integral assignment problem is NP-complete.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 6 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 4 <code>concept</code> · 1 <code>ai</code> · 21 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>kleinberg2016-fairness</code>.</div>
+</body></html>

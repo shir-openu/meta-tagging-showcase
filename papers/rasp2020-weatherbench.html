@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WeatherBench: A Benchmark Dataset for Data-Driven Weather Forecasting — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>WeatherBench: A Benchmark Dataset for Data-Driven Weather Forecasting — TEI-tagged view</h1>
+<div class="meta">Stephan Rasp, Peter D. Dueben, Sebastian Scher, Jonathan A. Weyn · 2020 · <a href="https://en.wikipedia.org/wiki/Earth_science">earth-science</a> · <a href="https://doi.org/10.1029/2020MS002203">doi:10.1029/2020MS002203</a> · <a href="https://doi.org/10.1029/2020MS002203" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1029/2020MS002203" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Rasp</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Munich</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Journal of Advances in Modeling Earth Systems / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2020</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">weather forecasting</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch ai">machine learning</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr><tr><td><span class="swatch method">benchmark</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Stephan Rasp<span class="tag">persName</span></span>, <span class="person">Peter D. Dueben<span class="tag">persName</span></span>, <span class="person">Sebastian Scher<span class="tag">persName</span></span>, <span class="person">Jonathan A. Weyn<span class="tag">persName</span></span> (<span class="date">2020<span class="tag">date</span></span>). &ldquo;WeatherBench: A Benchmark Dataset for Data-Driven Weather Forecasting.&rdquo; <span class="work">Journal of Advances in Modeling Earth Systems / arXiv<span class="tag">title·j</span></span>, <span class="place">Munich<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Standardized evaluation of machine-learning methods for medium-range <span class="concept">weather forecasting<span class="tag">term·dom</span></span>.</p>
+  <p><b>Research question —</b> How can data-driven weather-forecasting models be compared fairly against each other and against physical <span class="concept">numerical weather prediction<span class="tag">term·dom</span></span>?</p>
+  <p><b>Contribution —</b> Provides WeatherBench, a curated <span class="method">benchmark<span class="tag">term·mth</span></span> dataset and scoring protocol for machine-learning <span class="concept">weather forecasting<span class="tag">term·dom</span></span>, together with baselines, enabling like-for-like comparison of data-driven and physics-based forecasts.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>data-driven weather forecasting (machine learning benchmark)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>artificial intelligence (deep learning)</b>: deep learning / data-driven methods (developed for image recognition and NLP) applied to weather forecasting<span class="ev"> &mdash; &ldquo;Data-driven approaches, most prominently deep learning, have become powerful tools for prediction in many&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>deep learning (data-driven prediction)</b><span class="ev"> &mdash; &ldquo;Data-driven approaches, most prominently deep learning, have become powerful tools for prediction&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>current numerical weather prediction models still fall short for many applications<span class="ev"> &mdash; &ldquo;numerical weather prediction (NWP) models still have shortcoming for many important applications&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>WeatherBench: A <span class="method">Benchmark<span class="tag">term·mth</span></span> Dataset for Data-Driven <span class="concept">Weather Forecasting<span class="tag">term·dom</span></span></p>
+  <p>0 2 0 2</p>
+  <p>n u J</p>
+  <p>1 1</p>
+  <p>] h p - o a . s c i s y h p [</p>
+  <p>3 v 9 6 4 0 0 . 2 0 0 2 : v i X r a</p>
+  <p>WeatherBench: A <span class="method">benchmark<span class="tag">term·mth</span></span> dataset for data-driven <span class="concept">weather forecasting<span class="tag">term·dom</span></span></p>
+  <p>Stephan Rasp1, Peter D. Dueben2, Sebastian Scher3, Jonathan A. Weyn4, Soukayna Mouatadid5, and Nils Thuerey1 1Technical University of Munich, Germany 2European Centre for Medium-range Weather Forecasts, Reading, UK 3Department of Meteorology and Bolin Centre for Climate Research, Stockholm University, Sweden 4Department of Atmospheric Sciences, University of Washington, Seattle, USA 5Department of Computer Science, University of Toronto, Canada</p>
+  <p>Correspondence: Stephan <span class="person">Rasp<span class="tag">persName</span></span> (stephan.<span class="person">rasp<span class="tag">persName</span></span>@tum.de)</p>
+  <p>Abstract. Data-driven approaches, most prominently <span class="ai">deep learning<span class="tag">term·ai</span></span>, have become powerful tools for prediction in many do-</p>
+  <p>mains. A natural question to ask is whether data-driven methods could also be used to predict global weather patterns days</p>
+  <p>in advance. First studies show promise but the lack of a common dataset and evaluation metrics make inter-comparison be-</p>
+  <p>tween studies difficult. Here we present a <span class="method">benchmark<span class="tag">term·mth</span></span> dataset for data-driven medium-range <span class="concept">weather forecasting<span class="tag">term·dom</span></span>, a topic of</p>
+  <p>high scientific interest for atmospheric and computer scientists alike. We provide data derived from the ERA5 archive that</p>
+  <p>has been processed to facilitate the use in <span class="ai">machine learning<span class="tag">term·ai</span></span> models. We propose simple and clear evaluation metrics which</p>
+  <p>will enable a direct comparison between different methods. Further, we provide baseline scores from simple linear regres-</p>
+  <p>sion techniques, <span class="ai">deep learning<span class="tag">term·ai</span></span> models, as well as purely physical forecasting models. The dataset is publicly available at</p>
+  <p>https://github.com/pangeo-data/WeatherBench and the companion code is reproducible with tutorials for getting started. We</p>
+  <p>hope that this dataset will accelerate research in data-driven <span class="concept">weather forecasting<span class="tag">term·dom</span></span>.</p>
+  <p>Introduction</p>
+  <p><span class="ai">Deep learning<span class="tag">term·ai</span></span>, a branch of <span class="ai">machine learning<span class="tag">term·ai</span></span> based on multi-layered artificial neural networks, has proven to be a powerful tool</p>
+  <p>for a wide range of tasks, most notably image recognition and natural language processing (LeCun et al., 2015). More recently,</p>
+  <p><span class="ai">deep learning<span class="tag">term·ai</span></span> has also been used in many fields of natural science. Much of the success of <span class="ai">deep learning<span class="tag">term·ai</span></span> is based on the ability</p>
+  <p>of neural networks to recognize patterns in high-dimensional spaces. A natural question to ask then is whether <span class="ai">deep learning<span class="tag">term·ai</span></span></p>
+  <p>can also be used to predict future weather patterns.</p>
+  <p>Currently, weather (and climate) predictions are based on purely physical computer models, in which the governing equa-</p>
+  <p>tions, or our best approximation thereof, of the atmosphere and ocean are solved on a discrete numerical grid (Bauer et al.,</p>
+  <p>2015). Overall, this approach has been very successful. However, today’s <span class="concept">numerical weather prediction<span class="tag">term·dom</span></span> (NWP) models still</p>
+  <p>have shortcoming for many important applications, for example forecasting mesoscale convective systems over Africa (Vogel</p>
+  <p>et al., 2018). Furthermore, huge amounts of computing power are required, especially for creating probabilistic forecasts which</p>
+  <p>are usually limited to 50 ensemble members or less. For these reasons and the growing popularity of <span class="ai">machine learning<span class="tag">term·ai</span></span> (ML)</p>
+  <p>there has been a growing interest to improve and speed up NWP with data-driven approaches.</p>
+  <p>ML can be applied to weather prediction in many different ways. Two long-standing applications of ML are post-processing</p>
+  <p>– the correction of statistical biases in the output of physical models – and statistical forecasting – the prediction of variables</p>
+  <p>not directly output by the physical model. Traditionally, this has been done using simple linear techniques but more recently</p>
+  <p>modern <span class="ai">machine learning<span class="tag">term·ai</span></span> approaches like random forests or neural networks have been explored (Gagne et al., 2014; Taillardat</p>
+  <p>et al., 2016; McGovern et al., 2017; Lagerquist et al., 2017; <span class="person">Rasp<span class="tag">persName</span></span> and Lerch, 2018). Typically, these approaches target very</p>
+  <p>specific variables or locations whereas the general evolution of the atmosphere is still predicted by a physical model. Another</p>
+  <p>application that has recently been explored using ML is nowcasting, which describes the short range (up to 6 hours) prediction</p>
+  <p>of precipitation by directly extrapolating radar observation without a physical model involved (Shi et al., 2015, 2017; Agrawal</p>
+  <p>et al., 2019; Grönquist et al., 2020).</p>
+  <p>Yet another direction for ML research is hybrid modeling, in which a physical model is combined with data-driven com-</p>
+  <p>ponents, for example replacing heuristic cloud or radiation parameterizations (Chevallier et al., 1998; Krasnopolsky et al.,</p>
+  <p>2005; <span class="person">Rasp<span class="tag">persName</span></span> et al., 2018; Brenowitz and Bretherton, 2018; Yuval and O’Gorman, 2020). The key idea behind these approaches</p>
+  <p>is to only replace uncertain (e.g. clouds) or computationally expensive (e.g. line-by-line radiation) model components with</p>
+  <p><span class="ai">machine learning<span class="tag">term·ai</span></span> emulators and leave other model components (e.g. large-scale dynamics) untouched. However such hybrid</p>
+  <p>models also have drawbacks. First, the interaction between physical and <span class="ai">machine learning<span class="tag">term·ai</span></span> components are poorly understood</p>
+  <p>and can lead to unexpected instabilities and biases (Brenowitz and Bretherton, 2019). Second, they are difficult to implement</p>
+  <p>from a technical perspective because one has to interface the <span class="ai">machine learning<span class="tag">term·ai</span></span> components with complex climate model code,</p>
+  <p>typically written in Fortran.</p>
+  <p>Here we focus on purely-data driven prediction of the global atmospheric flow in the medium-range. Specifically, we select</p>
+  <p>lead times of 3 and 5 days, for which the atmosphere is still reasonably deterministic but also exhibits complex nonlinear</p>
+  <p>behaviour, such as baroclinic instabilities and tropical cyclogenesis. This forecast range is important from a societal point of</p>
+  <p>view because it delivers crucial information for disaster preparation, for example for flooding, cold and hot spells or damaging</p>
+  <p>winds (Lazo et al., 2009). Creating a good medium-range forecast requires understanding complex atmospheric dynamics</p>
+  <p>and the interplay between several variables across a range of scales. This sets this challenge apart from post-processing and</p>
+  <p>statistical forecasting, in which the large-scale dynamics are predicted by a physical model, and nowcasting, in which the</p>
+  <p>considered evolution is univariate and short-term. In other words, this <span class="method">benchmark<span class="tag">term·mth</span></span> closely emulates the task performed by</p>
+  <p>physical NWP models.</p>
+  <p>There are several motivations for considering a purely-data driven approach. As mentioned above current NWP is compu-</p>
+  <p>tationally expensive and, nevertheless, has low skill for certain applications. If data-driven models were able to learn a more</p>
+  <p>efficient representation of the underlying dynamical and physical equations, they might enable computationally cheaper fore-</p>
+  <p>casts. This can be useful for many applications, for example creating very large ensembles to better estimate the probability</p>
+  <p>of extreme events. It is also possible that by learning from a diverse set of data sources, data-driven models can outperform</p>
+  <p>physical models in areas where the latter struggle. While in this <span class="method">benchmark<span class="tag">term·mth</span></span> challenge the focus is on upper-level fields of</p>
+  <p>pressure and temperature – for which physical models perform very well – the hope is that the insights gained from this task</p>
+  <p>can be leveraged for more impactful application. Further, recent research into interpretable <span class="ai">machine learning<span class="tag">term·ai</span></span> might provide</p>
+  <p>scientists with new analysis tools (McGovern et al., 2019; Toms et al., 2019). Finally, there is the basic scientific question to</p>
+  <p>what extent purely data-driven models can learn the underlying dynamics of the atmosphere.</p>
+  <p>Note also that while this <span class="method">benchmark<span class="tag">term·mth</span></span> is framed as a data-driven prediction challenge, the proposed framework can also be</p>
+  <p>applied to post-processing using the same metrics.</p>
+  <p>In <span class="ai">machine learning<span class="tag">term·ai</span></span> research, the data-driven prediction of future states is an active area of research with applications from</p>
+  <p>language translation (Sutskever et al., 2014), over audio signals (Oord et al., 2016), to numerical simulations (Morton et al.,</p>
+  <p>2018). In this context, weather forecasts are a particularly challenging task. The behavior is highly complex and non-linear,</p>
+  <p>but also exhibits some recurring patterns, albeit only on local scales (Hamill and Whitaker, 2006). As such the the proposed</p>
+  <p><span class="method">benchmark<span class="tag">term·mth</span></span> poses interesting challenges for <span class="ai">deep learning<span class="tag">term·ai</span></span> algorithms, e.g., to evaluate different architectures (Ronneberger</p>
+  <p>et al., 2015; He et al., 2015; Huang et al., 2016), regularization methods (Krogh and Hertz, 1992; Srivastava et al., 2014; Xie</p>
+  <p>et al., 2017) or optimizers (Graves, 2013; Kingma and Ba, 2014).</p>
+  <p>In the last couple of years, several studies (summarized in Section 2) have pioneered data-driven, global, medium-range</p>
+  <p>weather prediction. All of them show that there is some potential in this approach but also highlight the need for further</p>
+  <p>research. In particular, we currently lack a common <span class="method">benchmark<span class="tag">term·mth</span></span> challenge to accelerate progress. <span class="method">Benchmark<span class="tag">term·mth</span></span> datasets can have</p>
+  <p>a huge impact because they make different algorithms quantitatively inter-comparable and foster constructive competition,</p>
+  <p>particularly in a nascent direction of research. Famous examples are the computer vision datasets MNIST (LeCun et al., 1998)</p>
+  <p>and ImageNet (Russakovsky et al., 2015). Further, well-curated <span class="method">benchmark<span class="tag">term·mth</span></span> datasets make it easier for people from different</p>
+  <p>fields to work on a problem (Ebert-Uphoff et al., 2017).</p>
+  <p>Here, we propose a <span class="method">benchmark<span class="tag">term·mth</span></span> problem for data-driven <span class="concept">weather forecasting<span class="tag">term·dom</span></span>. We provide a ready-to-use dataset for download</p>
+  <p>along with specific metrics to compare different approaches. In this paper, we start by reviewing the previous work done on this</p>
+  <p>topic (Section 2), describe the dataset (Section 3) and the evaluation metrics (Section 4), and provide several baseline models</p>
+  <p>(Section 5). Finally, we will highlight several promising directions for further research (Section 6) and conclude with a big</p>
+  <p>picture view (Section 8).</p>
+  <p>2 Overview of previous work</p>
+  <p>In this section, we briefly describe the four existing studies on predicting the large-scale atmospheric state in the medium-range</p>
+  <p>with a focus on the data, methods and evaluation.</p>
+  <p>2.1 <span class="person">Dueben<span class="tag">persName</span></span> and Bauer (2018)</p>
+  <p>In this study, the authors trained a neural network to predict 500 hPa geopotential (Z500; see Section 4 for details on commonly</p>
+  <p>used fields), and in some experiments 2 meter-temperature, 1 hour ahead. The training data was taken from the ERA5 archive</p>
+  <p>for the time period from 2010 to 2017 and regridded to a 6 degree latitude-longitude grid. Two neural network variants were</p>
+  <p>Figure 1. Schematic of data-driven <span class="concept">weather forecasting<span class="tag">term·dom</span></span>. a) Example of direct weather prediction for 5 days lead time. The input to the neural</p>
+  <p>network are fields on a latitude-longitude grid. The fields can be several levels of the same variable and/or different variables. The goal is to</p>
+  <p>predict the same fields some time ahead. b) Iterative forecasts are created from data-driven models trained on a shorter lead time, for example</p>
+  <p>6 hours, which are then iteratively called up to the required forecast lead time.</p>
+  <p>used, a fully connected neural network and a spatially localized network, similar to a convolutional neural network (CNN).</p>
+  <p>After training they then created iterative forecasts up to 120 h lead time for 10 month validation period. They compared their</p>
+  <p>data-driven forecasts to an operational NWP model and the same model run at a spatial resolution comparable to the data-</p>
+  <p>driven method. One interesting detail is that their networks predict the difference from one time step to the next, instead of the</p>
+  <p>absolute field. To create these iterative forecasts, they use a third-order Adams-Bashford explicit time-stepping scheme. The</p>
+  <p>CNN predicting only geopotential performed best but was unable to beat the low-resolution physical baseline.</p>
+  <p>2.2 <span class="person">Scher<span class="tag">persName</span></span> (2018) and <span class="person">Scher<span class="tag">persName</span></span> and Messori (2019b)</p>
+  <p>These two studies addressed the issue of data-driven <span class="concept">weather forecasting<span class="tag">term·dom</span></span> in a simplified reality setting. Long runs of simplified</p>
+  <p>General Circulation Models (GMCs) were used as “reality”. Neural networks were trained to predict the model fields several</p>
+  <p>days ahead. The neural network architecture are CNNs with an encoder-decoder setup. They take as input the instantaneous</p>
+  <p>3D model fields at one timestep, and output the same model fields at some time later. In <span class="person">Scher<span class="tag">persName</span></span> (2018), a separate network was</p>
+  <p>trained for each lead-time up to 14 days. <span class="person">Scher<span class="tag">persName</span></span> and Messori (2019b) trained only on 1-day forecasts, and constructed longer</p>
+  <p>forecasts iteratively. Interestingly, networks trained to directly predict a certain forecast time, e.g. 5 days, outperformed iterative</p>
+  <p>networks. The forecasts were evaluated using the root mean squared error and the anomaly correlation coefficient of Z500 and</p>
+  <p>Longitudet = 0t = 5 daysa) Direct predictionb) Iterative predictiont = 0t = 6 hourst = 5 daysLatitudeChannels = Variables xLevels 800 hPa temperature. <span class="person">Scher<span class="tag">persName</span></span> (2018) used a highly simplified GCM without hydrological cycle, and achieved very high predictive</p>
+  <p>skill. Additionally, they were able to create stable &quot;climate&quot; runs (long series of consecutive forecasts) with the network. <span class="person">Scher<span class="tag">persName</span></span></p>
+  <p>and Messori (2019b) used several more realistic and complex GCMs. The data-driven model achieved relatively good short-</p>
+  <p>term forecast skill, but was unable to generate stable and realistic “climate” runs. In terms of neural-network architectures they</p>
+  <p>showed that architectures tuned on simplified GCMs also work on more complex GCMs, and that the same architecture also</p>
+  <p>has some prediction skill on single-level reanalysis data.</p>
+  <p>2.3 <span class="person">Weyn<span class="tag">persName</span></span> et al. (2019)</p>
+  <p>In this study, reanalysis-derived Z500 and 700-300 hPa thickness at 6-hourly time steps are predicted with deep CNNs. The data</p>
+  <p>are from the Climate Forecast System (CFS) Reanalysis from 1979–2010 with 2.5-degree horizontal resolution and cropped to</p>
+  <p>the northern hemisphere. The authors used similar encoder-decoder convolutional networks as those used by <span class="person">Scher<span class="tag">persName</span></span> (2018) and</p>
+  <p><span class="person">Scher<span class="tag">persName</span></span> and Messori (2019b) but also experimented with adding a convolution long short-term memory (LSTM; Hochreiter and</p>
+  <p>Schmidhuber, 1997) hidden layer. As in <span class="person">Scher<span class="tag">persName</span></span> and Messori (2019b), forecasts are generated iteratively by feeding the model’s</p>
+  <p>outputs back in as inputs. The authors found that using two input time steps, 6 h apart, and predicting two output time steps,</p>
+  <p>performed better than using a single step. Their best CNN forecast outperforms a climatology <span class="method">benchmark<span class="tag">term·mth</span></span> at up to 120 h lead</p>
+  <p>time, and appears to correctly asymptote towards persistence forecasts at longer lead times up to 14 days.</p>
+  <p>These three approaches outline promising first steps towards data-driven forecasting. The differences of the proposed meth-</p>
+  <p>ods already highlight the importance of a common <span class="method">benchmark<span class="tag">term·mth</span></span> case to compare prediction skill.</p>
+  <p>3 Dataset</p>
+  <p>For the proposed <span class="method">benchmark<span class="tag">term·mth</span></span>, we use the ERA5 reanalysis dataset (Hersbach et al., 2020) for training and testing. Reanalysis</p>
+  <p>datasets provide the best guess of the atmospheric state at any point in time by combining a forecast model with the available</p>
+  <p>observations. The raw data is available hourly for 40 years from 1979 to 2018 on a 0.25°latitude-longitude grid (721×1440</p>
+  <p>grid points) with 37 vertical levels.</p>
+  <p>Since this raw dataset is very large (a single vertical level for the entire time period amounts to almost 700GB of data), we</p>
+  <p>regrid the data to lower resolutions. This is also a more realistic use case, since very high resolutions are still hard to handle for</p>
+  <p><span class="ai">deep learning<span class="tag">term·ai</span></span> models because of GPU memory constraints and I/O speed. In particular, we chose 5.625° (32×64 grid points),</p>
+  <p>2.8125° (64×128 grid points) and 1.40525° (128×256 grid points) resolution for our data. The regridding was done with the</p>
+  <p>xesmf Python package (Zhuang, 2019) using a bilinear interpolation. Powers of two for the grid are used since this is common</p>
+  <p>for many <span class="ai">deep learning<span class="tag">term·ai</span></span> architectures where image sizes are halved in the algorithm. Further, for 3D fields we selected 13</p>
+  <p>vertical levels: 50, 100, 150, 200, 250, 300, 400, 500, 600, 700, 850, 925, 1000 hPa. Note that it is common to use pressure</p>
+  <p>in hecto-Pascals as a vertical coordinate instead of physical height. The pressure at sea level is approximately 1000 hPa and</p>
+  <p>decreases roughly exponentially with height. 850 hPa is at around 1.5 km height. 500 hPa is at around 5.5 km height. If the</p>
+  <p>surface pressure is smaller than a given pressure level, for example at high altitudes, the pressure-level values are interpolated.</p>
+  <p>The selected pressure levels contain the seven pressure levels that are commonly used for 3D output by the climate models in</p>
+  <p>the Coupled Model Intercomparison Project Phase 6 (CMIP6, Eyring et al., 2016) which could be useful for pretraining. One</p>
+  <p>regridded historical climate run is also available from the data repository with a template workflow for downloading further</p>
+  <p>CMIP data on the Github repository.</p>
+  <p>The processed data (see Table 1) are available at https://mediatum.ub.tum.de/1524895 (<span class="person">Rasp<span class="tag">persName</span></span> et al., 2020). The data are split</p>
+  <p>into yearly NetCDF files for each variable and resolution, packed in a zip file. The entire dataset at 5.625° resolution has a size</p>
+  <p>of 191GB. Individual variables amount to around 25GB three-dimensional and 2GB for two-dimensional fields. File sizes for</p>
+  <p>2.8125° and 1.40525° resolutions are a factor 4 and 16 times larger. Data processing was organized using Snakemake (Koster and Rahmann, 2012). For further instructions on data downloading visit the Github page1. The available variables were chosen</p>
+  <p>based on meteorological consideration. Geopotential, temperature, humidity and wind are prognostic state variables in most physical NWP and climate models. Geopotential at a certain pressure level p, typically denoted as Φ with units of m2s−2,</p>
+  <p>defined as</p>
+  <p>z at p (cid:90)</p>
+  <p>g dz(cid:48)</p>
+  <p>Φ =</p>
+  <p>(1)</p>
+  <p>where z describes height in meters and g = 9.81 m s−2 is the gravitational acceleration. Horizontal relative vorticity, defined</p>
+  <p>as ∂v/∂x − ∂u/∂y, describes the rotation of air at a given point in space. Potential vorticity (Hoskins et al., 1985; Holton,</p>
+  <p>2004) is a commonly used quantity in synoptic meteorology which combines the rotation (vorticity) and vertical temperature gradient of the atmosphere. It is defined as P V = ρ−1ζa · ∇θ, where ρ is the density, ζa is the absolute vorticity (relative plus the Earth’s rotation) and θ is the potential temperature. In addition to the three-dimensional fields, we also include several two-</p>
+  <p>dimensional fields: 2 meter-temperature is often used as an impact variable because of its relevance for human activities and</p>
+  <p>is directly affected by the diurnal solar cycle; 10 meter-wind is also an important impact-related forecast variable, for example</p>
+  <p>for wind energy; similarly, total cloud cover is an essential variable for solar energy forecasting. We also included precipitation</p>
+  <p>but urge caution since precipitation in reanalysis datasets often shows large deviation from observations (e.g. Betts et al.,</p>
+  <p>2019; Xu et al., 2019). Finally, we added the top-of-atmosphere incoming solar radiation as it could be a useful input variable</p>
+  <p>to encode the diurnal cycle. Further, there are several potentially important time-invariant fields, which are contained in the</p>
+  <p>constants file. The first three variables enclose information about the surface: the land-sea mask is a binary field with ones for land points; the soil type consists of seven different soil categories2; orography is simply the surface height. In addition,</p>
+  <p>we included two-dimensional fields with the latitude and longitude values at each point. Particularly the latitude values could</p>
+  <p>become important for the network to learn latitude-specific information such as the grid structure or the Coriolis effect (see</p>
+  <p>Section 6). The Github code repository includes all scripts for downloading and processing of the data. This enables users to</p>
+  <p>download additional variables or regrid the data to a different resolution.</p>
+  <p>1https://github.com/pangeo-data/WeatherBench 2Coarse = 1, Medium = 2, Medium fine = 3, Fine = 4, Very fine = 5, Organic = 6, Tropical organic = 7, see https://apps.ecmwf.int/codes/grib/param-db?</p>
+  <p>id=43</p>
+  <p>Table 1. List of variables contained in the <span class="method">benchmark<span class="tag">term·mth</span></span> dataset.</p>
+  <p>Short name Description</p>
+  <p>t2m</p>
+  <p>u10</p>
+  <p>v10</p>
+  <p>tcc</p>
+  <p>tisr</p>
+  <p>lsm</p>
+  <p>slt</p>
+  <p>Proportional to the height of a pressure level</p>
+  <p>Temperature</p>
+  <p>Mixing ratio of water vapor</p>
+  <p>Humidity relative to saturation</p>
+  <p>Wind in x/longitude-direction</p>
+  <p>Wind in y/latitude direction</p>
+  <p>Relative horizontal vorticity</p>
+  <p>Potential vorticity</p>
+  <p>Temperature at 2 m height above surface</p>
+  <p>Wind in x/longitude-direction at 10 m height</p>
+  <p>Wind in y/latitude-direction at 10 m height</p>
+  <p>Fractional cloud cover</p>
+  <p>Hourly precipitation</p>
+  <p>Accumulated hourly incident solar radiation</p>
+  <p>File containing time-invariant fields</p>
+  <p>Land-sea binary mask</p>
+  <p>Soil-type categories</p>
+  <p>orography</p>
+  <p>Height of surface</p>
+  <p>lat2d</p>
+  <p>lon2d</p>
+  <p>2D field with latitude at every grid point</p>
+  <p>2D field with longitude at every grid point</p>
+  <p>Unit</p>
+  <p>[m2s−2]</p>
+  <p>[K] [kg kg−1]</p>
+  <p>[%] [m s−1] [m s−1] [1 s−1] [K m2 kg−1 s−1]</p>
+  <p>[K] [m s−1] [m s−1]</p>
+  <p>(0–1)</p>
+  <p>[m] [J m−2]</p>
+  <p>(0/1)</p>
+  <p>see text</p>
+  <p>[m]</p>
+  <p>[°]</p>
+  <p>[°]</p>
+  <p>Levels</p>
+  <p>13 levels</p>
+  <p>13 levels</p>
+  <p>13 levels</p>
+  <p>13 levels</p>
+  <p>13 levels</p>
+  <p>13 levels</p>
+  <p>13 levels</p>
+  <p>13 levels</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Single level</p>
+  <p>Long name</p>
+  <p>geopotential</p>
+  <p>temperature</p>
+  <p>specific_humidity</p>
+  <p>relative_humidity</p>
+  <p>u_component_of_wind</p>
+  <p>v_component_of_wind</p>
+  <p>vorticity</p>
+  <p>potential_vorticity</p>
+  <p>2m_temperature</p>
+  <p>10m_u_component_of_wind</p>
+  <p>10m_v_component_of_wind</p>
+  <p>total_cloud_cover</p>
+  <p>total_precipitation</p>
+  <p>toa_incident_solar_radiation</p>
+  <p>constants</p>
+  <p>land_binary_mask</p>
+  <p>soil_type</p>
+  <p>orography</p>
+  <p>latitude</p>
+  <p>longitude</p>
+  <p>4 Evaluation</p>
+  <p>Evaluation is done for the years 2017 and 2018. To make sure no overlap exists between the training and test dataset, the</p>
+  <p>first test date is 1 January 2017 00UTC plus forecast time (i.e. for a three day forecast the first test date would be 4 January</p>
+  <p>2017 00UTC) while the last training target is 31 December 2016 23UTC. Further, the evaluation presented here is done on 5.625° resolution3. This means that predictions at higher resolutions have to be downscaled to the evaluation resolution. We</p>
+  <p>also evaluated some baselines at higher resolutions and found that the scores were almost identical with differences smaller</p>
+  <p>than 1%. Therefore we are reassured that little information is lost by evaluating at a coarser resolution.</p>
+  <p>A note on validation and testing: In <span class="ai">machine learning<span class="tag">term·ai</span></span> it is good practice to split the data into three parts: the training, valida-</p>
+  <p>tion and test sets. The training dataset is used to actually fit the model. The validation dataset is used during experimentation</p>
+  <p>3The evaluation of all baselines in this paper are done in this Jupyter notebook: https://github.com/pangeo-data/WeatherBench/blob/master/notebooks/</p>
+  <p>4-evaluation.ipynb</p>
+  <p>to check the model performance on data not seen during training. However, there is the danger that through continued tuning</p>
+  <p>of hyperparameters one unwillingly overfits to the validation dataset. Therefore it is advisable to keep a third, testing, dataset</p>
+  <p>for final evaluations of model performance. For this <span class="method">benchmark<span class="tag">term·mth</span></span> this final evaluation is done for the years 2017 and 2018.</p>
+  <p>Therefore, we strongly encourage users of this dataset to pick a period from 1979 to 2016 for validation of their models for hy-</p>
+  <p>perparameter tuning. Because meteorological fields are highly correlated in time, it is advisable to choose a longer contiguous</p>
+  <p>chunk of data for validation instead of a completely random split. Here we chose the year 2016 for validation.</p>
+  <p>We chose 500 hPa geopotential and 850 hPa temperature as primary verification fields. Geopotential at 500 hPa pressure,</p>
+  <p>often abbreviated as Z500, is a commonly used variable that encodes the synoptic-scale pressure distribution. It is the standard</p>
+  <p>verification variable for most medium-range NWP models. Note that geopotential height, also commonly used, is defined as</p>
+  <p>Φ/g with units of meters. We picked 850 hPa temperature as our secondary verification field because temperature is a more</p>
+  <p>impact-related variable. 850 hPa is usually above the planetary boundary layer and therefore not affected by diurnal variations</p>
+  <p>but provides information about broader temperature trends, including cold spells and heat waves. In addition we also provide</p>
+  <p>some baseline scores for total 6-hourly accumulated precipitation (TP; but noting the dubious quality mentioned above) and</p>
+  <p>2-meter temperature (T2M). However, they will not be further discussed here.</p>
+  <p>We chose the root mean squared error (RMSE) as our primary metric because it is easy to compute and mirrors the loss used</p>
+  <p>for most ML applications. We define the RMSE as the mean latitude-weighted RMSE over all forecasts:</p>
+  <p>RMSE =</p>
+  <p>1 Nforecasts</p>
+  <p>Nforecasts(cid:88)</p>
+  <p>(cid:118) (cid:117) (cid:117) (cid:116)</p>
+  <p>1 NlatNlon</p>
+  <p>Nlat(cid:88)</p>
+  <p>Nlon(cid:88)</p>
+  <p>L(j)(fi,j,k − ti,j,k)2</p>
+  <p>(2)</p>
+  <p>where f is the model forecast and t is the ERA5 truth. L(j) is the latitude weighting factor for the latitude at the jth latitude</p>
+  <p>index:</p>
+  <p>L(j) =</p>
+  <p>cos(lat(j)) (cid:80)Nlat j</p>
+  <p>cos(lat(j))</p>
+  <p>1 Nlat</p>
+  <p>(3)</p>
+  <p>In addition, we also evaluate the baselines using the latitude weighted anomaly correlation coefficient (ACC; see Section</p>
+  <p>7.6.4 of Wilks, 2006) and the mean absolute error (MAE). The tables and figures can be found in the Appendix A. For smooth</p>
+  <p>fields like Z500 and T850 the qualitative differences between the metrics are small. For intermittent fields like precipitation the</p>
+  <p>choice of metric matters a lot more.</p>
+  <p>5 Baselines</p>
+  <p>To evaluate the skill of a forecasting model it is important to have baselines to compare to. In this section, we compute scores</p>
+  <p>for several baselines. The results are summarized in Fig. A3 and Table 2.</p>
+  <p>5.1 Persistence and Climatology</p>
+  <p>The two simplest possible forecasts are a) a persistence forecast in which the fields at initialization time are used as forecasts</p>
+  <p>(&quot;tomorrow’s weather is today’s weather&quot;), and b) a climatological forecast. For the climatological forecast, two different</p>
+  <p>Figure 2. RMSE of a) 500 hPa geopotential and b) 850 hPa temperature for different baselines at 5.625° resolution. Solid lines for linear</p>
+  <p>regression and CNN indicate iterative forecasts, while dots represent direct forecasts for 3 and 5 days lead time.</p>
+  <p>Table 2. Baseline RMSE for 3 and 5 days forecast time at 5.625° resolution. Best <span class="ai">machine learning<span class="tag">term·ai</span></span> baseline and physical model are high-</p>
+  <p>lighted. TP is 6 hourly accumulated precipitation.</p>
+  <p>Baseline</p>
+  <p>Persistence</p>
+  <p>Climatology</p>
+  <p>Weekly climatology</p>
+  <p>RMSE (3 days / 5 days)</p>
+  <p>Z500 [m2 s−2]</p>
+  <p>T850 [K]</p>
+  <p>T2M [K]</p>
+  <p>TP [mm]</p>
+  <p>936 / 1033</p>
+  <p>4.23 / 4.56</p>
+  <p>3.00 / 3.27</p>
+  <p>3.23 / 3.24</p>
+  <p>1075</p>
+  <p>816</p>
+  <p>5.51</p>
+  <p>3.50</p>
+  <p>6.07</p>
+  <p>3.19</p>
+  <p>2.36</p>
+  <p>2.32</p>
+  <p>Linear regression (direct)</p>
+  <p>693 / 783</p>
+  <p>3.19 / 3.44</p>
+  <p>2.39 / 2.60</p>
+  <p>2.37 / 2.37</p>
+  <p>Linear regression (iterative)</p>
+  <p>718 / 810</p>
+  <p>626 / 757</p>
+  <p>3.17 / 3.48</p>
+  <p>2.87 / 3.37</p>
+  <p>CNN (direct)</p>
+  <p>CNN (iterative)</p>
+  <p>IFS T42</p>
+  <p>IFS T63</p>
+  <p>Operational IFS</p>
+  <p>1114 / 1559</p>
+  <p>4.48 / 9.69</p>
+  <p>489 / 743</p>
+  <p>268 / 463</p>
+  <p>154 / 334</p>
+  <p>3.09 / 3.83</p>
+  <p>3.21 / 3.69</p>
+  <p>1.85 / 2.52</p>
+  <p>2.04 / 2.44</p>
+  <p>1.36 / 2.03</p>
+  <p>1.35 / 1.77</p>
+  <p>2.36 / 2.59</p>
+  <p>climatologies were computed from the training dataset (1979–2016): first, a single mean over all times in the training dataset</p>
+  <p>and, second, a mean computed for each of the 52 calendar weeks. The weekly climatology is significantly better, approximately</p>
+  <p>matching the persistence forecast between 1 and 2 days, since it takes into account the seasonal cycle. This means that to be</p>
+  <p>useful, a forecast system needs to beat the weekly climatology and the persistence forecast.</p>
+  <p>012345Forecast time [days]020040060080010001200Z500 RMSE [m2 s2]a) Z500PersistenceClimatologyWeekly clim.OperationalIFS T42IFS T63LR (iterative)CNN (iterative)LR (direct)CNN (direct)012345Forecast time [days]0123456T850 RMSE [K]b) T850 5.2 Operational NWP model</p>
+  <p>The gold standard of medium-range NWP is the operational IFS (Integrated Forecast System) model of the European Center for Medium-range <span class="concept">Weather Forecasting<span class="tag">term·dom</span></span> (ECMWF)4. We downloaded the forecasts for 2017 and 2018 from the THORPEX Interactive Grand Global Ensemble (TIGGE; Bougeault et al., 2010) archive5, which contains the operational forecasts, initial-</p>
+  <p>ized at 00 and 12 UTC regridded to a 0.5° by 0.5° grid, which we further regridded to 5.625°. Note that the forecast error starts</p>
+  <p>above zero because the operational IFS is initialized from a different analysis. Operational forecasting is computationally very</p>
+  <p>expensive. The current IFS deterministic forecast is computed on a cluster with 11,664 cores. One 10 day forecast at 10 km</p>
+  <p>resolution takes around 1 hour of real time to compute.</p>
+  <p>5.3 Physical NWP model run at coarser resolution</p>
+  <p>To provide physical baselines more in line with the computational resources of a data-driven model, we ran the IFS model</p>
+  <p>at two coarser horizontal resolutions, T42 (approximately 2.8° or 310 km resolution at the equator (NCAR)) with 62 vertical</p>
+  <p>levels and T63 (approximately 1.9° or 210 km) with 137 vertical levels. The T42 run was initialized from ERA5 whereas</p>
+  <p>the T63 run was initialized from the operational analysis. The gap in skill at t = 0 is caused by the conversion to spherical</p>
+  <p>coordinates at coarse resolutions. For Z500 the skill for these two runs lies in-between the operational IFS and the machine</p>
+  <p>learning baselines. For T850, the T42 run is significantly worse. The likely reason for this is that temperature close to the</p>
+  <p>ground is much more affected by the resolution and representation of topography within the model. Further, the model was</p>
+  <p>not specifically tuned for these resolutions. Computationally, a single forecast takes 270 seconds for the T42 model and 503</p>
+  <p>seconds for the T64 model on a single XC40 node with 36 cores. Since the computational costs and resolutions of these runs</p>
+  <p>are much closer to those of a data-driven method, beating those baselines should be a realistic target. note, however, that the</p>
+  <p>model was not tuned to run at such coarse resolutions.</p>
+  <p>5.4 Linear regression</p>
+  <p>As a first purely data-driven baseline we fit a simple linear regression model. For the direct predictions a separate model was</p>
+  <p>trained for each of the four variables. For this purpose the 2D fields were flattened from 32×64 → 2048. This was done for 3 d</p>
+  <p>and 5 d forecast time. In addition an iterative model for Z500 and T850 was trained. Here we use a single linear regression to</p>
+  <p>predict 6 hours ahead where the two fields are concatenated (2×32×64 → 4096). The advantage of iterative forecasts is that a</p>
+  <p>single model is able to make predictions for any forecast time rather than having to train several models. For iterative forecasts</p>
+  <p>the model takes its previous output as input for the next step. To create a 5 day iterative forecast the model trained to predict</p>
+  <p>6 hour forecasts is called 20 times. For this model, the iterative forecast performs just as well as the direct forecast due to its</p>
+  <p>linear nature. At 5 days, the linear regression forecast is about as good as the weekly climatology.</p>
+  <p>4https://www.ecmwf.int/en/forecasts/documentation-and-support 5The TIGGE data for total precipitation and 2m temperature was damaged for 2017. For this reason the TIGGE evaluation for these variables is only done</p>
+  <p>using the 2018 data.</p>
+  <p>5.5 Simple convolutional neural network</p>
+  <p>As our <span class="ai">deep learning<span class="tag">term·ai</span></span> baseline we chose a simple fully-convolutional neural network. CNNs are the natural choice for spatial</p>
+  <p>data since they exploit translational invariances in images/fields. Here we train a CNN with 5 layers. Each hidden layer has</p>
+  <p>64 channels with a convolutional kernel of size 5 and ELU activations (Clevert et al., 2015). The input and output layers have</p>
+  <p>two channels, representing Z500 and T850. The model was trained using the Adam optimizer (Kingma and Ba, 2014) and a</p>
+  <p>mean squared error loss function. The total number of trainable parameters is 313,858. We implemented periodic convolutions</p>
+  <p>in the longitude direction but not the latitude direction. The implementation can be found in the Github repository. The direct</p>
+  <p>CNN forecasts beat the linear regression forecasts for 3 and 5 days forecast time. However, at 5 days these forecasts are only</p>
+  <p>marginally better than the weekly climatology (see Table 2). This baseline, however, is to be seen simply as a starting point</p>
+  <p>for more sophisticated data driven methods. The iterative CNN forecast, which equivalently to the linear regression iterative</p>
+  <p>forecast was created by chaining together 6 hourly predictions, performs well up to around 1.5 days but then the network’s</p>
+  <p>errors grow quickly and diverge. This confirms the findings of <span class="person">Scher<span class="tag">persName</span></span> and Messori (2019a) whose experiments showed that</p>
+  <p>training with longer lead time yields better results than chaining together short-term forecasts. However, the poor skill of the</p>
+  <p>iterative forecast could easily be a result of using an overly simplistic network architecture. The iterative forecasts of <span class="person">Weyn<span class="tag">persName</span></span></p>
+  <p>et al. (2019), who employ a more complex network structure, show stable long term performance up to two weeks with realistic</p>
+  <p>statistics.</p>
+  <p>5.6 Example forecasts</p>
+  <p>To further illustrate the prediction task, Fig. 3 shows example geopotential and temperature fields. The ERA5 temporal dif-</p>
+  <p>ferences show several interesting features. First, the geopotential fields and differences are much smoother compared to the</p>
+  <p>temperature fields. The differences in both fields are also much smaller in the tropics compared to the extratropics where prop-</p>
+  <p>agating fronts can cause rapid temperature changes. An interesting feature is detectable in the 6h Z500 difference field in the</p>
+  <p>tropics. These alternating patterns are signatures of atmospheric tides.</p>
+  <p>The CNN forecasts for 6h lead time are not able to capture these wave-like patterns which hints at a failure to capture the</p>
+  <p>basic physics of the atmosphere. For 5 days forecast time the CNN model predicts unrealistically smooth fields. This is likely</p>
+  <p>a result of two factors: first, the two input fields used in this baseline CNN contain insufficient information to create a skillful</p>
+  <p>5 day forecast; and second, at 5 days the atmosphere already shows some chaotic behavior which causes a model trained with</p>
+  <p>a simple RMSE loss to predict smooth fields (see Section 6). The IFS operational forecast has much smaller errors than the</p>
+  <p>CNN forecast. It is able to capture the propagation of tropical waves. Its main errors appear at 5 days in the mid-latitudes where</p>
+  <p>extratropical cycles are in slightly wrong positions.</p>
+  <p>Figure 3. Example fields for 2017-01-01 00UTC initialization time. The top two rows show the ERA5 &quot;truth&quot; fields for geopotential (Z500)</p>
+  <p>and temperature (T850) at initialization time (t=0h) and for 6h and 5d forecast time. In addition, the difference between the forecast times</p>
+  <p>and the initialization time is shown. The third and fourth rows show the forecasts from the CNN model. Rows five and six show the IFS</p>
+  <p>operational model. For the CNN forecasts the first column is identical to the ERA5 truth. We selected the 6h iterative CNN model for the 6h</p>
+  <p>forecast but the 5d direct CNN model for the 5 day forecast. For the IFS the initial states (t=0h) differ slightly albeit not visibly. In addition</p>
+  <p>to the forecast fields the error relative to the ERA5 &quot;truth&quot; is shown in the third and fifth columns. Please note that the colorbars for the</p>
+  <p>difference fields change.</p>
+  <p>ERA5 “Truth”CNN forecastsIFS forecasts 6 Discussion</p>
+  <p>6.1 Weather-specific challenges</p>
+  <p>From a ML perspective, state-to-state weather prediction is similar to image-to-image translation. For this sort of problem many</p>
+  <p><span class="ai">deep learning<span class="tag">term·ai</span></span> techniques have been developed in recent years (Kaji and Kida, 2019). However, forecasting weather differs in</p>
+  <p>some important ways from typical image-to-image applications and raises several open questions.</p>
+  <p>First, the atmosphere is three-dimensional. So far, this aspect has not been taken into account. In the networks of <span class="person">Scher<span class="tag">persName</span></span> and</p>
+  <p>Messori (2019a), for example, the different levels have been treated as separate channels of the CNN. However, simply using a</p>
+  <p>three-dimensional CNN might not work either because atmospheric dynamics and grid spacings change in the vertical, thereby</p>
+  <p>violating the assumption of translation invariance which underlies the effectiveness of CNNs. This directly leads to the next</p>
+  <p>challenge: On a regular latitude-longitude grid, the dynamics also change with latitude because towards the poles the grid cells</p>
+  <p>become increasingly stretched. This is in addition to the Coriolis effect, the deflection of wind caused by the rotation of Earth,</p>
+  <p>which also depends on latitude. A possible solution in the horizontal could be to use spherical convolutions (Cohen et al., 2018;</p>
+  <p>Perraudin et al., 2019; Jiang et al., 2019) or to feed in latitude information to the network.</p>
+  <p>Another potential issue is the limited amount of training data available. 40 years of hourly data amounts to around 350,000</p>
+  <p>samples. However, the samples are correlated in time. If one assumes that a new weather situation occurs every day, then</p>
+  <p>the number of samples is reduced to around 15,000. Without empirical evidence it is hard to estimate whether this number</p>
+  <p>is sufficient to train complex networks without overfitting. Should overfitting be a problem, one could try transfer learning.</p>
+  <p>In transfer learning, the network is pretrained on a similar task or dataset, for example, climate model simulations, and then</p>
+  <p>finetuned on the actual data. This is common practice in computer vision and has been successfully applied to seasonal ENSO</p>
+  <p>forecasting (Ham et al., 2019). Another common method to prevent overfitting is data augmentation, which in traditional</p>
+  <p>computer vision is done by e.g. randomly rotating or flipping the image. However, many of the traditional data augmentation</p>
+  <p>techniques are questionable for physical fields. Random rotations, for example, will likely not work for this dataset since the x</p>
+  <p>and y directions are physically distinct. Thus, finding good data augmentation techniques for physical fields is an outstanding</p>
+  <p>problem. Using ensemble analyses and forecasts could provide more diversity in the training dataset.</p>
+  <p>Finally, there are technical challenges. Data for a single variable with ten levels at 5.625° resolution take up around 30 GB of</p>
+  <p>data. For a network with several variables or even at higher resolution, the data might not fit into CPU RAM any more and data loading could become a bottleneck. For image files, efficient data loaders have been created6. For netCDF files, however, so</p>
+  <p>far no efficient solution exists to our knowledge. Further, one can assume that to create a competitive data-driven NWP model,</p>
+  <p>high resolutions have to be used, for which GPU RAM quickly becomes a limitation. This suggests that multi-GPU training</p>
+  <p>might be necessary to scale up this approach (potentially similar to the technical achievement of Kurth et al. (2018)).</p>
+  <p>6See e.g. https://keras.io/preprocessing/image/ or https://pytorch.org/tutorials/beginner/data_loading_tutorial.html. One promising but so far unexplored</p>
+  <p>option is to use Tensorflow’s TFRecords (https://www.tensorflow.org/tutorials/load_data/tfrecord)</p>
+  <p>6.2 Probabilistic forecasts and extremes</p>
+  <p>One important aspect that is not currently addressed by this <span class="method">benchmark<span class="tag">term·mth</span></span> is probabilistic forecasting. Because of the chaotic</p>
+  <p>evolution of the atmosphere, it is very important to also have an estimate of the uncertainty of a forecast. In physical NWP</p>
+  <p>this is done by running several forecasts, called an ensemble, from slightly different initial conditions and potentially with</p>
+  <p>different or stochastic model physics (Palmer, 2019). From this Monte Carlo forecast one can then estimate a probability</p>
+  <p>distribution. A different approach, which is often taken in statistical post-processing of NWP forecasts, is to directly estimate a</p>
+  <p>parametric distribution (e.g. Gneiting et al., 2005; <span class="person">Rasp<span class="tag">persName</span></span> and Lerch, 2018). For a probabilistic forecast to be reliable the forecast</p>
+  <p>uncertainty has to be an accurate indicator of the error. A good first order approximation for this is the spread (ensemble</p>
+  <p>standard deviation) to error (RMSE) ratio which should be one (Leutbecher and Palmer, 2008). A more stringent test is to</p>
+  <p>use a proper probabilistic scoring rule, for example the continuous ranked probability score (CRPS) (Gneiting and Raftery,</p>
+  <p>2007; Gneiting and Katzfuss, 2014). For deterministic forecast the CRPS reduces to the mean absolute error. Extending this</p>
+  <p><span class="method">benchmark<span class="tag">term·mth</span></span> to probabilistic forecasting simply requires computing a probabilistic score. How to produce probabilistic data-</p>
+  <p>driven forecasts is a very interesting research question in its own right. We encourage users of this <span class="method">benchmark<span class="tag">term·mth</span></span> to explore this</p>
+  <p>dimension.</p>
+  <p>A related issue is the question of extreme weather situations, for example heat waves. These events are, by definition, rare,</p>
+  <p>which means that they will contribute little to regular verification metrics like the RMSE. However, for society these events</p>
+  <p>are highly important. For this reason, it would make sense to evaluate extreme situations separately. But defining extremes</p>
+  <p>is ambiguous which is why there is no standard metric for evaluating extremes. The goal of this <span class="method">benchmark<span class="tag">term·mth</span></span> is to provide a</p>
+  <p>simple, clear problem. Therefore, we decided to omit extremes for now but users are encouraged to chose their own verification</p>
+  <p>of extremes.</p>
+  <p>6.3 Climate simulations</p>
+  <p>Another aspect that is untouched by the <span class="method">benchmark<span class="tag">term·mth</span></span> challenge proposed here is climate prediction. Even though weather and</p>
+  <p>climate deal with the same underlying physical system, they pose different forecasting challenges. In <span class="concept">weather forecasting<span class="tag">term·dom</span></span> the</p>
+  <p>goal is to predict the state of the atmosphere at a specific time into the future. This is only possible up to the prediction</p>
+  <p>horizon of the atmosphere, which is thought to be at roughly two weeks. Climate models, on the other hand, are evaluated</p>
+  <p>by comparing long-term statistics to observations, for example the mean surface temperature (Stocker et al., 2013). <span class="person">Scher<span class="tag">persName</span></span> and</p>
+  <p>Messori (2019a) created iterative climate time scale runs with their data-driven models and compared first and second-order</p>
+  <p>statistics. They found that the model sometimes produced a stable climate but with significant biases and a poor seasonal</p>
+  <p>cycle. This indicates that, so far, iterative data-driven models have been unable to produce physically reasonable long-term</p>
+  <p>predictions. This remains a key challenge for future research. While not specifically included in this <span class="method">benchmark<span class="tag">term·mth</span></span>, a good test for</p>
+  <p>climate simulations is to look at long term mean statistics and the seasonal cycle as done in Figs. 6 and 7 of <span class="person">Scher<span class="tag">persName</span></span> and Messori</p>
+  <p>(2019a).</p>
+  <p>Climate change simulations represent another step up in complexity. To start with, external greenhouse gas forcing would</p>
+  <p>have to be included. Further, future climates will produce atmospheric states that lie outside of the historical manifold of states.</p>
+  <p>Plain neural networks are very bad at extrapolating to climates beyond what they have seen in the training dataset (<span class="person">Rasp<span class="tag">persName</span></span> et al.,</p>
+  <p>2018). For this reason, climate change simulations with current data-driven methods are likely not a good idea. However,</p>
+  <p>research into physical <span class="ai">machine learning<span class="tag">term·ai</span></span> is ongoing and might offer new opportunities in the near future (e.g. Bar-Sinai et al.,</p>
+  <p>2019; Beucler et al., 2019).</p>
+  <p>6.4 Promising research directions</p>
+  <p>There is a wide variety of promising research directions for data-driven <span class="concept">weather forecasting<span class="tag">term·dom</span></span>. The most obvious direction is</p>
+  <p>to increase the amount of data used for training and the complexity of the network architecture. This dataset provides a, so</p>
+  <p>far, unexploited volume and diversity of data for training. It is up to future research to find out exactly which combination</p>
+  <p>of variables will turn out to be useful. Further, this dataset offers a four times higher horizontal resolution than all previous</p>
+  <p>studies. The hope is that this data will enable researcher to train more complex models than have previously been used.</p>
+  <p>With regards to model architecture, there is a huge variety of network architectures that can be explored. U-Nets (Ron-</p>
+  <p>neberger et al., 2015) have been used extensively for image segmentation tasks that require computations across several spatial</p>
+  <p>scales. Resnets (He et al., 2015) are currently the state of the art for image classification and their residual nature could be a</p>
+  <p>good fit for state-to-state forecasting tasks. For synthesis tasks, generative adverserial networks (GANs) (Goodfellow et al.,</p>
+  <p>2014) were shown to be particularly powerful for creating realistic natural images and fluid flows (Xie et al., 2018). This might</p>
+  <p>be attractive since minimizing a mean loss, such as the MSE, for random or stochastic data leads to unrealistically smooth</p>
+  <p>predictions as seen in Fig. 3. Conditional GANs (Mirza and Osindero, 2014; Isola et al., 2016) could potentially alleviate this</p>
+  <p>issue but it is still unclear to what extent GAN predictions are able to recover the multi-variate distribution of the training</p>
+  <p>samples.</p>
+  <p>7 Code and data availability</p>
+  <p>The dataset is available at https://mediatum.ub.tum.de/1524895 (<span class="person">Rasp<span class="tag">persName</span></span> et al., 2020). Code, instructions for dowloading the data</p>
+  <p>and evaluating forecasts can be found at https://github.com/pangeo-data/WeatherBench.</p>
+  <p>8 Conclusions</p>
+  <p>In this paper a <span class="method">benchmark<span class="tag">term·mth</span></span> dataset for data-driven <span class="concept">weather forecasting<span class="tag">term·dom</span></span> is presented. It focuses on global medium-range (roughly</p>
+  <p>2 days to 2 weeks) prediction. With the rise of <span class="ai">deep learning<span class="tag">term·ai</span></span> in physics, weather prediction is a challenging and interesting</p>
+  <p>target because of the large overlap with traditional <span class="ai">deep learning<span class="tag">term·ai</span></span> tasks (Reichstein et al., 2019). While first attempts have</p>
+  <p>been made in this direction, as discussed in Section 2, the field currently lacks a common dataset which enables the inter-</p>
+  <p>comparison of different methods. We hope that this <span class="method">benchmark<span class="tag">term·mth</span></span> can provide a foundation for accelerated research in this area.</p>
+  <p>Loosely following Ebert-Uphoff et al. (2017), the key features of this <span class="method">benchmark<span class="tag">term·mth</span></span> are:</p>
+  <p>– Scientific impact: Numerical <span class="concept">weather forecasting<span class="tag">term·dom</span></span> impacts many aspects of society. Currently, NWP model run on mas-</p>
+  <p>sive super-computers at very high computational cost. Building a capable data-driven model would be beneficial in many</p>
+  <p>ways (see Section 1). In addition, there is the open, and highly debated, question whether fully data-driven methods are</p>
+  <p>able to learn a good representation of atmospheric physics.</p>
+  <p>– Challenge for data science: While global weather prediction is conceptually similar an image-to-image task, and there-</p>
+  <p>fore allows for the application of many state-of-the-art <span class="ai">deep learning<span class="tag">term·ai</span></span> techniques, there are some unique challenges to this</p>
+  <p>problem: the three-dimensional, anisotropic nature of the atmosphere; non-uniform-grids; potentially limited amounts of</p>
+  <p>training data and the technical challenge of handling large data volumes.</p>
+  <p>– Clear metric for success: We defined a single metric (RMSE) for two fields (500 hPa geopotential and 850 hPa temper-</p>
+  <p>ature). These scores provide a simple measure of success for data-driven, medium-range forecast model.</p>
+  <p>– Quick start: The code repository contains a quick-start Jupyter notebook for reading the data, training a neural network</p>
+  <p>and evaluating the predictions against the target data. In addition, the repository contains many functions which are likely</p>
+  <p>to be used frequently, for example an implementation of periodic convolutions in Keras.</p>
+  <p>– Reproducibility and citability: All baselines and results form this paper are fully reproducible from the code repository.</p>
+  <p>Further, the baseline predictions are all saved in the data repository. The data has been assigned a permanent DOI.</p>
+  <p>– Communication platform: We will use the Github code repository as an evolving hub for this project. We encourage</p>
+  <p>users of this dataset to start by forking the repository and eventually merge code that might be useful for others back into</p>
+  <p>the main branch. The main platform for communication, e.g. asking questions, about this project will be Github issues.</p>
+  <p>We hope that this <span class="method">benchmark<span class="tag">term·mth</span></span> will foster collaboration between atmospheric and data scientists in the ways we imagined and</p>
+  <p>beyond.</p>
+  <p>(A1)</p>
+  <p>(cid:80) tj,k.</p>
+  <p>Appendix A: Additional metrics</p>
+  <p>The anomaly correlation coefficient (ACC) is defined as</p>
+  <p>ACC =</p>
+  <p>(cid:80)</p>
+  <p>i,j,kt(cid:48) i,j,k L(j)f (cid:48) (cid:80)</p>
+  <p>i,j,k L(j)f (cid:48)2</p>
+  <p>i,j,k</p>
+  <p>i,j,k i,j,k L(j)t(cid:48)2</p>
+  <p>i,j,k</p>
+  <p>(cid:113)(cid:80)</p>
+  <p>where the prime (cid:48) denotes the difference to the climatology. Here the climatology is defined as climatologyj,k = 1 The mean absolute error is defined just like the MSE (Eq. 2) but with the absolute instead of the squared difference.</p>
+  <p>Ntime</p>
+  <p>Figure A1. RMSE of a) 2-meter temperature and b) 6-hourly accumulated precipitation for different baselines at 5.625° resolution.</p>
+  <p>012345Forecast time [days]0123456T2M RMSE [K]a) T2MPersistenceClimatologyWeekly clim.OperationalIFS T42IFS T63LR (direct)012345Forecast time [days]0.00.51.01.52.02.53.03.5TP RMSE [mm]b) TP Figure A2. ACC of a) 500 hPa geopotential, b) 850 hPa temperature, c) 2-meter temperature and d) 6-hourly accumulated precipitation for</p>
+  <p>different baselines at 5.625° resolution.</p>
+  <p>012345Forecast time [days]0.50.60.70.80.91.0Z500 ACCa) Z500PersistenceClimatologyWeekly clim.OperationalIFS T42IFS T63LR (iterative)CNN (iterative)LR (direct)CNN (direct)012345Forecast time [days]0.600.650.700.750.800.850.900.951.00T850 ACCb) T850012345Forecast time [days]0.40.50.60.70.80.91.0T2M ACCc) T2M012345Forecast time [days]0.00.20.40.60.81.0TP ACCd) TP Figure A3. MAE of a) 500 hPa geopotential, b) 850 hPa temperature, c) 2-meter temperature and d) 6-hourly accumulated precipitation for</p>
+  <p>different baselines at 5.625° resolution.</p>
+  <p>012345Forecast time [days]0100200300400500600700Z500 MAE [m2 s2]a) Z500PersistenceClimatologyWeekly clim.OperationalIFS T42IFS T63LR (iterative)CNN (iterative)LR (direct)CNN (direct)012345Forecast time [days]0.00.51.01.52.02.53.03.54.0T850 MAE [K]b) T850012345Forecast time [days]0.00.51.01.52.02.53.03.5T2M MAE [K]a) T2M012345Forecast time [days]0.00.20.40.60.81.0TP MAE [mm]b) TP Table A1. Baseline ACC for 3 and 5 days forecast time at 5.625° resolution. Best <span class="ai">machine learning<span class="tag">term·ai</span></span> baseline and physical model are high-</p>
+  <p>lighted. TP is 6 hourly accumulated precipitation.</p>
+  <p>Baseline</p>
+  <p>Persistence</p>
+  <p>Climatology</p>
+  <p>Weekly climatology</p>
+  <p>ACC (3 days / 5 days)</p>
+  <p>Z500</p>
+  <p>T850</p>
+  <p>T2M</p>
+  <p>0.62 / 0.53</p>
+  <p>0.69 / 0.65</p>
+  <p>0.88 / 0.85</p>
+  <p>0.06/0.06</p>
+  <p>0.65</p>
+  <p>0.77</p>
+  <p>0.85</p>
+  <p>0.16</p>
+  <p>Linear regression (direct)</p>
+  <p>0.76 / 0.68</p>
+  <p>0.81 / 0.78</p>
+  <p>0.92 / 0.90</p>
+  <p>0.15 / 0.13</p>
+  <p>Linear regression (iterative)</p>
+  <p>0.76 / 0.67</p>
+  <p>0.82 / 0.78</p>
+  <p>CNN (direct)</p>
+  <p>CNN (iterative)</p>
+  <p>IFS T42</p>
+  <p>IFS T63</p>
+  <p>0.81 / 0.71</p>
+  <p>0.85 / 0.79</p>
+  <p>0.61 / 0.41</p>
+  <p>0.72 / 0.31</p>
+  <p>0.90 / 0.78</p>
+  <p>0.86 / 0.78</p>
+  <p>0.87 / 0.83</p>
+  <p>0.97 / 0.91</p>
+  <p>0.94 / 0.90</p>
+  <p>0.94 / 0.92</p>
+  <p>Operational IFS</p>
+  <p>0.99 / 0.95</p>
+  <p>0.97 / 0.93</p>
+  <p>0.98 / 0.96</p>
+  <p>0.43 / 0.30</p>
+  <p>Table A2. Baseline MAE for 3 and 5 days forecast time at 5.625° resolution. Best <span class="ai">machine learning<span class="tag">term·ai</span></span> baseline and physical model are</p>
+  <p>highlighted. TP is 6 hourly accumulated precipitation.</p>
+  <p>Baseline</p>
+  <p>Persistence</p>
+  <p>Climatology</p>
+  <p>Weekly climatology</p>
+  <p>MAE (3 days / 5 days)</p>
+  <p>Z500 [m2 s−2]</p>
+  <p>T850 [K]</p>
+  <p>T2M [K]</p>
+  <p>TP [mm]</p>
+  <p>572 / 634</p>
+  <p>2.91 / 3.12</p>
+  <p>1.81 / 1.95</p>
+  <p>1.07 / 1.08</p>
+  <p>708</p>
+  <p>525</p>
+  <p>3.84</p>
+  <p>2.48</p>
+  <p>3.77</p>
+  <p>2.00</p>
+  <p>0.92</p>
+  <p>0.88</p>
+  <p>Linear regression (direct)</p>
+  <p>431 / 489</p>
+  <p>2.23 / 2.41</p>
+  <p>1.48 / 1.60</p>
+  <p>0.96 / 0.97</p>
+  <p>Linear regression (iterative)</p>
+  <p>447 / 508</p>
+  <p>403 / 476</p>
+  <p>2.20 / 2.42</p>
+  <p>2.02 / 2.38</p>
+  <p>CNN (direct)</p>
+  <p>CNN (iterative)</p>
+  <p>IFS T42</p>
+  <p>IFS T63</p>
+  <p>Operational IFS</p>
+  <p>892 / 1263</p>
+  <p>3.49 / 7.49</p>
+  <p>295 / 449</p>
+  <p>188 / 307</p>
+  <p>97 / 198</p>
+  <p>1.99 / 2.53</p>
+  <p>1.83 / 2.12</p>
+  <p>1.30 / 1.73</p>
+  <p>1.28 / 1.53</p>
+  <p>0.93 / 1.35</p>
+  <p>0.84 / 1.08</p>
+  <p>0.69 / 0.81</p>
+  <p>Author contributions. SR, PD, SS and JW conceived the idea. SR prepared the data and baselines and led the writing. All authors contributed</p>
+  <p>to the manuscript.</p>
+  <p>Competing interests. The authors declare no competing interests.</p>
+  <p>Acknowledgements. Stephan <span class="person">Rasp<span class="tag">persName</span></span> acknowledges funding from the German Research Foundation (DFG). We thank the Copernicus Climate</p>
+  <p>Change Service (C3S) for allowing us to redistribute the data. Peter D. <span class="person">Dueben<span class="tag">persName</span></span> gratefully acknowledges funding from the Royal Society for</p>
+  <p>his University Research Fellowship and the ESIWACE2 project. The ESIWACE2 project have received funding from the European Union’s</p>
+  <p>Horizon 2020 research and innovation programme under grant agreement No 823988.</p>
+  <p>References</p>
+  <p>Agrawal, S., Barrington, L., Bromberg, C., Burge, J., Gazen, C., and Hickey, J.: <span class="ai">Machine Learning<span class="tag">term·ai</span></span> for Precipitation Nowcasting from Radar</p>
+  <p>Images, https://arxiv.org/abs/1912.12132, 2019.</p>
+  <p>Bar-Sinai, Y., Hoyer, S., Hickey, J., and Brenner, M. P.: Learning data-driven discretizations for partial differential equations, Proceedings of</p>
+  <p>the National Academy of Sciences, 116, 15 344–15 349, https://doi.org/10.1073/PNAS.1814058116, https://www.pnas.org/content/116/</p>
+  <p>31/15344.short, 2019.</p>
+  <p>Bauer, P., Thorpe, A.,</p>
+  <p>and Brunet, G.: The quiet</p>
+  <p>revolution of <span class="concept">numerical weather prediction<span class="tag">term·dom</span></span>, Nature, 525, 47–55,</p>
+  <p>https://doi.org/10.1038/nature14956, http://www.nature.com/doifinder/10.1038/nature14956, 2015.</p>
+  <p>Betts, A. K., Chan, D. Z., and Desjardins, R. L.: Near-Surface Biases in ERA5 Over the Canadian Prairies, Frontiers in Environmental</p>
+  <p>Science, 7, https://doi.org/10.3389/fenvs.2019.00129, https://www.frontiersin.org/article/10.3389/fenvs.2019.00129/full, 2019.</p>
+  <p>Beucler, T., <span class="person">Rasp<span class="tag">persName</span></span>, S., Pritchard, M., and Gentine, P.: Achieving Conservation of Energy in Neural Network Emulators for Climate Modeling,</p>
+  <p>http://arxiv.org/abs/1906.06622, 2019.</p>
+  <p>Bougeault, P., Toth, Z., Bishop, C., Brown, B., Burridge, D., Chen, D. H., Ebert, B., Fuentes, M., Hamill, T. M., Mylne, K., Nicolau, J.,</p>
+  <p>Paccagnella, T., Park, Y.-Y., Parsons, D., Raoult, B., Schuster, D., Dias, P. S., Swinbank, R., Takeuchi, Y., Tennant, W., Wilson, L.,</p>
+  <p>and Worley, S.: The THORPEX Interactive Grand Global Ensemble, Bulletin of the American Meteorological Society, 91, 1059–1072,</p>
+  <p>https://doi.org/10.1175/2010BAMS2853.1, http://journals.ametsoc.org/doi/10.1175/2010BAMS2853.1, 2010.</p>
+  <p>Brenowitz, N. D. and Bretherton, C. S.: Prognostic Validation of a Neural Network Unified Physics Parameterization, Geophysical Research</p>
+  <p>Letters, 45, 6289–6298, https://doi.org/10.1029/2018GL078510, http://doi.wiley.com/10.1029/2018GL078510, 2018.</p>
+  <p>Brenowitz, N. D. and Bretherton, C. S.: Spatially Extended Tests of a Neural Network Parametrization Trained by Coarse-graining, Journal</p>
+  <p>of Advances in Modeling Earth Systems, p. 2019MS001711, https://doi.org/10.1029/2019MS001711, https://onlinelibrary.wiley.com/doi/</p>
+  <p>abs/10.1029/2019MS001711, 2019.</p>
+  <p>Chevallier, F., Chéruy, F., Scott, N. A., and Chédin, A.: A Neural Network Approach for a Fast and Accurate Compu-</p>
+  <p>tation of a Longwave Radiative Budget,</p>
+  <p>Journal of Applied Meteorology, 37, 1385–1397, https://doi.org/10.1175/1520-</p>
+  <p>0450(1998)037&lt;1385:ANNAFA&gt;2.0.CO;2,</p>
+  <p>http://journals.ametsoc.org/doi/abs/10.1175/1520-0450%281998%29037%3C1385%</p>
+  <p>3AANNAFA%3E2.0.CO%3B2, 1998.</p>
+  <p>Clevert, D.-A., Unterthiner, T., and Hochreiter, S.: Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs), http:</p>
+  <p>//arxiv.org/abs/1511.07289, 2015.</p>
+  <p>Cohen, T. S., Geiger, M., Köhler, J., and Welling, M.: Spherical CNNs, in: 6th International Conference on Learning Representations, ICLR</p>
+  <p>2018 - Conference Track Proceedings, International Conference on Learning Representations, ICLR, 2018.</p>
+  <p><span class="person">Dueben<span class="tag">persName</span></span>, P. D. and Bauer, P.: Challenges and design choices for global weather and climate models based on <span class="ai">machine learning<span class="tag">term·ai</span></span>, Geosci. Model</p>
+  <p>Dev., https://doi.org/10.5194/gmd-2018-148, https://www.geosci-model-dev-discuss.net/gmd-2018-148/gmd-2018-148.pdf, 2018.</p>
+  <p>Ebert-Uphoff, I., Thompson, D. R., Demir, I., Gel, Y. R., Hill, M. C., Karpatne, A., Guereque, M., Kumar, V., Cabral-Cano, E., and Smyth, P.:</p>
+  <p>A VISION FOR THE DEVELOPMENT OF BENCHMARKS TO BRIDGE GEOSCIENCE AND DATA SCIENCE, in: 7th International</p>
+  <p>Workshop on Climate Informatics, https://is-geo.org/, 2017.</p>
+  <p>Eyring, V., Bony, S., Meehl, G. A., Senior, C. A., Stevens, B., Stouffer, R. J., and Taylor, K. E.: Overview of the Coupled Model</p>
+  <p>Intercomparison Project Phase 6 (CMIP6) experimental design and organization, Geoscientific Model Development, 9, 1937–1958,</p>
+  <p>https://doi.org/10.5194/gmd-9-1937-2016, https://www.geosci-model-dev.net/9/1937/2016/, 2016.</p>
+  <p>Gagne, D. J., McGovern, A., Xue, M., II, D. J. G., McGovern, A., and Xue, M.: <span class="ai">Machine Learning<span class="tag">term·ai</span></span> Enhancement of Storm-Scale Ensemble</p>
+  <p>Probabilistic Quantitative Precipitation Forecasts, Weather and Forecasting, 29, 1024–1043, https://doi.org/10.1175/WAF-D-13-00108.1,</p>
+  <p>http://journals.ametsoc.org/doi/abs/10.1175/WAF-D-13-00108.1, 2014.</p>
+  <p>Gneiting,</p>
+  <p>and Katzfuss, M.:</p>
+  <p>Probabilistic</p>
+  <p>Forecasting, Annual Review of</p>
+  <p>Statistics</p>
+  <p>and</p>
+  <p>Its Application,</p>
+  <p>125–151,</p>
+  <p>https://doi.org/10.1146/annurev-statistics-062713-085831,</p>
+  <p>http://www.annualreviews.org/doi/10.1146/</p>
+  <p>annurev-statistics-062713-085831, 2014.</p>
+  <p>Gneiting, T. and Raftery, A. E.: Strictly Proper Scoring Rules, Prediction, and Estimation, Journal of the American Statistical Associa-</p>
+  <p>tion, 102, 359–378, https://doi.org/10.1198/016214506000001437, http://amstat.tandfonline.com/doi/abs/10.1198/016214506000001437,</p>
+  <p>2007.</p>
+  <p>Gneiting, T., Raftery, A. E., Westveld, A. H., and Goldman, T.: Calibrated Probabilistic Forecasting Using Ensemble Model Output Statistics</p>
+  <p>and Minimum CRPS Estimation, Monthly Weather Review, 133, 1098–1118, https://doi.org/10.1175/MWR2904.1, 2005.</p>
+  <p>Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., and Bengio, Y.: Generative adversarial nets,</p>
+  <p>in: Advances in neural information processing systems, pp. 2672–2680, 2014.</p>
+  <p>Graves, A.: Generating Sequences With Recurrent Neural Networks, http://arxiv.org/abs/1308.0850, 2013.</p>
+  <p>Grönquist, P., Yao, C., Ben-Nun, T., Dryden, N., <span class="person">Dueben<span class="tag">persName</span></span>, P., Li, S., and Hoefler, T.: <span class="ai">Deep Learning<span class="tag">term·ai</span></span> for Post-Processing Ensemble Weather</p>
+  <p>Forecasts, http://arxiv.org/abs/2005.08748, 2020.</p>
+  <p>Ham, Y. G., Kim, J. H., and Luo, J. J.: <span class="ai">Deep learning<span class="tag">term·ai</span></span> for multi-year ENSO forecasts, https://doi.org/10.1038/s41586-019-1559-7, 2019.</p>
+  <p>Hamill, T. M. and Whitaker, J. S.: Probabilistic Quantitative Precipitation Forecasts Based on Reforecast Analogs: Theory and Application,</p>
+  <p>Monthly Weather Review, 134, 3209–3229, https://doi.org/10.1175/MWR3237.1, http://journals.ametsoc.org/doi/10.1175/MWR3237.1,</p>
+  <p>2006.</p>
+  <p>He, K., Zhang, X., Ren, S., and Sun, J.: Deep Residual Learning for Image Recognition, http://arxiv.org/abs/1512.03385, 2015.</p>
+  <p>Hersbach, H., Bell, B., Berrisford, P., Hirahara, S., Horányi, A., Muñoz-Sabater, J., Nicolas, J., Peubey, C., Radu, R., Schepers, D., Simmons,</p>
+  <p>A., Soci, C., Abdalla, S., Abellan, X., Balsamo, G., Bechtold, P., Biavati, G., Bidlot, J., Bonavita, M., Chiara, G., Dahlgren, P., Dee,</p>
+  <p>D., Diamantakis, M., Dragani, R., Flemming, J., Forbes, R., Fuentes, M., Geer, A., Haimberger, L., Healy, S., Hogan, R. J., Hólm, E.,</p>
+  <p>Janisková, M., Keeley, S., Laloyaux, P., Lopez, P., Lupu, C., Radnoti, G., Rosnay, P., Rozum, I., Vamborg, F., Villaume, S., and Thépaut,</p>
+  <p>J.: The ERA5 Global Reanalysis, Quarterly Journal of the Royal Meteorological Society, p. qj.3803, https://doi.org/10.1002/qj.3803,</p>
+  <p>https://onlinelibrary.wiley.com/doi/abs/10.1002/qj.3803, 2020.</p>
+  <p>Hochreiter, S. and Schmidhuber, J.: Long short-term memory., Neural computation, 9, 1735–80, http://www.ncbi.nlm.nih.gov/pubmed/</p>
+  <p>9377276, 1997.</p>
+  <p>Holton, J. R.: An Introduction to Dynamic Meteorology, vol. 88, https://doi.org/10.1119/1.1987371, 2004.</p>
+  <p>Hoskins, B. J., McIntyre, M. E., and Robertson, A. W.: On the use and significance of isentropic potential vorticity maps, Quarterly Journal of</p>
+  <p>the Royal Meteorological Society, 111, 877–946, https://doi.org/10.1002/qj.49711147002, http://doi.wiley.com/10.1002/qj.49711147002,</p>
+  <p>1985.</p>
+  <p>Huang, G., Liu, Z., van der Maaten, L., and Weinberger, K. Q.: Densely Connected Convolutional Networks, http://arxiv.org/abs/1608.06993,</p>
+  <p>2016.</p>
+  <p>Isola, P., Zhu, J.-Y., Zhou, T., and Efros, A. A.: Image-to-Image Translation with Conditional Adversarial Networks, https://arxiv.org/pdf/</p>
+  <p>1611.07004v1.pdf, 2016.</p>
+  <p>Jiang, C. M., Huang, J., Kashinath, K., Prabhat, Marcus, P., and Niessner, M.: Spherical CNNs on Unstructured Grids, http://arxiv.org/abs/</p>
+  <p>1901.02039, 2019.</p>
+  <p>Kaji, S. and Kida, S.: Overview of image-to-image translation by use of deep neural networks: denoising, super-resolution, modality conver-</p>
+  <p>sion, and reconstruction in medical imaging, http://arxiv.org/abs/1905.08603, 2019.</p>
+  <p>Kingma, D. P. and Ba, J.: Adam: A Method for Stochastic Optimization, arXiv, 1412.6980, http://arxiv.org/abs/1412.6980, 2014.</p>
+  <p>Koster,</p>
+  <p>and Rahmann, S.: Snakemake–a</p>
+  <p>scalable</p>
+  <p>bioinformatics workflow engine, Bioinformatics,</p>
+  <p>28,</p>
+  <p>2520–2522,</p>
+  <p>https://doi.org/10.1093/bioinformatics/bts480,</p>
+  <p>https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/</p>
+  <p>bts480, 2012.</p>
+  <p>Krasnopolsky, V. M., Fox-Rabinovitz, M. S., and Chalikov, D. V.: New Approach to Calculation of Atmospheric Model Physics: Ac-</p>
+  <p>curate and Fast Neural Network Emulation of Longwave Radiation in a Climate Model, Monthly Weather Review, 133, 1370–1383,</p>
+  <p>https://doi.org/10.1175/MWR2923.1, http://journals.ametsoc.org/doi/abs/10.1175/MWR2923.1, 2005.</p>
+  <p>Krogh, A. and Hertz, J. A.: A Simple Weight Decay Can Improve Generalization, in: Advances in Neural Information Processing Sys-</p>
+  <p>tems 4, edited by Moody, J. E., Hanson, S. J., and Lippmann, R. P., pp. 950–957, Morgan-Kaufmann, http://papers.nips.cc/paper/</p>
+  <p>563-a-simple-weight-decay-can-improve-generalization.pdf, 1992.</p>
+  <p>Kurth, T., Treichler, S., Romero, J., Mudigonda, M., Luehr, N., Phillips, E., Mahesh, A., Matheson, M., Deslippe, J., Fatica, M., Prabhat, and</p>
+  <p>Houston, M.: Exascale <span class="ai">Deep Learning<span class="tag">term·ai</span></span> for Climate Analytics, http://arxiv.org/abs/1810.01993, 2018.</p>
+  <p>Lagerquist, R., McGovern, A., and Smith, T.: <span class="ai">Machine learning<span class="tag">term·ai</span></span> for real-time prediction of damaging straight-line convective wind, Weather</p>
+  <p>and Forecasting, 32, 2175–2193, https://doi.org/10.1175/WAF-D-17-0038.1, 2017.</p>
+  <p>Lazo, J. K., Morss, R. E., and Demuth, J. L.: 300 Billion Served: Sources, Perceptions, Uses, and Values of Weather Forecasts, Bulletin of</p>
+  <p>the American Meteorological Society, 90, 785–798, https://doi.org/10.1175/2008BAMS2604.1, 2009.</p>
+  <p>LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P.: Gradient-based learning applied to document recognition, Proceedings of the IEEE, 86,</p>
+  <p>2278–2323, https://doi.org/10.1109/5.726791, 1998.</p>
+  <p>LeCun, Y., Bengio, Y., and Hinton, G.: <span class="ai">Deep learning<span class="tag">term·ai</span></span>, Nature, 521, 436–444, https://doi.org/10.1038/nature14539, http://www.nature.com/</p>
+  <p>articles/nature14539, 2015.</p>
+  <p>Leutbecher, M.</p>
+  <p>and</p>
+  <p>Palmer,</p>
+  <p>T.:</p>
+  <p>Ensemble</p>
+  <p>forecasting,</p>
+  <p>Journal</p>
+  <p>Computational</p>
+  <p>Physics,</p>
+  <p>227,</p>
+  <p>3515–3539,</p>
+  <p>https://doi.org/10.1016/j.jcp.2007.02.014, http://dl.acm.org/citation.cfm?id=1347465.1347769, 2008.</p>
+  <p>McGovern, A., Elmore, K. L., Gagne, D. J., Haupt, S. E., Karstens, C. D., Lagerquist, R., Smith, T., Williams, J. K., McGovern, A.,</p>
+  <p>Elmore, K. L., II, D. J. G., Haupt, S. E., Karstens, C. D., Lagerquist, R., Smith, T., and Williams, J. K.: Using Artificial Intelligence</p>
+  <p>to Improve Real-Time Decision-Making for High-Impact Weather, Bulletin of the American Meteorological Society, 98, 2073–2090,</p>
+  <p>https://doi.org/10.1175/BAMS-D-16-0123.1, http://journals.ametsoc.org/doi/10.1175/BAMS-D-16-0123.1, 2017.</p>
+  <p>McGovern, A., Lagerquist, R., Gagne, D. J., Jergensen, G. E., Elmore, K. L., Homeyer, C. R., and Smith, T.: Making the black box</p>
+  <p>more transparent: Understanding the physical implications of <span class="ai">machine learning<span class="tag">term·ai</span></span>, Bulletin of the American Meteorological Society,</p>
+  <p>https://doi.org/10.1175/bams-d-18-0195.1, 2019.</p>
+  <p>Mirza, M. and Osindero, S.: Conditional Generative Adversarial Nets, arXiv, p. 1411.1784, http://arxiv.org/abs/1411.1784, 2014.</p>
+  <p>Morton, J., Witherden, F. D., Jameson, A., and Kochenderfer, M. J.: Deep Dynamical Modeling and Control of Unsteady Fluid Flows,</p>
+  <p>http://arxiv.org/abs/1805.07472, 2018.</p>
+  <p>NCAR: The Climate Data Guide: Common Spectral Model Grid Resolutions, https://climatedataguide.ucar.edu/climate-model-evaluation/</p>
+  <p>common-spectral-model-grid-resolutions.</p>
+  <p>Oord, A. v. d., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., Kalchbrenner, N., Senior, A., and Kavukcuoglu, K.: WaveNet:</p>
+  <p>A Generative Model for Raw Audio, http://arxiv.org/abs/1609.03499, 2016.</p>
+  <p>Palmer, T.: The ECMWF Ensemble prediction system: Looking back (more than) 25 years and projecting forward 25 years, Quarterly</p>
+  <p>Journal of the Royal Meteorological Society, 145, 12–24, https://doi.org/10.1002/qj.3383, https://onlinelibrary.wiley.com/doi/abs/10.1002/</p>
+  <p>qj.3383, 2019.</p>
+  <p>Perraudin, N., Defferrard, M., Kacprzak, T., and Sgier, R.: DeepSphere: Efficient spherical convolutional neural network with HEALPix</p>
+  <p>sampling for cosmological applications, Astronomy and Computing, 27, 130–146, https://doi.org/10.1016/j.ascom.2019.03.004, 2019.</p>
+  <p><span class="person">Rasp<span class="tag">persName</span></span>, S. and Lerch, S.: Neural Networks for Postprocessing Ensemble Weather Forecasts, Monthly Weather Review, 146, 3885–3900,</p>
+  <p>https://doi.org/10.1175/MWR-D-18-0187.1, http://journals.ametsoc.org/doi/10.1175/MWR-D-18-0187.1, 2018.</p>
+  <p><span class="person">Rasp<span class="tag">persName</span></span>, S., Pritchard, M. S., and Gentine, P.: <span class="ai">Deep learning<span class="tag">term·ai</span></span> to represent subgrid processes in climate models., Proceedings of the National</p>
+  <p>Academy of Sciences of the United States of America, 115, 9684–9689, https://doi.org/10.1073/pnas.1810286115, http://www.ncbi.nlm.</p>
+  <p>nih.gov/pubmed/30190437http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC6166853, 2018.</p>
+  <p><span class="person">Rasp<span class="tag">persName</span></span>, S., <span class="person">Dueben<span class="tag">persName</span></span>, P. D., <span class="person">Scher<span class="tag">persName</span></span>, S., <span class="person">Weyn<span class="tag">persName</span></span>, J. A., Mouatadid, S., and Thuerey, N.: WeatherBench: A <span class="method">benchmark<span class="tag">term·mth</span></span> dataset for data-driven weather</p>
+  <p>forecasting, https://doi.org/10.14459/2019mp1524895, https://mediatum.ub.tum.de/1524895, 2020.</p>
+  <p>Reichstein, M., Camps-Valls, G., Stevens, B., Jung, M., Denzler, J., Carvalhais, N., and Prabhat: <span class="ai">Deep learning<span class="tag">term·ai</span></span> and process understanding</p>
+  <p>for data-driven Earth system science, Nature, 566, 195–204, https://doi.org/10.1038/s41586-019-0912-1, http://www.nature.com/articles/</p>
+  <p>s41586-019-0912-1, 2019.</p>
+  <p>Ronneberger, O., Fischer, P., and Brox, T.: U-Net: Convolutional Networks for Biomedical Image Segmentation, http://arxiv.org/abs/1505.</p>
+  <p>04597, 2015.</p>
+  <p>Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., Huang, Z., Karpathy, A., Khosla, A., Bernstein, M., Berg, A. C.,</p>
+  <p>and Fei-Fei, L.: ImageNet Large Scale Visual Recognition Challenge, International Journal of Computer Vision, 115, 211–252,</p>
+  <p>https://doi.org/10.1007/s11263-015-0816-y, 2015.</p>
+  <p><span class="person">Scher<span class="tag">persName</span></span>, S.: Toward Data-Driven Weather and Climate Forecasting: Approximating a Simple General Circulation Model With Deep Learn-</p>
+  <p>ing, Geophysical Research Letters, 45, 616–12, https://doi.org/10.1029/2018GL080704, https://onlinelibrary.wiley.com/doi/abs/10.1029/</p>
+  <p>2018GL080704, 2018.</p>
+  <p><span class="person">Scher<span class="tag">persName</span></span>, S. and Messori, G.: Generalization properties of neural networks trained on Lorenzsystems, Nonlinear Processes in Geophysics</p>
+  <p>Discussions, pp. 1–19, https://doi.org/10.5194/npg-2019-23, https://www.nonlin-processes-geophys-discuss.net/npg-2019-23/, 2019a.</p>
+  <p><span class="person">Scher<span class="tag">persName</span></span>, S. and Messori, G.: Weather and climate forecasting with neural networks: using general circulation models (GCMs) with different</p>
+  <p>complexity as a study ground, Geoscientific Model Development, 12, 2797–2809, https://doi.org/10.5194/gmd-12-2797-2019, https://</p>
+  <p>www.geosci-model-dev.net/12/2797/2019/, 2019b.</p>
+  <p>Shi, X., Chen, Z., Wang, H., Yeung, D.-Y., Wong, W.-k., and Woo, W.-c.: Convolutional LSTM Network: A <span class="ai">Machine Learning<span class="tag">term·ai</span></span> Approach for</p>
+  <p>Precipitation Nowcasting, http://arxiv.org/abs/1506.04214, 2015.</p>
+  <p>Shi, X., Gao, Z., Lausen, L., Wang, H., Yeung, D.-Y., Wong, W.-k., and Woo, W.-c.: <span class="ai">Deep Learning<span class="tag">term·ai</span></span> for Precipitation Nowcasting: A Bench-</p>
+  <p>mark and A New Model, http://arxiv.org/abs/1706.03458, 2017.</p>
+  <p>Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., and Salakhutdinov, R.: Dropout: A Simple Way to Prevent Neural Networks from</p>
+  <p>Overfitting, Journal of <span class="ai">Machine Learning<span class="tag">term·ai</span></span> Research, 15, 1929–1958, http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.</p>
+  <p>pdf?utm_content=buffer79b43&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer, 2014.</p>
+  <p>Stocker, T. F., Qin, D., Plattner, G.-K., Tignor, M. M., Allen, S. K., Boschung, J., Nauels, A., Xia, Y., Bex, V., Midgley, P. M., Alexander,</p>
+  <p>L. V., Allen, S. K., Bindoff, N. L., Breon, F.-M., Church, J. A., Cubasch, U., Emori, S., Forster, P., Friedlingstein, P., Gillett, N., Gregory,</p>
+  <p>J. M., Hartmann, D. L., Jansen, E., Kirtman, B., Knutti, R., Kumar Kanikicharla, K., Lemke, P., Marotzke, J., Masson-Delmotte, V.,</p>
+  <p>Meehl, G. A., Mokhov, I. I., Piao, S., Plattner, G.-K., Dahe, Q., Ramaswamy, V., Randall, D., Rhein, M., Rojas, M., Sabine, C., Shindell,</p>
+  <p>D., Stocker, T. F., Talley, L. D., Vaughan, D. G., Xie, S.-P., Allen, M. R., Boucher, O., Chambers, D., Hesselbjerg Christensen, J., Ciais,</p>
+  <p>P., Clark, P. U., Collins, M., Comiso, J. C., Vasconcellos de Menezes, V., Feely, R. A., Fichefet, T., Fiore, A. M., Flato, G., Fuglestvedt,</p>
+  <p>J., Hegerl, G., Hezel, P. J., Johnson, G. C., Kaser, G., Kattsov, V., Kennedy, J., Klein Tank, A. M., Le Quere, C., Myhre, G., Osborn, T.,</p>
+  <p>Payne, A. J., Perlwitz, J., Power, S., Prather, M., Rintoul, S. R., Rogelj, J., Rusticucci, M., Schulz, M., Sedlacek, J., Stott, P. A., Sutton,</p>
+  <p>R., Thorne, P. W., and Wuebbles, D.: Climate Change 2013. The Physical Science Basis. Working Group I Contribution to the Fifth</p>
+  <p>Assessment Report of the Intergovernmental Panel on Climate Change, https://inis.iaea.org/Search/search.aspx?orig_q=RN:45042273,</p>
+  <p>2013.</p>
+  <p>Sutskever, I., Vinyals, O., and Le, Q. V.: Sequence to Sequence Learning with Neural Networks, http://arxiv.org/abs/1409.3215, 2014.</p>
+  <p>Taillardat, M., Mestre, O., Zamo, M., and Naveau, P.: Calibrated Ensemble Forecasts using Quantile Regression Forests and Ensemble Model</p>
+  <p>Output Statistics., Monthly Weather Review, p. 160301131220006, https://doi.org/10.1175/MWR-D-15-0260.1, http://journals.ametsoc.</p>
+  <p>org/doi/abs/10.1175/MWR-D-15-0260.1?af=R, 2016.</p>
+  <p>Toms, B. A., Barnes, E. A., and Ebert-Uphoff, I.: Physically Interpretable Neural Networks for the Geosciences: Applications to Earth System</p>
+  <p>Variability, http://arxiv.org/abs/1912.01752, 2019.</p>
+  <p>Vogel, P., Knippertz, P., Fink, A. H., Schlueter, A., and Gneiting, T.: Skill of global raw and postprocessed ensemble predictions of rainfall</p>
+  <p>over Northern Tropical Africa, Weather and Forecasting, 33, 369–388, https://doi.org/10.1175/WAF-D-17-0127.1, 2018.</p>
+  <p><span class="person">Weyn<span class="tag">persName</span></span>, J. A., Durran, D. R., and Caruana, R.: Can machines learn to predict weather? Using <span class="ai">deep learning<span class="tag">term·ai</span></span> to predict gridded</p>
+  <p>500-hPa geopotential height from historical weather data, Journal of Advances in Modeling Earth Systems, p. 2019MS001705,</p>
+  <p>https://doi.org/10.1029/2019MS001705, https://onlinelibrary.wiley.com/doi/abs/10.1029/2019MS001705, 2019.</p>
+  <p>Wilks, D. S.: Statistical Methods in the Atmospheric Sciences, Elsevier, http://cds.cern.ch/record/992087, 2006.</p>
+  <p>Xie, D., Xiong, J., and Pu, S.: All You Need is Beyond a Good Init: Exploring Better Solution for Training Extremely Deep Convolutional</p>
+  <p>Neural Networks with Orthonormality and Modulation, http://arxiv.org/abs/1703.01827, 2017.</p>
+  <p>Xie, Y., Franz, E., and Chu, M.: tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow method using a vari-</p>
+  <p>ety of complex inputs and applications in two and three dimensions, ACM Trans. Graph, 37, 15, https://doi.org/10.1145/3197517.3201304,</p>
+  <p>https://doi.org/10.1145/3197517.3201304, 2018.</p>
+  <p>Xu, Z., Bi, S., Sunkavalli, K., Hadap, S., Su, H., and Ramamoorthi, R.: Deep view synthesis from sparse photometric images, ACM Trans-</p>
+  <p>actions on Graphics, 38, 1–13, https://doi.org/10.1145/3306346.3323007, http://dl.acm.org/citation.cfm?doid=3306346.3323007, 2019.</p>
+  <p>Yuval, J. and O’Gorman, P. A.: Use of <span class="ai">machine learning<span class="tag">term·ai</span></span> to improve simulations of climate, http://arxiv.org/abs/2001.03151, 2020.</p>
+  <p>Zhuang, J.: xESMF: v0.2.1, https://doi.org/10.5281/ZENODO.3475638, https://xesmf.readthedocs.io/, 2019.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 43 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 17 <code>concept</code> · 44 <code>ai</code> · 28 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>rasp2020-weatherbench</code>.</div>
+</body></html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modularity and Stability in Ecological Communities — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>Modularity and Stability in Ecological Communities — TEI-tagged view</h1>
+<div class="meta">Jacopo Grilli, Tim Rogers, Stefano Allesina · 2016 · <a href="https://en.wikipedia.org/wiki/Ecology">ecology</a> · <a href="https://doi.org/10.1038/ncomms12031">doi:10.1038/ncomms12031</a> · <a href="https://doi.org/10.1038/ncomms12031" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1038/ncomms12031" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Grilli</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Chicago</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Nature Communications</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2016</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">ecological stability</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">random matrix theory</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Jacopo Grilli<span class="tag">persName</span></span>, <span class="person">Tim Rogers<span class="tag">persName</span></span>, <span class="person">Stefano Allesina<span class="tag">persName</span></span> (<span class="date">2016<span class="tag">date</span></span>). &ldquo;Modularity and Stability in Ecological Communities.&rdquo; <span class="work">Nature Communications<span class="tag">title·j</span></span>, <span class="place">Chicago<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> How the modular organisation of interactions among species affects the stability of an ecological community.</p>
+  <p><b>Research question —</b> Does dividing an ecosystem into modules of interacting species make it more or less stable?</p>
+  <p><b>Contribution —</b> Uses random-matrix <span class="method">theory<span class="tag">term·mth</span></span> to show how <span class="concept">modularity<span class="tag">term·dom</span></span> influences <span class="concept">ecological stability<span class="tag">term·dom</span></span>, connecting network structure to the persistence of ecosystems.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>stability of large ecological communities (effect of network modularity)</td></tr><tr><td class="k ct">claim-type</td><td>mechanism</td></tr><tr><td class="k tf">transfer</td><td>from <b>statistical physics / random matrix theory</b>: random matrix theory and the cavity method applied to the stability of ecological communities<span class="ev"> &mdash; &ldquo;presenting new results in random matrix theory, which are obtained using a quaternionic parameterization of the cavity method&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>modularity shifts the rightmost eigenvalue of the community interaction matrix, which governs local stability (May eigenvalue criterion)<span class="ev"> &mdash; &ldquo;stability is determined in all cases by the rightmost eigenvalue&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>random matrix theory (from physics/mathematics)</b><span class="ev"> &mdash; &ldquo;presenting new results in random matrix theory&rdquo;</span></td></tr><tr><td class="k cr">extends</td><td> <b>the hypothesis that modularity benefits ecological stability</b><span class="ev"> &mdash; &ldquo;a modular organization of species interactions would benefit the dynamical stability of communities&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>results rely on the random-matrix universality assumption<span class="ev"> &mdash; &ldquo;our findings are consistent with the universality property&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p><span class="concept">Modularity<span class="tag">term·dom</span></span> and Stability in Ecological Communities</p>
+  <p>ARTICLE</p>
+  <p>Received 16 Sep 2015 | Accepted 23 May 2016 | Published 23 Jun 2016</p>
+  <p>DOI: 10.1038/ncomms12031</p>
+  <p>OPEN</p>
+  <p><span class="concept">Modularity<span class="tag">term·dom</span></span> and stability in ecological communities Jacopo Grilli1, Tim Rogers2 &amp; Stefano Allesina1,3,4</p>
+  <p>Networks composed of distinct, densely connected subsystems are called modular. In ecology, it has been posited that a modular organization of species interactions would benefit the dynamical stability of communities, even though evidence supporting this hypothesis is mixed. Here we study the effect of <span class="concept">modularity<span class="tag">term·dom</span></span> on the local stability of ecological dynamical systems, by presenting new results in <span class="method">random matrix theory<span class="tag">term·mth</span></span>, which are obtained using a quaternionic parameterization of the cavity method. Results show that <span class="concept">modularity<span class="tag">term·dom</span></span> can have moderate stabilizing effects for particular parameter choices, while anti-<span class="concept">modularity<span class="tag">term·dom</span></span> can greatly destabilize ecological networks.</p>
+  <p>1 Department of Ecology &amp; Evolution, University of Chicago. 1101 E. 57th, Chicago, Illinois 60637, USA. 2 Centre for Networks and Collective Behaviour, Department of Mathematical Sciences, University of Bath. Claverton Down Bath BA2 7AY United Kingdom. 3 Computation Institute, University of Chicago, Chicago, Illinois 60637, USA. 4 Northwestern Institute on Complex Systems (NICO), Northwestern University, Evanston, Illinois 60208, USA. Correspondence and requests for materials should be addressed to S.A. (email: sallesina@uchicago.edu).</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>ARTICLE</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>Ecological communities are structured both in space, as in</p>
+  <p>a stratified lake and in time, as for migratory birds. This temporal and spatial organization is reflected in the strength of species interactions, where we expect populations dwelling in the same location, or being active in the same season, to interact more frequently than those that are not.</p>
+  <p>When drawing ecological interaction networkswhere species are the nodes and the edges connecting the species stand for interactions (for example, consumption, pollination and competition)we therefore expect to find that species can be partitioned into distinct groups, such that the frequency of interaction largely depends on group-membership1,2. Networks with this property are said to be block-structured: a modular structure is a particular block structure, in which a network is divided into subsystems, and within-subsystem interactions are much more frequent than those between subsystems3,4. If, on the other hand, interactions occur exclusively between groups, we obtain a bipartite networkanother type of block structure with many ecological applications5.</p>
+  <p>The appealingly simple idea of a block structure has been formalized in the measure of <span class="concept">modularity<span class="tag">term·dom</span></span>, Q3,4, calculated as the difference between observed and expected within-group interactions, divided by the total number of interactions. Positive values indicate that interactions occur predominantly within-groups, while negative values that interactions are more frequent between- than within-group. <span class="concept">Modularity<span class="tag">term·dom</span></span> has become one of the most investigated network metrics, with applications spanning biological, social and technological networks611.</p>
+  <p>Unveiling the relationship between the network structure of biological systems and their dynamical properties has been a the discipline, and many authors have long-sought goal of hypothesized that biological networks must be shaped by evolution1215 and co-evolution16, favouring configurations yielding controlled dynamics1719.</p>
+  <p>for</p>
+  <p>the local</p>
+  <p>In ecology, the idea that a modular organization would be stability of ecological communities beneficial (that is, their ability to recover from small perturbations) dates back to work on complexity and stability by May20 , where he suggested that our model multi-species communities [...] will do better if the interactions tend to be arranged in blocks. This hypothesis was challenged by a number of authors21,22, who produced simulations showing the opposite effect. However, found that <span class="concept">modularity<span class="tag">term·dom</span></span> can indeed enhance recent studies species persistence23,24, the picture. Though the relationship between block structure and dynamics since been investigated in many fields, on networks has</p>
+  <p>complicating</p>
+  <p>further</p>
+  <p>including epidemiology25, neuroscience26 and complex systems in general27, a systematic classification is still lacking.</p>
+  <p>Here we study how the local stability of ecological systems is influenced by <span class="concept">modularity<span class="tag">term·dom</span></span>, providing new results on the <span class="method">theory<span class="tag">term·mth</span></span> of random matrices that can be used to draw a direct relationship between <span class="concept">modularity<span class="tag">term·dom</span></span> Q and local stability. The mathematical results are briefly stated in the Methods section, while a calculation based on the cavity method2831 with quaternions is carried out in the Supplementary Notes.</p>
+  <p>We show that, with respect to the corresponding unstructured case, <span class="concept">modularity<span class="tag">term·dom</span></span> can have moderate stabilizing effects for particular parameter choices, while anti-<span class="concept">modularity<span class="tag">term·dom</span></span> can greatly destabilize networks. The rich range of possible effects associated with the same level of <span class="concept">modularity<span class="tag">term·dom</span></span> stresses the fact that a given network structure is not stabilizing or destabilizing per se, but only for particular regimes.</p>
+  <p>Results Building community matrices. We study the stability of a community matrix M, modelling a continuous-time, dynamical ecological system composed of S populations, resting at a feasible equilibrium point. We remove self-interactions from the matrix (setting Mii 14 0), so that we can concentrate on inter-specific effects (adding intra-specific effects would not qualitatively alter the results32).</p>
+  <p>M is obtained by multiplying element-by-element</p>
+  <p>two matrices, a matrix of interaction strengths, W, where Wij expresses the effect of species j on species i around equilibrium, and the adjacency matrix of an undirected graph, K. The community matrix is therefore M 14 W J K (Fig. 1).</p>
+  <p>Initially, we independently sample the coefficients in W in pairs, drawing (Wij, Wji) from a bivariate distribution with (cid:3), the identical marginals, defined by the mean m14E Wij (cid:5)2(cid:3) and the correlation variance s214E12 Wij (cid:2) m (cid:5)=s2. By varying these parameters, we can (cid:2) r14 E WijWji model different types of interactions between the species from preponderantly predatorprey to dominated by competition or mutualism33.</p>
+  <p>(cid:4) (cid:5)2(cid:3)14E12 Wji (cid:2) m</p>
+  <p>(cid:4) (cid:3) (cid:2) m2</p>
+  <p>(cid:2) (cid:3)14E Wji</p>
+  <p>(cid:4)</p>
+  <p>(cid:2)</p>
+  <p>The binary matrix K dictates who interacts with whom, and is symmetric because we assume pairwise interactions. Thus, K determines which interactions in W are activated, and which are suppressed. Here we study the case of a block-structured K: we assume that the community is composed of two subsystems, ar1/2), of sizes (with subsystem interact with and that</p>
+  <p>aS species</p>
+  <p>respectively</p>
+  <p>(1 (cid:2) a)S,</p>
+  <p>in the</p>
+  <p>same</p>
+  <p>and</p>
+  <p>Matrix of interactions W</p>
+  <p>Adjacency matrix K</p>
+  <p>Community matrix M</p>
+  <p>Figure 1 | Block structure. (a) The matrix of interaction strengths W, whose diagonal elements are all zero and the off-diagonal elements are independently sampled in pairs from a bivariate distribution (in this case, a bivariate normal with identical marginals defined by m 14 0, s 14 1/2 and correlation r 14 (cid:2) 3/4; red stands for negative coefficients, blue for positive one and the intensity of the colour is proportional to the coefficient value). (b) The adjacency matrix K, which has a block structure; in this case, we have that a 14 1/4 of the species belong to the first subsystem, and that the <span class="concept">modularity<span class="tag">term·dom</span></span> Q 14 0.3, meaning that interactions tend to occur within-subsystem. (c) The community matrix M is obtained by multiplying W and K element-by-element.</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>ARTICLE</p>
+  <p>probability Cw (within-subsystem connectance), while species in different subsystems with probability Cb (between-subsystem connectance).</p>
+  <p>This parameterization is especially intuitive, because for Cb 14 Cw, we recover the well-studied case of a random ecological community20,33. Hence, by varying Cb and Cw, we can isolate the effect of having a modular or anti-modular structure (Fig. 2), with the two extreme cases being networks composed of two separate subsystems (perfectly modular), and those in which interactions occur exclusively between subsystems (perfectly anti-modular or bipartite). For simplicity, we speak of a modular structure whenever Cw4Cb, and of an anti-modular structure when CwoCb. The represents unstructured systems, such as those studied by May and other authors20,33. Equivalently (Methods), we can express Cw and Cb in terms of the overall connectance C (that is, the overall density of interactions in K) and Q, the <span class="concept">modularity<span class="tag">term·dom</span></span> of the network3,4, defined as:</p>
+  <p>case of Cw 14 Cb</p>
+  <p>Q 14</p>
+  <p>(cid:3)</p>
+  <p>Lw (cid:2) E Lw12 Lw þ Lb</p>
+  <p>ð1Þ</p>
+  <p>where Lw is the observed number of interactions within the subsystems, Lb the number of between-subsystem interactions and E Lw12 (cid:3) is the number of within-subsystem interactions we would expect by chance. Values of Q40 (Qo0) mean that we observe within-subsystem interactions more (less) frequently than expected by chance. To calculate E Lw12 (cid:3), we need to choose a reference model for network structure, and here we use the Erd+osRe ́nyi random graph34, as we want to contrast our results with those found for an unstructured, random network. Though Q is bounded by (cid:2) 1 and 1, only a smaller interval of values might be achievable for a given choice of a reference model, a and C (Methods; then for example, QA[ (cid:2) 1/2, 1/2], provided that Co1/2).</p>
+  <p>in our case, when a 14 1/2,</p>
+  <p>In summary, the parameterization M 14 W J K allows us to separate the effect on stability of a block structure (modelled by K through a, C and Q) from those due to the distribution of interaction strengths (modelled by W). Given that the case of Q 14 0 (unstructured network) has been studied intensively, and these matrices can that be achieved analytically20,32,33,35, we use it as a reference point to determine the effect of Q on stability.</p>
+  <p>the calculation of</p>
+  <p>the stability of</p>
+  <p>Effect of <span class="concept">modularity<span class="tag">term·dom</span></span> on stability. We want to study the effect of <span class="concept">modularity<span class="tag">term·dom</span></span> on stability. Therefore, we contrast the value for the</p>
+  <p>real part of the rightmost eigenvalue of M, Re(lM,1), with Reðl ~M;1Þ, the value found for eM, a matrix with exactly the same coefficients, but re-arranged according to a random network structure (Q 14 0). Re(lM,1), is a measure of stability, as it expresses the amount of self-regulation we would need to stabilize the equilibrium20,32.</p>
+  <p>Our analysis (Fig. 3; Methods) highlights that there are three main parameterizations we need to consider: (a) mean interaction strength close to zero (mE0); (b) strongly negative mean interaction strength; and (c) strongly positive mean interaction strength. Without loss of generality, we can set s2 14 1, and study the effect of the <span class="concept">modularity<span class="tag">term·dom</span></span> Q on the stability of the community, measured as the ratio G 14 ReðlM;1Þ=Reðl ~M;1Þ, for a given choice of a (controlling the size of the smaller subsystem), r (correlation of the interaction strengths) and C (overall connectance of system). Values Go1 are found when imposing the block structure helps stabilizing the community (for example, in Fig. 3, for Qo0 and m 14 0), while ratios G 41 stand for destabilizing effects (for example, any Qa0 for positive mean). For an unstructured matrix (Q 14 0), the ratio is exactly 1.</p>
+  <p>In Fig. 4, we show the effect of <span class="concept">modularity<span class="tag">term·dom</span></span> on stability in a community composed of 1,000 species, when we set C 14 0.2. Take the case of two equally sized subsystems (a 14 1/2), for which we derive new results allowing us to express the ratio analytically (Methods; Supplementary Information): when mZ0, we have no effect of <span class="concept">modularity<span class="tag">term·dom</span></span> on stability; when mo0, on the other hand, a bipartite structure is highly destabilizing, while a modular structure is moderately stabilizing. Both effects are stronger in the case of a negative correlation.</p>
+  <p>When the two subsystems have different sizes (ao1/2), the stabilizing effect of <span class="concept">modularity<span class="tag">term·dom</span></span> found for the case of mo0 is greatly diminished, and eventually also <span class="concept">modularity<span class="tag">term·dom</span></span> can become destabilizing (especially for positive r and a (cid:4) 1=2). For m40, any Qa0 is destabilizing, while for mE0, a modular structure is always destabilizing, and a anti-modular structure can be stabilizing, provided that r is sufficiently negative. These effects hold qualitatively for different levels of C (Methods; Supplementary Figs 23), with higher connectances leading to more marked effects. Though we cannot predict the ratio in full generality for the case of ao1/2, we can treat the extreme cases of a perfectly modular and perfectly bipartite structure, and this is sufficient to understand the qualitative behaviour of all cases (Methods).</p>
+  <p>The picture emerging from these results is much more nuanced and complex than what was previously hypothesized2022: <span class="concept">modularity<span class="tag">term·dom</span></span> can have a moderate stabilizing effect when the two</p>
+  <p>Antimodular C w &lt; C b, Q &lt; 0</p>
+  <p>Unstructured C w = C b, Q = 0</p>
+  <p>Modular C w &gt; C b, Q &gt; 0</p>
+  <p>Figure 2 | <span class="concept">Modularity<span class="tag">term·dom</span></span>. By varying the <span class="concept">modularity<span class="tag">term·dom</span></span> Q (or, equivalenty, the within-group connectance Cw and between-group connectance Cb), we can produce community matrices where interactions occur mostly between species in different subsystems (Qo0, a), completely at random (Q 14 0, b) or mostly within subsystems (Q40, c).</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>ARTICLE</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>(cid:2) = 0.2</p>
+  <p>(cid:2) = 0</p>
+  <p>(cid:2) = 1</p>
+  <p>1.50</p>
+  <p>1.25</p>
+  <p>1.00</p>
+  <p>0.75</p>
+  <p>g n z</p>
+  <p>i l i</p>
+  <p>b a t s e D</p>
+  <p>g n z</p>
+  <p>i l i</p>
+  <p>b a t S</p>
+  <p>o i t a r</p>
+  <p>y t i l i</p>
+  <p>b a t S</p>
+  <p>0.6</p>
+  <p>0.4</p>
+  <p>0.2</p>
+  <p>(cid:3) = 0 . 2 5</p>
+  <p>0.0</p>
+  <p>0.2</p>
+  <p>0.4</p>
+  <p>0.0</p>
+  <p>0.2</p>
+  <p>0.4</p>
+  <p>0.6</p>
+  <p>0.4</p>
+  <p>0.2</p>
+  <p>0.0</p>
+  <p>0.2</p>
+  <p>0.4</p>
+  <p>0.6</p>
+  <p>0.4</p>
+  <p>0.2</p>
+  <p><span class="concept">Modularity<span class="tag">term·dom</span></span> Q</p>
+  <p>(cid:4)</p>
+  <p>(cid:5)=Reðl ~M;1Þ (y axis), measuring the stabilizing/destabilizing effect of the <span class="concept">modularity<span class="tag">term·dom</span></span> Q. The ratio is obtained dividing the</p>
+  <p>Figure 3 | Three cases. <span class="concept">Modularity<span class="tag">term·dom</span></span> influences stability in different ways, depending on the mean strength of interaction m, the variance s2, the correlation r, the overall connectance C and the size of the smaller subsystem, controlled by a. In this and following figures, we show the effect of the <span class="concept">modularity<span class="tag">term·dom</span></span> (Q, x axis) on the ratio G 14 Re lM;1 real part of the leading eigenvalue of the block-structured matrix, Re(lM,1), by that of the corresponding unstructured matrix, Reðl ~M;1Þ. Ratios greater than one indicate destabilization, lower than one stabilization and whenever Q 14 0 (unstructured matrices) we should find G 14 1. For a given connectance (C 14 0.1 in this case), correlation (r 14 (cid:2) 3/4) and size of the smaller subsystem (a 14 1/4), we fix the variance s2 14 1 and study three different cases, in which the mean m is negative (red), positive (blue) or zero (green). The figure highlights that the same <span class="concept">modularity<span class="tag">term·dom</span></span> Q, all other parameters being fixed, can have completely different effects on stability, depending on the value of m. Each point is obtained averaging the ratio over 50 replicates of a community matrix containing 1,000 species (Methods).</p>
+  <p>subsystem have about the same size, and the mean m is negative or destabilizing, when mZ0 and the subsystems have different sizes. Similarly, anti-<span class="concept">modularity<span class="tag">term·dom</span></span> is highly destabilizing for ma0, but can be stabilizing for m 14 0.</p>
+  <p>The qualitative behaviour of these systems can be understood quite simply, when considering the distribution of the eigenvalues of the block-structured matrices in the complex plane. As shown in Fig. 5, when there are two subsystems the spectrum of M is composed of a bulk of eigenvalues, and up to two outlier, real eigenvalues. When mE0, there are no outliers, and thus stability is determined in all cases by the rightmost eigenvalue(s) in the bulk. When ma0, we have only one outlier in the case of unstructured networks: if mo0, then the outlier lies to the left of the bulk and thus has limited effects on stability; if m40, on the other hand, the outlier lies to the right of the bulk and therefore solely determines stability. The modular case is similar to the unstructured one, though we now have two outilers, in that both lie either to the right (m40) or the left (mo0) of the bulk. In the bipartite case, however, for any ma0 the spectrum presents an outlier to the right (determining stability) and one to the left of the bulk.</p>
+  <p>These simple observations are sufficient to understand the very strong destabilizing effect of a bipartite structure when mo0: in this case, the stability of the unstructured network, Reðl ~M;1Þ, is determined by the bulk of the eigenvalues, while that of the block- structured network, Re(lM,1), by the outlier to the right of the bulk (Fig. 5, red). When both Re(lM,1) and Reðl ~M;1Þ are determined by the bulk (for example, modular case with mo0 or any structure with mE0), the either stabilizing or destabilizing effect is going to be moderate. Moderate effects are also observed when both Re(lM,1) and Reðl ~M;1Þ are associated with an outlier lying to the right of the bulk (m40). When both Re(lM,1) and Reðl ~M;1Þ are determined by the same type (bulk, outlier) of eigenvalue, the precise stabilizing or destabilizing effect depends nonlinearly on the parameters a, C, Q, m, s and r (Methods).</p>
+  <p>To summarize, a block structure for an otherwise random ecological system can help stabilization in only two cases: (a) when the structure is modular, and mo0 (though small a or a positive r could reverse this effect); and (b) when the structure is bipartite, mE0, and the correlation is negative. For all the other cases, the effect of a block structure ranges from neutral to highly destabilizing.</p>
+  <p>Food-web structure. Clearly, ecological systems do not follow a random graph structure, for example, displaying a directionality in the flow of energy from producers to consumers. This directionality proved important in our previous study36, where we showed that when the mean of the negative effects dominates that of the positive effects, systems built according to the cascade37 model (in which larger species consume smaller ones) are more likely to be stable than their random counterparts. We therefore analysed matrices constructed using a variation of the cascade model, where we assign a size to each species and each species can only consume smaller species, and has a preference for those in the same subsystem (Q40), or for those in the other subsystem (Qo0). Note that in this case, we need to set a mean for the positive effects and another one for the negative effects (Methods). Figure 6 shows that the stabilizing effect of <span class="concept">modularity<span class="tag">term·dom</span></span> found before for the case of mo0 is practically negligible, while the other results are qualitatively the same.</p>
+  <p>Discussion We have studied the effect of a modular or anti-modular network structure on the stability of an otherwise random ecological system. Our parameterization makes it easy to compare the effect of the network structure with that one would obtain for unstructured, random systems such as those studied in the past20,33: a ratio Go1 stand for stabilizing and G41 for destabilizing effect of network structure.</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>ARTICLE</p>
+  <p>(cid:4) = 0.75</p>
+  <p>(cid:4) = 0</p>
+  <p>(cid:4) = 0.75</p>
+  <p>1.6</p>
+  <p>1.2</p>
+  <p>0.8</p>
+  <p>1.6</p>
+  <p>1.2</p>
+  <p>0.8</p>
+  <p>1.6</p>
+  <p>1.2</p>
+  <p>0.8</p>
+  <p>o i t a r</p>
+  <p>y t i l i</p>
+  <p>b a t S</p>
+  <p>0.75</p>
+  <p>0.50</p>
+  <p>0.25</p>
+  <p>0.00</p>
+  <p>0.25</p>
+  <p>0.50 0.75</p>
+  <p>0.50</p>
+  <p>0.25</p>
+  <p>0.00</p>
+  <p>0.25</p>
+  <p>(cid:3) = 0 . 5</p>
+  <p>(cid:3) = 0 . 2 5</p>
+  <p>(cid:3) = 0 . 1</p>
+  <p>0.00</p>
+  <p>0.25</p>
+  <p>0.50</p>
+  <p>0.50 0.75</p>
+  <p>0.50</p>
+  <p>0.25</p>
+  <p><span class="concept">Modularity<span class="tag">term·dom</span></span> Q</p>
+  <p>Figure 4 | Effects of <span class="concept">modularity<span class="tag">term·dom</span></span> on stability. For each value of a (determining the size of the smaller subsystem; rows) and r (expressing the correlation between interaction strengths; columns), we vary Q and record the ratio G. Given that the maximum and minimum Q that can be attained depend on C and a (Methods), we take 20 equally spaced points between the minimum and maximum Q for each configuration. We set C 14 0.2, S 14 1,000 and s2 14 1, and track the case of m 14 0 (green), m 14 (cid:2) 1 (red) and m 14 1 (blue). The dots represent numerical simulations, obtained by averaging over 50 replicates. The open circles are the corresponding analytical predictions (Methods). Because for negative means the destabilizing effect of bipartite structures is so strong that plotting it would make the other effects difficult to see, we only plot the region of G bounded by 1/2 and 3/2. See Supplementary Fig. 1 for the complete graph.</p>
+  <p>For block-structured matrices, we showed that <span class="concept">modularity<span class="tag">term·dom</span></span> can have a positive effect on stability only when (a) the system is composed of two subsystems of about the same size and (b) the overall mean interaction strength is negative. The stabilizing effect is stronger for negative correlations. Anti-<span class="concept">modularity<span class="tag">term·dom</span></span>, on the other hand, is typically strongly destabilizing, besides the case in which the average interaction strength is close to 0 (a well-studied case20,33, limited biological realism). When the mean interaction strength is positive, both <span class="concept">modularity<span class="tag">term·dom</span></span> and anti-<span class="concept">modularity<span class="tag">term·dom</span></span> are destabilizing.</p>
+  <p>though of</p>
+  <p>Through numerical simulations, we have investigated the more complex case of an interaction between <span class="concept">modularity<span class="tag">term·dom</span></span> and food-web structure, and found that the results are qualitatively unchanged.</p>
+  <p>The picture emerging from both simulations and mathematical analysis is much more complex than previously hypothesized. Block structure can have an effect on the local asymptotic stability of the underlying system. However, unless we are in particular areas of the parameter space, the effect tends to be destabilizing. Our results stress the fact that, when discussing the relationship between network structure and local stability, we need to qualify our stabilizing or destabilizing per se, but is only so under certain specific conditions. Though we have illustrated this point by studying the modular structures, we believe this phenomenon to hold generally: any network structure can have different effects on stability, depending</p>
+  <p>statements, as a given structure is not</p>
+  <p>on the choice of parameters. To reinforce this message, in Fig. 7, we show three cases in which an empirical network structure makes the system more or less stable than its random counterpart, depending on the parameterization of the coefficients.</p>
+  <p>Practically,</p>
+  <p>this means that</p>
+  <p>the challenge of proving that biological network structure emerges because of a selective process, removing configurations yielding unfavourable dynamics1719 is much harder than expected: network structure, without estimates of the distribution of the coefficients, cannot be used to determine the effect on dynamical properties.</p>
+  <p>Methods Constructing the community matrix. M is the S (cid:5) S community matrix, representing the population dynamics of an unknown dynamical system around a feasible equilibrium point. We consider two cases: (a) random ecological networks with block structure and (b) food webs with block structure.</p>
+  <p>For case (a), we sampled the pairs (Wij, Wji) independently from a bivariate</p>
+  <p>normal distribution with means (m, m)T, and covariance matrix</p>
+  <p>(cid:2) 14 s2</p>
+  <p>(cid:7)</p>
+  <p>(cid:6)</p>
+  <p>1 r r 1</p>
+  <p>ð2Þ</p>
+  <p>For case (b), we first assigned a size to each species (randomly sampling it from</p>
+  <p>a uniform distribution between 0 and 1), and then sampled the pairs (Wij, Wji) independently from a normal bivariate distribution with means ((1 þ x)m, (cid:3)14m, for Fig. 6, x 14 3), and covariance matrix S, (1 (cid:2) x)m)T (ensuring that E Wij whenever i was larger than j. This means that species can only consume smaller prey, such as in the cascade model. In particular, in this case we could order the rows and columns of matrix W so that all the positive effects would be confined to the upper-triangular part and the negative effects to the lower-triangular part.</p>
+  <p>(cid:2)</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>ARTICLE</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>(cid:2) &lt; 0</p>
+  <p>(cid:2) = 0</p>
+  <p>(cid:2) &gt; 0</p>
+  <p>y r a n g a m</p>
+  <p>40 40</p>
+  <p>40 40</p>
+  <p>Q &lt; 0</p>
+  <p>( a n t i</p>
+  <p>m o d u a r )</p>
+  <p>Q = 0</p>
+  <p>( u n s t r u c t u r e d )</p>
+  <p>Q &gt; 0</p>
+  <p>m o d u a r )</p>
+  <p>100 50</p>
+  <p>0 Real</p>
+  <p>100</p>
+  <p>Figure 5 | Effects of <span class="concept">modularity<span class="tag">term·dom</span></span> on the shape of the spectrum. The spectrum of block-structured matrices is given by a bulk, andwhen there are two subsystemsup to two outlier eigenvalues (highlighted points). The stability of the system is determined by the rightmost eigenvalue(s) (crosses), which can either be one of the outliers (cases with m40 and when Qo0, mo0), or the rightmost eigenvalue(s) of the bulk (cases with m 14 0, and mo0 with Qr0). Large effects of Q on stability are found when varying Q changes the type of eigenvalue determining stability (mo0), while, when the type of eigenvalue determining stability does not depend on Q, effects will be moderate. The panels show the eigenvalues of a single matrix with S 14 1,000, C 14 0.4, a 14 1/4 and s2 14 1. Red: m 14 (cid:2) 1/4, r 14 (cid:2) 1/4; green: m 14 0, r 14 (cid:2) 3/4; and blue: m 14 1/4, r 14 (cid:2) 0.5. The dashed solid line marks the position of the rightmost eigenvalue for the case of Q 14 (cid:2) 0.5 (top row); the dotted line for Q 14 0 (middle row) and the dashed line for Q 14 0.35 (bottom row).</p>
+  <p>In both cases, the matrix M is obtained via the Hadamard (element-by-element) product of W and the adjacency matrix K. The matrix K is characterized by four parameters: S, a, C and Q. S is the size, a is the proportion of species belonging to the first subsystem, Q is the <span class="concept">modularity<span class="tag">term·dom</span></span> and C the overall connectance of K (density of the nonzero elements). The first aS species are assigned to the first subsystem, and the remaining (1 (cid:2) a)S species to the second subsystem. The vector ~g encodes the subsystem-membership of each species. Then, we set (Kij, Kji) to (1, 1) agj. The with probability Cw, when gi 14 gj and with probability Cb when gi within-subsystem connectance Cw is: (cid:6)</p>
+  <p>(cid:7)</p>
+  <p>Cw 14 C 1 þ</p>
+  <p>Q a2 þ 1 (cid:2) a ð</p>
+  <p>and the between-subsystem connectance Cb is:</p>
+  <p>(cid:6)</p>
+  <p>Cb 14 C 1 (cid:2)</p>
+  <p>(cid:7)</p>
+  <p>Q 2a 1 (cid:2) a</p>
+  <p>Note that, given the Erd+osRe ́nyi reference model, the values of Q that are</p>
+  <p>attainable depend on both a and C:</p>
+  <p>max C (cid:2) 2a 1 (cid:2) a</p>
+  <p>(cid:4)</p>
+  <p>Þ (cid:2) C a2 þ 1 (cid:2) a Þ; 0 C</p>
+  <p>(cid:5)</p>
+  <p>(cid:6) Q</p>
+  <p>(cid:4)</p>
+  <p>min C; a2 þ 1 (cid:2) a</p>
+  <p>(cid:6)</p>
+  <p>(cid:4)</p>
+  <p>(cid:5) (cid:2) C a2 þ 1 (cid:2) a Þ2 Þ2 C</p>
+  <p>(cid:5)</p>
+  <p>ð5Þ</p>
+  <p>Numerical simulations. For each a and r, we set S 14 1,000, C 14 0.2, s 14 1 and m 14 0 (green), m 14 (cid:2) 1 (red) or m 14 1 (blue), and varied Q from its minimum to its maximum possible value in twenty equally sized steps. For each parameter set, we produced 50 block-structured matrices M, and 50 unstructured matrices eM, obtained by setting Q 14 0. The ratio G 14 Re lM;1</p>
+  <p>(cid:5)=Reðl ~M;1Þ was computed by</p>
+  <p>(cid:4)</p>
+  <p>ð3Þ</p>
+  <p>ð4Þ</p>
+  <p>averaging over the replicates. In many cases, one can obtain the expectation for the ratio analytically (below; Supplementary Information). The simulations were repeated for both random ecological networks (Fig. 4) and cascade-based food webs (Fig. 6).</p>
+  <p>The spectrum of block-structured matrices. For our derivations, we adopt a slightly more general notation, which includes that discussed above as a special case. We consider the matrix M, with Mii 14 0 and the off-diagonal coefficients independently sampled in pairs from either of two distributions:</p>
+  <p>(cid:4)</p>
+  <p>Mij; Mji</p>
+  <p>(cid:5) (cid:7)</p>
+  <p>8 &gt;&gt;&lt; &gt;&gt;:</p>
+  <p>(cid:6)</p>
+  <p>(cid:6)</p>
+  <p>(cid:6)</p>
+  <p>(cid:6) (cid:7) mw mw (cid:6) (cid:7) mb mb</p>
+  <p>; s2 w (cid:6)</p>
+  <p>; s2 b</p>
+  <p>1 rw 1 rb</p>
+  <p>(cid:7)</p>
+  <p>(cid:7)</p>
+  <p>rw 1 (cid:7) rb 1</p>
+  <p>(cid:7)</p>
+  <p>gi 14 gj</p>
+  <p>614 gj</p>
+  <p>ð6Þ</p>
+  <p>Hence, the pairs come from a certain bivariate distribution Zw, when i and j belong to the same subsystem, while from a different distribution Zb, when i and j belong to different subsystems. We do not need to specify the exact form of the distributions Zw and Zb, given that, as for many results in <span class="method">random matrix theory<span class="tag">term·mth</span></span>, our findings are consistent with the universality property38,39: once fixed the mean and covariance matrices of Zw and Zb, and provided that the fourth moment of each is bounded, any choice of distributions yields the same result, for S-N. When considering the case examined in the main text, where the elements Mij 14 WijKij, the universality property helps us in two ways. First, consider that the pairs (Mij, Mji) are zero with probability 1 (cid:2) Cw (case gi 14 gj) or probability 1 (cid:2) Cb agj), and that the nonzero pairs are sampled from a bivariate distribution (case gi (for the elements of W), defined by the parameters m, s2 and r. This is sufficient to</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>ARTICLE</p>
+  <p>(cid:4) = 0.75</p>
+  <p>(cid:4) = 0</p>
+  <p>(cid:4) = 0.75</p>
+  <p>1.6</p>
+  <p>1.2</p>
+  <p>0.8</p>
+  <p>1.6</p>
+  <p>1.2</p>
+  <p>0.8</p>
+  <p>1.6</p>
+  <p>1.2</p>
+  <p>0.8</p>
+  <p>o i t a r</p>
+  <p>y t i l i</p>
+  <p>b a t S</p>
+  <p>0.75</p>
+  <p>0.50</p>
+  <p>0.25</p>
+  <p>(cid:3) = 0 . 5</p>
+  <p>(cid:3) = 0 . 2 5</p>
+  <p>(cid:3) = 0 . 1</p>
+  <p>0.00</p>
+  <p>0.25</p>
+  <p>0.50</p>
+  <p>0.00</p>
+  <p>0.25</p>
+  <p>0.50 0.75</p>
+  <p>0.50</p>
+  <p>0.25</p>
+  <p>0.00</p>
+  <p>0.25</p>
+  <p>0.50 0.75</p>
+  <p>0.50</p>
+  <p>0.25</p>
+  <p>Figure 6 | Effect of <span class="concept">modularity<span class="tag">term·dom</span></span> on food webs. As in Fig. 4, but with the matrix W built such that when two species i and j interact, and species i is smaller than j, then the effect of j on i, Wij is negative (on average), while that of i on j positive. This means that the food web is structured, as in a cascade model with block structure (Methods). While the results are generally similar to those in Fig. 4, food-web structure greatly decreases the stabilizing effect of <span class="concept">modularity<span class="tag">term·dom</span></span> found when mo0 and aE1/2 in the random case. The same qualitative results are found when varying the connectance C (Supplementary Figs 46).</p>
+  <p><span class="concept">Modularity<span class="tag">term·dom</span></span> Q</p>
+  <p>Contact network</p>
+  <p>Food web</p>
+  <p>Pollination</p>
+  <p>o i t</p>
+  <p>a r</p>
+  <p>y t i l i</p>
+  <p>b a S</p>
+  <p>1.1</p>
+  <p>1.0</p>
+  <p>0.9</p>
+  <p>2.0</p>
+  <p>1.5</p>
+  <p>1.0</p>
+  <p>0.5</p>
+  <p>0.2 0.1</p>
+  <p>0.0</p>
+  <p>0.1</p>
+  <p>0.2</p>
+  <p>0.0</p>
+  <p>1.50</p>
+  <p>1.25</p>
+  <p>1.00</p>
+  <p>0.75</p>
+  <p>0.50</p>
+  <p>2.0</p>
+  <p>0.6</p>
+  <p>0.4</p>
+  <p>0.2</p>
+  <p>0.5</p>
+  <p>1.0 Critical parameter θ</p>
+  <p>1.5</p>
+  <p>Figure 7 | Variable effect of network structure. We show the results of numerical simulations where we parameterize empirical networks, and we study the stabilizing/destabilizing effect of network structure (G, y axis) when varying a critical parameter y (x axis). When parameterizing a high-school social network42 (left), y is the average of the nonzero coefficients: for negative y, we observe that matrices with empirical structure are easier to stabilize than their random counterparts (Go1); the reverse is found for positive means. For the parameterization of the Little Rock food web43 (centre), y expresses the relative magnitude of positive effects (effects of prey on predators) with respect to the negative ones (effects of predators on prey), so that when yE1 positive effects are about as strong as the negative ones, and network structure is destabilizing; for y much lower (higher) than one, on the other hand, network structure is stabilizing. Finally, for a pollination network44,45 (right), the strength of plantplant and pollinatorpollinator competition (y) can be stabilizing (strong competition) or destabilizing (weak competition). Details on the simulations are reported in the Methods section.</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>ARTICLE</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>calculate32 the relevant parameters for the distributions Zw and Zb:</p>
+  <p>mw 14 Cwm mb 14 Cbm w 14 Cw s2 þ 1 (cid:2) Cw s2 ð ð s2 b 14 Cb s2 þ 1 (cid:2) Cb ð ð rw 14 rs2 þ 1 (cid:2) Cw ð s2 þ 1 (cid:2) Cw ð rb 14 rs2 þ 1 (cid:2) Cb ð s2 þ 1 (cid:2) Cb ð This means that the effect of the connectances is somewhat trivial: we can absorb the connectances in the parameters mw, mb, sw, sb, rw and rb, which are our effective parameters, dictating the shape of the distribution of the eigenvalues of M.</p>
+  <p>Þm2 Þ Þm2 Þ</p>
+  <p>Þm2 Þm2 Þm2 Þm2</p>
+  <p>The second advantage of having universal results is that we are free to choose</p>
+  <p>any distribution for the pairs (Wij, Wji). In all our examples, these are sampled from a bivariate normal distribution.</p>
+  <p>Decomposition. We want to study the limiting (that is, when S is large) dis- tribution of the eigenvalues of M for the case of a random community (for the food webs following the cascade model, we rely exclusively on simulations). Following the approach by <span class="person">Allesina<span class="tag">persName</span></span> et al.36, we write the matrix M as the sum of two matrices, M 14 A þ B, where A is a matrix with block structure whose elements are (cid:8)</p>
+  <p>Aij 14</p>
+  <p>mw mb</p>
+  <p>if gi 14 gj 614 gj if gi</p>
+  <p>and B is obtained by difference: B 14 M (cid:2) A. Thus, the diagonal elements of (cid:2) Bii 14 (cid:2) mw, while for the off-diagonal E Bij (cid:2) b (when gi or E BijBji</p>
+  <p>(cid:3)140, and E BijBji</p>
+  <p>(cid:3)14rws2</p>
+  <p>(cid:3)14rbs2</p>
+  <p>agj).</p>
+  <p>(cid:2)</p>
+  <p>w (when gi 14 gj),</p>
+  <p>This parameterization is very convenient, as the spectrum of matrix B describes the bulk of the eigenvalues of M, while the outlier eigenvalues of M are given by the nonzero eigenvalues of A, modified by a small correction40.</p>
+  <p>The eigenvalues of A. The eigenvalues of A are easy to obtain for any choice of S, a, mw and mb, with all being zero besides</p>
+  <p>lA;1 (cid:2) 2 14</p>
+  <p>(cid:10) mw (cid:8)</p>
+  <p>S 2</p>
+  <p>ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi Þm2 Þm2 1 (cid:2) 4a 1 (cid:2) a ð ð b</p>
+  <p>w þ 4a 1 (cid:2) a ð</p>
+  <p>(cid:11)</p>
+  <p>ð9Þ</p>
+  <p>which can be both zero as well (mw 14 mb 14 0), both different from zero (aa1/2, mw to two outlier eigenvalues.</p>
+  <p>amb), or one zero and one nonzero (mw 14 mb</p>
+  <p>a0). Thus, there are going to be up</p>
+  <p>These are the approximate locations of the two outlier eigenvalues of M</p>
+  <p>a0, as found for example in the unstructured (only one outlier when mb 14 mw case). The exact location of the outliers depends also on B, as explained below.</p>
+  <p>The eigenvalues of B. The spectrum of B has never been studied in full generality. We start by discussing the known cases, and then introduce new results that allows us to understand the qualitative behaviour of our simulations. These results can be derived by a calculation making use of the cavity method (Supplementary Information).</p>
+  <p>Known case: rw 14 rb, qw 14 qb. In this case, the eigenvalues of B follow the elliptic law39, and for S large, are approximately uniformly distributed in an ellipse, centred at ( (cid:2) mw, 0), and with horizontal semi-axis Þ. semi-axis</p>
+  <p>ffiffiffiffiffiffiffiffiSs2 p 1 þ rw ð</p>
+  <p>Þ and vertical</p>
+  <p>p 1 (cid:2) rw ð</p>
+  <p>ffiffiffiffiffiffiffiffiSs2</p>
+  <p>Known case: rb 14 0 (perfectly modular). When there are no connections between-subsystem, we have two independent subsystems. Hence, the eigenvalues of B are simply the union of the eigenvalues of the two squared block matrices found on the diagonal. The eigenvalues of each diagonal block follow the elliptic law, so that the distribution of the eigenvalues of B is a combination of two uniform ellipses, both centred at ( (cid:2) mw, 0), and with horizontal semi-axes 1 þ rw Þ ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi ÞSs2 1 (cid:2) rw 1 (cid:2) a ð ð and w ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi p ÞSs2 1 (cid:2) a 1 (cid:2) rw ð ð w</p>
+  <p>Þ, and vertical semi-axes</p>
+  <p>Þ, respectively.</p>
+  <p>ffiffiffiffiffiffiffiffiffiffi aSs2 ð w</p>
+  <p>ffiffiffiffiffiffiffiffiffiffi aSs2 w</p>
+  <p>1 þ rw</p>
+  <p>Þ and</p>
+  <p>Known case: qb 14 qw 14 0. New results41 can be applied to this case, showing that the eigenvalues of B are contained in a circle in the complex plane, with centre ( (cid:2) mw, 0) and radius</p>
+  <p>r 14</p>
+  <p>(cid:10)</p>
+  <p>ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi (cid:11) S 2</p>
+  <p>ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi Þs4 Þs4 1 (cid:2) 4a 1 (cid:2) a ð ð b</p>
+  <p>w þ 4a 1 (cid:2) a ð</p>
+  <p>s2 w þ</p>
+  <p>ð10Þ</p>
+  <p>In this case, the distribution of the eigenvalues is not uniform, and Aljadeff</p>
+  <p>et al.41 provide an implicit formula for the density of the limiting spectral distribution, which is consistent to that found in the Supplementary Information using a different method.</p>
+  <p>of B are approximately uniformly distributed in the ellipse in the complex plane with centre in ( (cid:2) mw, 0), horizontal semi-axis</p>
+  <p>ð7Þ</p>
+  <p>and vertical semi-axis</p>
+  <p>ffiffiffiS 2</p>
+  <p>rx 14</p>
+  <p>1 þ rw</p>
+  <p>Þs2 w þ 1 þ rb ð p ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi w þ s2 s2 b</p>
+  <p>Þs2 b</p>
+  <p>p ffiffiffiS 2</p>
+  <p>ry 14</p>
+  <p>1 (cid:2) rw ð</p>
+  <p>Þs2 w þ 1 (cid:2) rb ð p ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi w þ s2 s2 b</p>
+  <p>Þs2 b</p>
+  <p>ð11Þ</p>
+  <p>ð12Þ</p>
+  <p>Note that this would also be the limiting distribution for the eigenvalues of the</p>
+  <p>unstructured matrix eB with (cid:2) mw on the diagonal, and off-diagonal elements sampled independently in pairs from the bivariate normal distribution with means (0, 0)T, a correlation that is a weighted average of the correlations in B,</p>
+  <p>er 14</p>
+  <p>w þ rbs2 rws2 b w þ s2 s2 b</p>
+  <p>and a variance that is the arithmetic mean of the variances in B,</p>
+  <p>es2 14</p>
+  <p>w þ s2 s2 b 2</p>
+  <p>In this case, it is convenient to express these values in terms of m, s2, r, C and Q, because this makes the role of <span class="concept">modularity<span class="tag">term·dom</span></span> in modulating the stability much clearer:</p>
+  <p>ð8Þ</p>
+  <p>er 14</p>
+  <p>rs2 þ 1 (cid:2) C (cid:2) 4CQ2 s2 þ 1 (cid:2) C (cid:2) 4CQ2</p>
+  <p>ð ð</p>
+  <p>Þm2 Þm2</p>
+  <p>ð15Þ</p>
+  <p>ð13Þ</p>
+  <p>ð14Þ</p>
+  <p>es2 14 Cðs2 þ ð1 (cid:2) C (cid:2) 4CQ2Þm2Þ ð16Þ From the two equations above, it is clear that (a) for m 14 0, <span class="concept">modularity<span class="tag">term·dom</span></span> has no effect on the spectrum, while for ma0 the sign of m does not affect the spectrum; (b) modular and bipartite structures have the same effect: the eigenvalues of B will be approximately the same, when we have Q 14 q or Q 14 (cid:2) q; (c) the effect of <span class="concept">modularity<span class="tag">term·dom</span></span> is going to be more marked for large C or |m|; and (d) the radius of B is always lower or equal than that we would find by setting Q 14 0.</p>
+  <p>Summarizing, for a 14 1/2, the eigenvalues of B are contained in an ellipse whose</p>
+  <p>horizontal semi-axis is always smaller or equal than that found for the corresponding unstructured matrix. This explains the stabilizing effect of a modular structure (Qo0) we observed for mo0, as in that case the rightmost eigenvalue of M is the rightmost eigenvalue of B.</p>
+  <p>New case: rw 14 0 (perfectly bipartite). When sw 14 0 (that is, Cw 14 0), the nonzero coefficients of B are exclusively contained in the two blocks, representing the interactions between subsystems, as in a bipartite network. Hence, we can write the matrix B in block form:</p>
+  <p>B 14</p>
+  <p>(cid:7)</p>
+  <p>(cid:6)</p>
+  <p>0 X Y 0</p>
+  <p>ð17Þ</p>
+  <p>where X is a aS (cid:5) (1 (cid:2) a)S matrix and Y is a (1 (cid:2) a)S (cid:5) aS matrix. The two matrices on the diagonal contain all zeros, and have size aS (cid:5) aS and (1 (cid:2) a)S (cid:5) (1 (cid:2) a)S, respectively.</p>
+  <p>The eigenvalues of B2, are the eigenvalues of B, squared: if li is an eigenvalue of</p>
+  <p>B, then l2 i</p>
+  <p>is an eigenvalue of B2. Squaring B, we obtain:</p>
+  <p>(cid:6)</p>
+  <p>(cid:7)</p>
+  <p>B2 14</p>
+  <p>0 YX</p>
+  <p>XY 0 XY has aS eigenvalues, while YX has (1 (cid:2) a)S eigenvalues. The eigenvalues of YX are the same as those of XY, with the exception of (1 (cid:2) a)S (cid:2) aS eigenvalues which are exactly 0 (take v to be an eigenvector of XY. Then XYv 14 lv. Let w 14 Yv, hence, XYv 14 Xw 14 lv. Finally, consider YXw 14 Y(lv) 14 lYv 14 lw. Thus, if la0, it is an eigenvalue of both XY and YX). Hence, we can study the eigenvalues of XY (the smaller matrix) without loss of generality.</p>
+  <p>ð18Þ</p>
+  <p>In the Supplementary Information, we show that the eigenvalues of XY are</p>
+  <p>contained in an ellipse in the complex plane, with centre in xc14Srbs2 ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi (cid:5) and vertical semi-axis (cid:4) horizontal semi-axis rx14Ss2 a 1 (cid:2) a Þ ð b ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi (cid:5) (Supplementary Fig. 7, top). ry14Ss2 a 1 (cid:2) a Þ ð b If the support of the distribution of the eigenvalues of XY is an ellipse in the</p>
+  <p>1 þ r2 b</p>
+  <p>1 (cid:2) r2 b</p>
+  <p>(cid:4)</p>
+  <p>(cid:5), b; 0</p>
+  <p>(cid:4)</p>
+  <p>complex plane, then the support of the eigenvalues of B for perfectly bipartite interaction matrices is obtained via a square-root transformation of the ellipse in the complex plane (Supplementary Fig. 7, bottom), with the addition of the point (0, 0), stemming from the extra eigenvalues of YX.</p>
+  <p>To find the real part of the rightmost eigenvalue of B, we thus need to consider the square-root transformation of the ellipse found for XY. The eigenvalues of XY, which are the squared eigenvalues of B, are contained in the ellipse:</p>
+  <p>x (cid:2) xc r2 x</p>
+  <p>y2 r2 y</p>
+  <p>(cid:6) 1</p>
+  <p>ð19Þ</p>
+  <p>New case: a 14 1/2 (equally sized subsystems). When the two subsystems have the same size (a 14 1/2), we find (Supplementary Information) that the eigenvalues</p>
+  <p>where x is the real part and y the imaginary part of the point z 14 x þ iy (we can consider the case y40 without loss of generality, given that the spectrum of B is symmetric about the real and the imaginary axis). Then, the square root of z has</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>ARTICLE</p>
+  <p>real part a:</p>
+  <p>a 14 Re</p>
+  <p>p(cid:4)</p>
+  <p>(cid:5) 14 ffiffiffiz</p>
+  <p>ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi p x þ ffiffiffiffiffiffiffiffiffiffiffiffiffiffi x2 þ y2 2</p>
+  <p>ð20Þ</p>
+  <p>To approximate the maximum real part for the eigenvalues of B, we need to find the x that maximizes a. First, we can rewrite the equation for a, exploiting the fact that we know that all the points z we want to consider are on the curve describing the ellipse:</p>
+  <p>a 14 Re</p>
+  <p>p(cid:4)</p>
+  <p>ffiffiffiz</p>
+  <p>(cid:5) 14</p>
+  <p>ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi (cid:11) (cid:10) y 1 (cid:2) x (cid:2) xc x2 þ r2 r2 x</p>
+  <p>x þ</p>
+  <p>v u u u t</p>
+  <p>ð21Þ</p>
+  <p>obtained by shuffling the interactions. In Fig. 7, we show results obtained by sampling y 250 times from the distribution U 0; 212 (cid:3).</p>
+  <p>Pollinator network. We took the pollination network compiled by Robertson44,45, and we used the rectangular adjacency matrix to determine the position of the nonzero, mutualistic effects between plants and pollinators: Mij and Mji were sampled independently from the uniform distribution U 0; 112 (cid:3), whenever plant i and pollinator j interacted. We then sampled competitive effects by sampling uniformly the coefficients Mkl (cid:7) (cid:2) U 2y; 0 (cid:3) for k and l being both plants or both pollinators. Thus, M has a block structure, very similar to that studied here. In Fig. 7, we show the effects of the strength of competition (y) on stability.</p>
+  <p>where we have substituted the value of y2 by constraining the point z to be on the curve describing the ellipse.</p>
+  <p>Substituting the values for xc, rx and ry, we can write:</p>
+  <p>Data availability. The data and code needed to reproduce all results presented in the article can be downloaded from https://github.com/StefanoAllesina/blockstructure</p>
+  <p>(cid:4) Re lB;1</p>
+  <p>(cid:5) (cid:9)</p>
+  <p>ffiffiffiffiffiffiffiSs2 p p ffiffiffi2</p>
+  <p>arg max p x 2 rb; rb þ ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi (cid:4) 1 þ r2 a 1 (cid:2) a Þ ð b</p>
+  <p>(cid:2)</p>
+  <p>(cid:3) (cid:5)</p>
+  <p>v u u u t</p>
+  <p>ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi ! (cid:5)2 1 (cid:2)</p>
+  <p>x2 þ a 1 (cid:2) a ð</p>
+  <p>v u u t</p>
+  <p>x þ</p>
+  <p>(cid:4) Þ 1 (cid:2) r2 b</p>
+  <p>ð 1 (cid:2) a</p>
+  <p>x (cid:2) rb (cid:4) Þa 1 þ r2 b</p>
+  <p>(cid:5)2</p>
+  <p>Where we maximize the function for a by taking values x in [xc, xc þ rx], which is sufficient because of the symmetry discussed above. Maximizing, we find two cases:</p>
+  <p>ð22Þ</p>
+  <p>(cid:4) Re lB;1</p>
+  <p>(cid:5) (cid:9)</p>
+  <p>8 &gt;&lt;</p>
+  <p>p ffiffiffiffiffiSs2 p 2 ffiffi2 p ffiffiffiffiffiffiffiSs2</p>
+  <p>ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi Þ2 ð (cid:2) 2arb 1 (cid:2) r2 b r2 b ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi p rb þ ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi (cid:5) (cid:4) 1 þ r2 a 1 (cid:2) a Þ ð b</p>
+  <p>when rbo0 and ao</p>
+  <p>otherwise</p>
+  <p>4r2 b 1 þ 6r2</p>
+  <p>b þ r4</p>
+  <p>ð23Þ</p>
+  <p>Combining the eigenvalues of A and B. Having derived the position of the eigenvalues of A, and, for particular cases, the support of the distribution of those of B, we want to combine the results to obtain an approximation for Re(lM,1), the real part of the rightmost eigenvalue of M 14 A þ B.</p>
+  <p>This problem has been recently studied by ORourke &amp; Renfrew40, who considered the following case: B is a large, random matrix whose eigenvalues follow the elliptic law. It is defined by its size, S and the distribution of the coefficients, which are independently sampled in pairs from a bivariate distribution with mean zero, unitary variance and correlation r. A is a matrix with low rank (that is, few nonzero eigenvalues), and nonzero eigenvalues that are sufficiently larger than those of B. Then (Theorem 2.4), we can order the eigenvalues of p M= ffiffiffiS</p>
+  <p>such that:</p>
+  <p>p Þ= ffiffiffiS</p>
+  <p>14 A þ B</p>
+  <p>p lM= ffiffiS</p>
+  <p>;i 14 l A þ B ð</p>
+  <p>p ;i 14 lA;i= ffiffiffi S</p>
+  <p>p Þ= ffiffiS</p>
+  <p>r lA;i= ffiffiffiS</p>
+  <p>p þ o 1ð Þ</p>
+  <p>where the term o(1) goes to zero as S-N. This means (ref. 40; Theorem 2.8) that a random matrix with a nonzero mean m will have a single outlier located approximately at mS, exactly as found for the unstructured case32,33 studied above. Clearly, the correction above is well suited for the unstructured case, and for the perfectly modular one (which is the combination of two unstructured cases). We also corrected in the same way the eigenvalues for matrices with a 14 1/2, reasoning that the correction would have the same form, given that the spectra of these matrices converge to those of equivalent unstructured cases. We do not have a formula for correcting the eigenvalues of bipartite matrices, but, as for the other cases, the correction is negligible when |m| is large enough.</p>
+  <p>Supplementary Fig. 8 shows that our approximation is indeed excellent for all</p>
+  <p>the cases considered here.</p>
+  <p>Simulating empirical network structures. We parameterized three empirical networks, and studied the effect of network structure by measuring the ratio (cid:5)=Reðl ~M;1Þ, when varying a critical parameter y. For simplicity, we G 14 Re lM;1 always consider the case of matrices with zero on the diagonal.</p>
+  <p>(cid:4)</p>
+  <p>Contact network. We took a symmetric adjacency matrix, A, specifying whether two members of an high school were in contact (see ref. 42), and built the matrix M by sampling the coefficients Mij 14 Mji from a normal distribution with mean y and variance 0.0025, whenever Aij 14 Aji 14 1. We sampled y independently from a uniform distribution U (cid:2) 1=4; 1=4 (cid:3) and for each M, we obtained eM by shuffling the interactions while maintaining the pairs (so that both matrices are symmetric), following ref. 35. In Fig. 7, we show 250 realizations.</p>
+  <p>Food web. We took the adjacency matrix A, specifying trophic interactions in the Little Rock lake43, and built M by sampling Mij from the half-normal distribution (cid:2) N 1; 0:2 Þ ð j, whenever Aij 14 1. These are the (negative) effects of predators on prey. For each Mijo0, we chose Mij by multiplying (cid:2) Mij by a random value drawn (cid:3). Thus, for yE1 the positive coefficients have about the same strength from U 0; 2y 12 as the negative ones; when y41 positive effects dominate; and for yo1 negative effects are stronger. Again, for each of the realizations, we built both M and eM,</p>
+  <p>References 1. <span class="person">Allesina<span class="tag">persName</span></span>, S. &amp; Pascual, M. Food web models: a plea for groups. Ecol. Lett. 12,</p>
+  <p>652662 (2009).</p>
+  <p>2. Karrer, B. &amp; Newman, M. E. Stochastic blockmodels and community structure</p>
+  <p>in networks. Phys. Rev. E 83, 016107 (2011).</p>
+  <p>3. Newman, M. E. &amp; Girvan, M. Finding and evaluating community structure in</p>
+  <p>networks. Phys. Rev. E 69, 026113 (2004).</p>
+  <p>4. Newman, M. E. <span class="concept">Modularity<span class="tag">term·dom</span></span> and community structure in networks. Proc. Natl</p>
+  <p>Acad. Sci. 103, 85778582 (2006).</p>
+  <p>5. Bascompte, J., Jordano, P., Melia ́n, C. J. &amp; Olesen, J. M. The nested assembly of plant-animal mutualistic networks. Proc. Natl Acad. Sci. 100, 93839387 (2003).</p>
+  <p>6. Sales-Pardo, M., Guimera, R., Moreira, A. A. &amp; Amaral, L. A. N. Extracting the hierarchical organization of complex systems. Proc. Natl Acad. Sci. 104, 1522415229 (2007).</p>
+  <p>7. Rosvall, M. &amp; Bergstrom, C. T. Maps of random walks on complex</p>
+  <p>networks reveal community structure. Proc. Natl Acad. Sci. 105, 11181123 (2008).</p>
+  <p>8. Guimera`, R. &amp; Sales-Pardo, M. Missing and spurious interactions and the</p>
+  <p>reconstruction of complex networks. Proc. Natl Acad. Sci. 106, 2207322078 (2009).</p>
+  <p>9. Guimera`, R. et al. Origin of compartmentalization in food webs. Ecology 91,</p>
+  <p>29412951 (2010).</p>
+  <p>10. Fortunato, S. Community detection in graphs. Phys. Rep. 486, 75174 (2010). 11. Newman, M. E. Communities, modules and large-scale structure in networks.</p>
+  <p>Nat. Phys. 8, 2531 (2012).</p>
+  <p>developmental stability and evolution. Proc. Natl Acad. Sci. USA 99, 1052810532 (2002).</p>
+  <p>13. Kashtan, N. &amp; Alon, U. Spontaneous evolution of <span class="concept">modularity<span class="tag">term·dom</span></span> and network</p>
+  <p>motifs. Proc. Natl Acad. Sci. USA 102, 1377313778 (2005).</p>
+  <p>14. Proulx, S. R., Promislow, D. E. &amp; Phillips, P. C. Network thinking in ecology</p>
+  <p>and evolution. Trends Ecol. Evol. 20, 345353 (2005).</p>
+  <p>15. Davidson, E. H. &amp; Erwin, D. H. Gene regulatory networks and the evolution of</p>
+  <p>animal body plans. Science 311, 796800 (2006).</p>
+  <p>16. Nuismer, S. L., Jordano, P. &amp; Bascompte, J. Coevolution and the architecture of</p>
+  <p>mutualistic networks. Evolution. 67, 338354 (2013).</p>
+  <p>17. Li, F., Long, T., Lu, Y., Ouyang, Q. &amp; Tang, C. The yeast cell-cycle network is</p>
+  <p>robustly designed. Proc. Natl Acad. Sci. USA 101, 47814786 (2004). 18. Prill, R. J., Iglesias, P. A. &amp; Levchenko, A. Dynamic properties of network</p>
+  <p>motifs contribute to biological network organization. PLoS Biol. 3, 1881 (2005).</p>
+  <p>19. Borrelli, J. J. et al. Selection on stability across ecological scales. Trends Ecol.</p>
+  <p>Evol. 30, 417425 (2015).</p>
+  <p>20. May, R. M. Will a large complex system be stable? Nature 238, 413414 (1972). 21. Pimm, S. L. The structure of food webs. Theor. Popul. Biol. 16, 144158 (1979). 22. Solow, A. R., Costello, C. &amp; Beet, A. On an early result on stability and</p>
+  <p>complexity. Am. Nat. 154, 587588 (1999).</p>
+  <p>23. Teng, J. &amp; McCann, K. S. Dynamics of compartmented and reticulate food webs</p>
+  <p>in relation to energetic flows. Am. Nat. 164, 85100 (2004).</p>
+  <p>24. Stouffer, D. B. &amp; Bascompte, J. Compartmentalization increases food-web</p>
+  <p>persistence. Proc. Natl Acad. Sci. 108, 36483652 (2011).</p>
+  <p>25. Salathe ́, M. &amp; Jones, J. H. Dynamics and control of diseases in networks with</p>
+  <p>community structure. PLoS. Comput. Biol. 6, e1000736 (2010).</p>
+  <p>26. Aljadeff, J., Stern, M. &amp; Sharpee, T. Transition to chaos in random networks with cell-type-specific connectivity. Phys. Rev. Lett. 114, 088101 (2015).</p>
+  <p>27. Variano, E. A., McCoy, J. H. &amp; Lipson, H. Networks, dynamics, and <span class="concept">modularity<span class="tag">term·dom</span></span>.</p>
+  <p>Phys. Rev. Lett. 92, 188701 (2004).</p>
+  <p>28. Me ́zard, M., Parisi, G. &amp; Virasoro, M.-A. in Spin Glass <span class="method">Theory<span class="tag">term·mth</span></span> And Beyond</p>
+  <p>(World Scientific Publishing, 1990).</p>
+  <p>29. <span class="person">Rogers<span class="tag">persName</span></span>, T., Castillo, I. P., Ku ̈hn, R. &amp; Takeda, K. Cavity approach to the</p>
+  <p>spectral density of sparse symmetric random matrices. Phys. Rev. E 78, 031116 (2008).</p>
+  <p>ð24Þ</p>
+  <p>12. Siegal, M. L. &amp; Bergman, A. Waddingtons canalization revisited:</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+  <p>ARTICLE</p>
+  <p>NATURE COMMUNICATIONS | DOI: 10.1038/ncomms12031</p>
+  <p>30. <span class="person">Rogers<span class="tag">persName</span></span>, T. &amp; Castillo, I. P. Cavity approach to the spectral density of non-Hermitian sparse matrices. Phys. Rev. E 79, 012101 (2009).</p>
+  <p>31. <span class="person">Rogers<span class="tag">persName</span></span>, T. Universal sum and product rules for random matrices. J. Math. Phys.</p>
+  <p>51, 093304 (2010).</p>
+  <p>32. <span class="person">Allesina<span class="tag">persName</span></span>, S. &amp; Tang, S. The stability-complexity relationship at age 40: a random</p>
+  <p>matrix perspective. Popul. Ecol. 57, 6375 (2015).</p>
+  <p>33. <span class="person">Allesina<span class="tag">persName</span></span>, S. &amp; Tang, S. Stability criteria for complex ecosystems. Nature 483,</p>
+  <p>205208 (2012).</p>
+  <p>34. Erd+os, P. &amp; Re ́nyi, A. On the evolution of random graphs. Publ. Math. Inst.</p>
+  <p>Hungar. Acad. Sci. 5, 1761 (1960).</p>
+  <p>35. Tang, S., Pawar, S. &amp; <span class="person">Allesina<span class="tag">persName</span></span>, S. Correlation between interaction strengths</p>
+  <p>drives stability in large ecological networks. Ecol. Lett. 17, 10941100 (2014).</p>
+  <p>36. <span class="person">Allesina<span class="tag">persName</span></span>, S. et al. Predicting the stability of large structured food webs. Nat.</p>
+  <p>Commun. 6, 7842 (2015).</p>
+  <p>37. Cohen, J. E., Briand, F. &amp; Newman, C. M. in Community Food Webs: Data And</p>
+  <p><span class="method">Theory<span class="tag">term·mth</span></span> (Springer-Verlag, 1990).</p>
+  <p>38. Tao, T. et al. Random matrices: universality of ESDs and the circular law.</p>
+  <p>Ann Probab. 38, 20232065 (2010).</p>
+  <p>39. Nguyen, H. H. &amp; ORourke, S. The elliptic law. Int. Math. Res. Notices 2015,</p>
+  <p>76207689 (2015).</p>
+  <p>40. ORourke, S. &amp; Renfrew, D. Low rank perturbations of large elliptic random</p>
+  <p>matrices. Electron. J. Probab. 19, 165 (2014).</p>
+  <p>41. Aljadeff, J., Renfrew, D. &amp; Stern, M. Eigenvalues of block structured asymmetric</p>
+  <p>random matrices. J. Math. Phys. 56, 103502 (2015).</p>
+  <p>42. Salathe ́, M. et al. A high-resolution human contact network for infectious disease transmission. Proc. Natl Acad. Sci. 107, 2202022025 (2010).</p>
+  <p>43. Martinez, N. D. Artifacts or attributes? Effects of resolution on the Little Rock</p>
+  <p>Lake food web. Ecol. Monogr. 61, 367392 (1991).</p>
+  <p>44. Robertson, C. in Flowers And Insects Lists Of Visitors Of Four Hundred And</p>
+  <p>Fifty Three Flowers (The Science Press Printing Company, 1929).</p>
+  <p>45. Memmott, J., Waser, N. &amp; Price, M. Tolerance of pollination networks to</p>
+  <p>species extinctions. Proc. Biol. Sci. 271, 26052611 (2004).</p>
+  <p>Acknowledgements J.G. funded by the Human Frontier Science Program. S.A. by NSF DEB-1148867. T.R. supported by the Royal Society. We thank G. Baraba ́s, K. Barnum and M. Wilmes for comments. We thank C. Bordenave for putting J.G. and S.A. in contact with T.R.</p>
+  <p>Author contributions J.G. and S.A. devised the study. S.A. wrote the code and drafted the main text. J.G. drafted the Supplementary Information. J.G. and S.A. conjectured the new results. T.R. performed the calculation in the Supplementary Information. All authors edited the manuscript.</p>
+  <p>Additional information Supplementary Information accompanies this paper at http://www.nature.com/ naturecommunications</p>
+  <p>Competing financial interests: The authors declare no competing financial interests.</p>
+  <p>Reprints and permission information is available online at http://npg.nature.com/ reprintsandpermissions/</p>
+  <p>How to cite this article: <span class="person">Grilli<span class="tag">persName</span></span>, J. et al. <span class="concept">Modularity<span class="tag">term·dom</span></span> and stability in ecological communities. Nat. Commun. 7:12031 doi: 10.1038/ncomms12031 (2016).</p>
+  <p>This work is licensed under a Creative Commons Attribution 4.0 International License. The images or other third party material in this article are included in the articles Creative Commons license, unless indicated otherwise in the credit line; if the material is not included under the Creative Commons license, users will need to obtain permission from the license holder to reproduce the material. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/</p>
+  <p>NATURE COMMUNICATIONS | 7:12031 | DOI: 10.1038/ncomms12031 | www.nature.com/naturecommunications</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 13 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 53 <code>concept</code> · 6 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>grilli2016-ecological-modularity</code>.</div>
+</body></html>

@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variational Inference: A Review for Statisticians — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>Variational Inference: A Review for Statisticians — TEI-tagged view</h1>
+<div class="meta">David M. Blei, Alp Kucukelbir, Jon D. McAuliffe · 2017 · <a href="https://en.wikipedia.org/wiki/Statistics">statistics</a> · <a href="https://doi.org/10.1080/01621459.2017.1285773">doi:10.1080/01621459.2017.1285773</a> · <a href="https://doi.org/10.1080/01621459.2017.1285773" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1080/01621459.2017.1285773" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Blei</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">New York</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Journal of the American Statistical Association / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2017</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">Bayesian inference</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">variational inference</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">David M. Blei<span class="tag">persName</span></span>, <span class="person">Alp Kucukelbir<span class="tag">persName</span></span>, <span class="person">Jon D. McAuliffe<span class="tag">persName</span></span> (<span class="date">2017<span class="tag">date</span></span>). &ldquo;Variational Inference: A Review for Statisticians.&rdquo; <span class="work">Journal of the American Statistical Association / arXiv<span class="tag">title·j</span></span>, <span class="place">New York<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Approximating intractable posterior probability distributions for <span class="concept">Bayesian inference<span class="tag">term·dom</span></span>.</p>
+  <p><b>Research question —</b> How can variational optimization approximate complex posterior distributions faster than sampling methods like MCMC?</p>
+  <p><b>Contribution —</b> Reviews <span class="method">variational inference<span class="tag">term·mth</span></span> - recasting posterior approximation as an optimization problem - a core computational method bridging statistics and machine learning.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>variational inference (approximate posterior inference)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>machine learning</b>: variational inference used to approximate difficult Bayesian posterior densities in statistics<span class="ev"> &mdash; &ldquo;we review variational inference (VI), a method from machine learning that approximates probability densities through optimization&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>recast posterior inference as optimization: choose the distribution in a simple (mean-field) family that is closest in KL divergence to the true posterior, via coordinate ascent<span class="ev"> &mdash; &ldquo;closest in KL divergence to the conditional of interest&rdquo;</span></td></tr><tr><td class="k cr">extends</td><td> <b>MCMC sampling for approximate Bayesian inference</b><span class="ev"> &mdash; &ldquo;Variational inference is widely used to approximate posterior densities for Bayesian models, an alternative strategy to Markov chain Monte Carlo (MCMC) sampling.&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>VI has been studied less rigorously than MCMC and its statistical properties are less well understood<span class="ev"> &mdash; &ldquo;But variational inference has been studied less rigorously than MCMC, and its statistical properties are less well understood.&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p><span class="method">Variational Inference<span class="tag">term·mth</span></span>: A Review for Statisticians</p>
+  <p><span class="method">Variational Inference<span class="tag">term·mth</span></span>: A Review for Statisticians</p>
+  <p>David M. <span class="person">Blei<span class="tag">persName</span></span> Department of Computer Science and Statistics Columbia University</p>
+  <p>Alp <span class="person">Kucukelbir<span class="tag">persName</span></span> Department of Computer Science Columbia University</p>
+  <p>Jon D. <span class="person">McAuliffe<span class="tag">persName</span></span> Department of Statistics University of California, Berkeley</p>
+  <p>May 11, 2018</p>
+  <p>Abstract</p>
+  <p>One of the core problems of modern statistics is to approximate difficult-to-compute probability densities. This problem is especially important in Bayesian statistics, which frames all inference about unknown quantities as a calculation involving the posterior density. In this paper, we review <span class="method">variational inference<span class="tag">term·mth</span></span> (VI), a method from machine learning that approximates probability densities through optimization. VI has been used in many applications and tends to be faster than classical methods, such as Markov chain Monte Carlo sampling. The idea behind VI is to first posit a family of densities and then to find the member of that family which is close to the target. Closeness is measured by Kullback-Leibler divergence. We review the ideas behind mean-field <span class="method">variational inference<span class="tag">term·mth</span></span>, discuss the special case of VI applied to exponential family models, present a full example with a Bayesian mixture of Gaussians, and derive a variant that uses stochastic optimization to scale up to massive data. We discuss modern research in VI and highlight important open problems. VI is powerful, but it is not yet well understood. Our hope in writing this paper is to catalyze statistical research on this class of algorithms.</p>
+  <p>Keywords: Algorithms; Statistical Computing; Computationally Intensive Methods.</p>
+  <p>8 1 0 2</p>
+  <p>y a M 9</p>
+  <p>O C</p>
+  <p>. t a t s [</p>
+  <p>9 v 0 7 6 0 0 . 1 0 6 1 : v i X r a</p>
+  <p>1 Introduction</p>
+  <p>One of the core problems of modern statistics is to approximate difficult-to-compute proba- bility densities. This problem is especially important in Bayesian statistics, which frames all inference about unknown quantities as a calculation about the posterior. Modern Bayesian statistics relies on models for which the posterior is not easy to compute and corresponding algorithms for approximating them.</p>
+  <p>In this paper, we review <span class="method">variational inference<span class="tag">term·mth</span></span> (VI), a method from machine learning for approximating probability densities (Jordan et al., 1999; Wainwright and Jordan, 2008). <span class="method">Variational inference<span class="tag">term·mth</span></span> is widely used to approximate posterior densities for Bayesian models, an alternative strategy to Markov chain Monte Carlo (MCMC) sampling. Compared to MCMC, <span class="method">variational inference<span class="tag">term·mth</span></span> tends to be faster and easier to scale to large data—it has been applied to problems such as large-scale document analysis, computational neuroscience, and computer vision. But <span class="method">variational inference<span class="tag">term·mth</span></span> has been studied less rigorously than MCMC, and its statistical properties are less well understood. In writing this paper, our hope is to catalyze statistical research on <span class="method">variational inference<span class="tag">term·mth</span></span>.</p>
+  <p>First, we set up the general problem. Consider a joint density of latent variables z = z1:m and observations x = x1:n,</p>
+  <p>p(z, x) = p(z)p(x</p>
+  <p>z).</p>
+  <p>In Bayesian models, the latent variables help govern the distribution of the data. A Bayesian model draws the latent variables from a prior density p(z) and then relates them to the z). Inference in a Bayesian model amounts to observations through the likelihood p(x x). In complex Bayesian models, conditioning on data and computing the posterior p(z this computation often requires <span class="method">approximate inference<span class="tag">term·mth</span></span>.</p>
+  <p>For decades, the dominant paradigm for <span class="method">approximate inference<span class="tag">term·mth</span></span> has been MCMC (Hastings, 1970; Gelfand and Smith, 1990). In MCMC, we first construct an ergodic Markov chain on z x). Then, we sample from the chain to whose stationary distribution is the posterior p(z collect samples from the stationary distribution. Finally, we approximate the posterior with an empirical estimate constructed from (a subset of) the collected samples.</p>
+  <p>MCMC sampling has evolved into an indispensable tool to the modern Bayesian statisti- cian. Landmark developments include the Metropolis-Hastings algorithm (Metropolis et al., 1953; Hastings, 1970), the Gibbs sampler (Geman and Geman, 1984) and its application to Bayesian statistics (Gelfand and Smith, 1990). MCMC algorithms are under active investiga- tion. They have been widely studied, extended, and applied; see Robert and Casella (2004) for a perspective.</p>
+  <p>However, there are problems for which we cannot easily use this approach. These arise particularly when we need an approximate conditional faster than a simple MCMC algorithm In these can produce, such as when data sets are large or models are very complex. settings, <span class="method">variational inference<span class="tag">term·mth</span></span> provides a good alternative approach to approximate <span class="concept">Bayesian inference<span class="tag">term·dom</span></span>.</p>
+  <p>Rather than use sampling, the main idea behind <span class="method">variational inference<span class="tag">term·mth</span></span> is to use optimization. . This is a set of densities over the latent First, we posit a family of approximate densities variables. Then, we try to find the member of that family that minimizes the Kullback-Leibler (KL) divergence to the exact posterior,</p>
+  <p>(cid:81)</p>
+  <p>q∗(z) = arg min</p>
+  <p>q(z)</p>
+  <p>KL (q(z) (cid:107)</p>
+  <p>p(z</p>
+  <p>x)) .</p>
+  <p>∈(cid:81) Finally, we approximate the posterior with the optimized member of the family q∗( ·</p>
+  <p>(1)</p>
+  <p>(cid:81)</p>
+  <p>x), but simple enough for efficient optimization.1</p>
+  <p><span class="method">Variational inference<span class="tag">term·mth</span></span> thus turns the inference problem into an optimization problem, and manages the complexity of this optimization. One of the key ideas the reach of the family behind <span class="method">variational inference<span class="tag">term·mth</span></span> is to choose to be flexible enough to capture a density close to p(z We emphasize that MCMC and <span class="method">variational inference<span class="tag">term·mth</span></span> are different approaches to solving the same problem. MCMC algorithms sample a Markov chain; variational algorithms solve an optimization problem. MCMC algorithms approximate the posterior with samples from the chain; variational algorithms approximate the posterior with the result of the optimiza- tion.</p>
+  <p>(cid:81)</p>
+  <p>Comparing <span class="method">variational inference<span class="tag">term·mth</span></span> and MCMC. When should a statistician use MCMC and when should she use <span class="method">variational inference<span class="tag">term·mth</span></span>? We will offer some guidance. MCMC methods tend to be more computationally intensive than <span class="method">variational inference<span class="tag">term·mth</span></span> but they also provide guarantees of producing (asymptotically) exact samples from the target density (Robert and Casella, 2004). <span class="method">Variational inference<span class="tag">term·mth</span></span> does not enjoy such guarantees—it can only find a density close to the target—but tends to be faster than MCMC. Because it rests on optimization, <span class="method">variational inference<span class="tag">term·mth</span></span> easily takes advantage of methods like stochastic opti- mization (Robbins and Monro, 1951; Kushner and Yin, 1997) and distributed optimization (though some MCMC methods can also exploit these innovations (Welling and Teh, 2011; Ahmed et al., 2012)).</p>
+  <p>Thus, <span class="method">variational inference<span class="tag">term·mth</span></span> is suited to large data sets and scenarios where we want to quickly explore many models; MCMC is suited to smaller data sets and scenarios where we happily pay a heavier computational cost for more precise samples. For example, we might use MCMC in a setting where we spent 20 years collecting a small but expensive data set, where we are confident that our model is appropriate, and where we require precise inferences. We might use <span class="method">variational inference<span class="tag">term·mth</span></span> when fitting a probabilistic model of text to one billion text documents and where the inferences will be used to serve search results to a large population of users. In this scenario, we can use distributed computation and stochastic optimization to scale and speed up inference, and we can easily explore many different models of the data.</p>
+  <p>Data set size is not the only consideration. Another factor is the geometry of the <span class="concept">posterior distribution<span class="tag">term·dom</span></span>. For example, the posterior of a mixture model admits multiple modes, each corresponding label permutations of the components. Gibbs sampling, if the model permits, is a powerful approach to sampling from such target distributions; it quickly focuses on one of the modes. For mixture models where Gibbs sampling is not an option, <span class="method">variational inference<span class="tag">term·mth</span></span> may perform better than a more general MCMC technique (e.g., Hamiltonian Monte Carlo), even for small datasets (<span class="person">Kucukelbir<span class="tag">persName</span></span> et al., 2015). Exploring the interplay between model complexity and inference (and between <span class="method">variational inference<span class="tag">term·mth</span></span> and MCMC) is an exciting avenue for future research (see Section 5.4).</p>
+  <p>The relative accuracy of <span class="method">variational inference<span class="tag">term·mth</span></span> and MCMC is still unknown. We do know that <span class="method">variational inference<span class="tag">term·mth</span></span> generally underestimates the variance of the posterior density; this is a consequence of its objective function. But, depending on the task at hand, underestimating the variance may be acceptable. Several lines of empirical research have shown that <span class="method">variational inference<span class="tag">term·mth</span></span> does not necessarily suffer in accuracy, e.g., in terms of posterior predictive densities (<span class="person">Blei<span class="tag">persName</span></span> and Jordan, 2006; Braun and <span class="person">McAuliffe<span class="tag">persName</span></span>, 2010; <span class="person">Kucukelbir<span class="tag">persName</span></span> et al., 2016); other research focuses on where <span class="method">variational inference<span class="tag">term·mth</span></span> falls short, especially around the posterior variance, and tries to more closely match the inferences made by MCMC (Giordano et al., 2015). In general, a statistical <span class="method">theory<span class="tag">term·mth</span></span> and understanding around variational</p>
+  <p>1We focus here on KL(q</p>
+  <p>p)-based optimization, also called Kullback Leibler <span class="method">variational inference<span class="tag">term·mth</span></span> (Barber, 2012). Wainwright and Jordan (2008) emphasize that any procedure which uses optimization to approximate a density can be termed “<span class="method">variational inference<span class="tag">term·mth</span></span>.” This includes methods like expectation propagation (Minka, 2001), belief propagation (Yedidia et al., 2001), or even the Laplace approximation. We briefly discuss alternative divergence measures in Section 5.</p>
+  <p>inference is an important open area of research (see Section 5.2). We can envision future results that outline which classes of models are particularly suited to each algorithm and perhaps even <span class="method">theory<span class="tag">term·mth</span></span> that bounds their accuracy. More broadly, <span class="method">variational inference<span class="tag">term·mth</span></span> is a valuable tool, alongside MCMC, in the statistician’s toolbox.</p>
+  <p>It might appear to the reader that <span class="method">variational inference<span class="tag">term·mth</span></span> is only relevant to Bayesian analysis. Indeed, both <span class="method">variational inference<span class="tag">term·mth</span></span> and MCMC have had a significant impact on applied Bayesian computation and we will be focusing on Bayesian models here. We emphasize, however, that these techniques also apply more generally to computation about intractable densities. MCMC is a tool for simulating from densities and <span class="method">variational inference<span class="tag">term·mth</span></span> is a tool for approximating densities. One need not be a Bayesian to have use for <span class="method">variational inference<span class="tag">term·mth</span></span>.</p>
+  <p>Research on <span class="method">variational inference<span class="tag">term·mth</span></span>. The development of variational techniques for <span class="concept">Bayesian inference<span class="tag">term·dom</span></span> followed two parallel, yet separate, tracks. Peterson and Anderson (1987) is arguably the first variational procedure for a particular model: a neural network. This paper, along with insights from statistical mechanics (Parisi, 1988), led to a flurry of <span class="method">variational inference<span class="tag">term·mth</span></span> procedures for a wide class of models (Saul et al., 1996; Jaakkola and Jordan, 1996, 1997; Ghahramani and Jordan, 1997; Jordan et al., 1999). In parallel, Hinton and Van Camp (1993) proposed a variational algorithm for a similar neural network model. Neal and Hinton (1999) (first published in 1993) made important connections to the expectation maximization (EM) algorithm (Dempster et al., 1977), which then led to a variety of <span class="method">variational inference<span class="tag">term·mth</span></span> algorithms for other types of models (Waterhouse et al., 1996; MacKay, 1997).</p>
+  <p>Modern research on <span class="method">variational inference<span class="tag">term·mth</span></span> focuses on several aspects: tackling Bayesian infer- ence problems that involve massive data; using improved optimization methods for solving Equation (1) (which is usually subject to local minima); developing generic <span class="method">variational inference<span class="tag">term·mth</span></span>, algorithms that are easy to apply to a wide class of models; and increasing the accuracy of <span class="method">variational inference<span class="tag">term·mth</span></span>, e.g., by stretching the boundaries of while managing complexity in optimization.</p>
+  <p>(cid:81)</p>
+  <p>Organization of this paper. Section 2 describes the basic ideas behind the simplest approach to <span class="method">variational inference<span class="tag">term·mth</span></span>: mean-field inference and coordinate-ascent optimization. Section 3 works out the details for a Bayesian mixture of Gaussians, an example model familiar to many readers. Sections 4.1 and 4.2 describe <span class="method">variational inference<span class="tag">term·mth</span></span> for the class of models where the joint density of the latent and observed variables are in the exponential family—this includes many intractable models from modern Bayesian statistics and reveals deep connections between <span class="method">variational inference<span class="tag">term·mth</span></span> and the Gibbs sampler of Gelfand and Smith (1990). Section 4.3 expands on this algorithm to describe stochastic <span class="method">variational inference<span class="tag">term·mth</span></span> (Hoffman et al., 2013), which scales <span class="method">variational inference<span class="tag">term·mth</span></span> to massive data using stochastic optimization (Robbins and Monro, 1951). Finally, with these foundations in place, Section 5 gives a perspective on the field—applications in the research literature, a survey of theoretical results, and an overview of some open problems.</p>
+  <p>2 <span class="method">Variational inference<span class="tag">term·mth</span></span></p>
+  <p>The goal of <span class="method">variational inference<span class="tag">term·mth</span></span> is to approximate a conditional density of latent variables given observed variables. The key idea is to solve this problem with optimization. We use a family of densities over the latent variables, parameterized by free “variational parameters.” The optimization finds the member of this family, i.e., the setting of the parameters, that is closest in KL divergence to the conditional of interest. The fitted variational density then serves as a proxy for the exact conditional density. (All vectors defined below are column vectors, unless stated otherwise.)</p>
+  <p>2.1 The problem of <span class="method">approximate inference<span class="tag">term·mth</span></span></p>
+  <p>Let x = x1:n be a set of observed variables and z = z1:m be a set of latent variables, with joint density p(z, x). We omit constants, such as hyperparameters, from the notation. The inference problem is to compute the conditional density of the latent variables given the observations, p(z x). This conditional can be used to produce point or interval estimates of the latent variables, form predictive densities of new data, and more.</p>
+  <p>We can write the conditional density as</p>
+  <p>x) =</p>
+  <p>p(z</p>
+  <p>p(z, x) p(x)</p>
+  <p>(2)</p>
+  <p>The denominator contains the marginal density of the observations, also called the evidence. We calculate it by marginalizing out the latent variables from the joint density,</p>
+  <p>p(x) =</p>
+  <p>p(z, x) dz.</p>
+  <p>(cid:90)</p>
+  <p>(3)</p>
+  <p>For many models, this evidence integral is unavailable in closed form or requires exponential time to compute. The evidence is what we need to compute the conditional from the joint; this is why inference in such models is hard.</p>
+  <p>Note we assume that all unknown quantities of interest are represented as latent random variables. This includes parameters that might govern all the data, as found in Bayesian models, and latent variables that are “local” to individual data points.</p>
+  <p>μ1, . . . , μK</p>
+  <p>Bayesian mixture of Gaussians. Consider a Bayesian mixture of unit-variance univariate Gaussians. There are K mixture components, corresponding to K Gaussian distributions with means μ = . The mean parameters are drawn independently from a } ); the prior variance σ2 common prior p(μk), which we assume to be a Gaussian is a hyperparameter. To generate an observation xi from the model, we first choose a cluster assignment ci. It indicates which latent cluster xi comes from and is drawn from a categorical distribution over . (We encode ci as an indicator K-vector, all zeros except for a one in the position corresponding to xi’s cluster.) We then draw xi from the corresponding Gaussian</p>
+  <p>(0, σ2</p>
+  <p>1, . . . , K</p>
+  <p>(cid:78)</p>
+  <p>μ, 1).</p>
+  <p>{ (c(cid:62)i The full hierarchical model is</p>
+  <p>(cid:78)</p>
+  <p>μk ci ci, μ</p>
+  <p>∼ (cid:78)</p>
+  <p>∼ (cid:78)</p>
+  <p>(0, σ2</p>
+  <p>μ, 1</p>
+  <p>c(cid:62)i</p>
+  <p>Categorical(1/K, . . . , 1/K),</p>
+  <p>k = 1, . . . , K, i = 1, . . . , n, i = 1, . . . , n.</p>
+  <p>For a sample of size n, the joint density of latent and observed variables is</p>
+  <p>(cid:1)</p>
+  <p>(cid:0)</p>
+  <p>p(μ, c, x) = p(μ)</p>
+  <p>i=1 (cid:89)</p>
+  <p>p(ci)p(xi</p>
+  <p>ci, μ).</p>
+  <p>, the K class means and n class assignments.</p>
+  <p>The latent variables are z = Here, the evidence is</p>
+  <p>μ, c</p>
+  <p>p(x) =</p>
+  <p>p(μ)</p>
+  <p>p(ci)p(xi</p>
+  <p>ci, μ) dμ.</p>
+  <p>ci (cid:88) The integrand in Equation (8) does not contain a separate factor for each μk. (Indeed, each μk appears in all n factors of the integrand.) Thus, the integral in Equation (8) does not</p>
+  <p>i=1 (cid:89)</p>
+  <p>(cid:90)</p>
+  <p>(4)</p>
+  <p>(5)</p>
+  <p>(6)</p>
+  <p>(7)</p>
+  <p>(8)</p>
+  <p>reduce to a product of one-dimensional integrals over the μk’s. The time complexity of numerically evaluating the K-dimensional integral is</p>
+  <p>If we distribute the product over the sum in (8) and rearrange, we can write the evidence as a sum over all possible configurations c of cluster assignments,</p>
+  <p>(K n</p>
+  <p>(cid:79)</p>
+  <p>p(x) =</p>
+  <p>p(c)</p>
+  <p>p(μ)</p>
+  <p>c (cid:88)</p>
+  <p>(cid:90)</p>
+  <p>i=1 (cid:89)</p>
+  <p>ci, μ) dμ.</p>
+  <p>p(xi</p>
+  <p>(9)</p>
+  <p>Here each individual integral is computable, thanks to the conjugacy between the Gaussian prior on the components and the Gaussian likelihood. But there are K n of them, one for each configuration of the cluster assignments. Computing the evidence remains exponential in K, hence intractable.</p>
+  <p>2.2 The evidence lower bound</p>
+  <p>of densities over the latent variables. Each In <span class="method">variational inference<span class="tag">term·mth</span></span>, we specify a family (cid:81) q(z) is a candidate approximation to the exact conditional. Our goal is to find the best candidate, the one closest in KL divergence to the exact conditional.2 Inference now amounts to solving the following optimization problem,</p>
+  <p>∈ (cid:81)</p>
+  <p>q∗(z) = arg min</p>
+  <p>q(z)</p>
+  <p>∈(cid:81)</p>
+  <p>KL (q(z) (cid:107)</p>
+  <p>p(z</p>
+  <p>x)) .</p>
+  <p>(10)</p>
+  <p>Once found, q∗( ) is the best approximation of the conditional, within the family · complexity of the family determines the complexity of this optimization.</p>
+  <p>(cid:81)</p>
+  <p>. The</p>
+  <p>However, this objective is not computable because it requires computing the evidence log p(x) in Equation (3). (That the evidence is hard to compute is why we appeal to <span class="method">approximate inference<span class="tag">term·mth</span></span> in the first place.) To see why, recall that KL divergence is</p>
+  <p>KL (q(z) (cid:107)</p>
+  <p>p(z</p>
+  <p>x)) = (cid:69) [log q(z)]</p>
+  <p>(cid:69) [log p(z</p>
+  <p>x)] ,</p>
+  <p>where all expectations are taken with respect to q(z). Expand the conditional,</p>
+  <p>KL (q(z) (cid:107)</p>
+  <p>p(z</p>
+  <p>x)) = (cid:69) [log q(z)]</p>
+  <p>(cid:69) [log p(z, x)] + log p(x).</p>
+  <p>(11)</p>
+  <p>(12)</p>
+  <p>This reveals its dependence on log p(x). Because we cannot compute the KL, we optimize an alternative objective that is equivalent to the KL up to an added constant,</p>
+  <p>ELBO(q) = (cid:69) [log p(z, x)]</p>
+  <p>(cid:69) [log q(z)] .</p>
+  <p>(13)</p>
+  <p>This function is called the evidence lower bound (ELBO). The ELBO is the negative KL diver- gence of Equation (12) plus log p(x), which is a constant with respect to q(z). Maximizing the ELBO is equivalent to minimizing the KL divergence.</p>
+  <p>Examining the ELBO gives intuitions about the optimal variational density. We rewrite the ELBO as a sum of the expected log likelihood of the data and the KL divergence between the prior p(z) and q(z),</p>
+  <p>ELBO(q) = (cid:69) [log p(z)] + (cid:69) [log p(x | KL (q(z) (cid:107)</p>
+  <p>= (cid:69) [log p(x</p>
+  <p>z)]</p>
+  <p>z)] − p(z)) .</p>
+  <p>(cid:69) [log q(z)]</p>
+  <p>2 The KL divergence is an information-theoretic measure of proximity between two densities. It is asymmetric—</p>
+  <p>that is, KL (q</p>
+  <p>= KL (p</p>
+  <p>). ) = p( q)—and nonnegative. It is minimized when q( · ·</p>
+  <p>(cid:107)</p>
+  <p>(cid:107)</p>
+  <p>(cid:54) Which values of z will this objective encourage q(z) to place its mass on? The first term is an expected likelihood; it encourages densities that place their mass on configurations of the latent variables that explain the observed data. The second term is the negative divergence between the variational density and the prior; it encourages densities close to the prior. Thus the variational objective mirrors the usual balance between likelihood and prior.</p>
+  <p>Another property of the ELBO is that it lower-bounds the (log) evidence, log p(x) ELBO(q) for any q(z). This explains the name. To see this notice that Equations (12) and (13) give the following expression of the evidence,</p>
+  <p>log p(x) = KL (q(z) | (cid:107) The bound then follows from the fact that KL ( 0 (Kullback and Leibler, 1951). In the orig- ) · inal literature on <span class="method">variational inference<span class="tag">term·mth</span></span>, this was derived through Jensen’s inequality (Jordan et al., 1999).</p>
+  <p>x)) + ELBO(q).</p>
+  <p>(14)</p>
+  <p>p(z</p>
+  <p>The relationship between the ELBO and log p(x) has led to using the variational bound as a model selection criterion. This has been explored for mixture models (Ueda and Ghahra- mani, 2002; McGrory and Titterington, 2007) and more generally (Beal and Ghahramani, 2003). The premise is that the bound is a good approximation of the marginal likelihood, which provides a basis for selecting a model. Though this sometimes works in practice, selecting based on a bound is not justified in <span class="method">theory<span class="tag">term·mth</span></span>. Other research has used variational approximations in the log predictive density to use VI in cross-validation based model selection (Nott et al., 2012).</p>
+  <p>Finally, many readers will notice that the first term of the ELBO in Equation (13) is the expected complete log-likelihood, which is optimized by the EM algorithm (Dempster et al., 1977). The EM algorithm was designed for finding maximum likelihood estimates in models with latent variables. It uses the fact that the ELBO is equal to the log likelihood log p(x) x). EM alternates between computing the expected (i.e., the log evidence) when q(z) = p(z complete log likelihood according to p(z x) (the E step) and optimizing it with respect to the model parameters (the M step). Unlike <span class="method">variational inference<span class="tag">term·mth</span></span>, EM assumes the expectation under p(z x) is computable and uses it in otherwise difficult parameter estimation problems. Unlike EM, <span class="method">variational inference<span class="tag">term·mth</span></span> does not estimate fixed model parameters—it is often used in a Bayesian setting where classical parameters are treated as latent variables. <span class="method">Variational inference<span class="tag">term·mth</span></span> applies to models where we cannot compute the exact conditional of the latent variables.3</p>
+  <p>| |</p>
+  <p>2.3 The mean-field variational family</p>
+  <p>We described the ELBO, the variational objective function in the optimization of Equation (10). We now describe a variational family , to complete the specification of the optimization problem. The complexity of the family determines the complexity of the optimization; it is more difficult to optimize over a complex family than a simple family.</p>
+  <p>(cid:81)</p>
+  <p>In this review we focus on the mean-field variational family, where the latent variables are mutually independent and each governed by a distinct factor in the variational density. A generic member of the mean-field variational family is</p>
+  <p>q(z) =</p>
+  <p>q j(z j).</p>
+  <p>(15)</p>
+  <p>j=1 (cid:89) 3Two notes: (a) Variational EM is the EM algorithm with a variational E-step, i.e., a computation of an approximate conditional. (b) The coordinate ascent algorithm of Section 2.4 can look like the EM algorithm. The “E step” computes approximate conditionals of local latent variables; the “M step” computes a conditional of the global latent variables.</p>
+  <p>Each latent variable z j is governed by its own variational factor, the density q j(z j). In opti- mization, these variational factors are chosen to maximize the ELBO of Equation (13).</p>
+  <p>We emphasize that the variational family is not a model of the observed data—indeed, the data x does not appear in Equation (15). Instead, it is the ELBO, and the corresponding KL minimization problem, that connects the fitted variational density to the data and model.</p>
+  <p>Notice we have not specified the parametric form of the individual variational factors. In principle, each can take on any parametric form appropriate to the corresponding random variable. For example, a continuous variable might have a Gaussian factor; a categorical variable will typically have a categorical factor. We will see in Sections 4, 4.1 and 4.2 that there are many models for which properties of the model determine optimal forms of the mean-field variational factors q j(z j). Finally, though we focus on mean-field inference in this review, researchers have also studied more complex families. One way to expand the family is to add dependencies between the variables (Saul and Jordan, 1996; Barber and Wiegerinck, 1999); this is called structured <span class="method">variational inference<span class="tag">term·mth</span></span>. Another way to expand the family is to consider mixtures of variational densities, i.e., additional latent variables within the variational family (Bishop et al., 1998). Both of these methods potentially improve the fidelity of the approximation, but there is a trade off. Structured and mixture-based variational families come with a more difficult-to-solve variational optimization problem.</p>
+  <p>Bayesian mixture of Gaussians (continued). Consider again the Bayesian mixture of Gaussians. The mean-field variational family contains approximate posterior densities of the form</p>
+  <p>q(μ, c) =</p>
+  <p>q(μk; mk, s2 k)</p>
+  <p>k=1 (cid:89)</p>
+  <p>q(ci; φi).</p>
+  <p>i=1 (cid:89)</p>
+  <p>(16)</p>
+  <p>Following the mean-field recipe, each latent variable is governed by its own variational factor. The factor q(μk; mk, s2 k) is a Gaussian distribution on the kth mixture component’s mean parameter; its mean is mk and its variance is s2 k. The factor q(ci; φi) is a distribution on the ith observation’s mixture assignment; its assignment probabilities are a K-vector φi.</p>
+  <p>Here we have asserted parametric forms for these factors: the mixture components are Gaussian with variational parameters (mean and variance) specific to the kth cluster; the cluster assignments are categorical with variational parameters (cluster probabilities) specific to the ith data point. In fact, these are the optimal forms of the mean-field variational density for the mixture of Gaussians.</p>
+  <p>With the variational family in place, we have completely specified the <span class="method">variational inference<span class="tag">term·mth</span></span> problem for the mixture of Gaussians. The ELBO is defined by the model definition in Equation (7) and the mean-field family in Equation (16). The corresponding variational optimization problem maximizes the ELBO with respect to the variational parameters, i.e., the Gaussian parameters for each mixture component and the categorical parameters for each cluster assignment. We will see this example through in Section 3.</p>
+  <p>Visualizing the mean-field approximation. The mean-field family is expressive because it can capture any marginal density of the latent variables. However, it cannot capture correlation between them. Seeing this in action reveals some of the intuitions and limitations of mean-field <span class="method">variational inference<span class="tag">term·mth</span></span>.</p>
+  <p>Consider a two dimensional Gaussian distribution, shown in violet in Figure 1. This density is highly correlated, which defines its elongated shape.</p>
+  <p>Figure 1: Visualizing the mean-field approximation to a two-dimensional Gaussian posterior. The ellipses show the effect of mean-field factorization. (The ellipses are 2σ contours of the Gaussian distributions.)</p>
+  <p>The optimal mean-field variational approximation to this posterior is a product of two Gaussian distributions. Figure 1 shows the mean-field variational density after maximizing the ELBO. While the variational approximation has the same mean as the original density, its covariance structure is, by construction, decoupled.</p>
+  <p>Further, the marginal variances of the approximation under-represent those of the target density. This is a common effect in mean-field <span class="method">variational inference<span class="tag">term·mth</span></span> and, with this example, we can see why. The KL divergence from the approximation to the posterior is in Equa- tion (11). It penalizes placing mass in q( ) has little mass, but penalizes ) on areas where p( · · less the reverse. In this example, in order to successfully match the marginal variances, the ) has little mass. ) would have to expand into territory where p( circular q( · ·</p>
+  <p>2.4 Coordinate ascent mean-field <span class="method">variational inference<span class="tag">term·mth</span></span></p>
+  <p>Using the ELBO and the mean-field family, we have cast approximate conditional inference as an optimization problem. In this section, we describe one of the most commonly used algorithms for solving this optimization problem, coordinate ascent <span class="method">variational inference<span class="tag">term·mth</span></span> (CAVI) (Bishop, 2006). CAVI iteratively optimizes each factor of the mean-field variational density, while holding the others fixed. It climbs the ELBO to a local optimum.</p>
+  <p>The algorithm. We first state a result. Consider the jth latent variable z j. The complete conditional of z j is its conditional density given all of the other latent variables in the = j. model and the observations, p(z j The optimal q j(z j) is then proportional to the exponentiated expected log of the complete conditional,</p>
+  <p>j, x). Fix the other variational factors q(cid:96)(z(cid:96)), (cid:96)</p>
+  <p>q∗j (z j)</p>
+  <p>exp</p>
+  <p>(cid:69)</p>
+  <p>log p(z j</p>
+  <p>j, x)</p>
+  <p>z −</p>
+  <p>(17)</p>
+  <p>(cid:2) The expectation in Equation (17) is with respect to the (currently fixed) variational density = j q(cid:96)(z(cid:96)). Equivalently, Equation (17) is proportional to the exponenti- over z (cid:96) ated log of the joint, (cid:81)</p>
+  <p>j, that is,</p>
+  <p>(cid:3)(cid:9)</p>
+  <p>(cid:8)</p>
+  <p>q∗j (z j)</p>
+  <p>exp</p>
+  <p>(cid:69)</p>
+  <p>log p(z j, z</p>
+  <p>j, x)</p>
+  <p>(18)</p>
+  <p>(cid:2) Because of the mean-field family assumption—that all the latent variables are independent— the expectations on the right hand side do not involve the jth variational factor. Thus this is a valid coordinate update.</p>
+  <p>(cid:3)(cid:9)</p>
+  <p>(cid:8)</p>
+  <p>These equations underlie the CAVI algorithm, presented as Algorithm 1. We maintain a set of variational factors q(cid:96)(z(cid:96)). We iterate through them, updating q j(z j) using Equation (18).</p>
+  <p>x1x2ExactPosteriorMean-fieldApproximationFigure1:Visualizingthemean-fieldapproximationtoatwo-dimensionalGaussianposterior.Theellipses(2 )showtheeffectofmean-fieldfactorization.2.4Coordinateascentmean-fieldvariationalinferenceUsingtheELBOandthemean-fieldfamily,wehavecastapproximateconditionalinferenceasanoptimizationproblem.Inthissection,wedescribeoneofthemostcommonlyusedalgorithmsforsolvingthisoptimizationproblem,coordinateascentvariationalinference(CAVI)(Bishop,2006).CAVIiterativelyoptimizeseachfactorofthemean-fieldvariationaldistribution,whileholdingtheothersfixed.ItclimbstheELBOtoalocaloptimum.Thealgorithm.Wefirststatearesult.Considerthejthlatentvariablezj.Thecompleteconditionalofzjisitsconditionaldistributiongivenalloftheotherlatentvariablesinthemodelandtheobservations,p(zj|z j,x).Fixtheothervariationalfactorsq`(z`),`6=j.Theoptimalqj(zj)isthenproportionaltotheexponentiatedexpectedlogofthecompleteconditional,q⇤j(zj)/exp E j⇥logp(zj|z j,x)⇤ .(17)TheexpectationinEquation(17)iswithrespecttothe(currentlyfixed)variationaldis-tributionoverz j,thatis,Q`6=jq`(z`).Equivalently,Equation(17)isproportionaltotheexponentiatedlogofthejoint,q⇤j(zj)/exp E j⇥logp(zj,z j,x)⇤ .(18)Becauseofthemean-fieldfamily—thatallthelatentvariablesareindependent—theexpec-tationsontherighthandsidedonotinvolvethejthvariationalfactor.Thusthisisavalidcoordinateupdate.TheseequationsunderlietheCAVIalgorithm,presentedasAlgorithm1.Wemaintainasetofvariationalfactorsq`(z`).Weiteratethroughthem,updatingqj(zj)usingEquation(18).CAVIgoesuphillontheELBOofEquation(13),eventuallyfindingalocaloptimum.AsexamplesweshowCAVIforamixtureofGaussiansinSection3andforanonconjugatelinearregressioninAppendixA.CAVIcanalsobeseenasa“messagepassing”algorithm(WinnandBishop,2005),iterativelyupdatingeachrandomvariable’svariationalparametersbasedonthevariationalparametersofthevariablesinitsMarkovblanket.Thisperspectiveenabledthedesignofautomatedsoftwareforalargeclassofmodels(Wandetal.,2011;Minkaetal.,2014).Variationalmessagepassingconnectsvariationalinferencetotheclassicaltheoriesofgraphicalmodelsandprobabilisticinference(Pearl,1988;LauritzenandSpiegelhalter,1988).Ithasbeenextendedtononconjugatemodels(KnowlesandMinka,2011)andgeneralizedviafactorgraphs(Minka,2005).Finally,CAVIiscloselyrelatedtoGibbssampling(GemanandGeman,1984;GelfandandSmith,1990),theclassicalworkhorseofapproximateinference.TheGibbssamplermain-tainsarealizationofthelatentvariablesanditerativelysamplesfromeachvariable’scom-9(cid:54) (cid:54) Algorithm 1: Coordinate ascent <span class="method">variational inference<span class="tag">term·mth</span></span> (CAVI) Input: A model p(x, z), a data set x Output: A variational density q(z) = Initialize: Variational factors q j(z j) while the ELBO has not converged do</p>
+  <p>j=1 q j(z j)</p>
+  <p>(cid:81)</p>
+  <p>for j</p>
+  <p>do 1, . . . , m } exp</p>
+  <p>∈ {</p>
+  <p>Set q j(z j)</p>
+  <p>j[log p(z j</p>
+  <p>(cid:69)</p>
+  <p>end Compute ELBO(q) = (cid:69) [log p(z, x)]</p>
+  <p>j, x)]</p>
+  <p>z −</p>
+  <p>(cid:69) [log q(z)]</p>
+  <p>end return q(z)</p>
+  <p>CAVI goes uphill on the ELBO of Equation (13), eventually finding a local optimum. As examples we show CAVI for a mixture of Gaussians in Section 3 and for a nonconjugate linear regression in Appendix A.</p>
+  <p>CAVI can also be seen as a “message passing” algorithm (Winn and Bishop, 2005), iteratively updating each random variable’s variational parameters based on the variational parameters of the variables in its Markov blanket. This perspective enabled the design of automated software for a large class of models (Wand et al., 2011; Minka et al., 2014). Variational message passing connects <span class="method">variational inference<span class="tag">term·mth</span></span> to the classical theories of graphical models and probabilistic inference (Pearl, 1988; Lauritzen and Spiegelhalter, 1988). It has been extended to nonconjugate models (Knowles and Minka, 2011) and generalized via factor graphs (Minka, 2005).</p>
+  <p>Finally, CAVI is closely related to Gibbs sampling (Geman and Geman, 1984; Gelfand and Smith, 1990), the classical workhorse of <span class="method">approximate inference<span class="tag">term·mth</span></span>. The Gibbs sampler main- tains a realization of the latent variables and iteratively samples from each variable’s com- plete conditional. Equation (18) uses the same complete conditional. It takes the expected log, and uses this quantity to iteratively set each variable’s variational factor.4</p>
+  <p>Derivation. We now derive the coordinate update in Equation (18). The idea appears in Bishop (2006), but the argument there uses gradients, which we do not. Rewrite the ELBO of Equation (13) as a function of the jth variational factor q j(z j), absorbing into a constant the terms that do not depend on it,</p>
+  <p>(cid:2)</p>
+  <p>(cid:2)</p>
+  <p>(cid:69)</p>
+  <p>(cid:69) j</p>
+  <p>j, x)</p>
+  <p>log q j(z j)</p>
+  <p>ELBO(q j) = (cid:69) j</p>
+  <p>log p(z j, z − We have rewritten the first term of the ELBO using iterated expectation. The second term we have decomposed, using the independence of the variables (i.e., the mean-field assumption) and retaining only the term that depends on q j(z j). Up to an added constant, the objective function in Equation (19) is equal to the negative KL divergence between q j(z j) and q∗j (z j) from Equation (18). Thus we maximize the ELBO with respect to q j when we set q j(z j) = q∗j (z j).</p>
+  <p>+ const.</p>
+  <p>(19)</p>
+  <p>(cid:3)(cid:3)</p>
+  <p>(cid:2)</p>
+  <p>(cid:3)</p>
+  <p>4Many readers will know that we can significantly speed up the Gibbs sampler by marginalizing out some of the latent variables; this is called collapsed Gibbs sampling. We can speed up <span class="method">variational inference<span class="tag">term·mth</span></span> with similar reasoning; this is called collapsed <span class="method">variational inference<span class="tag">term·mth</span></span>. It has been developed for the same class of models described here (Sung et al., 2008; Hensman et al., 2012). These ideas are outside the scope of our review.</p>
+  <p>2.5 Practicalities</p>
+  <p>Here, we highlight a few things to keep in mind when implementing and using <span class="method">variational inference<span class="tag">term·mth</span></span> in practice.</p>
+  <p>Initialization. The ELBO is (generally) a non-convex objective function. CAVI only guar- antees convergence to a local optimum, which can be sensitive to initialization. Figure 2 shows the ELBO trajectory for 10 random initializations using the Gaussian mixture model. The means of the variational factors were randomly initialized by drawing from a factorized Gaussian calibrated to the empirical mean and variance of the dataset. (This inference is on images; see Section 3.4.) Each initialization reaches a different value, indicating the presence of many local optima in the ELBO. In terms of KL(q p), better local optima give variational densities that are closer to the exact posterior.</p>
+  <p>Figure 2: Different initializations may lead CAVI to find different local optima of the ELBO.</p>
+  <p>This is not always a disadvantage. Some models, such as the mixture of Gaussians (Section 3 and appendix B) and mixed-membership model (Appendix C), exhibit many posterior modes due to label switching: swapping cluster assignment labels induces many symmetric posterior modes. Representing one of these modes is sufficient for exploring latent clusters or predicting new observations.</p>
+  <p>Assessing convergence. Monitoring the ELBO in CAVI is simple; we typically assess convergence once the change in ELBO has fallen below some small threshold. However, computing the ELBO of the full dataset may be undesirable. Instead, we suggest computing the average log predictive of a small held-out dataset. Monitoring changes here is a proxy to monitoring the ELBO of the full data. (Unlike the full ELBO, held-out predictive probability is not guaranteed to monotonically increase across iterations of CAVI.)</p>
+  <p>Numerical stability. Probabilities are constrained to live within [0, 1]. Precisely ma- nipulating and performing arithmetic of small numbers requires additional care. When possible, we recommend working with logarithms of probabilities. One useful identity is the “log-sum-exp” trick,</p>
+  <p>log</p>
+  <p>exp(xi) (cid:153)</p>
+  <p>(cid:150)</p>
+  <p>i (cid:88)</p>
+  <p>= α + log</p>
+  <p>exp(xi</p>
+  <p>α) (cid:153)</p>
+  <p>(20)</p>
+  <p>(cid:150)</p>
+  <p>i (cid:88)</p>
+  <p>The constant α is typically set to maxi xi. This provides numerical stability to common computations in <span class="method">variational inference<span class="tag">term·mth</span></span> procedures.</p>
+  <p>3 A complete example: Bayesian mixture of Gaussians</p>
+  <p>As an example, we return to the simple mixture of Gaussians model of Section 2.1. To review, consider K mixture components and n real-valued data points x1:n. The latent variables</p>
+  <p>01020304050−2.4·106−2.2·106−2·106−1.8·106−1.6·106SecondsELBOCAVI are K real-valued mean parameters μ = μ1:K and n latent-class assignments c = c1:n. The assignment ci indicates which latent cluster xi comes from. In detail, ci is an indicator K-vector, all zeros except for a one in the position corresponding to xi’s cluster. There is a fixed hyperparameter σ2, the variance of the normal prior on the μk’s. We assume the observation variance is one and take a uniform prior over the mixture components.</p>
+  <p>The joint density of the latent and observed variables is in Equation (7). The variational family is in Equation (16). Recall that there are two types of variational parameters— categorical parameters φi for approximating the posterior cluster assignment of the ith data point and Gaussian parameters mk and s2 k for approximating the posterior of the kth mixture component.</p>
+  <p>We combine the joint and the mean-field family to form the ELBO for the mixture of Gaussians. It is a function of the variational parameters m, s2, and φ,</p>
+  <p>ELBO(m, s2, φ) =</p>
+  <p>log p(μk); mk, s2</p>
+  <p>(cid:69)</p>
+  <p>k=1 (cid:88) n</p>
+  <p>(cid:2) (cid:69) [log p(ci); φi] + (cid:69)</p>
+  <p>(cid:3)</p>
+  <p>i=1 (cid:88) (cid:0) n (cid:69) [log q(ci; φi)]</p>
+  <p>i=1 (cid:88)</p>
+  <p>k=1 (cid:88)</p>
+  <p>(cid:2)</p>
+  <p>log p(xi</p>
+  <p>ci, μ); φi, m, s2</p>
+  <p>(21)</p>
+  <p>(cid:2)</p>
+  <p>(cid:3)(cid:1)</p>
+  <p>log q(μk; mk, s2 k)</p>
+  <p>(cid:69)</p>
+  <p>(cid:3)</p>
+  <p>In each term, we have made explicit the dependence on the variational parameters. Each expectation can be computed in closed form.</p>
+  <p>The CAVI algorithm updates each variational parameter in turn. We first derive the update for the variational cluster assignment factor; we then derive the update for the variational mixture component factor.</p>
+  <p>3.1 The variational density of the mixture assignments</p>
+  <p>We first derive the variational update for the cluster assignment ci. Using Equation (18),</p>
+  <p>q∗(ci; φi)</p>
+  <p>exp</p>
+  <p>log p(ci) + (cid:69)</p>
+  <p>log p(xi</p>
+  <p>ci, μ); m, s2</p>
+  <p>(22)</p>
+  <p>The terms in the exponent are the components of the joint density that depend on ci. The expectation in the second term is over the mixture components μ.</p>
+  <p>(cid:3)(cid:9)</p>
+  <p>(cid:8)</p>
+  <p>(cid:2)</p>
+  <p>The first term of Equation (22) is the log prior of ci. It is the same for all possible values of ci, log p(ci) = log K. The second term is the expected log of the cith Gaussian density. Recalling that ci is an indicator vector, we can write</p>
+  <p>ci, μ) =</p>
+  <p>p(xi</p>
+  <p>k=1 (cid:89)</p>
+  <p>μk)</p>
+  <p>cik .</p>
+  <p>p(xi</p>
+  <p>We use this to compute the expected log probability,</p>
+  <p>cik(cid:69)</p>
+  <p>log p(xi</p>
+  <p>μk); mk, s2</p>
+  <p>(xi</p>
+  <p>(cid:3) 2/2; mk, s2 k</p>
+  <p>μk)</p>
+  <p>+ const.</p>
+  <p>(cid:69) [log p(xi</p>
+  <p>ci, μ)] =</p>
+  <p>k (cid:88)</p>
+  <p>k (cid:88)</p>
+  <p>k (cid:88)</p>
+  <p>(cid:2)</p>
+  <p>cik(cid:69)</p>
+  <p>cik</p>
+  <p>(cid:2) (cid:69)</p>
+  <p>− − μk; mk, s2 k</p>
+  <p>(cid:0)</p>
+  <p>(cid:2)</p>
+  <p>(cid:69)</p>
+  <p>(cid:3)</p>
+  <p>(cid:2)</p>
+  <p>(cid:3) k; mk, s2 μ2</p>
+  <p>+ const.</p>
+  <p>(cid:3)</p>
+  <p>(cid:1)</p>
+  <p>(23)</p>
+  <p>(24)</p>
+  <p>(25)</p>
+  <p>In each line we remove terms that are constant with respect to ci. This calculation requires (cid:69) [μk] and (cid:69) for each mixture component, both computable from the variational Gaussian on the kth mixture component.</p>
+  <p>μ2 k</p>
+  <p>Thus the variational update for the ith cluster assignment is</p>
+  <p>(cid:2)</p>
+  <p>(cid:3)</p>
+  <p>φik</p>
+  <p>exp</p>
+  <p>μk; mk, s2 k</p>
+  <p>(cid:69)</p>
+  <p>k; mk, s2 μ2</p>
+  <p>(cid:69)</p>
+  <p>(26)</p>
+  <p>Notice it is only a function of the variational parameters for the mixture components.</p>
+  <p>(cid:9)</p>
+  <p>(cid:8)</p>
+  <p>(cid:2)</p>
+  <p>(cid:3)</p>
+  <p>(cid:2)</p>
+  <p>(cid:3)</p>
+  <p>3.2 The variational density of the mixture-component means</p>
+  <p>We turn to the variational density q(μk; mk, s2 use Equation (18) and write down the joint density up to a normalizing constant,</p>
+  <p>k) of the kth mixture component. Again we</p>
+  <p>q(μk)</p>
+  <p>exp</p>
+  <p>log p(μk) +</p>
+  <p>n i=1 (cid:69)</p>
+  <p>log p(xi</p>
+  <p>ci, μ); φi, m</p>
+  <p>k, s2 −</p>
+  <p>(27)</p>
+  <p>We now calculate the unnormalized log of this coordinate-optimal q(μk). Recall φik is the probability that the ith observation comes from the kth cluster. Because ci is an indicator vector, we see that φik = (cid:69) [cik; φi]. Now</p>
+  <p>(cid:80)</p>
+  <p>(cid:3)(cid:9)</p>
+  <p>(cid:8)</p>
+  <p>(cid:2)</p>
+  <p>+ const.</p>
+  <p>log q(μk) = log p(μk) + = log p(μk) +</p>
+  <p>(cid:2)</p>
+  <p>k, s2 −</p>
+  <p>ci, μ); φi, m</p>
+  <p>log p(xi i (cid:69) i (cid:69) [cik log p(xi i (cid:69) [cik; φi] log p(xi | 2/2 (xi i φik i φik xiμk (cid:0) 1/2σ2</p>
+  <p>k − μk); φi] + const. (cid:3) μk) + const. + const. k/2 + const. μ2</p>
+  <p>μk) − φikμ2</p>
+  <p>(cid:1) i φik/2</p>
+  <p>− +</p>
+  <p>k + const.</p>
+  <p>(cid:80)</p>
+  <p>(cid:80)</p>
+  <p>(cid:80)</p>
+  <p>+ (cid:80) μk (cid:80)</p>
+  <p>μ2 k/2σ2 μ2 k/2σ2 k/2σ2 μ2 i φik xi</p>
+  <p>(28)</p>
+  <p>(29)</p>
+  <p>(30)</p>
+  <p>(31)</p>
+  <p>(32)</p>
+  <p>(33)</p>
+  <p>(cid:0) μk, μ2 k</p>
+  <p>This calculation reveals that the coordinate-optimal variational density of μk is an exponen- (cid:1) tial family with sufficient statistics</p>
+  <p>and natural parameters</p>
+  <p>1/2σ2</p>
+  <p>(cid:0)(cid:80)</p>
+  <p>(cid:80)</p>
+  <p>(cid:1)</p>
+  <p>− , i.e., a Gaussian. Expressed in terms of the variational mean and variance, the</p>
+  <p>i=1 φik xi,</p>
+  <p>(cid:80)</p>
+  <p>i=1 φik/2</p>
+  <p>} updates for q(μk) are (cid:80)</p>
+  <p>mk =</p>
+  <p>i φik xi</p>
+  <p>1/σ2 + (cid:80)</p>
+  <p>i φik</p>
+  <p>s2 k =</p>
+  <p>1 1/σ2 +</p>
+  <p>i φik</p>
+  <p>(34)</p>
+  <p>(cid:80)</p>
+  <p>(cid:80)</p>
+  <p>These updates relate closely to the complete conditional density of the kth component in the mixture model. The complete conditional is a posterior Gaussian given the data assigned to the kth component. The variational update is a weighted complete conditional, where each data point is weighted by its variational probability of being assigned to component k.</p>
+  <p>3.3 CAVI for the mixture of Gaussians</p>
+  <p>Algorithm 2 presents coordinate-ascent <span class="method">variational inference<span class="tag">term·mth</span></span> for the Bayesian mixture of Gaussians. It combines the variational updates in Equation (22) and Equation (34). The algorithm requires computing the ELBO of Equation (21). We use the ELBO to track the progress of the algorithm and assess when it has converged.</p>
+  <p>Once we have a fitted variational density, we can use it as we would use the posterior. For example, we can obtain a posterior decomposition of the data. We assign points to their most likely mixture assignment ˆci = arg maxk φik and estimate cluster means with their variational means mk.</p>
+  <p>Algorithm 2: CAVI for a Gaussian mixture model Input: Data x1:n, number of components K, prior variance of component means σ2 Output: Variational densities q(μk; mk, s2 k) (Gaussian) and q(ci; φi) (K-categorical) Initialize: Variational parameters m = m1:K , s2 while the ELBO has not converged do</p>
+  <p>1:K , and φ = φ1:n</p>
+  <p>= s2</p>
+  <p>for i</p>
+  <p>1, . . . , n</p>
+  <p>∈ { Set φik</p>
+  <p>end</p>
+  <p>} exp</p>
+  <p>for k</p>
+  <p>1, . . . , K</p>
+  <p>∈ {</p>
+  <p>(cid:69)</p>
+  <p>(cid:2) do</p>
+  <p>μk; mk, s2 k</p>
+  <p>k; mk, s2 μ2</p>
+  <p>(cid:69)</p>
+  <p>(cid:3)</p>
+  <p>(cid:2)</p>
+  <p>/2 }</p>
+  <p>(cid:3)</p>
+  <p>i φik xi</p>
+  <p>Set mk</p>
+  <p>←− (cid:80)</p>
+  <p>1/σ2 + 1 1/σ2 +</p>
+  <p>Set s2 k</p>
+  <p>(cid:80)</p>
+  <p>i φik</p>
+  <p>i φik</p>
+  <p>end Compute ELBO(m, s2, φ)</p>
+  <p>(cid:80)</p>
+  <p>end return q(m, s2, φ)</p>
+  <p>We can also use the fitted variational density to approximate the predictive density of new data. This approximate predictive is a mixture of Gaussians,</p>
+  <p>p(xnew</p>
+  <p>x1:n)</p>
+  <p>1 K</p>
+  <p>k=1 (cid:88)</p>
+  <p>p(xnew</p>
+  <p>mk),</p>
+  <p>(35)</p>
+  <p>where p(xnew</p>
+  <p>mk) is a Gaussian with mean mk and unit variance.</p>
+  <p>3.4 Empirical study</p>
+  <p>We present two analyses to demonstrate the mixture of Gaussians algorithm in action. The first is a simulation study; the second is an analysis of a data set of natural images.</p>
+  <p>Simulation study. Consider two-dimensional real-valued data x. We simulate K = 5 Gaussians with random means, covariances, and mixture assignments. Figure 3 shows the data; each point is colored according to its true cluster. Figure 3 also illustrates the initial variational density of the mixture components—each is a Gaussian, nearly centered, and with a wide variance; the subpanels plot the variational density of the components as the CAVI algorithm progresses.</p>
+  <p>The progression of the ELBO tells a story. We highlight key points where the ELBO develops “elbows”, phases of the maximization where the variational approximation changes its shape. These “elbows” arise because the ELBO is not a convex function in terms of the variational parameters; CAVI iteratively reaches better plateaus.</p>
+  <p>Finally, we plot the logarithm of the Bayesian predictive density as approximated by the variational density. Here we report the average across held-out data. Note this plot is smoother than the ELBO.</p>
+  <p>Image analysis. We now turn to an experimental study. Consider the task of grouping images according to their color profiles. One approach is to compute the color histogram</p>
+  <p>Figure 3: A simulation study of a two dimensional Gaussian mixture model. The ellipses are 2σ contours of the variational approximating factors.</p>
+  <p>InitializationIteration20Iteration28Iteration35Iteration500102030405060 4;100 3;800 3;500 3;200IterationsEvidenceLowerBound0102030405060 1:4 1:3 1:2 1:1 1IterationsAverageLogPredictiveFigure1:Maincaption1 of the images. Figure 4 shows the red, green, and blue channel histograms of two images from the imageCLEF data (Villegas et al., 2013). Each histogram is a vector of length 192; concatenating the three color histograms gives a 576-dimensional representation of each image, regardless of its original size in pixel-space.</p>
+  <p>We use CAVI to fit a Gaussian mixture model with thirty clusters to image histograms. We randomly select two sets of ten thousand images from the imageCLEF collection to serve as training and testing datasets. Figure 5 shows similarly colored images assigned to four randomly chosen clusters. Figure 6 shows the average log predictive accuracy of the testing set as a function of time. We compare CAVI to an implementation in Stan (Stan Development Team, 2015), which uses a Hamiltonian Monte Carlo-based sampler (Hoffman and Gelman, 2014). (Details are in Appendix B.) CAVI is orders of magnitude faster than this sampling algorithm.5</p>
+  <p>Figure 4: Red, green, and blue channel image histograms for two images from the imageCLEF dataset. The top image lacks blue hues, which is reflected in its blue channel histogram. The bottom image has a few dominant shades of blue and green, as seen in the peaks of its histogram.</p>
+  <p>4 <span class="method">Variational inference<span class="tag">term·mth</span></span> with exponential families</p>
+  <p>We described mean-field <span class="method">variational inference<span class="tag">term·mth</span></span> and derived CAVI, a general coordinate-ascent algorithm for optimizing the ELBO. We demonstrated this approach on a simple mixture of Gaussians, where each coordinate update was available in closed form.</p>
+  <p>5This is not a definitive comparison between <span class="method">variational inference<span class="tag">term·mth</span></span> and MCMC. Other samplers, such as a</p>
+  <p>collapsed Gibbs sampler, may perform better than Hamiltonian Monte Carlo sampling.</p>
+  <p>PixelCountsPixelIntensityPixelCountsPixelIntensity (a) Purple</p>
+  <p>(b) Green &amp; White</p>
+  <p>(c) Orange</p>
+  <p>(d) Grayish Blue</p>
+  <p>Figure 5: Example clusters from the Gaussian mixture model. We assign each image to its most likely mixture cluster. The subfigures show nine randomly sampled images from four clusters; their namings are subjective.</p>
+  <p>Figure 6: Comparison of CAVI to a Hamiltonian Monte Carlo-based sampling technique. CAVI fits a Gaussian mixture model to ten thousand images in less than a minute.</p>
+  <p>The mixture of Gaussians is one member of the important class of models where each complete conditional is in the exponential family. This includes a number of widely used models, such as Bayesian mixtures of exponential families, factorial mixture models, matrix factorization models, certain hierarchical regression models (e.g., linear regression, probit regression), stochastic blockmodels of networks, hierarchical mixtures of experts, and a variety of mixed-membership models (which we will discuss below).</p>
+  <p>Working in this family simplifies <span class="method">variational inference<span class="tag">term·mth</span></span>: it is easier to derive the correspond- ing CAVI algorithm, and it enables <span class="method">variational inference<span class="tag">term·mth</span></span> to scale up to massive data. In Section 4.1, we develop the general case. In Section 4.2, we discuss conditionally conjugate models, i.e., the common Bayesian application where some latent variables are “local” to a data point and others, usually identified with parameters, are “global” to the entire data set. Finally, in Section 4.3, we describe stochastic <span class="method">variational inference<span class="tag">term·mth</span></span> (Hoffman et al., 2013), a stochastic optimization algorithm that scales up <span class="method">variational inference<span class="tag">term·mth</span></span> in this setting.</p>
+  <p>4.1 Complete conditionals in the exponential family</p>
+  <p>Consider the generic model p(z, x) of Section 2.1 and suppose each complete conditional is in the exponential family:</p>
+  <p>z −</p>
+  <p>p(z j</p>
+  <p>j, x) = h(z j) exp j, x)) } { − ) is the log normal- where z j is its own sufficient statistic, h( ) is a base measure, and a( · · j, x) is a izer (Brown, 1986). Because this is a conditional density, the parameter η j(z function of the conditioning set.</p>
+  <p>η j(z −</p>
+  <p>j, x)(cid:62)z j</p>
+  <p>a(η j(z</p>
+  <p>(36)</p>
+  <p>Consider mean-field <span class="method">variational inference<span class="tag">term·mth</span></span> for this class of models, where we fit q(z) =</p>
+  <p>050100150200250(cid:0)900(cid:0)600(cid:0)3000SecondsAverageLogPredictiveCAVINUTS(Hoffmanetal.2013) j q j(z j). The exponential family assumption simplifies the coordinate update of Equa-</p>
+  <p>tion (17), (cid:81)</p>
+  <p>q(z j)</p>
+  <p>exp</p>
+  <p>∝ = exp</p>
+  <p>(cid:69)</p>
+  <p>log p(z j</p>
+  <p>| log h(z j) + (cid:69) (cid:8)</p>
+  <p>(cid:2)</p>
+  <p>(cid:166) h(z j) exp</p>
+  <p>(cid:69)</p>
+  <p>η j(z (cid:2) −</p>
+  <p>j, x)</p>
+  <p>z − j, x) η j(z (cid:3)(cid:9) − j, x)</p>
+  <p>(cid:62) z j</p>
+  <p>(cid:62) z j</p>
+  <p>(cid:69)</p>
+  <p>(cid:2)</p>
+  <p>a(η j(z −</p>
+  <p>j, x))</p>
+  <p>(cid:3)(cid:169)</p>
+  <p>(37)</p>
+  <p>(38)</p>
+  <p>(39)</p>
+  <p>(cid:3)</p>
+  <p>(cid:169)</p>
+  <p>(cid:166)</p>
+  <p>(cid:2)</p>
+  <p>(cid:3)</p>
+  <p>This update reveals the parametric form of the optimal variational factors. Each one is in the same exponential family as its corresponding complete conditional. Its parameter has ) and log normalizer a( the same dimension and it has the same base measure h( · · Having established their parametric forms, let ν j denote the variational parameter for the jth variational factor. When we update each factor, we set its parameter equal to the expected parameter of the complete conditional,</p>
+  <p>This expression facilitates deriving CAVI algorithms for many complex models.</p>
+  <p>(cid:3)</p>
+  <p>(cid:2)</p>
+  <p>ν j = (cid:69)</p>
+  <p>η j(z −</p>
+  <p>j, x)</p>
+  <p>(40)</p>
+  <p>4.2 Conditional conjugacy and Bayesian models</p>
+  <p>One important special case of exponential family models are conditionally conjugate models with local and global variables. Models like this come up frequently in Bayesian statistics and statistical machine learning, where the global variables are the “parameters” and the local variables are per-data-point latent variables.</p>
+  <p>Conditionally conjugate models. Let β be a vector of global latent variables, which potentially govern any of the data. Let z be a vector of local latent variables, whose ith component only governs data in the ith “context.” The joint density is</p>
+  <p>p(β, z, x) = p(β)</p>
+  <p>p(zi, xi</p>
+  <p>i=1 (cid:89)</p>
+  <p>β).</p>
+  <p>(41)</p>
+  <p>The mixture of Gaussians of Section 3 is an example. The global variables are the mixture components; the ith local variable is the cluster assignment for data point xi.</p>
+  <p>We will assume that the modeling terms of Equation (41) are chosen to ensure each complete conditional is in the exponential family. In detail, we first assume the joint density of each (xi, zi) pair, conditional on β, has an exponential family form,</p>
+  <p>p(zi, xi</p>
+  <p>β) = h(zi, xi) exp</p>
+  <p>β (cid:62) t(zi, xi)</p>
+  <p>a(β) }</p>
+  <p>(42)</p>
+  <p>) is the sufficient statistic. ·</p>
+  <p>where t( · Next, we take the prior on the global variables to be the corresponding conjugate prior (Di- aconis et al., 1979; Bernardo and Smith, 1994),</p>
+  <p>p(β) = h(β) exp {</p>
+  <p>α(cid:62)[β,</p>
+  <p>a(β)]</p>
+  <p>a(α) }</p>
+  <p>(43)</p>
+  <p>This prior has natural (hyper)parameter α = [α1, α2](cid:62), a column vector, and sufficient statistics that concatenate the global variable and its log normalizer in the density of the local variables.</p>
+  <p>With the conjugate prior, the complete conditional of the global variables is in the same family. Its natural parameter is</p>
+  <p>ˆα =</p>
+  <p>α1 +</p>
+  <p>i=1 t(zi, xi), α2 + n</p>
+  <p>(cid:62) .</p>
+  <p>(cid:2)</p>
+  <p>(cid:80)</p>
+  <p>(cid:3)</p>
+  <p>(44)</p>
+  <p>Turn now to the complete conditional of the local variable zi. Given β and xi, the local variable zi is conditionally independent of the other local variables z i. − This follows from the form of the joint density in Equation (41). Thus</p>
+  <p>i and other data x</p>
+  <p>We further assume that this density is in an exponential family,</p>
+  <p>p(zi</p>
+  <p>xi, β, z −</p>
+  <p>i, x −</p>
+  <p>i) = p(zi</p>
+  <p>xi, β).</p>
+  <p>(45)</p>
+  <p>p(zi</p>
+  <p>xi, β) = h(zi) exp {</p>
+  <p>η(β, xi)(cid:62)zi</p>
+  <p>a(η(β, xi)) }</p>
+  <p>− This is a property of the local likelihood term p(zi, xi β) from Equation (42). For ex- ample, in the mixture of Gaussians, the complete conditional of the local variable is a categorical.</p>
+  <p>(46)</p>
+  <p><span class="method">Variational inference<span class="tag">term·mth</span></span> in conditionally conjugate models. We now describe CAVI for this general class of models. Write q(β λ) for the variational posterior approximation on β; we call λ the “global variational parameter”. It indexes the same exponential family density as the prior. Similarly, let the variational posterior q(zi φi) on each local variable zi be governed by a “local variational parameter” φi. It indexes the same exponential family density as the local complete conditional. CAVI iterates between updating each local variational parameter and updating the global variational parameter.</p>
+  <p>The local variational update is</p>
+  <p>φi = (cid:69)λ [η(β, xi)] .</p>
+  <p>(47)</p>
+  <p>This is an application of Equation (40), where we take the expectation of the natural parameter of the complete conditional in Equation (45).</p>
+  <p>The global variational update applies the same technique. It is</p>
+  <p>λ =</p>
+  <p>α1 +</p>
+  <p>i=1 (cid:69)φi [t(zi, xi)] , α2 + n</p>
+  <p>(cid:62) .</p>
+  <p>(48)</p>
+  <p>(cid:80) Here we take the expectation of the natural parameter in Equation (44).</p>
+  <p>(cid:2)</p>
+  <p>(cid:3)</p>
+  <p>CAVI optimizes the ELBO by iterating between local updates of each local parameter and global updates of the global parameters. To assess convergence we can compute the ELBO at each iteration (or at some lag), up to a constant that does not depend on the variational parameters,</p>
+  <p>ELBO =</p>
+  <p>α1 +</p>
+  <p>i=1 (cid:69)φi [t(zi, xi)]</p>
+  <p>(cid:62) (cid:69)λ [β]</p>
+  <p>(α2 + n)(cid:69)λ [a(β)]</p>
+  <p>(cid:69) [log q(β, z)] .</p>
+  <p>(49)</p>
+  <p>− This is the ELBO in Equation (13) applied to the joint in Equation (41) and the corresponding mean-field variational density; we have omitted terms that do not depend on the variational parameters. The last term is</p>
+  <p>(cid:80)</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>(cid:69) [log q(β, z)] = λ(cid:62)(cid:69)λ [t(β)]</p>
+  <p>a(λ) +</p>
+  <p>φ(cid:62)i (cid:69)φi [zi]</p>
+  <p>i=1 (cid:88)</p>
+  <p>a(φi).</p>
+  <p>(50)</p>
+  <p>CAVI for the mixture of Gaussians model (Algorithm 2) is an instance of this method. Ap- pendix C presents another example of CAVI for latent Dirichlet allocation (LDA), a probabilistic topic model.</p>
+  <p>4.3 Stochastic <span class="method">variational inference<span class="tag">term·mth</span></span></p>
+  <p>Modern applications of probability models often require analyzing massive data. However, most posterior inference algorithms do not easily scale. CAVI is no exception, particularly in</p>
+  <p>the conditionally conjugate setting of Section 4.2. The reason is that the coordinate ascent structure of the algorithm requires iterating through the entire data set at each iteration. As the data set size grows, each iteration becomes more computationally expensive.</p>
+  <p>An alternative to coordinate ascent is gradient-based optimization, which climbs the ELBO by computing and following its gradient at each iteration. This perspective is the key to scaling up <span class="method">variational inference<span class="tag">term·mth</span></span> using stochastic <span class="method">variational inference<span class="tag">term·mth</span></span> (SVI) (Hoffman et al., 2013), a method that combines natural gradients (Amari, 1998) and stochastic optimization (Robbins and Monro, 1951).</p>
+  <p>SVI focuses on optimizing the global variational parameters λ of a conditionally conjugate model. The flow of computation is simple. The algorithm maintains a current estimate of the global variational parameters. It repeatedly (a) subsamples a data point from the full data set; (b) uses the current global parameters to compute the optimal local parameters for the subsampled data point; and (c) adjusts the current global parameters in an appropriate way. SVI is detailed in Algorithm 3. We now show why it is a valid algorithm for optimizing the ELBO.</p>
+  <p>The natural gradient of the ELBO. In gradient-based optimization, the natural gradient accounts for the geometric structure of probability parameters (Amari, 1982, 1998). Specifi- cally, natural gradients warp the parameter space in a sensible way, so that moving the same distance in different directions amounts to equal change in symmetrized KL divergence. The usual Euclidean gradient does not enjoy this property.</p>
+  <p>In exponential families, we find the natural gradient with respect to the parameter by 1. premultiplying the usual gradient by the inverse covariance of the sufficient statistic, a(cid:48)(cid:48)(λ)− This is the inverse Riemannian metric and the inverse Fisher information matrix (Amari, 1982).</p>
+  <p>Conditionally conjugate models enjoy simple natural gradients of the ELBO. We focus on gradients with respect to the global parameter λ. Hoffman et al. (2013) derive the Euclidean gradient of the ELBO,</p>
+  <p>λELBO = a(cid:48)(cid:48)(λ)((cid:69)φ [ ˆα]</p>
+  <p>λ),</p>
+  <p>(51)</p>
+  <p>where (cid:69)φ [ ˆα] is in Equation (48). Premultiplying by the inverse Fisher information gives the natural gradient g(λ),</p>
+  <p>g(λ) = (cid:69)φ [ ˆα]</p>
+  <p>(52)</p>
+  <p>It is the difference between the coordinate updates (cid:69)φ [ ˆα] and the variational parameters λ at which we are evaluating the gradient. In addition to enjoying good theoretical properties, the natural gradient is easier to calculate than the Euclidean gradient. For more on natural gradients and <span class="method">variational inference<span class="tag">term·mth</span></span> see Sato (2001) and Honkela et al. (2008).</p>
+  <p>We can use this natural gradient in a gradient-based optimization algorithm. At each iteration, we update the global parameters,</p>
+  <p>λt = λt</p>
+  <p>1 + εt g(λt</p>
+  <p>1),</p>
+  <p>where εt is a step size.</p>
+  <p>Substituting Equation (52) into the second term reveals a special structure,</p>
+  <p>λt = (1</p>
+  <p>εt )λt</p>
+  <p>1 + εt (cid:69)φ [ ˆα] .</p>
+  <p>− Notice this does not require additional types of calculations other than those for coordinate ascent updates. At each iteration, we first compute the coordinate update. We then adjust the current estimate to be a weighted combination of the update and the current variational parameter.</p>
+  <p>(53)</p>
+  <p>(54)</p>
+  <p>Though easy to compute, using the natural gradient has the same cost as the coordinate update in Equation (48); it requires summing over the entire data set and computing the optimal local variational parameters for each data point. With massive data, this is prohibitively expensive.</p>
+  <p>Stochastic optimization of the ELBO. Stochastic <span class="method">variational inference<span class="tag">term·mth</span></span> solves this problem by using the natural gradient in a stochastic optimization algorithm. Stochastic optimiza- tion algorithms follow noisy but cheap-to-compute gradients to reach the optimum of an objective function. (In the case of the ELBO, stochastic optimization will reach a local optimum.) In their seminal paper, Robbins and Monro (1951) proved results implying that optimization algorithms can successfully use noisy, unbiased gradients, as long as the step size sequence satisfies certain conditions. This idea has blossomed (Spall, 2003; Kushner and Yin, 1997). Stochastic optimization has enabled modern machine learning to scale to massive data (Le Cun and Bottou, 2004).</p>
+  <p>Our aim is to construct a cheaply computed, noisy, unbiased natural gradient. We expand the natural gradient in Equation (52) using Equation (44)</p>
+  <p>g(λ) = α +</p>
+  <p>i=1 (cid:69)φ∗i [t(zi, xi)] , n</p>
+  <p>(cid:62)</p>
+  <p>(55)</p>
+  <p>where φ∗i indicates that we consider the optimized local variational parameters (at fixed global parameters λ) in Equation (47). We construct a noisy natural gradient by sampling an index from the data and then rescaling the second term,</p>
+  <p>(cid:148)(cid:80)</p>
+  <p>(cid:151)</p>
+  <p>Unif(1, . . . , n)</p>
+  <p>∼ ˆg(λ) = α + n</p>
+  <p>(cid:69)φ∗t [t(zt , x t )] , 1</p>
+  <p>(cid:62)</p>
+  <p>(56)</p>
+  <p>(57)</p>
+  <p>(cid:2)</p>
+  <p>The noisy natural gradient ˆg(λ) is unbiased: (cid:69)t [ˆg(λ)] = g(λ). And it is cheap to compute— it only involves a single sampled data point and only one set of optimized local parameters. (This immediately extends to minibatches, where we sample B data points and rescale appropriately.) Again, the noisy gradient only requires calculations from the coordinate ascent algorithm. The first two terms of Equation (57) are equivalent to the coordinate update in a model with n replicates of the sampled data point.</p>
+  <p>(cid:3)</p>
+  <p>Finally, we set the step size sequence. It must follow the conditions of Robbins and Monro (1951),</p>
+  <p>t (cid:88) Many sequences will satisfy these conditions, for example εt = t − SVI algorithm is in Algorithm 3.</p>
+  <p>t (cid:88)</p>
+  <p>εt =</p>
+  <p>ε2 t &lt;</p>
+  <p>. ∞</p>
+  <p>(58)</p>
+  <p>κ for κ</p>
+  <p>(0.5, 1]. The full</p>
+  <p>We emphasize that SVI requires no new derivation beyond what is needed for CAVI. Any implementation of CAVI can be immediately scaled up to a stochastic algorithm.</p>
+  <p>Probabilistic topic models. We demonstrate SVI with a probabilistic topic model. Prob- abilistic topic models are mixed-membership models of text, used to uncover the latent “topics” that run through a collection of documents. Topic models have become a popular technique for exploratory data analysis of large collections (<span class="person">Blei<span class="tag">persName</span></span>, 2012).</p>
+  <p>In detail, each latent topic is a distribution over terms in a vocabulary and each document is a collection of words that comes from a mixture of the topics. The topics are shared across the collection, but each document mixes them with different proportions. (This is the hallmark of a mixed-membership model.) Thus topic modeling casts topic discovery as a posterior inference problem. Posterior estimates of the topics and topic proportions can be used to summarize, visualize, explore, and form predictions about the documents.</p>
+  <p>Figure 7: Topics found in a corpus of 1.8M articles from the New York Times. Reproduced with permission from Hoffman et al. (2013).</p>
+  <p>One motivation for topic modeling is to get a handle on massive collections of documents. Early inference algorithms were based on coordinate ascent <span class="method">variational inference<span class="tag">term·mth</span></span> (<span class="person">Blei<span class="tag">persName</span></span> et al., 2003) and analyzed collections in the thousands or tens of thousands of documents. (Appendix C presents this algorithm). With SVI, topic models scale up to millions of documents; the details of the algorithm are in Hoffman et al. (2013). Figure 7 illustrates topics inferred using the latent Dirichlet allocation model (<span class="person">Blei<span class="tag">persName</span></span> et al., 2003) from 1.8M articles from the New York Times. This analysis would not have been possible without SVI.</p>
+  <p>5 Discussion</p>
+  <p>We described <span class="method">variational inference<span class="tag">term·mth</span></span>, a method that uses optimization to make probabilistic computations. The goal is to approximate the conditional density of latent variables z given observed variables x, p(z and then to find the member q∗( ) that is closest in KL divergence to the conditional of interest. Minimizing the · KL divergence is the optimization problem, and its complexity is governed by the complexity of the approximating family.</p>
+  <p>x). The idea is to posit a family of densities</p>
+  <p>(cid:81)</p>
+  <p>We then described the mean-field family, i.e., the family of fully factorized densities of the latent variables. Using this family, <span class="method">variational inference<span class="tag">term·mth</span></span> is particularly amenable to coordinate-ascent optimization, which iteratively optimizes each factor. (This approach closely connects to the classical Gibbs sampler (Geman and Geman, 1984; Gelfand and Smith, 1990).) We showed how to use mean-field VI to approximate the posterior density of a Bayesian mixture of Gaussians, discussed the special case of exponential families and con- ditional conjugacy, and described the extension to stochastic <span class="method">variational inference<span class="tag">term·mth</span></span> (Hoffman</p>
+  <p>gamesecondseasonteamplaygamesplayerspointscoachgiantsstreetschoolhouselifechildrenfamilysaysnightmanknowlifesaysshowmandirectortelevisionfilmstorymoviefilmshouselifechildrenmanwarbookstorybooksauthornovelstreethousenightplaceparkroomhotelrestaurantgardenwinehousebushpoliticalpartyclintoncampaignrepublicandemocraticsenatordemocratspercentstreethousebuildingrealspacedevelopmentsquarehousingbuildingsgamesecondteamplaywonopenracewinroundcupgameseasonteamrunleaguegameshitbaseballyankeesmetsgovernmentofficialswarmilitaryiraqarmyforcestroopsiraqisoldiersschoollifechildrenfamilysayswomenhelpmotherparentschildpercentbusinessmarketcompaniesstockbankfinancialfundinvestorsfundsgovernmentlifewarwomenpoliticalblackchurchjewishcatholicpopestreetshowartmuseumworksartistsartistgalleryexhibitionpaintingsstreetyesterdaypolicemancasefoundofficershotofficerscharged 1 2 3 4 5 6 7 8 9101112131415 Algorithm 3: SVI for conditionally conjugate models Input: Model p(x, z), data x, and step size sequence εt Output: Global variational densities qλ(β) Initialize: Variational parameters λ0 while TRUE do</p>
+  <p>Choose a data point uniformly at random, t Unif(1, . . . , n) Optimize its local variational parameters φ∗t = (cid:69)λ [η(β, x t )] Compute the coordinate update as though x t was repeated n times,</p>
+  <p>ˆλ = α + n(cid:69)φ∗t [ f (zt , x t )]</p>
+  <p>Update the global variational parameter, λt = (1</p>
+  <p>end</p>
+  <p>return λ</p>
+  <p>εt )λt + εt</p>
+  <p>ˆλt</p>
+  <p>et al., 2013), which scales mean-field <span class="method">variational inference<span class="tag">term·mth</span></span> to massive data.</p>
+  <p>5.1 Applications</p>
+  <p>Researchers in many fields have used <span class="method">variational inference<span class="tag">term·mth</span></span> to solve real problems. Here we focus on example applications of mean-field <span class="method">variational inference<span class="tag">term·mth</span></span> and structured <span class="method">variational inference<span class="tag">term·mth</span></span> based on the KL divergence. This discussion is not exhaustive; our intention is to outline the diversity of applications of <span class="method">variational inference<span class="tag">term·mth</span></span>.</p>
+  <p>Computational biology. VI is widely used in computational biology, where probabilis- tic models provide important building blocks for analyzing genetic data. For example, VI has been used in genome-wide association studies (Carbonetto and Stephens, 2012; Logsdon et al., 2010), regulatory network analysis (Sanguinetti et al., 2006), motif detec- tion (Xing et al., 2004), phylogenetic hidden Markov models (Jojic et al., 2004), population genetics (Raj et al., 2014), and gene expression analysis (Stegle et al., 2010).</p>
+  <p>Computer vision and robotics. Since its inception, <span class="method">variational inference<span class="tag">term·mth</span></span> has been important to computer vision. Vision researchers frequently analyze large and high-dimensional data sets of images, and fast inference is important to successfully deploy a vision system. Some of the earliest examples included inferring non-linear image manifolds (Bishop and Winn, 2000) and finding layers of images in videos (Jojic and Frey, 2001). As other examples, <span class="method">variational inference<span class="tag">term·mth</span></span> is important to probabilistic models of videos (Chan and Vasconcelos, 2009; Wang and Mori, 2009), image denoising (Likas and Galatsanos, 2004), tracking (Vermaak et al., 2003; Yu and Wu, 2005), place recognition and mapping for robotics (Cummins and Newman, 2008; Ramos et al., 2012), and image segmentation with Bayesian nonparametrics (Sudderth and Jordan, 2009). Du et al. (2009) uses <span class="method">variational inference<span class="tag">term·mth</span></span> in a probabilistic model to combine the tasks of segmentation, clustering, and annotation.</p>
+  <p>Computational neuroscience. Modern neuroscience research also requires analyzing very large and high-dimensional data sets, such as high-frequency time series data or high-resolution functional magnetic imaging data. There have been many applications of <span class="method">variational inference<span class="tag">term·mth</span></span> to neuroscience, especially for autoregressive processes (Roberts and Penny, 2002; Penny et al., 2003, 2005; Flandin and Penny, 2007; Harrison and Green, 2010). Other applications of <span class="method">variational inference<span class="tag">term·mth</span></span> to neuroscience include hierarchical models of multiple subjects (Woolrich et al., 2004), spatial models (Sato et al., 2004; Zumer et al.,</p>
+  <p>2007; Kiebel et al., 2008; Wipf and Nagarajan, 2009; Lashkari et al., 2012; Nathoo et al., 2014), brain-computer interfaces (Sykacek et al., 2004), and factor models (Manning et al., 2014; Gershman et al., 2014). There is a software toolbox that uses variational methods for solving neuroscience and psychology research problems (Daunizeau et al., 2014).</p>
+  <p>Natural language processing and speech recognition. In natural language processing, <span class="method">variational inference<span class="tag">term·mth</span></span> has been used for solving problems such as parsing (Liang et al., 2007, 2009), grammar induction (Kurihara and Sato, 2006; Naseem et al., 2010; Cohen and Smith, 2010), models of streaming text (Yogatama et al., 2014), topic modeling (<span class="person">Blei<span class="tag">persName</span></span> et al., 2003), and hidden Markov models and part-of-speech tagging (Wang and Blunsom, 2013). In speech recognition, <span class="method">variational inference<span class="tag">term·mth</span></span> has been used to fit complex coupled hidden Markov models (Reyes-Gomez et al., 2004) and switching dynamic systems (Deng, 2004).</p>
+  <p>Other applications. There have been many other applications of <span class="method">variational inference<span class="tag">term·mth</span></span>. Fields in which it has been used include marketing (Braun and <span class="person">McAuliffe<span class="tag">persName</span></span>, 2010), optimal control and reinforcement learning (Van Den Broek et al., 2008; Furmston and Barber, 2010), statistical network analysis (Wiggins and Hofman, 2008; Airoldi et al., 2008), astrophysics (Regier et al., 2015), and the social sciences (Erosheva et al., 2007; Grimmer, 2011). General <span class="method">variational inference<span class="tag">term·mth</span></span> algorithms have been developed for a variety of classes of models, including shrinkage models (Armagan et al., 2011; Armagan and Dunson, 2011; Neville et al., 2014), general time-series models (Roberts et al., 2004; Barber and Chiappa, 2006; Archambeau et al., 2007b,a; Johnson and Willsky, 2014; Foti et al., 2014), robust models (Tipping and Lawrence, 2005; Wang and <span class="person">Blei<span class="tag">persName</span></span>, 2015), and Gaussian process models (Titsias and Lawrence, 2010; Damianou et al., 2011; Hensman et al., 2014).</p>
+  <p>5.2 <span class="method">Theory<span class="tag">term·mth</span></span></p>
+  <p>Though researchers have not developed much <span class="method">theory<span class="tag">term·mth</span></span> around <span class="method">variational inference<span class="tag">term·mth</span></span>, there are several threads of research about theoretical guarantees of variational approximations. As we mentioned in the introduction, one of our purposes for writing this paper is to catalyze research on the statistical <span class="method">theory<span class="tag">term·mth</span></span> around <span class="method">variational inference<span class="tag">term·mth</span></span>.</p>
+  <p>Below, we summarize a variety of results. In general, they are all of the following type: treat VI posterior means as point estimates (or use M-step estimates from variational EM) and confirm that they have the usual frequentist asymptotics. (Sometimes the research finds that they do not enjoy the same asymptotics.) Each result revolves around a single model and a single family of variational approximations.</p>
+  <p>You et al. (2014) study the variational posterior for a classical Bayesian linear model. They put a normal prior on the coefficients and an inverse gamma prior on the response variance. They find that, under standard regularity conditions, the mean-field variational posterior mean of the parameters are consistent in the frequentist sense. Ormerod et al. (2014) build on their earlier work with a spike-and-slab prior on the coefficients and find similar consistency results.</p>
+  <p>Hall et al. (2011a,b) examine a simple Poisson mixed-effects model, one with a single predictor and a random intercept. They use a Gaussian variational approximation and estimate parameters with variational EM. They prove consistency of these estimates at the parametric rate and show asymptotic normality with asymptotically valid standard errors.</p>
+  <p>Celisse et al. (2012) and Bickel et al. (2013) analyze network data using stochastic blockmod- els. They show asymptotic normality of parameter estimates obtained using a mean-field variational approximation. They highlight the computational advantages and theoretical</p>
+  <p>guarantees of the variational approach over maximum likelihood for dense, sparse, and restricted variants of the stochastic blockmodel.</p>
+  <p>Westling and McCormick (2015) study the consistency of VI through a connection to M- estimation. They focus on a broader class of models (with posterior support in real coordinate space) and analyze an automated VI technique that uses a Gaussian variational approxima- tion (<span class="person">Kucukelbir<span class="tag">persName</span></span> et al., 2015). They derive an asymptotic covariance matrix estimator of the variational approximation and show its robustness to model misspecification.</p>
+  <p>Finally, Wang and Titterington (2006) analyze variational approximations to mixtures of Gaussians. Specifically, they consider Bayesian mixtures with conjugate priors, the mean- field variational approximation, and an estimator that is the variational posterior mean. They confirm that CAVI converges to a local optimum, that the VI estimator is consistent, and that the VI estimate and maximum likelihood estimate (MLE) approach each other at a (1/n). In Wang and Titterington (2005), they show that the asymptotic variational rate of posterior covariance matrix is “too small”—it differs from the MLE covariance (i.e., the inverse Fisher information) by a positive-definite matrix.</p>
+  <p>(cid:79)</p>
+  <p>5.3 Beyond conditional conjugacy</p>
+  <p>We focused on models where the complete conditional is in the exponential family. Many models, however, do not enjoy this property. A simple example is Bayesian logistic regres- sion,</p>
+  <p>(0, 1),</p>
+  <p>xi, β</p>
+  <p>∼ (cid:78)</p>
+  <p>Bern(σ(β (cid:62) xi)),</p>
+  <p>where σ( ) is the logistic function. The posterior density of the coefficients is not in an · exponential family and we cannot apply the <span class="method">variational inference<span class="tag">term·mth</span></span> methods we discussed above. Specifically, we cannot compute the expectations in the first term of the ELBO in Equation (13) or the coordinate update in Equation (18).</p>
+  <p>Exploring variational methods for such models has been a fruitful area of research. An early example is Jaakkola and Jordan (1997, 2000), who developed a variational bound tailored to logistic regression. <span class="person">Blei<span class="tag">persName</span></span> and Lafferty (2007) later adapted their idea to nonconjugate topic models, and researchers have continued to improve the original bound (Khan et al., 2010; Marlin et al., 2011; Ermis and Bouchard, 2014). In other work, Braun and <span class="person">McAuliffe<span class="tag">persName</span></span> (2010) derived a <span class="method">variational inference<span class="tag">term·mth</span></span> algorithm for the discrete choice model, which also lies outside of the class of conditionally conjugate models. They developed a delta method to approximate the difficult-to-compute expectations. Finally, Wand et al. (2011) use auxiliary variable methods, quadrature, and mixture approximations to handle a variety of likelihood terms that fall outside of the exponential family.</p>
+  <p>More recently, researchers have generalized nonconjugate inference, seeking recipes that can be used across many models. Wang and <span class="person">Blei<span class="tag">persName</span></span> (2013) adapted Laplace approximations and the delta method to this end, improving inference in nonconjugate generalized linear models and topic models; this approach is also used by Bugbee et al. (2016) for semi- parametric regression. Knowles and Minka (2011) generalized the Jaakkola and Jordan (1997, 2000) bound in a message-passing algorithm and Wand (2014) further simplified and extended their approach. Tan and Nott (2013, 2014) applied these message-passing methods to generalized linear mixed models (and also combined them with SVI). Rohde and Wand (2015) unified many of these algorithmic developments and provided practical insights into their numerical implementations.</p>
+  <p>Finally, there has been a flurry of research on optimizing difficult variational objectives with Monte Carlo (MC) estimates of the gradient. The idea is to write the gradient of the</p>
+  <p>ELBO as an expectation, compute MC estimates of it, and then use stochastic optimization with repeated MC gradients. This first appeared independently in several papers (Ji et al., 2010; Nott et al., 2012; Paisley et al., 2012; Wingate and Weber, 2013). The newest approaches avoid any model-specific derivations, and are termed “black box” inference methods. As examples, see Kingma and Welling (2014); Rezende et al. (2014); Ranganath et al. (2014, 2016); Salimans and Knowles (2014); Titsias and Lázaro-Gredilla (2014), and Tran et al. (2016). <span class="person">Kucukelbir<span class="tag">persName</span></span> et al. (2016) leverage these ideas toward an automatic VI technique that works on any model written in the probabilistic programming system Stan (Stan Development Team, 2015). This is a step towards a derivation-free, easy-to-use VI algorithm.</p>
+  <p>5.4 Open problems</p>
+  <p>There are many open avenues for statistical research in <span class="method">variational inference<span class="tag">term·mth</span></span>.</p>
+  <p>p(z</p>
+  <p>We focused on optimizing KL (q(z) x)) as the variational objective function. A promising || avenue of research is to develop <span class="method">variational inference<span class="tag">term·mth</span></span> methods that optimize other measures, such as α-divergence measures. As one example, expectation propagation (Minka, 2001) is inspired by the KL divergence “in the other direction,” between p(z x) and q(z). Other work has developed divergences based on lower bounds that are tighter than the ELBO (Barber and de van Laar, 1999; Leisink and Kappen, 2001). While alternative divergences may be difficult to optimize, they may give better approximations (Minka, 2005; Opper and Winther, 2005).</p>
+  <p>Though it is flexible, the mean-field family makes strong independence assumptions. These assumptions help with scalable optimization, but they limit the expressibility of the vari- ational family. Further, they can exacerbate issues with local optima of the objective and underestimating posterior variances; see Figure 1. A second avenue of research is to develop better approximations while maintaining efficient optimization.</p>
+  <p>As we mentioned above, structured <span class="method">variational inference<span class="tag">term·mth</span></span> has its roots in the early days of the method (Saul and Jordan, 1996; Barber and Wiegerinck, 1999). More recently, Hoffman and <span class="person">Blei<span class="tag">persName</span></span> (2015) use generic structured <span class="method">variational inference<span class="tag">term·mth</span></span> in a stochastic optimization algorithm; <span class="person">Kucukelbir<span class="tag">persName</span></span> et al. (2016), Challis and Barber (2013), and Tan and Nott (2016) take advantage of Gaussian variational families with non-diagonal covariance; Giordano et al. (2015) post-process the mean-field parameters to correct for underestimating the variance; and Ranganath et al. (2016) embed the mean-field parameters themselves in a hierarchical model to induce variational dependencies between latent variables.</p>
+  <p>The interface between <span class="method">variational inference<span class="tag">term·mth</span></span> and MCMC remains relatively unexplored. Freitas et al. (2001) used fitted variational distributions as a component of a proposal distribution for Metropolis-Hastings. Mimno et al. (2012) and Hoffman and <span class="person">Blei<span class="tag">persName</span></span> (2015) studied MCMC as a method of approximating coordinate updates, e.g., to include structure in the variational family. Salimans et al. (2015) propose a variational approximation to the MCMC chain; their method enables an explicit trade off between computational accuracy and speed. Understanding how to combine these two strategies for <span class="method">approximate inference<span class="tag">term·mth</span></span> is a ripe area for future research. A principled analysis of when to use (and combine) <span class="method">variational inference<span class="tag">term·mth</span></span> and MCMC would have both theoretical and practical impact in the field.</p>
+  <p>Finally, the statistical properties of <span class="method">variational inference<span class="tag">term·mth</span></span> are not yet well understood, espe- cially in contrast to the wealth of analysis of MCMC techniques. There has been some progress; see Section 5.2. A final open research problem is to understand <span class="method">variational inference<span class="tag">term·mth</span></span> as an estimator and to understand its statistical profile relative to the exact posterior.</p>
+  <p>A Bayesian Linear Regression with Automatic Relevance</p>
+  <p>Determination</p>
+  <p>Consider a dataset of y = y1:n where each xi</p>
+  <p>(cid:82)</p>
+  <p>n outputs and x = x1:n</p>
+  <p>(cid:82)</p>
+  <p>(cid:82)(n</p>
+  <p>D) D-dimensional inputs,</p>
+  <p>A linear regression model assumes a linear relationship between the inputs and the condi- D is a vector of the tional mean of the output given the inputs. The latent variable β regression coefficients.</p>
+  <p>(cid:82)</p>
+  <p>Automatic relevance determination (ARD) assigns a separate prior for each regression coefficient; the idea is to automatically shrink irrelevant coefficients during inference (MacKay, 1992; Neal, 2012; Tipping, 2001; Wipf and Nagarajan, 2008). ARD works by pairing the prior precision of each regression coefficient with its own latent variable αd . The hyper-prior on these relevance variables α encourages small values; this, in turn, selects relevant regression coefficients.</p>
+  <p>Here we present a conditionally conjugate Bayesian linear regression model with an ARD prior, based on Drugowitsch (2013). All Gaussian distributions below follow the precision parameterization.</p>
+  <p>Define a Gaussian likelihood with precision parameter τ as</p>
+  <p>p(y</p>
+  <p>β, τ ; x) =</p>
+  <p>i=1 (cid:78) (cid:89) ARD then posits the following hierarchical prior</p>
+  <p>β (cid:62) xi, τ).</p>
+  <p>( yi</p>
+  <p>where α is a D-dimensional relevance variable</p>
+  <p>p(β, τ</p>
+  <p>α) =</p>
+  <p>0, τ diag(α)) Gam(τ</p>
+  <p>(cid:78)</p>
+  <p>a0, b0),</p>
+  <p>p(α) =</p>
+  <p>Gam(αd</p>
+  <p>c0, d0).</p>
+  <p>d=1 (cid:89)</p>
+  <p>Here a0, b0, c0, and d0 are fixed hyper-parameters. The latent variable α determines the relevance of each regression coefficient.</p>
+  <p>The posterior p(β, τ, α y ; x) is not available in closed form. A simpler model that does not include α admits a closed form posterior because the normal-gamma distribution is conjugate to a normal likelihood with unknown mean and precision.</p>
+  <p>We derive a CAVI algorithm for this model. First, factorize the variational approximation as</p>
+  <p>Here we consider β and τ in a single factor.</p>
+  <p>q(β, τ, α) = q(β, τ)q(α).</p>
+  <p>Begin by applying Equation (18) to identify the optimal form of q(β, τ) as</p>
+  <p>log q(β, τ) = log p(y</p>
+  <p>β, τ ; x) + (cid:69)α[log p(β, τ</p>
+  <p>α)] + const.</p>
+  <p>(cid:129)</p>
+  <p>| D 2 + a0 τ 2</p>
+  <p>β (cid:62)</p>
+  <p>(cid:130)</p>
+  <p>1 +</p>
+  <p>n 2</p>
+  <p>log τ</p>
+  <p>(cid:139) (cid:69)α[diag α] +</p>
+  <p>− (cid:18) + const. (β</p>
+  <p>= log</p>
+  <p>(cid:78)</p>
+  <p>, τV − ∗</p>
+  <p>) + log Gam(τ</p>
+  <p>a ∗</p>
+  <p>, b ∗</p>
+  <p>xi x (cid:62)i</p>
+  <p>β +</p>
+  <p>i (cid:88)</p>
+  <p>(cid:140)</p>
+  <p>i (cid:88)</p>
+  <p>y 2 i</p>
+  <p>2β (cid:62)</p>
+  <p>i (cid:88)</p>
+  <p>xi yi + 2b0</p>
+  <p>(cid:19)</p>
+  <p>The optimal variational approximation to the regression coefficients and the precision is thus a normal-gamma with the following parameters:</p>
+  <p>V − ∗</p>
+  <p>a ∗</p>
+  <p>b ∗</p>
+  <p>= (cid:69)α[diag α] +</p>
+  <p>xi x (cid:62)i ,</p>
+  <p>i (cid:88)</p>
+  <p>xi yi,</p>
+  <p>= V ∗</p>
+  <p>i (cid:88) n = a0 + 2</p>
+  <p>= b0 +</p>
+  <p>1 2</p>
+  <p>y 2 i</p>
+  <p>β (cid:62) ∗</p>
+  <p>V − ∗</p>
+  <p>∗(cid:140)</p>
+  <p>(cid:130)</p>
+  <p>i (cid:88)</p>
+  <p>Next consider the optimal form of the relevance variables α. Again, apply Equation (18) to d=1 q(αd ) as identify the optimal form of q(α) =</p>
+  <p>(cid:81) log q(αd ) = (cid:69)β,τ[log p(β, τ</p>
+  <p>1 +</p>
+  <p>D 2 − = log Gam(αd</p>
+  <p>(cid:129)</p>
+  <p>αd )] + log p(αd ) + const. 1 2 (cid:69)β,τ[τβ 2 d ]</p>
+  <p>d0 +</p>
+  <p>| log αd</p>
+  <p>− d ).</p>
+  <p>(cid:139) c</p>
+  <p>, d ∗</p>
+  <p>(cid:129)</p>
+  <p>+ const.</p>
+  <p>(cid:139)</p>
+  <p>The optimal variational approximation to the relevance variable is thus a Gamma with the following parameters:</p>
+  <p>= c0 +</p>
+  <p>c ∗</p>
+  <p>d = d0 +</p>
+  <p>d ∗</p>
+  <p>1 2 1 2 (cid:69)β,τ[τβ 2 d ].</p>
+  <p>Finally, compute the expectations as</p>
+  <p>(cid:69)α[diag α] = c ∗ d ] = β 2 (cid:69)β,τ[τβ 2</p>
+  <p>diag 1/d ∗ + [V ∗</p>
+  <p>/b ∗</p>
+  <p>d a ∗</p>
+  <p>]d ,</p>
+  <p>]d indicates the dth diagonal entry of a matrix.</p>
+  <p>where [ Iteratively updating a defines CAVI for this model. These quantities ∗ ∗ also define the ELBO; Drugowitsch (2013) presents the additional algebra that computes the ELBO.</p>
+  <p>, V − ∗</p>
+  <p>, and β</p>
+  <p>, b ∗</p>
+  <p>, d ∗</p>
+  <p>, c ∗</p>
+  <p>B Gaussian Mixture Model of Image Histograms</p>
+  <p>We present a multivariate (D-dimensional), diagonal covariance Gaussian mixture model D. (GMM). Denote a dataset of n observations as x = x1:n Assume K mixture components.</p>
+  <p>D), where each xi</p>
+  <p>(cid:82)(n</p>
+  <p>(cid:82)</p>
+  <p>K) where each zi is a K-indicator The cluster assignment latent variables are z = z1:n vector. The cluster assignments depend on the mixing vector latent variable π, which lives in a K-simplex. The mean latent variables are μ = μ1:K latent variables are τ = τ1:K The joint density of the model factorizes as</p>
+  <p>D), where each μk (cid:82)</p>
+  <p>(cid:82)(K D), where each τk</p>
+  <p>D, and the precision</p>
+  <p>(cid:82)(K</p>
+  <p>(cid:82)(n</p>
+  <p>D &gt;0.</p>
+  <p>(cid:82)</p>
+  <p>p(x, z, π, μ, τ) = p(x</p>
+  <p>z, μ, τ)p(z</p>
+  <p>π)p(π)p(μ</p>
+  <p>τ)p(τ).</p>
+  <p>The likelihood is Gaussian with precision parameterization</p>
+  <p>z, μ, τ) =</p>
+  <p>p(x</p>
+  <p>i=1 (cid:89)</p>
+  <p>k=1 (cid:130) (cid:89)</p>
+  <p>d=1 (cid:78) (cid:89)</p>
+  <p>znk</p>
+  <p>(xid</p>
+  <p>μkd , τkd )</p>
+  <p>(cid:140)</p>
+  <p>The marginal over cluster assignments is a categorical distribution,</p>
+  <p>π) =</p>
+  <p>p(z</p>
+  <p>i=1 (cid:89)</p>
+  <p>k=1 (cid:89)</p>
+  <p>πzik k .</p>
+  <p>The prior over the mixing vector is a Dirichlet distribution with fixed hyperparameters a0,</p>
+  <p>p(π) = Dir(π</p>
+  <p>a0) = C(a0)</p>
+  <p>πa0 k</p>
+  <p>k=1 (cid:89)</p>
+  <p>The prior over mean and precision parameters is a normal-gamma distribution with hyper- parameters m0, b0, α0, β0,</p>
+  <p>τ)p(τ) =</p>
+  <p>p(μ</p>
+  <p>k=1 (cid:89) K</p>
+  <p>d=1 (cid:78) (cid:89) D</p>
+  <p>k=1 (cid:89)</p>
+  <p>d=1 (cid:78) (cid:89)</p>
+  <p>(μkd</p>
+  <p>(μkd</p>
+  <p>m0, b0τkd )</p>
+  <p>d=1 (cid:89) m0, b0τkd ) Gam(τkd</p>
+  <p>k=1 (cid:89)</p>
+  <p>Gam(τkd</p>
+  <p>α0, β0)</p>
+  <p>α0, β0).</p>
+  <p>We use the following values for the hyperparameters</p>
+  <p>a0 =</p>
+  <p>1 K</p>
+  <p>m0 = 0.0,</p>
+  <p>b0 = 1.0,</p>
+  <p>α0 = 1.0,</p>
+  <p>β0 = 1.0.</p>
+  <p>Bishop (2006, Chapter 10.2) derives a CAVI algorithm for this model.</p>
+  <p>Figure 8 presents Stan code that implements this model. Since Stan does not support discrete latent variables, we marginalize over the assignment variables.</p>
+  <p>d a t a {</p>
+  <p>i n t &lt; l o w e r =0&gt; N ; // number o f d a t a p o i n t s i n t &lt; l o w e r =0&gt; K; // number o f m i x t u r e components i n t &lt; l o w e r =0&gt; D; // d i m e n s i o n v e c t o r [D] x [ N ] ; // o b s e r v a t i o n s</p>
+  <p>i n d a t a s e t</p>
+  <p>t r a n s f o r m e d d a t a {</p>
+  <p>v e c t o r &lt; l o w e r =0 &gt;[K] alpha0_vec ; f o r</p>
+  <p>( k i n 1 :K) {</p>
+  <p>alpha0_vec [ k ] &lt; - 1 . 0 /K;</p>
+  <p>// c o n v e r t // t o a v e c t o r</p>
+  <p>t h e s c a l a r d i r i c h l e t p r i o r 1/K</p>
+  <p>p a r a m e t e r s { s i m p l e x [K] v e c t o r [D] mu[K ] ; v e c t o r &lt; l o w e r =0 &gt;[D]</p>
+  <p>t h e t a ;</p>
+  <p>model {</p>
+  <p>sigma [K ] ;</p>
+  <p>// mixing p r o p o r t i o n s // l o c a t i o n s o f m i x t u r e components // s t a n d a r d d e v i a t i o n s o f m i x t u r e components</p>
+  <p>// p r i o r s t h e t a ~ d i r i c h l e t ( alpha0_vec ) ; f o r</p>
+  <p>( k i n 1 :K) { mu[ k ] ~ normal ( 0 . 0 , 1 . 0 / sigma [ k ] ) ; sigma [ k ] ~ inv_gamma ( 1 . 0 , 1 . 0 ) ;</p>
+  <p>// l i k e l i h o o d f o r</p>
+  <p>( n i n 1 :N) {</p>
+  <p>r e a l ps [K ] ; f o r</p>
+  <p>( k i n 1 :K) {</p>
+  <p>ps [ k ] &lt; -</p>
+  <p>l o g ( t h e t a [ k ] ) + normal_log ( x [ n ] , mu [ k ] ,</p>
+  <p>sigma [ k ] ) ;</p>
+  <p>} increment_log_prob ( log_sum_exp ( ps ) ) ;</p>
+  <p>Figure 8: Stan code for the GMM of image histograms.</p>
+  <p>C Latent Dirichlet Allocation</p>
+  <p>Probabilistic topic models are mixed-membership models of text, used to uncover the latent “topics” that run through a collection of documents. Topic models have become a popular technique for exploratory data analysis of large collections (<span class="person">Blei<span class="tag">persName</span></span>, 2012).</p>
+  <p>Latent Dirichlet allocation (LDA) (<span class="person">Blei<span class="tag">persName</span></span> et al., 2003) is a conditionally conjugate topic model (Section 4.2). It treats documents as containing multiple topics, where a topic is a distribution over words in a vocabulary.</p>
+  <p>Following the notation of Hoffman et al. (2013), let K be a specific number of topics and V the size of the vocabulary. LDA defines the following generative process:</p>
+  <p>1. For each topic in k = 1, . . . , K,</p>
+  <p>(a) draw a distribution over words βk</p>
+  <p>2. For each document in d = 1, . . . , D,</p>
+  <p>DirV (η).</p>
+  <p>(a) draw a vector of topic proportions θd</p>
+  <p>(b) For each word in n = 1, . . . , N ,</p>
+  <p>DirK (α).</p>
+  <p>i. draw a topic assignment zdn</p>
+  <p>Mult(θd ), then</p>
+  <p>ii. draw a word wdn</p>
+  <p>∼ Mult(βzdn ).</p>
+  <p>(cid:82)</p>
+  <p>Here η (cid:82)&gt;0 is a fixed parameter of the symmetric Dirichlet prior on the topics β, and ∈ K &gt;0 are fixed parameters of the Dirichlet prior on the topic proportions for each α document. Similar to the GMM example in Section 3, we encode categorical variables as indicator vectors. Thus zdn is a K-vector where zk dn = 1 indicates the nth word in document d is assigned to the kth topic. Similarly, wdn is a V -vector where wv dn = 1 indicates that the nth word in document d is the vth word in the vocabulary. We occasionally abuse these indicator vectors as indices—for example, if zk is the kth topic, denoted by βk.</p>
+  <p>dn = 1, then βzdn</p>
+  <p>The posterior p(β, θ , z w) is not available in closed form. While the topic assignments z and their proportions θ enjoy a conjugate relationship, the introduction of the topics β renders this posterior analytically intractable.</p>
+  <p>We derive a CAVI algorithm for this model, based on Hoffman et al. (2013). Posit a mean-field variational family</p>
+  <p>q(β, θ , z) =</p>
+  <p>q(βk ; λk)</p>
+  <p>q(θd ; γd )</p>
+  <p>q(zdn ; φdn)</p>
+  <p>k=1 (cid:89)</p>
+  <p>d=1 (cid:130) (cid:89)</p>
+  <p>n=1 (cid:89)</p>
+  <p>(cid:140)</p>
+  <p>Since LDA is a conditionally conjugate model, we can directly identify the family of each factor (Section 4.2).</p>
+  <p>Begin with the complete conditional of the topic assignment. This is a multinomial,</p>
+  <p>p(zdn = k</p>
+  <p>θd , β, wdn)</p>
+  <p>exp</p>
+  <p>log θdk + log βk,wdn</p>
+  <p>The variational approximation to the topic assignments is also a multinomial distribution, with parameters φdn.</p>
+  <p>(cid:1)</p>
+  <p>(cid:0)</p>
+  <p>Follow with the complete conditional of the topic proportions. This is a K-dimensional Dirichlet</p>
+  <p>p(θd</p>
+  <p>zd ) = DirK</p>
+  <p>α +</p>
+  <p>zdn.</p>
+  <p>(cid:130)</p>
+  <p>n=1 (cid:88)</p>
+  <p>(cid:140)</p>
+  <p>The variational approximation to the topic proportions is also a K-dimensional Dirichlet with parameters γd .</p>
+  <p>End with the complete conditional of the topics. This is a V -dimensional Dirichlet</p>
+  <p>p(βk</p>
+  <p>z, w) = DirV</p>
+  <p>η +</p>
+  <p>(cid:130)</p>
+  <p>d=1 (cid:88)</p>
+  <p>n=1 (cid:88)</p>
+  <p>zk dnwdn</p>
+  <p>(cid:140)</p>
+  <p>In words, the vth element of the kth topic is a Dirichlet with parameter equal to the sum of the fixed scalar η and the number of times term v (denoted by wdn) was assigned to topic k (denoted by zk dn). The variational approximation to the topic proportions is a V -dimensional Dirichlet with parameters λk.</p>
+  <p>The CAVI updates for the topic assignment and topic proportions require iterating over the following for each word within each document until convergence:</p>
+  <p>exp</p>
+  <p>(cid:69) [log θdk] + (cid:69)</p>
+  <p>log βk,wdn</p>
+  <p>exp</p>
+  <p>(cid:0)</p>
+  <p>(cid:2)</p>
+  <p>Ψ(γdk) + Ψ(λk,wdn ) (cid:18) N</p>
+  <p>(cid:3)(cid:1)</p>
+  <p>λkv</p>
+  <p>(cid:18)(cid:88)</p>
+  <p>(cid:19)(cid:19)</p>
+  <p>(59)</p>
+  <p>(60)</p>
+  <p>φk dn</p>
+  <p>γd = α +</p>
+  <p>φdn</p>
+  <p>n=1 (cid:88)</p>
+  <p>This is a direct application of Equation (47) to the complete conditionals above.</p>
+  <p>The updates for φ and γ depend on the variational parameters for the topics λ. The update for the topics, in turn, depends on the variational parameters for the topic proportions. That update is</p>
+  <p>λk = η +</p>
+  <p>dnwdn.</p>
+  <p>d=1 (cid:88)</p>
+  <p>n=1 (cid:88)</p>
+  <p>(61)</p>
+  <p>This update only depends on the variational parameter for the topic assignments φdn.</p>
+  <p>Algorithm 4 presents the full CAVI algorithm for LDA. A similar computation defines the ELBO for LDA; Hoffman et al. (2013) present the additional algebra for the ELBO.</p>
+  <p>Algorithm 4: CAVI for LDA Input: LDA model and a set of words in documents w.</p>
+  <p>Output: Variational parameters λ, γ, φ.</p>
+  <p>Initialize: Variational parameters λ, γ randomly.</p>
+  <p>while the ELBO has not converged do</p>
+  <p>repeat</p>
+  <p>for each document d do</p>
+  <p>for each word n do</p>
+  <p>Compute updates to φ and γ via Equations (59) and (60).</p>
+  <p>end</p>
+  <p>end</p>
+  <p>until φ and γ have converged;</p>
+  <p>Compute update to λ via Equation (61).</p>
+  <p>end</p>
+  <p>References</p>
+  <p>Ahmed, A., Aly, M., Gonzalez, J., Narayanamurthy, S., and Smola, A. (2012). Scalable inference in latent variable models. In International Conference on Web Search and Data Mining.</p>
+  <p>Airoldi, E., <span class="person">Blei<span class="tag">persName</span></span>, D., Fienberg, S., and Xing, E. (2008). Mixed membership stochastic</p>
+  <p>blockmodels. Journal of Machine Learning Research, 9:1981–2014.</p>
+  <p>Amari, S. (1982). Differential geometry of curved exponential families-curvatures and</p>
+  <p>information loss. The Annals of Statistics, 10(2):357–385.</p>
+  <p>Amari, S. (1998). Natural gradient works efficiently in learning. Neural Computation,</p>
+  <p>10(2):251–276.</p>
+  <p>Archambeau, C., Cornford, D., Opper, M., and Shawe-Taylor, J. (2007a). Gaussian process approximations of stochastic differential equations. Workshop on Gaussian Processes in Practice, 1:1–16.</p>
+  <p>Archambeau, C., Opper, M., Shen, Y., Cornford, D., and Shawe-Taylor, J. (2007b). Variational</p>
+  <p>inference for diffusion processes. In Neural Information Processing Systems.</p>
+  <p>Armagan, A., Clyde, M., and Dunson, D. (2011). Generalized beta mixtures of Gaussians.</p>
+  <p>In Neural Information Processing Systems.</p>
+  <p>Armagan, A. and Dunson, D. (2011). Sparse variational analysis of linear mixed models for</p>
+  <p>large data sets. Statistics &amp; Probability Letters, 81(8):1056–1062.</p>
+  <p>Barber, D. (2012). Bayesian Reasoning and Machine Learning. Cambridge University Press.</p>
+  <p>Barber, D. and Chiappa, S. (2006). Unified inference for variational Bayesian linear Gaussian</p>
+  <p>state-space models. In Neural Information Processing Systems.</p>
+  <p>Barber, D. and de van Laar, P. (1999). Variational cumulant expansions for intractable</p>
+  <p>distributions. Journal of Artificial Intelligence Research, pages 435–455.</p>
+  <p>Barber, D. and Wiegerinck, W. (1999). Tractable variational structures for approximating</p>
+  <p>graphical models. In Neural Information Processing Systems.</p>
+  <p>Beal, M. and Ghahramani, Z. (2003). The variational Bayesian EM algorithm for incomplete data: With application to scoring graphical model structures. In Bernardo, J., Bayarri, M., Berger, J., Dawid, A., Heckerman, D., Smith, A., and West, M., editors, Bayesian Statistics 7. Oxford University Press.</p>
+  <p>Bernardo, J. and Smith, A. (1994). Bayesian <span class="method">Theory<span class="tag">term·mth</span></span>. John Wiley &amp; Sons Ltd., Chichester.</p>
+  <p>Bickel, P., Choi, D., Chang, X., Zhang, H., et al. (2013). Asymptotic normality of maximum likelihood and its variational approximation for stochastic blockmodels. The Annals of Statistics, 41(4):1922–1943.</p>
+  <p>Bishop, C. (2006). Pattern Recognition and Machine Learning. Springer New York.</p>
+  <p>Bishop, C., Lawrence, N., Jaakkola, T., and Jordan, M. I. (1998). Approximating posterior distributions in belief networks using mixtures. In Neural Information Processing Systems.</p>
+  <p>Bishop, C. and Winn, J. (2000). Non-linear Bayesian image modelling.</p>
+  <p>In European</p>
+  <p>Conference on Computer Vision.</p>
+  <p><span class="person">Blei<span class="tag">persName</span></span>, D. (2012). Probabilistic topic models. Communications of the ACM, 55(4):77–84.</p>
+  <p><span class="person">Blei<span class="tag">persName</span></span>, D. and Jordan, M. I. (2006). <span class="method">Variational inference<span class="tag">term·mth</span></span> for Dirichlet process mixtures.</p>
+  <p>Journal of Bayesian Analysis, 1(1):121–144.</p>
+  <p><span class="person">Blei<span class="tag">persName</span></span>, D. and Lafferty, J. (2007). A correlated topic model of Science. Annals of Applied</p>
+  <p>Statistics, 1(1):17–35.</p>
+  <p><span class="person">Blei<span class="tag">persName</span></span>, D., Ng, A., and Jordan, M. I. (2003). Latent Dirichlet allocation. Journal of Machine</p>
+  <p>Learning Research, 3:993–1022.</p>
+  <p>Braun, M. and <span class="person">McAuliffe<span class="tag">persName</span></span>, J. (2010). <span class="method">Variational inference<span class="tag">term·mth</span></span> for large-scale models of discrete</p>
+  <p>choice. Journal of the American Statistical Association, 105(489):324–335.</p>
+  <p>Brown, L. (1986). Fundamentals of Statistical Exponential Families. Institute of Mathematical</p>
+  <p>Statistics, Hayward, CA.</p>
+  <p>Bugbee, B., Breidt, F., and van der Woerd, M. (2016). Laplace variational approximation for semiparametric regression in the presence of heteroscedastic errors. Journal of Computational and Graphical Statistics, 25:225–245.</p>
+  <p>Carbonetto, P. and Stephens, M. (2012). Scalable <span class="method">variational inference<span class="tag">term·mth</span></span> for Bayesian variable selection in regression, and its accuracy in genetic association studies. Bayesian Analysis, 7(1):73–108.</p>
+  <p>Celisse, A., Daudin, J.-J., Pierre, L., et al. (2012). Consistency of maximum-likelihood and variational estimators in the stochastic block model. Electronic Journal of Statistics, 6:1847–1899.</p>
+  <p>Challis, E. and Barber, D. (2013). Gaussian Kullback-Leibler <span class="method">approximate inference<span class="tag">term·mth</span></span>. The</p>
+  <p>Journal of Machine Learning Research, 14(1):2239–2286.</p>
+  <p>Chan, A. and Vasconcelos, N. (2009). Layered dynamic textures. IEEE Transactions on</p>
+  <p>Pattern Analysis and Machine Intelligence, 31(10):1862–1879.</p>
+  <p>Cohen, S. and Smith, N. (2010). Covariance in unsupervised learning of probabilistic</p>
+  <p>grammars. The Journal of Machine Learning Research, 11:3017–3051.</p>
+  <p>Cummins, M. and Newman, P. (2008). FAB-MAP: Probabilistic localization and mapping in the space of appearance. The International Journal of Robotics Research, 27(6):647–665.</p>
+  <p>Damianou, A., Titsias, M., and Lawrence, N. (2011). Variational Gaussian process dynamical</p>
+  <p>systems. In Neural Information Processing Systems.</p>
+  <p>Daunizeau, J., Adam, V., and Rigoux, L. (2014). VBA: A probabilistic treatment of nonlinear models for neurobiological and behavioural data. PLoS Comput Biol, 10(1):e1003441.</p>
+  <p>Dempster, A., Laird, N., and Rubin, D. (1977). Maximum likelihood from incomplete data</p>
+  <p>via the EM algorithm. Journal of the Royal Statistical Society, Series B, 39:1–38.</p>
+  <p>Deng, L. (2004). Switching dynamic system models for speech articulation and acoustics. In Mathematical Foundations of Speech and Language Processing, pages 115–133. Springer.</p>
+  <p>Diaconis, P., Ylvisaker, D., et al. (1979). Conjugate priors for exponential families. The</p>
+  <p>Annals of Statistics, 7(2):269–281.</p>
+  <p>Drugowitsch, J. (2013). Variational <span class="concept">Bayesian inference<span class="tag">term·dom</span></span> for linear and logistic regression.</p>
+  <p>arXiv preprint arXiv:1310.5438.</p>
+  <p>Du, L., Lu, R., Carin, L., and Dunson, D. (2009). A Bayesian model for simultaneous image clustering, annotation and object segmentation. In Neural Information Processing Systems.</p>
+  <p>Ermis, B. and Bouchard, G. (2014). Iterative splits of quadratic bounds for scalable binary</p>
+  <p>tensor factorization. In Uncertainty in Artificial Intelligence.</p>
+  <p>Erosheva, E. A., Fienberg, S. E., and Joutard, C. (2007). Describing disability through individual-level mixture models for multivariate binary data. The Annals of Applied Statistics, 1(2):346–384.</p>
+  <p>Flandin, G. and Penny, W. (2007). Bayesian fMRI data analysis with sparse spatial basis</p>
+  <p>function priors. NeuroImage, 34(3):1108–1125.</p>
+  <p>Foti, N., Xu, J., Laird, D., and Fox, E. (2014). Stochastic <span class="method">variational inference<span class="tag">term·mth</span></span> for hidden</p>
+  <p>Markov models. In Neural Information Processing Systems.</p>
+  <p>Freitas, N. D., Højen-Sørensen, P., Jordan, M., and Russell, S. (2001). Variational MCMC. In</p>
+  <p>Uncertainty in Artificial Intelligence.</p>
+  <p>Furmston, T. and Barber, D. (2010). Variational methods for reinforcement learning. In</p>
+  <p>Artificial Intelligence and Statistics.</p>
+  <p>Gelfand, A. and Smith, A. (1990). Sampling based approaches to calculating marginal</p>
+  <p>densities. Journal of the American Statistical Association, 85:398–409.</p>
+  <p>Geman, S. and Geman, D. (1984). Stochastic relaxation, Gibbs distributions and the Bayesian restoration of images. IEEE Transactions on Pattern Analysis and Machine Intelligence, 6:721–741.</p>
+  <p>Gershman, S. J., <span class="person">Blei<span class="tag">persName</span></span>, D. M., Norman, K. A., and Sederberg, P. B. (2014). Decomposing spatiotemporal brain patterns into topographic latent sources. NeuroImage, 98:91–102.</p>
+  <p>Ghahramani, Z. and Jordan, M. I. (1997). Factorial hidden Markov models. Machine</p>
+  <p>Learning, 29(2-3):245–273.</p>
+  <p>Giordano, R. J., Broderick, T., and Jordan, M. I. (2015). Linear response methods for accurate covariance estimates from mean field variational Bayes. In Neural Information Processing Systems.</p>
+  <p>Grimmer, J. (2011). An introduction to <span class="concept">Bayesian inference<span class="tag">term·dom</span></span> via variational approximations.</p>
+  <p>Political Analysis, 19(1):32–47.</p>
+  <p>Hall, P., Ormerod, J., and Wand, M. (2011a). <span class="method">Theory<span class="tag">term·mth</span></span> of Gaussian variational approximation</p>
+  <p>for a Poisson mixed model. Statistica Sinica, 21:369–389.</p>
+  <p>Hall, P., Pham, T., Wand, M., and Wang, S. (2011b). Asymptotic normality and valid inference for Gaussian variational approximation. Annals of Statistics, 39(5):2502–2532.</p>
+  <p>Harrison, L. and Green, G. (2010). A Bayesian spatiotemporal model for very large data</p>
+  <p>sets. Neuroimage, 50(3):1126–1141.</p>
+  <p>Hastings, W. (1970). Monte Carlo sampling methods using Markov chains and their applica-</p>
+  <p>tions. Biometrika, 57:97–109.</p>
+  <p>Hensman, J., Fusi, N., and Lawrence, N. (2014). Gaussian processes for big data.</p>
+  <p>Uncertainty in Artificial Intelligence.</p>
+  <p>Hensman, J., Rattray, M., and Lawrence, N. (2012). Fast <span class="method">variational inference<span class="tag">term·mth</span></span> in the</p>
+  <p>conjugate exponential family. In Neural Information Processing Systems.</p>
+  <p>Hinton, G. and Van Camp, D. (1993). Keeping the neural networks simple by minimizing</p>
+  <p>the description length of the weights. In Computational Learning <span class="method">Theory<span class="tag">term·mth</span></span>.</p>
+  <p>Hoffman, M. D., <span class="person">Blei<span class="tag">persName</span></span>, D., Wang, C., and Paisley, J. (2013). Stochastic <span class="method">variational inference<span class="tag">term·mth</span></span>.</p>
+  <p>Journal of Machine Learning Research, 14:1303–1347.</p>
+  <p>Hoffman, M. D. and <span class="person">Blei<span class="tag">persName</span></span>, D. M. (2015). Structured stochastic <span class="method">variational inference<span class="tag">term·mth</span></span>. In</p>
+  <p>Artificial Intelligence and Statistics.</p>
+  <p>Hoffman, M. D. and Gelman, A. (2014). The No-U-turn sampler: Adaptively setting path lengths in Hamiltonian Monte Carlo. The Journal of Machine Learning Research, 15(1):1593–1623.</p>
+  <p>Honkela, A., Tornio, M., Raiko, T., and Karhunen, J. (2008). Natural conjugate gradient in</p>
+  <p><span class="method">variational inference<span class="tag">term·mth</span></span>. In Neural Information Processing, pages 305–314. Springer.</p>
+  <p>Jaakkola, T. and Jordan, M. I. (1996). Computing upper and lower bounds on likelihoods</p>
+  <p>in intractable networks. In Uncertainty in Artificial Intelligence.</p>
+  <p>Jaakkola, T. and Jordan, M. I. (1997). A variational approach to Bayesian logistic regression</p>
+  <p>models and their extensions. In Artificial Intelligence and Statistics.</p>
+  <p>Jaakkola, T. and Jordan, M. I. (2000). Bayesian parameter estimation via variational</p>
+  <p>methods. Statistics and Computing, 10(1):25–37.</p>
+  <p>Ji, C., Shen, H., and West, M. (2010). Bounded approximations for marginal likelihoods.</p>
+  <p>Technical report, Duke University.</p>
+  <p>Johnson, M. and Willsky, A. (2014). Stochastic <span class="method">variational inference<span class="tag">term·mth</span></span> for Bayesian time series</p>
+  <p>models. In International Conference on Machine Learning.</p>
+  <p>Jojic, N. and Frey, B. (2001). Learning flexible sprites in video layers. In Computer Vision</p>
+  <p>and Pattern Recognition.</p>
+  <p>Jojic, V., Jojic, N., Meek, C., Geiger, D., Siepel, A., Haussler, D., and Heckerman, D. (2004). Efficient approximations for learning phylogenetic HMM models from data. Bioinformatics, 20:161–168.</p>
+  <p>Jordan, M. I., Ghahramani, Z., Jaakkola, T., and Saul, L. (1999). Introduction to variational</p>
+  <p>methods for graphical models. Machine Learning, 37:183–233.</p>
+  <p>Khan, M. E., Bouchard, G., Murphy, K. P., and Marlin, B. M. (2010). Variational bounds for</p>
+  <p>mixed-data factor analysis. In Neural Information Processing Systems.</p>
+  <p>Kiebel, S., Daunizeau, J., Phillips, C., and Friston, K. (2008). Variational Bayesian inversion of the equivalent current dipole model in EEG/MEG. NeuroImage, 39(2):728–741.</p>
+  <p>Kingma, D. and Welling, M. (2014). Auto-encoding variational Bayes. In International</p>
+  <p>Conference on Learning Representations.</p>
+  <p>Knowles, D. and Minka, T. (2011). Non-conjugate variational message passing for multino-</p>
+  <p>mial and binary regression. In Neural Information Processing Systems.</p>
+  <p><span class="person">Kucukelbir<span class="tag">persName</span></span>, A., Ranganath, R., Gelman, A., and <span class="person">Blei<span class="tag">persName</span></span>, D. (2015). Automatic variational</p>
+  <p>inference in Stan. In Neural Information Processing Systems.</p>
+  <p><span class="person">Kucukelbir<span class="tag">persName</span></span>, A., Tran, D., Ranganath, R., Gelman, A., and <span class="person">Blei<span class="tag">persName</span></span>, D. M. (2016). Automatic</p>
+  <p>differentiation <span class="method">variational inference<span class="tag">term·mth</span></span>. arXiv preprint arXiv:1603.00788.</p>
+  <p>Kullback, S. and Leibler, R. (1951). On information and sufficiency. The Annals of Mathe-</p>
+  <p>matical Statistics, 22(1):79–86.</p>
+  <p>Kurihara, K. and Sato, T. (2006). Variational Bayesian grammar induction for natural language. In Grammatical Inference: Algorithms and Applications, pages 84–96. Springer.</p>
+  <p>Kushner, H. and Yin, G. (1997). Stochastic Approximation Algorithms and Applications.</p>
+  <p>Springer New York.</p>
+  <p>Lashkari, D., Sridharan, R., Vul, E., Hsieh, P., Kanwisher, N., and Golland, P. (2012). Search for patterns of functional specificity in the brain: A nonparametric hierarchical Bayesian model for group fMRI data. Neuroimage, 59(2):1348–1368.</p>
+  <p>Lauritzen, S. and Spiegelhalter, D. (1988). Local computations with probabilities on graph- ical structures and their application to expert systems. Journal of the Royal Statistical Society. Series B, pages 157–224.</p>
+  <p>Le Cun, Y. and Bottou, L. (2004). Large scale online learning.</p>
+  <p>In Neural Information</p>
+  <p>Processing Systems.</p>
+  <p>Leisink, M. and Kappen, H. (2001). A tighter bound for graphical models. Neural Computa-</p>
+  <p>tion, 13(9):2149–2171.</p>
+  <p>Liang, P., Jordan, M. I., and Klein, D. (2009). Probabilistic grammars and hierarchical In O’Hagan, T. and West, M., editors, The Handbook of Applied</p>
+  <p>Dirichlet processes. Bayesian Analysis. New York: Oxford Univ. Press.</p>
+  <p>Liang, P., Petrov, S., Klein, D., and Jordan, M. I. (2007). The infinite PCFG using hierarchical</p>
+  <p>Dirichlet processes. In Empirical Methods in Natural Language Processing.</p>
+  <p>Likas, A. and Galatsanos, N. (2004). A variational approach for Bayesian blind image</p>
+  <p>deconvolution. IEEE Transactions on Signal Processing, 52(8):2222–2233.</p>
+  <p>Logsdon, B., Hoffman, G., and Mezey, J. (2010). A variational Bayes algorithm for fast and accurate multiple locus genome-wide association analysis. BMC Bioinformatics, 11(1):58.</p>
+  <p>MacKay, D. J. (1992). Bayesian interpolation. Neural Computation, 4(3):415–447.</p>
+  <p>MacKay, D. J. (1997). Ensemble learning for hidden Markov models. Unpublished manuscript</p>
+  <p>from http://www.inference.eng.cam.ac.uk/mackay/ensemblePaper.pdf.</p>
+  <p>Manning, J. R., Ranganath, R., Norman, K. A., and <span class="person">Blei<span class="tag">persName</span></span>, D. M. (2014). Topographic factor analysis: a Bayesian model for inferring brain networks from neural data. PloS one, 9(5):e94914.</p>
+  <p>Marlin, B. M., Khan, M. E., and Murphy, K. P. (2011). Piecewise bounds for estimating Bernoulli-logistic latent Gaussian models. In International Conference on Machine Learning.</p>
+  <p>McGrory, C. A. and Titterington, D. M. (2007). Variational approximations in Bayesian model selection for finite mixture distributions. Computational Statistics and Data Analysis, 51(11):5352–5367.</p>
+  <p>Metropolis, N., Rosenbluth, A., Rosenbluth, M., Teller, M., and Teller, E. (1953). Equations of state calculations by fast computing machines. Journal of Chemical Physics, 21:1087–1092.</p>
+  <p>Mimno, D., Hoffman, M., and <span class="person">Blei<span class="tag">persName</span></span>, D. (2012). Sparse stochastic inference for latent Dirichlet</p>
+  <p>allocation. In International Conference on Machine Learning.</p>
+  <p>Minka, T. (2005). Divergence measures and message passing. Technical Report TR-2005-173,</p>
+  <p>Microsoft Research.</p>
+  <p>Minka, T., Winn, J., Guiver, J., Webster, S., Zaykov, Y., Yangel, B., Spengler, A., and Bronskill,</p>
+  <p>J. (2014). Infer.NET 2.6.</p>
+  <p>Minka, T. P. (2001). Expectation propagation for approximate <span class="concept">Bayesian inference<span class="tag">term·dom</span></span>.</p>
+  <p>Uncertainty in Artificial Intelligence.</p>
+  <p>Naseem, T., Chen, H., Barzilay, R., and Johnson, M. (2010). Using universal linguistic In Empirical Methods in Natural Language</p>
+  <p>knowledge to guide grammar induction. Processing.</p>
+  <p>Nathoo, F., Babul, A., Moiseev, A., Virji-Babul, N., and Beg, M. (2014). A variational Bayes spatiotemporal model for electromagnetic brain mapping. Biometrics, 70(1):132–143.</p>
+  <p>Neal, R. and Hinton, G. (1999). A view of the EM algorithm that justifies incremental, sparse, and other variants. In Learning in Graphical Models, pages 355–368. MIT Press.</p>
+  <p>Neal, R. M. (2012). Bayesian Learning for Neural Networks. Springer Science &amp; Business</p>
+  <p>Media.</p>
+  <p>Neville, S., Ormerod, J., and Wand, M. (2014). Mean field variational Bayes for continuous sparse signal shrinkage: pitfalls and remedies. Electronic Journal of Statistics, 8(1):1113– 1151.</p>
+  <p>Nott, D. J., Tan, S. L., Villani, M., and Kohn, R. (2012). Regression density estimation with variational methods and stochastic approximation. Journal of Computational and Graphical Statistics, 21(3):797–820.</p>
+  <p>Opper, M. and Winther, O. (2005). Expectation consistent <span class="method">approximate inference<span class="tag">term·mth</span></span>. The</p>
+  <p>Journal of Machine Learning Research, 6:2177–2204.</p>
+  <p>Ormerod,</p>
+  <p>J.,</p>
+  <p>You, C., variable</p>
+  <p>and Muller, selection.</p>
+  <p>(2014).</p>
+  <p>A variational Bayes from</p>
+  <p>approach http://www.maths.usyd.edu.au/u/jormerod/JTOpapers/VariableSelectionFinal.pdf.</p>
+  <p>Unpublished manuscript</p>
+  <p>Paisley, J., <span class="person">Blei<span class="tag">persName</span></span>, D., and Jordan, M. I. (2012). Variational <span class="concept">Bayesian inference<span class="tag">term·dom</span></span> with stochastic</p>
+  <p>search. In International Conference on Machine Learning.</p>
+  <p>Parisi, G. (1988). Statistical Field <span class="method">Theory<span class="tag">term·mth</span></span>. Addison-Wesley.</p>
+  <p>Pearl, J. (1988). Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference.</p>
+  <p>Morgan Kaufmann.</p>
+  <p>Penny, W., Kiebel, S., and Friston, K. (2003). Variational <span class="concept">Bayesian inference<span class="tag">term·dom</span></span> for fMRI time</p>
+  <p>series. NeuroImage, 19(3):727–741.</p>
+  <p>Penny, W., Trujillo-Barreto, N., and Friston, K. (2005). Bayesian fMRI time series analysis</p>
+  <p>with spatial priors. Neuroimage, 24:350–362.</p>
+  <p>Peterson, C. and Anderson, J. (1987). A mean field <span class="method">theory<span class="tag">term·mth</span></span> learning algorithm for neural</p>
+  <p>networks. Complex Systems, 1(5):995–1019.</p>
+  <p>Raj, A., Stephens, M., and Pritchard, J. (2014). fastSTRUCTURE: <span class="method">Variational inference<span class="tag">term·mth</span></span> of</p>
+  <p>population structure in large SNP data sets. Genetics, 197(2):573–589.</p>
+  <p>Ramos, F., Upcroft, B., Kumar, S., and Durrant-Whyte, H. (2012). A Bayesian approach for</p>
+  <p>place recognition. Robotics and Autonomous Systems, 60(4):487–497.</p>
+  <p>Ranganath, R., Gerrish, S., and <span class="person">Blei<span class="tag">persName</span></span>, D. (2014). Black box <span class="method">variational inference<span class="tag">term·mth</span></span>. In Artificial</p>
+  <p>Intelligence and Statistics.</p>
+  <p>Ranganath, R., Tran, D., and <span class="person">Blei<span class="tag">persName</span></span>, D. (2016). Hierarchical variational models. In International</p>
+  <p>Conference on Machine Learning.</p>
+  <p>Regier, J., Miller, A., <span class="person">McAuliffe<span class="tag">persName</span></span>, J., Adams, R., Hoffman, M., Lang, D., Schlegel, D., and Prabhat (2015). Celeste: <span class="method">Variational inference<span class="tag">term·mth</span></span> for a generative model of astronomical images. In International Conference on Machine Learning.</p>
+  <p>Reyes-Gomez, M., Ellis, D., and Jojic, N. (2004). Multiband audio modeling for single-</p>
+  <p>channel acoustic source separation. In Acoustics, Speech, and Signal Processing.</p>
+  <p>Rezende, D. J., Mohamed, S., and Wierstra, D. (2014). Stochastic backpropagation and <span class="method">approximate inference<span class="tag">term·mth</span></span> in deep generative models. In International Conference on Machine Learning.</p>
+  <p>Robbins, H. and Monro, S. (1951). A stochastic approximation method. The Annals of</p>
+  <p>Mathematical Statistics, 22(3):400–407.</p>
+  <p>Robert, C. and Casella, G. (2004). Monte Carlo Statistical Methods. Springer Texts in</p>
+  <p>Statistics. Springer-Verlag, New York, NY.</p>
+  <p>Roberts, S., Guilford, T., Rezek, I., and Biro, D. (2004). Positional entropy during pigeon homing I: Application of Bayesian latent state modelling. Journal of Theoretical Biology, 227:39–50.</p>
+  <p>Roberts, S. and Penny, W. (2002). Variational Bayes for generalized autoregressive models.</p>
+  <p>IEEE Transactions on Signal Processing, 50(9):2245–2257.</p>
+  <p>Rohde, D. and Wand, M. (2015). Semiparametric mean field variational Bayes: Gen- eral principles and numerical issues. Unpublished manuscript from http://matt- wand.utsacademics.info/RohdeWand.pdf.</p>
+  <p>Salimans, T., Kingma, D., and Welling, M. (2015). Markov chain Monte Carlo and <span class="method">variational inference<span class="tag">term·mth</span></span>: Bridging the gap. In International Conference on Machine Learning, pages 1218– 1226.</p>
+  <p>Salimans, T. and Knowles, D. (2014). On using control variates with stochastic approximation</p>
+  <p>for variational Bayes. arXiv preprint arXiv:1401.1022.</p>
+  <p>Sanguinetti, G., Lawrence, N., and Rattray, M. (2006). Probabilistic inference of transcription factor concentrations and gene-specific regulatory activities. Bioinformatics, 22(22):2775– 2781.</p>
+  <p>Sato, M. (2001). Online model selection based on the variational Bayes. Neural Computation,</p>
+  <p>13(7):1649–1681.</p>
+  <p>Sato, M., Yoshioka, T., Kajihara, S., Toyama, K., Goda, N., Doya, K., and Kawato, M. (2004). Hierarchical Bayesian estimation for MEG inverse problem. NeuroImage, 23(3):806–826.</p>
+  <p>Saul, L. and Jordan, M. I. (1996). Exploiting tractable substructures in intractable networks.</p>
+  <p>In Neural Information Processing Systems.</p>
+  <p>Saul, L. K., Jaakkola, T., and Jordan, M. I. (1996). Mean field <span class="method">theory<span class="tag">term·mth</span></span> for sigmoid belief</p>
+  <p>networks. Journal of Artificial Intelligence Research, 4(1):61–76.</p>
+  <p>Spall, J. (2003). Introduction to Stochastic Search and Optimization: Estimation, Simulation,</p>
+  <p>and Control. John Wiley and Sons.</p>
+  <p>Stan Development Team (2015). Stan Modeling Language Users Guide and Reference Manual,</p>
+  <p>Version 2.8.0.</p>
+  <p>Stegle, O., Parts, L., Durbin, R., and Winn, J. (2010). A Bayesian framework to account for complex non-genetic factors in gene expression levels greatly increases power in eqtl studies. PLoS Comput Biol, 6(5):e1000770.</p>
+  <p>Sudderth, E. B. and Jordan, M. I. (2009). Shared segmentation of natural scenes using</p>
+  <p>dependent Pitman-Yor processes. In Neural Information Processing Systems.</p>
+  <p>Sung, J., Ghahramani, Z., and Bang, Y. (2008). Latent-space variational Bayes. Transactions on Pattern Analysis and Machine Intelligence, 30(12):2236–2242.</p>
+  <p>IEEE</p>
+  <p>Sykacek, P., Roberts, S., and Stokes, M. (2004). Adaptive BCI based on variational Bayesian Kalman filtering: An empirical evaluation. IEEE Transactions on Biomedical Engineering, 51(5):719–727.</p>
+  <p>Tan, L. and Nott, D. (2013). <span class="method">Variational inference<span class="tag">term·mth</span></span> for generalized linear mixed models using</p>
+  <p>partially noncentered parametrizations. Statistical Science, 28(2):168–188.</p>
+  <p>Tan, L. and Nott, D. (2014). A stochastic variational framework for fitting and diagnosing</p>
+  <p>generalized linear mixed models. Bayesian Analysis, 9(4):963–1004.</p>
+  <p>Tan, L. and Nott, D. (2016). Gaussian variational approximation with sparse precision</p>
+  <p>matrix. arXiv:1605.05622.</p>
+  <p>Tipping, M. and Lawrence, N. (2005). <span class="method">Variational inference<span class="tag">term·mth</span></span> for Student-t models: Robust Bayesian interpolation and generalised component analysis. Neurocomputing, 69(1):123– 141.</p>
+  <p>Tipping, M. E. (2001). Sparse Bayesian learning and the relevance vector machine. Journal</p>
+  <p>of Machine Learning Research, 1(Jun):211–244.</p>
+  <p>Titsias, M. and Lawrence, N. (2010). Bayesian Gaussian process latent variable model. In</p>
+  <p>Artificial Intelligence and Statistics.</p>
+  <p>Titsias, M. and Lázaro-Gredilla, M. (2014). Doubly stochastic variational Bayes for non-</p>
+  <p>conjugate inference. In International Conference on Machine Learning.</p>
+  <p>Tran, D., Ranganath, R., and <span class="person">Blei<span class="tag">persName</span></span>, D. M. (2016). The variational Gaussian process. In</p>
+  <p>International Conference on Learning Representations.</p>
+  <p>Ueda, N. and Ghahramani, Z. (2002). Bayesian model search for mixture models based on</p>
+  <p>optimizing variational bounds. Neural Networks, 15(10):1223–1241.</p>
+  <p>Van Den Broek, B., Wiegerinck, W., and Kappen, B. (2008). Graphical model inference in optimal control of stochastic multi-agent systems. Journal of Artificial Intelligence Research, 32:95–122.</p>
+  <p>Vermaak, J., Lawrence, N. D., and Pérez, P. (2003). <span class="method">Variational inference<span class="tag">term·mth</span></span> for visual tracking.</p>
+  <p>In Computer Vision and Pattern Recognition.</p>
+  <p>Villegas, M., Paredes, R., and Thomee, B. (2013). Overview of the ImageCLEF 2013 Scalable</p>
+  <p>Concept Image Annotation Subtask. In CLEF Evaluation Labs and Workshop.</p>
+  <p>Wainwright, M. J. and Jordan, M. I. (2008). Graphical models, exponential families, and</p>
+  <p><span class="method">variational inference<span class="tag">term·mth</span></span>. Foundations and Trends in Machine Learning, 1(1-2):1–305.</p>
+  <p>Wand, M. (2014). Fully simplified multivariate normal updates in non-conjugate variational</p>
+  <p>message passing. Journal of Machine Learning Research, 15:1351–1369.</p>
+  <p>Wand, M., Ormerod, J., Padoan, S., and Fuhrwirth, R. (2011). Mean field variational Bayes</p>
+  <p>for elaborate distributions. Bayesian Analysis, 6:847–900.</p>
+  <p>Wang, B. and Titterington, D. (2005). Inadequacy of interval estimates corresponding to</p>
+  <p>variational Bayesian approximations. In Artificial Intelligence and Statistics.</p>
+  <p>Wang, B. and Titterington, D. (2006). Convergence properties of a general algorithm for calculating variational Bayesian estimates for a normal mixture model. Bayesian Analysis, 1:625–650.</p>
+  <p>Wang, C. and <span class="person">Blei<span class="tag">persName</span></span>, D. (2013). <span class="method">Variational inference<span class="tag">term·mth</span></span> in nonconjugate models. Journal of</p>
+  <p>Machine Learning Research, 14:1005–1031.</p>
+  <p>Wang, C. and <span class="person">Blei<span class="tag">persName</span></span>, D. (2015). A general method for robust Bayesian modeling. arXiv</p>
+  <p>preprint arXiv:1510.05078.</p>
+  <p>Wang, P. and Blunsom, P. (2013). Collapsed variational <span class="concept">Bayesian inference<span class="tag">term·dom</span></span> for hidden</p>
+  <p>Markov models. In Artificial Intelligence and Statistics.</p>
+  <p>Wang, Y. and Mori, G. (2009). Human action recognition by semilatent topic models. IEEE</p>
+  <p>Transactions on Pattern Analysis and Machine Intelligence, 31(10):1762–1774.</p>
+  <p>Waterhouse, S., MacKay, D., and Robinson, T. (1996). Bayesian methods for mixtures of</p>
+  <p>experts. Neural Information Processing Systems.</p>
+  <p>Welling, M. and Teh, Y. (2011). Bayesian learning via stochastic gradient Langevin dynamics.</p>
+  <p>In International Conference on Machine Learning.</p>
+  <p>Westling, T. and McCormick, T. H. (2015). Establishing consistency and improving uncertainty estimates of <span class="method">variational inference<span class="tag">term·mth</span></span> through M-estimation. arXiv preprint arXiv:1510.08151.</p>
+  <p>Wiggins, C. and Hofman, J. (2008). Bayesian approach to network modularity. Physical</p>
+  <p>Review Letters, 100(25).</p>
+  <p>Wingate, D. and Weber, T. (2013). Automated <span class="method">variational inference<span class="tag">term·mth</span></span> in probabilistic pro-</p>
+  <p>gramming. arXiv preprint arXiv:1301.1299.</p>
+  <p>Winn, J. and Bishop, C. (2005). Variational message passing. Journal of Machine Learning</p>
+  <p>Research, 6:661–694.</p>
+  <p>Wipf, D. and Nagarajan, S. (2009). A unified Bayesian framework for MEG/EEG source</p>
+  <p>imaging. NeuroImage, 44(3):947–966.</p>
+  <p>Wipf, D. P. and Nagarajan, S. S. (2008). A new view of automatic relevance determination.</p>
+  <p>In Neural Information Processing Systems.</p>
+  <p>Woolrich, M., Behrens, T., Beckmann, C., Jenkinson, M., and Smith, S. (2004). Multilevel linear modeling for fMRI group analysis using <span class="concept">Bayesian inference<span class="tag">term·dom</span></span>. Neuroimage, 21:1732– 1747.</p>
+  <p>Xing, E., Wu, W., Jordan, M. I., and Karp, R. (2004). Logos: A modular Bayesian model for de novo motif detection. Journal of Bioinformatics and Computational Biology, 2(01):127– 154.</p>
+  <p>Yedidia, J. S., Freeman, W. T., and Weiss, Y. (2001). Generalized belief propagation. In</p>
+  <p>Neural Information Processing Systems.</p>
+  <p>Yogatama, D., Wang, C., Routledge, B., Smith, N. A., and Xing, E. (2014). Dynamic language models for streaming text. Transactions of the Association for Computational Linguistics, 2:181–192.</p>
+  <p>You, C., Ormerod, J., and Muller, S. (2014). On variational Bayes estimation and variational information criteria for linear regression models. Australian &amp; New Zealand Journal of Statistics, 56(1):73–87.</p>
+  <p>Yu, T. and Wu, Y. (2005). Decentralized multiple target tracking using netted collaborative</p>
+  <p>autonomous trackers. In Computer Vision and Pattern Recognition.</p>
+  <p>Zumer, J., Attias, H., Sekihara, K., and Nagarajan, S. (2007). A probabilistic algorithm integrating source localization and noise suppression for MEG and EEG data. NeuroImage, 37(1):102–115.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 48 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 11 <code>concept</code> · 152 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>blei2017-variational-inference</code>.</div>
+</body></html>

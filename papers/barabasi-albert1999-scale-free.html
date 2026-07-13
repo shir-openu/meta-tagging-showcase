@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emergence of Scaling in Random Networks — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>Emergence of Scaling in Random Networks — TEI-tagged view</h1>
+<div class="meta">Albert-László Barabási, Réka Albert · 1999 · <a href="https://en.wikipedia.org/wiki/Sociology">sociology</a> · <a href="https://doi.org/10.1126/science.286.5439.509">doi:10.1126/science.286.5439.509</a> · <a href="https://doi.org/10.1126/science.286.5439.509" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1126/science.286.5439.509" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Barabási</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Notre Dame</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Science</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">1999</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">scale-free network</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Albert-László Barabási<span class="tag">persName</span></span>, <span class="person">Réka Albert<span class="tag">persName</span></span> (<span class="date">1999<span class="tag">date</span></span>). &ldquo;Emergence of Scaling in Random Networks.&rdquo; <span class="work">Science<span class="tag">title·j</span></span>, <span class="place">Notre Dame<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> The statistical structure of large real-world networks - social, technological and biological.</p>
+  <p><b>Research question —</b> Why do so many real networks share a scale-free degree distribution rather than the bell-shaped one predicted by random-graph models?</p>
+  <p><b>Contribution —</b> Shows many real networks are scale-free, with power-law degree distributions emerging from growth plus <span class="concept">preferential attachment<span class="tag">term·dom</span></span> - founding network science.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>scale-free network (power-law degree distribution)</td></tr><tr><td class="k ct">claim-type</td><td>mechanism</td></tr><tr><td class="k mc">mechanism</td><td>network growth with preferential attachment (new nodes attach preferentially to already-highly-connected nodes; a rich-gets-richer process) generates the scale-free power law<span class="ev"> &mdash; &ldquo;incorporate growth and preferential attachment&rdquo;</span></td></tr><tr><td class="k cr">contradicts</td><td> <b>existing random-network models</b><span class="ev"> &mdash; &ldquo;This result indicates that large networks self-organize into a scale-free state, a feature unexpected by all existing random network models.&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>the model reproduces the scale-free degree distribution but cannot account for all aspects of real networks<span class="ev"> &mdash; &ldquo;While it reproduces the observed scale-free distribution, the proposed model cannot be expected to account for all aspects of the studied networks.&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>Emergence of Scaling in Random Networks</p>
+  <p>Emergence of Scaling in Random Networks</p>
+  <p><span class="person">Albert<span class="tag">persName</span></span>-L ́aszl ́o Barab ́asi∗ and R ́eka <span class="person">Albert<span class="tag">persName</span></span></p>
+  <p>Department of Physics, University of Notre-Dame, Notre-Dame, IN 46556</p>
+  <p>Systems as diverse as genetic networks or the world wide web are best described as</p>
+  <p>networks with complex topology. A common property of many large networks is that the</p>
+  <p>vertex connectivities follow a scale-free <span class="concept">power-law distribution<span class="tag">term·dom</span></span>. This feature is found to be</p>
+  <p>a consequence of the two generic mechanisms that networks expand continuously by the</p>
+  <p>addition of new vertices, and new vertices attach preferentially to already well connected</p>
+  <p>sites. A model based on these two ingredients reproduces the observed stationary scale-</p>
+  <p>free distributions, indicating that the development of large networks is governed by robust</p>
+  <p>self-organizing phenomena that go beyond the particulars of the individual systems.</p>
+  <p>9 9 9 1</p>
+  <p>t c O 1 2</p>
+  <p>] n n - s i d . t a m - d n o c [</p>
+  <p>1 v 2 3 3 0 1 9 9 / t a m - d n o c : v i X r a</p>
+  <p>∗alb@nd.edu</p>
+  <p>The inability of contemporary science to describe systems composed of non-identical</p>
+  <p>elements that have diverse and nonlocal interactions currently limits advances in many dis-</p>
+  <p>ciplines, ranging from molecular biology to computer science (1). The difficulty in describing</p>
+  <p>these systems lies partly in their topology: many of them form rather complex networks,</p>
+  <p>whose vertices are the elements of the system and edges represent the interactions between</p>
+  <p>them. For example, living systems form a huge genetic network, whose vertices are proteins</p>
+  <p>and genes, the edges representing the chemical interactions between them (2). At a different</p>
+  <p>organizational level, a large network is formed by the nervous system, whose vertices are</p>
+  <p>the nerve cells, connected by axons (3). But equally complex networks occur in social sci-</p>
+  <p>ence, where vertices are individuals or organizations, and the edges characterize the social</p>
+  <p>interaction between them (4), or describe the world wide web (www), whose vertices are</p>
+  <p>HTML documents connected by links pointing from one page to another (5, 6). Due to their</p>
+  <p>large size and the complexity of the interactions, the topology of these networks is largely</p>
+  <p>unknown.</p>
+  <p>Traditionally, networks of complex topology have been described using the random graph</p>
+  <p>theory of Erd ̋os and R ́enyi (ER) (7), but in the absence of data on large networks the</p>
+  <p>predictions of the ER theory were rarely tested in the real world. However, driven by the</p>
+  <p>computerization of data acquisition, such topological information is increasingly available,</p>
+  <p>raising the possibility of understanding the dynamical and topological stability of large</p>
+  <p>networks.</p>
+  <p>In this paper we report on the existence of a high degree of self-organization characterizing</p>
+  <p>the large scale properties of complex networks. Exploring several large databases describing</p>
+  <p>the topology of large networks that span as diverse fields as the www or the citation patterns</p>
+  <p>in science we show that, independent of the system and the identity of its constituents, the</p>
+  <p>probability P (k) that a vertex in the network interacts with k other vertices decays as a</p>
+  <p>power-law, following P (k) ∼ k−γ. This result indicates that large networks self-organize</p>
+  <p>into a scale-free state, a feature unexpected by all existing random network models. To</p>
+  <p>understand the origin of this scale invariance, we show that existing network models fail to</p>
+  <p>incorporate growth and <span class="concept">preferential attachment<span class="tag">term·dom</span></span>, two key features of real networks. Using a</p>
+  <p>model incorporating these two ingredients, we show that they are responsible for the power-</p>
+  <p>law scaling observed in real networks. Finally, we argue that these ingredients play an easily</p>
+  <p>identifiable and important role in the formation of many complex systems, implying that</p>
+  <p>our results are relevant to a large class of networks observed in Nature.</p>
+  <p>While there are a large number of systems that form complex networks, detailed topo-</p>
+  <p>logical data is available only for a few. The collaboration graph of movie actors represents</p>
+  <p>a well documented example of a social network. Each actor is represented by a vertex, two</p>
+  <p>actors being connected if they were cast together in the same movie. The probability that</p>
+  <p>an actor has k links (characterizing his or her popularity) has a power-law tail for large</p>
+  <p>k, following P (k) ∼ k−γactor, where γactor = 2.3 ± 0.1 (Fig. 1A). A more complex network</p>
+  <p>with over 800 million vertices (8) is the www, where a vertex is a document and the edges</p>
+  <p>are the links pointing from one document to another. The topology of this graph deter-</p>
+  <p>mines the web’s connectivity and, consequently, our effectiveness in locating information on</p>
+  <p>the www (5). Information about P (k) can be obtained using robots (6), indicating that</p>
+  <p>the probability that k documents point to a certain webpage follows a power-law, with</p>
+  <p>γwww = 2.1 ± 0.1 ( Fig. 1B) (9). A network whose topology reflects the historical patterns</p>
+  <p>of urban and industrial development is the electrical powergrid of western US, the vertices</p>
+  <p>representing generators, transformers and substations, the edges corresponding to the high</p>
+  <p>voltage transmission lines between them (10). Due to the relatively modest size of the net-</p>
+  <p>work, containing only 4941 vertices, the scaling region is less prominent, but is nevertheless</p>
+  <p>approximated with a power-law with an exponent γpower ≃ 4 (Fig. 1C). Finally, a rather</p>
+  <p>large, complex network is formed by the citation patterns of the scientific publications, the</p>
+  <p>vertices standing for papers published in refereed journals, the edges representing links to</p>
+  <p>the articles cited in a paper. Recently Redner (11) has shown that the probability that a</p>
+  <p>paper is cited k times (representing the connectivity of a paper within the network) follows</p>
+  <p>a power-law with exponent γcite = 3.</p>
+  <p>The above examples (12) demonstrate that many large random networks share the com-</p>
+  <p>mon feature that the distribution of their local connectivity is free of scale, following a</p>
+  <p>power-law for large k, with an exponent γ between 2.1 and 4 which is unexpected within the</p>
+  <p>framework of the existing network models. The random graph model of ER (7) assumes that</p>
+  <p>we start with N vertices, and connect each pair of vertices with probability p. In the model</p>
+  <p>the probability that a vertex has k edges follows a Poisson distribution P (k) = e−λλk/k!,</p>
+  <p>where λ = N</p>
+  <p>N − 1</p>
+  <p>  </p>
+  <p>  </p>
+  <p>pk(1 − p)N −1−k. In the small world model recently introduced by</p>
+  <p>Watts and Strogatz (WS) (10), N vertices form a one-dimensional lattice, each vertex being</p>
+  <p>connected to its two nearest and next-nearest neighbors. With probability p each edge is</p>
+  <p>reconnected to a vertex chosen at random. The long-range connections generated by this</p>
+  <p>process decrease the distance between the vertices, leading to a small-world phenomenon</p>
+  <p>(13), often referred to as six degrees of separation (14). For p = 0 the probability distri-</p>
+  <p>bution of the connectivities is P (k) = δ(k − z), where z is the coordination number in the</p>
+  <p>lattice, while for finite p, P (k) is still peaked around z, but it gets broader (15). A common</p>
+  <p>feature of the ER and WS models is that the probability of finding a highly connected ver-</p>
+  <p>tex (that is, a large k) decreases exponentially with k, thus vertices with large connectivity</p>
+  <p>are practically absent. In contrast, the power-law tail characterizing P (k) for the studied</p>
+  <p>networks indicates that highly connected (large k) vertices have a large chance of occurring,</p>
+  <p>dominating the connectivity.</p>
+  <p>There are two generic aspects of real networks that are not incorporated in these models.</p>
+  <p>First, both models assume that we start with a fixed number (N) of vertices, that are then</p>
+  <p>randomly connected (ER model), or reconnected (WS model), without modifying N.</p>
+  <p>contrast, most real world networks are open, they form by the continuous addition of new</p>
+  <p>vertices to the system, thus the number of vertices, N, increases throughout the lifetime</p>
+  <p>of the network. For example, the actor network grows by the addition of new actors to</p>
+  <p>the system, the www grows exponentially in time by the addition of new web pages (8),</p>
+  <p>the research literature constantly grows by the publication of new papers. Consequently, a</p>
+  <p>common feature of these systems is that the network continuously expands by the addition</p>
+  <p>of new vertices that are connected to the vertices already present in the system.</p>
+  <p>Second, the random network models assume that the probability that two vertices are</p>
+  <p>connected is random and uniform.</p>
+  <p>In contrast, most real networks exhibit preferential</p>
+  <p>connectivity. For example, a new actor is cast most likely in a supporting role, with more</p>
+  <p>established, well known actors. Consequently, the probability that a new actor is cast with</p>
+  <p>an established one is much higher than casting with other less known actors. Similarly, a</p>
+  <p>newly created webpage will more likely include links to well known, popular documents with</p>
+  <p>already high connectivity, or a new manuscript is more likely to cite a well known and thus</p>
+  <p>much cited paper than its less cited and consequently less known peer. These examples</p>
+  <p>indicate that the probability with which a new vertex connects to the existing vertices is not</p>
+  <p>uniform, but there is a higher probability to be linked to a vertex that already has a large</p>
+  <p>number of connections.</p>
+  <p>We next show that a model based on these two ingredients naturally leads to the observed</p>
+  <p>scale invariant distribution. To incorporate the growing character of the network, starting</p>
+  <p>with a small number (m0) of vertices, at every timestep we add a new vertex with m(≤ m0)</p>
+  <p>edges that link the new vertex to m different vertices already present in the system. To</p>
+  <p>incorporate <span class="concept">preferential attachment<span class="tag">term·dom</span></span>, we assume that the probability Π that a new vertex</p>
+  <p>will be connected to vertex i depends on the connectivity ki of that vertex, such that</p>
+  <p>Π(ki) = ki/</p>
+  <p>Pj kj. After t timesteps the model leads to a random network with t + m0 vertices and mt edges. This network evolves into a scale-invariant state with the probability</p>
+  <p>that a vertex has k edges following a power-law with an exponent γmodel = 2.9±0.1 (Fig. 2A).</p>
+  <p>As the power-law observed for real networks describes systems of rather different sizes at</p>
+  <p>different stages of their development, it is expected that a correct model should provide a</p>
+  <p>distribution whose main features are independent of time. Indeed, as Fig. 2A demonstrates,</p>
+  <p>P (k) is independent of time (and, subsequently, independent of the system size m0 + t),</p>
+  <p>indicating that despite its continuous growth, the system organizes itself into a scale-free</p>
+  <p>stationary state.</p>
+  <p>The development of the power-law scaling in the model indicates that growth and pref-</p>
+  <p>erential attachment play an important role in network development. To verify that both</p>
+  <p>ingredients are necessary, we investigated two variants of the model. Model A keeps the</p>
+  <p>growing character of the network, but <span class="concept">preferential attachment<span class="tag">term·dom</span></span> is eliminated by assuming</p>
+  <p>that a new vertex is connected with equal probability to any vertex in the system (that</p>
+  <p>is, Π(k) = const = 1/(m0 + t − 1)). Such a model (Fig. 2B) leads to P (k) ∼ exp(−βk),</p>
+  <p>indicating that the absence of <span class="concept">preferential attachment<span class="tag">term·dom</span></span> eliminates the scale-free feature of</p>
+  <p>the distribution. In model B we start with N vertices and no edges. At each time step we</p>
+  <p>randomly select a vertex and connect it with probability Π(ki) = ki/</p>
+  <p>Pj kj to vertex i in the system. While at early times the model exhibits power-law scaling, P (k) is not stationary:</p>
+  <p>since N is constant, and the number of edges increases with time, after T ≃ N 2 timesteps</p>
+  <p>the system reaches a state in which all vertices are connected. The failure of models A and</p>
+  <p>B indicates that both ingredients, namely growth and <span class="concept">preferential attachment<span class="tag">term·dom</span></span>, are needed</p>
+  <p>for the development of the stationary <span class="concept">power-law distribution<span class="tag">term·dom</span></span> observed in Fig. 1.</p>
+  <p>Due to the <span class="concept">preferential attachment<span class="tag">term·dom</span></span>, a vertex that acquired more connections than another</p>
+  <p>one will increase its connectivity at a higher rate, thus an initial difference in the connectivity</p>
+  <p>between two vertices will increase further as the network grows. The rate at which a vertex</p>
+  <p>acquires edges is ∂ki/∂t = ki/2t, which gives ki(t) = m(t/ti)0.5, where ti is the time at which</p>
+  <p>vertex i was added to the system (see Fig. 2C), a scaling property that could be directly tested</p>
+  <p>once time-resolved data on network connectivity becomes available. Thus older (smaller ti)</p>
+  <p>vertices increase their connectivity at the expense of the younger (larger ti) ones, leading</p>
+  <p>with time to some vertices that are highly connected, a ”rich-gets-richer” phenomenon that</p>
+  <p>can be easily detected in real networks. Furthermore, this property can be used to calculate γ</p>
+  <p>analytically. The probability that a vertex i has a connectivity smaller than k, P (ki(t) &lt; k),</p>
+  <p>can be written as P (ti &gt; m2t/k2). Assuming that we add the vertices at equal time intervals</p>
+  <p>to the system, we obtain that P (ti &gt; m2t/k2) = 1 − P (ti ≤ m2t/k2) = 1 − m2t/k2(t + m0).</p>
+  <p>The probability density P (k) can be obtained from P (k) = ∂P (ki(t) &lt; k)/∂k, which, at</p>
+  <p>long times, leads to the stationary solution</p>
+  <p>P (k) =</p>
+  <p>2m2 k3 ,</p>
+  <p>giving γ = 3, independent of m. While it reproduces the observed scale-free distribution, the</p>
+  <p>proposed model cannot be expected to account for all aspects of the studied networks. For</p>
+  <p>this we need to model these systems in more detail. For example, in the model we assumed</p>
+  <p>linear <span class="concept">preferential attachment<span class="tag">term·dom</span></span>, that is Π(k) ∼ k. However, while in general Π(k) could have</p>
+  <p>an arbitrary nonlinear form Π(k) ∼ kα, simulations indicate that scaling is present only</p>
+  <p>for α = 1. Furthermore, the exponents obtained for the different networks are scattered</p>
+  <p>between 2.1 and 4. However, it is easy to modify our model to account for exponents</p>
+  <p>different from γ = 3. For example, if we assume that a fraction p of the links is directed,</p>
+  <p>we obtain γ(p) = 3 − p, which is supported by numerical simulations (16). Finally, some</p>
+  <p>networks evolve not only by adding new vertices, but by adding (and sometimes removing)</p>
+  <p>connections between established vertices. While these and other system-specific features</p>
+  <p>could modify the exponent γ, our model offers the first successful mechanism accounting for</p>
+  <p>the scale-invariant nature of real networks.</p>
+  <p>Growth and <span class="concept">preferential attachment<span class="tag">term·dom</span></span> are mechanisms common to a number of complex</p>
+  <p>systems, including business networks (17, 18), social networks (describing individuals or</p>
+  <p>organizations), transportation networks (19), etc. Consequently, we expect that the scale-</p>
+  <p>invariant state, observed in all systems for which detailed data has been available to us,</p>
+  <p>is a generic property of many complex networks, its applicability reaching far beyond the</p>
+  <p>quoted examples. A better description of these systems would help in understanding other</p>
+  <p>complex systems as well, for which so far less topological information is available, including</p>
+  <p>such important examples as genetic or signaling networks in biological systems. We often</p>
+  <p>do not think of biological systems as open or growing, since their features are genetically</p>
+  <p>coded. However, possible scale-free features of genetic and signaling networks could reflect</p>
+  <p>the evolutionary history dominated by growth and aggregation of different constituents,</p>
+  <p>leading from simple molecules to complex organisms. With the fast advances in mapping</p>
+  <p>out genetic networks, answers to these questions might not be too far. Similar mechanisms</p>
+  <p>could explain the origin of the social and economic disparities governing competitive systems,</p>
+  <p>since the scale-free inhomogeneities are the inevitable consequence of self-organization due</p>
+  <p>to the local decisions made by the individual vertices, based on information that is biased</p>
+  <p>towards the more visible (richer) vertices, irrespective of the nature and the origin of this</p>
+  <p>visibility.</p>
+  <p>References and Notes</p>
+  <p>1. R. Gallagher and T. Appenzeller, Science 284, 79 (1999); R. F. Service, Science 284,</p>
+  <p>80 (1999).</p>
+  <p>2. G. Weng, U. S. Bhalla, R. Iyengar, Science 284, 92 (1999).</p>
+  <p>3. C. Koch and G. Laurent, Science 284, 96 (1999).</p>
+  <p>4. S. Wasserman and K. Faust, Social Network Analysis, (Cambridge University Press,</p>
+  <p>Cambridge, 1994).</p>
+  <p>5. Members of the Clever project, Sci. Am 280, 54 (June 1999).</p>
+  <p>6. R. <span class="person">Albert<span class="tag">persName</span></span>, H. Jeong and A.-L. Barab ́asi, Nature 401, 130 (1999), see also</p>
+  <p>http://www.nd.edu/∼networks.</p>
+  <p>7. P. Erd ̋os, and A. R ́enyi, Publ. Math. Inst. Hung. Acad. Sci 5, 17 (1960); B. Bollob ́as,</p>
+  <p>Random Graphs (Academic Press, London, 1985).</p>
+  <p>8. S. Lawrence and C. L. Giles, Science 280, 98 (1998); Nature 400, 107 (1999).</p>
+  <p>9. Note that in addition to the distribution of incoming links, the www displays a number</p>
+  <p>of other scale-free features, characterizing the organization of the webpages within a domain</p>
+  <p>[B. A. Huberman and L. A. Adamic, Nature 401, 131 (1999)], the distribution of searches</p>
+  <p>[B. A. Huberman, P. L. T. Pirolli, J. E. Pitkow and R. J. Lukose, Science 280, 95 (1998)],</p>
+  <p>or the number of links per webpage (6).</p>
+  <p>10. D. J. Watts and S. H. Strogatz, Nature 393, 440 (1998).</p>
+  <p>11. S. Redner, European Physical Journal B 4, 131 (1998).</p>
+  <p>12. We also studied the neural network of the worm Caenorhabditis elegans (3, 10) and</p>
+  <p>the benchmark diagram of a computer chip</p>
+  <p>(http://vlsicad.cs.ucla.edu/∼cheese/ispd98.html). We find that P (k) for both is consistent</p>
+  <p>with power-law tails, despite the fact that for C. elegans the relatively small size of the</p>
+  <p>system (306 vertices) limits severely the data quality, while for the wiring diagram of the</p>
+  <p>chips vertices with over 200 edges have been eliminated from the database.</p>
+  <p>13. S. Milgram, Psychol. Today 2, 60 (1967); M. Kochen (ed.) The Small World (Ablex,</p>
+  <p>Norwood, NJ, 1989).</p>
+  <p>14. J. Guare, Six Degrees of Separation: A play (Vintage Books, New York, 1990).</p>
+  <p>15. M. Barth ́el ́emy and L. A. N. Amaral, Phys. Rev. Lett. 82, 15 (1999).</p>
+  <p>16. Note that for most networks the connectivity m of the newly added vertices is not</p>
+  <p>constant. However, choosing m randomly will not change the exponent γ [Y. Tu, private</p>
+  <p>communication].</p>
+  <p>17. W. B. Arthur, Science 284, 107 (1999).</p>
+  <p>18. Note that <span class="concept">preferential attachment<span class="tag">term·dom</span></span> was also used to model correlations between stock</p>
+  <p>prices [L. A. N. Amaral and M. Barth ́el ́emy, private communication].</p>
+  <p>19. J. R. Banavar, A. Maritan and A. Rinaldo, Nature 399, 130 (1999).</p>
+  <p>20. We thank D. J. Watts for providing the C. elegans and the power grid data, B. C.</p>
+  <p>Tjaden for supplying the actor data, H. Jeong for collecting the data on the www and L. A.</p>
+  <p>N. Amaral for helpful discussions. This work was partially supported by NSF Career Award</p>
+  <p>DMR-9710998.</p>
+  <p>FIGURES</p>
+  <p>10-1</p>
+  <p>10-2</p>
+  <p>10-3</p>
+  <p>10-4</p>
+  <p>10-5</p>
+  <p>) k ( P</p>
+  <p>100</p>
+  <p>10-2</p>
+  <p>10-4</p>
+  <p>10-6</p>
+  <p>10-6</p>
+  <p>100</p>
+  <p>101</p>
+  <p>102</p>
+  <p>103</p>
+  <p>10-8</p>
+  <p>100</p>
+  <p>101</p>
+  <p>100</p>
+  <p>10-1</p>
+  <p>10-2</p>
+  <p>10-3</p>
+  <p>10-4</p>
+  <p>103</p>
+  <p>104</p>
+  <p>100</p>
+  <p>101</p>
+  <p>102 k</p>
+  <p>FIG. 1. The distribution function of connectivities for various large networks. (A) Actor col-</p>
+  <p>laboration graph with N = 212, 250 vertices and average connectivity hki = 28.78; (B) World wide</p>
+  <p>web, N = 325, 729, hki = 5.46 (6); (C) Powergrid data, N = 4, 941, hki = 2.67. The dashed lines</p>
+  <p>have slopes (A) γactor = 2.3, (B) γwww = 2.1 and (C) γpower = 4.</p>
+  <p>100</p>
+  <p>10-2</p>
+  <p>) k ( P</p>
+  <p>10-4</p>
+  <p>10-6</p>
+  <p>100</p>
+  <p>103</p>
+  <p>10-2</p>
+  <p>) k ( P</p>
+  <p>10-4</p>
+  <p>10-6</p>
+  <p>102</p>
+  <p>) t ( k</p>
+  <p>101</p>
+  <p>40 k</p>
+  <p>100</p>
+  <p>100 101 102 103 104 105 t</p>
+  <p>10-8</p>
+  <p>100</p>
+  <p>101</p>
+  <p>102</p>
+  <p>103</p>
+  <p>FIG. 2. (A) The power-law connectivity distribution at t = 150, 000 (o) and t = 200, 000 (✷) as</p>
+  <p>obtained from the model (see text), using m0 = m = 5. The slope of the dashed line is γ = 2.9. (B)</p>
+  <p>The exponential connectivity distribution for model A, in the case of m0 = m = 1 (o), m0 = m = 3</p>
+  <p>(✷), m0 = m = 5 (✸) and m0 = m = 7 (△). (C) Time evolution of the connectivity for two</p>
+  <p>vertices added to the system at t1 = 5 and t2 = 95. The dashed line has slope 0.5.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 5 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 12 <code>concept</code>.<br>Meta-Tagging Project &middot; record <code>barabasi-albert1999-scale-free</code>.</div>
+</body></html>

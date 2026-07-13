@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Geometry of Culture: Analyzing the Meanings of Class through Word Embeddings — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>The Geometry of Culture: Analyzing the Meanings of Class through Word Embeddings — TEI-tagged view</h1>
+<div class="meta">Austin C. Kozlowski, Matt Taddy, James A. Evans · 2019 · <a href="https://en.wikipedia.org/wiki/Digital_humanities">digital-humanities</a> · <a href="https://doi.org/10.1177/0003122419877135">doi:10.1177/0003122419877135</a> · <a href="https://doi.org/10.1177/0003122419877135" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1177/0003122419877135" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Kozlowski</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Chicago</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">American Sociological Review / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2019</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">semantic space</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">word embedding</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Austin C. Kozlowski<span class="tag">persName</span></span>, <span class="person">Matt Taddy<span class="tag">persName</span></span>, <span class="person">James A. Evans<span class="tag">persName</span></span> (<span class="date">2019<span class="tag">date</span></span>). &ldquo;The Geometry of Culture: Analyzing the Meanings of Class through Word Embeddings.&rdquo; <span class="work">American Sociological Review / arXiv<span class="tag">title·j</span></span>, <span class="place">Chicago<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Cultural meanings such as social class, gender, and status as encoded in language.</p>
+  <p><b>Research question —</b> Can the geometry of word-embedding spaces recover culturally meaningful dimensions like affluence, gender, and status from text?</p>
+  <p><b>Contribution —</b> Shows that directions in word-embedding space correspond to culturally meaningful contrasts (rich-poor, masculine-feminine), so embeddings can measure the historical evolution of cultural categories at scale, importing NLP geometry into cultural sociology.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>word embeddings (geometry of cultural meaning)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>linguistics (natural language processing)</b>: word-embedding vector-space models (Mikolov/Pennington), applied to measure cultural meaning (class, gender, race)<span class="ev"> &mdash; &ldquo;embeddings are high-dimensional vector-space models of text in which each unique word in the corpus is represented as a vector in a shared vector space&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>building cultural dimensions as averaged vector-differences between antonym word pairs, then projecting words onto them<span class="ev"> &mdash; &ldquo;we select word pairs such that the difference between each word in a pair is a&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>word2vec (CBOW/skip-gram) and GloVe (from NLP)</b><span class="ev"> &mdash; &ldquo;primarily utilize the CBOW and skip-gram models&rdquo;</span></td></tr><tr><td class="k cr">extends</td><td> <b>interpretive text analysis of culture (adding reproducibility)</b><span class="ev"> &mdash; &ldquo;suffers from clear limitations in reproducibility&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>The Geometry of Culture: Analyzing the Meanings of Class through Word Embeddings</p>
+  <p>The Geometry of Culture: Analyzing Meaning through Word Embeddings</p>
+  <p>Austin C. <span class="person">Kozlowski<span class="tag">persName</span></span> 2,3 Matt <span class="person">Taddy<span class="tag">persName</span></span> 1 James A. <span class="person">Evans<span class="tag">persName</span></span></p>
+  <p>1 ​University of Chicago, Department of Sociology 2 ​University of Chicago, Booth School of Business 3 ​Amazon</p>
+  <p>, man – woman ​</p>
+  <p>We demonstrate the utility of a new methodological tool, neural-network <span class="method">word embedding<span class="tag">term·mth</span></span> models, for large-scale text analysis, revealing how these models produce richer insights into cultural associations and categories than possible with prior methods. Word embeddings represent semantic relations between words as geometric relationships between vectors in a high-dimensional space, operationalizing a relational model of meaning consistent with contemporary theories of identity and culture. We show that dimensions induced by word differences (e.g., ) in these liberal – conservative , rich – poor ​ ​ vector spaces closely correspond to dimensions of cultural meaning, and the projection of words onto these dimensions reflects widely shared cultural connotations when compared to surveyed responses and labeled historical data. We pilot a method for testing the stability of these associations, then demonstrate applications of word embeddings for macro-cultural investigation with a longitudinal analysis of the coevolution of gender and class associations in the United States over the 20th century and comparative analysis of historic distinctions between markers of gender and class in the U.S. and Britain. We argue that the success of these high-dimensional models motivates a move towards “high-dimensional theorizing” of meanings, identities and cultural processes.</p>
+  <p>, black – white ​</p>
+  <p>INTRODUCTION</p>
+  <p>A vast amount of information about what people do, know, think, and feel lies preserved</p>
+  <p>in digitized text and an increasing proportion of social life now occurs natively in this medium.</p>
+  <p>Available sources of digitized text are wide ranging, including collective activity on the web,</p>
+  <p>social media, and instant messages as well as online transactions, medical records, and digitized</p>
+  <p>​ ​ ​</p>
+  <p>​ ​ ​ ​</p>
+  <p>letters, pamphlets, articles, and books</p>
+  <p>(<span class="person">Evans<span class="tag">persName</span></span> and Aceves 2016; Grimmer and Stewart 2013)</p>
+  <p>This growing supply of text has elicited demand for natural language processing and</p>
+  <p>machine-learning tools to filter, search, and translate text into valuable data. The analysis of</p>
+  <p>large digitized corpora has already proven fruitful in a range of social scientific endeavors</p>
+  <p>including analysis of discourse surrounding political elections and social movements, the</p>
+  <p>accumulation of knowledge in the production of science, and communication and collaboration</p>
+  <p>within organizations</p>
+  <p>(Christopher Bail 2012; <span class="person">Evans<span class="tag">persName</span></span> and Aceves 2016; Foster, Rzhetsky, and</p>
+  <p><span class="person">Evans<span class="tag">persName</span></span> 2015; Grimmer 2009; Goldberg et al. 2016)</p>
+  <p>Although text analysis has long been a cornerstone for the study of culture, the impact of</p>
+  <p>“big data” on the sociology of culture remains modest</p>
+  <p>(Bail 2014)</p>
+  <p>. A fundamental challenge for</p>
+  <p>the computational analysis of text is to simultaneously leverage the richness and complexity</p>
+  <p>inherent in large corpora while producing a representation simple enough to be intuitively</p>
+  <p>understandable, analytically useful and theoretically relevant. Moreover, turning text into data</p>
+  <p>(Grimmer and Stewart 2013)</p>
+  <p>requires credible methods for (1) evaluating the statistical</p>
+  <p>significance of observed patterns and (2) disciplining the space of interpretations to avoid the</p>
+  <p>tendency to creatively confirm expectations</p>
+  <p>(Nickerson 1998)</p>
+  <p>. While past research has made</p>
+  <p>strides towards overcoming these challenges in the study of culture, critics continue to argue that</p>
+  <p>existing methods fail to capture the nuances of text that can be gleaned from interpretive text</p>
+  <p>analysis</p>
+  <p>(Biernacki 2012)</p>
+  <p>In this paper, we demonstrate the utility of a new computational approach –</p>
+  <p>neural-network <span class="method">word embedding<span class="tag">term·mth</span></span> models – for the sociological analysis of culture. We show that</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> models are able to capture more complex semantic relations than past modes of</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>computational text analysis and can prove a powerful tool in the study of cultural categories and</p>
+  <p>associations. Word embeddings are high-dimensional vector-space models of text in which each</p>
+  <p>unique word in the corpus is represented as a vector in a shared vector space</p>
+  <p>(Mikolov, Yih, and</p>
+  <p>Zweig 2013; Pennington, Socher, and Manning 2014)</p>
+  <p>. Methods similar to word embeddings,</p>
+  <p>such as Latent Semantic Analysis (LSA) or Indexing (LSI), have existed in various forms since</p>
+  <p>the 1970s</p>
+  <p>(Dumais 2004)</p>
+  <p>. Recent breakthroughs in auto-encoding neural networks and advances</p>
+  <p>in computational power have enabled a new class of <span class="method">word embedding<span class="tag">term·mth</span></span> models that incorporate</p>
+  <p>relevant information about word contexts from highly local windows of surrounding words</p>
+  <p>rather than an entire surrounding document. As a result, these new <span class="method">word embedding<span class="tag">term·mth</span></span> models distil</p>
+  <p>an encyclopedic breadth of subtle and complex cultural associations from large collections of</p>
+  <p>text by training the model with local word associations a human might learn through ambient</p>
+  <p>exposure to the same collection of language.</p>
+  <p>In <span class="method">word embedding<span class="tag">term·mth</span></span> models, words are assigned a position in a vector space based on the</p>
+  <p>context that word shares with other words in the corpus. Words that share many contexts are</p>
+  <p>positioned near one another, while words that inhabit very different contexts locate farther apart.</p>
+  <p>Previous work with <span class="method">word embedding<span class="tag">term·mth</span></span> models in computational linguistics and natural language</p>
+  <p>processing has shown that words frequently sharing linguistic contexts, and thus located nearby</p>
+  <p>in the vector space, tend to share similar meanings. However, semantic information is encoded</p>
+  <p>not only in the clustering of words with similar meanings. In this paper we present evidence that</p>
+  <p>the very dimensions of these vector space models closely correspond to meaningful “cultural</p>
+  <p>1 <span class="method">Word embedding<span class="tag">term·mth</span></span> models are sometimes considered and referred to as “low dimension” techniques relative to the number of words used in text (e.g., 20,000) because they reduce this Nevertheless, considered from the perspective of one, two or three dimensional models common in the analysis of culture, these spaces are much more complex, and reproduce much more accurate total associations, as shown below.</p>
+  <p>high dimensional word space. very ​</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>dimensions” such as race, class, and gender. We show that the positioning of word vectors along</p>
+  <p>culturally salient dimensions within the vector space captures how concepts are related to one</p>
+  <p>another within cultural categories. For example, projecting occupation names on a “gender</p>
+  <p>dimension,” we find that traditionally feminine occupations such as “nurse” and “nanny” are</p>
+  <p>positioned at one end the dimension and traditionally masculine occupations such as “engineer”</p>
+  <p>and “lawyer” are positioned at the opposite end. This occurs because with each local context that</p>
+  <p>“nurse” shares with feminine words like “she,” “her,” and “woman,” it is nudged towards the</p>
+  <p>feminine pole of the gender dimension, while each time “engineer” shares a context with terms</p>
+  <p>like “his,” “him,” and “man,” it is nudged toward the masculine pole.</p>
+  <p>We emphasize that <span class="method">word embedding<span class="tag">term·mth</span></span> models not only grant insight into the semantic</p>
+  <p>structure of a given cultural system, but can also be productively used to analyze cultural</p>
+  <p>difference and change. By comparing <span class="method">word embedding<span class="tag">term·mth</span></span> models trained on texts produced in</p>
+  <p>different cultural contexts, it is possible to directly examine differences in the in the meanings of</p>
+  <p>terms and categories between social groups. Similarly, comparing <span class="method">word embedding<span class="tag">term·mth</span></span> models</p>
+  <p>trained on texts from sequential time periods make it possible to investigate how cultural</p>
+  <p>associations shift historically.</p>
+  <p>In the following analyses, we utilize <span class="method">word embedding<span class="tag">term·mth</span></span> models trained on contemporary</p>
+  <p>texts, texts stretching back over a century, and texts from distinct cultures to demonstrate the</p>
+  <p>broad potential of <span class="method">word embedding<span class="tag">term·mth</span></span> models for cultural analysis. The following analyses proceed</p>
+  <p>in four steps. First, we compare semantic relations derived from <span class="method">word embedding<span class="tag">term·mth</span></span> models to</p>
+  <p>results from survey data measuring cultural associations in order to demonstrate the ecological</p>
+  <p>validity of <span class="method">word embedding<span class="tag">term·mth</span></span> models in capturing widespread associations with race, class, and</p>
+  <p>gender. Second, we analyze <span class="method">word embedding<span class="tag">term·mth</span></span> models trained on texts published in the United</p>
+  <p>States spanning the entire 20</p>
+  <p>th ​ century to investigate macro-historic cultural trends, discovering</p>
+  <p>slow but persistent changes in the interrelationship of the categories of gender and class. Third,</p>
+  <p>we conduct a cross-national analysis, comparing text from the United States and Great Britain</p>
+  <p>from the turn of the 20</p>
+  <p>th ​ century to identify subtle differences in the markers of class and gender</p>
+  <p>between these two social contexts. The findings presented here demonstrate the broad utility of</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> models for cultural analysis and motivate further development and application</p>
+  <p>of these models to a diverse array of questions in sociology of culture.</p>
+  <p>FORMAL TEXT ANALYSIS IN THE STUDY OF CULTURE</p>
+  <p>Language has long held a central position in the study of culture. Cultural scholars from</p>
+  <p>sociology, anthropology, and socio-linguistics have commonly understood a group’s language to</p>
+  <p>be a reflection of its cultural system</p>
+  <p>(Whorf 1956; Levi-strauss 1963)</p>
+  <p>, and thus text has served as</p>
+  <p>a key source of data for scholars investigating cultural categories and meaning structures.</p>
+  <p>Historically, analysis of text in sociology has been dominated by qualitative, interpretive</p>
+  <p>approaches, the two most common being interpretivist close-reading and systematic qualitative</p>
+  <p>coding. Interpretivist text analysis, in which the researcher draws insights from a holistic deep</p>
+  <p>reading of text, has done much to advance sociological understandings of culture, but suffers</p>
+  <p>from clear limitations in reproducibility</p>
+  <p>(Ricoeur 1981)</p>
+  <p>. The method of qualitative coding, in</p>
+  <p>which the researcher selects a number of themes and systematically tracks their deployment in</p>
+  <p>text</p>
+  <p>(Glaser and Strauss 1967)</p>
+  <p>can be more reproducible than a singular close reading, but still</p>
+  <p>suffers from low inter-coder reliability when themes are complex or subtle. Because these</p>
+  <p>​ ​</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>dominant techniques for the analysis of culture are not easily replicable and rely upon the</p>
+  <p>analyst’s intuition and finesse, the study of culture in sociology has largely remained a “virtuoso</p>
+  <p>affair”</p>
+  <p>(DiMaggio 1997)</p>
+  <p>. Furthermore, both interpretivist text analysis and qualitative coding are</p>
+  <p>limited by the pace of human reading, so neither are well suited for the analysis of very large</p>
+  <p>corpora or entire socio-cultural domains.</p>
+  <p>Limitations of qualitative textual analysis have motivated scholars of culture in the social</p>
+  <p>sciences and humanities to develop an array of formal and quantitative methods of text analysis</p>
+  <p>(Mohr 1998; D’Andrade 1995)</p>
+  <p>. Two such methods that have gained relative popularity in recent</p>
+  <p>years are semantic network analysis and topic modeling. Semantic networks are typically</p>
+  <p>constructed by treating words as nodes of a network and textual co-occurrences as links</p>
+  <p>(Kaufer</p>
+  <p>and Carley 1993; Carley 1994; Lee and Martin 2015; Hoffman et al. forthcoming)</p>
+  <p>. Examining</p>
+  <p>structural characteristics of a semantic network such as words that are highly central or that</p>
+  <p>bridge semantic</p>
+  <p>(Corman 2002)</p>
+  <p>or cultural holes</p>
+  <p>(Pachucki and Breiger 2010)</p>
+  <p>can provide</p>
+  <p>insight into the relationships between individual words as well as the overall conceptual structure</p>
+  <p>undergirding a text. Alternatively, topic modeling comprises a more recent approach that uses a</p>
+  <p>well-formed probability model to enable inductive discovery of “topics” underlying a corpus,</p>
+  <p>each learned as a sparse distribution over words that tend to co-occur in text</p>
+  <p>(Mohr and</p>
+  <p>Bogdanov 2013; Blei, Ng, and Jordan 2003)</p>
+  <p>. Topic modeling can detect polysemy by tracing</p>
+  <p>words that exist in multiple topics, and heteroglossia, the multiple voices of a single text, by</p>
+  <p>tracing the mixture of distinct topics across documents</p>
+  <p>(DiMaggio, Nag, and Blei 2013; Blei</p>
+  <p>2012)</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>Both methods can generate important insights into the cultural system that produced a</p>
+  <p>text, but there remain many sociologically and culturally important questions for which these</p>
+  <p>methods are poorly suited. When corpora grow sufficiently large, standard semantic network</p>
+  <p>analysis metrics fail to distinguish between concepts that are close or distant by considering</p>
+  <p>topological information alone. Such networks could be made dense and their links weighted,</p>
+  <p>encoding a myriad word collocations, but analysis of the resulting hairball would require a</p>
+  <p>calculus that deviates widely from standard network analysis, such as one based on random</p>
+  <p>walks</p>
+  <p>(Shi, Foster, and <span class="person">Evans<span class="tag">persName</span></span> 2015; Rosvall and Bergstrom 2008)</p>
+  <p>or implied curvature</p>
+  <p>(Jost and</p>
+  <p>Liu 2014)</p>
+  <p>. Topic modeling is also focused on creating sparse, interpretable descriptions by</p>
+  <p>setting most word-topic and topic-document loadings to approximately zero. By design, this</p>
+  <p>distorts optimal geometric distances between words in order to make topics human readable. As</p>
+  <p>such, both networks and topic models are ill-suited for representing the multifarious associations</p>
+  <p>and cultural valances that characterize</p>
+  <p>words in a corpus. Questions regarding how masculine all ​</p>
+  <p>or feminine, good or bad, high or low-status a given object is within a cultural system remain</p>
+  <p>difficult to answer using existing formal methods of text analysis. Furthermore, investigation into</p>
+  <p>the relations between cultural categories – for instance, how closely a culture’s good/bad</p>
+  <p>distinction relates to its masculine/feminine distinction – is also beyond the scope of prior</p>
+  <p>methods.</p>
+  <p><span class="method">WORD EMBEDDING<span class="tag">term·mth</span></span> MODELS AND COMPLEX SEMANTIC RELATIONSHIPS</p>
+  <p>Recent work in natural language processing has made great strides by representing word</p>
+  <p>relationships in a corpus not as networks or topical clusters but as vectors in a dense, continuous,</p>
+  <p>high-dimensional space</p>
+  <p>(Mikolov, Yih, and Zweig 2013; Pennington, Socher, and Manning</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>2014; Joulin et al. 2016)</p>
+  <p>. These vector space models, known collectively as word embeddings,</p>
+  <p>have attracted widespread interest among computer scientists and computational linguists due to</p>
+  <p>their ability to capture complex semantic relations between words.</p>
+  <p>__________________________</p>
+  <p>Figure 1 about here</p>
+  <p>___________________________</p>
+  <p>In a <span class="method">word embedding<span class="tag">term·mth</span></span> model, word vectors are positioned such that words sharing similar</p>
+  <p>contexts in the text will be positioned nearby in the vector space, whereas words that appear only</p>
+  <p>in different and disconnected contexts will be positioned further apart. Figure 1 schematically</p>
+  <p>illustrates the structure of the descriptive problem that word embeddings attempt to solve: how to</p>
+  <p>-dimensional space that best preserves distances k represent all words from a corpus within the ​</p>
+  <p>between</p>
+  <p>words across n ​</p>
+  <p>local contexts. The solution, which we illustrate in subsequent figures, m ​</p>
+  <p>is a</p>
+  <p>by n- ​</p>
+  <p>matrix of values, where -k ​</p>
+  <p>k ≪ m</p>
+  <p>, bolded here where</p>
+  <p>= 3. An early approach to word k ​</p>
+  <p>embeddings, titled Latent Semantic Analysis (LSA) used singular-value decomposition (SVD) to</p>
+  <p>discover this word matrix where the first principal component explained the most variation in the</p>
+  <p>original</p>
+  <p>-by- n ​</p>
+  <p>word-context matrix, the second component the second most, and so on such that m ​</p>
+  <p>th singular value explained arbitrarily little variation k was typically trimmed when the marginal k ​ ​</p>
+  <p>in the word-context matrix. By contrast, neural word embeddings evenly spread explanatory</p>
+  <p>power across the full</p>
+  <p>dimensions through heuristic optimization of a neural network with at k ​</p>
+  <p>least one “hidden-layer” of</p>
+  <p>internal, dependent variables. While k ​</p>
+  <p>k ≪ m</p>
+  <p>in these models,</p>
+  <p>2 Scientists have attempted to perform these parametrically, as with exponential family embedding models, but their performance has not yet approached that of autoencoders (Rudolph et al 2016).</p>
+  <p>​ ​ ​ ​ ​ ​ ​</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>substantial natural language corpora require</p>
+  <p>k ≥</p>
+  <p>300 to minimize the error of word-context</p>
+  <p>matrix reconstruction</p>
+  <p>(Mikolov, Yih, and Zweig 2013)</p>
+  <p>. Although we do not make use of them in</p>
+  <p>this analysis, the</p>
+  <p>dimensions matrix in Figure 1 also retains a great deal of k contexts by m ​ ​</p>
+  <p>semantic information and has been used in concert with word embeddings to identify words that</p>
+  <p>are complements versus substitutes in text</p>
+  <p>(Nalisnick et al. 2016; Ruiz, Athey, and Blei 2017)</p>
+  <p>. It</p>
+  <p>is important to note that, because the optimal distance of two vectors is a function of shared</p>
+  <p>context rather than co-occurrence, words need not co-occur in order for their vectors to be</p>
+  <p>positioned close together. For example, if “doctor” and “lawyer” both appear near the word</p>
+  <p>“work” or “job” then the vectors for “doctor” and “lawyer” would be located near each other in</p>
+  <p>the embedding, even if they never appear together in text.</p>
+  <p>In word embeddings, each word in the corpus is represented geometrically as a vector</p>
+  <p>and ascribed a location in the high-dimensional vector space. Distance between words in this</p>
+  <p>space is typically assessed using the cosine of the angle between word vectors, rather than the</p>
+  <p>Euclidean (straight-line) distance because of special properties associated with high-dimensional</p>
+  <p>spaces that violate intuitions formed in two or three dimensions. For example, as the dimension</p>
+  <p>of a hypersphere grows, its volume shrinks relative to its surface area as more and more of its</p>
+  <p>3 volume resides near its surface. We normalize all word vectors</p>
+  <p>(Levy, Goldberg, and Dagan</p>
+  <p>2015)</p>
+  <p>, and therefore they lie on the surface of a hypersphere of same dimensionality as the space,</p>
+  <p>and we represent proximity in terms of the angle between vectors, which is proportional to their</p>
+  <p>distances on the hypersphere surface.</p>
+  <p>Even in 3 dimensions, the surface area of a unit circle surpasses its volume.</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>, the most widely used <span class="method">word embedding<span class="tag">term·mth</span></span> algorithm and the primary approach Word2vec ​</p>
+  <p>we use in the following analyses, uses a shallow, two-layered neural network architecture that</p>
+  <p>optimizes the prediction of words based on shared context with other words.</p>
+  <p>can Word2vec ​</p>
+  <p>operate under two distinct model architectures: continuous bag-of-words (CBOW) or skip-gram.</p>
+  <p>Under the CBOW architecture, the corpus is read line-by-line in a sliding window of</p>
+  <p>words, k ​</p>
+  <p>with</p>
+  <p>determined by the analyst, and previous studies finding windows of ~8 words producing k ​</p>
+  <p>most consistent results</p>
+  <p>(Le and Mikolov 2014)</p>
+  <p>. For each word in the corpus, the algorithm aims</p>
+  <p>, given its surrounding words within a context n to maximize classification of the center word ​</p>
+  <p>. The skip-gram architecture works similarly, except that instead of predicting a k window of size ​</p>
+  <p>word with context, the skip-gram architecture predicts context given a word. Related approaches</p>
+  <p>take into account additional information such as the “global” proximity of words within an</p>
+  <p>overarching document</p>
+  <p>(Pennington, Socher, and Manning 2014)</p>
+  <p>or even subword letter</p>
+  <p>sequences in surrounding words</p>
+  <p>(Joulin et al. 2016)</p>
+  <p>Because words are located together in the embedding model if they appear in similar</p>
+  <p>contexts in the corpus, abutting words in the vector space tend to share similar meanings; it is</p>
+  <p>common to find that a word’s nearest neighbors are either its synonyms or syntactic variants.</p>
+  <p>Words then tend to share a broader region of <span class="concept">semantic space<span class="tag">term·dom</span></span> with a host of terms having related</p>
+  <p>meanings. Therefore a great deal of semantic and cultural information is available simply by</p>
+  <p>examining the word vectors that surround a word of interest. Kulkarni et al.</p>
+  <p>(2015)</p>
+  <p>have used</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> models in this way to trace shifts in the meaning of the word “gay” over the</p>
+  <p>th ​ century, from a location in the vector space beside “cheerful” and “frolicsome” course of the 20</p>
+  <p>to one near “lesbian” and “bisexual.” Hamilton et al</p>
+  <p>(2016)</p>
+  <p>have similarly used <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>models to investigate how a word’s rate of semantic change, measured as change in the word’s</p>
+  <p>overall position in the vector space, depends upon its frequency and polysemy, finding that</p>
+  <p>words occurring with high frequency change meaning more slowly and polysemous words more</p>
+  <p>rapidly.</p>
+  <p>Past work with <span class="method">word embedding<span class="tag">term·mth</span></span> models has also shown that semantically meaningful</p>
+  <p>relations can also be found between words not directly proximate in the space. From</p>
+  <p>’s word2vec ​</p>
+  <p>debut in 2013, neural word embeddings have intriguingly been able to solve analogy problems</p>
+  <p>by applying simple linear algebra to word vectors</p>
+  <p>(Mikolov et al. 2013)</p>
+  <p>. For example, the</p>
+  <p>analogy “man is to woman as king is to</p>
+  <p>” can be solved with a model trained on a sufficiently ___ ​</p>
+  <p>large body of text by performing the arithmetic operation with the word vectors</p>
+  <p>king – man +</p>
+  <p>, with the resulting vector most closely approximating woman ​</p>
+  <p>. queen ​</p>
+  <p>can achieve Word2vec ​</p>
+  <p>success rates as high as 74%</p>
+  <p>(Ji et al. 2016)</p>
+  <p>on a challenging analogy test comprising 20</p>
+  <p>thousand questions involving semantic comparisons ranging from currency-country (</p>
+  <p>is to kwanza ​</p>
+  <p>Angola as</p>
+  <p>is to Iran) and male-female (man is to woman as waiter is to waitress) to syntactic rial ​</p>
+  <p>comparisons involving opposites, plural nouns, comparatives, superlatives, and verb</p>
+  <p>conjugations (e.g., past tense, present participle)</p>
+  <p>(Mikolov et al. 2013)</p>
+  <p>This ability of word embeddings to solve analogies across many conceptual dimensions</p>
+  <p>derives not only from their relatively high number of dimensions, but from the type of geometry</p>
+  <p>in which they are embedded. Euclidean geometry was constructed to obey Euclid’s fifth</p>
+  <p>not p postulate, which states that within a two-dimensional plane, for any given line l and point ​</p>
+  <p>on l, there exists exactly one line through</p>
+  <p>that does not intersect l. The result is a space p ​</p>
+  <p>dimensionalized by “straight” vectors and “flat” planes such that word embeddings constructed</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>in such a space enable direct identification of semantic dimensions on which other words</p>
+  <p>meaningfully project. This discussion reveals, however, that high-dimensional Euclidean</p>
+  <p>embeddings are not “model free”, but use a formalism tuned to directly model the kinds of</p>
+  <p>semantic dimensions we feature in this paper.</p>
+  <p>Other embedding geometries could be used to model distinct cultural patterns. Scientists</p>
+  <p>and engineers geometrically embed not only corpora, however, but also graphs. Social networks,</p>
+  <p>power grids and the internet, with “nodes” of highly unequal degree distribution or number of</p>
+  <p>connections, are often embedded in hyperbolic spaces having constant, negative curvature</p>
+  <p>(Krioukov et al. 2010; Papadopoulos et al. 2012; Cvetkovski and Crovella 2009; Alanis-Lobato,</p>
+  <p>Mier, and Andrade-Navarro 2016)</p>
+  <p>. In a hyperbolic space, infinitely many lines may go through</p>
+  <p>without intersecting l and a central node may be close to many peripheral nodes without those</p>
+  <p>nodes being close to each other. Embedding language, where words have highly unequal</p>
+  <p>frequencies</p>
+  <p>(Zipf 1932)</p>
+  <p>, in a hyperbolic geometry would make discovery of analogy and the</p>
+  <p>semantic dimensions underlying much less straightforward, but could potentially enable</p>
+  <p>modeling of semantic hierarchy, such as the identification of holonyms and meronyms—words</p>
+  <p>constituting wholes and their parts—like</p>
+  <p>, hand ​</p>
+  <p>, and flesh ​</p>
+  <p>; or hypernyms―words with fingers ​</p>
+  <p>broad meanings under which more specific words fall―such as the relationship of</p>
+  <p>to color ​</p>
+  <p>, red ​</p>
+  <p>, and green ​</p>
+  <p>(Rei and Briscoe 2014; Handler 2014) blue ​</p>
+  <p>. Contemporary word embeddings may not</p>
+  <p>effectively model all forms of word association, but altering hidden parameters such as the</p>
+  <p>curvature of the underlying geometry, could allow them to capture distinct ones.</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>CULTURAL DIMENSIONS OF WORD EMBEDDINGS</p>
+  <p>In this paper, we present a novel method for applying <span class="method">word embedding<span class="tag">term·mth</span></span> models to the</p>
+  <p>sociological analysis of culture. We demonstrate that derived dimensions of <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>vector spaces correspond closely to “cultural dimensions,” such as race, class, and gender, which</p>
+  <p>individuals use in everyday life to classify and categorize objects in the world. By discovering</p>
+  <p>and examining these culturally meaningful dimensions in a <span class="method">word embedding<span class="tag">term·mth</span></span>, it is possible for an</p>
+  <p>analyst to reveal where objects are located on various cultural dimensions and to determine how</p>
+  <p>these dimensions are positioned relative to one another in that space. For instance, an analyst can</p>
+  <p>use a <span class="method">word embedding<span class="tag">term·mth</span></span> model to determine whether “opera” is considered more masculine or</p>
+  <p>feminine than “jazz” by projecting the word vectors corresponding to “opera” and “jazz” onto</p>
+  <p>the dimension corresponding to gender in the space (e.g.,</p>
+  <p>). Similarly, the man – woman ​</p>
+  <p>researcher can determine if “jazz” is more upper-class or more working-class than “opera” by</p>
+  <p>projecting these words onto the identity dimension corresponding to class in the same space.</p>
+  <p>This “dimensional” approach emphasizes that semantic meaning is contained not only in the</p>
+  <p>distance between two word vectors but also in the</p>
+  <p>of that difference. direction ​</p>
+  <p>The technique we present for discovery of cultural dimensions in a <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>vector space builds upon logic for solving analogies with word embeddings. One interpretation</p>
+  <p>for why</p>
+  <p>in <span class="method">word embedding<span class="tag">term·mth</span></span> models is because ( king + woman – man ≈ queen ​</p>
+  <p>) woman – man ​</p>
+  <p>corresponds closely corresponds to a “gender dimension.” Adding (</p>
+  <p>) to woman – man ​</p>
+  <p>king</p>
+  <p>therefore has the effect of starting at</p>
+  <p>and taking one step on the gender dimension in the king ​</p>
+  <p>direction of femininity. Conversely, (</p>
+  <p>) corresponds to “one step” in the direction of man – woman ​</p>
+  <p>masculinity on the same gender dimension. Thus,</p>
+  <p>) man – woman ( queen + ​ ​</p>
+  <p>. An ≈ king ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>approximation of the gender dimension is captured not only by (</p>
+  <p>– man ​</p>
+  <p>), but also by any woman ​</p>
+  <p>other pairs of words whose semantic difference correspond to that <span class="concept">cultural dimension<span class="tag">term·dom</span></span> of interest.</p>
+  <p>For example,</p>
+  <p>, he – she ​</p>
+  <p>, him – her ​</p>
+  <p>, or even male – female ​</p>
+  <p>would approximate waiter – waitress ​</p>
+  <p>the same gender dimension as</p>
+  <p>. Because we expect man – woman ​</p>
+  <p>, man – woman ​</p>
+  <p>, he – she ​</p>
+  <p>him –</p>
+  <p>, and similar gender antonym pairs to all approximate the gender dimension of interest, we her ​</p>
+  <p>calculate a gender dimension by simply taking the arithmetic mean of a set of such pairs.</p>
+  <p>Dimensions for class and race are similarly constructed, using appropriate sets of antonym pairs</p>
+  <p>such as</p>
+  <p>or rich – poor ​</p>
+  <p>, respectively . We note that an analyst could also discover black – white ​</p>
+  <p>differential weights for each word pair by estimating them within a linear model that predicts</p>
+  <p>surveyed cultural associations. A weighted sum necessarily improves the correlation of our</p>
+  <p>dimension with surveyed associations, but is fragile for analysis of historical culture when we</p>
+  <p>can field no surveys.</p>
+  <p>To identify the connotation of a word on a <span class="concept">cultural dimension<span class="tag">term·dom</span></span>, we calculate the</p>
+  <p>orthogonal projection of the normalized word vector onto the <span class="concept">cultural dimension<span class="tag">term·dom</span></span> of interest.</p>
+  <p>Because vectors are normalized, the projection of a word vector onto a “<span class="concept">cultural dimension<span class="tag">term·dom</span></span>” is</p>
+  <p>equivalent to their <span class="method">cosine similarity<span class="tag">term·mth</span></span>. For instance, to determine the gender association for the</p>
+  <p>word “tennis,” we project</p>
+  <p>onto the gender dimension of ( tennis ​</p>
+  <p>) man – woman ​</p>
+  <p>( + ​</p>
+  <p>+ ) he – she ​</p>
+  <p>) him – her ​</p>
+  <p>. In this case, a more negative projection would indicate a more feminine +.... ​</p>
+  <p>association and more positive values a more masculine association (the signs may be flipped, of</p>
+  <p>course, making positive values reflect feminine associations if masculine terms are subtracted</p>
+  <p>from feminine terms, i.e. by using</p>
+  <p>instead of woman – man ​</p>
+  <p>). By comparing the man – woman ​</p>
+  <p>Because the cultural category of race is itself multidimensional, its representation in word embeddings is</p>
+  <p>4 multidimensional as well. While we restrict our analyses to the or hispanic - white ​</p>
+  <p>similarly capture meaningful semantic relations. hispanic - black ​</p>
+  <p>dimension, other word pairs such as white ​</p>
+  <p>- black ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>projections of multiple words on a single <span class="concept">cultural dimension<span class="tag">term·dom</span></span>, it is possible to compare their</p>
+  <p>connotations within the given cultural category. The process for identifying cultural dimensions</p>
+  <p>and locating the position of words on these dimensions is graphically summarized in Figure 2. 5</p>
+  <p>__________________________</p>
+  <p>Figure 2 about here</p>
+  <p>___________________________</p>
+  <p>The first panel of Figure 2 shows the construction of a gender dimension by averaging</p>
+  <p>the differences of several gender antonym pairs. The second panel depicts how, by projecting the</p>
+  <p>names of several sports onto the gender dimension, we find that softball and tennis project onto</p>
+  <p>the feminine side of the dimension, soccer is nearly orthogonal to the gender dimension,</p>
+  <p>indicating no strong gender association, and hockey, boxing, and baseball all project masculine.</p>
+  <p>The third panel shows how this process can be repeated for another dimension, in this example</p>
+  <p>class, and how words may be simultaneously positioned along multiple, meaningful cultural</p>
+  <p>dimensions. Furthermore, the angle between these dimensions can be calculated to capture</p>
+  <p>semantic similarity, and it can be evaluated at multiple time points to trace changes in categorical</p>
+  <p>relations. Induced dimensions like gender, class or any other will be approximately orthogonal if</p>
+  <p>6 they are semantically and contextually unrelated. When the angle between dimensions deviates</p>
+  <p>from 90 degrees, it suggests a meaningful relationship between them, as we demonstrate below.</p>
+  <p>5 While these low-dimensional cartoons are far different from the actual high dimensional spaces, the distances represented correspond to those in a <span class="method">word embedding<span class="tag">term·mth</span></span> learned from a 100 billion words of 21st Century Google News. 6 unit variance in each direction are approximately orthogonal</p>
+  <p>-dimensional Gaussian with d We know this from the Gaussian Annulus theorem, that two random points from a ​</p>
+  <p>. (Blum, Hopcroft, and Kannan 2016)</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>Our technique of identifying cultural dimensions is closely related to recent work that</p>
+  <p>uses <span class="method">word embedding<span class="tag">term·mth</span></span> models to detect bias in texts. Caliskan et al.</p>
+  <p>(2017)</p>
+  <p>demonstrate that a</p>
+  <p>word’s position relative to masculine and feminine terms in a <span class="method">word embedding<span class="tag">term·mth</span></span> model is strongly</p>
+  <p>associated with that word’s associations measured by Implicit Association Tests (IAT) that</p>
+  <p>capture unconscious bias</p>
+  <p>(Greenwald, McGhee, and Schwartz 1998)</p>
+  <p>. They use this evidence to</p>
+  <p>argue that <span class="method">word embedding<span class="tag">term·mth</span></span> models reveal gendered and racial biases implicit in texts. Bolukbasi</p>
+  <p>et al.</p>
+  <p>(2016)</p>
+  <p>deploy a related approach to neutralize such biased associations in text. Our work</p>
+  <p>builds upon these studies in several ways. First, we show that word position within the</p>
+  <p>embedding model correlate not only with the unconscious associations measured by an IAT, but</p>
+  <p>also with widely shared, consciously revealed associations measured by survey. We argue that</p>
+  <p>the method presented here detects not only hidden biases, but widely shared cultural</p>
+  <p>associations. It is important to note that many associations we find here are indeed biased. For</p>
+  <p>example, “doctor” is consistently found to be more “white” than “black,” and “scientist” more</p>
+  <p>“masculine” than “feminine.” We argue that word embeddings include bias, however, only</p>
+  <p>because they accurately reflect cultural systems that are themselves rife with bias. Thus, it is</p>
+  <p>rarely in the interest of cultural analyst to “de-bias” a <span class="method">word embedding<span class="tag">term·mth</span></span> model as Bolukbasi et al.</p>
+  <p>(2016)</p>
+  <p>propose for job ads and even-handed reportage. Rather, it is by interrogating these biases,</p>
+  <p>as well as the neutral cultural associations present in the models, that the analyst can cultivate an</p>
+  <p>understanding of the multifaceted term meanings and cultural categories deployed in text.</p>
+  <p>Garg et al.</p>
+  <p>(2017)</p>
+  <p>begin to move in this direction by using word embeddings to study</p>
+  <p>change in gender and ethnic stereotypes over time. By examining change in stereotypes and bias,</p>
+  <p>they recognize them as more than simply distortions of the semantic system, but rather</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>meaningful characteristics that reflect the culture in which texts were produced. Their analysis,</p>
+  <p>however, like Bolukbasi et al.</p>
+  <p>(2016)</p>
+  <p>and Caliskan et al.</p>
+  <p>(2017)</p>
+  <p>remains couched in the analysis</p>
+  <p>of bias rather than cultural categories in general. This paper builds upon and beyond these studies</p>
+  <p>by interpreting the dimensions of embedding models as representative of meaningful cultural</p>
+  <p>categories rather than simply biases, distortions or deficits in the semantic system. We then use</p>
+  <p>these dimensions as tools to illuminate complex cultural relations within a given social context,</p>
+  <p>across contexts, and across time. More broadly, this paper is the first to specifically demonstrate</p>
+  <p>the utility of <span class="method">word embedding<span class="tag">term·mth</span></span> models for sociological and cultural inquiry.</p>
+  <p>Multiple <span class="method">word embedding<span class="tag">term·mth</span></span> approaches have become widespread in recent years, but the</p>
+  <p>analyses we present here primarily utilize the CBOW and skip-gram models in</p>
+  <p>, word2vec ​</p>
+  <p>cross-validated with those from</p>
+  <p>GloVe ​</p>
+  <p>(Pennington, Socher, and Manning 2014)</p>
+  <p>and</p>
+  <p>fastText</p>
+  <p>(Joulin et al. 2016)</p>
+  <p>. The methodological principles outlined here, however, reach beyond</p>
+  <p>neural-network autoencoders and are generally applicable to <span class="method">word embedding<span class="tag">term·mth</span></span> models</p>
+  <p>constructed with other algorithms, including Latent Semantic Analysis based on SVD</p>
+  <p>(Dumais</p>
+  <p>2004)</p>
+  <p>and Bayesian nonparametric approaches</p>
+  <p>(Rudolph et al. 2016)</p>
+  <p>WORD EMBEDDINGS AND CULTURAL THEORY</p>
+  <p>Word embeddings are promising tools for cultural analysis because the models they</p>
+  <p>produce align and contend with assumptions in many contemporary sociological theories of</p>
+  <p>culture. One theoretical appeal of <span class="method">word embedding<span class="tag">term·mth</span></span> models is the fundamentally relational nature</p>
+  <p>of their meaning representations. Word embeddings are naïve as to what words signify, lacking</p>
+  <p>intrinsic word referents, and position words relative to one another based purely on how they are</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>used in relation to one another. This process of identifying a word’s meaning from context</p>
+  <p>resonates with a tradition of practice-oriented theories of language in which word meanings are</p>
+  <p>always understood through usage</p>
+  <p>(Austin 1962; Searle 1969; Wittgenstein 1953)</p>
+  <p>. The theory of</p>
+  <p>meaning implicit in <span class="method">word embedding<span class="tag">term·mth</span></span> algorithms is well summarized by linguist J.R. Firth’s</p>
+  <p>dictum: “you shall know a word by the company it keeps”</p>
+  <p>. (Firth 1957)</p>
+  <p>Word embeddings are also relational in that word meanings are entirely defined by their</p>
+  <p>position relative to other words in the vector space. “Boy” only has meaning in that it is</p>
+  <p>positioned near “man” but closer to “child,” near “girl” but closer to “male.” At the same time,</p>
+  <p>“male,” “child,” and “girl” themselves only achieve meaning through their position relative to</p>
+  <p>“boy” and other words in the space. This purely relational approach to modeling meaning</p>
+  <p>parallels a diverse body of cultural theorizing, including structuralist models of meaning</p>
+  <p>developed by Ferdinand de Saussure</p>
+  <p>(de Saussure 1916)</p>
+  <p>and elaborated by Claude Levi-Strauss</p>
+  <p>(Levi-strauss 1963)</p>
+  <p>, positing that individual signifiers are arbitrary and acquire meaning only</p>
+  <p>through placement in a complex system of signification. This fundamental insight that meaning</p>
+  <p>is not immanent within words and phrases, but rather coheres within a broader cultural system</p>
+  <p>(Emirbayer 1997)</p>
+  <p>is inherent in any <span class="method">word embedding<span class="tag">term·mth</span></span> analysis. Our approach to <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>analysis further evokes structuralist thinking in the method we present of constructing cultural</p>
+  <p>dimensions using binary antonym pairs. According to structuralist thought, the classification of</p>
+  <p>cultural objects into overarching dimensions such as male/female, clean/unclean, and</p>
+  <p>sacred/profane form the conceptual skeleton upon which culture takes shape</p>
+  <p>(Douglas 1966;</p>
+  <p>Levi-strauss 1963)</p>
+  <p>. Our method of constructing dimensions from antonym pairs such as</p>
+  <p>man −</p>
+  <p>and woman ​</p>
+  <p>, while remaining free of many of the assumptions of structuralism, rich − poor ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>preserves the basic insight that culture is organized into dimensions defined by binary</p>
+  <p>opposition.</p>
+  <p>Vector-space representations of culture both resonate and contend with more</p>
+  <p>contemporary relational field theory developed by Pierre Bourdieu. Bourdieusian cultural fields</p>
+  <p>offer a model how individuals, cultural objects, and positions in social structure are located</p>
+  <p>relative one another in structurally homologous “social spaces,” with the relations between</p>
+  <p>entities described in terms of “distances”</p>
+  <p>(Bourdieu 1989)</p>
+  <p>. Bourdieu frequently represented these</p>
+  <p>social spaces geometrically using the method of correspondence analysis (CA), rendering</p>
+  <p>distances between entities and meaningful dimensions of the field visible by placing them in a</p>
+  <p>two-dimensional plane</p>
+  <p>(Bourdieu 1984)</p>
+  <p>. The vector-space models produced by word</p>
+  <p>embeddings similarly position objects relative one another in a shared space based on cultural</p>
+  <p>similarity, but by leveraging the tremendous amount of information contained in a large corpus,</p>
+  <p>word embeddings are able to position words in a semantically-rich, high-dimensional space that</p>
+  <p>need not be reduced to low dimensionality for interpretation. Indeed, the low-dimensional</p>
+  <p>projection of correspondence analysis operationalizes a theory of cultural capital that is itself</p>
+  <p>low-dimensional, that social actors struggle to obtain and maintain dominant positions within a</p>
+  <p>cultural field through a single currency of cultural capital and a single dimension of</p>
+  <p>status-distinguishing tastes and preferences</p>
+  <p>(Bourdieu 1984)</p>
+  <p>. By preserving higher</p>
+  <p>dimensionality in a cultural space, word embeddings can facilitate the development and testing</p>
+  <p>of high-dimensional theories of how actors acquire and exploit varied cultural capitals along</p>
+  <p>multiple distinct dimensions of status.</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>The theoretical implications of moving from low-dimensional to high-dimensional spatial</p>
+  <p>models have been revolutionary in other fields. Sewall Wright, alongside Ronald Fisher and</p>
+  <p>J.B.S. Haldane founded population genetics and constructed the modern synthesis linking</p>
+  <p>genetics to evolution. Wright’s low-dimensional cartoon of evolution, however, occurs in two-</p>
+  <p>and three-dimensional “fitness spaces” and posed a fundamental problem for evolutionary</p>
+  <p>theory: how could a population of organisms resting atop a low-dimensional fitness “peak”</p>
+  <p>evolve greater fitness if its progeny needed to dip down into an unfit “valley of death” before</p>
+  <p>climbing to higher global fitness</p>
+  <p>(S. Wright 1932, 1988)</p>
+  <p>. Following the discovery of DNA and</p>
+  <p>the acknowledgement that fitness landscapes existed in very high dimensions, the number of</p>
+  <p>possible fitness-neutral evolutionary pathways mathematically exploded and the importance of</p>
+  <p>neutral drift was discovered to play a much more important role than previously conceived</p>
+  <p>(Gavrilets and Gravner 1997)</p>
+  <p>. Similarly, the realization that discursive culture exists in high</p>
+  <p>dimensions has theoretical implications for Bourdieusian spaces, which may represent more</p>
+  <p>cultural constraint than actually exists for social actors and entrepreneurs.</p>
+  <p>The ability of <span class="method">word embedding<span class="tag">term·mth</span></span> models to simultaneously locate objects in multiple</p>
+  <p>categories, such as race, class, gender and many others makes them a particularly powerful tool</p>
+  <p>for studying the intersectionality of cultural categories. The fundamental insight of the</p>
+  <p>intersectionality literature is that cultural categories, particularly those of identity, cannot be</p>
+  <p>isolated and understood independently</p>
+  <p>(Crenshaw 1991; McCall 2005)</p>
+  <p>. Rather, analysts must</p>
+  <p>always consider ways in which the meaning of cultural categories change as they overlap and</p>
+  <p>intersect one another. Interrogation of the intersection of cultural categories becomes empirically</p>
+  <p>tractable through <span class="method">word embedding<span class="tag">term·mth</span></span> models. For example, comparing words that project high on</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>both masculinity and “whiteness” to those that project high on masculinity and “blackness” will</p>
+  <p>reveal how markers of masculinity differ across racial lines within the cultural context in which</p>
+  <p>the texts were produced. This theory that identity is defined by numerous cross-cutting and</p>
+  <p>overlapping categories is itself predicated on a “high-dimensional” model of culture similar to</p>
+  <p>that modeled by Euclidean word embeddings. Indeed, the empirical success of <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>models to represent cultural dimensions, which we demonstrate below, promotes a radical view</p>
+  <p>of intersectional identity, modeled not as a low-dimensional matrix, but rather a</p>
+  <p>high-dimensional tensor comprised of hundreds or thousands of distinct cultural associations.</p>
+  <p>Furthermore, <span class="method">word embedding<span class="tag">term·mth</span></span> models are well-equipped to discover the heterogeneity of</p>
+  <p>cultural systems by sampling different “voices” in a population. Techniques that model cultural</p>
+  <p>systems with aggregated survey statistics, such as Bourdieu’s correspondence analysis, have a</p>
+  <p>tendency to represent cultural associations as homogenous in a population. Bourdieu, for</p>
+  <p>instance, uses correspondence analysis to locate people and cultural objects in a single space</p>
+  <p>reflective of the objective social distances between entities. Nevertheless, Bourdieu recognized</p>
+  <p>that “the vision that every agent has of the space depends on his or his position in that space” and</p>
+  <p>therefore any actual actor’s vision will depart from the objective social mapping produced by</p>
+  <p>correspondence analysis</p>
+  <p>(Bourdieu 1989)</p>
+  <p>. <span class="method">Word embedding<span class="tag">term·mth</span></span> models depict relations as presented</p>
+  <p>in texts produced by a given social group, and hence <span class="method">word embedding<span class="tag">term·mth</span></span> models are able capture</p>
+  <p>precisely these visions of social space</p>
+  <p>. While <span class="method">word embedding<span class="tag">term·mth</span></span> models from a given perspective ​</p>
+  <p>represent cultural spaces closely akin to those described by Bourdieu, they are spaces as seen</p>
+  <p>from a given vantage point, and therefore have the potential to grant insight into how cultural</p>
+  <p>fields are perceived by distinct social actors and to formally compare these perspectives.</p>
+  <p>​ ​ ​</p>
+  <p>Like Bourdieu’s low-dimensional correspondence analysis of survey responses, our use</p>
+  <p>of word embeddings shares much in common with Osgood’s semantic differential method,</p>
+  <p>which similarly rates words along cultural dimensions. In the semantic differential method,</p>
+  <p>respondents are asked in an interview to place words on culturally meaningful spectra; for</p>
+  <p>example, is “dictator” closer to “smooth” or “rough?”</p>
+  <p>(Osgood 1952)</p>
+  <p>. A key finding from this</p>
+  <p>method is that much of the variance across all dimensions tested can be explained by just three</p>
+  <p>core factors: Evaluation (good vs. bad), Potency (powerful vs. weak), and Activity (lively vs.</p>
+  <p>torpid)</p>
+  <p>(Osgood 1962)</p>
+  <p>. Osgood’s insight matured within sociology into Heise’s affect control</p>
+  <p>theory, which posits that individuals interpret events and plot courses of action by accounting for</p>
+  <p>culturally based affective meanings―or the position of words on stable, culture-specific</p>
+  <p>Evaluation, Potency, Activity (EPA) dimensions</p>
+  <p>(Heise 1979, 1987; Schröder, Hoey, and Rogers</p>
+  <p>2016)</p>
+  <p>. Scholars in this tradition have surveyed individuals in multiple languages and cultures to</p>
+  <p>personally embed thousands of words within culturally specific EPA dimensions.</p>
+  <p>Despite their similarities, there exist critical differences that distinguish word embeddings</p>
+  <p>from the semantic differential approach. Semantic differential methods have relied upon</p>
+  <p>interview subjects to rate words, but <span class="method">word embedding<span class="tag">term·mth</span></span> models utilize text and can sample</p>
+  <p>populations impossible to interview, such as those from the historical past. In addition, each</p>
+  <p>defined dimension must be surveyed individually in the semantic differential approach, whereas</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> models capture an entire cultural space of associations passively “surveyed”</p>
+  <p>from hundreds of thousands of authors. The semantic differential method presents compelling</p>
+  <p>evidence that much variance in meaning can be explained by a few factors, but the optimization</p>
+  <p>of <span class="method">word embedding<span class="tag">term·mth</span></span> models have demonstrated that many more than three dimensions are</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>nevertheless required to model the full variation of words in discourse and effectively perform</p>
+  <p>analogy tasks. Psychologists and computer scientists have recently begun to embed survey</p>
+  <p>responses in high-dimensions for much higher rates of prediction</p>
+  <p>(Jamieson and Nowak 2011;</p>
+  <p>Tamuz et al. 2011; Castro et al. 2009)</p>
+  <p>, rather than distilling them like Osgood and Bourdieu into</p>
+  <p>two or three. Moreover, sociologists are often concerned with subtle nuances of meaning and</p>
+  <p>differences along specific dimensions, like gender and race, which may exhibit even more</p>
+  <p>cultural conservation and evolutionary significance than EPA dimensions. In summary, EPA</p>
+  <p>may be useful to coarsely bin concepts, but the higher dimensionality of <span class="method">word embedding<span class="tag">term·mth</span></span> models</p>
+  <p>enable fine-grained distinctions, associations, distances and the discovery of emergent cultural</p>
+  <p>dimensions.</p>
+  <p>DATA &amp; METHODS</p>
+  <p>We draw upon multiple, varied data sources to demonstrate the power of word</p>
+  <p>embeddings for cultural analysis. First, to establish the ecological validity of results produced by</p>
+  <p>word embeddings we conducted a survey that measures associations between everyday objects</p>
+  <p>and the cultural categories of race, class, and gender. We compare results from this survey with</p>
+  <p>associations calculated using <span class="method">word embedding<span class="tag">term·mth</span></span> models trained on contemporary sources of text.</p>
+  <p>These contemporary sources include three widely-used, publicly-available pretrained models and</p>
+  <p>a fourth we trained on the publicly available Google Ngrams corpus. Following this validation,</p>
+  <p>we use Google Ngrams to conduct cross-national and historical analyses.</p>
+  <p>Survey of Cultural Associations</p>
+  <p>​ ​</p>
+  <p>In order to establish a basis of comparison between individuals’ actual reported cultural</p>
+  <p>associations and the associations as represented in the <span class="method">word embedding<span class="tag">term·mth</span></span> model, we fielded a</p>
+  <p>survey of cultural associations to a total of 398 respondents on Amazon Mechanical Turk. The</p>
+  <p>survey was fielded in two waves, the first in 2016 and the second in 2017, and was open only to</p>
+  <p>Mechanical Turk users located in the United States. Although our sample cannot be said to be</p>
+  <p>representative of the general population of the United States, responses to basic demographic</p>
+  <p>questions indicate wide diversity in age, gender, and racial composition in the sample. To</p>
+  <p>improve representativeness, we apply post-stratification weights to the sample, weighting on race</p>
+  <p>(white, black, or other), education (bachelor’s degree or less), and sex (male or female). The</p>
+  <p>results presented here include post-stratification weighting, but supplemental analyses available</p>
+  <p>upon request show that unweighted models produce substantively similar findings. This survey</p>
+  <p>and the weighting procedures are described in greater depth in Appendix A.</p>
+  <p>In the survey, respondents were asked to rate a number of items on scales representing</p>
+  <p>association along gender, race, and class lines. All questions followed the format, “On a scale</p>
+  <p>from 0 to 100, with 0 representing</p>
+  <p>and 100 representing very feminine ​</p>
+  <p>, how very masculine ​</p>
+  <p>would you rate a</p>
+  <p>?” For measuring race and class associations, the survey posed similarly steak ​</p>
+  <p>worded questions, replacing “feminine” and “masculine” with “White” and “African American,”</p>
+  <p>or “working class” and “upper class” respectively. Respondents were asked to place 59 different</p>
+  <p>items on each of the three dimensions of race, class, and gender. A full list of items asked on the</p>
+  <p>survey is available in the appendix (Table A1). Words were selected in seven topical domains:</p>
+  <p>occupations, foods, clothing, vehicles, music genres, sports, and first names. A diverse array of</p>
+  <p>topical domains were chosen to test the capacity of <span class="method">word embedding<span class="tag">term·mth</span></span> models to detect cultural</p>
+  <p>​ ​ ​</p>
+  <p>associations across very different subjects. Specific terms were selected within each topical</p>
+  <p>domain to ensure high variance across dimensions ​. We calculate the weighted mean of</p>
+  <p>responses for each item and use these means as our estimates of a general cultural association.</p>
+  <p>The end product is thus a rating between 0 and 100 on a gender dimension, a class dimension,</p>
+  <p>and a race dimension for each of the 59 words listed in Table A1.</p>
+  <p><span class="method">Word embedding<span class="tag">term·mth</span></span> data</p>
+  <p>To represent contemporary cultural associations, we utilize three widely-used,</p>
+  <p>publicly-available word embeddings and a fourth <span class="method">word embedding<span class="tag">term·mth</span></span> model that we construct using</p>
+  <p>Google Ngram text. The first model we use to represent contemporary cultural associations is a</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> trained using the</p>
+  <p>algorithm on 100 billion words scraped from word2vec ​</p>
+  <p>Google News articles published by American news outlets</p>
+  <p>(Mikolov et al. 2013)</p>
+  <p>. This</p>
+  <p>embedding is well-suited for representing widespread contemporary cultural associations for</p>
+  <p>three reasons. First, news media covers a great breadth of topics and is intended for a wide</p>
+  <p>audience, and therefore must speak with a voice interpretable to the general public. Second, print</p>
+  <p>and online news are narrative genres, repeating stories that contain the kind of implicit</p>
+  <p>associations likely to reflect common experiences within the culture. Third, this embedding is</p>
+  <p>trained on a particularly large corpus, and previous tests with word embeddings have</p>
+  <p>demonstrated that meaning accuracy, measured as the success rate at solving analogies, greatly</p>
+  <p>improves as the corpus size increases</p>
+  <p>(Mikolov et al. 2013)</p>
+  <p>. The second model, also widely used</p>
+  <p>and publicly available, was produced by the</p>
+  <p>algorithm, which accounts for both local and GloVe ​</p>
+  <p>7 First names were sampled from lists of names found to be most predictive of belonging to an African American and most predictive of belonging to a non-Hispanic white for each sex from data of all children born in California over the period 1961–2000 (Fryer and Levitt 2004; Levitt and Dubner 2005). Terms in other domains were selected based on known race, class, and gender markers that have been examined in previous literature.</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>global dependencies, and is trained on a corpus collected as part of the Common Crawl, a broad</p>
+  <p>scraping of millions of webpages</p>
+  <p>(Pennington, Socher, and Manning 2014)</p>
+  <p>. It similarly has the</p>
+  <p>benefits of size and breadth of subject matter, and is here used to test the robustness of word</p>
+  <p>embeddings for capturing cultural associations with a related <span class="method">word embedding<span class="tag">term·mth</span></span> algorithm on a</p>
+  <p>different corpus. The third model is a publicly available embedding trained using the</p>
+  <p>fastText</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> algorithm on text from Wikipedia</p>
+  <p>(Bojanowski et al. 2016)</p>
+  <p>. The</p>
+  <p>fastText</p>
+  <p>embedding algorithm is a modification of</p>
+  <p>that accounts for sub-word information such word2vec ​</p>
+  <p>as prefixes and suffixes. The fourth embedding we validate uses</p>
+  <p>on Google Ngram word2vec ​</p>
+  <p>text from 2000-2012. The Google Ngram corpus is the product a massive project in text</p>
+  <p>digitization, in collaboration with thousands of the world’s libraries, which distills text from 6%</p>
+  <p>of all books ever published</p>
+  <p>(Lin et al. 2012; Michel et al. 2011)</p>
+  <p>. Any sequence of five words that</p>
+  <p>occurs more than 40 times over the entirety of the scanned texts appears in the collection of</p>
+  <p>5-grams, along with the number of times it occurred each year. Because word embeddings</p>
+  <p>require local context to determine the meaning of words, we limit our analysis to the collection</p>
+  <p>of 5-grams, and exclude data on the occurrence of 4-grams, 3-grams, 2-grams, or single words.</p>
+  <p>All characters were converted to lowercase in preprocessing in order to increase the frequency of</p>
+  <p>rare words. Although the Google Ngrams corpus does not represent one single, identifiable genre</p>
+  <p>or voice, it spans such a wide variety of genres including novels, government documents,</p>
+  <p>academic texts and technical reports, that this sheer breadth enables it to faithfully represent the</p>
+  <p>most pervasive and widely shared cultural markers of the time period.</p>
+  <p>After validating our method on contemporary text, we again draw upon Google Ngrams</p>
+  <p>for our analyses of historical cultural change and cross-cultural comparison. To investigate how</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>the categories of gender and class transformed in American culture over the 20th century, we</p>
+  <p>utilize 5-grams of text from books published in the United States between 1900 and 1999. We</p>
+  <p>divide the corpus by decade, training separate models on texts from 1900-1909, 1910-1919, and</p>
+  <p>so on through 1990-1999, resulting in ten independently constructed <span class="method">word embedding<span class="tag">term·mth</span></span> models.</p>
+  <p>By comparing these models side-by-side, we are able to trace out patterns of macro-cultural</p>
+  <p>change over this 100 year period.</p>
+  <p>To demonstrate the utility of <span class="method">word embedding<span class="tag">term·mth</span></span> models for cross-cultural comparison, we</p>
+  <p>train models on texts published at the turn of the 20th century in the United States and in the</p>
+  <p>United Kingdom. The U.S. and U.K. serve as particularly useful comparison cases because they</p>
+  <p>share a common language yet exhibit distinctive cultural differences. We chose to analyze text</p>
+  <p>from the turn of the 20th century for two reasons. First, one advantage of <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>models is that they are able to construct detailed models of cultural systems that have left a</p>
+  <p>textual trace but are no longer available for direct observation. Thus, word embeddings are</p>
+  <p>uniquely well-equipped for comparing cultural groups from the past. Secondly, processes of</p>
+  <p>globalization and institutions of meritocracy and status mobility greatly accelerated during the</p>
+  <p>20th century, particularly after the first World War. By comparing the United States and the</p>
+  <p>United Kingdom prior to World War I, we are able to gain insight regarding how these countries’</p>
+  <p>cultures historically differed prior to this explosion of international exchange and status</p>
+  <p>shuffling. The text we use for this cross-cultural comparison is also drawn from the Google</p>
+  <p>5-gram corpus. Google Ngrams preserves metadata on books’ country of publication, making it</p>
+  <p>possible to separately train models on texts from the U.S. and U.K. We therefore train two sets of</p>
+  <p>models, one on text published in the United States and another on text published in the United</p>
+  <p>Kingdom, both between 1890-1910. We use a twenty-year window to ensure enough text to</p>
+  <p>capture subtle but meaningful cultural traces. We then compare those models to gain insight into</p>
+  <p>cross-national cultural differences in gender and class association from the turn-of-the-century</p>
+  <p>period.</p>
+  <p>Although the Google Ngram corpus has been subject to criticism because the</p>
+  <p>composition of the corpus in a given year may not be representative of total literary output</p>
+  <p>(Pechenick, Danforth, and Dodds 2015)</p>
+  <p>, we present evidence suggesting that this issue is less</p>
+  <p>problematic for <span class="method">word embedding<span class="tag">term·mth</span></span> approaches than it may be for analyses based on raw word</p>
+  <p>frequency counts. Because the positioning of words in a <span class="method">word embedding<span class="tag">term·mth</span></span> model is predicated on</p>
+  <p>consistently shared context with other words rather than frequency of occurrence, it makes little</p>
+  <p>difference if a word is talked about more or less – its position will only change if it is talked</p>
+  <p>about</p>
+  <p>. Our analyses of contemporary text show that the gender, class, and racial differently ​</p>
+  <p>associations for a wide range of objects are similarly captured whether the <span class="method">word embedding<span class="tag">term·mth</span></span> is</p>
+  <p>trained on books, news, Wikipedia entries, or webpages. This suggests that the gender, class, and</p>
+  <p>racial associations of everyday items with which we are concerned in this paper are diffuse and</p>
+  <p>sufficiently shared to exhibit a similar character across textual genres and likely would not vary</p>
+  <p>markedly with shifts in the composition of Google Ngrams over time. Furthermore, in Appendix</p>
+  <p>B we construct empirical tests that demonstrate the accuracy of the gender dimension for</p>
+  <p>th ​ century, and find that correctly classifying the gender of popular first names across the 20</p>
+  <p>accuracy remains high across all ten decades.</p>
+  <p>At multiple points in our analysis, we seek to evaluate cultural dimensions not only with</p>
+  <p>respect to each other, but also the full range of other cultural dimensions. Neural network</p>
+  <p>​ ​ ​</p>
+  <p>autoencoders are “unsupervised” machine learning models in that they are not trained to match</p>
+  <p>the associations of human experts</p>
+  <p>(<span class="person">Evans<span class="tag">persName</span></span> and Aceves 2016)</p>
+  <p>. As detailed above, unsupervised</p>
+  <p>approaches to text analysis also include topic models and semantic networks, which</p>
+  <p>automatically produce complex representations of word associations over all available data.</p>
+  <p>Nevertheless, analysts still typically sample interpretations from these complex artifacts, often by</p>
+  <p>selectively noting salient topics, word linkages or word vector proximities. This has led to</p>
+  <p>reasonable allegations that researchers conveniently cherry-pick explanations to confirm</p>
+  <p>pre-existing opinions</p>
+  <p>(Nickerson 1998)</p>
+  <p>. To avoid this temptation, we attempt to systematically</p>
+  <p>sample from the space of possible interpretations by extracting a list of 1775 antonym pairs from</p>
+  <p>WordNet, an electronic lexical database containing of a thorough catalogue of English words,</p>
+  <p>their meanings, and relations to one another</p>
+  <p>(Miller 1995)</p>
+  <p>, including antonymy. We then</p>
+  <p>compare focal dimensions with cultural dimensions inscribed by a nearly exhaustive list English</p>
+  <p>antonyms, and restrict ourselves to dimensions posting the smallest angle with respect to those</p>
+  <p>focal. While this approach necessarily requires a commitment to a particular conceptual</p>
+  <p>dimension such as gender, it enables us to systematically “interpret” that dimension with</p>
+  <p>all</p>
+  <p>others.</p>
+  <p>Statistical Significance of Distances and Associations</p>
+  <p>We propose well-established bootstrapping and subsampling methods to</p>
+  <p>nonparametrically demonstrate the stability and significance of word associations within our</p>
+  <p>embedding model. These allow us to establish conservative confidence or credible intervals for</p>
+  <p>both (a) distances between words in a model and (b) projections of words onto an induced</p>
+  <p>dimension (e.g.,</p>
+  <p>). If we assume that the texts (e.g., newspapers, books) underlying man-woman ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>our <span class="method">word embedding<span class="tag">term·mth</span></span> model are observations drawn from an independent and identically</p>
+  <p>distributed (i.i.d.) population of cultural observations, then bootstrapping allows us to estimate</p>
+  <p>the variance of word distances and projections by measuring those properties through sampling</p>
+  <p>the empirical distribution of texts with replacement</p>
+  <p>(Efron and Tibshirani 1994; Efron 2003)</p>
+  <p>. 8</p>
+  <p>If the corpus is very large, however, then we may take a subsampling approach, which</p>
+  <p>randomly partitions the corpus into non-overlapping samples, then estimates the</p>
+  <p>word-embedding models on these subsets and calculates confidence or credible intervals as a</p>
+  <p>function of the empirical distribution of distance or projection statistics and number of texts in</p>
+  <p>the subsample</p>
+  <p>(D. N. Politis, Romano, and Wolf 1997)</p>
+  <p>. Subsampling relies on the same i.i.d.</p>
+  <p>assumption as the bootstrap</p>
+  <p>(Dimitris N. Politis and Romano 1992, 1994)</p>
+  <p>. For 90% confidence</p>
+  <p>intervals, we randomly partition the corpus into 20 subcorpora, then calculate the error of our</p>
+  <p>for each subsample s embedding distance or projection statistic ​</p>
+  <p>as k ​</p>
+  <p>, where</p>
+  <p>is the number of texts in subsample</p>
+  <p>is the embedding distance or projection for the ​</p>
+  <p>sample, and</p>
+  <p>is the full sample estimate. The 90% confidence interval spans the 5th to 95th</p>
+  <p>percentile variances, inscribed by</p>
+  <p>and</p>
+  <p>where</p>
+  <p>is the number of texts in the total</p>
+  <p>corpus. As with bootstrapping, a 95% confidence interval would require 40 subsamples; a 99%</p>
+  <p>th th ​ percentiles). A great benefit of bootstrapped and ​ to 99.5 confidence would require 200 (.5</p>
+  <p>Operationally, if we wanted to bootstrap a 90% confidence interval of a word-word distance or</p>
+  <p>8 word-dimension projection, we would sample a corpus the same size as the original corpus, but with replacement, 20 times, and estimate <span class="method">word embedding<span class="tag">term·mth</span></span> models on each sample. Then we take the 2 ―either distance or projection―as our confidence interval’s lower bound, and s ​smallest) statistic (2 ​(2) th across 20 bootstrap samples s and s as its upper bound. The distance between s ​ order statistic 19 ​(19) ​(2) ​(19) th th th span the 5 ​ confidence interval. A 95% ​ percentiles of the statistic’s variance, bounding the 90 ​ to the 95 confidence interval would span s ​(2) th th ​ percentiles. ​ to 97.5 bootstrap samples of a corpus, tracing the 2.5</p>
+  <p>in <span class="method">word embedding<span class="tag">term·mth</span></span> distances or projections estimated on 40</p>
+  <p>s and ​(39)</p>
+  <p>​ order</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>subsampled confidence intervals is that they reflect how robust an association is across texts. If a</p>
+  <p>word occurs only rarely or is used in a diffuse set of very distinct contexts, the word’s position in</p>
+  <p>the vector space will be radically different between subsamples and therefore will produce larger</p>
+  <p>confidence or credible intervals. On the other hand, words that are frequently used in very</p>
+  <p>consistent contexts will hold more stable positions across the subsamples and hence produce</p>
+  <p>smaller confidence or credible intervals.</p>
+  <p>RESULTS</p>
+  <p>To determine the relative importance of cultural dimensions in the embedding space, we</p>
+  <p>calculate the total amount of variance explained by the gender, race and class dimensions across</p>
+  <p>all words contained in the space. Using the Google News embedding model, we find that gender,</p>
+  <p>class and race explain a small percentage of the total variance in the space: gender explains</p>
+  <p>0.57%, race 0.48%, and class 0.47%. These values are modest not because gender, race, and</p>
+  <p>class do a particularly poor job of capturing semantic difference, but because words have so</p>
+  <p>many valences that render across a 300 dimensional embedding space, no single dimension can</p>
+  <p>capture a large fraction of the variance. Using principal components analysis, we find that the</p>
+  <p>dimension capturing the most possible variance in the space explains only 3.65% of its variance.</p>
+  <p>These findings suggest that the rich semantic spaces produced by word embeddings cannot be</p>
+  <p>reduced to very low dimensionality—such as Osgood’s three-dimensional EPA model—without</p>
+  <p>losing a majority of cultural information.</p>
+  <p>Survey validation of models</p>
+  <p>We begin our analysis by constructing the cultural dimensions for gender, class, and race,</p>
+  <p>which will be used in all subsequent analyses. Table 1 lists the pairs of words we use to</p>
+  <p>approximate gender, class, and race dimensions. As described above, we select word pairs such</p>
+  <p>that the difference between each word in a pair is a “step” along the dimension of interest. For</p>
+  <p>example, the difference between</p>
+  <p>and richest ​</p>
+  <p>is a step along the class dimension, and poorest ​</p>
+  <p>should be a similar in direction to the difference between</p>
+  <p>and affluence ​</p>
+  <p>. The lists poverty ​</p>
+  <p>presented in Table 1 are not exhaustive; other pairs of words could be added or substituted for</p>
+  <p>the pairs we have included. Averaging between six and ten pairs of words for each dimension, as</p>
+  <p>we have done here, produces a closer approximation to the <span class="concept">cultural dimension<span class="tag">term·dom</span></span> of interest than</p>
+  <p>any one word-pair, as they post higher correlations with the survey described below. Cultural</p>
+  <p>dimensions are calculated by simply taking the mean of all word pair differences that</p>
+  <p>approximate a given dimension,</p>
+  <p>, where</p>
+  <p>are all word pairs in relevant set p ​</p>
+  <p>, P ​</p>
+  <p>and</p>
+  <p>are the first and second word vectors in each pair. ​</p>
+  <p>__________________________</p>
+  <p>Table 1 about here</p>
+  <p>__________________________</p>
+  <p>Having recovered dimensions of the <span class="method">word embedding<span class="tag">term·mth</span></span> model that correspond to cultural</p>
+  <p>categories of gender, class, and race, we proceed by validating these associations by comparing</p>
+  <p>them with associations measured in the survey. We test the correspondence between results from</p>
+  <p>the survey and the <span class="method">word embedding<span class="tag">term·mth</span></span> model by calculating the Pearson’s correlation between a</p>
+  <p>word’s mean rating on a given scale in the survey and the projection of the word vector on the</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>respective <span class="concept">cultural dimension<span class="tag">term·dom</span></span> in the embedding model. The correlation is calculated using the 59</p>
+  <p>words that are listed in Table A1. Results are presented in Table 2.</p>
+  <p>_________________________</p>
+  <p>Table 2 about here</p>
+  <p>_________________________</p>
+  <p>The first column of Table 2 displays the correlation between a word’s average rating on</p>
+  <p>the gender scale from the survey and the word’s projection on the gender dimension for four</p>
+  <p>embedding models. In the first row of Table 2, we see that the correlation between a word’s</p>
+  <p>gender rating on the survey and that same word’s projection onto the gender dimension in the</p>
+  <p>Google News <span class="method">word embedding<span class="tag">term·mth</span></span> is 0.88. This correlation is impressively high and attests to how</p>
+  <p>well a gender dimension elicited from the <span class="method">word embedding<span class="tag">term·mth</span></span> model corresponds to contemporary</p>
+  <p>individuals’ understandings of masculinity and femininity. We find similarly high correlations</p>
+  <p>between the projections on the gender dimension of the</p>
+  <p>embedding trained on the GloVe ​</p>
+  <p>Common Crawl text, the</p>
+  <p>embedding trained on Wikipedia text, and the fastText ​</p>
+  <p>word2vec</p>
+  <p>embedding</p>
+  <p>and Google N-grams, at 0.90, 0.87 and 0.78 respectively. These strong correlations ​</p>
+  <p>suggest that projections on the gender dimension of a <span class="method">word embedding<span class="tag">term·mth</span></span> model can serve as a</p>
+  <p>proxy for the gender associations that would be reported in a survey by respondents sharing a</p>
+  <p>similar set of cultural understandings to those presented in the text.</p>
+  <p>The second column of Table 2 presents correlations between survey response and word</p>
+  <p>vector projection for class. We see that associations are generally weaker than they are for</p>
+  <p>gender, but remain substantial, ranging between 0.40 and 0.60. Four possible explanations for the</p>
+  <p>weaker association are (1) greater disagreement among those surveyed regarding race and class</p>
+  <p>​ ​ ​ ​</p>
+  <p>associations (average standard deviation=23.1) than gender (SD=20.8); (2) greater disagreement</p>
+  <p>among authors of texts regarding class associations than gender; (3) a disjunct between class</p>
+  <p>associations present in the texts and those understood by survey respondents; and (4)</p>
+  <p>measurement error, both in the embedding and the survey</p>
+  <p>e.g., the survey may not elicit – ​</p>
+  <p>associations of class as sharply as gender, and</p>
+  <p>or rich – poor ​</p>
+  <p>may not affluent – impoverished ​</p>
+  <p>approximate the class dimension from texts as perfectly as the</p>
+  <p>or man – woman ​</p>
+  <p>captures he – she ​</p>
+  <p>the gender dimension.</p>
+  <p>The third column shows correlations between the outputs of <span class="method">word embedding<span class="tag">term·mth</span></span> models and</p>
+  <p>the survey for racial associations. We see that the Google News embedding does excellently,</p>
+  <p>with a correlation of 0.70, and the Common Crawl and Wikipedia embeddings do moderately</p>
+  <p>well with correlation of 0.42 and 0.49 respectively, while the Google N-grams corpus does</p>
+  <p>relatively poorly, with a correlation of only 0.17. The failure of the n-grams model to pick up</p>
+  <p>racial associations may be a product of the texts included in the corpus. The subject matter of</p>
+  <p>news articles and general internet postings may be imbued with more racial association than the</p>
+  <p>Ngrams corpus, which contains significant non-fiction, including technical reports and scientific</p>
+  <p>publications without narrative content that would invoke ambient, contemporary racial</p>
+  <p>associations within that embedding model’s projections. Additionally, as noted at the bottom of</p>
+  <p>Table 1, the Google Ngrams text were entirely reduced to lowercase in preprocessing, which</p>
+  <p>decreased the available number of antonym word pairs for constructing the race dimension from</p>
+  <p>six to four, possibly resulting in decreased accuracy of the dimension.</p>
+  <p>In Table 3 we provide a more detailed summary of the correspondence between associations</p>
+  <p>produced in the <span class="method">word embedding<span class="tag">term·mth</span></span> model and those reported by survey respondents. For all pairs</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>of words that have a statistically significant difference in mean survey rating (p&lt;0.01) for gender,</p>
+  <p>class, and race associations within a substantive domain, we calculate the proportion of those</p>
+  <p>pairs that are correctly ordered by the <span class="method">word embedding<span class="tag">term·mth</span></span> model trained on Google News text. For</p>
+  <p>instance, if “steak” is significantly more masculine than “salad” in the survey, we test if</p>
+  <p>steak</p>
+  <p>more masculine than</p>
+  <p>in the embedding, and then calculate the percentage of all such pairs salad ​</p>
+  <p>of words that are correctly matched.</p>
+  <p>________________________</p>
+  <p>Table 3 about here</p>
+  <p>________________________</p>
+  <p>We see in Table 3 that within most substantive domains, the rate of correct classification</p>
+  <p>is above 80% and in many cases above 90%. It is also clear that embedding does a better job in</p>
+  <p>domains with stronger cultural associations. For instance, there is very little difference in racial</p>
+  <p>association between the clothing items included in the survey (standard deviation of 4.68) and in</p>
+  <p>this domain the embedding has a low 51.8% rate of matching the survey. In first names,</p>
+  <p>however, where signals are stronger (standard deviation of 32.46) the same dimension of the</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> correctly matches 100% of differences in the survey. It is also important to note</p>
+  <p>that we should not expect a 100% correspondence in all fields because the Google News corpus</p>
+  <p>does not perfectly correspond to the cultural associations shared in the population sampled in this</p>
+  <p>survey; presumably the authors of news articles are not culturally identical to a sample of</p>
+  <p>Mechanical Turk respondents. Therefore, we would expect a <span class="method">word embedding<span class="tag">term·mth</span></span> trained on a</p>
+  <p>corpus that matched the cultural associations of the survey respondents to exhibit a much higher</p>
+  <p>correlation with survey results than we observe here.</p>
+  <p>​ ​</p>
+  <p>A visual depiction of the correspondence between <span class="method">word embedding<span class="tag">term·mth</span></span> models and our</p>
+  <p>survey of cultural associations is presented in Figure 3. Figure 3 reveals how several music</p>
+  <p>genres – jazz, rap, opera, punk, techno, hip hop, and bluegrass – are arrayed on the cultural</p>
+  <p>dimensions of race and class by survey and <span class="method">word embedding<span class="tag">term·mth</span></span>, with the average survey rating of a</p>
+  <p>word depicted in black and projection in gray. Comparing survey output to <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>projections, we see striking similarity in the relative positions of words. By both methods, opera</p>
+  <p>holds the association of being at once both high class and white. Techno, punk, and bluegrass are</p>
+  <p>similarly white, but of distinctly lower class than opera. On the right end of the panel, we see</p>
+  <p>that the music genre associated with both African Americans and high class is jazz, whereas hip</p>
+  <p>hop and rap tend working class. Projecting words simultaneously into multiple dimensions, it is</p>
+  <p>clear how word embeddings can be used to examine intersectionality by revealing how class</p>
+  <p>markers vary across racial lines.</p>
+  <p>_______________________</p>
+  <p>Figure 3 about here</p>
+  <p>_______________________</p>
+  <p>It is important to note that <span class="method">word embedding<span class="tag">term·mth</span></span> models capture cultural associations present</p>
+  <p>in text, but this does not always reflect material or historical realities. In some cases embedding</p>
+  <p>models succeed in capturing historic realities; hip hop, rap, and jazz are truly historic products of</p>
+  <p>African American culture and they carry a clear African American association in the word</p>
+  <p>embedding. Music historians, however, also trace the origins of techno to African American</p>
+  <p>artists based in Detroit in the 1980s</p>
+  <p>(Reynolds 2013)</p>
+  <p>, yet the embedding model locates techno’s</p>
+  <p>contemporary association at a relatively white position on the racial dimension. Comparing this</p>
+  <p>​ ​</p>
+  <p>to survey results, we see that the survey responses similarly fail to reflect the historic association</p>
+  <p>of techno music with African Americans. Thus, both survey results and embedding models</p>
+  <p>suggest that in spite of African Americans’ historic involvement in the invention of techno</p>
+  <p>music, techno currently carries little sign of African American association among the broad</p>
+  <p>public. This case serves as a useful demonstration of how embedding models are able to</p>
+  <p>successfully capture cultural associations, but how these cultural associations may themselves be</p>
+  <p>limited, distorted or biased representations.</p>
+  <p>Here we focus primarily on race, class, and gender, but any number of meaningful</p>
+  <p>cultural categories can be interrogated using the method we outline for recovering the cultural</p>
+  <p>dimensions of a <span class="method">word embedding<span class="tag">term·mth</span></span> model. For example, creating a liberal/conservative political</p>
+  <p>ideology dimension is straightforward and can be quickly accomplished without collection of</p>
+  <p>additional data, simply by averaging antonym pairs that trace this political dimension. Figure 4</p>
+  <p>maps a number of objects of lifestyle politics in a two-dimensional space, with the x-axis</p>
+  <p>representing ideological association and the y-axis representing class association, calculated</p>
+  <p>using the</p>
+  <p>Google News embedding . The arrangement of words on these dimensions word2vec ​</p>
+  <p>depicts not only how ordinary items, places, and social groups are charged with political</p>
+  <p>connotation, but also how political markers differ between socio-economic levels. In the top left</p>
+  <p>of Figure 4, we see markers of upper-class liberalism include “Subaru,” “Prius,” “New_York,”</p>
+  <p>and “latte,” whereas the lower left corner contains “hippie,” “feminist,” and “union” as markers</p>
+  <p>of the Left lacking association with affluence. In the top right we see markers of high-class</p>
+  <p>conservatism: “golf,” “steak,” and “business,” while less affluent markers of conservatism</p>
+  <p>9 In Figure 5, the political political dimension is an average of the following five word differences: liberal-conservative, liberals-conservatives, Democrat-Republican, Democrats-Republicans, . The class dimension is the same as in previous analyses. Democratic-Republican ​</p>
+  <p>comprise “Dodge,” “evangelical,” “rancher,” “pickup,” and “Texas.” These associations all</p>
+  <p>closely mirror those described in popular media and scholarly work on lifestyle politics,</p>
+  <p>graphically depicting not only how everyday items have ideological connotation, but also how</p>
+  <p>markers of ideology are stratified by class</p>
+  <p>(DellaPosta, Shi, and Macy 2015)</p>
+  <p>. To provide</p>
+  <p>additional evidence of word embeddings’ ability to capture political associations, we show in</p>
+  <p>Appendix B1 that the Google News embedding is able to categorize a set of recent high-profile</p>
+  <p>politicians as Democrats of Republicans with near perfect accuracy.</p>
+  <p>______________________</p>
+  <p>Figure 4 about here</p>
+  <p>_______________________</p>
+  <p>Analyzing Historical Change in Cultural Dimensions</p>
+  <p>Having established a strong correspondence between cultural dimensions identifiable</p>
+  <p>within a <span class="method">word embedding<span class="tag">term·mth</span></span> model and those present in the contemporary collective consciousness,</p>
+  <p>we proceed to analyze <span class="method">word embedding<span class="tag">term·mth</span></span> models trained on text produced in previous decades to</p>
+  <p>reconstruct and examine past systems of cultural association. For this task, we once again draw</p>
+  <p>upon text from the Google Ngrams corpus, limiting our analysis to texts published in the United</p>
+  <p>States between 1900 and 1999, dividing the corpus by decade and training a model on each</p>
+  <p>10-year period independently with the</p>
+  <p>algorithm. By training separate word word2vec ​</p>
+  <p>th ​ century, then projecting words along gender embeddings on text from each decade of the 20</p>
+  <p>and class dimensions in each embedding, we trace out broad patterns of cultural change and</p>
+  <p>reproduction regarding gender and class associations over the past century. Investigating race</p>
+  <p>over time, while possible with word embeddings, would present unique challenges. Because</p>
+  <p>​ ​ ​ ​</p>
+  <p>words used to denote racial groups shifted repeatedly over the 20th century, words used to</p>
+  <p>construct the race dimension in the embedding would also need to change from decade to</p>
+  <p>decade. Undertaking this task effectively would require a deeper engagement with linguistic</p>
+  <p>shifts in racial terminology than is feasible within the space constraints of this paper.</p>
+  <p>Furthermore, findings from Table 2 suggest that the Google Ngrams corpus successfully captures</p>
+  <p>gender and class associations but does relatively poorly in recovering racial associations. We</p>
+  <p>thus limit our historical analyses to an examination of gender and class.</p>
+  <p>We illustrate the technique of tracing historic evolution in word meaning by investigating</p>
+  <p>th ​ century in the class and gender associations of three occupations that exhibit change over the 20</p>
+  <p>distinctly different trajectories: nurse, journalist, and engineer. Results are presented in Figure 5.</p>
+  <p>We note that most associations remain stable from one decade to the next; “nurse” is consistently</p>
+  <p>feminine, “engineer” remains masculine, while “journalist” changes considerably but gradually</p>
+  <p>over several decades. The general stability from decade to decade enables us to compare these</p>
+  <p>models trained on texts from sequential periods. Nevertheless, the specific characteristics of each</p>
+  <p>occupation’s trajectory is informative and unique. “Nurse” shows a consistent, incremental</p>
+  <p>movement from strong to weaker feminine association. Conversely, “engineer” traces a slow</p>
+  <p>movement towards decreasing masculinity. “Journalist,” changes gender connotation more</p>
+  <p>dramatically, beginning as a masculine occupation in the beginning of the twentieth century, but</p>
+  <p>shifting to an increasingly feminine career by century’s end. The changes in gendered association</p>
+  <p>of “engineer” and “nurse” are consistent with a great deal of evidence documenting decreasing</p>
+  <p>occupational gender segregation across the 20</p>
+  <p>th ​ century</p>
+  <p>(Blau, Brummund, and Liu 2013; Reskin</p>
+  <p>1993)</p>
+  <p>and in fields of engineering and nursing in particular</p>
+  <p>(D’Antonio and Whelan 2009)</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>National Science Foundation 2016). The shift from masculine to feminine association for</p>
+  <p>journalism corresponds to a real increase in women’s representation in journalism, but labor</p>
+  <p>statistics indicate that journalism remained male dominated 20</p>
+  <p>th ​ century’s end (ASNE 2017).</p>
+  <p>Gender scholars have noted a feminization of the culture of journalism in late 20th century,</p>
+  <p>however, as the media outlets began to cater to female consumers</p>
+  <p>(Oliver 2014; Van Zoonen</p>
+  <p>1998)</p>
+  <p>. This cultural association is corroborated by survey results, in which “journalist” was on</p>
+  <p>average rated slightly feminine. Once again, we caution that word embeddings models, by</p>
+  <p>distilling information from local word co-occurrences, do not provide direct information about</p>
+  <p>material, on-the-ground realities. Rather, they capture semantic associations that permeate</p>
+  <p>speech and text, which remain fundamentally cultural.</p>
+  <p>_________________________</p>
+  <p>Figure 5 about here</p>
+  <p>_________________________</p>
+  <p>The second panel of Figure 5 traces the evolution of class association for the same three</p>
+  <p>occupations. It is immediately clear that class shifts are generally distinct from changes in gender</p>
+  <p>association. As nursing became less feminine, it also rose in class. “Journalist” became</p>
+  <p>dramatically more upper-class while at once becoming more feminine. This swift movement</p>
+  <p>from middle to upper-class over in the mid-twentieth century is in line with historical accounts of</p>
+  <p>the professionalization of journalism, a process in which journalists ceased to be scrappy,</p>
+  <p>uneducated reporters from middle- and working-class backgrounds, but increasingly affluent,</p>
+  <p>well-connected writers educated at elite colleges</p>
+  <p>(Hess 1981)</p>
+  <p>. As journalists transitioned from</p>
+  <p>what Max Weber described in 1918 as “a sort of pariah class”</p>
+  <p>(Weber 1948)</p>
+  <p>to a position of</p>
+  <p>​ ​ ​ ​ ​ ​ ​</p>
+  <p>status and prestige by the 1980s, we see the class association of journalist in the <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>models rise accordingly. “Engineer” is consistently positioned in the middle of the spectrum</p>
+  <p>between upper-class and working-class. Unlike professionals in medicine or law, U.S. engineers</p>
+  <p>were from historically lower class backgrounds and failed to organize and exclude entry through</p>
+  <p>requiring a liberal education as prerequisite—most engineers only obtain a single degree</p>
+  <p>(Collins 1979)</p>
+  <p>. Moreover, despite being well paid, engineers’ work in mechanical and technical</p>
+  <p>operations often puts them in closer association to blue-collar work than white-collar</p>
+  <p>professionals such as journalists.</p>
+  <p><span class="method">Word embedding<span class="tag">term·mth</span></span> models not only have the capacity to trace the positions of words along</p>
+  <p>cultural dimensions over time, but also make it possible to holistically evaluate the relationship</p>
+  <p>between cultural dimensions by calculating the angle between them. Dimensions with similar</p>
+  <p>meanings, such as</p>
+  <p>and strong-weak ​</p>
+  <p>will tend to have high <span class="method">cosine similarity<span class="tag">term·mth</span></span>, meaning big-small ​</p>
+  <p>they approach parallel and exhibit high correlation between the projection of individual words on</p>
+  <p>each dimension. Conversely, unrelated dimensions, such as</p>
+  <p>and strong-weak ​</p>
+  <p>, are hot-cold ​</p>
+  <p>orthogonal and word projections do not covary. By evaluating the changing angle between</p>
+  <p>cultural dimensions over time we track historical shifts between categories. To demonstrate this</p>
+  <p>th ​ century by calculating approach, we trace the relationship between class and gender over the 20</p>
+  <p>the <span class="method">cosine similarity<span class="tag">term·mth</span></span> of the angle—and its arccosine, the angle’s degree—between those</p>
+  <p>dimensions. We also calculate the Pearson correlation between the gender projection and class</p>
+  <p>projection for all words in the embedding in each decade to display how non-orthogonal cultural</p>
+  <p>dimensions translate into a correlation between words’ positions on the two dimensions.</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>th ​ century is The angle between gender and class dimensions for each decade of the 20</p>
+  <p>presented in Figure 6 and traces an intriguing pattern; class and gender hold a strong association</p>
+  <p>in the U.S. at dawn of the 20</p>
+  <p>th ​ century, with femininity associated with higher class and</p>
+  <p>th ​ century, masculinity lower class. This association remains stable through the first half of the 20</p>
+  <p>but quickly diminishes to unrelated orthogonality in the final decades. This trend is at first glance</p>
+  <p>surprising. Given that women entered the workforce at growing rates in the second half of the</p>
+  <p>century, it would be reasonable to hypothesize that femininity would take on a higher-class</p>
+  <p>association at this time. Yet the results presented in Figure 6 suggest exactly the opposite, that</p>
+  <p>femininity was more synonymous with high class</p>
+  <p>women entered the workplace. before ​</p>
+  <p>_______________________</p>
+  <p>Figure 6 about here</p>
+  <p>_______________________</p>
+  <p>To shed more light on this trend, we follow the relationship between class and other key</p>
+  <p>cultural dimensions over the 20</p>
+  <p>th ​ century, illuminating a broad pattern of defeminizing class</p>
+  <p>associations.</p>
+  <p>In Figure 7 we see that in the beginning of the 20</p>
+  <p>th ​ century, high class was</p>
+  <p>associated with the feminine qualities “beautiful,” “graceful,” and “fine,” whereas lower-class</p>
+  <p>was marked with masculine qualities “ugly,” “awkward,” and “coarse.” However, over the</p>
+  <p>course of the century, the class became increasingly orthogonal to the</p>
+  <p>, beautiful-ugly ​</p>
+  <p>and graceful-awkward ​</p>
+  <p>dimensions. In their place, class came to be more closely fine-coarse ​</p>
+  <p>synonymous with the categories of</p>
+  <p>and employed-unemployed ​</p>
+  <p>, with the educated-uneducated ​</p>
+  <p>We construct cultural dimensions for each of the antonym pairs by following the same process</p>
+  <p>10 described in the previous section - taking the difference between the two word vectors and normalizing the resulting vector.</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>upper class being increasingly identified as educated and employed and the lower class as</p>
+  <p>uneducated and unemployed. In short, these changes imply that over the course of the twentieth</p>
+  <p>century, class came to have less to do with beauty and grace and more to do with education and</p>
+  <p>employment. This macro-historical trajectory can be understood within the broader historical</p>
+  <p>narrative of the decline of the aristocratic archetype of wealth and its replacement with an image</p>
+  <p>of the high class as educated technocrats at the helm of commerce and industry.</p>
+  <p>______________________</p>
+  <p>Figure 7 about here</p>
+  <p>______________________</p>
+  <p>Cross-National Comparison: United States and Great Britain</p>
+  <p>Next we demonstrate how <span class="method">word embedding<span class="tag">term·mth</span></span> models can be used as a powerful tool for</p>
+  <p>cross-cultural comparison. Just as historic cultural changes can be investigated by comparing</p>
+  <p>embeddings trained on texts produced in multiple time periods, cross-cultural differences can be</p>
+  <p>analyzed by comparing embeddings trained on texts generated by different social groups. In the</p>
+  <p>following analyses, we conduct a comparison of gender and class associations between the</p>
+  <p>United States and the United Kingdom during the pre-war period of 1890-1910, drawing once</p>
+  <p>again from Google 5-grams text in order to get a broad sampling of discourse that represent</p>
+  <p>diffuse and widespread cultural associations shared by broad literary publics in each country.</p>
+  <p>We begin our cultural comparison by examining how other cultural categories relate to</p>
+  <p>gender and class in the United States and Great Britain in this time period. Namely, we discover</p>
+  <p>for each country the dimensions most synonymous with gender and with class, and compare</p>
+  <p>these results to find differences cross-national differences in how these categories are</p>
+  <p>conceptualized. From the complete list of WordNet antonyms, we limit our analysis to categories</p>
+  <p>more frequently invoked, listing pairs of antonyms in which both words are within the 20,000</p>
+  <p>most frequently occurring words in the given country’s texts. This subset produces lists of 442</p>
+  <p>pairs for the United States and 428 pairs for Great Britain. We construct a <span class="concept">cultural dimension<span class="tag">term·dom</span></span></p>
+  <p>corresponding to each antonym pair and calculate the <span class="method">cosine similarity<span class="tag">term·mth</span></span> between each of these</p>
+  <p>cultural dimensions and the class and gender dimensions.</p>
+  <p>_____________________</p>
+  <p>Table 4 about here</p>
+  <p>_____________________</p>
+  <p>We present a list of the five cultural dimensions closest to gender for the United States</p>
+  <p>and the United Kingdom in Table 4, which suggest striking similarities between the two cultures</p>
+  <p>at the turn of the 20</p>
+  <p>th ​ century. Of the five dimensions closest to gender in U.S. text, four are also</p>
+  <p>among the top five for Great Britain. Masculinity in both contexts associated with being more</p>
+  <p>rugged, loud, tough, and bold, while femininity was associated with delicateness, softness,</p>
+  <p>tenderness and timidity. Comparing dimensions closest to class, we once again see strong</p>
+  <p>similarities between the two English speaking nations:</p>
+  <p>is closest to class in the U.S., weak-strong ​</p>
+  <p>and the third closest in Britain, while</p>
+  <p>is second closest to class in the U.S. fortunate-unfortunate ​</p>
+  <p>and fourth closest in Britain. Subtle distinctions in the class dimension, however, reveal</p>
+  <p>important differences between the two cultures. The dimension most highly correlated with class</p>
+  <p>Great Britain is</p>
+  <p>o ​), whereas <span class="method">cosine similarity<span class="tag">term·mth</span></span> at <span class="method">cosine similarity<span class="tag">term·mth</span></span> of -0.255 (104.8 bare-covered ​</p>
+  <p>o ​). between bare-covered and class in the U.S. is much closer to orthogonal at only -0.143 (98.2</p>
+  <p>We also see that employed-unemployed is highly correlated with class in Britain, but that</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>category would only come to be highly correlated with class in U.S. in the second half of the</p>
+  <p>twentieth century, following different timelines of industrialization for the United States and the</p>
+  <p>Great Britain. By 1900, 39% of the American workforce worked in agriculture</p>
+  <p>(United States.</p>
+  <p>Bureau of the Census 1975)</p>
+  <p>, compared with only 7% in Britain</p>
+  <p>(Mitchell 1971)</p>
+  <p>While the United States and the United Kingdom shared similar basic conceptions of</p>
+  <p>gender and class at turn of the 20th century, the specific markers that carried gender and class</p>
+  <p>connotations differed markedly between the countries. We examine differences in class and</p>
+  <p>gender associations between the U.S. and U.K. by comparing word projections on these</p>
+  <p>dimensions in the two embeddings. In the top panel of Figure 8, we display a comparison of</p>
+  <p>word locations on the class dimension for the United States and Great Britain in 1890-1910,</p>
+  <p>revealing important differences in the class connotation of these items. The top-left quadrant of</p>
+  <p>the figure shows that “rank” and “nobility” carry stronger upper-class association in Britain than</p>
+  <p>the U.S. We also see that “colonies” has a moderately strong upper-class association in Britain,</p>
+  <p>which is not present in the U.S. While British colonies themselves were frequently impoverished</p>
+  <p>by the process of colonial extraction, the colonies still represented a source of riches and wealth</p>
+  <p>for the British Empire. The United States, on the other hand, had much less economic stake in</p>
+  <p>colonies. American associations with colonies are more likely to be in reference to the United</p>
+  <p>States’ own colonial past than to the economic fruits of foreign colonies. The top-right quadrant</p>
+  <p>displays words of high class connotation in the United States. We see that “cotton” has a strong</p>
+  <p>connotation of affluence in the U.S. not present in the Great Britain embedding. This is</p>
+  <p>reasonable given that agricultural production, particularly of cotton, had for decades been the</p>
+  <p>backbone of the American South’s economy. The word “wilderness” has an upper-class</p>
+  <p>​ ​ ​ ​</p>
+  <p>association in U.S.’ text whereas it has a moderately lower-class connotation in Britain. This</p>
+  <p>difference reflects the unique position of wilderness in the American imagination. Historians</p>
+  <p>have recognized an identification of the American wilderness as a bountiful frontier to be settled</p>
+  <p>for agriculture or harvested for timber. With the founding of the first National Parks at the end of</p>
+  <p>th ​ century, wilderness was becoming widely perceived as a national treasure in itself the 19</p>
+  <p>(Nash</p>
+  <p>2014)</p>
+  <p>_____________________</p>
+  <p>Figure 8 about here</p>
+  <p>_____________________</p>
+  <p>The bottom-left quadrant of Figure 8 contains words with lower-class connotation in</p>
+  <p>Great Britain. We see that “commoner” is a strong marker of lower-class in Britain, while more</p>
+  <p>neutral in America. Taken alongside the particularly high-class ratings for “nobility” and “rank”</p>
+  <p>in Britain, this firm lower-class connotation for “commoner” suggests a stronger correspondence</p>
+  <p>between social rank and class in Britain than the United States, where economic success was</p>
+  <p>imagined available to members of any social stratum as suggested by widespread popularity of</p>
+  <p>rags-to-riches novels and the myth of the American Dream</p>
+  <p>(Peña 2016; Weiss 1969)</p>
+  <p>. This</p>
+  <p>egalitarian framework is also evident in class associations of “worker” and “farmer,” both</p>
+  <p>marked as lower class in Britain but not America. Nevertheless, the United States exhibits a</p>
+  <p>profoundly lower-class connotation along racial lines, here captured by the word “negro” (the</p>
+  <p>most prevalent term of the period for people of African descent in both the U.S. and U.K.),</p>
+  <p>which suggest that at the turn of the 20</p>
+  <p>th ​ century, U.S. conceptions of blackness and poverty were</p>
+  <p>intertwined in a uniquely powerful way. Thus, while the American texts suggest a cultural</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>egalitarianism in class associations for “worker,” “farmer,” and “commoner,” our findings imply</p>
+  <p>that race defied this egalitarian tendency, remaining a sharper and more definitive marker of</p>
+  <p>lower class in the United States relative to Great Britain. One final difference of note is the class</p>
+  <p>connotation of the word “tenement.” Although overcrowded urban housing is in no way</p>
+  <p>particular American cities, the tenement was a uniquely American structure at the turn of the 20</p>
+  <p>century, and the term was not used to refer to low-income urban housing in Britain (</p>
+  <p>Wright</p>
+  <p>1983)</p>
+  <p>. Matching this history, we see that “tenement” is sharply marked as lower class in the</p>
+  <p>United States, yet carries no such association in Great Britain.</p>
+  <p>Our comparison of the closest dimensions to gender in the U.S. and Britain, 1890-1910,</p>
+  <p>suggested that the overall category of gender appears quite similar in the two countries, but</p>
+  <p>difference in masculine/feminine connotations for individual items suggest how its application</p>
+  <p>varied. To demonstrate the capacity of <span class="method">word embedding<span class="tag">term·mth</span></span> models to pick up subtle cultural</p>
+  <p>associations, we show evidence from a substantive area where American and British cultural</p>
+  <p>histories diverge but where the gender associations are likely to remain implicit: the</p>
+  <p>understanding of foreign, colonized territories. Longstanding theories of culture and colonialism</p>
+  <p>have pointed to a feminization of colonized people and places</p>
+  <p>(Said 1978)</p>
+  <p>. We bring new</p>
+  <p>evidence to bare on this widely theorized association by locating the names of continents and</p>
+  <p>countries subject to British colonization on a gender dimension in British and American word</p>
+  <p>embeddings. Results are presented in the second panel of Figure 8, with higher points on the</p>
+  <p>Figure representing more masculine associations. We see that both British and American authors</p>
+  <p>self-portray as highly masculine; in Britain text “england” is the most masculine term in the</p>
+  <p>selection and in American text “u.s.a.” is most masculine. Next we see that in the U.S. and Great</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>Britain, associations of other Western powers are also relatively masculine; “England” is</p>
+  <p>masculine in the U.S., “U.S.A.” is masculine in the Britain, and “Europe” is masculine to both.</p>
+  <p>For “Africa,” “Asia,” and “India,” however, sites of intensive British colonization, we see strong</p>
+  <p>feminine associations in British text more neutral gender associations in America. China, which</p>
+  <p>was not colonized but was subject to coercive trade policies by both the United States and Great</p>
+  <p>Britain in the 19th century</p>
+  <p>(Cohen 2010)</p>
+  <p>, posts a strong feminine association in both countries’</p>
+  <p>texts. These results corroborate the thesis that colonized territories of the East were culturally</p>
+  <p>depicted and understood as feminine by the West. The findings we present here further suggest</p>
+  <p>that feminization of these key sites was particularly pronounced in Great Britain, the colonizing</p>
+  <p>nation. The United States, which historically had had a lesser role in global colonization, does</p>
+  <p>not share the strong feminine connotations of Eastern locales such as Asia, Africa, or India, with</p>
+  <p>which it did not exert 19</p>
+  <p>th ​ century dominance.</p>
+  <p>DISCUSSION:</p>
+  <p>In this paper we present modern <span class="method">word embedding<span class="tag">term·mth</span></span> models, particularly those produced</p>
+  <p>using the algorithm</p>
+  <p>, as a productive method for the analysis of cultural categories and word2vec ​</p>
+  <p>associations. By representing the relationship between words as the relationship between vectors</p>
+  <p>in a high-dimensional vector space, <span class="method">word embedding<span class="tag">term·mth</span></span> models distill vast collections of text into a</p>
+  <p>singular representation while still preserving much of the richness and complexity of the</p>
+  <p>semantic relations for systematic interpretation. We describe how dimensions of the word</p>
+  <p>embedding models correspond closely to “cultural dimensions” such as race, class, gender or</p>
+  <p>liberalism/conservatism, and how examining the position of words arrayed upon the salient</p>
+  <p>cultural dimensions of a <span class="method">word embedding<span class="tag">term·mth</span></span> can illuminate patterns of association and classification</p>
+  <p>​ ​ ​</p>
+  <p>in a given cultural system. Furthermore, we show that by calculating the angles between the</p>
+  <p>cultural dimensions themselves, analysts can gain insight into the culture-wide relations between</p>
+  <p>categories.</p>
+  <p>We provided empirical demonstrations of how <span class="method">word embedding<span class="tag">term·mth</span></span> models can be utilized to</p>
+  <p>interrogate the relations between words within a given cultural system, but also to draw close</p>
+  <p>comparisons between multiple cultures. In this paper, we presented analyses comparing cultural</p>
+  <p>th ​ century, tracing slow relations surrounding gender and class across distinct decades of the 20</p>
+  <p>but persistent shifts in the relation between gender and class in American culture. We also</p>
+  <p>demonstrate the utility of <span class="method">word embedding<span class="tag">term·mth</span></span> models for cross-cultural analysis by comparing</p>
+  <p>embeddings trained on texts produced in the United States and Great Britain at the turn of the</p>
+  <p>th ​ century, revealing subtle differences in meaning for a number of cultural markers.</p>
+  <p>The full range of potential applications for <span class="method">word embedding<span class="tag">term·mth</span></span> models for the analysis of</p>
+  <p>culture reaches far beyond the examples presented in this paper. Following the general approach</p>
+  <p>piloted here, analysts could use <span class="method">word embedding<span class="tag">term·mth</span></span> models to compare the cultural systems</p>
+  <p>represented between literary genres, texts produced by different authors, or texts written in</p>
+  <p>different languages</p>
+  <p>(Lev, Klein, and Wolf 2015)</p>
+  <p>. A wide array of social collectives, including</p>
+  <p>scientific disciplines, political elites, and contributors to online forums, can be analyzed and</p>
+  <p>compared by training <span class="method">word embedding<span class="tag">term·mth</span></span> models on the text they produce. Furthermore, while this</p>
+  <p>paper has focused on insights produced by identifying, extracting or comparing “cultural</p>
+  <p>dimensions” from the vector space, we do not maintain that this is the only method for utilizing</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> models to advance social science. Higher than one-dimensional comparisons</p>
+  <p>could be made by plotting the words within a space inscribed by multiple “archetypes”</p>
+  <p>(Lim and</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>Harrell 2015)</p>
+  <p>. Simply calculating the proximity of word vectors can also provide a strong</p>
+  <p>indicator of the similarity or distance between word meanings</p>
+  <p>(Kulkarni et al. 2015)</p>
+  <p>. Word</p>
+  <p>embedding models can further be used to classify and predict which group produced a text, given</p>
+  <p>multiple corpora produced by distinct social groups</p>
+  <p>(<span class="person">Taddy<span class="tag">persName</span></span> 2015)</p>
+  <p>. Finally, future word</p>
+  <p>embeddings that use hyperbolic or elliptical geometries could be used to systematically capture</p>
+  <p>nonlinear relations in language such as hierarchy or clustering. We argue that a wide range of</p>
+  <p>techniques for productively developing and applying <span class="method">word embedding<span class="tag">term·mth</span></span> models to social and</p>
+  <p>cultural inquiry are possible but yet to be developed. Nevertheless, Euclidean word embeddings</p>
+  <p>are designed to model and evaluate intersecting dimensions of culture in a way that maps onto a</p>
+  <p>wide range of cultural theory.</p>
+  <p>Here we also pilot an approach to tame the interpretation of “unsupervised” methods like</p>
+  <p><span class="method">word embedding<span class="tag">term·mth</span></span> models. With supervised statistical classifiers analysts must first sample data,</p>
+  <p>then train a predictive model, and finally extend or generalize that model to the remaining</p>
+  <p>unsampled and unobserved data. It is easy to selectively interpret complex, unsupervised models</p>
+  <p>by noting salient topics, word linkages or proximities that confirm expectations. Here we</p>
+  <p>demonstrate how we can systematically compare words and dimensions against all others to</p>
+  <p>enable complete or systematically sampled interpretations. Such sampling still requires a</p>
+  <p>commitment to an underlying conceptual dimension, but enables systematic comparison with all</p>
+  <p>meaningful linguistic dimensions, inferable from an extensive set of antonym pairs.</p>
+  <p>A current limitation for the application of word embeddings is that they require a</p>
+  <p>relatively large body of text if the output vector space is to capture subtle and complex</p>
+  <p>associations of greatest interest to analysts of culture. Previous studies indicate that analogy tests</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>can only be reliably solved when input text comprises several million words or more</p>
+  <p>(Hill et al.</p>
+  <p>2014)</p>
+  <p>. Nevertheless, that word embeddings are tailored to efficiently utilize very large corpora is</p>
+  <p>also a strength. The amount of digitized text available for sociological analysis is growing at a</p>
+  <p>rapid and accelerating rate</p>
+  <p>(Salganik 2017)</p>
+  <p>. While social scientists have widely recognized that</p>
+  <p>these vast archives contain a tremendous cache of cultural information and therefore hold</p>
+  <p>enormous potential for cultural analysis, scholars have remained limited by the available tools</p>
+  <p>for analyzing large text. Neural word embeddings present a method for producing a rich model</p>
+  <p>of semantic relationships from corpora too large for techniques such as topic modeling or</p>
+  <p>semantic network analysis. Furthermore, when an adequate amount of text is available,</p>
+  <p>contemporary <span class="method">word embedding<span class="tag">term·mth</span></span> approaches are able to distill much more semantic information</p>
+  <p>and more complex semantic relations than previous methods of computational text analysis. It is</p>
+  <p>also important to note that <span class="method">word embedding<span class="tag">term·mth</span></span> models’ algorithms have received intensive attention</p>
+  <p>in computer science and natural language processing communities, and are being continuously</p>
+  <p>improved, with more recent algorithms demonstrating advances in their ability to successfully</p>
+  <p>model semantic relations with smaller bodies of text by leveraging subword information</p>
+  <p>(Bojanowski et al. 2016; Joulin et al. 2016)</p>
+  <p>. As <span class="method">word embedding<span class="tag">term·mth</span></span> models become more widely</p>
+  <p>used in the social scientific community, we expect them to enable the application of new data to</p>
+  <p>classic sociological questions, and the productive identification and discovery of novel social and</p>
+  <p>cultural problems.</p>
+  <p>The findings we present here demonstrate that <span class="method">word embedding<span class="tag">term·mth</span></span> models are able to</p>
+  <p>faithfully capture complex cultural associations and dimensions from large bodies of text to a</p>
+  <p>degree unapproachable with previous methods. High-dimensional word embeddings conform</p>
+  <p>​ ​ ​ ​ ​</p>
+  <p>with, but also extend structural and field theories of culture, and critique the sufficiency of low</p>
+  <p>dimensional theories, such as strong class or affect control, to explain the full range of strategic</p>
+  <p>moves or human expressions. Through the engineering process of simultaneously capturing all</p>
+  <p>associations expressed in language, neural embedding models reveal a stable, high-dimensional</p>
+  <p>geometry of culture, which, like a many-faceted crystal, amplifies the competing cultural</p>
+  <p>framings that enable coordinated and spontaneous social action.</p>
+  <p>References</p>
+  <p>Alanis-Lobato, Gregorio, Pablo Mier, and Miguel A. Andrade-Navarro. 2016. “Efficient Embedding of 6 (July): 30108. Scientific Reports ​</p>
+  <p>Complex Networks to Hyperbolic Space via Their Laplacian.”</p>
+  <p>Austin, John L. 1962.</p>
+  <p>. Clarendon Press. How to Do Things with Words ​</p>
+  <p>Bail, Christopher A. 2014. “The Cultural Environment: Measuring Culture with Big Data.”</p>
+  <p>Theory and</p>
+  <p>43 (3-4): 465–82. Society ​</p>
+  <p>Biernacki, R. 2012.</p>
+  <p>. Springer. Reinventing Evidence in Social Inquiry: Decoding Facts and Variables ​</p>
+  <p>Blau, Francine D., Peter Brummund, and Albert Yung-Hsu Liu. 2013. “Trends in Occupational</p>
+  <p>Segregation by Gender 1970–2009: Adjusting for the Impact of Changes in the Occupational Coding System.”</p>
+  <p>50 (2): 471–92. Demography ​</p>
+  <p>Blei, David M. 2012. “Probabilistic Topic Models.”</p>
+  <p>55 (4):77–84. Communications of the ACM ​</p>
+  <p>Blei, David M., Andrew Y. Ng, and Michael I. Jordan. 2003. “Latent Dirichlet Allocation.”</p>
+  <p>Journal of</p>
+  <p>3 (Jan): 993–1022. Machine Learning Research: JMLR ​</p>
+  <p>Blum, Avrim, John Hopcroft, and Ravindran Kannan. 2016. “Foundations of Data Science.”</p>
+  <p>. Vorabversion Eines Lehrbuchs ​</p>
+  <p>Bojanowski, Piotr, Edouard Grave, Armand Joulin, and Tomas Mikolov. 2016. “Enriching Word Vectors . arXiv. arXiv [cs.CL] ​</p>
+  <p>. http://arxiv.org/abs/1607.04606</p>
+  <p>with Subword Information.”</p>
+  <p>Bolukbasi, Tolga, Kai-Wei Chang, James Y. Zou, Venkatesh Saligrama, and Adam T. Kalai. 2016. “Man Is to Computer Programmer as Woman Is to Homemaker? Debiasing Word Embeddings.” In , 4349–57. Advances in Neural Information Processing Systems ​</p>
+  <p>Bourdieu, Pierre. 1984.</p>
+  <p>. Harvard University Distinction: A Social Critique of the Judgement of Taste ​</p>
+  <p>Press.</p>
+  <p>———. 1989. “Social Space and Symbolic Power.”</p>
+  <p>7 (1):14–25. Sociological Theory ​</p>
+  <p>Caliskan, Aylin, Joanna J. Bryson, and Arvind Narayanan. 2017. “Semantics Derived Automatically from</p>
+  <p>Language Corpora Contain Human-like Biases.”</p>
+  <p>356 (6334): 183–86. Science ​</p>
+  <p>Carley, Kathleen. 1994. “Extracting Culture through Textual Analysis.”</p>
+  <p>22 (4): 291–312. Poetics ​</p>
+  <p>Castro, Rui M., Charles Kalish, Robert Nowak, Ruichen Qian, Tim Rogers, and Xiaojin Zhu. 2009.</p>
+  <p>“Human Active Learning.” In Koller, D. Schuurmans, Y. Bengio, and L. Bottou, 241–48. Curran Associates, Inc.</p>
+  <p>, edited by D. Advances in Neural Information Processing Systems 21 ​</p>
+  <p>Christopher A. Bail. 2012. “The Fringe Effect: Civil Society Organizations and the Evolution of Media</p>
+  <p>Discourse about Islam since the September 11th Attacks.” 855–79.</p>
+  <p>77 (6): American Sociological Review ​</p>
+  <p>Cohen, Warren I. 2010.</p>
+  <p>. Columbia America’s Response to China: A History of Sino-American Relations ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>University Press.</p>
+  <p>Collins, Randall. 1979.</p>
+  <p>. The Credential Society: An Historical Sociology of Education and Stratification ​</p>
+  <p>New York: Academic Press.</p>
+  <p>Corman, S. R. 2002. “Studying Complex Discursive Systems: Centering Resonance Analysis of</p>
+  <p>Communication.”</p>
+  <p>28 (2): 157–206. Human Communication Research ​</p>
+  <p>Crenshaw, Kimberle. 1991. “Mapping the Margins: Intersectionality, Identity Politics, and Violence</p>
+  <p>against Women of Color.”</p>
+  <p>43 (6): 1241–99. Stanford Law Review ​</p>
+  <p>Cvetkovski, A., and M. Crovella. 2009. “Hyperbolic Embedding and Routing for Dynamic Graphs.” In</p>
+  <p>, 1647–55. IEEE INFOCOM 2009 ​</p>
+  <p>D’Andrade, Roy G. 1995.</p>
+  <p>. Cambridge University Press. The Development of Cognitive Anthropology ​</p>
+  <p>D’Antonio, Patricia, and Jean C. Whelan. 2009. “Counting Nurses: The Power of Historical Census 18 (19): 2717–24. Journal of Clinical Nursing ​</p>
+  <p>Data.”</p>
+  <p>DellaPosta, Daniel, Yongren Shi, and Michael Macy. 2015. “Why Do Liberals Drink Lattes?” 120 (5): 1473–1511. American Journal of Sociology ​</p>
+  <p>AJS;</p>
+  <p>DiMaggio, Paul. 1997. “Culture and Cognition.”</p>
+  <p>23 (1): 263–87. Annual Review of Sociology ​</p>
+  <p>DiMaggio, Paul, Manish Nag, and David Blei. 2013. “Exploiting Affinities between Topic Modeling and</p>
+  <p>the Sociological Perspective on Culture: Application to Newspaper Coverage of U.S. Government Arts Funding.”</p>
+  <p>41 (6): 570–606. Poetics ​</p>
+  <p>Douglas, Mary. 1966.</p>
+  <p>. Routledge. Purity and Danger: An Analysis of Concepts of Pollution and Taboo ​</p>
+  <p>Dumais, Susan T. 2004. “Latent Semantic Analysis.”</p>
+  <p>Annual Review of Information Science and</p>
+  <p>38 (1): 188–230. Technology ​</p>
+  <p>Efron, Bradley. 2003. “Second Thoughts on the Bootstrap.”</p>
+  <p>Statistical Science: A Review Journal of the</p>
+  <p>18 (2): 135–40. Institute of Mathematical Statistics ​</p>
+  <p>Efron, Bradley, and R. J. Tibshirani. 1994.</p>
+  <p>. CRC Press. An Introduction to the Bootstrap ​</p>
+  <p>Emirbayer, Mustafa. 1997. “Manifesto for a Relational Sociology.”</p>
+  <p>The American Journal of Sociology</p>
+  <p>103 (2): 281–317.</p>
+  <p><span class="person">Evans<span class="tag">persName</span></span>, James A., and Pedro Aceves. 2016. “Machine Translation: Mining Text for Social Theory.”</p>
+  <p>42 (1): 21–50. Annual Review of Sociology ​</p>
+  <p>Firth, J. R. 1957. “A Synopsis of Linguistic Theory, 1930-1955.” in</p>
+  <p>. Basil Studies in Linguistic Analysis ​</p>
+  <p>Blackwell.</p>
+  <p>Foster, Jacob G., Andrey Rzhetsky, and James A. <span class="person">Evans<span class="tag">persName</span></span>. 2015. “Tradition and Innovation in Scientists’</p>
+  <p>Research Strategies.”</p>
+  <p>80 (5): 875–908. American Sociological Review ​</p>
+  <p>Garg, Nikhil, Londa Schiebinger, Dan Jurafsky, and James Zou. 2017. “Word Embeddings Quantify 100</p>
+  <p>Years of Gender and Ethnic Stereotypes.”</p>
+  <p>. arXiv. arXiv [cs.CL] ​</p>
+  <p>. http://arxiv.org/abs/1711.08412</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>Gavrilets, S., and J. Gravner. 1997. “Percolation on the Fitness Hypercube and the Evolution of</p>
+  <p>Reproductive Isolation.”</p>
+  <p>184 (1): 51–64. Journal of Theoretical Biology ​</p>
+  <p>Glaser, Barney, and Anselm Strauss. 1967.</p>
+  <p>The Discovery of Grounded Theory: Strategies for Qualitative</p>
+  <p>. Chicago, IL: Adeline. Research ​</p>
+  <p>Goldberg, Amir, Sameer B. Srivastava, V. Govind Manian, William Monroe, and Christopher Potts.</p>
+  <p>2016. “Fitting In or Standing Out? The Tradeoffs of Structural and Cultural Embeddedness.” 81 (6): 1190–1222. American Sociological Review ​</p>
+  <p>Greenwald, A. G., D. E. McGhee, and J. L. Schwartz. 1998. “Measuring Individual Differences in</p>
+  <p>Implicit Cognition: The Implicit Association Test.” (6): 1464–80.</p>
+  <p>74 Journal of Personality and Social Psychology ​</p>
+  <p>Grimmer, J. 2009. “A Bayesian Hierarchical Topic Model for Political Texts: Measuring Expressed</p>
+  <p>Agendas in Senate Press Releases.” . Section of the American Political Science Association ​</p>
+  <p>Political Analysis: An Annual Publication of the Methodology</p>
+  <p>Grimmer, J., and B. M. Stewart. 2013. “Text as Data: The Promise and Pitfalls of Automatic Content</p>
+  <p>Analysis Methods for Political Texts.” . Section of the American Political Science Association ​</p>
+  <p>Political Analysis: An Annual Publication of the Methodology</p>
+  <p>Hamilton, William L., Jure Leskovec, and Dan Jurafsky. 2016. “Diachronic Word Embeddings Reveal . arXiv. arXiv [cs.CL] ​</p>
+  <p>Statistical Laws of Semantic Change.”</p>
+  <p>. http://arxiv.org/abs/1605.09096</p>
+  <p>Handler, Abram. 2014. “An Empirical Study of Semantic Similarity in WordNet and Word2Vec.”</p>
+  <p>University of New Orleans.</p>
+  <p>. https://scholarworks.uno.edu/td/1922/</p>
+  <p>Heise, David R. 1979.</p>
+  <p>. CUP Archive. Understanding Events: Affect and the Construction of Social Action ​</p>
+  <p>———. 1987. “Affect Control Theory: Concepts and Model.”</p>
+  <p>13 The Journal of Mathematical Sociology ​</p>
+  <p>(1-2). Routledge: 1–33.</p>
+  <p>Hess, Stephen. 1981. “Washington Reporters.”</p>
+  <p>18 (4): 55–66. Society ​</p>
+  <p>Hill, Felix, Kyunghyun Cho, Sebastien Jean, Coline Devin, and Yoshua Bengio. 2014. “Not All Neural</p>
+  <p>Embeddings Are Born Equal.”</p>
+  <p>. arXiv. arXiv [cs.CL] ​</p>
+  <p>. http://arxiv.org/abs/1410.0718</p>
+  <p>Hoffman, Mark Anthony, Jean-Philippe Cointet, Philipp Brandt, Newton Key, and Peter Bearman.</p>
+  <p>Forthcoming. “The (Protestant) Bible, the (printed) Sermon, and the Word(s): The Semantic Structure of the Conformist and Dissenting Bible, 1660–1780.”</p>
+  <p>Poetics</p>
+  <p>Huff, Connor, and Dustin Tingley. 2015. “‘Who Are These People?’ Evaluating the Demographic 2 (3). Research &amp; Politics ​</p>
+  <p>Characteristics and Political Preferences of MTurk Survey Respondents.”</p>
+  <p>Jamieson, K. G., and R. D. Nowak. 2011. “Low-Dimensional Embedding Using Adaptively Selected</p>
+  <p>Ordinal Data.” In , 1077–84. Computing (Allerton) ​</p>
+  <p>2011 49th Annual Allerton Conference on Communication, Control, and</p>
+  <p>Ji, Shihao, Nadathur Satish, Sheng Li, and Pradeep Dubey. 2016. “Parallelizing Word2Vec in Shared and</p>
+  <p>Distributed Memory.”</p>
+  <p>. arXiv. arXiv [cs.DC] ​</p>
+  <p>. http://arxiv.org/abs/1604.04661</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>Jost, Jürgen, and Shiping Liu. 2014. “Ollivier’s Ricci Curvature, Local Clustering and</p>
+  <p>Curvature-Dimension Inequalities on Graphs.” 300–322.</p>
+  <p>51 (2). Discrete &amp; Computational Geometry ​</p>
+  <p>Joulin, Armand, Edouard Grave, Piotr Bojanowski, and Tomas Mikolov. 2016. “Bag of Tricks for</p>
+  <p>Efficient Text Classification.”</p>
+  <p>. arXiv. arXiv [cs.CL] ​</p>
+  <p>. http://arxiv.org/abs/1607.01759</p>
+  <p>Kaufer, David S., and Kathleen M. Carley. 1993. “Condensation Symbols: Their Variety and Rhetorical</p>
+  <p>Function in Political Discourse.”</p>
+  <p>26 (3): 201–26. Philosophy &amp; Rhetoric ​</p>
+  <p>Krioukov, Dmitri, Fragkiskos Papadopoulos, Maksim Kitsak, Amin Vahdat, and Marián Boguñá. 2010. Physical Review. E, Statistical, Nonlinear, and Soft</p>
+  <p>“Hyperbolic Geometry of Complex Networks.” 82 (3 Pt 2): 036106. Matter Physics ​</p>
+  <p>Kulkarni, Vivek, Rami Al-Rfou, Bryan Perozzi, and Steven Skiena. 2015. “Statistically Significant</p>
+  <p>Detection of Linguistic Change.” In , 625–35. WWW ’15. Republic and Canton of Geneva, Switzerland: International World Wide Web ​ Wide Web Conferences Steering Committee.</p>
+  <p>Proceedings of the 24th International Conference on World</p>
+  <p>Lee, Monica, and John Levi Martin. 2015. “Coding, Counting and Cultural Cartography.”</p>
+  <p>American</p>
+  <p>3 (1): 1–33. Journal of Cultural Sociology ​</p>
+  <p>Le, Q., and T. Mikolov. 2014. “Distributed Representations of Sentences and Documents.”</p>
+  <p>International . http://www.jmlr.org/proceedings/papers/v32/le14.pdf</p>
+  <p>. jmlr.org. Conference on Machine Learning ​</p>
+  <p>Levay, Kevin E., Jeremy Freese, and James N. Druckman. 2016. “The Demographic and Political</p>
+  <p>Composition of Mechanical Turk Samples.”</p>
+  <p>6 (1):1-17. SAGE Open ​</p>
+  <p>Lev, Guy, Benjamin Klein, and Lior Wolf. 2015. “In Defense of <span class="method">Word Embedding<span class="tag">term·mth</span></span> for Generic Text</p>
+  <p>Representation.” In International Publishing.</p>
+  <p>, 35–50. Springer Natural Language Processing and Information Systems ​</p>
+  <p>Levi-strauss, Claude. 1963.</p>
+  <p>. Basic Books. Structural Anthropology ​</p>
+  <p>Levy, Omer, Yoav Goldberg, and Ido Dagan. 2015. “Improving Distributional Similarity with Lessons 3 Transactions of the Association for Computational Linguistics ​</p>
+  <p>Learned from Word Embeddings.” (0): 211–25.</p>
+  <p>Lim, Chong-U, and D. Fox Harrell. 2015. “Revealing Social Identity Phenomena in Videogames with . Proceedings of the 6th International AISB Symposium on AI and Games ​</p>
+  <p>Archetypal Analysis.” In</p>
+  <p>Lin, Yuri, Jean-Baptiste Michel, Erez Lieberman Aiden, Jon Orwant, Will Brockman, and Slav Petrov.</p>
+  <p>2012. “Syntactic Annotations for the Google Books Ngram Corpus.” In 2012 System Demonstrations , 169–74. ACL ’12. Stroudsburg, PA, USA: Association for ​ Computational Linguistics.</p>
+  <p>Proceedings of the ACL</p>
+  <p>McCall, Leslie. 2005. “The Complexity of Intersectionality.”</p>
+  <p>Signs: Journal of Women in Culture and</p>
+  <p>30 (3): 1771–1800. Society ​</p>
+  <p>Michel, Jean-Baptiste, Yuan Kui Shen, Aviva Presser Aiden, Adrian Veres, Matthew K. Gray, Google</p>
+  <p>Books Team, Joseph P. Pickett, et al. 2011. “Quantitative Analysis of Culture Using Millions of</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>Digitized Books.”</p>
+  <p>331 (6014): 176–82. Science ​</p>
+  <p>Mikolov, Tomas, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013. “Efficient Estimation of Word</p>
+  <p>Representations in Vector Space.”</p>
+  <p>. arXiv. arXiv [cs.CL] ​</p>
+  <p>. http://arxiv.org/abs/1301.3781</p>
+  <p>Mikolov, Tomas, W. Yih, and G. Zweig. 2013. “Linguistic Regularities in Continuous Space Word . http://www.aclweb.org/anthology/N13-1#page=784</p>
+  <p>Representations.”</p>
+  <p>. aclweb.org. Hlt-Naacl ​</p>
+  <p>Miller, George A. 1995. “WordNet: A Lexical Database for English.”</p>
+  <p>38 Communications of the ACM ​</p>
+  <p>(11). New York, NY, USA: ACM: 39–41.</p>
+  <p>Mitchell, B. R. 1971.</p>
+  <p>. Cambridge University Press. Abstract of British Historical Statistics ​</p>
+  <p>Mohr, John W. 1998. “Measuring Meaning Structures.”</p>
+  <p>24 (1): 345–70. Annual Review of Sociology ​</p>
+  <p>Mohr, John W., and Petko Bogdanov. 2013. “Introduction—Topic Models: What They Are and Why</p>
+  <p>They Matter.”</p>
+  <p>41 (6): 545–69. Poetics ​</p>
+  <p>Nalisnick, Eric, Bhaskar Mitra, Nick Craswell, and Rich Caruana. 2016. “Improving Document Ranking Proceedings of the 25th International Conference Companion on</p>
+  <p>with Dual Word Embeddings.” In , 83–84. WWW ’16 Companion. Republic and Canton of Geneva, Switzerland: World Wide Web ​ International World Wide Web Conferences Steering Committee.</p>
+  <p>Nash, Roderick. 2014.</p>
+  <p>. Yale University Press. Wilderness and the American Mind: Fifth Edition ​</p>
+  <p>Nickerson, Raymond S. 1998. “Confirmation Bias: A Ubiquitous Phenomenon in Many Guises.” Review 2 (2): 175. of General Psychology: Journal of Division 1, of the American Psychological Association ​</p>
+  <p>Oliver, Hatty. 2014. “‘It’s All About Shopping’: The Role of Consumption in the Feminization.”</p>
+  <p>The</p>
+  <p>, 251. SAGE Handbook of Feminist Theory ​</p>
+  <p>Osgood, C. 1952. “The Nature of Meaning.”</p>
+  <p>49: 197–237. Psychological Bulletin ​</p>
+  <p>Osgood, Charles E. 1962. “Studies on the Generality of Affective Meaning Systems.”</p>
+  <p>The American</p>
+  <p>17 (1): 10. Psychologist ​</p>
+  <p>Pachucki, Mark A., and Ronald L. Breiger. 2010. “Cultural Holes: Beyond Relationality in Social</p>
+  <p>Networks and Culture.”</p>
+  <p>36 (1).: 205–24. Annual Review of Sociology ​</p>
+  <p>Papadopoulos, Fragkiskos, Maksim Kitsak, M. Ángeles Serrano, Marián Boguñá, and Dmitri Krioukov.</p>
+  <p>2012. “Popularity versus Similarity in Growing Networks.”</p>
+  <p>489 (7417): 537–40. Nature ​</p>
+  <p>Pechenick, Eitan Adam, Christopher M. Danforth, and Peter Sheridan Dodds. 2015. “Characterizing the Google Books Corpus: Strong Limits to Inferences of Socio-Cultural and Linguistic Evolution.” 10 (10): e0137041. PloS One ​</p>
+  <p>Peña, Manuel. 2016.</p>
+  <p>. Routledge. American Mythologies: Semiological Sketches ​</p>
+  <p>Pennington, J., R. Socher, and C. Manning. 2014. “Glove: Global Vectors for Word Representation.”</p>
+  <p>. aclweb.org. Proceedings of the 2014 ​</p>
+  <p>. http://www.aclweb.org/anthology/D14-1162</p>
+  <p>Politis, Dimitris N., and Joseph P. Romano. 1992. “A Circular Block-Resampling Procedure for</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>Stationary Data.”</p>
+  <p>, pp. 263–70. Exploring the Limits of Bootstrap ​</p>
+  <p>———. 1994. “The Stationary Bootstrap.”</p>
+  <p>Taylor &amp; Francis: 1303–13.</p>
+  <p>89 (428). Journal of the American Statistical Association ​</p>
+  <p>Politis, D. N., J. P. Romano, and M. Wolf. 1997.</p>
+  <p>. Springer, New York. Subsampling ​</p>
+  <p>Rei, Marek, and Ted Briscoe. 2014. “Looking for Hyponyms in Vector Space.” In , 68–77. Eighteenth Conference on Computational Natural Language Learning ​</p>
+  <p>Proceedings of the</p>
+  <p>Reskin, Barbara. 1993. “Sex Segregation in the Workplace.”</p>
+  <p>19(1): 241–70. Annual Review of Sociology ​</p>
+  <p>Reynolds, S. 2013. “Energy Flash: A Journey through Rave Music and Dance Culture.” Faber &amp; Faber.</p>
+  <p>Ricoeur, Paul. 1981.</p>
+  <p>Hermeneutics and the Human Sciences: Essays on Language, Action and</p>
+  <p>. Cambridge University Press. Interpretation ​</p>
+  <p>Rosvall, Martin, and Carl T. Bergstrom. 2008. “Maps of Random Walks on Complex Networks Reveal</p>
+  <p>Community Structure.” 105 (4): 1118–23. America ​</p>
+  <p>Proceedings of the National Academy of Sciences of the United States of</p>
+  <p>Rudolph, Maja, Francisco Ruiz, Stephan Mandt, and David Blei. 2016. “Exponential Family</p>
+  <p>Embeddings.” In Sugiyama, U. V. Luxburg, I. Guyon, and R. Garnett, 478–86. Curran Associates, Inc.</p>
+  <p>, edited by D. D. Lee, M. Advances in Neural Information Processing Systems 29 ​</p>
+  <p>Ruiz, Francisco J. R., Susan Athey, and David M. Blei. 2017. “SHOPPER: A Probabilistic Model of</p>
+  <p>Consumer Choice with Substitutes and Complements.” . http://arxiv.org/abs/1711.03560</p>
+  <p>. arXiv. arXiv [stat.ML] ​</p>
+  <p>Said, Edward. 1978.</p>
+  <p>. New York: Pantheon . Orientalism: Western Representations of the Orient ​ ​</p>
+  <p>Salganik, Matthew J. 2017.</p>
+  <p>. Princeton University Press. Bit by Bit: Social Research in the Digital Age ​</p>
+  <p>Saussure, Ferdinand de. 1916.</p>
+  <p>. Columbia University Press. Course in General Linguistics ​</p>
+  <p>Schröder, Tobias, Jesse Hoey, and Kimberly B. Rogers. 2016. “Modeling Dynamic Identities and</p>
+  <p>Uncertainty in Social Interactions: Bayesian Affect Control Theory.” 81 (4): 828–55.</p>
+  <p>American Sociological Review</p>
+  <p>Searle, John R. 1969.</p>
+  <p>. Cambridge University Press. Speech Acts: An Essay in the Philosophy of Language ​</p>
+  <p>Shi, Feng, Jacob G. Foster, and James A. <span class="person">Evans<span class="tag">persName</span></span>. 2015. “Weaving the Fabric of Science: Dynamic</p>
+  <p>Network Models of Science’s Unfolding Structure.”</p>
+  <p>43 (Supplement C): 73–85. Social Networks ​</p>
+  <p><span class="person">Taddy<span class="tag">persName</span></span>, Matt. 2015. “Document Classification by Inversion of Distributed Language Representations.”</p>
+  <p>. arXiv. arXiv [cs.CL] ​</p>
+  <p>. http://arxiv.org/abs/1504.07295</p>
+  <p>Tamuz, Omer, Ce Liu, Serge Belongie, Ohad Shamir, and Adam Tauman Kalai. 2011. “Adaptively</p>
+  <p>Learning the Crowd Kernel.”</p>
+  <p>. arXiv. arXiv [cs.LG] ​</p>
+  <p>. http://arxiv.org/abs/1105.1033</p>
+  <p>United States. Bureau of the Census. 1975.</p>
+  <p>Historical Statistics of the United States, Colonial Times to</p>
+  <p>. U.S. Department of Commerce, Bureau of the Census. 1970 ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>Van Zoonen, Liesbet. 1998. “The Changing Gender of Journalism.” in</p>
+  <p>. News, Gender and Power ​</p>
+  <p>Routledge London, UK, pp. 33–46.</p>
+  <p>Weber, Max. 1948. “Politics as a Vocation,” in</p>
+  <p>. edited by H. H. Gerth And Wright. From Max Weber ​</p>
+  <p>Routledge.</p>
+  <p>Weiss, Richard. 1969.</p>
+  <p>. The American Myth of Success: From Horatio Alger to Norman Vincent Peale ​</p>
+  <p>University of Illinois Press.</p>
+  <p>Whorf, Benjamin Lee. 1956.</p>
+  <p>. Language, Thought and Reality, Selected Writings of Benjamin Lee Whorf ​</p>
+  <p>Edited by John B. Carroll. MIT Press.</p>
+  <p>Wittgenstein, Ludwig. 1953.</p>
+  <p>. John Wiley &amp; Sons. Philosophical Investigations ​</p>
+  <p>Wright, Gwendolyn. 1983.</p>
+  <p>. MIT Press. Building the Dream: A Social History of Housing in America ​</p>
+  <p>Wright, Sewall. 1932. “The Roles of Mutation, Inbreeding, Crossbreeding, and Selection in Evolution”</p>
+  <p>1:356-366. Proceedings of the VI International Congress of Genetrics ​</p>
+  <p>———. 1988. “Surfaces of Selective Value Revisited.”</p>
+  <p>131 (1): 115–23. The American Naturalist ​</p>
+  <p>Zipf, George Kingsley. 1932.</p>
+  <p>Harvard University Press.</p>
+  <p>. Selected Studies of the Principle of Relative Frequency in Language ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>TABLES AND FIGURES</p>
+  <p>List of word pairs averaged to construct cultural dimensions of gender, class, and</p>
+  <p>Table 1. race</p>
+  <p>Gender man – woman men – women he – she him – her his – her his – hers boy – girl boys – girls male – female masculine – feminine</p>
+  <p>Class rich – poor richer – poorer richest – poorest affluence – poverty affluent – impoverished expensive – inexpensive luxury – cheap opulent – needy</p>
+  <p>Race black – white blacks – whites Blacks – Whites Black – White African – European African – Caucasian</p>
+  <p>​Google Ngrams text was reduced to lowercase in preprocessing for all analyses to increase the word count for rare words. Because of this, the list of word pairs for used for ecological validation of Google Ngrams is and black-white, blacks-whites, african-european, ​</p>
+  <p>. african-caucasian ​</p>
+  <p>Pearson correlations between survey estimates and <span class="method">word embedding<span class="tag">term·mth</span></span> estimates</p>
+  <p>Table 2. for gender, class, and race associations</p>
+  <p>word2vec Embedding ​ Embedding GloVe ​</p>
+  <p>Google News Common Crawl Wikipedia Google Ngrams † ​N=56 where three words measured in the survey did not occur frequently enough in the N=59, except text to appear in the <span class="method">word embedding<span class="tag">term·mth</span></span>.</p>
+  <p>Embedding word2vec ​</p>
+  <p>Embedding fastText ​</p>
+  <p>Gender 0.88 0.90 0.87 0.78</p>
+  <p>Class 0.52 0.40 0.51 0.60</p>
+  <p>Race 0.70 0.42 0.49 0.17</p>
+  <p>Percentage of statistically significant (p&lt;.01) survey differences correctly classified in</p>
+  <p>Table 3. Google News <span class="method">word embedding<span class="tag">term·mth</span></span> model.</p>
+  <p>Sports</p>
+  <p>Food Music Occupations Vehicles</p>
+  <p>Clothes</p>
+  <p>Names</p>
+  <p>All domains</p>
+  <p>Gender Class Race</p>
+  <p>87.9% 96.4% 77.4%</p>
+  <p>88.2% 94.1% 64.7%</p>
+  <p>73.7% 100% 94.4%</p>
+  <p>91.7% 53.2% 36.1%</p>
+  <p>82.4% 94.4% 90.9%</p>
+  <p>72.7% 92.5% 51.8%</p>
+  <p>95.2% 86.4% 100%</p>
+  <p>84.2% 71.2% 63.7%</p>
+  <p>​ ​</p>
+  <p>​ ​ ​ ​ ​ ​</p>
+  <p>Cultural dimensions with highest <span class="method">cosine similarity<span class="tag">term·mth</span></span> to gender and class dimensions in</p>
+  <p>Table 4. embedding models from United States and United Kingdom, 1890-1910.</p>
+  <p>United States</p>
+  <p>United Kingdom</p>
+  <p>Gender dimension nearest neighbors</p>
+  <p>1. rugged–delicate</p>
+  <p>2. soft–loud</p>
+  <p>3. tender–tough</p>
+  <p>4. timid–bold</p>
+  <p>5. soft–hard</p>
+  <p>.219</p>
+  <p>(.213, .224)</p>
+  <p>-.209</p>
+  <p>(-.216, -.201)</p>
+  <p>-.202</p>
+  <p>(-.210, -.197)</p>
+  <p>-.181</p>
+  <p>(-.186, -.174)</p>
+  <p>-.161</p>
+  <p>(-.168, -.158)</p>
+  <p>Class dimension nearest neighbors</p>
+  <p>1. tender–tough</p>
+  <p>2. timid–bold</p>
+  <p>3. rugged–delicate</p>
+  <p>4. soft–loud</p>
+  <p>5. sweet–dry</p>
+  <p>-.211</p>
+  <p>(-.221, -.202)</p>
+  <p>-.191</p>
+  <p>(-.200 -.182)</p>
+  <p>0.184</p>
+  <p>(.176, .194)</p>
+  <p>-.177</p>
+  <p>(-.185, -.167)</p>
+  <p>-.172</p>
+  <p>(-.176, -.166)</p>
+  <p>1. weak-strong</p>
+  <p>-.292</p>
+  <p>(-.301, -.287)</p>
+  <p>1. bare_covered</p>
+  <p>-.255</p>
+  <p>(-.263, -.244)</p>
+  <p>2. fortunate-unfortunate</p>
+  <p>.291</p>
+  <p>2. employed_unemployed</p>
+  <p>.237</p>
+  <p>3. unhappy-happy</p>
+  <p>4. beautiful-ugly</p>
+  <p>5. potent_impotent</p>
+  <p>(.286, .297)</p>
+  <p>-.259</p>
+  <p>(-.266, -.254)</p>
+  <p>.242</p>
+  <p>(.238, .245)</p>
+  <p>.234</p>
+  <p>(.227, .244)</p>
+  <p>3. weak_strong</p>
+  <p>(.231, .245)</p>
+  <p>-.237</p>
+  <p>(-.246, -.231)</p>
+  <p>4. fortunate_unfortunate</p>
+  <p>.233</p>
+  <p>(.224, .241)</p>
+  <p>5. powerful_powerless</p>
+  <p>.226</p>
+  <p>(.222, .230)</p>
+  <p>Note: Reported <span class="method">cosine similarity<span class="tag">term·mth</span></span> is the mean <span class="method">cosine similarity<span class="tag">term·mth</span></span> of 20 subsamples. Bootstrapped 90% confidence intervals are given in parentheses.</p>
+  <p>. Schematic figure that illustrates the structure of the descriptive problem Latent</p>
+  <p>Figure 1 Semantic Analysis and neural word embeddings attempt to solve—how to represent all words from a corpus within a -dimensional space that best preserves distances between words in local k ​ contexts. The solution, which we illustrate in subsequent figures, is a bolded above for the example dimensional space. In a real example, the matrix would be much more sparse and the k word in a ​ -by-context matrices would possess substantial symmetry. For a corpus of k and k word-by- ​ ​ natural language texts, analysts have found that reconstruction required for solving analogy problems, which imply the preservation of underlying semantic dimensions.</p>
+  <p>matrix of values, -k ​ = 3. These values can be understood as the coordinate for each k ​</p>
+  <p>k 300 is critical to minimize the error of this</p>
+  <p>by n- ​</p>
+  <p>​ ​ ​ ​ ​ ​ ​ ​ ​</p>
+  <p>Conceptual diagram of (A) the construction of a cultural dimensions; (B) the Figure 2. projection of words onto the <span class="concept">cultural dimension<span class="tag">term·dom</span></span>; and (C) the simultaneous projection of words onto multiple cultural dimensions.</p>
+  <p>Projection of music genres onto race and class dimensions of the Google News word</p>
+  <p>Figure 3. embeddings (grey) and average survey ratings of race and class associations (black).</p>
+  <p>Projection of lifestyle-politics terms onto the dimensions of class and political</p>
+  <p>Figure 4. ideology, 2015 Google News embedding.</p>
+  <p>Cosine projection of occupations “journalist”, “engineer”, and “nurse” onto gender and</p>
+  <p>Figure 5. class dimensions for each decade of the 20 intervals.</p>
+  <p>th ​ century, with bootstrapped 90% confidence</p>
+  <p>​ ​</p>
+  <p><span class="method">Cosine similarity<span class="tag">term·mth</span></span> between gender and class dimensions in each decade of the 20</p>
+  <p>Figure 6. century, with bootstrapped 90% confidence intervals.</p>
+  <p>​ ​</p>
+  <p><span class="method">Cosine similarity<span class="tag">term·mth</span></span> of five cultural dimensions to the class dimension in text published in</p>
+  <p>Figure 7. the United States for each decade of the 20 intervals.</p>
+  <p>th ​ century, with bootstrapped 90% confidence</p>
+  <p>​ ​</p>
+  <p>Figure 8. Comparison of gender and class projections from word embeddings trained on Google Ngrams from the United Kingdom and United States, 1890-1910. Text height represents the estimate and whiskers the 90% confidence intervals. Shading is proportional to alignment on the U.K. projection.</p>
+  <p>APPENDIX A: SURVEY OF CULTURAL ASSOCIATIONS</p>
+  <p>Table A1.</p>
+  <p>List of words included in cultural associations survey</p>
+  <p>Occupations Clothing</p>
+  <p>Sports</p>
+  <p>Music genres Vehicles</p>
+  <p>Banker</p>
+  <p>Blouse</p>
+  <p>Baseball</p>
+  <p>Bluegrass</p>
+  <p>Bicycle</p>
+  <p>Food</p>
+  <p>Beer</p>
+  <p>First names</p>
+  <p>† Aaliyah</p>
+  <p>Carpenter</p>
+  <p>Briefcase</p>
+  <p>Basketball</p>
+  <p>Hiphop</p>
+  <p>Limousine</p>
+  <p>Cheesecake</p>
+  <p>Amy</p>
+  <p>Doctor</p>
+  <p>Dress</p>
+  <p>Boxing</p>
+  <p>Engineer</p>
+  <p>Necklace</p>
+  <p>Golf</p>
+  <p>Hairdresser</p>
+  <p>Journalist</p>
+  <p>Lawyer</p>
+  <p>Nanny</p>
+  <p>Nurse</p>
+  <p>Plumber</p>
+  <p>Scientist</p>
+  <p>Pants</p>
+  <p>Shirt</p>
+  <p>Shorts</p>
+  <p>Socks</p>
+  <p>Suit</p>
+  <p>Tuxedo</p>
+  <p>Jazz</p>
+  <p>Opera</p>
+  <p>Punk</p>
+  <p>Rap</p>
+  <p>Hockey</p>
+  <p>Soccer</p>
+  <p>Softball</p>
+  <p>Techno</p>
+  <p>Tennis</p>
+  <p>Volleyball</p>
+  <p>Minivan</p>
+  <p>Hamburger</p>
+  <p>Connor</p>
+  <p>Motorcycle</p>
+  <p>Pastry</p>
+  <p>Skateboard</p>
+  <p>SUV</p>
+  <p>Truck</p>
+  <p>Salad</p>
+  <p>Steak</p>
+  <p>Jake</p>
+  <p>Jamal</p>
+  <p>Molly</p>
+  <p>† Shanice</p>
+  <p>† ​ Words that did not appear frequently enough in the 2000-2012 Google Ngrams to appear in the <span class="method">word embedding<span class="tag">term·mth</span></span> model and are therefore excluded from 2000-2012 Google Ngrams analyses.</p>
+  <p>This appendix details the Survey of Cultural Associations we fielded to provide a set of human-rated cultural evaluations against which to compare the results of the <span class="method">word embedding<span class="tag">term·mth</span></span> models. The survey was fielded through Amazon Mechanical Turk, an online service through which “requesters” can post a task and workers find and select tasks to complete in exchange for monetary compensation. Our survey was listed as “Sociological Survey” with the description “A fifteen-minute survey of cultural associations,” with a compensation of $1.75. The task was only available to Mechanical Turk workers located in the United States. The survey was fielded in two waves, October 2016 and December 2017 to samples of 206 in 200 respectively, of which a total of 398 respondents completed the survey. The two waves are pooled in the analyses presented in this paper.</p>
+  <p>A number of previous studies have found that Mechanical Turk surveys fare well when compared</p>
+  <p>to surveys with probability sampling, particularly researchers measure and account for the socio-demographic characteristics of the sample Mechanical Turk’s population of workers cannot be said to represent the general US population, it is characterized by considerable diversity along racial, gender, and socioeconomic lines . 2015)</p>
+  <p>(Levay, Freese, and Druckman 2016)</p>
+  <p>. Although</p>
+  <p>(Huff and Tingley</p>
+  <p>To mitigate any bias in estimates due to disproportionate representation of socio-demographic</p>
+  <p>groups in the sample, we use post-stratification weighting to make our sample match the US general population. We took population estimates from the US Census Current Population Survey (CPS) of 2017 as population estimates for weighting our sample (United States Census Bureau 2017). We weighted along three strata: sex, education, and race. Sex is treated as two categories - male and female, education is divided into two categories - bachelor’s degree or less than bachelor’s degree, and race is divided into three strata: white, African American, or other. Results presented in this paper include post-stratification</p>
+  <p>​ ​ ​</p>
+  <p>​ ​ ​ ​</p>
+  <p>weighting; however, additional analyses available upon request confirm that the inclusion of weights does not substantively alter results.</p>
+  <p>Table A2 displays basic demographic characteristics of the sample.</p>
+  <p>Table A2. and Census CPS sample.</p>
+  <p>Descriptive statistics of demographic makeup of Mechanical Turk sample</p>
+  <p>Gender (1=female)</p>
+  <p>43.47%</p>
+  <p>Mechanical Turk</p>
+  <p>Census CPS</p>
+  <p>51.76%</p>
+  <p>Education High school, GED, or less Some college Associate’s degree Bachelor’s degree Graduate degree</p>
+  <p>Race/Ethnicity African American White Other Hispanic</p>
+  <p>Age (mean)</p>
+  <p>12.31% 26.88% 10.05% 43.47% 7.29%</p>
+  <p>6.53% 79.15% 14.32% 9.82%</p>
+  <p>34.40</p>
+  <p>398</p>
+  <p>39.99% 18.83% 9.75% 20.03% 11.39%</p>
+  <p>12.52% 78.22% 9.26% 15.92%</p>
+  <p>47.20</p>
+  <p>135,137</p>
+  <p>APPENDIX B: SUPPLEMENTARY FIGURES</p>
+  <p>Figure B1. liberal-conservative dimension of the Google News <span class="method">word embedding<span class="tag">term·mth</span></span>.</p>
+  <p>Values for U.S. presidents, vice presidents, and presidential candidates projected onto the</p>
+  <p>The model presented in Figure B1 overwhelmingly categorizes politicians correctly; that is, Democrats project at values greater than 1 and Republicans project less than 1. The one exception is Jimmy Carter, who is notable for his personal religious conservatism. To obtain the most accurate possible estimates, projections for each term were calculated by averaging the projections of several relevant word vectors. The Google News embedding preserves commonly occuring sets of two or three words as vectors, such as “John_F._Kennedy.” In all cases, vectors for the last name (e.g. “Obama”) and the full name (“Barack_Obama”) were averaged. In the cases of John F. Kennedy and Lyndon Johnson, the nicknames “J.F.K.” and “L.B.J.” were also included in the calculation of the averaged vectors. Following this method, it is possible to obtain more robust vectors for single entities, such as a person, as well as for the categories themselves, such as liberal-conservative, by averaging multiple synonymous terms.</p>
+  <p>Figure B2. th ​ century. models of Google Ngram texts from each decade of the 20</p>
+  <p>Popular boys’ and girls’ names projected on the gender dimension of <span class="method">word embedding<span class="tag">term·mth</span></span></p>
+  <p>The top ten most popular names for newborn boys and girls each decade were retrieved from the Social Security Record. We then calculated the projection of each name onto the gender dimension of the <span class="method">word embedding<span class="tag">term·mth</span></span> trained on the Google Ngrams corpus for the corresponding decade. We induced a lag of two decades between the decade of name popularity and text used (e.g. names popular in the 1880s are projected with 1900s text) because many names did not appear frequently enough in the corpus in the decade of their popularity to be represented as a vector. It is not entirely surprising that individuals with a given name will not appear frequently in texts until they have attained adulthood, so we may think of these as popular young adult names, rather than popular infant names for the respective decade. Boys’ names are depicted in black and girls’ names in grey. We see a near perfect sorting, with the few exceptions including unisex names like “Taylor” and “Virginia”, which would commonly appear in texts with reference to the state rather than person. Overall, the persistence of high correlation between gender projection and the sex associated with the name suggests that the gender dimension remains a useful indicator for the historic texts.</p>
+  <p>​ ​ ​</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 16 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 10 <code>concept</code> · 125 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>kozlowski2019-geometry-culture</code>.</div>
+</body></html>

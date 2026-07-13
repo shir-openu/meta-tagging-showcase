@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epidemic Spreading in Scale-Free Networks — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>Epidemic Spreading in Scale-Free Networks — TEI-tagged view</h1>
+<div class="meta">Romualdo Pastor-Satorras, Alessandro Vespignani · 2001 · <a href="https://en.wikipedia.org/wiki/Epidemiology">epidemiology</a> · <a href="https://doi.org/10.1103/PhysRevLett.86.3200">doi:10.1103/PhysRevLett.86.3200</a> · <a href="https://doi.org/10.1103/PhysRevLett.86.3200" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1103/PhysRevLett.86.3200" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Pastor-Satorras</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Barcelona</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Physical Review Letters / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2001</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">scale-free network</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">degree distribution</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Romualdo Pastor-Satorras<span class="tag">persName</span></span>, <span class="person">Alessandro Vespignani<span class="tag">persName</span></span> (<span class="date">2001<span class="tag">date</span></span>). &ldquo;Epidemic Spreading in Scale-Free Networks.&rdquo; <span class="work">Physical Review Letters / arXiv<span class="tag">title·j</span></span>, <span class="place">Barcelona<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> How infectious diseases spread over networks whose <span class="method">degree distribution<span class="tag">term·mth</span></span> is scale-free.</p>
+  <p><b>Research question —</b> Does the <span class="concept">epidemic threshold<span class="tag">term·dom</span></span> survive when the <span class="concept">contact network<span class="tag">term·dom</span></span> is scale-free rather than homogeneous?</p>
+  <p><b>Contribution —</b> Shows that in scale-free contact networks the <span class="concept">epidemic threshold<span class="tag">term·dom</span></span> vanishes, so infections can persist for any positive transmission rate - a result linking network topology to disease dynamics.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>epidemic spreading on scale-free networks (absence of an epidemic threshold)</td></tr><tr><td class="k ct">claim-type</td><td>mechanism</td></tr><tr><td class="k tf">transfer</td><td>from <b>network science / statistical physics</b>: modelling epidemic spreading on scale-free contact networks<span class="ev"> &mdash; &ldquo;We define a dynamical model for the spreading of infections on scale-free networks&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>the scale-free network diverging connectivity fluctuations remove the epidemic threshold, so infections persist for any positive transmission rate<span class="ev"> &mdash; &ldquo;finding the absence of an epidemic threshold&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>scale-free network model</b><span class="ev"> &mdash; &ldquo;We define a dynamical model for the spreading of infections on scale-free networks, finding the absence of an epidemic threshold&rdquo;</span></td></tr><tr><td class="k cr">contradicts</td><td> <b>the classical nonzero-epidemic-threshold prediction</b><span class="ev"> &mdash; &ldquo;In models with local connectivity (Euclidean lattices and mean-field models), the most significant result is the general prediction of a nonzero epidemic threshold&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>the SIS model reduces individuals to two discrete states (healthy/infected)<span class="ev"> &mdash; &ldquo;Individuals exist only in two discrete states&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>Epidemic Spreading in Scale-Free Networks</p>
+  <p>Epidemic spreading in scale-free networks</p>
+  <p>Romualdo Pastor-Satorras1 and Alessandro Vespignani2</p>
+  <p>1 Dept. de F ́ısica i Enginyeria Nuclear, Universitat Polit`ecnica de Catalunya,</p>
+  <p>Campus Nord, Bloc B4/B5, 08034 Barcelona, Spain</p>
+  <p>2 The Abdus Salam International Centre for Theoretical Physics (ICTP), P.O. Box 586, 34100</p>
+  <p>Trieste, Italy</p>
+  <p>(November 26, 2024)</p>
+  <p>Abstract</p>
+  <p>The Internet, as well as many other networks, has a very complex connectiv-</p>
+  <p>ity recently modeled by the class of scale-free networks. This feature, which</p>
+  <p>appears to be very efficient for a communications network, favors at the same</p>
+  <p>time the spreading of computer viruses. We analyze real data from computer</p>
+  <p>virus infections and find the average lifetime and prevalence of viral strains on</p>
+  <p>the Internet. We define a dynamical model for the spreading of infections on</p>
+  <p>scale-free networks, finding the absence of an <span class="concept">epidemic threshold<span class="tag">term·dom</span></span> and its asso-</p>
+  <p>ciated critical behavior. This new epidemiological framework rationalize data</p>
+  <p>of computer viruses and could help in the understanding of other spreading</p>
+  <p>phenomena on communication and social networks.</p>
+  <p>PACS numbers: 05.70.Ln, 05.50.+q</p>
+  <p>0 0 0 2</p>
+  <p>t c O 0 2</p>
+  <p>] h c e m</p>
+  <p>- t a t s . t a m - d n o c [</p>
+  <p>1 v 7 1 3 0 1 0 0 / t a m - d n o c : v i X r a</p>
+  <p>Typeset using REVTEX</p>
+  <p>Many social, biological, and communication systems can be properly described by com-</p>
+  <p>plex networks whose nodes represent individuals or organizations, and links mimic the in-</p>
+  <p>teractions among them [1,2]. Particularly interesting examples are the Internet and the</p>
+  <p>world-wide-web, which have been extensively studied because of their technological and</p>
+  <p>economical relevance [3–5]. These studies have revealed, among other facts, the scale-free</p>
+  <p>nature of these networks [3,5]. This results in the power-law distribution P (k) ∼ k−γ for the</p>
+  <p>probability that a node of the network has k connections to other nodes, with an exponent γ</p>
+  <p>that ranges between 2 and 3. The importance of local clustering is indeed the key ingredient</p>
+  <p>in the modeling of these networks with the recent introduction of scale-free (SF) graphs [6].</p>
+  <p>In view of the wide occurrence of complex networks in nature it is of great interest</p>
+  <p>to inspect the effect of their features on epidemic and disease spreading [7], and more in</p>
+  <p>general in the context of the nonequilibrium phase transitions typical of these phenomena</p>
+  <p>[8]. The study of epidemics on these networks finds an immediate practical application in</p>
+  <p>the understanding of computer virus spreading [9,10], and could also be relevant to the fields</p>
+  <p>of epidemiology [11] and pollution control [12].</p>
+  <p>In this Letter, we analyze data from real computer virus epidemics, providing a statistical</p>
+  <p>characterization that points out the importance of incorporating the peculiar topology of</p>
+  <p>scale-free networks in the theoretical description of these infections. With this aim, we study</p>
+  <p>by large scale simulations and analytical methods the susceptible-infected-susceptible [11]</p>
+  <p>model on SF graphs. We find the absence of an <span class="concept">epidemic threshold<span class="tag">term·dom</span></span> and its associated critical</p>
+  <p>behavior, which implies that SF networks are prone to the spreading and the persistence of</p>
+  <p>infections whatever spreading rate the epidemic agents possess. The absence of the epidemic</p>
+  <p>threshold—a standard element in mathematical epidemiology [11]–radically changes many of</p>
+  <p>the standard conclusions drawn in epidemic modeling. The present results are also relevant</p>
+  <p>in the field of absorbing-state phase transitions and catalytic reactions [8].</p>
+  <p>The epidemiological analysis of computer viruses has been the subject of a continuous</p>
+  <p>interest in the computer science community [10,13–15], following mainly approaches bor-</p>
+  <p>rowed from biological epidemiology [11]. The standard model used in the study of computer</p>
+  <p>virus infections is the susceptible-infected-susceptible (SIS) epidemiological model. Each</p>
+  <p>node of the network represents an individual and each link is a connection along which the</p>
+  <p>infection can spread to other systems. This model relies on a coarse grained description</p>
+  <p>of individuals in the population. Individuals exist only in two discrete states, “healthy” or</p>
+  <p>“infected”. At each time step, each susceptible (healthy) node is infected with rate ν if it</p>
+  <p>is connected to one or more infected nodes. At the same time, infected nodes are cured</p>
+  <p>and become again susceptible with rate δ, defining an effective spreading rate λ = ν/δ.</p>
+  <p>Without lack of generality, we can set δ = 1. The updating can be performed both with</p>
+  <p>parallel and sequential dynamics [8]. In models with local connectivity (Euclidean lattices</p>
+  <p>and mean-field models), the most significant result is the general prediction of a nonzero</p>
+  <p><span class="concept">epidemic threshold<span class="tag">term·dom</span></span> λc [8,11]. If the value of λ is above the threshold, λ ≥ λc, the infection</p>
+  <p>spreads and becomes persistent. Below it, λ &lt; λc, the infection dies out exponentially fast.</p>
+  <p>The <span class="concept">epidemic threshold<span class="tag">term·dom</span></span> is actually equivalent to a critical point in a nonequilibrium phase</p>
+  <p>transition. In this case, the critical point separates an active phase with a stationary density</p>
+  <p>of infected nodes from a phase with only healthy nodes and null activity. In particular, it is</p>
+  <p>easy to recognize that the SIS model is a generalization of the contact process (CP) model,</p>
+  <p>that has been extensively studied in the context of absorbing-state phase transitions [8].</p>
+  <p>Statistical observations of virus incidents in the wild, on the other hand, indicate that all</p>
+  <p>viruses that are able to pervade, spread much slower than exponentially, and saturate to a</p>
+  <p>very low level of persistence, affecting just a tiny fraction of the total number of computers</p>
+  <p>[10]. This fact is in striking contradiction with the theoretical predictions unless in the</p>
+  <p>very unlikely chance that all computer viruses have an effective spreading rate tuned just</p>
+  <p>infinitesimally above the threshold. This points out that the view obtained so far with the</p>
+  <p>modeling of computer virus epidemics is very instructive but not completely adequate to</p>
+  <p>represent the real phenomenon.</p>
+  <p>In order to gain further insight on the spreading properties of viruses in the wild, we</p>
+  <p>have analyzed the prevalence data reported by the Virus Bulletin [16] from February 1996 to</p>
+  <p>March 2000. We have analyzed in particular the surviving probability of homogeneous groups</p>
+  <p>of viruses, classified according to their infection mechanism [9]. We consider the total number</p>
+  <p>of viruses of a given strain that born and die within our observation window. Hence, we</p>
+  <p>calculate the surviving probability Ps(t) of the strain as the ratio of viruses still alive at time</p>
+  <p>t after their birth and the total number of observed viruses. Fig. 1 shows that the surviving</p>
+  <p>probability suffers a sharp drop in the first two months of a virus’ life. This is a well-known</p>
+  <p>feature [10,13] indicating that statistically only a small percentage of viruses give rise to a</p>
+  <p>significant outbreak in the computer community. Fig. 1, on the other hand, shows for larger</p>
+  <p>times a clean exponential tail, Ps(t) ∼ exp(−t/τ ), where τ represents the characteristic</p>
+  <p>life-time of the virus strain [17]. The numerical fit of the data yields τ ≃ 14 months for</p>
+  <p>boot and macro viruses and τ ≃ 6 − 9 months for file viruses. These characteristic times are</p>
+  <p>impressively large if compared with the interval in which anti-virus software is available on</p>
+  <p>the market (usually within days or weeks after the first incident report) and indicate that</p>
+  <p>the viral persistence time scale is more related to the implementation of prophylactic safety</p>
+  <p>measures than to the timely availability of the specific anti-virus. These external factors,</p>
+  <p>however, are not possibly competing on the short time scale of the viruses spread (days or</p>
+  <p>weeks), and again we face the very puzzling question of why viruses seem to have access to</p>
+  <p>persistent low prevalence levels but never grow exponentially.</p>
+  <p>The key point to understand the puzzling properties exhibited by computer viruses re-</p>
+  <p>sides in the capacity of many of them to be borne by electronic mail as an apparently</p>
+  <p>innocuous attachment [10]. Having this property in mind, it is easy to realize that the</p>
+  <p>topology of the connections between individuals cannot be correctly represented by an Eu-</p>
+  <p>clidean lattice, or a mean-field model. In this sense, these connections should instead have</p>
+  <p>essentially the topology of the Internet, through which electronic mail travels. The scale-free</p>
+  <p>connectivity of the Internet implies that each node has a statistically significant probability</p>
+  <p>of having a very large number of connections compared to the average connectivity hki of</p>
+  <p>the network. That opposes to conventional random networks (local or nonlocal) in which</p>
+  <p>each node has approximately the same number of links k ≃ hki [18]. The fact that all virus</p>
+  <p>strains qualitatively show the same statistical features indicates that very likely all of them</p>
+  <p>spread on networks with connectivity properties analogous to those of the Internet [19]. It is</p>
+  <p>then natural to foresee that scale-free properties should be included in a theory of epidemic</p>
+  <p>spreading of computer viruses.</p>
+  <p>To address the effects of scale-free connectivity in epidemic spreading we study the SIS</p>
+  <p>model on the SF network. We consider the graph generated by using the algorithm devised</p>
+  <p>in Refs. [6]: We start from a small number m0 of disconnected nodes; every time step a new</p>
+  <p>vertex is added, with m links that are connected to an old node i with probability ki/ Pj kj.</p>
+  <p>After iterating this scheme a sufficient number of times, we obtain a network composed by</p>
+  <p>N nodes with connectivity distribution P (k) ∼ k−3 and average connectivity hki = 2m.</p>
+  <p>In this work we take m = 3. We have performed numerical simulations on graphs with</p>
+  <p>number of nodes ranging from N = 103 to N = 8.5 × 106 and studied the variation in time</p>
+  <p>and the stationary properties of the density of infected nodes ρ in surviving infections; i.e.</p>
+  <p>the virus prevalence. Initially we infect half of the nodes in the network, and iterate the</p>
+  <p>rules of the SIS model with parallel updating. After an initial transient regime, the system</p>
+  <p>stabilizes in a steady state with a constant average density of infected nodes. The prevalence</p>
+  <p>is computed averaging over at least 100 different starting configurations, performed on at</p>
+  <p>least 10 different realizations of the random networks.</p>
+  <p>The first arresting evidence from simulations is the absence of an <span class="concept">epidemic threshold<span class="tag">term·dom</span></span>,</p>
+  <p>i.e., λc = 0. In Fig. 2 we show the virus prevalence in the steady state that decays with</p>
+  <p>decreasing λ as ρ ∼ exp(−C/λ), where C is a constant. This implies that for any finite</p>
+  <p>value of λ the virus can pervade the system with a finite prevalence, in sufficiently large</p>
+  <p>networks. In all networks with bounded connectivity the steady state prevalence is always</p>
+  <p>null below the <span class="concept">epidemic threshold<span class="tag">term·dom</span></span>;</p>
+  <p>i.e. all infections die out. Further evidence to our</p>
+  <p>results is given by the total absence of scaling of ρ with the number of nodes that is, on the</p>
+  <p>contrary, typical of epidemic transitions in the proximity of a finite threshold [8]. This allows</p>
+  <p>us to exclude the presence of any spurious results due to network finite size effects. The</p>
+  <p>present result can be intuitively understood by noticing that for usual lattices, the higher</p>
+  <p>the node’s connectivity, the smaller the <span class="concept">epidemic threshold<span class="tag">term·dom</span></span>. In a SF network the unbounded</p>
+  <p>fluctuations in connectivity (hk2i = ∞) plays the role of an infinite connectivity, annulling</p>
+  <p>thus the threshold.</p>
+  <p>Finally, we analyze the spreading of infections starting from a localized virus source. We</p>
+  <p>observe that the spreading growth in time has an algebraic form, that is in agreement with</p>
+  <p>real data that never found an exponential increase of a virus in the wild. Noteworthy, by</p>
+  <p>applying the definition of surviving probability Ps(t) used to analyze real data, we recover</p>
+  <p>in our model the same exponential behavior in time (see Fig. 3a). The characteristic life-</p>
+  <p>time depends on the spreading rate and the network sizes, allowing us to relate the average</p>
+  <p>lifetime of a viral strain with an effective spreading rate and the Internet size [20]. At the</p>
+  <p>same time, the divergence of lifetimes for larger networks points out the possible increasing</p>
+  <p>of the viruses lifetime during the eventual expansion of the Internet.</p>
+  <p>We can also approach the system analytically by writing the mean-field equation gov-</p>
+  <p>erning the time evolution of ρ(t). In order to take into account connectivity fluctuations,</p>
+  <p>we consider the relative density ρk(t) of infected nodes with given connectivity k; i.e the</p>
+  <p>probability that a node with k links is infected. The dynamical mean-field reaction rate</p>
+  <p>equations can be written as [8]</p>
+  <p>∂tρk(t) = −ρk(t) + λk(1 − ρk(t))Θ(λ).</p>
+  <p>(1)</p>
+  <p>The creation term considers the probability that a node with k links is healthy (1 − ρk(t))</p>
+  <p>and gets the infection via a connected node. The probability of this event is proportional to</p>
+  <p>the infection rate, the number of connections, and the probability Θ(λ) that any given link</p>
+  <p>points to an infected node. By imposing stationarity (∂tρk(t) = 0) we find the stationary</p>
+  <p>densities</p>
+  <p>ρk =</p>
+  <p>kλΘ(λ) 1 + kλΘ(λ)</p>
+  <p>(2)</p>
+  <p>denoting that the higher the node connectivity, the higher the probability to be infected.</p>
+  <p>This inhomogeneity must be taken into account in the self-consistent calculation of Θ(λ).</p>
+  <p>Indeed, the probability that a link points to a node with s links is proportional to sP (s).</p>
+  <p>In other words, a randomly chosen link is more likely to be connected to a node with high</p>
+  <p>connectivity, yielding</p>
+  <p>Θ(λ) = X k</p>
+  <p>kP (k)ρk Ps sP (s)</p>
+  <p>(3)</p>
+  <p>Since ρk is on its turn function of Θ(λ), we obtain a consistency equation that allows to</p>
+  <p>to find Θ(λ). Finally we can evaluate the behavior of ρ by solving the second consistency</p>
+  <p>relation</p>
+  <p>ρ = X k</p>
+  <p>P (k)ρk,</p>
+  <p>(4)</p>
+  <p>that expresses the average density of infected nodes in the system. In the SF model consid-</p>
+  <p>ered here, we have a connectivity distribution P (k) = 2m2/k−3, where k as approximated</p>
+  <p>as a continuous variable [6]. In this case, integration of Eq.(3) allows to write Θ(λ) as</p>
+  <p>Θ(λ) =</p>
+  <p>e−1/mλ λm</p>
+  <p>(1 − e−1/mλ)−1,</p>
+  <p>from which, using Eq.(4), we find at lowest order in λ:</p>
+  <p>ρ = 2e−1/mλ + h.o. .</p>
+  <p>(5)</p>
+  <p>(6)</p>
+  <p>This very intuitive calculation recovers the numerical findings and confirms the surprising</p>
+  <p>absence of any <span class="concept">epidemic threshold<span class="tag">term·dom</span></span> or critical point in the model; i.e λc = 0. Finally, as</p>
+  <p>a further check of our analytical results, we have numerically computed in our model the</p>
+  <p>relative densities ρk , recovering the predicted dependence upon k of Eq.(2) (see Fig. 3b).</p>
+  <p>It is also worth remarking that the present framework can be generalized to networks with</p>
+  <p>2 &lt; γ ≤ 3, recovering qualitatively the same results [21].</p>
+  <p>The emerging picture for epidemic spreading in complex networks emphasizes the role of</p>
+  <p>topology in epidemic modeling. In particular, the absence of <span class="concept">epidemic threshold<span class="tag">term·dom</span></span> and critical</p>
+  <p>behavior in a wide range of <span class="concept">scale-free network<span class="tag">term·dom</span></span> provide an unexpected result that changes</p>
+  <p>radically many standard conclusions on epidemic spreading. This indicates that infections</p>
+  <p>can proliferate on these scale-free networks whatever spreading rates they may have. These</p>
+  <p>very bad news are, however, balanced by the exponentially small prevalence for a wide range</p>
+  <p>of spreading rates (λ &lt;&lt; 1). This point appears to be particularly relevant in the case of</p>
+  <p>technological networks such as the Internet and the world-wide-web that show scale-free</p>
+  <p>connectivity with exponents γ ≃ 2.5 [4,5]. For instance, the present picture fits perfectly</p>
+  <p>with the observation from real data of computer virus spreading, and could solve the long</p>
+  <p>standing problem of the generalized low prevalence of computer viruses without assuming</p>
+  <p>any global tuning of the spreading rates. The peculiar properties of scale-free networks</p>
+  <p>also open the path to many other questions concerning the effect of immunity and other</p>
+  <p>modifications of epidemic models. As well, the critical properties of many nonequilibrium</p>
+  <p>systems could be affected by the topology of scale-free networks. Given the wide context in</p>
+  <p>which scale-free networks appears, the results obtained here and the proposed investigations</p>
+  <p>could have intriguing implications in biology and social systems.</p>
+  <p>This work has been partially supported by the European Network Contract No. ERBFM-</p>
+  <p>RXCT980183. RP-S also acknowledges support from the grant CICYT PB97-0693. We</p>
+  <p>thank S. Franz, M.-C. Miguel, R. V. Sol ́e, M. Vergassola, S. Zapperi and R. Zecchina for</p>
+  <p>helpful comments and discussions.</p>
+  <p>REFERENCES</p>
+  <p>[1] See the special section on Complex systems in Science 284, 79 (1999); S. Wasserman</p>
+  <p>and K. Faust, Social network analysis (Cambridge University Press, Cambridge, 1994);</p>
+  <p>[2] L. A. N. Amaral, A. Scala, M. Barth ́el ́emy, and H. E. Stanley, Proc. Nat. Acad. Sci.</p>
+  <p>97, 11149 (2000).</p>
+  <p>[3] M. Faloutsos, P. Faloutsos, and C. Faloutsos, ACM SIGCOMM ’99, Comput.Commun.</p>
+  <p>Rev. 29, 251 (1999).</p>
+  <p>[4] A. Medina, I. Matt, and J. Byers, Comput. Commun. Rev. 30, 18 (2000); G. Caldarelli,</p>
+  <p>R. Marchetti and L. Pietronero, cond-mat/0009178.</p>
+  <p>[5] R. Albert, H. Jeong, and A.-L. Barab ́asi, Nature 401, 130–131 (1999).</p>
+  <p>[6] A.-L. Barab ́asi and R. Albert, Science 286, 509–511 (1999); A.-L. Barab ́asi, R. Albert,</p>
+  <p>and H. Jeong, Physica A 272, 173–187 (1999).</p>
+  <p>[7] C. Moore and M. E. J. Newman, Physical Review E, 61, 5678 (2000).</p>
+  <p>[8] J. Marro and R. Dickman, Nonequilibrium phase transitions in lattice models (Cam-</p>
+  <p>bridge University Press, Cambridge, 1999).</p>
+  <p>[9] F. B. Cohen, A short course on computer viruses (John Wiley &amp; Sons, New York, 1994).</p>
+  <p>[10] J. O. Kephart, G. B. Sorkin, D. M. Chess,</p>
+  <p>and S. R. White, Scientific</p>
+  <p>American 277, 56 (1997); S. R. White. Open problems in computer virus re-</p>
+  <p>search. Virus Bulletin Conference, Munich, (October 1998).</p>
+  <p>[Available on-line at</p>
+  <p>http://www.av.ibm.com/ScientificPapers/].</p>
+  <p>[11] N. T. J. Bailey, The mathematical theory of infectious diseases, 2nd. ed. (Griffin, London,</p>
+  <p>1975); J. D. Murray, Mathematical Biology (Springer Verlag, Berlin, 1993).</p>
+  <p>[12] M. K. Hill, Understanding environmental pollution (Cambridge University Press, Cam-</p>
+  <p>bridge, 1997).</p>
+  <p>[13] J. O. Kephart, S. R. White, and D. M. Chess, IEEE Spectrum 30, 20 (1993).</p>
+  <p>[14] W. H. Murray, Computers &amp; Security 7, 130 (1988).</p>
+  <p>[15] J. O. Kephart and S. R. White, In Proceedings of the 1991 IEEE Computer Society</p>
+  <p>Symposium on Research in Security and Privacy (SSP ’91), pp. 343, Washington -</p>
+  <p>Brussels - Tokyo, (May 1991).</p>
+  <p>[16] Virus</p>
+  <p>prevalence</p>
+  <p>data</p>
+  <p>publicly</p>
+  <p>avalaible</p>
+  <p>the</p>
+  <p>web</p>
+  <p>site</p>
+  <p>http://www.virusbtn.com/Prevalence/.</p>
+  <p>[17] This is the usual way in which it is determined the survival probability in numerical</p>
+  <p>simulations of spreading models, ref. [8].</p>
+  <p>[18] P. Erd ̈os and P. R ́enyi, Publ. Math. Inst. Hung. Acad. Sci. 5, 17 (1960); D. J. Watts</p>
+  <p>and S. H. Strogatz, Nature 393, 440 (1998); A. Barrat and M. Weigt, Eur. Phys. J. B</p>
+  <p>13, 547 (2000).</p>
+  <p>[19] For example, the friendship network of people with which one is ready to exchange</p>
+  <p>infected floppy disks.</p>
+  <p>[20] This characteristic scaling is often encountered at absorbing-state phase transitions in</p>
+  <p>finite size systems [8]. In general, Ps(∞) is finite only for infinite size networks.</p>
+  <p>[21] R. <span class="person">Pastor-Satorras<span class="tag">persName</span></span> and A. <span class="person">Vespignani<span class="tag">persName</span></span>, unpublished.</p>
+  <p>FIGURES</p>
+  <p>τ = 14 months</p>
+  <p>boot file macro</p>
+  <p>100</p>
+  <p>10−1</p>
+  <p>) t ( P</p>
+  <p>10−2</p>
+  <p>τ = 7 months</p>
+  <p>20 t (months)</p>
+  <p>FIG. 1. Surviving probability for viruses in the wild. The 814 different viruses analyzed have</p>
+  <p>been grouped in three main strains [9]: file viruses infect a computer when running an infected</p>
+  <p>application; boot viruses also spread via infected applications, but copy themselves into the boot</p>
+  <p>sector of the hard-drive and are thus immune to a computer reboot; macro viruses infect data</p>
+  <p>files and are thus platform-independent. It is evident in the plot the presence of an exponential</p>
+  <p>decay, with characteristic time τ ≃ 14 months for macro and boot viruses and τ ≃ 7 months for</p>
+  <p>file viruses.</p>
+  <p>10−2</p>
+  <p>10−3</p>
+  <p>10−4</p>
+  <p>1/λ</p>
+  <p>FIG. 2. Persistence ρ as a function of 1/λ for different network sizes: N = 105 (+), N = 5× 105</p>
+  <p>(✷), N = 106 (×), N = 5 × 106 (◦), and N = 8.5 × 106 (✸). The linear behavior on the</p>
+  <p>semi-logarithmic scale proves the stretched exponential behavior predicted for ρ. The full line is a</p>
+  <p>fit to the form ρ ∼ exp(−C/λ).</p>
+  <p>100</p>
+  <p>10−1</p>
+  <p>0 1</p>
+  <p>x (</p>
+  <p>ρ / 1</p>
+  <p>60 50 40 30 20 10 0 0.00 0.02 0.04 0.06 0.08 0.10</p>
+  <p>1/k</p>
+  <p>) t ( P</p>
+  <p>10−2</p>
+  <p>10−3</p>
+  <p>100</p>
+  <p>FIG. 3. a) Surviving probability Ps(t) for a spreading rate λ = 0.065 in scale-free networks of</p>
+  <p>size N = 5 × 105 (✷), N = 2.5 × 104 (✸), N = 1.25 × 104 (△), and N = 6.25 × 103 (◦). The</p>
+  <p>exponential behavior, following a sharp initial drop, is compatible with the data analysis of Fig. 1.</p>
+  <p>b) Relative density ρk versus k−1 in a SF network of size N = 5 × 105 and spreading rate λ = 0.1.</p>
+  <p>The plot recovers the form predicted in Eq.(2).</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 4 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 13 <code>concept</code> · 1 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>pastorsatorras2001-epidemic-scalefree</code>.</div>
+</body></html>

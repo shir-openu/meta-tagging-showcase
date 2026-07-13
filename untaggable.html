@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untaggable papers &mdash; a study</title>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1rem;color:#1c2230;line-height:1.6;}
+ h1{font-size:1.5rem;margin-bottom:.2rem;} .sub{color:#5a6675;margin:.2rem 0 1.2rem;}
+ .nav a{color:#1557b0;} .kpi{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0;}
+ .card{background:#f5f7fa;border:1px solid #e1e5ea;border-radius:10px;padding:.7rem 1rem;flex:1;min-width:150px;}
+ .card b{font-size:1.5rem;display:block;color:#17233c;}
+ table{border-collapse:collapse;width:100%;margin:.6rem 0 1.4rem;font-size:14px;overflow-x:auto;display:block;}
+ th,td{border:1px solid #e1e5ea;padding:7px 9px;text-align:left;vertical-align:top;}
+ th{background:#f4f6f8;} td.n,.n{text-align:right;} .rz{font-family:Consolas,monospace;font-size:12.5px;color:#8a3b00;}
+ td.dt{color:#5a6675;font-size:12.5px;} .box{background:#eef5ff;border-left:4px solid #1557b0;border-radius:8px;padding:.7rem 1rem;margin:1rem 0;}
+ .foot{color:#8894a4;font-size:12px;border-top:1px solid #e1e5ea;margin-top:1.5rem;padding-top:.6rem;}
+</style></head><body>
+<div class="nav"><a href="index.html">&larr; cumulative report</a></div>
+<h1>Untaggable papers &mdash; a study</h1>
+<p class="sub">Papers whose stored full text cannot be faceted. A first-class, queryable category (<code>untaggable</code> tag), not a silent skip.</p>
+
+<div class="kpi">
+ <div class="card"><b>10</b> untaggable</div>
+ <div class="card"><b>126</b> corpus total</div>
+ <div class="card"><b>7.9%</b> untaggable share</div>
+ <div class="card"><b>0</b> failed on <i>clean</i> text</div>
+</div>
+
+<div class="box">
+<b>Key finding.</b> Every untaggable paper here failed at <b>text extraction</b> (garbled source layer), <b>not</b> at faceting.
+On clean text the method faceted <b>116/116</b>. So this 7.9% measures <b>digitisation/sourcing</b> quality,
+not tagging-method coverage. Characteristic signal so far: untaggable papers skew <b>older</b>
+(median year 2007.0 vs 2013.5 for tagged) and <b>paywalled</b>
+(50% personal-copy vs 9% among tagged) &mdash; i.e. this correlates with <b>age &amp; access</b>, not reliability.
+The reliability signal lives elsewhere: in the <i>facet profile</i> of papers that tag <i>successfully</i>
+(bold claim + no stated limitations + untested/failed replication) &mdash; a separate scan.
+</div>
+
+<h2>By reason</h2>
+<table><tr><th>Extraction failure</th><th class="n">n</th></tr><tr><td>residual ligature loss (fi/fl etc.)</td><td class="n">5</td></tr><tr><td>corrupt text layer (jammed/dropped characters)</td><td class="n">4</td></tr><tr><td>interleaved sources (two papers mixed)</td><td class="n">1</td></tr></table>
+
+<h2>The papers</h2>
+<table><tr><th>id</th><th>discipline</th><th>year</th><th>license</th><th>reason</th><th>detail</th></tr>
+<tr><td><a href="https://doi.org/10.1073/pnas.36.1.48" target="_blank" rel="noopener">nash1950-equilibrium</a></td><td>economics</td><td>1950</td><td>open-access</td><td><span class="rz">corrupt-layer</span></td><td class="dt">corrupt-text-layer: extraction lost inter-word spaces (wordsjammedtogether); 1950 PNAS scan, no clean OA source found. Not enriched.</td></tr>
+<tr><td><a href="https://doi.org/10.1037/0022-3514.50.2.229" target="_blank" rel="noopener">fazio1986-attitudes</a></td><td>social-psychology</td><td>1986</td><td>personal-copy</td><td><span class="rz">corrupt-layer</span></td><td class="dt">corrupt-text-layer: extraction inserted spaces inside words (attitud e, th e, b y); scanned APA PDF, no clean OA source. Not enriched.</td></tr>
+<tr><td><a href="https://scholar.google.com/scholar?q=Unconscious%20and%20Conscious%20Priming" target="_blank" rel="noopener">breitmeyer2005-priming</a></td><td>neuroscience</td><td>2005</td><td>personal-copy</td><td><span class="rz">corrupt-layer</span></td><td class="dt">corrupt-text-layer: text extracted as fragmented figure/table remnants (run-1 garbled paper); no clean prose. Not enriched.</td></tr>
+<tr><td><a href="https://doi.org/10.1038/nmat1849" target="_blank" rel="noopener">geim2007-rise-graphene</a></td><td>materials-science</td><td>2007</td><td>arxiv-open</td><td><span class="rz">corrupt-layer</span></td><td class="dt">corrupt-text-layer: the arXiv PDF extraction drops the letter c (lo alized, Dira, ex ept); not fixable by re-processing and no clean OA alte</td></tr>
+<tr><td><a href="https://doi.org/10.1093/rfs/hhaa009" target="_blank" rel="noopener">gu2020-ml-asset-pricing</a></td><td>quantitative-finance</td><td>2020</td><td>arxiv-open</td><td><span class="rz">interleaved-sources</span></td><td class="dt">interleaved-sources: stored full text mixes Gu-Kelly-Xiu (Empirical Asset Pricing via ML) with Chen-Pelger-Zhu (Deep Learning in Asset Prici</td></tr>
+<tr><td><a href="https://www.fourmilab.ch/etexts/einstein/specrel/www/" target="_blank" rel="noopener">einstein1905-electrodynamics</a></td><td>physics</td><td>1905</td><td>public-domain</td><td><span class="rz">ligature-loss</span></td><td class="dt">residual-ligature-artifacts: some fi/fl were lost in an earlier cleanup and the source could not be re-fetched cleanly (personal copy / payw</td></tr>
+<tr><td><a href="https://doi.org/10.1152/jn.00160.2007" target="_blank" rel="noopener">mcmahon-olson2007-suppression</a></td><td>neuroscience</td><td>2007</td><td>personal-copy</td><td><span class="rz">ligature-loss</span></td><td class="dt">residual-ligature-artifacts: some fi/fl were lost in an earlier cleanup and the source could not be re-fetched cleanly (personal copy / payw</td></tr>
+<tr><td><a href="https://doi.org/10.1086/597331" target="_blank" rel="noopener">ferraro2009-brand</a></td><td>marketing</td><td>2009</td><td>personal-copy</td><td><span class="rz">ligature-loss</span></td><td class="dt">residual-ligature-artifacts: some fi/fl were lost in an earlier cleanup and the source could not be re-fetched cleanly (personal copy / payw</td></tr>
+<tr><td><a href="https://scholar.google.com/scholar?q=Short-Term%20Auditory%20Priming%20in%20Freely-Moving%20Mice" target="_blank" rel="noopener">sivroni2023-auditory</a></td><td>neuroscience</td><td>2023</td><td>personal-copy</td><td><span class="rz">ligature-loss</span></td><td class="dt">residual-ligature-artifacts: some fi/fl were lost in an earlier cleanup and the source could not be re-fetched cleanly (personal copy / payw</td></tr>
+<tr><td><a href="https://arxiv.org/abs/1412.6980" target="_blank" rel="noopener">kingma2014-adam</a></td><td>artificial-intelligence</td><td>2014</td><td>arxiv-open</td><td><span class="rz">ligature-loss</span></td><td class="dt">residual-ligature-artifacts: some fi/fl were lost in an earlier cleanup and the source could not be re-fetched cleanly (personal copy / payw</td></tr>
+</table>
+
+<p class="foot">Meta-Tagging Project &middot; untaggable study &middot; regenerate: <code>python TOOLS/make_untaggable_report.py</code></p>
+</body></html>

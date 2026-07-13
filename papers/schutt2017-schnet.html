@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions — TEI-tagged view</h1>
+<div class="meta">Kristof T. Schütt, Pieter-Jan Kindermans, Huziel E. Sauceda, Stefan Chmiela, Alexandre Tkatchenko, Klaus-Robert Müller · 2017 · <a href="https://en.wikipedia.org/wiki/Chemistry">chemistry</a> · <a href="https://arxiv.org/abs/1706.08566">arXiv:1706.08566</a> · <a href="https://arxiv.org/abs/1706.08566" target="_blank" rel="noopener">full text</a> · <a href="https://arxiv.org/abs/1706.08566" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Schütt</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Berlin</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">NeurIPS / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2017</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">molecular property prediction</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch ai">deep learning</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Kristof T. Schütt<span class="tag">persName</span></span>, <span class="person">Pieter-Jan Kindermans<span class="tag">persName</span></span>, <span class="person">Huziel E. Sauceda<span class="tag">persName</span></span>, <span class="person">Stefan Chmiela<span class="tag">persName</span></span>, <span class="person">Alexandre Tkatchenko<span class="tag">persName</span></span>, <span class="person">Klaus-Robert Müller<span class="tag">persName</span></span> (<span class="date">2017<span class="tag">date</span></span>). &ldquo;SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions.&rdquo; <span class="work">NeurIPS / arXiv<span class="tag">title·j</span></span>, <span class="place">Berlin<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Predicting quantum-mechanical properties (energies and forces) of molecules with <span class="ai">deep learning<span class="tag">term·ai</span></span>.</p>
+  <p><b>Research question —</b> Can a neural network respect the physical invariances of atomic systems to predict molecular energies and atomic forces at quantum accuracy?</p>
+  <p><b>Contribution —</b> Introduces SchNet, a continuous-filter convolutional network that predicts molecular energies and forces with quantum accuracy - a bridge between <span class="concept">quantum chemistry<span class="tag">term·dom</span></span> and <span class="ai">deep learning<span class="tag">term·ai</span></span>.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>molecular property prediction with deep learning (quantum-chemical property learning)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>artificial intelligence (deep learning)</b>: deep convolutional neural networks applied to model quantum interactions in molecules<span class="ev"> &mdash; &ldquo;Deep learning has the potential to revolutionize quantum chemistry&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>continuous-filter convolutions over continuous atom positions (not a grid), preserving the physical information in molecular geometry<span class="ev"> &mdash; &ldquo;their precise locations contain essential physical information, that would get lost if discretized&rdquo;</span></td></tr><tr><td class="k cr">extends</td><td> <b>grid-based convolutional neural networks</b><span class="ev"> &mdash; &ldquo;the atoms in molecules are not restricted to a grid&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>chemical compound space is vast and accurate quantum calculations are costly, preventing exhaustive exploration<span class="ev"> &mdash; &ldquo;the vastness of chemical compound space and the computational cost of accurate quantum-chemical calculations prevent an exhaustive&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>SchNet: A Continuous-Filter Convolutional Neural Network for Modeling Quantum Interactions</p>
+  <p>7 1 0 2</p>
+  <p>c e D 9 1</p>
+  <p>] L M</p>
+  <p>. t a t s [</p>
+  <p>5 v 6 6 5 8 0 . 6 0 7 1 : v i X r a</p>
+  <p>SchNet: A continuous-filter convolutional neural network for modeling quantum interactions</p>
+  <p>K. T. Schütt1∗, P.-J. Kindermans1, H. E. Sauceda2, S. Chmiela1, A. Tkatchenko3, K.-R. Müller1,4,5† 1 Machine Learning Group, Technische Universität Berlin, Germany 2 Theory Department, Fritz-Haber-Institut der Max-Planck-Gesellschaft, Berlin, Germany 3 Physics and Materials Science Research Unit, University of Luxembourg, Luxembourg 4 Max-Planck-Institut für Informatik, Saarbrücken, Germany 5 Dept. of Brain and Cognitive Engineering, Korea University, Seoul, South Korea ∗ kristof.schuett@tu-berlin.de † klaus-robert.mueller@tu-berlin.de</p>
+  <p>Abstract</p>
+  <p><span class="ai">Deep learning<span class="tag">term·ai</span></span> has the potential to revolutionize <span class="concept">quantum chemistry<span class="tag">term·dom</span></span> as it is ideally suited to learn representations for structured data and speed up the exploration of chemical space. While convolutional neural networks have proven to be the first choice for images, audio and video data, the atoms in molecules are not restricted to a grid. Instead, their precise locations contain essential physical information, that would get lost if discretized. Thus, we propose to use continuous- filter convolutional layers to be able to model local correlations without requiring the data to lie on a grid. We apply those layers in SchNet: a novel <span class="ai">deep learning<span class="tag">term·ai</span></span> architecture modeling quantum interactions in molecules. We obtain a joint model for the total energy and interatomic forces that follows fundamental quantum- chemical principles. Our architecture achieves state-of-the-art performance for benchmarks of equilibrium molecules and molecular dynamics trajectories. Finally, we introduce a more challenging benchmark with chemical and structural variations that suggests the path for further work.</p>
+  <p>Introduction</p>
+  <p>The discovery of novel molecules and materials with desired properties is crucial for applications such as batteries, catalysis and drug design. However, the vastness of chemical compound space and the computational cost of accurate quantum-chemical calculations prevent an exhaustive explo- ration. In recent years, there have been increased efforts to use machine learning for the accelerated discovery of molecules and materials with desired properties [1–9]. However, these methods are only applied to stable systems in so-called equilibrium, i.e., local minima of the potential energy surface E(r1, . . . , rn) where ri is the position of atom i. Data sets such as the established QM9 benchmark [10] contain only equilibrium molecules. Predicting stable atom arrangements is in itself an important challenge in <span class="concept">quantum chemistry<span class="tag">term·dom</span></span> and material science.</p>
+  <p>In general, it is not clear how to obtain equilibrium conformations without optimizing the atom positions. Therefore, we need to compute both the total energy E(r1, . . . , rn) and the forces acting on the atoms</p>
+  <p>Fi(r1, . . . , rn) = −</p>
+  <p>∂E ∂ri</p>
+  <p>(r1, . . . , rn).</p>
+  <p>(1)</p>
+  <p>One possibility is to use a less computationally costly, however, also less accurate quantum-chemical approximation. Instead, we choose to extend the domain of our machine learning model to both compositional (chemical) and configurational (structural) degrees of freedom.</p>
+  <p>In this work, we aim to learn a representation for molecules using equilibrium and non-equilibrium conformations. Such a general representation for atomistic systems should follow fundamental quantum-mechanical principles. Most importantly, the predicted force field has to be curl-free. Otherwise, it would be possible to follow a circular trajectory of atom positions such that the energy keeps increasing, i.e., breaking the law of energy conservation. Furthermore, the potential energy surface as well as its partial derivatives have to be smooth, e.g., in order to be able to perform geometry optimization. Beyond that, it is beneficial that the model incorporates the invariance of the molecular energy with respect to rotation, translation and atom indexing. Being able to model both chemical and conformational variations constitutes an important step towards ML-driven quantum-chemical exploration.</p>
+  <p>This work provides the following key contributions:</p>
+  <p>• We propose continuous-filter convolutional (cfconv) layers as a means to move beyond grid-bound data such as images or audio towards modeling objects with arbitrary positions such as astronomical observations or atoms in molecules and materials.</p>
+  <p>• We propose SchNet: a neural network specifically designed to respect essential quantum- chemical constraints. In particular, we use the proposed cfconv layers in R3 to model interactions of atoms at arbitrary positions in the molecule. SchNet delivers both rotationally invariant energy prediction and rotationally equivariant force predictions. We obtain a smooth potential energy surface and the resulting force-field is guaranteed to be energy- conserving.</p>
+  <p>• We present a new, challenging benchmark – ISO17 – including both chemical and confor- mational changes3. We show that training with forces improves generalization in this setting as well.</p>
+  <p>2 Related work</p>
+  <p>Previous work has used neural networks and Gaussian processes applied to hand-crafted features to fit potential energy surfaces [11–16]. Graph convolutional networks for circular fingerprint [17] and molecular graph convolutions [18] learn representations for molecules of arbitrary size. They encode the molecular structure using neighborhood relationships as well as bond features, e.g., one-hot encodings of single, double and triple bonds. In the following, we briefly review the related work that will be used in our empirical evaluation: gradient domain machine learning (GDML), deep tensor neural networks (DTNN) and enn-s2s.</p>
+  <p>Gradient-domain machine learning (GDML) <span class="person">Chmiela<span class="tag">persName</span></span> et al. [19] proposed GDML as a method to construct force fields that explicitly obey the law of energy conservation. GDML captures the relationship between energy and interatomic forces (see Eq. 1) by training the gradient of the energy estimator. The functional relationship between atomic coordinates and interatomic forces is thus learned directly and energy predictions are obtained by re-integration. However, GDML does not scale well due to its kernel matrix growing quadratically with the number of atoms as well as the number of examples. Beyond that, it is not designed to represent different compositions of atom types unlike SchNet, DTNN and enn-s2s.</p>
+  <p>Deep tensor neural networks (DTNN) <span class="person">Schütt<span class="tag">persName</span></span> et al. [20] proposed the DTNN for molecules that are inspired by the many-body Hamiltonian applied to the interactions of atoms. They have been shown to reach chemical accuracy on a small set of molecular dynamics trajectories as well as QM9. Even though the DTNN shares the invariances with our proposed architecture, its interaction layers lack the continuous-filter convolution interpretation. It falls behind in accuracy compared to SchNet and enn-s2s.</p>
+  <p>enn-s2s Gilmer et al. [21] proposed the enn-s2s as a variant of message-passing neural networks that uses bond type features in addition to interatomic distances. It achieves state-of-the-art performance on all properties of the QM9 benchmark [21]. Unfortunately, it cannot be used for molecular dynamics predictions (MD-17). This is caused by discontinuities in their potential energy surface due to the</p>
+  <p>3ISO17 is publicly available at www.quantum-machine.org.</p>
+  <p>Figure 1: The discrete filter (left) is not able to capture the subtle positional changes of the atoms resulting in discontinuous energy predictions ˆE (bottom left). The continuous filter captures these changes and yields smooth energy predictions (bottom right).</p>
+  <p>discreteness of the one-hot encodings in their input. In contrast, SchNet does not use such features and yields a continuous potential energy surface by using continuous-filter convolutional layers.</p>
+  <p>3 Continuous-filter convolutions</p>
+  <p>In <span class="ai">deep learning<span class="tag">term·ai</span></span>, convolutional layers operate on discretized signals such as image pixels [22, 23], video frames [24] or digital audio data [25]. While it is sufficient to define the filter on the same grid in these cases, this is not possible for unevenly spaced inputs such as the atom positions of a molecule (see Fig. 1). Other examples include astronomical observations [26], climate data [27] and the financial market [28]. Commonly, this can be solved by a re-sampling approach defining a representation on a grid [7, 29, 30]. However, choosing an appropriate interpolation scheme is a challenge on its own and, possibly, requires a large number of grid points. Therefore, various extensions of convolutional layers even beyond the Euclidean space exist, e.g., for graphs [31, 32] and 3d shapes[33]. Analogously, we propose to use continuous filters that are able to handle unevenly spaced data, in particular, atoms at arbitrary positions. i ∈ RF at locations Given the feature representations of n objects X l = (xl R = (r1, . . . , rn) with ri ∈ RD, the continuous-filter convolutional layer l requires a filter-generating function</p>
+  <p>n) with xl</p>
+  <p>1, . . . , xl</p>
+  <p>W l : RD → RF ,</p>
+  <p>that maps from a position to the corresponding filter values. This constitutes a generalization of a filter tensor in discrete convolutional layers. As in dynamic filter networks [34], this filter-generating function is modeled with a neural network. While dynamic filter networks generate weights restricted to a grid structure, our approach generalizes this to arbitrary position and number of objects. The output xl+1</p>
+  <p>for the convolutional layer at position ri is then given by</p>
+  <p>xl+1 i = (X l ∗ W l)i =</p>
+  <p>j ◦ W l(ri − rj), xl</p>
+  <p>(cid:88)</p>
+  <p>(2)</p>
+  <p>where &quot;◦&quot; represents the element-wise multiplication. We apply these convolutions feature-wise for computational efficiency [35]. The interactions between feature maps are handled by separate object-wise or, specifically, atom-wise layers in SchNet.</p>
+  <p>4 SchNet</p>
+  <p>SchNet is designed to learn a representation for the prediction of molecular energies and atomic forces. It reflects fundamental physical laws including invariance to atom indexing and translation, a smooth energy prediction w.r.t. atom positions as well as energy-conservation of the predicted force fields. The energy and force predictions are rotationally invariant and equivariant, respectively.</p>
+  <p>Figure 2: Illustration of SchNet with an architectural overview (left), the interaction block (middle) and the continuous-filter convolution with filter-generating network (right). The shifted softplus is defined as ssp(x) = ln(0.5ex + 0.5).</p>
+  <p>4.1 Architecture</p>
+  <p>Fig. 2 shows an overview of the SchNet architecture. At each layer, the molecule is represented atom- wise analogous to pixels in an image. Interactions between atoms are modeled by the three interaction blocks. The final prediction is obtained after atom-wise updates of the feature representation and pooling of the resulting atom-wise energy. In the following, we discuss the different components of the network.</p>
+  <p>Molecular representation A molecule in a certain conformation can be described uniquely by a set of n atoms with nuclear charges Z = (Z1, . . . , Zn) and atomic positions R = (r1, . . . rn). Through the layers of the neural network, we represent the atoms using a tuple of features X l = (xl n), i ∈ RF with the number of feature maps F , the number of atoms n and the current layer l. The with xl representation of atom i is initialized using an embedding dependent on the atom type Zi:</p>
+  <p>1, . . . xl</p>
+  <p>i = aZi.</p>
+  <p>(3)</p>
+  <p>The atom type embeddings aZ are initialized randomly and optimized during training.</p>
+  <p>Atom-wise layers A recurring building block in our architecture are atom-wise layers. These are dense layers that are applied separately to the representation xl</p>
+  <p>i of atom i:</p>
+  <p>xl+1 i = W lxl</p>
+  <p>i + bl</p>
+  <p>These layers is responsible for the recombination of feature maps. Since weights are shared across atoms, our architecture remains scalable with respect to the size of the molecule.</p>
+  <p>Interaction The interaction blocks, as shown in Fig. 2 (middle), are responsible for updating the atomic representations based on the molecular geometry R = (r1, . . . rn). We keep the number of feature maps constant at F = 64 throughout the interaction part of the network. In contrast to MPNN and DTNN, we do not use weight sharing across multiple interaction blocks.</p>
+  <p>The blocks use a residual connection inspired by ResNet [36]:</p>
+  <p>xl+1 i = xl</p>
+  <p>i + vl i.</p>
+  <p>As shown in the interaction block in Fig. 2, the residual vl i is computed through an atom-wise layer, an interatomic continuous-filter convolution (cfconv) followed by two more atom-wise layers with a softplus non-linearity in between. This allows for a flexible residual that incorporates interactions between atoms and feature maps.</p>
+  <p>(a) 1st interaction block</p>
+  <p>(b) 2nd interaction block</p>
+  <p>(c) 3rd interaction block</p>
+  <p>Figure 3: 10x10 Å cuts through all 64 radial, three-dimensional filters in each interaction block of SchNet trained on molecular dynamics of ethanol. Negative values are blue, positive values are red.</p>
+  <p>Filter-generating networks The cfconv layer including its filter-generating network are depicted at the right panel of Fig. 2. In order to satisfy the requirements for modeling molecular energies, we restrict our filters for the cfconv layers to be rotationally invariant. The rotational invariance is obtained by using interatomic distances</p>
+  <p>dij = (cid:107)ri − rj(cid:107)</p>
+  <p>as input for the filter network. Without further processing, the filters would be highly correlated since a neural network after initialization is close to linear. This leads to a plateau at the beginning of training that is hard to overcome. We avoid this by expanding the distance with radial basis functions</p>
+  <p>ek(ri − rj) = exp(−γ(cid:107)dij − μk(cid:107)2)</p>
+  <p>located at centers 0Å ≤ μk ≤ 30Å every 0.1Å with γ = 10Å. This is chosen such that all distances occurring in the data sets are covered by the filters. Due to this additional non-linearity, the initial filters are less correlated leading to a faster training procedure. Choosing fewer centers corresponds to reducing the resolution of the filter, while restricting the range of the centers corresponds to the filter size in a usual convolutional layer. An extensive evaluation of the impact of these variables is left for future work. We feed the expanded distances into two dense layers with softplus activations to compute the filter weight W (ri − rj) as shown in Fig. 2 (right).</p>
+  <p>Fig 3 shows 2d-cuts through generated filters for all three interaction blocks of SchNet trained on an ethanol molecular dynamics trajectory. We observe how each filter emphasizes certain ranges of interatomic distances. This enables its interaction block to update the representations according to the radial environment of each atom. The sequential updates from three interaction blocks allow SchNet to construct highly complex many-body representations in the spirit of DTNNs [20] while keeping rotational invariance due to the radial filters.</p>
+  <p>4.2 Training with energies and forces</p>
+  <p>As described above, the interatomic forces are related to the molecular energy, so that we can obtain an energy-conserving force model by differentiating the energy model w.r.t. the atom positions</p>
+  <p>ˆFi(Z1, . . . , Zn, r1, . . . , rn) = −</p>
+  <p>∂ ˆE ∂ri</p>
+  <p>(Z1, . . . , Zn, r1, . . . , rn).</p>
+  <p>(4)</p>
+  <p><span class="person">Chmiela<span class="tag">persName</span></span> et al. [19] pointed out that this leads to an energy-conserving force-field by construction. As SchNet yields rotationally invariant energy predictions, the force predictions are rotationally equivariant by construction. The model has to be at least twice differentiable to allow for gradient descent of the force loss. We chose a shifted softplus ssp(x) = ln(0.5ex + 0.5) as non-linearity throughout the network in order to obtain a smooth potential energy surface. The shifting ensures that ssp(0) = 0 and improves the convergence of the network. This activation function shows similarity to ELUs [37], while having infinite order of continuity.</p>
+  <p>Table 1: Mean absolute errors for energy predictions in kcal/mol on the QM9 data set with given training set size N . Best model in bold. N</p>
+  <p>SchNet DTNN [20]</p>
+  <p>enn-s2s-ens5 [21]</p>
+  <p>enn-s2s [21]</p>
+  <p>50,000 100,000 110,462</p>
+  <p>0.59 0.34 0.31</p>
+  <p>0.94 0.84 –</p>
+  <p>– – 0.45</p>
+  <p>– – 0.33</p>
+  <p>We include the total energy E as well as forces Fi in the training loss to train a neural network that performs well on both properties:</p>
+  <p>(cid:96)( ˆE, (E, F1, . . . , Fn)) = ρ(cid:107)E − ˆE(cid:107)2 +</p>
+  <p>1 n</p>
+  <p>n (cid:88)</p>
+  <p>i=0</p>
+  <p>(cid:13) (cid:13) (cid:13) (cid:13) (cid:13)</p>
+  <p>Fi −</p>
+  <p>(cid:32)</p>
+  <p>∂ ˆE ∂Ri</p>
+  <p>(cid:33)(cid:13) 2 (cid:13) (cid:13) (cid:13) (cid:13)</p>
+  <p>(5)</p>
+  <p>This kind of loss has been used before for fitting a restricted potential energy surfaces with MLPs [38]. In our experiments, we use ρ = 0.01 for combined energy and force training. The value of ρ was optimized empirically to account for different scales of energy and forces.</p>
+  <p>Due to the relation of energies and forces reflected in the model, we expect to see improved gen- eralization, however, at a computational cost. As we need to perform a full forward and backward pass on the energy model to obtain the forces, the resulting force model is twice as deep and, hence, requires about twice the amount of computation time.</p>
+  <p>Even though the GDML model captures this relationship between energies and forces, it is explicitly optimized to predict the force field while the energy prediction is a by-product. Models such as circular fingerprints [17], molecular graph convolutions or message-passing neural networks[21] for property prediction across chemical compound space are only concerned with equilibrium molecules, i.e., the special case where the forces are vanishing. They can not be trained with forces in a similar manner, as they include discontinuities in their predicted potential energy surface caused by discrete binning or the use of one-hot encoded bond type information.</p>
+  <p>5 Experiments and results</p>
+  <p>In this section, we apply the SchNet to three different <span class="concept">quantum chemistry<span class="tag">term·dom</span></span> datasets: QM9, MD17 and ISO17. We designed the experiments such that each adds another aspect towards modeling chemical space. While QM9 only contains equilibrium molecules, for MD17 we predict conformational changes of molecular dynamics of single molecules. Finally, we present ISO17 combining both chemical and structural changes.</p>
+  <p>For all datasets, we report mean absolute errors in kcal/mol for the energies and in kcal/mol/Å for the forces. The architecture of the network was fixed after an evaluation on the MD17 data sets for benzene and ethanol (see supplement). In each experiment, we split the data into a training set of given size N and use a validation set of 1,000 examples for early stopping. The remaining data is used as test set. All models are trained with SGD using the ADAM optimizer [39] with 32 molecules per mini-batch. We use an initial learning rate of 10−3 and an exponential learning rate decay with ratio 0.96 every 100,000 steps. The model used for testing is obtained using an exponential moving average over weights with decay rate 0.99.</p>
+  <p>5.1 QM9 – chemical degrees of freedom</p>
+  <p>QM9 is a widely used benchmark for the prediction of various molecular properties in equilibrium [10, 40, 41]. Therefore, the forces are zero by definition and do not need to be predicted. In this setting, we train a single model that generalizes across different compositions and sizes.</p>
+  <p>QM9 consists of ≈130k organic molecules with up to 9 heavy atoms of the types {C, O, N, F}. As the size of the training set varies across previous work, we trained our models each of these experimental settings. Table 1 shows the performance of various competing methods for predicting the total energy (property U0 in QM9). We provide comparisons to the DTNN [20] and the best performing MPNN configuration denoted enn-s2s and an ensemble of MPNNs (enn-s2s-ens5) [21]. SchNet consistently obtains state-of-the-art performance with an MAE of 0.31 kcal/mol at 110k training examples.</p>
+  <p>Table 2: Mean absolute errors for energy and force predictions in kcal/mol and kcal/mol/Å, respec- tively. GDML and SchNet test errors for training with 1,000 and 50,000 examples of molecular dynamics simulations of small, organic molecules are shown. SchNets were trained only on energies as well as energies and forces combined. Best results in bold.</p>
+  <p>N = 1,000</p>
+  <p>N = 50,000</p>
+  <p>GDML [19] forces</p>
+  <p>SchNet</p>
+  <p>energy</p>
+  <p>both</p>
+  <p>DTNN [20] energy</p>
+  <p>SchNet</p>
+  <p>energy</p>
+  <p>both</p>
+  <p>Benzene</p>
+  <p>Toluene</p>
+  <p>Malonaldehyde</p>
+  <p>Salicylic acid</p>
+  <p>Aspirin</p>
+  <p>Ethanol</p>
+  <p>Uracil</p>
+  <p>Naphtalene</p>
+  <p>energy forces</p>
+  <p>energy forces</p>
+  <p>energy forces</p>
+  <p>energy forces</p>
+  <p>energy forces</p>
+  <p>energy forces</p>
+  <p>energy forces</p>
+  <p>energy forces</p>
+  <p>0.07 0.23</p>
+  <p>0.12 0.24</p>
+  <p>0.16 0.80</p>
+  <p>0.12 0.28</p>
+  <p>0.27 0.99</p>
+  <p>0.15 0.79</p>
+  <p>0.11 0.24</p>
+  <p>0.12 0.23</p>
+  <p>1.19 14.12</p>
+  <p>2.95 22.31</p>
+  <p>2.03 20.41</p>
+  <p>3.27 23.21</p>
+  <p>4.20 23.54</p>
+  <p>0.93 6.56</p>
+  <p>2.26 20.08</p>
+  <p>3.58 25.36</p>
+  <p>0.08 0.31</p>
+  <p>0.12 0.57</p>
+  <p>0.13 0.66</p>
+  <p>0.20 0.85</p>
+  <p>0.37 1.35</p>
+  <p>0.08 0.39</p>
+  <p>0.14 0.56</p>
+  <p>0.16 0.58</p>
+  <p>0.04 –</p>
+  <p>0.18 –</p>
+  <p>0.19 –</p>
+  <p>0.41 –</p>
+  <p>– –</p>
+  <p>– –</p>
+  <p>– –</p>
+  <p>– –</p>
+  <p>0.08 1.23</p>
+  <p>0.16 1.79</p>
+  <p>0.13 1.51</p>
+  <p>0.25 3.72</p>
+  <p>0.25 7.36</p>
+  <p>0.07 0.76</p>
+  <p>0.13 3.28</p>
+  <p>0.20 2.58</p>
+  <p>0.07 0.17</p>
+  <p>0.09 0.09</p>
+  <p>0.08 0.08</p>
+  <p>0.10 0.19</p>
+  <p>0.12 0.33</p>
+  <p>0.05 0.05</p>
+  <p>0.10 0.11</p>
+  <p>0.11 0.11</p>
+  <p>5.2 MD17 – conformational degrees of freedom</p>
+  <p>MD17 is a collection of eight molecular dynamics simulations for small organic molecules. These data sets were introduced by <span class="person">Chmiela<span class="tag">persName</span></span> et al. [19] for prediction of energy-conserving force fields using GDML. Each of these consists of a trajectory of a single molecule covering a large variety of conformations. Here, the task is to predict energies and forces using a separate model for each trajectory. This molecule-wise training is motivated by the need for highly-accurate force predictions when doing molecular dynamics.</p>
+  <p>Table 2 shows the performance of SchNet using 1,000 and 50,000 training examples in comparison with GDML and DTNN. Using the smaller data set, GDML achieves remarkably accurate energy and force predictions despite being only trained on forces. The energies are only used to fit the integration constant. As mentioned before, GDML does not scale well with the number of atoms and training examples. Therefore, it cannot be trained on 50,000 examples. The DTNN was evaluated only on four of these MD trajectories using the larger training set [20]. Note that the enn-s2s cannot be used on this dataset due to discontinuities in its inferred potential energy surface.</p>
+  <p>We trained SchNet using just energies and using both energies and forces. While the energy-only model shows high errors for the small training set, the model including forces achieves energy predictions comparable to GDML. In particular, we observe that SchNet outperforms GDML on the more flexible molecules malonaldehyde and ethanol, while GDML reaches much lower force errors on the remaining MD trajectories that all include aromatic rings.</p>
+  <p>The real strength of SchNet is its scalability, as it outperforms the DTNN in three of four data sets using 50,000 training examples using only energies in training. Including force information, SchNet consistently obtains accurate energies and forces with errors below 0.12 kcal/mol and 0.33 kcal/mol/Å, respectively. Remarkably, when training on energies and forces using 1,000 training examples, SchNet performs better than training the same model on energies alone for 50,000 examples.</p>
+  <p>Table 3: Mean absolute errors on C7O2H10 isomers in kcal/mol.</p>
+  <p>mean predictor</p>
+  <p>SchNet</p>
+  <p>energy</p>
+  <p>energy+forces</p>
+  <p>energy known molecules / unknown conformation forces</p>
+  <p>energy unknown molecules / unknown conformation forces</p>
+  <p>14.89 19.56</p>
+  <p>15.54 19.15</p>
+  <p>0.52 4.13</p>
+  <p>3.11 5.71</p>
+  <p>0.36 1.00</p>
+  <p>2.40 2.18</p>
+  <p>5.3</p>
+  <p>ISO17 – chemical and conformational degrees of freedom</p>
+  <p>As the next step towards quantum-chemical exploration, we demonstrate the capability of SchNet to represent a complex potential energy surface including conformational and chemical changes. We present a new dataset – ISO17 – where we consider short MD trajectories of 129 isomers, i.e., chemically different molecules with the same number and types of atoms. In contrast to MD17, we train a joint model across different molecules. We calculate energies and interatomic forces from short MD trajectories of 129 molecules drawn randomly from the largest set of isomers in QM9. While the composition of all included molecules is C7O2H10, the chemical structures are fundamentally different. With each trajectory consisting of 5,000 conformations, the data set consists of 645,000 labeled examples.</p>
+  <p>We consider two scenarios with this dataset: In the first variant, the molecular graph structures present in training are also present in the test data. This demonstrates how well our model is able to represent a complex potential energy surface with chemical and conformational changes. In the more challenging scenario, the test data contains a different subset of molecules. Here we evaluate the generalization of our model to previously unseen chemical structures. We predict forces and energies in both cases and compare to the mean predictor as a baseline. We draw a subset of 4,000 steps from 80% of the MD trajectories for training and validation. This leaves us with a separate test set for each scenario: (1) the unseen 1,000 conformations of molecule trajectories included in the training set and (2) all 5,000 conformations of the remaining 20% of molecules not included in training.</p>
+  <p>Table 3 shows the performance of the SchNet on both test sets. Our proposed model reaches chemical accuracy for the prediction of energies and forces for the test set of known molecules. Including forces in the training improves the performance here as well as on the set of unseen molecules. This shows that using force information does not only help to accurately predict nearby conformations of a single molecule, but indeed helps to generalize across chemical compound space.</p>
+  <p>6 Conclusions</p>
+  <p>We have proposed continuous-filter convolutional layers as a novel building block for deep neural networks. In contrast to the usual convolutional layers, these can model unevenly spaced data as occurring in astronomy, climate reasearch and, in particular, <span class="concept">quantum chemistry<span class="tag">term·dom</span></span>. We have developed SchNet to demonstrate the capabilities of continuous-filter convolutional layers in the context of modeling quantum interactions in molecules. Our architecture respects quantum-chemical constraints such as rotationally invariant energy predictions as well as rotationally equivariant, energy-conserving force predictions.</p>
+  <p>We have evaluated our model in three increasingly challenging experimental settings. Each brings us one step closer to practical chemical exploration driven by machine learning. SchNet improves the state-of-the-art in predicting energies for molecules in equilibrium of the QM9 benchmark. Beyond that, it achieves accurate predictions for energies and forces for all molecular dynamics trajectories in MD17. Finally, we have introduced ISO17 consisting of 645,000 conformations of various C7O2H10 isomers. While we achieve promising results on this new benchmark, modeling chemical and conformational variations remains difficult and needs further improvement. For this reason, we expect that ISO17 will become a new standard benchmark for modeling quantum interactions with machine learning.</p>
+  <p>Acknowledgments</p>
+  <p>This work was supported by the Federal Ministry of Education and Research (BMBF) for the Berlin Big Data Center BBDC (01IS14013A). Additional support was provided by the DFG (MU 987/20-1) and from the European Union’s Horizon 2020 research and innovation program under the Marie Sklodowska-Curie grant agreement NO 657679. K.R.M. gratefully acknowledges the BK21 program funded by Korean National Research Foundation grant (No. 2012-005741) and the Institute for Information &amp; Communications Technology Promotion (IITP) grant funded by the Korea government (no. 2017-0-00451).</p>
+  <p>References</p>
+  <p>[1] M. Rupp, A. <span class="person">Tkatchenko<span class="tag">persName</span></span>, K.-R. <span class="person">Müller<span class="tag">persName</span></span>, and O. A. Von Lilienfeld. Fast and accurate modeling of molecular atomization energies with machine learning. Phys. Rev. Lett., 108(5):058301, 2012.</p>
+  <p>[2] G. Montavon, M. Rupp, V. Gobre, A. Vazquez-Mayagoitia, K. Hansen, A. <span class="person">Tkatchenko<span class="tag">persName</span></span>, K.-R. <span class="person">Müller<span class="tag">persName</span></span>, and O. A. von Lilienfeld. Machine learning of molecular electronic properties in chemical compound space. New J. Phys., 15(9):095003, 2013.</p>
+  <p>[3] K. Hansen, G. Montavon, F. Biegler, S. Fazli, M. Rupp, M. Scheffler, O. A. Von Lilienfeld, A. <span class="person">Tkatchenko<span class="tag">persName</span></span>, and K.-R. <span class="person">Müller<span class="tag">persName</span></span>. Assessment and validation of machine learning methods for predicting molecular atomization energies. J. Chem. Theory Comput., 9(8):3404–3419, 2013.</p>
+  <p>[4] K. T. <span class="person">Schütt<span class="tag">persName</span></span>, H. Glawe, F. Brockherde, A. Sanna, K.-R. <span class="person">Müller<span class="tag">persName</span></span>, and EKU Gross. How to represent crystal structures for machine learning: Towards fast prediction of electronic properties. Phys. Rev. B, 89(20):205118, 2014.</p>
+  <p>[5] K. Hansen, F. Biegler, R. Ramakrishnan, W. Pronobis, O. A. von Lilienfeld, K.-R. <span class="person">Müller<span class="tag">persName</span></span>, and A. <span class="person">Tkatchenko<span class="tag">persName</span></span>. Machine learning predictions of molecular properties: Accurate many-body potentials and nonlocality in chemical space. J. Phys. Chem. Lett., 6:2326, 2015.</p>
+  <p>[6] F. A. Faber, L. Hutchison, B. Huang, Ju. Gilmer, S. S. Schoenholz, G. E. Dahl, O. Vinyals, S. Kearnes, P. F. Riley, and O. A. von Lilienfeld. Fast machine learning models of electronic and energetic properties consistently reach approximation errors better than dft accuracy. arXiv preprint arXiv:1702.05532, 2017.</p>
+  <p>[7] F. Brockherde, L. Voigt, L. Li, M. E. Tuckerman, K. Burke, and K.-R. <span class="person">Müller<span class="tag">persName</span></span>. Bypassing the</p>
+  <p>Kohn-Sham equations with machine learning. Nature Communications, 8(872), 2017.</p>
+  <p>[8] W. Boomsma and J. Frellsen. Spherical convolutions and their application in molecular mod- elling. In Advances in Neural Information Processing Systems 30, pages 3436–3446. 2017.</p>
+  <p>[9] M. Eickenberg, G. Exarchakis, M. Hirn, and S. Mallat. Solid harmonic wavelet scattering: Predicting quantum molecular energy from invariant descriptors of 3d electronic densities. In Advances in Neural Information Processing Systems 30, pages 6543–6552. 2017.</p>
+  <p>[10] R. Ramakrishnan, P. O. Dral, M. Rupp, and O. A. von Lilienfeld. <span class="concept">Quantum chemistry<span class="tag">term·dom</span></span> structures</p>
+  <p>and properties of 134 kilo molecules. Scientific Data, 1, 2014.</p>
+  <p>[11] S. Manzhos and T. Carrington Jr. A random-sampling high dimensional model representation</p>
+  <p>neural network for building potential energy surfaces. J. Chem. Phys., 125(8):084109, 2006.</p>
+  <p>[12] R. Malshe, M .and Narulkar, L. M. Raff, M. Hagan, S. Bukkapatnam, P. M. Agrawal, and R. Ko- manduri. Development of generalized potential-energy surfaces using many-body expansions, neural networks, and moiety energy approximations. J. Chem. Phys., 130(18):184102, 2009.</p>
+  <p>[13] J. Behler and M. Parrinello. Generalized neural-network representation of high-dimensional</p>
+  <p>potential-energy surfaces. Phys. Rev. Lett., 98(14):146401, 2007.</p>
+  <p>[14] A. P. Bartók, M. C. Payne, R. Kondor, and G. Csányi. Gaussian approximation potentials: The accuracy of quantum mechanics, without the electrons. Phys. Rev. Lett., 104(13):136403, 2010.</p>
+  <p>[15] J. Behler. Atom-centered symmetry functions for constructing high-dimensional neural network</p>
+  <p>potentials. J. Chem. Phys., 134(7):074106, 2011.</p>
+  <p>[16] A. P. Bartók, R. Kondor, and G. Csányi. On representing chemical environments. Phys. Rev. B,</p>
+  <p>87(18):184115, 2013.</p>
+  <p>[17] D. K. Duvenaud, D. Maclaurin, J. Iparraguirre, R. Bombarell, T. Hirzel, A. Aspuru-Guzik, and R. P. Adams. Convolutional networks on graphs for learning molecular fingerprints. In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors, NIPS, pages 2224–2232, 2015.</p>
+  <p>[18] S. Kearnes, K. McCloskey, M. Berndl, V. Pande, and P. F. Riley. Molecular graph convolutions: moving beyond fingerprints. Journal of Computer-Aided Molecular Design, 30(8):595–608, 2016.</p>
+  <p>[19] S. <span class="person">Chmiela<span class="tag">persName</span></span>, A. <span class="person">Tkatchenko<span class="tag">persName</span></span>, H. E. <span class="person">Sauceda<span class="tag">persName</span></span>, I. Poltavsky, K. T. <span class="person">Schütt<span class="tag">persName</span></span>, and K.-R. <span class="person">Müller<span class="tag">persName</span></span>. Machine learning of accurate energy-conserving molecular force fields. Science Advances, 3(5): e1603015, 2017.</p>
+  <p>[20] K. T. <span class="person">Schütt<span class="tag">persName</span></span>, F. Arbabzadah, S. <span class="person">Chmiela<span class="tag">persName</span></span>, K.-R. <span class="person">Müller<span class="tag">persName</span></span>, and A. <span class="person">Tkatchenko<span class="tag">persName</span></span>. Quantum-chemical</p>
+  <p>insights from deep tensor neural networks. Nature Communications, 8(13890), 2017.</p>
+  <p>[21] J. Gilmer, S. S. Schoenholz, P. F. Riley, O. Vinyals, and G. E. Dahl. Neural message passing for <span class="concept">quantum chemistry<span class="tag">term·dom</span></span>. In Proceedings of the 34th International Conference on Machine Learning, pages 1263–1272, 2017.</p>
+  <p>[22] Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel. Backpropagation applied to handwritten zip code recognition. Neural computation, 1(4): 541–551, 1989.</p>
+  <p>[23] A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classification with deep convolutional neural networks. In Advances in neural information processing systems, pages 1097–1105, 2012.</p>
+  <p>[24] A. Karpathy, G. Toderici, S. Shetty, T. Leung, R. Sukthankar, and L. Fei-Fei. Large-scale video classification with convolutional neural networks. In Proceedings of the IEEE conference on Computer Vision and Pattern Recognition, pages 1725–1732, 2014.</p>
+  <p>[25] A. van den Oord, S. Dieleman, H. Zen, K. Simonyan, O. Vinyals, A. Graves, N. Kalchbrenner, A. Senior, and K. Kavukcuoglu. Wavenet: A generative model for raw audio. In 9th ISCA Speech Synthesis Workshop, pages 125–125, 2016.</p>
+  <p>[26] W. Max-Moerbeck, J. L. Richards, T. Hovatta, V. Pavlidou, T. J. Pearson, and A. C. S. Readhead. A method for the estimation of the significance of cross-correlations in unevenly sampled red-noise time series. Monthly Notices of the Royal Astronomical Society, 445(1):437–459, 2014.</p>
+  <p>[27] K. B. Ólafsdóttir, M. Schulz, and M. Mudelsee. Redfit-x: Cross-spectral analysis of unevenly</p>
+  <p>spaced paleoclimate time series. Computers &amp; Geosciences, 91:11–18, 2016.</p>
+  <p>[28] L. E. Nieto-Barajas and T. Sinha. Bayesian interpolation of unequally spaced time series.</p>
+  <p>Stochastic environmental research and risk assessment, 29(2):577–587, 2015.</p>
+  <p>[29] J. C. Snyder, M. Rupp, K. Hansen, K.-R. <span class="person">Müller<span class="tag">persName</span></span>, and K. Burke. Finding density functionals</p>
+  <p>with machine learning. Physical review letters, 108(25):253002, 2012.</p>
+  <p>[30] M. Hirn, S. Mallat, and N. Poilvert. Wavelet scattering regression of quantum chemical energies.</p>
+  <p>Multiscale Modeling &amp; Simulation, 15(2):827–863, 2017.</p>
+  <p>[31] J. Bruna, W. Zaremba, A. Szlam, and Y. Lecun. Spectral networks and locally connected</p>
+  <p>networks on graphs. In ICLR, 2014.</p>
+  <p>[32] M. Henaff, J. Bruna, and Y. LeCun. Deep convolutional networks on graph-structured data.</p>
+  <p>arXiv preprint arXiv:1506.05163, 2015.</p>
+  <p>[33] J. Masci, D. Boscaini, M. Bronstein, and P. Vandergheynst. Geodesic convolutional neural networks on riemannian manifolds. In Proceedings of the IEEE international conference on computer vision workshops, pages 37–45, 2015.</p>
+  <p>[34] X. Jia, B. De Brabandere, T. Tuytelaars, and L. V. Gool. Dynamic filter networks. In D. D. Lee, M. Sugiyama, U. V. Luxburg, I. Guyon, and R. Garnett, editors, Advances in Neural Information Processing Systems 29, pages 667–675. 2016.</p>
+  <p>[35] F. Chollet. Xception: <span class="ai">Deep learning<span class="tag">term·ai</span></span> with depthwise separable convolutions. arXiv preprint</p>
+  <p>arXiv:1610.02357, 2016.</p>
+  <p>[36] K. He, X. Zhang, S. Ren, and J. Sun. Deep residual learning for image recognition.</p>
+  <p>In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 770–778, 2016.</p>
+  <p>[37] D.-A. Clevert, T. Unterthiner, and S. Hochreiter. Fast and accurate deep network learning by</p>
+  <p>exponential linear units (elus). arXiv preprint arXiv:1511.07289, 2015.</p>
+  <p>[38] A Pukrittayakamee, M Malshe, M Hagan, LM Raff, R Narulkar, S Bukkapatnum, and R Ko- manduri. Simultaneous fitting of a potential-energy surface and its corresponding force fields using feedforward neural networks. The Journal of chemical physics, 130(13):134101, 2009.</p>
+  <p>[39] D. P. Kingma and J. Ba. Adam: A method for stochastic optimization. In ICLR, 2015.</p>
+  <p>[40] L. C. Blum and J.-L. Reymond. 970 million druglike small molecules for virtual screening in</p>
+  <p>the chemical universe database GDB-13. J. Am. Chem. Soc., 131:8732, 2009.</p>
+  <p>[41] J.-L. Reymond. The chemical space project. Acc. Chem. Res., 48(3):722–730, 2015.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 31 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 7 <code>concept</code> · 6 <code>ai</code>.<br>Meta-Tagging Project &middot; record <code>schutt2017-schnet</code>.</div>
+</body></html>

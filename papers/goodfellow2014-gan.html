@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generative Adversarial Networks — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>Generative Adversarial Networks — TEI-tagged view</h1>
+<div class="meta">Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio · 2014 · <a href="https://en.wikipedia.org/wiki/Artificial_intelligence">artificial-intelligence</a> · <a href="https://arxiv.org/abs/1406.2661">arXiv:1406.2661</a> · <a href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener">full text</a> · <a href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Goodfellow</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Montreal</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">Advances in Neural Information Processing Systems (NeurIPS)</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2014</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch ai">generative adversarial network</span></td><td><code>&lt;term type="ai-concept"&gt;</code></td><td class="desc" style="color:#b5179e">A term from artificial intelligence.</td></tr><tr><td><span class="swatch method">minimax game</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Ian J. Goodfellow<span class="tag">persName</span></span>, <span class="person">Jean Pouget-Abadie<span class="tag">persName</span></span>, <span class="person">Mehdi Mirza<span class="tag">persName</span></span>, <span class="person">Bing Xu<span class="tag">persName</span></span>, <span class="person">David Warde-Farley<span class="tag">persName</span></span>, <span class="person">Sherjil Ozair<span class="tag">persName</span></span>, <span class="person">Aaron Courville<span class="tag">persName</span></span>, <span class="person">Yoshua Bengio<span class="tag">persName</span></span> (<span class="date">2014<span class="tag">date</span></span>). &ldquo;Generative Adversarial Networks.&rdquo; <span class="work">Advances in Neural Information Processing Systems (NeurIPS)<span class="tag">title·j</span></span>, <span class="place">Montreal<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Learning to generate realistic data samples (e.g. images) from a training distribution.</p>
+  <p><b>Research question —</b> Can a generative model be trained by pitting it against a <span class="ai">discriminator<span class="tag">term·ai</span></span> rather than by explicit likelihood?</p>
+  <p><b>Contribution —</b> Introduces generative adversarial networks, a two-player game between generator and <span class="ai">discriminator<span class="tag">term·ai</span></span>, a foundational method of <span class="ai">generative AI<span class="tag">term·ai</span></span>.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>generative adversarial networks (adversarial training; minimax game)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>game theory</b>: a minimax two-player game between a generator and a discriminator, adapting game-theoretic adversarial competition to train generative models<span class="ev"> &mdash; &ldquo;This framework corresponds to a minimax two-player game&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>adversarial training: a generator and discriminator compete in a minimax game - the generator learns to produce samples that fool the discriminator (which learns real vs fake), driving the generator toward the data distribution<span class="ev"> &mdash; &ldquo;The generative model can be thought of as analogous to a team of counterfeiters, trying to produce fake currency and use it without detection, while the discriminative model is analogous to the police, trying to detect the counterfeit currency&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>game theory (minimax two-player game)</b><span class="ev"> &mdash; &ldquo;This framework corresponds to a minimax two-player game&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>the likelihood-estimation method has high variance and does not perform well in high dimensions<span class="ev"> &mdash; &ldquo;does not perform well in high dimensional spaces&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>Generative Adversarial Networks</p>
+  <p>4 1 0 2</p>
+  <p>n u J</p>
+  <p>0 1</p>
+  <p>] L M</p>
+  <p>. t a t s [</p>
+  <p>1 v 1 6 6 2 . 6 0 4 1 : v i X r a</p>
+  <p>Generative Adversarial Nets</p>
+  <p>Ian J. <span class="person">Goodfellow<span class="tag">persName</span></span>, Jean <span class="person">Pouget-Abadie<span class="tag">persName</span></span>∗, Mehdi <span class="person">Mirza<span class="tag">persName</span></span>, <span class="person">Bing<span class="tag">persName</span></span> Xu, David <span class="person">Warde-Farley<span class="tag">persName</span></span>, Sherjil <span class="person">Ozair<span class="tag">persName</span></span>†, Aaron <span class="person">Courville<span class="tag">persName</span></span>, Yoshua <span class="person">Bengio<span class="tag">persName</span></span>‡ D ́epartement d’informatique et de recherche op ́erationnelle Universit ́e de Montr ́eal Montr ́eal, QC H3C 3J7</p>
+  <p>Abstract</p>
+  <p>We propose a new framework for estimating generative models via an adversar- ial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G. The train- ing procedure for G is to maximize the probability of D making a mistake. This framework corresponds to a minimax two-player game. In the space of arbitrary functions G and D, a unique solution exists, with G recovering the training data distribution and D equal to 1 2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation. There is no need for any Markov chains or unrolled approximate inference net- works during either training or generation of samples. Experiments demonstrate the potential of the framework through qualitative and quantitative evaluation of the generated samples.</p>
+  <p>Introduction</p>
+  <p>The promise of deep learning is to discover rich, hierarchical models [2] that represent probability distributions over the kinds of data encountered in artificial intelligence applications, such as natural images, audio waveforms containing speech, and symbols in natural language corpora. So far, the most striking successes in deep learning have involved discriminative models, usually those that map a high-dimensional, rich sensory input to a class label [14, 22]. These striking successes have primarily been based on the backpropagation and dropout algorithms, using piecewise linear units [19, 9, 10] which have a particularly well-behaved gradient . Deep generative models have had less of an impact, due to the difficulty of approximating many intractable probabilistic computations that arise in maximum likelihood estimation and related strategies, and due to difficulty of leveraging the benefits of piecewise linear units in the generative context. We propose a new generative model estimation procedure that sidesteps these difficulties. 1</p>
+  <p>In the proposed adversarial nets framework, the generative model is pitted against an adversary: a discriminative model that learns to determine whether a sample is from the model distribution or the data distribution. The generative model can be thought of as analogous to a team of counterfeiters, trying to produce fake currency and use it without detection, while the discriminative model is analogous to the police, trying to detect the counterfeit currency. Competition in this game drives both teams to improve their methods until the counterfeits are indistiguishable from the genuine articles.</p>
+  <p>∗Jean <span class="person">Pouget-Abadie<span class="tag">persName</span></span> is visiting Universit ́e de Montr ́eal from Ecole Polytechnique. †Sherjil <span class="person">Ozair<span class="tag">persName</span></span> is visiting Universit ́e de Montr ́eal from Indian Institute of Technology Delhi ‡Yoshua <span class="person">Bengio<span class="tag">persName</span></span> is a CIFAR Senior Fellow. 1All code and hyperparameters available at http://www.github.com/goodfeli/adversarial</p>
+  <p>This framework can yield specific training algorithms for many kinds of model and optimization algorithm. In this article, we explore the special case when the generative model generates samples by passing random noise through a multilayer perceptron, and the discriminative model is also a multilayer perceptron. We refer to this special case as adversarial nets. In this case, we can train both models using only the highly successful backpropagation and dropout algorithms [17] and sample from the generative model using only forward propagation. No approximate inference or Markov chains are necessary.</p>
+  <p>2 Related work</p>
+  <p>An alternative to directed graphical models with latent variables are undirected graphical models with latent variables, such as restricted Boltzmann machines (RBMs) [27, 16], deep Boltzmann machines (DBMs) [26] and their numerous variants. The interactions within such models are represented as the product of unnormalized potential functions, normalized by a global summa- tion/integration over all states of the random variables. This quantity (the partition function) and its gradient are intractable for all but the most trivial instances, although they can be estimated by Markov chain Monte Carlo (MCMC) methods. Mixing poses a significant problem for learning algorithms that rely on MCMC [3, 5].</p>
+  <p>Deep belief networks (DBNs) [16] are hybrid models containing a single undirected layer and sev- eral directed layers. While a fast approximate layer-wise training criterion exists, DBNs incur the computational difficulties associated with both undirected and directed models.</p>
+  <p>Alternative criteria that do not approximate or bound the log-likelihood have also been proposed, such as score matching [18] and noise-contrastive estimation (NCE) [13]. Both of these require the learned probability density to be analytically specified up to a normalization constant. Note that in many interesting generative models with several layers of latent variables (such as DBNs and DBMs), it is not even possible to derive a tractable unnormalized probability density. Some models such as denoising auto-encoders [30] and contractive autoencoders have learning rules very similar to score matching applied to RBMs. In NCE, as in this work, a discriminative training criterion is employed to fit a generative model. However, rather than fitting a separate discriminative model, the generative model itself is used to discriminate generated data from samples a fixed noise distribution. Because NCE uses a fixed noise distribution, learning slows dramatically after the model has learned even an approximately correct distribution over a small subset of the observed variables.</p>
+  <p>Finally, some techniques do not involve defining a probability distribution explicitly, but rather train a generative machine to draw samples from the desired distribution. This approach has the advantage that such machines can be designed to be trained by back-propagation. Prominent recent work in this area includes the generative stochastic network (GSN) framework [5], which extends generalized denoising auto-encoders [4]: both can be seen as defining a parameterized Markov chain, i.e., one learns the parameters of a machine that performs one step of a generative Markov chain. Compared to GSNs, the adversarial nets framework does not require a Markov chain for sampling. Because adversarial nets do not require feedback loops during generation, they are better able to leverage piecewise linear units [19, 9, 10], which improve the performance of backpropagation but have problems with unbounded activation when used ina feedback loop. More recent examples of training a generative machine by back-propagating into it include recent work on auto-encoding variational Bayes [20] and stochastic backpropagation [24].</p>
+  <p>3 Adversarial nets</p>
+  <p>The adversarial modeling framework is most straightforward to apply when the models are both multilayer perceptrons. To learn the generator’s distribution pg over data x, we define a prior on input noise variables pz(z), then represent a mapping to data space as G(z; θg), where G is a differentiable function represented by a multilayer perceptron with parameters θg. We also define a second multilayer perceptron D(x; θd) that outputs a single scalar. D(x) represents the probability that x came from the data rather than pg. We train D to maximize the probability of assigning the correct label to both training examples and samples from G. We simultaneously train G to minimize log(1 − D(G(z))):</p>
+  <p>In other words, D and G play the following two-player <span class="method">minimax game<span class="tag">term·mth</span></span> with value function V (G, D):</p>
+  <p>min G</p>
+  <p>max D</p>
+  <p>V (D, G) = Ex∼pdata(x)[log D(x)] + Ez∼pz(z)[log(1 − D(G(z)))].</p>
+  <p>(1)</p>
+  <p>In the next section, we present a theoretical analysis of adversarial nets, essentially showing that the training criterion allows one to recover the data generating distribution as G and D are given enough capacity, i.e., in the non-parametric limit. See Figure 1 for a less formal, more pedagogical explanation of the approach. In practice, we must implement the game using an iterative, numerical approach. Optimizing D to completion in the inner loop of training is computationally prohibitive, and on finite datasets would result in overfitting. Instead, we alternate between k steps of optimizing D and one step of optimizing G. This results in D being maintained near its optimal solution, so long as G changes slowly enough. This strategy is analogous to the way that SML/PCD [31, 29] training maintains samples from a Markov chain from one learning step to the next in order to avoid burning in a Markov chain as part of the inner loop of learning. The procedure is formally presented in Algorithm 1.</p>
+  <p>In practice, equation 1 may not provide sufficient gradient for G to learn well. Early in learning, when G is poor, D can reject samples with high confidence because they are clearly different from the training data. In this case, log(1 − D(G(z))) saturates. Rather than training G to minimize log(1 − D(G(z))) we can train G to maximize log D(G(z)). This objective function results in the same fixed point of the dynamics of G and D but provides much stronger gradients early in learning.</p>
+  <p>. . .</p>
+  <p>(a)</p>
+  <p>(b)</p>
+  <p>(c)</p>
+  <p>(d)</p>
+  <p>Figure 1: Generative adversarial nets are trained by simultaneously updating the discriminative distribution (D, blue, dashed line) so that it discriminates between samples from the data generating distribution (black, dotted line) px from those of the generative distribution pg (G) (green, solid line). The lower horizontal line is the domain from which z is sampled, in this case uniformly. The horizontal line above is part of the domain of x. The upward arrows show how the mapping x = G(z) imposes the non-uniform distribution pg on transformed samples. G contracts in regions of high density and expands in regions of low density of pg. (a) Consider an adversarial pair near convergence: pg is similar to pdata and D is a partially accurate classifier. (b) In the inner loop of the algorithm D is trained to discriminate samples from data, converging to D∗(x) = pdata(x)+pg (x) . (c) After an update to G, gradient of D has guided G(z) to flow to regions that are more likely to be classified as data. (d) After several steps of training, if G and D have enough capacity, they will reach a point at which both cannot improve because pg = pdata. The <span class="ai">discriminator<span class="tag">term·ai</span></span> is unable to differentiate between the two distributions, i.e. D(x) = 1 2 .</p>
+  <p>pdata(x)</p>
+  <p>4 Theoretical Results</p>
+  <p>The generator G implicitly defines a probability distribution pg as the distribution of the samples G(z) obtained when z ∼ pz. Therefore, we would like Algorithm 1 to converge to a good estimator of pdata, if given enough capacity and training time. The results of this section are done in a non- parametric setting, e.g. we represent a model with infinite capacity by studying convergence in the space of probability density functions.</p>
+  <p>We will show in section 4.1 that this <span class="method">minimax game<span class="tag">term·mth</span></span> has a global optimum for pg = pdata. We will then show in section 4.2 that Algorithm 1 optimizes Eq 1, thus obtaining the desired result.</p>
+  <p>xzXZXZXZ Algorithm 1 Minibatch stochastic gradient descent training of generative adversarial nets. The number of steps to apply to the <span class="ai">discriminator<span class="tag">term·ai</span></span>, k, is a hyperparameter. We used k = 1, the least expensive option, in our experiments.</p>
+  <p>for number of training iterations do</p>
+  <p>for k steps do</p>
+  <p>• Sample minibatch of m noise samples {z(1), . . . , z(m)} from noise prior pg(z). • Sample minibatch of m examples {x(1), . . . , x(m)} from data generating distribution pdata(x). • Update the <span class="ai">discriminator<span class="tag">term·ai</span></span> by ascending its stochastic gradient:</p>
+  <p>∇θd</p>
+  <p>1 m</p>
+  <p>m (cid:88)</p>
+  <p>(cid:104)</p>
+  <p>i=1</p>
+  <p>log D</p>
+  <p>(cid:16)</p>
+  <p>x(i)(cid:17)</p>
+  <p>+ log</p>
+  <p>(cid:16)</p>
+  <p>1 − D</p>
+  <p>(cid:16)</p>
+  <p>(cid:16)</p>
+  <p>z(i)(cid:17)(cid:17)(cid:17)(cid:105)</p>
+  <p>end for • Sample minibatch of m noise samples {z(1), . . . , z(m)} from noise prior pg(z). • Update the generator by descending its stochastic gradient:</p>
+  <p>∇θg</p>
+  <p>1 m</p>
+  <p>m (cid:88)</p>
+  <p>i=1</p>
+  <p>(cid:16)</p>
+  <p>log</p>
+  <p>1 − D</p>
+  <p>(cid:16)</p>
+  <p>(cid:16)</p>
+  <p>z(i)(cid:17)(cid:17)(cid:17)</p>
+  <p>end for The gradient-based updates can use any standard gradient-based learning rule. We used momen- tum in our experiments.</p>
+  <p>4.1 Global Optimality of pg = pdata</p>
+  <p>We first consider the optimal <span class="ai">discriminator<span class="tag">term·ai</span></span> D for any given generator G. Proposition 1. For G fixed, the optimal <span class="ai">discriminator<span class="tag">term·ai</span></span> D is</p>
+  <p>G(x) =</p>
+  <p>pdata(x) pdata(x) + pg(x)</p>
+  <p>(2)</p>
+  <p>Proof. The training criterion for the <span class="ai">discriminator<span class="tag">term·ai</span></span> D, given any generator G, is to maximize the quantity V (G, D)</p>
+  <p>V (G, D) =</p>
+  <p>(cid:90)</p>
+  <p>(cid:90)</p>
+  <p>pdata(x) log(D(x))dx +</p>
+  <p>(cid:90)</p>
+  <p>pz(z) log(1 − D(g(z)))dz</p>
+  <p>pdata(x) log(D(x)) + pg(x) log(1 − D(x))dx</p>
+  <p>(3)</p>
+  <p>For any (a, b) ∈ R2 \ {0, 0}, the function y → a log(y) + b log(1 − y) achieves its maximum in a [0, 1] at a+b . The <span class="ai">discriminator<span class="tag">term·ai</span></span> does not need to be defined outside of Supp(pdata) ∪ Supp(pg), concluding the proof.</p>
+  <p>Note that the training objective for D can be interpreted as maximizing the log-likelihood for es- timating the conditional probability P (Y = y|x), where Y indicates whether x comes from pdata (with y = 1) or from pg (with y = 0). The <span class="method">minimax game<span class="tag">term·mth</span></span> in Eq. 1 can now be reformulated as:</p>
+  <p>C(G) = max</p>
+  <p>V (G, D)</p>
+  <p>=Ex∼pdata[log D∗ =Ex∼pdata[log D∗</p>
+  <p>G(x)] + Ez∼pz [log(1 − D∗ G(x)] + Ex∼pg [log(1 − D∗</p>
+  <p>G(G(z)))] G(x))] (cid:20)</p>
+  <p>(4)</p>
+  <p>(cid:21)</p>
+  <p>+ Ex∼pg</p>
+  <p>log</p>
+  <p>pg(x) pdata(x) + pg(x)</p>
+  <p>=Ex∼pdata</p>
+  <p>(cid:20)</p>
+  <p>log</p>
+  <p>pdata(x) Pdata(x) + pg(x)</p>
+  <p>(cid:21)</p>
+  <p>Theorem 1. The global minimum of the virtual training criterion C(G) is achieved if and only if pg = pdata. At that point, C(G) achieves the value − log 4.</p>
+  <p>Proof. For pg = pdata, D∗ 2 + log 1 find C(G) = log 1 only for pg = pdata, observe that</p>
+  <p>2 , (consider Eq. 2). Hence, by inspecting Eq. 4 at D∗</p>
+  <p>G(x) = 1 2 , we 2 = − log 4. To see that this is the best possible value of C(G), reached</p>
+  <p>G(x) = 1</p>
+  <p>Ex∼pdata [− log 2] + Ex∼pg [− log 2] = − log 4</p>
+  <p>and that by subtracting this expression from C(G) = V (D∗</p>
+  <p>G, G), we obtain:</p>
+  <p>C(G) = − log(4) + KL</p>
+  <p>pdata</p>
+  <p>(cid:18)</p>
+  <p>(cid:19)</p>
+  <p>(cid:13) (cid:13) (cid:13) (cid:13)</p>
+  <p>pdata + pg 2</p>
+  <p>(cid:18)</p>
+  <p>+ KL</p>
+  <p>(cid:19)</p>
+  <p>(cid:13) (cid:13) (cid:13) (cid:13)</p>
+  <p>pdata + pg 2</p>
+  <p>(5)</p>
+  <p>where KL is the Kullback–Leibler divergence. We recognize in the previous expression the Jensen– Shannon divergence between the model’s distribution and the data generating process:</p>
+  <p>C(G) = − log(4) + 2 · JSD (pdata (cid:107)pg )</p>
+  <p>(6)</p>
+  <p>Since the Jensen–Shannon divergence between two distributions is always non-negative and zero only when they are equal, we have shown that C ∗ = − log(4) is the global minimum of C(G) and that the only solution is pg = pdata, i.e., the generative model perfectly replicating the data generating process.</p>
+  <p>4.2 Convergence of Algorithm 1</p>
+  <p>Proposition 2. If G and D have enough capacity, and at each step of Algorithm 1, the <span class="ai">discriminator<span class="tag">term·ai</span></span> is allowed to reach its optimum given G, and pg is updated so as to improve the criterion</p>
+  <p>Ex∼pdata[log D∗</p>
+  <p>G(x)] + Ex∼pg [log(1 − D∗</p>
+  <p>G(x))]</p>
+  <p>then pg converges to pdata</p>
+  <p>Proof. Consider V (G, D) = U (pg, D) as a function of pg as done in the above criterion. Note that U (pg, D) is convex in pg. The subderivatives of a supremum of convex functions include the derivative of the function at the point where the maximum is attained. In other words, if f (x) = supα∈A fα(x) and fα(x) is convex in x for every α, then ∂fβ(x) ∈ ∂f if β = arg supα∈A fα(x). This is equivalent to computing a gradient descent update for pg at the optimal D given the cor- responding G. supD U (pg, D) is convex in pg with a unique global optima as proven in Thm 1, therefore with sufficiently small updates of pg, pg converges to px, concluding the proof.</p>
+  <p>In practice, adversarial nets represent a limited family of pg distributions via the function G(z; θg), and we optimize θg rather than pg itself. Using a multilayer perceptron to define G introduces multiple critical points in parameter space. However, the excellent performance of multilayer per- ceptrons in practice suggests that they are a reasonable model to use despite their lack of theoretical guarantees.</p>
+  <p>5 Experiments</p>
+  <p>We trained adversarial nets an a range of datasets including MNIST[23], the Toronto Face Database (TFD) [28], and CIFAR-10 [21]. The generator nets used a mixture of rectifier linear activations [19, 9] and sigmoid activations, while the <span class="ai">discriminator<span class="tag">term·ai</span></span> net used maxout [10] activations. Dropout [17] was applied in training the <span class="ai">discriminator<span class="tag">term·ai</span></span> net. While our theoretical framework permits the use of dropout and other noise at intermediate layers of the generator, we used noise as the input to only the bottommost layer of the generator network.</p>
+  <p>We estimate probability of the test set data under pg by fitting a Gaussian Parzen window to the samples generated with G and reporting the log-likelihood under this distribution. The σ parameter</p>
+  <p>Model DBN [3] Stacked CAE [3] Deep GSN [6] Adversarial nets</p>
+  <p>MNIST 138 ± 2 121 ± 1.6 214 ± 1.1 225 ± 2</p>
+  <p>TFD 1909 ± 66 2110 ± 50 1890 ± 29 2057 ± 26</p>
+  <p>Table 1: Parzen window-based log-likelihood estimates. The reported numbers on MNIST are the mean log- likelihood of samples on test set, with the standard error of the mean computed across examples. On TFD, we computed the standard error across folds of the dataset, with a different σ chosen using the validation set of each fold. On TFD, σ was cross validated on each fold and mean log-likelihood on each fold were computed. For MNIST we compare against other models of the real-valued (rather than binary) version of dataset.</p>
+  <p>of the Gaussians was obtained by cross validation on the validation set. This procedure was intro- duced in Breuleux et al. [8] and used for various generative models for which the exact likelihood is not tractable [25, 3, 5]. Results are reported in Table 1. This method of estimating the likelihood has somewhat high variance and does not perform well in high dimensional spaces but it is the best method available to our knowledge. Advances in generative models that can sample but not estimate likelihood directly motivate further research into how to evaluate such models.</p>
+  <p>In Figures 2 and 3 we show samples drawn from the generator net after training. While we make no claim that these samples are better than samples generated by existing methods, we believe that these samples are at least competitive with the better generative models in the literature and highlight the potential of the adversarial framework.</p>
+  <p>Figure 2: Visualization of samples from the model. Rightmost column shows the nearest training example of the neighboring sample, in order to demonstrate that the model has not memorized the training set. Samples are fair random draws, not cherry-picked. Unlike most other visualizations of deep generative models, these images show actual samples from the model distributions, not conditional means given samples of hidden units. Moreover, these samples are uncorrelated because the sampling process does not depend on Markov chain mixing. a) MNIST b) TFD c) CIFAR-10 (fully connected model) d) CIFAR-10 (convolutional <span class="ai">discriminator<span class="tag">term·ai</span></span> and “deconvolutional” generator)</p>
+  <p>Figure 3: Digits obtained by linearly interpolating between coordinates in z space of the full model.</p>
+  <p>Deep directed graphical models</p>
+  <p>Training</p>
+  <p>Inference needed during training.</p>
+  <p>Inference</p>
+  <p>Learned approximate inference</p>
+  <p>Sampling</p>
+  <p>No difficulties</p>
+  <p>Deep undirected graphical models Inference needed during training. MCMC needed to approximate partition function gradient.</p>
+  <p>Variational inference</p>
+  <p>Requires Markov chain</p>
+  <p>Evaluating p(x)</p>
+  <p>Intractable, may be approximated with AIS</p>
+  <p>Intractable, may be approximated with AIS</p>
+  <p>Model design</p>
+  <p>Nearly all models incur extreme difficulty</p>
+  <p>Careful design needed to ensure multiple properties</p>
+  <p>Generative autoencoders</p>
+  <p>Enforced tradeoff between mixing and power of reconstruction generation</p>
+  <p>MCMC-based inference</p>
+  <p>Requires Markov chain Not explicitly represented, may be approximated with Parzen density estimation Any differentiable function is theoretically permitted</p>
+  <p>Adversarial models</p>
+  <p>Synchronizing the <span class="ai">discriminator<span class="tag">term·ai</span></span> with the generator. Helvetica.</p>
+  <p>Learned approximate inference</p>
+  <p>No difficulties</p>
+  <p>Not explicitly represented, may be approximated with Parzen density estimation Any differentiable function is theoretically permitted</p>
+  <p>Table 2: Challenges in generative modeling: a summary of the difficulties encountered by different approaches to deep generative modeling for each of the major operations involving a model.</p>
+  <p>6 Advantages and disadvantages</p>
+  <p>This new framework comes with advantages and disadvantages relative to previous modeling frame- works. The disadvantages are primarily that there is no explicit representation of pg(x), and that D must be synchronized well with G during training (in particular, G must not be trained too much without updating D, in order to avoid “the Helvetica scenario” in which G collapses too many values of z to the same value of x to have enough diversity to model pdata), much as the negative chains of a Boltzmann machine must be kept up to date between learning steps. The advantages are that Markov chains are never needed, only backprop is used to obtain gradients, no inference is needed during learning, and a wide variety of functions can be incorporated into the model. Table 2 summarizes the comparison of generative adversarial nets with other generative modeling approaches.</p>
+  <p>The aforementioned advantages are primarily computational. Adversarial models may also gain some statistical advantage from the generator network not being updated directly with data exam- ples, but only with gradients flowing through the <span class="ai">discriminator<span class="tag">term·ai</span></span>. This means that components of the input are not copied directly into the generator’s parameters. Another advantage of adversarial net- works is that they can represent very sharp, even degenerate distributions, while methods based on Markov chains require that the distribution be somewhat blurry in order for the chains to be able to mix between modes.</p>
+  <p>7 Conclusions and future work</p>
+  <p>This framework admits many straightforward extensions:</p>
+  <p>1. A conditional generative model p(x | c) can be obtained by adding c as input to both G and D. 2. Learned approximate inference can be performed by training an auxiliary network to predict z given x. This is similar to the inference net trained by the wake-sleep algorithm [15] but with the advantage that the inference net may be trained for a fixed generator net after the generator net has finished training.</p>
+  <p>3. One can approximately model all conditionals p(xS | x(cid:54)S) where S is a subset of the indices of x by training a family of conditional models that share parameters. Essentially, one can use adversarial nets to implement a stochastic extension of the deterministic MP-DBM [11].</p>
+  <p>4. Semi-supervised learning: features from the <span class="ai">discriminator<span class="tag">term·ai</span></span> or inference net could improve perfor-</p>
+  <p>mance of classifiers when limited labeled data is available.</p>
+  <p>5. Efficiency improvements: training could be accelerated greatly by divising better methods for coordinating G and D or determining better distributions to sample z from during training.</p>
+  <p>This paper has demonstrated the viability of the adversarial modeling framework, suggesting that these research directions could prove useful.</p>
+  <p>Acknowledgments</p>
+  <p>We would like to acknowledge Patrice Marcotte, Olivier Delalleau, Kyunghyun Cho, Guillaume Alain and Jason Yosinski for helpful discussions. Yann Dauphin shared his Parzen window eval- uation code with us. We would like to thank the developers of Pylearn2 [12] and Theano [7, 1], particularly Fr ́ed ́eric Bastien who rushed a Theano feature specifically to benefit this project. Ar- naud Bergeron provided much-needed support with LATEX typesetting. We would also like to thank CIFAR, and Canada Research Chairs for funding, and Compute Canada, and Calcul Qu ́ebec for providing computational resources. Ian <span class="person">Goodfellow<span class="tag">persName</span></span> is supported by the 2013 Google Fellowship in Deep Learning. Finally, we would like to thank Les Trois Brasseurs for stimulating our creativity.</p>
+  <p>References</p>
+  <p>[1] Bastien, F., Lamblin, P., Pascanu, R., Bergstra, J., <span class="person">Goodfellow<span class="tag">persName</span></span>, I. J., Bergeron, A., Bouchard, N., and <span class="person">Bengio<span class="tag">persName</span></span>, Y. (2012). Theano: new features and speed improvements. Deep Learning and Unsupervised Feature Learning NIPS 2012 Workshop.</p>
+  <p>[2] <span class="person">Bengio<span class="tag">persName</span></span>, Y. (2009). Learning deep architectures for AI. Now Publishers.</p>
+  <p>[3] <span class="person">Bengio<span class="tag">persName</span></span>, Y., Mesnil, G., Dauphin, Y., and Rifai, S. (2013a). Better mixing via deep representations. In</p>
+  <p>ICML’13.</p>
+  <p>[4] <span class="person">Bengio<span class="tag">persName</span></span>, Y., Yao, L., Alain, G., and Vincent, P. (2013b). Generalized denoising auto-encoders as generative</p>
+  <p>models. In NIPS26. Nips Foundation.</p>
+  <p>[5] <span class="person">Bengio<span class="tag">persName</span></span>, Y., Thibodeau-Laufer, E., and Yosinski, J. (2014a). Deep generative stochastic networks trainable</p>
+  <p>by backprop. In ICML’14.</p>
+  <p>[6] <span class="person">Bengio<span class="tag">persName</span></span>, Y., Thibodeau-Laufer, E., Alain, G., and Yosinski, J. (2014b). Deep generative stochastic net- works trainable by backprop. In Proceedings of the 30th International Conference on Machine Learning (ICML’14).</p>
+  <p>[7] Bergstra, J., Breuleux, O., Bastien, F., Lamblin, P., Pascanu, R., Desjardins, G., Turian, J., <span class="person">Warde-Farley<span class="tag">persName</span></span>, In Proceedings of the</p>
+  <p>D., and <span class="person">Bengio<span class="tag">persName</span></span>, Y. (2010). Theano: a CPU and GPU math expression compiler. Python for Scientific Computing Conference (SciPy). Oral Presentation.</p>
+  <p>[8] Breuleux, O., <span class="person">Bengio<span class="tag">persName</span></span>, Y., and Vincent, P. (2011). Quickly generating representative samples from an</p>
+  <p>RBM-derived process. Neural Computation, 23(8), 2053–2073.</p>
+  <p>[9] Glorot, X., Bordes, A., and <span class="person">Bengio<span class="tag">persName</span></span>, Y. (2011). Deep sparse rectifier neural networks. In AISTATS’2011.</p>
+  <p>[10] <span class="person">Goodfellow<span class="tag">persName</span></span>, I. J., <span class="person">Warde-Farley<span class="tag">persName</span></span>, D., <span class="person">Mirza<span class="tag">persName</span></span>, M., <span class="person">Courville<span class="tag">persName</span></span>, A., and <span class="person">Bengio<span class="tag">persName</span></span>, Y. (2013a). Maxout networks.</p>
+  <p>In ICML’2013.</p>
+  <p>[11] <span class="person">Goodfellow<span class="tag">persName</span></span>, I. J., <span class="person">Mirza<span class="tag">persName</span></span>, M., <span class="person">Courville<span class="tag">persName</span></span>, A., and <span class="person">Bengio<span class="tag">persName</span></span>, Y. (2013b). Multi-prediction deep Boltzmann</p>
+  <p>machines. In NIPS’2013.</p>
+  <p>[12] <span class="person">Goodfellow<span class="tag">persName</span></span>, I. J., <span class="person">Warde-Farley<span class="tag">persName</span></span>, D., Lamblin, P., Dumoulin, V., <span class="person">Mirza<span class="tag">persName</span></span>, M., Pascanu, R., Bergstra, J., Bastien, F., and <span class="person">Bengio<span class="tag">persName</span></span>, Y. (2013c). Pylearn2: a machine learning research library. arXiv preprint arXiv:1308.4214.</p>
+  <p>[13] Gutmann, M. and Hyvarinen, A. (2010). Noise-contrastive estimation: A new estimation principle for</p>
+  <p>unnormalized statistical models. In AISTATS’2010.</p>
+  <p>[14] Hinton, G., Deng, L., Dahl, G. E., Mohamed, A., Jaitly, N., Senior, A., Vanhoucke, V., Nguyen, P., Sainath, T., and Kingsbury, B. (2012a). Deep neural networks for acoustic modeling in speech recognition. IEEE Signal Processing Magazine, 29(6), 82–97.</p>
+  <p>[15] Hinton, G. E., Dayan, P., Frey, B. J., and Neal, R. M. (1995). The wake-sleep algorithm for unsupervised</p>
+  <p>neural networks. Science, 268, 1558–1161.</p>
+  <p>[16] Hinton, G. E., Osindero, S., and Teh, Y. (2006). A fast learning algorithm for deep belief nets. Neural</p>
+  <p>Computation, 18, 1527–1554.</p>
+  <p>[17] Hinton, G. E., Srivastava, N., Krizhevsky, A., Sutskever, I., and Salakhutdinov, R. (2012b). Improving</p>
+  <p>neural networks by preventing co-adaptation of feature detectors. Technical report, arXiv:1207.0580.</p>
+  <p>[18] Hyv ̈arinen, A. (2005). Estimation of non-normalized statistical models using score matching. J. Machine</p>
+  <p>Learning Res., 6.</p>
+  <p>[19] Jarrett, K., Kavukcuoglu, K., Ranzato, M., and LeCun, Y. (2009). What is the best multi-stage architecture for object recognition? In Proc. International Conference on Computer Vision (ICCV’09), pages 2146–2153. IEEE.</p>
+  <p>[20] Kingma, D. P. and Welling, M. (2014). Auto-encoding variational bayes. In Proceedings of the Interna-</p>
+  <p>tional Conference on Learning Representations (ICLR).</p>
+  <p>[21] Krizhevsky, A. and Hinton, G. (2009). Learning multiple layers of features from tiny images. Technical</p>
+  <p>report, University of Toronto.</p>
+  <p>[22] Krizhevsky, A., Sutskever, I., and Hinton, G. (2012). ImageNet classification with deep convolutional</p>
+  <p>neural networks. In NIPS’2012.</p>
+  <p>[23] LeCun, Y., Bottou, L., <span class="person">Bengio<span class="tag">persName</span></span>, Y., and Haffner, P. (1998). Gradient-based learning applied to document</p>
+  <p>recognition. Proceedings of the IEEE, 86(11), 2278–2324.</p>
+  <p>[24] Rezende, D. J., Mohamed, S., and Wierstra, D. (2014). Stochastic backpropagation and approximate</p>
+  <p>inference in deep generative models. Technical report, arXiv:1401.4082.</p>
+  <p>[25] Rifai, S., <span class="person">Bengio<span class="tag">persName</span></span>, Y., Dauphin, Y., and Vincent, P. (2012). A generative process for sampling contractive</p>
+  <p>auto-encoders. In ICML’12.</p>
+  <p>[26] Salakhutdinov, R. and Hinton, G. E. (2009). Deep Boltzmann machines. In AISTATS’2009, pages 448–</p>
+  <p>455.</p>
+  <p>[27] Smolensky, P. (1986). Information processing in dynamical systems: Foundations of harmony theory. In D. E. Rumelhart and J. L. McClelland, editors, Parallel Distributed Processing, volume 1, chapter 6, pages 194–281. MIT Press, Cambridge.</p>
+  <p>[28] Susskind, J., Anderson, A., and Hinton, G. E. (2010). The Toronto face dataset. Technical Report UTML</p>
+  <p>TR 2010-001, U. Toronto.</p>
+  <p>[29] Tieleman, T. (2008). Training restricted Boltzmann machines using approximations to the likelihood gradient. In W. W. Cohen, A. McCallum, and S. T. Roweis, editors, ICML 2008, pages 1064–1071. ACM.</p>
+  <p>[30] Vincent, P., Larochelle, H., <span class="person">Bengio<span class="tag">persName</span></span>, Y., and Manzagol, P.-A. (2008). Extracting and composing robust</p>
+  <p>features with denoising autoencoders. In ICML 2008.</p>
+  <p>[31] Younes, L. (1999). On the convergence of Markovian stochastic algorithms with rapidly decreasing</p>
+  <p>ergodicity rates. Stochastics and Stochastic Reports, 65(3), 177–228.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 47 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 17 <code>ai</code> · 3 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>goodfellow2014-gan</code>.</div>
+</body></html>

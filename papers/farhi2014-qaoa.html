@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Quantum Approximate Optimization Algorithm — TEI tagged</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:820px;margin:1.5rem auto;padding:0 1.1rem;line-height:2.35;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;line-height:1.4;margin-bottom:.15rem;}
+ .meta{color:#555;font-size:.92rem;margin:.1rem 0 1.2rem;} .meta a{color:#0b4f9c;text-decoration:none;} .meta a:hover{text-decoration:underline;}
+ .text p{margin:1rem 0;} .ref{color:#444;}
+ h2.ft{font-size:1.05rem;color:#444;margin:1.6rem 0 .3rem;border-top:1px solid #eee;padding-top:.9rem;}
+ .abcd{border:1px solid #f6c2d8;border-left:4px solid #d81b60;background:#fff5f9;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .abcd .src{color:#c2185b;font-size:.82rem;font-weight:400;} .abcd table{border-collapse:collapse;margin:.5rem 0 .3rem;line-height:1.5;}
+ .abcd td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .abcd td.k{color:#c2185b;font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.85em;}
+ .abcd .pill{background:#fde7f0;color:#d81b60;font-size:.72rem;border-radius:8px;padding:0 7px;font-weight:700;} .abcd .ch{font-size:.85rem;color:#555;}
+ .xdisc{border:1px solid #c7d2fe;border-left:4px solid #4f46e5;background:#f5f6ff;border-radius:8px;padding:.6rem 1rem;margin:1rem 0;}
+ .xdisc .xd-sub{color:#4f46e5;font-size:.82rem;margin:.15rem 0 .4rem;} .xdisc table{border-collapse:collapse;line-height:1.5;}
+ .xdisc td{padding:.2rem .6rem .2rem 0;vertical-align:top;} .xdisc td.k{font-weight:700;white-space:nowrap;font-family:Consolas,monospace;font-size:.8em;}
+ .xdisc td.k.tf{color:#4f46e5;} .xdisc td.k.mc{color:#0f766e;} .xdisc .ev{color:#555;font-style:italic;font-size:.92em;}
+ .xdisc td.k.ph{color:#9d174d;} .xdisc td.k.ct{color:#b45309;} .xdisc td.k.cr{color:#5b21b6;} .xdisc td.k.rs{color:#9f1239;} .xdisc td.k.lm{color:#b23b3b;}
+ .person{color:#0b4f9c;background:#e8f1fc;border:1px solid #b9d4f2;border-radius:4px;padding:0 3px;}
+ .place {color:#1a7a33;background:#e8f6ec;border:1px solid #b6e0c2;border-radius:4px;padding:0 3px;}
+ .work  {color:#8324c4;background:#f4e9fc;border:1px solid #ddc2f2;border-radius:4px;padding:0 3px;}
+ .date  {color:#c0392b;background:#fdece9;border:1px solid #f3c4bd;border-radius:4px;padding:0 3px;}
+ .concept{color:#00695c;background:#e6f5f3;border:1px solid #b3e0d8;border-radius:4px;padding:0 3px;}
+ .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
+ .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
+ .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
+ .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
+ .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
+ .legend table{border-collapse:collapse;width:100%;line-height:1.6;}
+ .legend td{padding:.4rem .6rem;border-bottom:1px solid #eee;vertical-align:top;}
+ .legend td:first-child{white-space:nowrap;}
+ .swatch{display:inline-block;padding:0 8px;border-radius:4px;font-size:.9em;}
+ .desc{font-weight:600;}
+ .formula{background:#f7f4fb;border:1px solid #e6dcf3;border-radius:6px;padding:.4rem 1rem;overflow-x:auto;margin:1rem 0;}
+ pre{background:#1e1e1e;color:#e8e8e8;border-radius:6px;padding:.7rem 1rem;overflow-x:auto;font-size:.9em;line-height:1.5;}
+ table.data{border-collapse:collapse;margin:1rem 0;} table.data td,table.data th{border:1px solid #ccc;padding:.3rem .7rem;}
+ .foot{color:#666;font-size:.85em;border-top:1px solid #eee;margin-top:1.6rem;padding-top:.8rem;line-height:1.8;}
+ code{font-family:Consolas,monospace;background:#f0f0f0;padding:0 3px;border-radius:3px;}
+</style></head><body>
+<h1>A Quantum Approximate Optimization Algorithm — TEI-tagged view</h1>
+<div class="meta">Edward Farhi, Jeffrey Goldstone, Sam Gutmann · 2014 · <a href="https://en.wikipedia.org/wiki/Quantum_computing">quantum-computing</a> · <a href="https://arxiv.org/abs/1411.4028">arXiv:1411.4028</a> · <a href="https://arxiv.org/abs/1411.4028" target="_blank" rel="noopener">full text</a> · <a href="https://arxiv.org/abs/1411.4028" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Farhi</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Cambridge</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2014</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">combinatorial optimization</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">quantum algorithm</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="text">
+  <p class="ref"><span class="person">Edward Farhi<span class="tag">persName</span></span>, <span class="person">Jeffrey Goldstone<span class="tag">persName</span></span>, <span class="person">Sam Gutmann<span class="tag">persName</span></span> (<span class="date">2014<span class="tag">date</span></span>). &ldquo;A Quantum Approximate Optimization Algorithm.&rdquo; <span class="work">arXiv<span class="tag">title·m</span></span>, <span class="place">Cambridge<span class="tag">placeName</span></span>.</p>
+  <p><b>Object of study —</b> Approximate solutions to <span class="concept">combinatorial optimization<span class="tag">term·dom</span></span> problems using a quantum computer.</p>
+  <p><b>Research question —</b> Can a shallow, parameterized quantum circuit produce good approximate solutions to hard <span class="concept">combinatorial optimization<span class="tag">term·dom</span></span> problems?</p>
+  <p><b>Contribution —</b> Introduces the Quantum Approximate Optimization Algorithm (QAOA), a variational quantum circuit alternating problem and mixing Hamiltonians whose depth controls solution quality, a leading candidate application for near-term quantum computers.</p>
+  <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>quantum approximate optimization (combinatorial optimization on quantum computers)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k cr">builds-on</td><td> <b>the quantum adiabatic algorithm</b><span class="ev"> &mdash; &ldquo;There is an adiabatic path (which stays at the top of the spectrum throughout) with run time T that achieves this as T goes to infinity.&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr><tr><td class="k lm">limitation</td><td>the classical preprocessing to choose the angles can require space doubly exponential in p<span class="ev"> &mdash; &ldquo;classical algorithm which evaluates (25) using (24) could require space doubly exponential in p.&rdquo;</span></td></tr></table></div>
+  <h2 class="ft">Full text — tagged</h2>
+  <p>A Quantum Approximate Optimization Algorithm</p>
+  <p>A Quantum Approximate Optimization Algorithm</p>
+  <p>MIT-CTP/4610</p>
+  <p>Edward <span class="person">Farhi<span class="tag">persName</span></span> and Jeffrey <span class="person">Goldstone<span class="tag">persName</span></span></p>
+  <p>Center for Theoretical Physics</p>
+  <p>Massachusetts Institute of Technology</p>
+  <p>Cambridge, MA 02139</p>
+  <p>Sam <span class="person">Gutmann<span class="tag">persName</span></span></p>
+  <p>Abstract</p>
+  <p>We introduce a <span class="method">quantum algorithm<span class="tag">term·mth</span></span> that produces approximate solutions for combinatorial op-</p>
+  <p>timization problems. The algorithm depends on an integer p</p>
+  <p>1 and the quality of the approx-</p>
+  <p>imation improves as p is increased. The quantum circuit that implements the algorithm consists</p>
+  <p>of unitary gates whose locality is at most the locality of the objective function whose optimum is</p>
+  <p>sought. The depth of the circuit grows linearly with p times (at worst) the number of constraints.</p>
+  <p>If p is fixed, that is, independent of the input size, the algorithm makes use of efficient classical pre-</p>
+  <p>processing. If p grows with the input size a different strategy is proposed. We study the algorithm</p>
+  <p>as applied to <span class="concept">MaxCut<span class="tag">term·dom</span></span> on regular graphs and analyze its performance on 2-regular and 3-regular</p>
+  <p>graphs for fixed p. For p = 1, on 3-regular graphs the <span class="method">quantum algorithm<span class="tag">term·mth</span></span> always finds a cut that</p>
+  <p>is at least 0.6924 times the size of the optimal cut.</p>
+  <p>4 1 0 2</p>
+  <p>v o N 4 1</p>
+  <p>] h p - t n a u q [</p>
+  <p>1 v 8 2 0 4 . 1 1 4 1 : v i X r a</p>
+  <p>INTRODUCTION</p>
+  <p><span class="concept">Combinatorial optimization<span class="tag">term·dom</span></span> problems are specified by n bits and m clauses. Each clause</p>
+  <p>is a constraint on a subset of the bits which is satisfied for certain assignments of those bits</p>
+  <p>and unsatisfied for the other assignments. The objective function, defined on n bit strings,</p>
+  <p>is the number of satisfied clauses,</p>
+  <p>C(z) =</p>
+  <p>Cα(z)</p>
+  <p>(1)</p>
+  <p>α=1 X where z = z1z2 . . . zn is the bit string and Cα(z) = 1 if z satisfies clause α and 0 otherwise.</p>
+  <p>Typically Cα depends on only a few of the n bits. Satisfiability asks if there is a string</p>
+  <p>that satisfies every clause. MaxSat asks for a string that maximizes the objective function.</p>
+  <p>Approximate optimization asks for a string z for which C(z) is close to the maximum of C.</p>
+  <p>In this paper we present a general <span class="method">quantum algorithm<span class="tag">term·mth</span></span> for approximate optimization. We</p>
+  <p>study its performance in special cases of <span class="concept">MaxCut<span class="tag">term·dom</span></span> and also propose an alternate form of the</p>
+  <p>algorithm geared toward finding a large independent set of vertices of a graph.</p>
+  <p>The quantum computer works in a 2n dimensional Hilbert space with computational basis</p>
+  <p>vectors</p>
+  <p>, and we view (1) as an operator which is diagonal in the computational basis.</p>
+  <p>Define a unitary operator U(C, γ) which depends on an angle γ,</p>
+  <p>U(C, γ) = e−iγC =</p>
+  <p>e−iγCα .</p>
+  <p>α=1 Y</p>
+  <p>(2)</p>
+  <p>All of the terms in this product commute because they are diagonal in the computational</p>
+  <p>basis and each term’s locality is the locality of the clause α. Because C has integer eigen-</p>
+  <p>values we can restrict γ to lie between 0 and 2π. Define the operator B which is the sum of</p>
+  <p>all single bit σx operators,</p>
+  <p>B =</p>
+  <p>σx j .</p>
+  <p>Now define the β dependent product of commuting one bit operators</p>
+  <p>j=1 X</p>
+  <p>U(B, β) = e−iβB =</p>
+  <p>e−iβσx</p>
+  <p>(3)</p>
+  <p>(4)</p>
+  <p>where β runs from 0 to π. The initial state</p>
+  <p>computational basis states:</p>
+  <p>j=1 Y will be the uniform superposition over</p>
+  <p>1 √2n</p>
+  <p>z X</p>
+  <p>(5)</p>
+  <p>For any integer p</p>
+  <p>1 and 2p angles γ1 . . . γp ≡</p>
+  <p>γ and β1 . . . βp ≡</p>
+  <p>β we define the angle</p>
+  <p>dependent quantum state:</p>
+  <p>γ, β</p>
+  <p>= U(B, βp) U(C, γp)</p>
+  <p>U(B, β1) U(C, γ1)</p>
+  <p>s |</p>
+  <p>· · ·</p>
+  <p>(6)</p>
+  <p>Even without taking advantage of the structure of the instance, this state can be produced</p>
+  <p>by a quantum circuit of depth at most mp + p. Let Fp be the expectation of C in this state</p>
+  <p>Fp(γ, β) =</p>
+  <p>γ, β</p>
+  <p>γ, β</p>
+  <p>and let Mp be the maximum of Fp over the angles,</p>
+  <p>Mp = max γ,β</p>
+  <p>Fp (γ, β).</p>
+  <p>(7)</p>
+  <p>(8)</p>
+  <p>Note that the maximization at p</p>
+  <p>1 can be viewed as a constrained maximization at p so</p>
+  <p>Furthermore we will later show that</p>
+  <p>Mp ≥</p>
+  <p>Mp−1.</p>
+  <p>lim p→∞</p>
+  <p>Mp = max</p>
+  <p>C(z).</p>
+  <p>(9)</p>
+  <p>(10)</p>
+  <p>These results suggest a way to design an algorithm. Pick a p and start with a set of</p>
+  <p>angles (γ, β) that somehow make Fp as large as possible. Use the quantum computer to get</p>
+  <p>the state</p>
+  <p>γ, β</p>
+  <p>. Measure in the computational basis to get a string z and evaluate C(z). i</p>
+  <p>Repeat with the same angles. Enough repetitions will produce a string z with C(z) very</p>
+  <p>near or greater than Fp(γ, β). The rub is that it is not obvious in advance how to pick good</p>
+  <p>angles.</p>
+  <p>If p doesn’t grow with n, one possibility is to run the quantum computer with angles</p>
+  <p>(γ, β) chosen from a fine grid on the compact set [0, 2π]p</p>
+  <p>[0, π]p, moving through the grid</p>
+  <p>to find the maximum of Fp. Since the partial derivatives of Fp(γ, β) in (7) are bounded by</p>
+  <p>(m2 + mn) this search will efficiently produce a string z for which C(z) is close to Mp or</p>
+  <p>O larger. However we show in the next section that if p does not grow with n and each bit</p>
+  <p>is involved in no more than a fixed number of clauses, then there is an efficient classical</p>
+  <p>calculation that determines the angles that maximize Fp. These angles are then used to run</p>
+  <p>the quantum computer to produce the state</p>
+  <p>γ, β |</p>
+  <p>which is measured in the computational</p>
+  <p>basis to get a string z. The mean of C(z) for strings obtained in this way is Mp.</p>
+  <p>II. FIXED p ALGORITHM</p>
+  <p>We now explain how for fixed p we can do classical preprocessing and determine the</p>
+  <p>angles γ and β that maximize Fp(γ, β). This approach will work more generally but we</p>
+  <p>illustrate it for a specific problem, <span class="concept">MaxCut<span class="tag">term·dom</span></span> for graphs with bounded degree. The input is a</p>
+  <p>graph with n vertices and an edge set</p>
+  <p>of size m. The goal is to find a string z that</p>
+  <p>makes</p>
+  <p>where</p>
+  <p>C =</p>
+  <p>Chjki,</p>
+  <p>Xhjki</p>
+  <p>as large as possible. Now</p>
+  <p>Chjki =</p>
+  <p>1 2</p>
+  <p>(cid:0)</p>
+  <p>j σz σz</p>
+  <p>k + 1</p>
+  <p>(11)</p>
+  <p>(12)</p>
+  <p>(cid:1)</p>
+  <p>Fp(γ, β) =</p>
+  <p>Xhjki</p>
+  <p>U †(C, γ1)</p>
+  <p>· · ·</p>
+  <p>U †(B, βp) ChjkiU(B, βp)</p>
+  <p>U(C, γ1)</p>
+  <p>s |</p>
+  <p>· · ·</p>
+  <p>(13)</p>
+  <p>Consider the operator associated with edge</p>
+  <p>jk h</p>
+  <p>U †(C, γ1)</p>
+  <p>· · ·</p>
+  <p>U †(B, βp)ChjkiU(B, βp)</p>
+  <p>U(C, γ1).</p>
+  <p>· · ·</p>
+  <p>(14)</p>
+  <p>This operator only involves qubits j and k and those qubits whose distance on the graph</p>
+  <p>from j or k is less than or equal to p. To see this consider p = 1 where the previous expression</p>
+  <p>U †(C, γ1) U †(B, β1)ChjkiU(B, β1) U(C, γ1).</p>
+  <p>(15)</p>
+  <p>The factors in the operator U(B, β1) which do not involve qubits j or k commute through</p>
+  <p>Chjki and we get</p>
+  <p>U †(C, γ1) eiβ1(σx</p>
+  <p>j +σx</p>
+  <p>k )Chjkie−iβ1(σx</p>
+  <p>j +σx</p>
+  <p>k ) U(C, γ1).</p>
+  <p>(16)</p>
+  <p>Any factors in the operator U(C, γ1) which do not involve qubits j or k will commute</p>
+  <p>through and cancel out. So the operator in equation (16) only involves the edge</p>
+  <p>and</p>
+  <p>edges adjacent to</p>
+  <p>, and qubits on those edges. For any p we see that the operator in i</p>
+  <p>(14) only involves edges at most p steps away from</p>
+  <p>Return to equation (13) and note that the state</p>
+  <p>and qubits on those edges.</p>
+  <p>i is the product of σx eigenstates</p>
+  <p>h s |</p>
+  <p>s |</p>
+  <p>i1 |</p>
+  <p>i2 . . .</p>
+  <p>(17)</p>
+  <p>so each term in equation (13) depends only on the subgraph involving qubits j and k and</p>
+  <p>those at a distance no more than p away. These subgraphs each contain a number of qubits</p>
+  <p>that is independent of n (because the degree is bounded) and this allows us to evaluate Fp</p>
+  <p>in terms of quantum subsystems whose sizes are independent of n.</p>
+  <p>As an illustration consider <span class="concept">MaxCut<span class="tag">term·dom</span></span> restricted to input graphs of fixed degree 3. For</p>
+  <p>p = 1, there are only these possible subgraphs for the edge</p>
+  <p>We will return to this case later.</p>
+  <p>For any subgraph G define the operator CG which is C restricted to G,</p>
+  <p>and the associated operator</p>
+  <p>Also define</p>
+  <p>and</p>
+  <p>CG =</p>
+  <p>Chll′i,</p>
+  <p>Xhll′iǫG</p>
+  <p>U(CG, γ) = e−iγ CG.</p>
+  <p>BG =</p>
+  <p>σx j</p>
+  <p>jǫG X</p>
+  <p>U(BG, β) = e−iβBG.</p>
+  <p>(18)</p>
+  <p>(19)</p>
+  <p>(20)</p>
+  <p>(21)</p>
+  <p>(22)</p>
+  <p>Let the state</p>
+  <p>s, G |</p>
+  <p>s, G</p>
+  <p>Return to equation (13). Each edge</p>
+  <p>j, k</p>
+  <p>and makes a contribution to Fp of</p>
+  <p>+ |</p>
+  <p>il .</p>
+  <p>lǫG Y</p>
+  <p>in the sum is associated with a subgraph g(j, k)</p>
+  <p>s, g(j, k) h</p>
+  <p>U † (Cg(j,k), γp)</p>
+  <p>· · ·</p>
+  <p>U †(Bg(j,k), β1)ChjkiU (Bg(j,k), β1)</p>
+  <p>U (Cg(j,k), γp)</p>
+  <p>· · ·</p>
+  <p>s, g(j, k) |</p>
+  <p>i (23)</p>
+  <p>The sum in (13) is over all edges, but if two edges</p>
+  <p>and</p>
+  <p>give rise to isomorphic</p>
+  <p>j′k′</p>
+  <p>subgraphs, then the corresponding functions of (γ, β) are the same. Therefore we can view</p>
+  <p>the sum in (13) as a sum over subgraph types. Define</p>
+  <p>fg (γ, β) =</p>
+  <p>s, g(j, k)</p>
+  <p>U †(Cg(j,k), γ1)</p>
+  <p>· · ·</p>
+  <p>U †(Bg(j,k), βp)ChjkiU(Bg(j,x)βp)</p>
+  <p>· · · U(Cg(j,k), γ1)</p>
+  <p>s, g(j, k) |</p>
+  <p>(24)</p>
+  <p>where g(j, k) is a subgraph of type g. Fp is then</p>
+  <p>Fp (γ, β) =</p>
+  <p>wg fg(γ, β)</p>
+  <p>(25)</p>
+  <p>g X where wg is the number of occurrences of the subgraph g in the original edge sum. The</p>
+  <p>functions fg do not depend on n and m. The only dependence on n and m comes through</p>
+  <p>the weights wg and these are just read off the original graph. Note that the expectation in</p>
+  <p>(24) only involves the qubits in subgraph type g. The maximum number of qubits that can</p>
+  <p>appear in (23) comes when the subgraph is a tree. For a graph with maximum degree v, the</p>
+  <p>numbers of qubits in this tree is</p>
+  <p>(or 2p + 2 if v = 2), which is n and m independent. For each p there are only finitely many</p>
+  <p>qtree = 2</p>
+  <p>(cid:20)</p>
+  <p>− (v</p>
+  <p>1)p+1 1)</p>
+  <p>− 1</p>
+  <p>(cid:21)</p>
+  <p>(26)</p>
+  <p>subgraph types.</p>
+  <p>Using (24), Fp(γ, β) in (25) can be evaluated on a classical computer whose resources</p>
+  <p>are not growing with n. Each fg involves operators and states in a Hilbert space whose</p>
+  <p>dimension is at most 2qtree. Admittedly for large p this may be beyond current classical</p>
+  <p>technology, but the resource requirements do not grow with n.</p>
+  <p>To run the <span class="method">quantum algorithm<span class="tag">term·mth</span></span> we first find the (γ, β) that maximize Fp. The only</p>
+  <p>dependence on n and m is in the weights wg and these are easily evaluated. Given the best</p>
+  <p>(γ, β) we turn to the quantum computer and produce the state</p>
+  <p>γ, β</p>
+  <p>given in equation</p>
+  <p>(6). We then measure in the computational basis and get a string z and evaluate C(z).</p>
+  <p>Repeating gives a sample of values of C(z) between 0 and +m whose mean is Fp(γ, β).</p>
+  <p>An outcome of at least Fp(γ, β)</p>
+  <p>m log m repetitions.</p>
+  <p>1 will be obtained with probability 1</p>
+  <p>1/m with order</p>
+  <p>III. CONCENTRATION</p>
+  <p>Still using <span class="concept">MaxCut<span class="tag">term·dom</span></span> on regular graphs as our example, it is useful to get information</p>
+  <p>about the spread of C measured in the state</p>
+  <p>γ, β</p>
+  <p>. If v is fixed and p is fixed (or grows</p>
+  <p>slowly with n) the distribution of C(z) is actually concentrated near its mean. To see this,</p>
+  <p>calculate</p>
+  <p>γ, β</p>
+  <p>C 2</p>
+  <p>γ, β |</p>
+  <p>i − h</p>
+  <p>γ, β</p>
+  <p>γ, β</p>
+  <p>(27)</p>
+  <p>&quot; h</p>
+  <p>U †(C, γ1)</p>
+  <p>· · ·</p>
+  <p>Xhjki hj′k′i</p>
+  <p>U †(B, βp) Chjki Chj′k′i U(B, βp)</p>
+  <p>U(C, γ1)</p>
+  <p>s |</p>
+  <p>· · ·</p>
+  <p>U †(C, γ1)</p>
+  <p>− h</p>
+  <p>· · ·</p>
+  <p>U †(B, βp) Chjki U(B, βp)</p>
+  <p>U(C, γ1)</p>
+  <p>s |</p>
+  <p>· · ·</p>
+  <p>U †(C, γ1)</p>
+  <p>· h</p>
+  <p>· · ·</p>
+  <p>U †(B, βp) Chj′k′i U(B, βp)</p>
+  <p>U(C, γ1)</p>
+  <p>· · ·</p>
+  <p>s |</p>
+  <p>. i #</p>
+  <p>(28)</p>
+  <p>If the subgraphs g(j, k) and g(j′, k′) do not involve any common qubits, the summand in</p>
+  <p>(28) will be 0. The subgraphs g(j, k) and g(j′, k′) will have no common qubits as long as</p>
+  <p>there is no path in the instance graph from</p>
+  <p>j′k′</p>
+  <p>(26) with p replaced by 2p + 1 we see that for each</p>
+  <p>of length 2p + 1 or shorter. From</p>
+  <p>i there are at most</p>
+  <p>(29)</p>
+  <p>h 1</p>
+  <p>1)2p+2 1)</p>
+  <p>− 1</p>
+  <p>− (v</p>
+  <p>(cid:20)</p>
+  <p>− which could contribute to the sum in (28) (or 4p + 4 if v = 2) and therefore</p>
+  <p>(cid:21)</p>
+  <p>edges</p>
+  <p>j′k′ h</p>
+  <p>γ, β</p>
+  <p>C 2</p>
+  <p>γ, β</p>
+  <p>γ, β</p>
+  <p>γ, β |</p>
+  <p>i − h</p>
+  <p>2 6 2</p>
+  <p>− (v</p>
+  <p>(cid:20)</p>
+  <p>1)2p+2 1)</p>
+  <p>− 1</p>
+  <p>(cid:21)</p>
+  <p>(30)</p>
+  <p>since each summand is at most 1 in norm. For v and p fixed we see that the standard</p>
+  <p>deviation of C(z) is at most of order √m. This implies that the sample mean of order m2</p>
+  <p>values of C(z) will be within 1 of Fp(γ, β) with probability 1</p>
+  <p>1 m. The concentration of the distribution of C(z) also means that there is only a small probability that the algorithm</p>
+  <p>will produce strings with C(z) much bigger than Fp(γ, β).</p>
+  <p>IV. THE RING OF DISAGREES</p>
+  <p>We now analyze the performance of the <span class="method">quantum algorithm<span class="tag">term·mth</span></span> for <span class="concept">MaxCut<span class="tag">term·dom</span></span> on 2-regular</p>
+  <p>graphs. Regular of degree 2 (and connected) means that the graph is a ring. The objective</p>
+  <p>operator is again given by equation (11) and its maximum is n or n</p>
+  <p>1 depending on whether</p>
+  <p>n is even or odd. We will analyze the algorithm for all p.</p>
+  <p>For any p (less than n/2), for each edge in the ring, the subgraph of vertices within p of</p>
+  <p>the edge is a segment of 2p + 2 connected vertices with the given edge in the middle. So for</p>
+  <p>each p there is only one type of subgraph, a line segment of 2p + 2 qubits and the weight</p>
+  <p>for this subgraph type is n. We numerically maximize the function given in (24) and we</p>
+  <p>find that for p = 1, 2, 3, 4, 5 and 6 the maxima are 3/4, 5/6, 7/8, 9/10, 11/12, and 13/14 to</p>
+  <p>13 decimal places from which we conclude that Mp = n(2p + 1)/(2p + 2) for all p. So the</p>
+  <p><span class="method">quantum algorithm<span class="tag">term·mth</span></span> will find a cut of size n(2p + 1)/(2p + 2)</p>
+  <p>1 or bigger. Since the best</p>
+  <p>cut is n, we see that our <span class="method">quantum algorithm<span class="tag">term·mth</span></span> can produce an approximation ratio that can</p>
+  <p>be made arbitrarily close to 1 by making p large enough, independent of n. For each p the</p>
+  <p>circuit depth can be made 3p by breaking the edge sum in C into two sums over</p>
+  <p>j, j + 1</p>
+  <p>with j even and j odd. So this algorithm has a circuit depth independent of n.</p>
+  <p>V. <span class="concept">MAXCUT<span class="tag">term·dom</span></span> ON 3-REGULAR GRAPHS</p>
+  <p>We now look at how the Quantum Approximate Optimization Algorithm, the QAOA,</p>
+  <p>performs on <span class="concept">MaxCut<span class="tag">term·dom</span></span> on (connected) 3-regular graphs. The approximation ratio is C(z),</p>
+  <p>where z is the output of the <span class="method">quantum algorithm<span class="tag">term·mth</span></span>, divided by the maximum of C. We</p>
+  <p>first show that for p = 1, the worst case approximation ratio that the <span class="method">quantum algorithm<span class="tag">term·mth</span></span></p>
+  <p>produces is 0.6924.</p>
+  <p>Suppose a 3-regular graph with n vertices (and accordingly 3n/2 edges) contains T “iso-</p>
+  <p>lated triangles” and S “crossed squares”, which are subgraphs of the form,</p>
+  <p>(31)</p>
+  <p>The dotted lines indicate edges that leave the isolated triangle and the crossed square. To</p>
+  <p>say that the triangle is isolated is to say that the 3 edges that leave the triangle end on</p>
+  <p>distinct vertices. If the two edges that leave the crossed square are in fact the same edge,</p>
+  <p>then we have a 4 vertex disconnected 3-regular graph. For this special case (the only case</p>
+  <p>where the analysis below does not apply) the approximation ratio is actually higher than</p>
+  <p>0.6924. In general, 3T + 4S</p>
+  <p>a vertex.</p>
+  <p>n because no isolated triangle and crossed square can share</p>
+  <p>Return to the edge sum in F1(γ, β) of equation (13). For each crossed square there is</p>
+  <p>one edge</p>
+  <p>for which g(j, k) is the first type displayed in (18). Call this subgraph type g4</p>
+  <p>because it has 4 vertices. In each crossed square there are 4 edges that give rise to subgraphs</p>
+  <p>of the second type displayed in (18). We call this subgraph type g5 because it has 5 vertices.</p>
+  <p>All 3 of the edges in any isolated triangle have subgraph type g5, so there are 4S + 3T edges</p>
+  <p>with subgraph type g5. The remaining edges in the graph all have a subgraph type like the</p>
+  <p>third one displayed in (18) and we call this subgraph type g6. There are (3n/2</p>
+  <p>3T )</p>
+  <p>of these so we have</p>
+  <p>F1(γ, β) = Sfg4(γ, β) + (4S + 3T ) fg5(γ, β) +</p>
+  <p>3n 2 −</p>
+  <p>(cid:18)</p>
+  <p>fg6(γ, β)</p>
+  <p>(32)</p>
+  <p>(cid:19)</p>
+  <p>The maximum of F1 is a function of n, S, and T ,</p>
+  <p>M1(n, S, T ) = max γ,β</p>
+  <p>F1(γ, β).</p>
+  <p>(33)</p>
+  <p>Given any 3 regular graph it is straightforward to count S and T . Then using a classical</p>
+  <p>computer it is straightforward to calculate M1(n, S, T ). Running a quantum computer with</p>
+  <p>the maximizing angles γ and β will produce the state</p>
+  <p>γ, β</p>
+  <p>which is then measured in the</p>
+  <p>computational basis. With order n log n repetitions a string will be found whose cut value</p>
+  <p>is very near or larger than M1(n, S, T ).</p>
+  <p>To get the approximation ratio we need to know the best cut that can be obtained for the</p>
+  <p>input graph. This is not just a function of S and T . However a graph with S crossed squares</p>
+  <p>and T isolated triangles must have at least one unsatisfied edge per crossed square and one</p>
+  <p>unsatisfied edge per isolated triangle so the number of satisfied edges is</p>
+  <p>(3n/2</p>
+  <p>T ).</p>
+  <p>This means that for any graph characterized by n, S and T the <span class="method">quantum algorithm<span class="tag">term·mth</span></span> will</p>
+  <p>produce an approximation ratio that is at least</p>
+  <p>M1(n, S, T ) 3n T S 2 −</p>
+  <p>(34)</p>
+  <p>It is convenient to scale out n from the top and bottom of (34). Note that M1/n which</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>comes from F1/n depends only on S/n</p>
+  <p>s and T /n</p>
+  <p>≡ M1(1, s, t) 3 t s 2 −</p>
+  <p>t. So we can write (34) as</p>
+  <p>(35)</p>
+  <p>where s, t</p>
+  <p>0 and 4s + 3t</p>
+  <p>1. It is straightforward to numerically evaluate (35) and we find</p>
+  <p>(cid:0)</p>
+  <p>(cid:1)</p>
+  <p>that it achieves its minimum value at s = t = 0 and the value is 0.6924. So we know that</p>
+  <p>on any 3-regular graph, the QAOA will always produce a cut whose size is at least 0.6924</p>
+  <p>times the size of the optimal cut. This p = 1 result on 3-regular graphs is not as good as</p>
+  <p>known classical algorithms [1].</p>
+  <p>It is possible to analyze the performance of the QAOA for p = 2 on 3-regular graphs.</p>
+  <p>However it is more complicated then the p = 1 case and we will just show partial results.</p>
+  <p>The subgraph type with the most qubits is this tree with 14 vertices:</p>
+  <p>(36)</p>
+  <p>Numerically maximizing (24) with g given by (36) yields 0.7559. Consider a 3-regular</p>
+  <p>graph on n vertices with o(n) pentagons, squares and triangles. Then all but o(n) edges</p>
+  <p>have (36) as their subgraph type. The QAOA at p = 2 cannot detect whether the graph is</p>
+  <p>bipartite, that is, completely satisfiable, or contains many odd loops of length 7 or longer. If</p>
+  <p>the graph is bipartite the approximation ratio is 0.7559 in the limit of large n. If the graph</p>
+  <p>contains many odd loops (length 7 or more), the approximation ratio will be higher.</p>
+  <p>VI. RELATION TO THE QUANTUM ADIABATIC ALGORITHM</p>
+  <p>We are focused on finding a good approximate solution to an optimization problem</p>
+  <p>whereas the Quantum Adiabatic Algorithm, QAA [2], is designed to find the optimal solu-</p>
+  <p>tion and will do so if the run time is long enough. Consider the time dependent Hamiltonian</p>
+  <p>H(t) = (1</p>
+  <p>t/T )B + (t/T )C. Note that the state</p>
+  <p>is the highest energy eigenstate of B</p>
+  <p>and we are seeking a high energy eigenstate of C. Starting in</p>
+  <p>we could run the quan-</p>
+  <p>tum adiabatic algorithm and if the run time T were long enough we would find the highest</p>
+  <p>energy eigenstate of C. Because B has only non-negative off-diagonal elements, the Perron-</p>
+  <p>Frobenius theorem implies that the difference in energies between the top state and the one</p>
+  <p>below is greater than 0 for all t &lt; T , so for sufficiently large T success is assured. A Trot-</p>
+  <p>terized approximation to the evolution consists of an alternation of the operators U(C, γ)</p>
+  <p>and U(B, β) where the sum of the angles is the total run time. For a good approximation</p>
+  <p>we want each γ and β to be small and for success we want a long run time so together these</p>
+  <p>force p to be large. In other words, we can always find a p and a set of angles γ, β that</p>
+  <p>make Fp(γ, β) as close to Mp as desired. With (9), this proves the assertion of (10).</p>
+  <p>The previous discussion shows that we can get a good approximate solution to an opti-</p>
+  <p>mization problem by making p sufficiently large, perhaps exponentially large in n. But the</p>
+  <p>QAA works by producing a state with a large overlap with the optimal string. In this sense</p>
+  <p>(10), although correct, may be misleading. In fact on the ring of disagrees the state pro-</p>
+  <p>duced at p = 1, which gives a 3/4 approximation ratio, has an exponentially small overlap</p>
+  <p>with the optimal strings.</p>
+  <p>We also know an example where the QAA fails and the QAOA succeeds. In this example</p>
+  <p>(actually a minimization) the objective function is symmetric in the n bits and therefore</p>
+  <p>depends only on the Hamming weight. The objective function is plotted in figure 1 of</p>
+  <p>reference [3]. Since the beginning Hamiltonian is also symmetric the evolution takes place</p>
+  <p>in a subspace of dimension n + 1 with a basis of states</p>
+  <p>indexed by the Hamming weight.</p>
+  <p>The example can be simulated and analyzed for large n. For subexponential run times, the</p>
+  <p>QAA is trapped in a false minimum at w = n. The QAOA can be similarly simulated and</p>
+  <p>analyzed. For large n, even with p = 1, there are values of γ1 and β1 such that the final</p>
+  <p>state is concentrated near the true minimum at w = 0.</p>
+  <p>The Quantum Approximate Optimization Algorithm has the key feature that as p in-</p>
+  <p>creases the approximation improves. We contrast this to the performance of the QAA. For</p>
+  <p>realizations of the QAA there is a total run time T that also appears in the instantaneous</p>
+  <p>Hamiltonian, H(t) =</p>
+  <p>H(t/T ). We start in the ground state of</p>
+  <p>H(0) seeking the ground</p>
+  <p>state of</p>
+  <p>H(1). As T goes to infinity the overlap of the evolved state with the desired state</p>
+  <p>goes to 1. However the success probability is generally not a monotonic function of T . See</p>
+  <p>figure 2 of reference [4] for an extreme example where the success probability is plotted as</p>
+  <p>a function of T for a particular 20 <span class="concept">qubit<span class="tag">term·dom</span></span> instance of Max2Sat. The probability rises and</p>
+  <p>then drops dramatically, and the ultimate rise for large T is not seen for times that can be</p>
+  <p>reasonably simulated. It may well be advantageous in designing strategies for the QAOA to</p>
+  <p>use the fact that the approximation improves as p increases.</p>
+  <p>VII. A VARIANT OF THE ALGORITHM</p>
+  <p>We are now going to give a variant of the basic algorithm which is suited to situations</p>
+  <p>where the search space is a complicated subset of the n bit strings. We work with an example</p>
+  <p>that illustrates the basic idea. Consider the problem of finding a large independent set in a</p>
+  <p>given graph of n vertices. An independent set is a subset of the vertices with the property</p>
+  <p>that no two vertices in the subset have an edge between them. With the vertices labeled 1</p>
+  <p>to n, a subset of the vertices corresponds to the string z = z1z2 . . . zn with each bit being 1</p>
+  <p>if the corresponding vertex is in the subset and the bit is 0 if the vertex is not. We restrict</p>
+  <p>to strings which correspond to independent sets in the graph. The size of the independent</p>
+  <p>set is the Hamming weight of the string z which we denote by C(z),</p>
+  <p>C(z) =</p>
+  <p>zj,</p>
+  <p>j=1 X</p>
+  <p>(37)</p>
+  <p>and the goal is to find a string z that makes C(z) large.</p>
+  <p>The Hilbert space for our <span class="method">quantum algorithm<span class="tag">term·mth</span></span> has an orthonormal basis</p>
+  <p>where z is any</p>
+  <p>string corresponding to an independent set. In cases of interest, the Hilbert space dimension</p>
+  <p>is exponentially large in n, though not as big as 2n. The Hilbert space is not a simple tensor</p>
+  <p>product of qubits. The operator C is associated with the γ dependent unitary</p>
+  <p>U(C, γ) = e−iγC</p>
+  <p>(38)</p>
+  <p>where γ lies between 0 and 2π because C has integer eigenvalues. We define the quantum</p>
+  <p>operator B that connects the basis states:</p>
+  <p> </p>
+  <p>1 : z and z′ differ in one bit</p>
+  <p>0 : otherwise</p>
+  <p>(39)</p>
+  <p>Note that B is the adjacency matrix of the hypercube restricted to the legal strings, that is,</p>
+  <p>those that correspond to independent sets in the given graph. Now, in general, B does not</p>
+  <p>have integer eigenvalues so we define</p>
+  <p>U(B, b) = e−ibB</p>
+  <p>(40)</p>
+  <p>where b is a real number.</p>
+  <p>For the starting state of our algorithm we take the easy to construct state</p>
+  <p>z = 0</p>
+  <p>sponding to the empty independent set which has the minimum value of C. For p have p real numbers b1, b2 . . . bp ≡</p>
+  <p>1 angles γ1, γ2, .γp−1 ≡</p>
+  <p>b and p</p>
+  <p>γ. The quantum state</p>
+  <p>corre-</p>
+  <p>1, we</p>
+  <p>b, γ</p>
+  <p>= U(B, bp)U(C, γp−1)</p>
+  <p>U(B, b1)</p>
+  <p>z = 0</p>
+  <p>· · ·</p>
+  <p>(41)</p>
+  <p>is what we get after the application of an alternation of the operators associated with B and</p>
+  <p>C. Now we can define</p>
+  <p>Fp(b, γ) =</p>
+  <p>b, γ</p>
+  <p>b, γ</p>
+  <p>as the expectation of C in the state</p>
+  <p>b, γ</p>
+  <p>. And finally we define the maximum,</p>
+  <p>Mp = max b,γ</p>
+  <p>Fp(b, γ).</p>
+  <p>(42)</p>
+  <p>(43)</p>
+  <p>The maximization at p</p>
+  <p>1 is the maximization at p with bp = 0 and γp−1 = 0 so we have</p>
+  <p>Furthermore,</p>
+  <p>Mp ≥</p>
+  <p>Mp−1.</p>
+  <p>lim p→∞</p>
+  <p>Mp = max z legal</p>
+  <p>C(z).</p>
+  <p>(44)</p>
+  <p>(45)</p>
+  <p>To see why (45) is true note that the initial state is the ground state of C, which we view</p>
+  <p>as the state with the maximum eigenvalue of</p>
+  <p>C. We are trying to reach a state which is an</p>
+  <p>− eigenstate of +C with maximum eigenvalue. There is an adiabatic path (which stays at the</p>
+  <p>top of the spectrum throughout) with run time T that achieves this as T goes to infinity.</p>
+  <p>This path has two parts. In the first we interpolate between the beginning Hamiltonian</p>
+  <p>and the Hamiltonian B,</p>
+  <p>H(t) =</p>
+  <p>(cid:18)</p>
+  <p>2t T</p>
+  <p>(cid:19)</p>
+  <p>C) +</p>
+  <p>2t T</p>
+  <p>B ,</p>
+  <p>T 2</p>
+  <p>(46)</p>
+  <p>We evolve the initial state with this Hamiltonian for time T /2 ending arbitrarily close to</p>
+  <p>the top state of B. Next we interpolate between the Hamiltonian B and the Hamiltonian</p>
+  <p>+C,</p>
+  <p>H(t) =</p>
+  <p>2t T</p>
+  <p>B +</p>
+  <p>C ,</p>
+  <p>2t T −</p>
+  <p>(cid:18)</p>
+  <p>(cid:19)</p>
+  <p>(cid:18)</p>
+  <p>(cid:19)</p>
+  <p>T 2 ≤</p>
+  <p>(47)</p>
+  <p>evolving the quantum state just produced from time t = T /2 to t = T . As in section VI,</p>
+  <p>using the Perron-Frobenius Theorem, the Adiabatic Theorem and Trotterization we get the</p>
+  <p>result given in (45).</p>
+  <p>Together (41) through (45) suggest a quantum subroutine for an independent set algo-</p>
+  <p>rithm. For a given p and a given (b, γ) produce the quantum state</p>
+  <p>b, γ</p>
+  <p>of (41). Measure</p>
+  <p>in the computational basis to get a string z which labels an independent set whose size is</p>
+  <p>the Hamming weight of z. Repeat with the same (b, γ) to get an estimate of Fp(b, γ) in</p>
+  <p>(42). This subroutine can be called by a program whose goal is to get close to Mp given by</p>
+  <p>(43). This enveloping program can be designed using either the methods outlined in this</p>
+  <p>paper or novel techniques.</p>
+  <p>For p = 1, the subroutine can be thought of as evolving the initial state</p>
+  <p>z = 0</p>
+  <p>with</p>
+  <p>the Hamlitonian B for a time b. B is the adjacency matrix of a big graph whose vertices</p>
+  <p>correspond to the independent sets of the input graph and whose edges can be read off (39).</p>
+  <p>We view this as a continuous time quantum walk entering the big graph at a particular vertex</p>
+  <p>[5]. In the extreme case where the input graph has no edges, all strings of length n represent</p>
+  <p>independent sets so the Hilbert space dimension is 2n. In this case B is the adjacency matrix</p>
+  <p>of the hypercube, realizable as in (3). Setting b = π/2, the state (41) (with p = 1 there</p>
+  <p>is only one unitary) is</p>
+  <p>z = 11 . . . 11</p>
+  <p>which maximizes the objective function. In the more</p>
+  <p>general case we can view (41) as a succession of quantum walks punctuated by applications</p>
+  <p>of C dependent unitaries which aid the walk in achieving its objective. The algorithm of</p>
+  <p>the previous sections can also be viewed this way although the starting state is not a single</p>
+  <p>vertex.</p>
+  <p>VIII. CONCLUSION</p>
+  <p>We introduced a <span class="method">quantum algorithm<span class="tag">term·mth</span></span> for approximate <span class="concept">combinatorial optimization<span class="tag">term·dom</span></span> that</p>
+  <p>depends on an integer parameter p. The input is an n bit instance with an objective</p>
+  <p>function C that is the sum of m local terms. The goal is to find a string z for which C(z)</p>
+  <p>is close to C’s global maximum. In the basic algorithm, each call to the quantum computer</p>
+  <p>uses a set of 2p angles (γ, β) and produces the state</p>
+  <p>γ, β</p>
+  <p>= U(B, βp) U(C, γp)</p>
+  <p>U(B, β1) U(C, γ1)</p>
+  <p>s |</p>
+  <p>· · ·</p>
+  <p>(48)</p>
+  <p>This is followed by a measurement in the computational basis yielding a string z with an</p>
+  <p>associated value C(z). Repeated calls to the quantum computer will yield a good estimate</p>
+  <p>Fp(γ, β) =</p>
+  <p>γ, β</p>
+  <p>γ, β</p>
+  <p>(49)</p>
+  <p>Running the algorithm requires a strategy for a picking a sequence of sets of angles with the</p>
+  <p>goal of making Fp as big as possible. We give several possible strategies for finding a good</p>
+  <p>set of angles.</p>
+  <p>In section II we focused on fixed p and the case where each bit is in no more than a fixed</p>
+  <p>number of clauses. In this case there is an efficient classical algorithm that determines the</p>
+  <p>best set of angles which is then fed to the quantum computer. Here the quantum computer</p>
+  <p>is run with only the best set of angles. Note that the “efficient” classical algorithm which</p>
+  <p>evaluates (25) using (24) could require space doubly exponential in p.</p>
+  <p>An alternative to using a classical preprocessor to find the best angles is to make repeated</p>
+  <p>calls to the quantum computer with different sets of angles. One strategy, when p does not</p>
+  <p>grow with n is to put a fine grid on the compact set [0, 2π]p</p>
+  <p>[0, π]p where the number of</p>
+  <p>points is only polynomial in n and m. This works because the function Fp does not have</p>
+  <p>peaks that are so narrow that they are not seen by the grid.</p>
+  <p>The QAOA can be run on a quantum computer with p growing with n as long as there is a</p>
+  <p>strategy for choosing sets of angles. Perhaps for some <span class="concept">combinatorial optimization<span class="tag">term·dom</span></span> problem,</p>
+  <p>good angles can be discovered in advance. Or the quantum computer can be called to</p>
+  <p>evaluate Fp(γ, β), the expectation of C in the state</p>
+  <p>γ, β</p>
+  <p>. This call can be used as a</p>
+  <p>subroutine by a classical algorithm that seeks the maximum of the smooth function Fp(γ, β).</p>
+  <p>We hope that either p fixed or growing slowly with n will be enough to have this quantum</p>
+  <p>algorithm be of use in finding solutions to combinatorial search problems beyond what</p>
+  <p>classical algorithms can achieve.</p>
+  <p>IX. ACKNOWLEDGEMENTS</p>
+  <p>This work was supported by the US Army Research Laboratory’s Army Research Office</p>
+  <p>through grant number W911NF-12-1-0486, and the National Science Foundation through</p>
+  <p>grant number CCF-121-8176. The authors thank Elizabeth Crosson for discussion and help</p>
+  <p>in preparing the manuscript. We also thank Cedric Lin and Han-Hsuan Lin for their help.</p>
+  <p>EF would like to thank the Google Quantum Artificial Intelligence Lab for discussion and</p>
+  <p>support.</p>
+  <p>[1] Eran Halperin, Dror Livnat, Uri Zwick.</p>
+  <p>MAX CUT in cubic graphs, 2004.</p>
+  <p>Journal of Algorithms, Volume 53 Issue 2, Pages 169-185.</p>
+  <p>[2] Edward <span class="person">Farhi<span class="tag">persName</span></span>, Jeffrey <span class="person">Goldstone<span class="tag">persName</span></span>, Sam <span class="person">Gutmann<span class="tag">persName</span></span>, Michael Sipser.</p>
+  <p>Quantum computation by adiabatic evolution, 2000.</p>
+  <p>arXiv:quant-ph/0001106.</p>
+  <p>[3] Edward <span class="person">Farhi<span class="tag">persName</span></span>, Jeffrey <span class="person">Goldstone<span class="tag">persName</span></span>, Sam <span class="person">Gutmann<span class="tag">persName</span></span>.</p>
+  <p>Quantum Adiabatic Evolution Algorithms versus Simulated Annealing, 2002.</p>
+  <p>arXiv:quant-ph/0201031.</p>
+  <p>[4] Elizabeth Crosson, Edward <span class="person">Farhi<span class="tag">persName</span></span>, Cedric Yen-Yu Lin, Han-Hsuan Lin, Peter Shor.</p>
+  <p>Different strategies for optimization with the quantum adiabatic algorithm, 2014.</p>
+  <p>arXiv:1401.7320 [quant-ph].</p>
+  <p>[5] Edward <span class="person">Farhi<span class="tag">persName</span></span>, Sam <span class="person">Gutmann<span class="tag">persName</span></span>.</p>
+  <p>Quantum Computation and Decision Trees, 1997.</p>
+  <p>Phys. Rev. A 58, 915 arXiv:quant-ph/9706062.</p>
+</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 15 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 14 <code>concept</code> · 12 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>farhi2014-qaoa</code>.</div>
+</body></html>
