@@ -28,6 +28,9 @@
  .ai    {color:#b5179e;background:#fbe6f4;border:1px solid #f0c2e2;border-radius:4px;padding:0 3px;}
  .method{color:#a35b00;background:#fdf3e3;border:1px solid #f0d9ad;border-radius:4px;padding:0 3px;}
  .priming{color:#d81b60;background:#fde7f0;border:1px solid #f6c2d8;border-radius:4px;padding:0 3px;}
+ .stat  {color:#0d9488;background:#e0f5f2;border:1px solid #a7e3da;border-radius:4px;padding:0 3px;}
+ .statbox{border-color:#99f6e4;border-left-color:#0d9488;background:#f0fdfa;} .statbox b{color:#0f766e;}
+ .xdisc td.k.st{color:#0f766e;} .ssym{color:#0d9488;font-family:Consolas,monospace;font-size:.82em;font-weight:400;}
  .tag{font-size:.6em;vertical-align:super;color:#6b6b6b;margin-inline-start:2px;font-family:Consolas,monospace;}
  .legend{border:1px solid #ddd;border-radius:8px;padding:.6rem 1rem;background:#fafafa;margin-bottom:1.5rem;}
  .legend h2{margin:.2rem 0 .6rem;font-size:1.05rem;}
@@ -44,7 +47,7 @@
 </style></head><body>
 <h1>The Geometry of Culture: Analyzing the Meanings of Class through Word Embeddings — TEI-tagged view</h1>
 <div class="meta">Austin C. Kozlowski, Matt Taddy, James A. Evans · 2019 · <a href="https://en.wikipedia.org/wiki/Digital_humanities">digital-humanities</a> · <a href="https://doi.org/10.1177/0003122419877135">doi:10.1177/0003122419877135</a> · <a href="https://doi.org/10.1177/0003122419877135" target="_blank" rel="noopener">full text</a> · <a href="https://doi.org/10.1177/0003122419877135" target="_blank" rel="noopener">TEI xml</a> · <a href="../index.html">index</a></div>
-<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Kozlowski</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Chicago</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">American Sociological Review / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2019</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">semantic space</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">word embedding</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr></table></div>
+<div class="legend"><h2>Colour legend</h2><table><tr><td><span class="swatch person">Kozlowski</span></td><td><code>&lt;persName&gt;</code></td><td class="desc" style="color:#0b4f9c">A person — an author or named individual.</td></tr><tr><td><span class="swatch place">Chicago</span></td><td><code>&lt;placeName&gt;</code></td><td class="desc" style="color:#1a7a33">A place — city or country tied to the work.</td></tr><tr><td><span class="swatch work">American Sociological Review / arXiv</span></td><td><code>&lt;title level="j"&gt;</code></td><td class="desc" style="color:#8324c4">A work — the journal / venue title.</td></tr><tr><td><span class="swatch date">2019</span></td><td><code>&lt;date&gt;</code></td><td class="desc" style="color:#c0392b">A year or date.</td></tr><tr><td><span class="swatch concept">semantic space</span></td><td><code>&lt;term type="domain-concept"&gt;</code></td><td class="desc" style="color:#00695c">A key concept in the field.</td></tr><tr><td><span class="swatch method">word embedding</span></td><td><code>&lt;term type="method-concept"&gt;</code></td><td class="desc" style="color:#a35b00">A methodological concept.</td></tr><tr><td><span class="swatch stat">Bayesian</span></td><td><code>&lt;term type="statistic"&gt;</code></td><td class="desc" style="color:#0d9488">A canonical statistical term — a field-invariant cross-field join key.</td></tr></table></div>
 <div class="text">
   <p class="ref"><span class="person">Austin C. Kozlowski<span class="tag">persName</span></span>, <span class="person">Matt Taddy<span class="tag">persName</span></span>, <span class="person">James A. Evans<span class="tag">persName</span></span> (<span class="date">2019<span class="tag">date</span></span>). &ldquo;The Geometry of Culture: Analyzing the Meanings of Class through Word Embeddings.&rdquo; <span class="work">American Sociological Review / arXiv<span class="tag">title·j</span></span>, <span class="place">Chicago<span class="tag">placeName</span></span>.</p>
   <p><b>Object of study —</b> Cultural meanings such as social <span class="concept">class<span class="tag">term·key</span></span>, <span class="concept">gender<span class="tag">term·key</span></span>, and status as encoded in language.</p>
@@ -52,6 +55,7 @@
   <p><b>Contribution —</b> Shows that directions in word-embedding space correspond to culturally meaningful contrasts (rich-poor, masculine-feminine), so embeddings can measure the historical evolution of cultural categories at scale, importing NLP geometry into cultural sociology.</p>
   <div class="xdisc"><b>Cross-disciplinary analysis</b><div class="xd-sub">content-tags &amp; facets: <code>phenomenon</code> &middot; <code>claim-type</code> &middot; <code>cross-domain-transfer</code> &middot; <code>mechanism</code> &middot; <code>claim-relation</code> &middot; <code>replication-status</code> &middot; <code>limitation</code> &mdash; grounded in the full text</div><table><tr><td class="k ph">phenomenon</td><td>word embeddings (geometry of cultural meaning)</td></tr><tr><td class="k ct">claim-type</td><td>method</td></tr><tr><td class="k tf">transfer</td><td>from <b>linguistics (natural language processing)</b>: word-embedding vector-space models (Mikolov/Pennington), applied to measure cultural meaning (class, gender, race)<span class="ev"> &mdash; &ldquo;embeddings are high-dimensional vector-space models of text in which each unique word in the corpus is represented as a vector in a shared vector space&rdquo;</span></td></tr><tr><td class="k mc">mechanism</td><td>building cultural dimensions as averaged vector-differences between antonym word pairs, then projecting words onto them<span class="ev"> &mdash; &ldquo;we select word pairs such that the difference between each word in a pair is a&rdquo;</span></td></tr><tr><td class="k cr">builds-on</td><td> <b>word2vec (CBOW/skip-gram) and GloVe (from NLP)</b><span class="ev"> &mdash; &ldquo;primarily utilize the CBOW and skip-gram models&rdquo;</span></td></tr><tr><td class="k cr">extends</td><td> <b>interpretive text analysis of culture (adding reproducibility)</b><span class="ev"> &mdash; &ldquo;suffers from clear limitations in reproducibility&rdquo;</span></td></tr><tr><td class="k rs">replication</td><td>untested</td></tr></table></div>
   <div class="xdisc"><b>Content tags</b><div class="xd-sub">content-observations: <code>finding</code> &middot; <code>quantity</code> &middot; <code>variable</code> &middot; <code>definition</code> &middot; <code>key-term</code> &mdash; grounded in the full text</div><table><tr><td class="k">finding</td><td>vector-space dimensions correspond to meaningful cultural dimensions<span class="ev"> &mdash; &ldquo;the very dimensions of these vector space models closely correspond to meaningful&rdquo;</span></td></tr><tr><td class="k">finding</td><td>word projections match widely shared cultural connotations vs surveys<span class="ev"> &mdash; &ldquo;the projection of words onto these dimensions reflects widely shared cultural connotations&rdquo;</span></td></tr><tr><td class="k">finding</td><td>feminine and masculine occupations sit at opposite poles of a gender dimension<span class="ev"> &mdash; &ldquo;we find that traditionally feminine occupations such as&rdquo;</span></td></tr><tr><td class="k">finding</td><td>word embeddings capture more complex semantic relations than prior text methods<span class="ev"> &mdash; &ldquo;word embedding models are able to capture more complex semantic relations than past modes of&rdquo;</span></td></tr><tr><td class="k">quantity</td><td><b>20th century</b> &mdash; span of the gender/class coevolution analysis<span class="ev"> &mdash; &ldquo;States over the 20th century&rdquo;</span></td></tr><tr><td class="k">quantity</td><td><b>1970s decade</b> &mdash; when LSA-type methods first appeared<span class="ev"> &mdash; &ldquo;have existed in various forms since&rdquo;</span></td></tr><tr><td class="k">quantity</td><td><b>20,000 words</b> &mdash; example vocabulary size reduced by embeddings<span class="ev"> &mdash; &ldquo;number of words used in text (e.g., 20,000)&rdquo;</span></td></tr><tr><td class="k">variable</td><td>word vector position <i>(set by contexts a word shares in the corpus)</i><span class="ev"> &mdash; &ldquo;words are assigned a position in a vector space based on the&rdquo;</span></td></tr><tr><td class="k">variable</td><td>cultural dimensions (race, class, gender) <i>(culturally salient projection axes)</i><span class="ev"> &mdash; &ldquo;such as race, class, and gender&rdquo;</span></td></tr><tr><td class="k">variable</td><td>local context windows <i>(training signal for embeddings)</i><span class="ev"> &mdash; &ldquo;relevant information about word contexts from highly local windows of surrounding words&rdquo;</span></td></tr><tr><td class="k">variable</td><td>occupation-on-gender projection <i>(illustration of dimension projection)</i><span class="ev"> &mdash; &ldquo;projecting occupation names on a&rdquo;</span></td></tr><tr><td class="k">definition</td><td><b>word embeddings</b><span class="ev"> &mdash; &ldquo;Word embeddings are high-dimensional vector-space models of text in which each&rdquo;</span></td></tr><tr><td class="k">definition</td><td><b>Latent Semantic Analysis (LSA)</b><span class="ev"> &mdash; &ldquo;Latent Semantic Analysis (LSA) or Indexing (LSI), have existed in various forms since&rdquo;</span></td></tr><tr><td class="k">definition</td><td><b>relational model of meaning</b><span class="ev"> &mdash; &ldquo;operationalizing a relational model of meaning consistent with&rdquo;</span></td></tr><tr><td class="k">definition</td><td><b>semantics as geometry</b><span class="ev"> &mdash; &ldquo;represent semantic relations between words as geometric relationships between vectors in a&rdquo;</span></td></tr><tr><td class="k">key-terms</td><td>word embeddings, vector space, cultural dimensions, semantic relations, class, gender, meaning, corpus, high-dimensional, cultural associations, neural-network</td></tr></table></div>
+  <div class="xdisc statbox"><b>Statistics &mdash; cross-field join keys</b><div class="xd-sub">field-invariant statistical terms, used in their statistical sense (gated on a number / symbol / test). A p-value or a standard deviation means the SAME thing in physics, biology, psychology and sociology &mdash; so these are the strongest cross-field join keys. Grounded verbatim.</div><table><tr><td class="k st">Bayesian</td><td><span class="ev"> &mdash; &ldquo;g models constructed with other algorithms, including Latent Semantic Analysis based on SVD (Dumais 2004) and Bayesian nonparametric approaches (Rudolph et al.&rdquo;</span></td></tr><tr><td class="k st">bootstrap</td><td><span class="ev"> &mdash; &ldquo;Statistical Significance of Distances and Associations We propose well-established bootstrapping and subsampling methods to nonparametrically demonstrate the stability and significance of word associations within our embedding model.&rdquo;</span></td></tr><tr><td class="k st">confidence-interval <span class="ssym">CI</span></td><td><span class="ev"> &mdash; &ldquo;For 90% confidence intervals, we randomly partition the corpus into 20 subcorpora, then calculate the error of our for each subsample s em&rdquo;</span></td></tr><tr><td class="k st">correlation <span class="ssym">r</span></td><td><span class="ev"> &mdash; &ldquo;We test the correspondence between results from the survey and the word embedding model by calculating the Pearson’s correlation between a word’s mean rating on a given scale in the survey and the projection of the word vect&rdquo;</span></td></tr><tr><td class="k st">mean <span class="ssym">μ</span></td><td><span class="ev"> &mdash; &ldquo;imate the gender dimension of interest, we her ​ calculate a gender dimension by simply taking the arithmetic mean of a set of such pairs.&rdquo;</span></td></tr><tr><td class="k st">p-value <span class="ssym">p</span></td><td><span class="ev"> &mdash; &ldquo;For all pairs 34 ​ ​ ​ ​ ​ of words that have a statistically significant difference in mean survey rating (p&lt;0.01) for gender, class, and race associations within a substantive domain, we calculate the proportion of those&rdquo;</span></td></tr><tr><td class="k st">standard-deviation <span class="ssym">SD/σ</span></td><td><span class="ev"> &mdash; &ldquo;n are (1) greater disagreement among those surveyed regarding race and class 33 ​ ​ ​ ​ associations (average standard deviation=23.1) than gender (SD=20.8); (2) greater disagreement among authors of texts regarding class associations tha&rdquo;</span></td></tr><tr><td class="k st">statistical-significance</td><td><span class="ev"> &mdash; &ldquo;Moreover, turning text into data (Grimmer and Stewart 2013) requires credible methods for (1) evaluating the statistical significance of observed patterns and (2) disciplining the space of interpretations to avoid the tendency to creatively co&rdquo;</span></td></tr><tr><td class="k st">variance <span class="ssym">σ²</span></td><td><span class="ev"> &mdash; &ldquo;A key finding from this method is that much of the variance across all dimensions tested can be explained by just three core factors: Evaluation (good vs.&rdquo;</span></td></tr></table></div>
   <h2 class="ft">Full text — tagged</h2>
   <p>The Geometry of Culture: Analyzing the Meanings of <span class="concept">Class<span class="tag">term·key</span></span> through <span class="concept">Word Embeddings<span class="tag">term·key</span></span></p>
   <p>The Geometry of Culture: Analyzing <span class="concept">Meaning<span class="tag">term·key</span></span> through <span class="concept">Word Embeddings<span class="tag">term·key</span></span></p>
@@ -459,7 +463,7 @@
   <p>, he – she ​</p>
   <p>him –</p>
   <p>, and similar <span class="concept">gender<span class="tag">term·key</span></span> antonym pairs to all approximate the <span class="concept">gender<span class="tag">term·key</span></span> dimension of interest, we her ​</p>
-  <p>calculate a <span class="concept">gender<span class="tag">term·key</span></span> dimension by simply taking the arithmetic mean of a set of such pairs.</p>
+  <p>calculate a <span class="concept">gender<span class="tag">term·key</span></span> dimension by simply taking the arithmetic <span class="stat">mean of<span class="tag">term·stat</span></span> a set of such pairs.</p>
   <p>Dimensions for <span class="concept">class<span class="tag">term·key</span></span> and race are similarly constructed, using appropriate sets of antonym pairs</p>
   <p>such as</p>
   <p>or rich – poor ​</p>
@@ -570,7 +574,7 @@
   <p>constructed with other algorithms, including Latent Semantic Analysis based on SVD</p>
   <p>(Dumais</p>
   <p>2004)</p>
-  <p>and Bayesian nonparametric approaches</p>
+  <p>and <span class="stat">Bayesian<span class="tag">term·stat</span></span> nonparametric approaches</p>
   <p>(Rudolph et al. 2016)</p>
   <p><span class="concept">WORD EMBEDDINGS<span class="tag">term·key</span></span> AND CULTURAL THEORY</p>
   <p><span class="concept">Word embeddings<span class="tag">term·key</span></span> are promising tools for cultural analysis because the models they</p>
@@ -775,7 +779,7 @@
   <p>topical domains were chosen to test the capacity of <span class="method">word embedding<span class="tag">term·mth</span></span> models to detect cultural</p>
   <p>​ ​ ​</p>
   <p>associations across very different subjects. Specific terms were selected within each topical</p>
-  <p>domain to ensure high variance across dimensions ​. We calculate the weighted mean of</p>
+  <p>domain to ensure high variance across dimensions ​. We calculate the weighted <span class="stat">mean of<span class="tag">term·stat</span></span></p>
   <p>responses for each item and use these means as our estimates of a general cultural association.</p>
   <p>The end product is thus a rating between 0 and 100 on a <span class="concept">gender<span class="tag">term·key</span></span> dimension, a <span class="concept">class<span class="tag">term·key</span></span> dimension,</p>
   <p>and a race dimension for each of the 59 words listed in Table A1.</p>
@@ -905,7 +909,7 @@
   <p>dimension such as <span class="concept">gender<span class="tag">term·key</span></span>, it enables us to systematically “interpret” that dimension with</p>
   <p>all</p>
   <p>others.</p>
-  <p>Statistical Significance of Distances and Associations</p>
+  <p><span class="stat">Statistical Significance<span class="tag">term·stat</span></span> of Distances and Associations</p>
   <p>We propose well-established bootstrapping and subsampling methods to</p>
   <p>nonparametrically demonstrate the stability and significance of word associations within our</p>
   <p>embedding model. These allow us to establish conservative confidence or credible intervals for</p>
@@ -950,7 +954,7 @@
   <p>​ order</p>
   <p>​ ​ ​ ​ ​ ​ ​ ​</p>
   <p>​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​ ​</p>
-  <p>subsampled confidence intervals is that they reflect how robust an association is across texts. If a</p>
+  <p>subsampled <span class="stat">confidence intervals<span class="tag">term·stat</span></span> is that they reflect how robust an association is across texts. If a</p>
   <p>word occurs only rarely or is used in a diffuse set of very distinct contexts, the word’s position in</p>
   <p>the <span class="concept">vector space<span class="tag">term·key</span></span> will be radically different between subsamples and therefore will produce larger</p>
   <p>confidence or credible intervals. On the other hand, words that are frequently used in very</p>
@@ -984,7 +988,7 @@
   <p>the pairs we have included. Averaging between six and ten pairs of words for each dimension, as</p>
   <p>we have done here, produces a closer approximation to the <span class="concept">cultural dimension<span class="tag">term·dom</span></span> of interest than</p>
   <p>any one word-pair, as they post higher correlations with the survey described below. Cultural</p>
-  <p>dimensions are calculated by simply taking the mean of all word pair differences that</p>
+  <p>dimensions are calculated by simply taking the <span class="stat">mean of<span class="tag">term·stat</span></span> all word pair differences that</p>
   <p>approximate a given dimension,</p>
   <p>, where</p>
   <p>are all word pairs in relevant set p ​</p>
@@ -997,7 +1001,7 @@
   <p>Having recovered dimensions of the <span class="method">word embedding<span class="tag">term·mth</span></span> model that correspond to cultural</p>
   <p>categories of <span class="concept">gender<span class="tag">term·key</span></span>, <span class="concept">class<span class="tag">term·key</span></span>, and race, we proceed by validating these associations by comparing</p>
   <p>them with associations measured in the survey. We test the correspondence between results from</p>
-  <p>the survey and the <span class="method">word embedding<span class="tag">term·mth</span></span> model by calculating the Pearson’s correlation between a</p>
+  <p>the survey and the <span class="method">word embedding<span class="tag">term·mth</span></span> model by calculating the <span class="stat">Pearson<span class="tag">term·stat</span></span>’s correlation between a</p>
   <p>word’s mean rating on a given scale in the survey and the projection of the word vector on the</p>
   <p>​ ​ ​ ​ ​ ​</p>
   <p>respective <span class="concept">cultural dimension<span class="tag">term·dom</span></span> in the embedding model. The correlation is calculated using the 59</p>
@@ -1027,7 +1031,7 @@
   <p><span class="concept">gender<span class="tag">term·key</span></span>, but remain substantial, ranging between 0.40 and 0.60. Four possible explanations for the</p>
   <p>weaker association are (1) greater disagreement among those surveyed regarding race and <span class="concept">class<span class="tag">term·key</span></span></p>
   <p>​ ​ ​ ​</p>
-  <p>associations (average standard deviation=23.1) than <span class="concept">gender<span class="tag">term·key</span></span> (SD=20.8); (2) greater disagreement</p>
+  <p>associations (average <span class="stat">standard deviation<span class="tag">term·stat</span></span>=23.1) than <span class="concept">gender<span class="tag">term·key</span></span> (SD=20.8); (2) greater disagreement</p>
   <p>among authors of texts regarding <span class="concept">class<span class="tag">term·key</span></span> associations than <span class="concept">gender<span class="tag">term·key</span></span>; (3) a disjunct between <span class="concept">class<span class="tag">term·key</span></span></p>
   <p>associations present in the texts and those understood by survey respondents; and (4)</p>
   <p>measurement error, both in the embedding and the survey</p>
@@ -1069,9 +1073,9 @@
   <p>We see in Table 3 that within most substantive domains, the rate of correct classification</p>
   <p>is above 80% and in many cases above 90%. It is also clear that embedding does a better job in</p>
   <p>domains with stronger <span class="concept">cultural associations<span class="tag">term·key</span></span>. For instance, there is very little difference in racial</p>
-  <p>association between the clothing items included in the survey (standard deviation of 4.68) and in</p>
+  <p>association between the clothing items included in the survey (<span class="stat">standard deviation<span class="tag">term·stat</span></span> of 4.68) and in</p>
   <p>this domain the embedding has a low 51.8% rate of matching the survey. In first names,</p>
-  <p>however, where signals are stronger (standard deviation of 32.46) the same dimension of the</p>
+  <p>however, where signals are stronger (<span class="stat">standard deviation<span class="tag">term·stat</span></span> of 32.46) the same dimension of the</p>
   <p><span class="method">word embedding<span class="tag">term·mth</span></span> correctly matches 100% of differences in the survey. It is also important to note</p>
   <p>that we should not expect a 100% correspondence in all fields because the Google News <span class="concept">corpus<span class="tag">term·key</span></span></p>
   <p>does not perfectly correspond to the <span class="concept">cultural associations<span class="tag">term·key</span></span> shared in the population sampled in this</p>
@@ -1234,7 +1238,7 @@
   <p><span class="concept">cultural dimensions<span class="tag">term·key</span></span> over time we track historical shifts between categories. To demonstrate this</p>
   <p>th ​ century by calculating approach, we trace the relationship between <span class="concept">class<span class="tag">term·key</span></span> and <span class="concept">gender<span class="tag">term·key</span></span> over the 20</p>
   <p>the <span class="method">cosine similarity<span class="tag">term·mth</span></span> of the angle—and its arccosine, the angle’s degree—between those</p>
-  <p>dimensions. We also calculate the Pearson correlation between the <span class="concept">gender<span class="tag">term·key</span></span> projection and <span class="concept">class<span class="tag">term·key</span></span></p>
+  <p>dimensions. We also calculate the <span class="stat">Pearson<span class="tag">term·stat</span></span> correlation between the <span class="concept">gender<span class="tag">term·key</span></span> projection and <span class="concept">class<span class="tag">term·key</span></span></p>
   <p>projection for all words in the embedding in each decade to display how non-orthogonal cultural</p>
   <p>dimensions translate into a correlation between words’ positions on the two dimensions.</p>
   <p>​ ​ ​ ​ ​ ​</p>
@@ -1617,7 +1621,7 @@
   <p>Greenwald, A. G., D. E. McGhee, and J. L. Schwartz. 1998. “Measuring Individual Differences in</p>
   <p>Implicit Cognition: The Implicit Association Test.” (6): 1464–80.</p>
   <p>74 Journal of Personality and Social Psychology ​</p>
-  <p>Grimmer, J. 2009. “A Bayesian Hierarchical Topic Model for Political Texts: Measuring Expressed</p>
+  <p>Grimmer, J. 2009. “A <span class="stat">Bayesian<span class="tag">term·stat</span></span> Hierarchical Topic Model for Political Texts: Measuring Expressed</p>
   <p>Agendas in Senate Press Releases.” . Section of the American Political Science Association ​</p>
   <p>Political Analysis: An Annual Publication of the Methodology</p>
   <p>Grimmer, J., and B. M. Stewart. 2013. “Text as Data: The Promise and Pitfalls of Automatic Content</p>
@@ -1772,7 +1776,7 @@
   <p>Saussure, Ferdinand de. 1916.</p>
   <p>. Columbia University Press. Course in General Linguistics ​</p>
   <p>Schröder, Tobias, Jesse Hoey, and Kimberly B. Rogers. 2016. “Modeling Dynamic Identities and</p>
-  <p>Uncertainty in Social Interactions: Bayesian Affect Control Theory.” 81 (4): 828–55.</p>
+  <p>Uncertainty in Social Interactions: <span class="stat">Bayesian<span class="tag">term·stat</span></span> Affect Control Theory.” 81 (4): 828–55.</p>
   <p>American Sociological Review</p>
   <p>Searle, John R. 1969.</p>
   <p>. Cambridge University Press. Speech Acts: An Essay in the Philosophy of Language ​</p>
@@ -1822,7 +1826,7 @@
   <p>Race black – white blacks – whites Blacks – Whites Black – White African – European African – Caucasian</p>
   <p>​Google Ngrams text was reduced to lowercase in preprocessing for all analyses to increase the word count for rare words. Because of this, the list of word pairs for used for ecological validation of Google Ngrams is and black-white, blacks-whites, african-european, ​</p>
   <p>. african-caucasian ​</p>
-  <p>Pearson correlations between survey estimates and <span class="method">word embedding<span class="tag">term·mth</span></span> estimates</p>
+  <p><span class="stat">Pearson<span class="tag">term·stat</span></span> correlations between survey estimates and <span class="method">word embedding<span class="tag">term·mth</span></span> estimates</p>
   <p>Table 2. for <span class="concept">gender<span class="tag">term·key</span></span>, <span class="concept">class<span class="tag">term·key</span></span>, and race associations</p>
   <p>word2vec Embedding ​ Embedding GloVe ​</p>
   <p>Google News Common Crawl Wikipedia Google Ngrams † ​N=56 where three words measured in the survey did not occur frequently enough in the N=59, except text to appear in the <span class="method">word embedding<span class="tag">term·mth</span></span>.</p>
@@ -1915,7 +1919,7 @@
   <p>5. powerful_powerless</p>
   <p>.226</p>
   <p>(.222, .230)</p>
-  <p>Note: Reported <span class="method">cosine similarity<span class="tag">term·mth</span></span> is the mean <span class="method">cosine similarity<span class="tag">term·mth</span></span> of 20 subsamples. Bootstrapped 90% confidence intervals are given in parentheses.</p>
+  <p>Note: Reported <span class="method">cosine similarity<span class="tag">term·mth</span></span> is the mean <span class="method">cosine similarity<span class="tag">term·mth</span></span> of 20 subsamples. Bootstrapped 90% <span class="stat">confidence intervals<span class="tag">term·stat</span></span> are given in parentheses.</p>
   <p>. Schematic figure that illustrates the structure of the descriptive problem Latent</p>
   <p>Figure 1 Semantic Analysis and neural <span class="concept">word embeddings<span class="tag">term·key</span></span> attempt to solve—how to represent all words from a <span class="concept">corpus<span class="tag">term·key</span></span> within a -dimensional space that best preserves distances between words in local k ​ contexts. The solution, which we illustrate in subsequent figures, is a bolded above for the example dimensional space. In a real example, the matrix would be much more sparse and the k word in a ​ -by-context matrices would possess substantial symmetry. For a <span class="concept">corpus<span class="tag">term·key</span></span> of k and k word-by- ​ ​ natural language texts, analysts have found that reconstruction required for solving analogy problems, which imply the preservation of underlying semantic dimensions.</p>
   <p>matrix of values, -k ​ = 3. These values can be understood as the coordinate for each k ​</p>
@@ -1932,13 +1936,13 @@
   <p>th ​ century, with bootstrapped 90% confidence</p>
   <p>​ ​</p>
   <p><span class="method">Cosine similarity<span class="tag">term·mth</span></span> between <span class="concept">gender<span class="tag">term·key</span></span> and <span class="concept">class<span class="tag">term·key</span></span> dimensions in each decade of the 20</p>
-  <p>Figure 6. century, with bootstrapped 90% confidence intervals.</p>
+  <p>Figure 6. century, with bootstrapped 90% <span class="stat">confidence intervals<span class="tag">term·stat</span></span>.</p>
   <p>​ ​</p>
   <p><span class="method">Cosine similarity<span class="tag">term·mth</span></span> of five <span class="concept">cultural dimensions<span class="tag">term·key</span></span> to the <span class="concept">class<span class="tag">term·key</span></span> dimension in text published in</p>
   <p>Figure 7. the United States for each decade of the 20 intervals.</p>
   <p>th ​ century, with bootstrapped 90% confidence</p>
   <p>​ ​</p>
-  <p>Figure 8. Comparison of <span class="concept">gender<span class="tag">term·key</span></span> and <span class="concept">class<span class="tag">term·key</span></span> projections from <span class="concept">word embeddings<span class="tag">term·key</span></span> trained on Google Ngrams from the United Kingdom and United States, 1890-1910. Text height represents the estimate and whiskers the 90% confidence intervals. Shading is proportional to alignment on the U.K. projection.</p>
+  <p>Figure 8. Comparison of <span class="concept">gender<span class="tag">term·key</span></span> and <span class="concept">class<span class="tag">term·key</span></span> projections from <span class="concept">word embeddings<span class="tag">term·key</span></span> trained on Google Ngrams from the United Kingdom and United States, 1890-1910. Text height represents the estimate and whiskers the 90% <span class="stat">confidence intervals<span class="tag">term·stat</span></span>. Shading is proportional to alignment on the U.K. projection.</p>
   <p>APPENDIX A: SURVEY OF <span class="concept">CULTURAL ASSOCIATIONS<span class="tag">term·key</span></span></p>
   <p>Table A1.</p>
   <p>List of words included in <span class="concept">cultural associations<span class="tag">term·key</span></span> survey</p>
@@ -2044,5 +2048,5 @@
   <p>The top ten most popular names for newborn boys and girls each decade were retrieved from the Social Security Record. We then calculated the projection of each name onto the <span class="concept">gender<span class="tag">term·key</span></span> dimension of the <span class="method">word embedding<span class="tag">term·mth</span></span> trained on the Google Ngrams <span class="concept">corpus<span class="tag">term·key</span></span> for the corresponding decade. We induced a lag of two decades between the decade of name popularity and text used (e.g. names popular in the 1880s are projected with 1900s text) because many names did not appear frequently enough in the <span class="concept">corpus<span class="tag">term·key</span></span> in the decade of their popularity to be represented as a vector. It is not entirely surprising that individuals with a given name will not appear frequently in texts until they have attained adulthood, so we may think of these as popular young adult names, rather than popular infant names for the respective decade. Boys’ names are depicted in black and girls’ names in grey. We see a near perfect sorting, with the few exceptions including unisex names like “Taylor” and “Virginia”, which would commonly appear in texts with reference to the state rather than person. Overall, the persistence of high correlation between <span class="concept">gender<span class="tag">term·key</span></span> projection and the sex associated with the name suggests that the <span class="concept">gender<span class="tag">term·key</span></span> dimension remains a useful indicator for the historic texts.</p>
   <p>​ ​ ​</p>
 </div>
-<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 16 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 491 <code>concept</code> · 125 <code>method</code>.<br>Meta-Tagging Project &middot; record <code>kozlowski2019-geometry-culture</code>.</div>
+<div class="foot"><b>Interpretive notes.</b><br>&bull; Highlighted spans are tagged entities: <code>persName</code> (author), <code>title</code> (venue), <code>placeName</code> (place), <code>date</code> (year), and <code>term</code> (a key concept: domain / ai / method).<br>&bull; Eponymous or retrospective terms (e.g. &ldquo;Nash equilibrium&rdquo;, &ldquo;segregation&rdquo;) do not appear in the original source and so are not highlighted &mdash; a deliberate choice (see Report&nbsp;4).<br>&bull; Counts: 16 <code>person</code> · 1 <code>place</code> · 1 <code>work</code> · 1 <code>date</code> · 491 <code>concept</code> · 125 <code>method</code> · 17 <code>stat</code>.<br>Meta-Tagging Project &middot; record <code>kozlowski2019-geometry-culture</code>.</div>
 </body></html>
