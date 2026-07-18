@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature</title>
 <style>
- body{font-family:Georgia,"Times New Roman",serif;max-width:780px;margin:2rem auto;padding:0 1.2rem;color:#161a22;line-height:1.6;font-size:17px;}
+ body{font-family:Calibri,"Segoe UI",Arial,sans-serif;max-width:780px;margin:2rem auto;padding:0 1.2rem;color:#161a22;line-height:1.6;font-size:16.5px;}
  h1{font-size:1.5rem;line-height:1.3;margin-bottom:.3rem;}
  h2{font-size:1.15rem;margin-top:1.6rem;border-bottom:1px solid #e1e5ea;padding-bottom:.2rem;}
  .authors{font-size:1.02rem;margin:.3rem 0;} .aff{color:#5a6675;font-size:.9rem;}
@@ -18,7 +18,7 @@
 
 <h1>A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature: A Proof of Format</h1>
 <p class="authors">Shir Sivroni</p>
-<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v1</span></p>
+<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v2</span></p>
 
 <div class="abstract">
 <p><b>Abstract.</b> Academic knowledge is written almost entirely in natural language, which makes it
@@ -33,7 +33,9 @@ and 87 limitations, each substring-checked against the source. It is also honest
 drawn, and the phenomenon facets, written as specific verbatim-anchored strings, rarely collide across
 fields — indicating that a <b>canonical join vocabulary</b>, not free text, is the missing ingredient for
 surfacing new links. We argue the value of the layer is as a <b>compass for "far reading"</b> that points
-where slow close reading may be worthwhile, not as an answer engine.</p>
+where slow close reading may be worthwhile, not as an answer engine. Finally, we validate the fix the
+null result points to: a small, <b>field-invariant controlled vocabulary — statistical terms —
+bridges up to 33 disciplines each</b>, the canonical join key the free-text phenomenon facet lacked (§5).</p>
 </div>
 
 <h2>1. Problem</h2>
@@ -73,7 +75,7 @@ measures digitisation/sourcing quality, not the tagging method; we record such p
 <p>116 papers across 38 disciplines were fully faceted.</p>
 <table>
 <tr><th>claim-type</th><td>method 55 · existence 42 · mechanism 9 · critique 8 · prediction 2 · null-result 0</td></tr>
-<tr><th>replication-status</th><td>untested 113 · replicated 3 · (failed/contested 0 — see §6)</td></tr>
+<tr><th>replication-status</th><td>untested 113 · replicated 3 · (failed/contested 0 — see §7)</td></tr>
 <tr><th>grounded relations</th><td>127 claim-relations, 87 limitations — all substring-verified</td></tr>
 </table>
 <p><b>The central honest finding.</b> As free-written strings, the 113 distinct <code>phenomenon</code>
@@ -84,17 +86,53 @@ facet is worded too specifically to collide. The implication is concrete: the jo
 <b>canonical vocabulary</b> (a controlled, normalised phenomenon namespace) layered over the grounded
 free text — not more papers. A separate novelty scan, checking every cross-field candidate against the
 existing literature, found <b>no</b> connection that had not already been drawn; we report this null
-result plainly.</p>
+result plainly. The fix this points to — a canonical vocabulary — is tested directly in §5.</p>
 
-<h2>5. Framing: a compass, not an answer</h2>
+<h2>5. A canonical join vocabulary that works: statistics as field-invariant join keys</h2>
+<p>§4 argued that the missing ingredient is a <i>canonical vocabulary</i>, not more papers. We tested
+this with the one vocabulary that is <b>field-invariant by construction</b>: statistical terms. A
+p-value, a standard deviation, a 95% confidence interval, or a hypothesis test denotes the <i>same</i>
+operation whether the paper is about galaxies, genes, or voters — unlike topic words, their
+interpretation does not drift across fields. We added a single <code>statistic</code> facet whose values
+come from a frozen 24-term controlled vocabulary (<code>p-value</code>, <code>standard-deviation</code>,
+<code>confidence-interval</code>, <code>effect-size</code>, <code>correlation</code>,
+<code>regression</code>, <code>hypothesis-testing</code>, …), extracted verbatim and <b>gated on
+statistical sense</b> — each occurrence must sit with a number, a statistical symbol, or a test name, so
+the colloquial "significant" or "correlate" (and mathematical uses such as <i>t</i> for time or
+<i>R</i><sup>2</sup> for a space) are not tagged.</p>
+<p>The contrast with the phenomenon facet is stark. Where free-written phenomenon strings shared a value
+across only <b>1</b> pair of disciplines (§4), canonical statistical terms bridge many fields each: across
+<b>109 papers and 38 of 39 disciplines</b>, <code>mean</code> spans <b>33</b> disciplines,
+<code>statistical-significance</code> 27, <code>standard-deviation</code> 25, <code>correlation</code> 24,
+and <code>p-value</code> 19.</p>
+<table>
+<tr><th>statistical join key</th><th>disciplines bridged</th></tr>
+<tr><td><code>mean</code> · <code>statistical-significance</code> · <code>standard-deviation</code></td><td>33 · 27 · 25</td></tr>
+<tr><td><code>correlation</code> · <code>regression</code> · <code>p-value</code></td><td>24 · 21 · 19</td></tr>
+<tr><td>free-text <code>phenomenon</code> (§4, for contrast)</td><td>1 pair only</td></tr>
+</table>
+<p>Papers carrying the same pair of statistical keys form ready-made cross-field neighbourhoods — for
+example, <b>14 papers across 13 disciplines</b> (from physics and astronomy to genetics, neuroscience,
+sociology and quantitative finance) all report both a <code>p-value</code> and a
+<code>standard-deviation</code>. A static, client-side search over these tags lets a reader ask the
+corpus directly: <i>which papers, across any field, carry these N tags?</i></p>
+<p>This does not overturn the §4 null result — it <b>explains</b> it. Free text under-collides because it
+is specific; a controlled vocabulary collides usefully because it is canonical. Statistical terms are a
+working proof of the canonical join layer the format was missing, and they suggest the natural next step:
+canonicalise the <code>phenomenon</code> namespace the same way. We are careful about the claim: a shared
+<i>method</i> vocabulary is a weaker signal than a shared substantive finding — it marks where a
+connection <i>may</i> lie, consistent with the compass framing (§6), not a discovery.</p>
+
+<h2>6. Framing: a compass, not an answer</h2>
 <p>The layer is intended to enable <i>far reading</i> — a corpus-wide overview in the spirit of
 distant reading [1] — that indicates <i>where</i> a cross-disciplinary connection may lie, so that a
 scholar knows where to invest the slow <i>close reading</i> that can actually establish it. A surfaced
 link is a hypothesis to investigate, never a claimed discovery; because one cannot prove the absence of a
 prior connection, every candidate is presented with its literature check, not asserted.</p>
 
-<h2>6. Limitations</h2>
+<h2>7. Limitations</h2>
 <ul>
+<li>The <code>statistic</code> facet (§5) tags <i>method</i> vocabulary; sharing a statistical join key marks a candidate cross-field neighbourhood, a weaker signal than a shared substantive result. Sense-gating reduces but does not eliminate mis-tagging of everyday words.</li>
 <li>Tagging currently depends on a large language model to read prose; the grounding guard bounds but does not eliminate interpretation error.</li>
 <li>The corpus is curated for breadth, not sampled representatively; distributions above describe <i>this</i> corpus only.</li>
 <li><code>replication-status</code> and <code>limitations</code> are grounded in each paper's <i>own</i> text; external replication outcomes (e.g. well-known failed replications) are deliberately <i>not</i> injected, because they are not grounded in the source — a candidate future extension, not a silent edit.</li>
@@ -102,17 +140,21 @@ prior connection, every candidate is presented with its literature check, not as
 <li>Novelty claims are unfalsifiable in the strict sense; we can search and report, not prove a negative.</li>
 </ul>
 
-<h2>7. Relation to prior work</h2>
+<h2>8. Relation to prior work</h2>
 <p>The layer sits between text-encoding standards (TEI), stand-off annotation models (the W3C Web
 Annotation Data Model [2]), machine-readable scientific assertions (nanopublications [3]), scholarly
 knowledge graphs, and computational distant reading [1]. Its distinguishing commitments are the union of
 (i) mandatory verbatim grounding of every tag, (ii) facets chosen to be field-neutral join keys rather
 than topic descriptors, and (iii) a hypothesis-testing stance about whether such a layer can surface
-undrawn cross-field links — reported here, honestly, as not-yet.</p>
+undrawn cross-field links — reported here honestly: free-text <code>phenomenon</code> strings do
+<i>not yet</i> collide across fields, but a canonical, field-invariant vocabulary (statistical terms, §5)
+bridges disciplines as a join key should, pointing the way to canonicalising the rest.</p>
 
-<h2>8. Availability</h2>
+<h2>9. Availability</h2>
 <p>A public showcase provides the report and the full colour-tagged text for open-access papers, with
-paywalled originals linked by DOI (not reproduced). Live showcase: <a href="https://shir-openu.github.io/meta-tagging-showcase/">shir-openu.github.io/meta-tagging-showcase/</a>. Archived on Zenodo &mdash; DOI: <a href="https://doi.org/10.5281/zenodo.21429867">10.5281/zenodo.21429867</a>.</p>
+paywalled originals linked by DOI (not reproduced). It includes a <b>static, client-side search</b> over
+the tag layer — including multi-tag intersection across disciplines (§5) — and the statistics pay-off
+report. Live showcase: <a href="https://shir-openu.github.io/meta-tagging-showcase/">shir-openu.github.io/meta-tagging-showcase/</a>. Archived on Zenodo &mdash; DOI: <a href="https://doi.org/10.5281/zenodo.21429867">10.5281/zenodo.21429867</a>.</p>
 
 <p style="margin-top:1.4rem"><b>Acknowledgements.</b> This project grew out of the <i>Beyond Words</i>
 Digital-Humanities-and-Social-Sciences (DHSS) summer workshop and its close-reading / TEI-tagging
@@ -124,6 +166,6 @@ exercises; I thank the organisers and participants. This work was carried out in
 <li>P. Groth, A. Gibson, J. Velterop, "The anatomy of a nanopublication," 2010 — minimal machine-readable assertions.</li>
 </ol>
 
-<p class="foot">Preprint · v1 · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21429867 · cite via CITATION.cff in the project repository.
-This document deliberately describes the <i>format, results, and honest limitations</i>; the detailed build pipeline is not included here.</p>
+<p class="foot">Preprint · v2 · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21429867 · cite via CITATION.cff in the project repository.
+v2 adds §5 (statistics as field-invariant join keys) and switches to a sans-serif typeface. This document deliberately describes the <i>format, results, and honest limitations</i>; the detailed build pipeline is not included here.</p>
 </body></html>
