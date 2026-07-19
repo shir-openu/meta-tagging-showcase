@@ -77,20 +77,29 @@ function resize(){ W=cv.width=cv.clientWidth*devicePixelRatio; H=cv.height=cv.cl
 window.addEventListener('resize',()=>{resize();});
 function load(view){
   const {N,E}=subgraph(view); resize();
-  NODES=N.map((n,i)=>Object.assign(n,{x:W/2+Math.cos(i)*120,y:H/2+Math.sin(i)*120,vx:0,vy:0}));
+  // clean two-ring layout: canonical/tag centre, papers on an inner ring, disciplines on an outer ring.
+  const cx=W/2, cy=H/2, m=Math.min(W,H), Rp=m*0.30, Rd=m*0.46;
+  const papers=N.filter(n=>n.t==='Paper'), discs=N.filter(n=>n.t==='Discipline'),
+        rest=N.filter(n=>n.t!=='Paper'&&n.t!=='Discipline');
+  papers.forEach((n,j)=>{ const a=j/Math.max(1,papers.length)*2*Math.PI - Math.PI/2;
+    n.x=cx+Math.cos(a)*Rp; n.y=cy+Math.sin(a)*Rp; });
+  discs.forEach((n,j)=>{ const a=(j+0.5)/Math.max(1,discs.length)*2*Math.PI - Math.PI/2;
+    n.x=cx+Math.cos(a)*Rd; n.y=cy+Math.sin(a)*Rd; });
+  rest.forEach((n,j)=>{ n.x=cx+(j-(rest.length-1)/2)*24*devicePixelRatio; n.y=cy; });
+  NODES=N.map(n=>Object.assign(n,{vx:0,vy:0}));
   const pos={}; NODES.forEach(n=>pos[n.i]=n);
   EDGES=E.map(e=>({a:pos[e.s],b:pos[e.d],t:e.t})).filter(e=>e.a&&e.b);
   document.getElementById('count').textContent=`${NODES.length} nodes · ${EDGES.length} edges`;
   if(!raf) tick();
 }
 function step(){
-  const k=devicePixelRatio, REP=9000*k*k, SPR=0.015, LEN=120*k;
+  const k=devicePixelRatio, REP=15500*k*k, SPR=0.02, LEN=Math.min(W,H)*0.30;
   for(let i=0;i<NODES.length;i++){
     const a=NODES[i]; let fx=0,fy=0;
     for(let j=0;j<NODES.length;j++){ if(i===j)continue; const b=NODES[j];
       let dx=a.x-b.x, dy=a.y-b.y, d2=dx*dx+dy*dy+0.01, d=Math.sqrt(d2);
       const f=REP/d2; fx+=f*dx/d; fy+=f*dy/d; }
-    fx+=(W/2-a.x)*0.002; fy+=(H/2-a.y)*0.002;      // centering
+    fx+=(W/2-a.x)*0.0011; fy+=(H/2-a.y)*0.0011;      // centering (gentle: preserve the ring spread)
     a.vx=(a.vx+fx*0.0006)*0.85; a.vy=(a.vy+fy*0.0006)*0.85;
   }
   EDGES.forEach(e=>{ let dx=e.b.x-e.a.x, dy=e.b.y-e.a.y, d=Math.hypot(dx,dy)||1, f=(d-LEN)*SPR;
@@ -116,7 +125,10 @@ function draw(){
     if(s.shape==='rect'){ const w=Math.max(s.r*2, ctx.measureText(n.l).width+10*devicePixelRatio);
       roundRect(n.x-w/2,n.y-s.r,w,s.r*2,6*devicePixelRatio); } else { ctx.arc(n.x,n.y,s.r,0,7); }
     ctx.fillStyle=s.fill; ctx.fill(); if(s.stroke){ctx.lineWidth=2.5*devicePixelRatio;ctx.strokeStyle=s.stroke;ctx.stroke();}
-    if(n.t==='Paper'||n.t==='Discipline'){ ctx.fillStyle='#333'; ctx.fillText(n.l, n.x, n.y+s.r+13*devicePixelRatio); }
+    if(n.t==='Paper'||n.t==='Discipline'){ ctx.fillStyle='#333';
+      const up=n.y<H/2; ctx.textBaseline=up?'bottom':'top';
+      ctx.fillText(n.l, n.x, up ? n.y-s.r-3*devicePixelRatio : n.y+s.r+3*devicePixelRatio);
+      ctx.textBaseline='alphabetic'; }
     else { ctx.fillStyle=s.txt; ctx.fillText(n.l, n.x, n.y+4*devicePixelRatio); }
   });
 }

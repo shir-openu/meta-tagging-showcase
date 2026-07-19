@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Priming across the corpus — does A·S·M hold? (scale demo)</title>
+<style>
+ body{font-family:"Segoe UI",Arial,sans-serif;max-width:1060px;margin:1.1rem auto;padding:0 1rem;color:#1c1c1c;background:#fff;}
+ h1{font-size:1.4rem;margin-bottom:.1rem;} .sub{color:#666;font-size:.9rem;margin:.15rem 0 .5rem;}
+ .banner{background:#fffaf0;border:1px solid #f0d9ad;border-left:5px solid #b45309;border-radius:8px;padding:.5rem .9rem;font-size:.82rem;color:#7a5a10;margin:.5rem 0 .8rem;}
+ .kpis{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0;} .kpi{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:.4rem .9rem;text-align:center;min-width:96px;} .kpi b{display:block;font-size:1.35rem;color:#0d9488;} .kpi span{font-size:.68rem;color:#5b8;text-transform:uppercase;}
+ .wrap{display:flex;gap:1rem;flex-wrap:wrap;} .col{flex:1;min-width:300px;}
+ canvas{width:100%;height:440px;border:1px solid #e4e4e4;border-radius:12px;background:#fbfdfd;touch-action:none;}
+ .bars b{font-size:.85rem;} .bar{background:#e2e8f0;border-radius:5px;height:18px;margin:.15rem 0 .5rem;overflow:hidden;} .bar>i{display:block;height:100%;border-radius:5px;background:#1a7a33;}
+ #panel{border:1px solid #e4e4e4;border-radius:10px;padding:.7rem .9rem;font-size:.88rem;min-height:120px;} #panel h3{margin:.1rem 0 .4rem;}
+ .mini{height:12px;border-radius:4px;background:#e2e8f0;overflow:hidden;margin:.1rem 0 .4rem;} .mini>i{display:block;height:100%;}
+ .tag{font-size:.66rem;font-weight:700;border-radius:8px;padding:1px 6px;color:#fff;}
+ .legend{font-size:.78rem;color:#555;margin:.3rem 0;} .legend span{margin-inline-end:.9rem;}
+ .dot{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:middle;margin-inline-end:3px;}
+ a{color:#0b4f9c;} .foot{color:#999;font-size:.78rem;border-top:1px solid #eee;margin-top:1rem;padding-top:.6rem;}
+</style></head><body>
+<h1>Priming across the corpus — does the A·S·M definition hold?</h1>
+<p class="sub">One canonical phenomenon (priming), defined by <b>association · secondariness · modulation</b>, verified per field. Click a field.</p>
+<div class="banner"><b>Scale demonstration.</b> The 8 <b>bold</b> fields are from real tagged papers (A &amp; M verified 16/16; S proof-of-concept 5/5). The rest are an <b>illustrative projection</b> of what a thousands-paper run would surface — including honest exceptions (amber = a feature not met = a finding to investigate). Not measured data.</div>
+<div class="kpis">
+ <div class="kpi"><b id="kN"></b><span>papers (proj.)</span></div>
+ <div class="kpi"><b id="kD"></b><span>fields</span></div>
+ <div class="kpi"><b id="kA"></b><span>% association</span></div>
+ <div class="kpi"><b id="kS"></b><span>% secondariness</span></div>
+ <div class="kpi"><b id="kM"></b><span>% modulation</span></div>
+</div>
+<div class="wrap">
+ <div class="col"><canvas id="cv"></canvas>
+   <div class="legend"><span class="dot" style="background:#0d9488"></span>priming / A·S·M &nbsp; <span class="dot" style="background:#1a7a33"></span>field: all 3 hold &nbsp; <span class="dot" style="background:#b45309"></span>field: an exception</div>
+ </div>
+ <div class="col" style="max-width:340px">
+   <div class="bars"><b>Aggregate coverage</b>
+     <div>A · association <span id="aA"></span></div><div class="bar"><i id="bA"></i></div>
+     <div>S · secondariness <span id="aS"></span></div><div class="bar"><i id="bS"></i></div>
+     <div>M · modulation <span id="aM"></span></div><div class="bar"><i id="bM"></i></div>
+   </div>
+   <div id="panel"><h3>Click a field</h3><span style="color:#888">Its A·S·M coverage and status appear here.</span></div>
+ </div>
+</div>
+<div class="foot">Meta-Tagging Project · scale demonstration · real anchor from <code>DATA/corpus.json</code> (16 priming papers). Built by <code>TOOLS/make_scale_demo.py</code>. A surfaced link is a hypothesis to investigate, never a claimed discovery.</div>
+
+<script id="D" type="application/json">{"agg": {"A": 87.9, "S": 85.2, "M": 86.6, "N": 3299, "disc": 24}, "rows": [{"d": "behavioral-economics", "real": true, "n": 1, "A": 100, "S": 100, "M": 100, "color": "#0b4f9c"}, {"d": "cognitive-psychology", "real": true, "n": 3, "A": 100, "S": 100, "M": 100, "color": "#1a7a33"}, {"d": "economics", "real": true, "n": 1, "A": 100, "S": 100, "M": 100, "color": "#8324c4"}, {"d": "education", "real": true, "n": 1, "A": 100, "S": 0, "M": 100, "color": "#c0392b"}, {"d": "linguistics", "real": true, "n": 1, "A": 100, "S": 100, "M": 100, "color": "#00838f"}, {"d": "marketing", "real": true, "n": 1, "A": 100, "S": 100, "M": 100, "color": "#a35b00"}, {"d": "neuroscience", "real": true, "n": 5, "A": 100, "S": 80, "M": 100, "color": "#b5179e"}, {"d": "social-psychology", "real": true, "n": 3, "A": 100, "S": 100, "M": 100, "color": "#2e7d32"}, {"d": "anthropology", "real": false, "n": 225, "A": 90, "S": 90, "M": 55, "color": "#1565c0"}, {"d": "sociology", "real": false, "n": 247, "A": 97, "S": 79, "M": 99, "color": "#6a1b9a"}, {"d": "political-science", "real": false, "n": 79, "A": 69, "S": 91, "M": 91, "color": "#ad1457"}, {"d": "communication", "real": false, "n": 277, "A": 88, "S": 96, "M": 86, "color": "#00695c"}, {"d": "advertising", "real": false, "n": 91, "A": 53, "S": 96, "M": 91, "color": "#5d4037"}, {"d": "health-psychology", "real": false, "n": 128, "A": 92, "S": 91, "M": 87, "color": "#283593"}, {"d": "artificial-intelligence", "real": false, "n": 217, "A": 96, "S": 83, "M": 86, "color": "#558b2f"}, {"d": "human-computer-interaction", "real": false, "n": 156, "A": 93, "S": 81, "M": 93, "color": "#d84315"}, {"d": "consumer-behavior", "real": false, "n": 90, "A": 97, "S": 84, "M": 92, "color": "#0277bd"}, {"d": "developmental-psychology", "real": false, "n": 278, "A": 93, "S": 92, "M": 94, "color": "#7b1fa2"}, {"d": "organizational-behavior", "real": false, "n": 245, "A": 54, "S": 85, "M": 97, "color": "#c62828"}, {"d": "criminology", "real": false, "n": 213, "A": 96, "S": 93, "M": 99, "color": "#00897b"}, {"d": "sports-science", "real": false, "n": 289, "A": 92, "S": 57, "M": 86, "color": "#4527a0"}, {"d": "medicine", "real": false, "n": 235, "A": 90, "S": 93, "M": 54, "color": "#ef6c00"}, {"d": "media-studies", "real": false, "n": 220, "A": 93, "S": 89, "M": 94, "color": "#3949ab"}, {"d": "information-retrieval", "real": false, "n": 293, "A": 89, "S": 80, "M": 89, "color": "#546e7a"}]}</script>
+<script>
+const P = JSON.parse(document.getElementById('D').textContent);
+const A=P.agg;
+kN.textContent=A.N.toLocaleString(); kD.textContent=A.disc; kA.textContent=A.A+'%'; kS.textContent=A.S+'%'; kM.textContent=A.M+'%';
+function cf(v){return v>=85?'#1a7a33':v>=70?'#b45309':'#c0392b';}
+aA.textContent=A.A+'%'; aS.textContent=A.S+'%'; aM.textContent=A.M+'%';
+bA.style.width=A.A+'%'; bA.style.background=cf(A.A);
+bS.style.width=A.S+'%'; bS.style.background=cf(A.S);
+bM.style.width=A.M+'%'; bM.style.background=cf(A.M);
+// nodes: priming(0), A(1),S(2),M(3), then fields
+const cv=document.getElementById('cv'), ctx=cv.getContext('2d'); let W,H,drag=null;
+function status(r){return Math.min(r.A,r.S,r.M)>=85?'ok':'exc';}
+let NODES=[],EDGES=[];
+function resize(){W=cv.width=cv.clientWidth*devicePixelRatio;H=cv.height=cv.clientHeight*devicePixelRatio;}
+function build(){ resize();
+ const cx=W/2, cy=H/2, m=Math.min(W,H), Rf=m*0.37;
+ NODES=[{id:'priming',t:'c',l:'priming',x:cx,y:cy},
+        {id:'A',t:'f',l:'A',x:cx+m*0.12,y:cy-m*0.10},{id:'S',t:'f',l:'S',x:cx-m*0.12,y:cy-m*0.10},{id:'M',t:'f',l:'M',x:cx,y:cy+m*0.15}];
+ P.rows.forEach((r,i)=>{const a=i/P.rows.length*2*Math.PI - Math.PI/2; NODES.push({id:r.d,t:'d',l:r.d,r:r,x:cx+Math.cos(a)*Rf,y:cy+Math.sin(a)*Rf});});
+ NODES.forEach(n=>{n.vx=0;n.vy=0;});
+ const byId={}; NODES.forEach(n=>byId[n.id]=n);
+ EDGES=[['priming','A'],['priming','S'],['priming','M']].map(e=>({a:byId[e[0]],b:byId[e[1]],w:2}));
+ P.rows.forEach(r=>EDGES.push({a:byId['priming'],b:byId[r.d],w:1}));
+}
+function step(){const REP=14000*devicePixelRatio*devicePixelRatio, m=Math.min(W,H);
+ for(let i=0;i<NODES.length;i++){const a=NODES[i];let fx=0,fy=0;
+  for(let j=0;j<NODES.length;j++){if(i===j)continue;const b=NODES[j];let dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy+.1,d=Math.sqrt(d2),f=REP/d2;fx+=f*dx/d;fy+=f*dy/d;}
+  fx+=(W/2-a.x)*(a.t==='d'?.0016:a.t==='f'?.02:.06); fy+=(H/2-a.y)*(a.t==='d'?.0016:a.t==='f'?.02:.06);
+  a.vx=(a.vx+fx*.0006)*.85; a.vy=(a.vy+fy*.0006)*.85;}
+ EDGES.forEach(e=>{let dx=e.b.x-e.a.x,dy=e.b.y-e.a.y,d=Math.hypot(dx,dy)||1,L=(e.b.t==='f'?m*0.16:m*0.37),f=(d-L)*.02;
+  e.a.vx+=f*dx/d;e.a.vy+=f*dy/d;e.b.vx-=f*dx/d;e.b.vy-=f*dy/d;});
+ NODES.forEach(n=>{if(n!==drag){n.x+=n.vx;n.y+=n.vy;}n.x=Math.max(24,Math.min(W-24,n.x));n.y=Math.max(24,Math.min(H-24,n.y));});
+}
+function draw(){ctx.clearRect(0,0,W,H);ctx.strokeStyle='#d7dee7';ctx.lineWidth=1*devicePixelRatio;
+ EDGES.forEach(e=>{ctx.beginPath();ctx.moveTo(e.a.x,e.a.y);ctx.lineTo(e.b.x,e.b.y);ctx.stroke();});
+ ctx.font=(10*devicePixelRatio)+'px Segoe UI';ctx.textAlign='center';
+ NODES.forEach(n=>{let R,fill;
+  if(n.t==='c'){R=26*devicePixelRatio;fill='#0d9488';}
+  else if(n.t==='f'){R=16*devicePixelRatio;fill='#0d9488';}
+  else{R=(8+Math.min(14,n.r.n/22))*devicePixelRatio;fill=status(n.r)==='ok'?'#1a7a33':'#b45309';}
+  ctx.beginPath();ctx.arc(n.x,n.y,R,0,7);ctx.fillStyle=fill;ctx.fill();
+  if(n.t==='c'){ctx.fillStyle='#fff';ctx.fillText('priming',n.x,n.y+4*devicePixelRatio);}
+  else if(n.t==='f'){ctx.fillStyle='#fff';ctx.font='bold '+(12*devicePixelRatio)+'px Segoe UI';ctx.fillText(n.l,n.x,n.y+4*devicePixelRatio);ctx.font=(10*devicePixelRatio)+'px Segoe UI';}
+  else{ctx.fillStyle='#334155';const up=n.y<H/2;ctx.textBaseline=up?'bottom':'top';ctx.fillText(n.l,n.x,up?n.y-R-3*devicePixelRatio:n.y+R+3*devicePixelRatio);ctx.textBaseline='alphabetic';}
+ });}
+function loop(){step();draw();requestAnimationFrame(loop);}
+function at(ev){const r=cv.getBoundingClientRect(),x=(ev.clientX-r.left)*devicePixelRatio,y=(ev.clientY-r.top)*devicePixelRatio;return NODES.find(n=>Math.hypot(n.x-x,n.y-y)<20*devicePixelRatio);}
+cv.addEventListener('pointerdown',ev=>{drag=at(ev); const n=drag; if(n&&n.t==='d')show(n.r);});
+cv.addEventListener('pointermove',ev=>{if(!drag)return;const r=cv.getBoundingClientRect();drag.x=(ev.clientX-r.left)*devicePixelRatio;drag.y=(ev.clientY-r.top)*devicePixelRatio;drag.vx=drag.vy=0;});
+cv.addEventListener('pointerup',()=>drag=null);
+function mini(v){return `<div class="mini"><i style="width:${v}%;background:${cf(v)}"></i></div>`;}
+function show(r){document.getElementById('panel').innerHTML =
+  `<h3>${r.d} <span class="tag" style="background:${r.real?'#1a7a33':'#b45309'}">${r.real?'real':'projected'}</span></h3>`+
+  `<div style="color:#888;font-size:.8rem">~${r.n} priming papers</div>`+
+  `A · association — ${r.A}%${mini(r.A)}`+
+  `S · secondariness — ${r.S}%${mini(r.S)}`+
+  `M · modulation — ${r.M}%${mini(r.M)}`+
+  (Math.min(r.A,r.S,r.M)<85?`<div style="color:#b45309;font-weight:700;font-size:.82rem">⚠ exception — a defining feature is under-met here: a finding to investigate (does this field's phenomenon truly match, or is the text silent?).</div>`
+   :`<div style="color:#1a7a33;font-weight:700;font-size:.82rem">✓ all three features hold — the definition is satisfied in this field.</div>`);
+}
+window.addEventListener('resize',build);
+build(); loop();
+</script>
+</body></html>
