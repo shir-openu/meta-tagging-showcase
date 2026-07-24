@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21429867.svg)](https://doi.org/10.5281/zenodo.21429867) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Live showcase:** <https://shir-openu.github.io/meta-tagging-showcase/>
+**Version 9.0** (2026-07-24) · **Live showcase:** <https://shir-openu.github.io/meta-tagging-showcase/>
 **Archived & citable:** [10.5281/zenodo.21429867](https://doi.org/10.5281/zenodo.21429867)
 
 > **How to cite:** Sivroni, S. (2026). *A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature: A Proof of Format.* Zenodo. <https://doi.org/10.5281/zenodo.21429867>
@@ -31,6 +31,16 @@ claimed discovery**.
   licence verified against its landing page **and** the Crossref API, with an explicit
   `full_text_redistributable` flag.
 - **[`untaggable.html`](untaggable.html)** — a study of papers whose source text could not be faceted.
+
+## Reproducibility
+
+`python TOOLS/build.py` regenerates the inverted index, graph export and validation deterministically from
+the resolved corpus, and `PYTHONPATH=TOOLS python TOOLS/test_pipeline.py` runs a 7-test regression suite
+(all pass). "Reproducible" here means identical *computations*, not byte-identical output files.
+`DATA/section5_statistics.json` (the statistical-tag grounding audit: 519 assignments → 420 accepted / 99
+rejected, 272 with exact local-body evidence) is a **frozen, human-adjudicated artifact** computed against
+each paper's full text. Because most full text is not redistributed (see below), those grounding sub-counts
+ship as a fixed input rather than being recomputed from the redistributed (partial) pages.
 
 ## Copyright
 

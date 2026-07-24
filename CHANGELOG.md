@@ -38,6 +38,15 @@ Addresses the independent GitHub/Zenodo release-readiness review.
   canonical `report_statistics.html`.
 - Empty `TESTS/` directory and Python `__pycache__` from the release.
 
+### Reproducibility (post-review follow-up)
+- Added the 3 missing reject entries to `DATA/statistics_audit_overrides.json` (onnela2007·standard-deviation,
+  planck2018·degrees-of-freedom, perlmutter1999·degrees-of-freedom) so `audit_statistics.py` resolves all
+  519 assignments with **no needs-review** items — 420 accepted / 99 rejected unchanged; `validate_corpus.py`
+  and the 7-test suite pass from a clean copy.
+- Defined "reproducible" precisely in the README and preprint: identical *computations*, not byte-identical
+  files; `section5_statistics.json` is a frozen, human-adjudicated grounding audit (computed against full
+  text, most of which is not redistributed), shipped as a fixed input.
+
 ## [8.0] — 2026-07-20 — audited release
 
 - Systematic audit of all 519 statistical-tag assignments (420 accepted, 99 rejected, 19.1%); §5

@@ -424,9 +424,14 @@ the full colour-tagged text; every other paper shows the tag layer with short li
 link to the source, not the reproduced text. Redistribution rights are verified per paper (against the
 source landing page and the Crossref API) in an explicit <code>rights_manifest.json</code>; being
 free-to-read is not treated as permission to redistribute. The repository adds a canonical corpus JSON,
-an explicit audit-decision file, invariant validation of every record, complete Section&nbsp;5 recalculation, sorted postings,
-lazy metadata shards, a typed adjacency export, and one reproducible build command. It includes a
-<b>static, client-side search</b> over the tag layer and a generated statistics audit report. Live
+an explicit audit-decision file, invariant validation of every record, sorted postings,
+lazy metadata shards, a typed adjacency export, and one build command. <b>Reproducibility</b> here means
+identical <i>computations</i>, not byte-identical files: the build regenerates the inverted index, graph
+export and validation deterministically from the resolved corpus and passes a 7-test regression suite. The
+statistical-grounding audit (<code>DATA/section5_statistics.json</code>) is a <b>frozen, human-adjudicated
+artifact</b> computed against each paper's full text; because most full text is not redistributed (rights),
+those grounding sub-counts are shipped as a fixed input rather than recomputed from the redistributed pages.
+It includes a <b>static, client-side search</b> over the tag layer and a generated statistics audit report. Live
 showcase: <a href="https://shir-openu.github.io/meta-tagging-showcase/">shir-openu.github.io/meta-tagging-showcase/</a>.
 Archived on Zenodo &mdash; DOI: <a href="https://doi.org/10.5281/zenodo.21429867">10.5281/zenodo.21429867</a>.</p>
 
