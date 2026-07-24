@@ -19,15 +19,15 @@
 
 <h1>A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature: A Proof of Format</h1>
 <p class="authors">Shir Sivroni</p>
-<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v8 audit revision</span></p>
+<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v9 release-readiness revision</span></p>
 
 <div class="abstract">
 <p><b>Abstract.</b> Academic knowledge is written almost entirely in natural language, which makes it
 readable by humans but hard to query <i>across</i> disciplines that use different words for related things.
 We describe a tag layer that assigns every paper the same small set of <b>field-neutral facets</b> —
 claim type, phenomenon (a normalised join key), claim relations, replication status, and limitations —
-under one non-negotiable rule: <b>every tag is grounded in an exact, verbatim sentence from the paper's
-own text</b>. We report a proof-of-<i>format</i> on a curated corpus of 126 papers spanning 39 disciplines
+under one non-negotiable design rule: <b>every tag must be licensed by an exact, verbatim sentence from
+the paper's own text</b> — a requirement this audit measures against the legacy data rather than assumes. We report a proof-of-<i>format</i> on a curated corpus of 126 papers spanning 39 disciplines
 (1866–2023), of which 116 were fully faceted. The format is feasible and verifiable: 127 claim-relations
 and 87 limitations, each substring-checked against the source. It is also honest about what it did
 <i>not</i> do: a novelty scan surfaced no cross-disciplinary link that the literature had not already
@@ -227,7 +227,11 @@ usually have more stable cross-field semantics than topic phrases, but they are 
 field-invariant: estimators, tests, parameterisations, and reporting conventions vary. A shared term is
 therefore a retrieval key, not evidence that two papers used an identical operation or reached a
 substantively comparable result.</p>
-<p><b>Audit protocol.</b> The unit was a paper–term assignment. A term was semantically accepted only when
+<p><b>Audit protocol.</b> The unit was a paper–term assignment. The re-audit was <b>rule-based with
+LLM-assisted adjudication</b>: explicit semantic and provenance rules were applied programmatically, and
+borderline cases were adjudicated against those rules with model assistance; it was <i>not</i> an
+independent second-coder study, so inter-rater reliability was not estimated (see §7). A term was
+semantically accepted only when
 the supplied evidence or locally available article body supported an unambiguous statistical or
 probabilistic sense. Generated statistics summaries, bibliography-only matches, lexical collisions,
 non-inferential uses of “significant”, class probabilities labelled <i>p</i>, and symbols such as
@@ -388,6 +392,7 @@ judgment error may remain.</li>
 an exact normalized excerpt located in a locally stored article body. The other provenance states are
 reported separately and must not be described as exact-body verified.</li>
 <li>Tagging currently depends on a large language model to read prose; the grounding guard bounds but does not eliminate interpretation error.</li>
+<li>The statistical-tag re-audit was rule-based with LLM-assisted adjudication, <b>not</b> an independent second-coder study; inter-rater reliability (e.g. Cohen's &kappa;) was therefore not estimated. A second-coder study of the 99 rejections and the provenance-exception cases is the next planned step.</li>
 <li>The corpus is curated for breadth, not sampled representatively; distributions above describe <i>this</i> corpus only.</li>
 <li><code>replication-status</code> and <code>limitations</code> are grounded in each paper's <i>own</i> text; external replication outcomes (e.g. well-known failed replications) are deliberately <i>not</i> injected, because they are not grounded in the source — a candidate future extension, not a silent edit.</li>
 <li>The phenomenon join key needs canonicalisation before it can surface cross-field links at scale (§4).</li>
@@ -414,9 +419,12 @@ creates cross-field retrieval joins. These joins remain semantically and provena
 the way to canonicalising the rest without claiming field invariance.</p>
 
 <h2>9. Availability</h2>
-<p>A public showcase provides the report and the full colour-tagged text for open-access papers, with
-paywalled originals linked by DOI (not reproduced). The revised repository adds a canonical corpus JSON,
-an explicit audit-decision file, schema validation, complete Section&nbsp;5 recalculation, sorted postings,
+<p>A public showcase provides the report and, for the papers under a verified redistributable licence,
+the full colour-tagged text; every other paper shows the tag layer with short licensing excerpts and a
+link to the source, not the reproduced text. Redistribution rights are verified per paper (against the
+source landing page and the Crossref API) in an explicit <code>rights_manifest.json</code>; being
+free-to-read is not treated as permission to redistribute. The repository adds a canonical corpus JSON,
+an explicit audit-decision file, invariant validation of every record, complete Section&nbsp;5 recalculation, sorted postings,
 lazy metadata shards, a typed adjacency export, and one reproducible build command. It includes a
 <b>static, client-side search</b> over the tag layer and a generated statistics audit report. Live
 showcase: <a href="https://shir-openu.github.io/meta-tagging-showcase/">shir-openu.github.io/meta-tagging-showcase/</a>.
@@ -434,9 +442,11 @@ seeded the idea of a single, uniform tag layer. This work was carried out indepe
 <li>P. Groth, A. Gibson, J. Velterop, "The anatomy of a nanopublication," 2010 — minimal machine-readable assertions.</li>
 </ol>
 
-<p class="foot">Preprint · v8 audit revision · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21429867 · cite via CITATION.cff in the project repository.
-v7 re-audits all 519 legacy statistical assignments, recalculates §5, separates semantic acceptance from
-exact-local-body grounding, implements a sharded sorted-postings search and reproducible build pipeline,
-exports only supported graph relations, and corrects the architecture and complexity claims. Earlier
-versions introduced the priming A·S·M analysis and the statistical join-key experiment.</p>
+<p class="foot">Preprint · v9 release-readiness revision · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21429867 · cite via CITATION.cff in the project repository.
+The v8 audit re-audited all 519 legacy statistical assignments, recalculated §5, separated semantic
+acceptance from exact-local-body grounding, implemented a sharded sorted-postings search and reproducible
+build pipeline, exported only supported graph relations, and corrected the architecture and complexity
+claims. v9 adds a per-paper redistribution-rights manifest, states the audit method (rule-based with
+LLM-assisted adjudication) and the absence of an inter-rater study, and reconciles all release metadata.
+Earlier versions introduced the priming A·S·M analysis and the statistical join-key experiment.</p>
 </body></html>

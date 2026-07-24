@@ -11,8 +11,10 @@
 
 A proof-of-**format**: every paper in this corpus is described with the same small set of
 **verbatim-grounded** faceted tags — *claim type*, *phenomenon* (a normalised cross-field join
-key), *claim relations*, *replication status*, and *limitations* — and every tag is grounded in an
-exact sentence from the paper's own text.
+key), *claim relations*, *replication status*, and *limitations*. The design rule is that every tag
+must be licensed by an exact sentence from the paper's own text; the v8 audit measured how fully the
+legacy data meets that rule and reports the provenance status of every tag (see the preprint's §5
+grounding sensitivity analysis), rather than assuming 100% exact-body grounding.
 
 The goal is to make cross-disciplinary connections **queryable and verifiable**, and to surface
 candidate links the literature has not yet drawn. The corpus is an existence proof of the procedure,
@@ -22,12 +24,19 @@ claimed discovery**.
 ## What's here
 
 - **[`index.html`](index.html)** — the report + a catalogue of every tagged paper with its facets.
-- **`papers/`** — the full colour-tagged text, shown **only** for open-access / arXiv / public-domain /
-  CC-BY papers.
+- **`papers/`** — for the **19** papers under a verified redistributable licence (CC-BY / CC0 / public
+  domain), the full colour-tagged text; for every other paper, our tag layer with short licensing
+  excerpts and a link to the source (full text **not** reproduced).
+- **[`DATA/rights_manifest.json`](DATA/rights_manifest.json)** — the per-paper rights audit: each source's
+  licence verified against its landing page **and** the Crossref API, with an explicit
+  `full_text_redistributable` flag.
 - **[`untaggable.html`](untaggable.html)** — a study of papers whose source text could not be faceted.
 
 ## Copyright
 
-Full text is reproduced **only** for openly-licensed papers. Paywalled originals are **linked (DOI),
-not reproduced** — the catalogue still shows our facets for them, but not their text. Our tag layer
-(facets, colour coding, catalogue) is our own contribution.
+Full text is reproduced **only** for papers under a licence that permits redistribution, verified
+per paper in [`DATA/rights_manifest.json`](DATA/rights_manifest.json) against both the source landing
+page and the Crossref API. Being free-to-read (e.g. on arXiv under its non-exclusive-distribution
+licence) is **not** treated as permission to redistribute; those papers are **linked, not reproduced**.
+The catalogue still shows our facets and short licensing excerpts for them. Our tag layer (facets,
+colour coding, catalogue) is our own contribution, released under CC-BY-4.0.
