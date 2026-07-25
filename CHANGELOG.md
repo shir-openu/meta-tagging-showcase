@@ -1,8 +1,10 @@
 # Changelog
 
 All notable changes to the Meta-Tagging tag layer, corpus, and showcase.
-The Zenodo concept DOI `10.5281/zenodo.21429867` always resolves to the latest version;
-each release also receives its own version DOI.
+The Zenodo concept DOI `10.5281/zenodo.21432188` always resolves to the latest version;
+each release also receives its own version DOI (v9.0 = `10.5281/zenodo.21552828`).
+Note: `10.5281/zenodo.21429867` was an earlier standalone deposit (v1, 2026-07-18) in a separate
+concept and is superseded by the GitHub-linked lineage above.
 
 ## [9.0] — 2026-07-24 — release-readiness revision
 
