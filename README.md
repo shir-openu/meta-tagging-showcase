@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21432188.svg)](https://doi.org/10.5281/zenodo.21432188) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-**Version 9.1** (2026-07-25) · **Live showcase:** <https://shir-openu.github.io/meta-tagging-showcase/>
+**Version 9.2** (2026-07-26) · **Live showcase:** <https://shir-openu.github.io/meta-tagging-showcase/>
 **Archived & citable:** [10.5281/zenodo.21432188](https://doi.org/10.5281/zenodo.21432188)
 
 > **How to cite:** Sivroni, S. (2026). *A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature: A Proof of Format.* Zenodo. <https://doi.org/10.5281/zenodo.21432188>
