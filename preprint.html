@@ -443,6 +443,31 @@ here as a method with a worked example, and the obvious next step is to run it s
 crossed dimensions of a field and report the full set of candidate gaps, including the ones that turn
 out on inspection to be adequately named already.</p>
 
+<p><b>An external check, and a correction to the size of the claim.</b> Once the tag vocabulary was
+reconciled to Wikidata (&sect;8.1), the gap could be tested against a global authority file rather
+than against a count of our own. The substrate matters here and constrains the result. The
+<code>concepts</code> facet is <i>analyst-assigned</i>: a label chosen to describe what a paper is
+about, so its absence from Wikidata could reflect our wording as much as a gap in the literature, and
+it cannot carry the argument. The <code>key_phrases</code> layer can: it is lifted from the papers
+themselves, and 988 of 990 checked appear literally in the paper's own text. Of the <b>176</b> key
+phrases used by two or more papers, only <b>32</b> are multi-word — single-word canons are mostly
+lemmatisation artefacts and were excluded. Of those 32, <b>three</b> are absent from Wikidata
+entirely on three independent probes (a 25-result label and alias search, a full-text search, and an
+English Wikipedia title lookup, since an article implies an item): <i>lexical decision</i> (6 papers),
+<i>category accessibility</i> (2) and <i>repetition suppression</i> (2). A first pass over the
+analyst-assigned concepts had suggested fourteen such gaps; seven of those turned out to exist and
+three more to be project vocabulary rather than the literature's, so the honest figure is the smaller
+one. The claim in this paragraph is deliberately the reduced version.</p>
+
+<p>A second pattern is sharper than absence. Five further multi-word phrases are reachable only
+through a redirect to a differently-titled article: <i>semantic priming</i>, <i>zero shot</i>,
+<i>variational inference</i>, <i>fault tolerant</i> and <i>scale free</i>. In the priming case, the
+authority file does not lack the term so much as <b>refuse the distinction</b> — <i>social priming</i>,
+<i>semantic priming</i> and <i>conceptual priming</i> all resolve to the single item
+<i>Priming (psychology)</i>. A layer that records what each paper actually wrote preserves a
+distinction that reconciliation to a coarser authority would silently collapse, which is an argument
+for linking out to authorities rather than being replaced by them.</p>
+
 
 <h2>6. Framing: a compass, not an answer</h2>
 <p>The layer is intended to enable <i>far reading</i> — a corpus-wide overview in the spirit of
@@ -497,6 +522,23 @@ reported separately and must not be described as exact-body verified.</li>
 <li>Tagging currently depends on a large language model to read prose; the grounding guard bounds but does not eliminate interpretation error.</li>
 <li>The statistical-tag re-audit was rule-based with LLM-assisted adjudication. Its reliability has since been <b>measured</b> rather than assumed: an independent second coder (a different AI system, blinded to the original decisions) re-coded a stratified sample of 120 assignments, giving <b>&kappa;&nbsp;=&nbsp;0.767</b> (95% CI 0.652&ndash;0.882; 88.3% raw agreement), conventionally read as <i>substantial</i>. The disagreement was asymmetric &mdash; the second coder accepted 11 assignments this audit rejected and rejected 3 it accepted &mdash; so the original coding was the stricter of the two. The 14 disagreements are published for adjudication. A second coder is not a gold standard, and agreement between two systems is weaker evidence than agreement with expert human coders, which remains to be done.</li>
 <li>The corpus is curated for breadth, not sampled representatively; distributions above describe <i>this</i> corpus only.</li>
+<li><b>Not every facet is verbatim-grounded, and the difference had not been stated before.</b> The
+<code>content_tags</code> groups carry an <code>evidence</code> string and are; the
+<code>concepts</code> facet carries a term and a type but no quote, and is an analyst label for what a
+paper is about. Any argument that rests on the papers' own words must use the first kind, which is why
+&sect;5.3 was re-run on key phrases and its claim reduced. Giving the <code>concepts</code> facet the
+same grounding requirement is outstanding work.</li>
+<li>The <code>place</code> field is semantically underspecified: the TEI export writes it as
+<code>&lt;pubPlace&gt;</code>, but reconciling it showed the values are overwhelmingly the
+<i>institutional</i> city of the authors (DeepMind &rarr; London, MIT &rarr; Cambridge MA), not the
+publisher's. Two values (<code>online</code>, <code>Online</code>) are not places at all. The
+reconciliation records this rather than silently cleaning it.</li>
+<li>The <code>study_location</code> facet (where the participants were, as distinct from where the
+authors were) is grounded but <b>thinly populated</b>: 4 papers of the 38 human-subjects papers whose
+text is available state it in a sentence a machine can find. The cap is structural — most
+human-subjects work in this corpus is the paywalled priming literature, whose text is held internally
+and never published, so the facet cannot see it. The low rate is reported as a finding about how
+rarely sample provenance is recoverable from a paper, not as a measurement of the corpus.</li>
 <li><code>replication-status</code> and <code>limitations</code> are grounded in each paper's <i>own</i> text; external replication outcomes (e.g. well-known failed replications) are deliberately <i>not</i> injected, because they are not grounded in the source — a candidate future extension, not a silent edit.</li>
 <li>The phenomenon join key needs canonicalisation before it can surface cross-field links at scale (§4).</li>
 <li>The implemented graph export does not include <code>ALIAS_OF</code>,
@@ -521,6 +563,82 @@ undrawn cross-field links — reported here honestly: free-text <code>phenomenon
 creates cross-field retrieval joins. These joins remain semantically and provenance-qualified, pointing
 the way to canonicalising the rest without claiming field invariance.</p>
 
+<h2>8.1 The same operation across languages and across disciplines</h2>
+<p>The closest working analogue to this layer is not in text mining but in historical gazetteers.
+MEHDIE, a project linking Hebrew, Arabic and Syriac sources on Middle Eastern history, states the
+problem it exists to solve in terms that transfer exactly: <i>"Scholars in the Humanities often strive
+for depth and rigor in a single field&hellip; This specialization and expertise, however, come at the
+cost of bodies of knowledge becoming isolated from each other"</i> [4]. Its answer is to reconcile a
+place name written in one <i>language</i> to a shared identifier, keeping the source attestation.
+This layer reconciles a verbatim sentence written in one <i>discipline</i> to a shared tag, keeping
+the quote. <b>Discipline is to a tag layer what language is to a gazetteer</b>, and the machinery is
+the same: a surface form, an authority record, and a pointer back to where the form was found.</p>
+
+<p>Taking that seriously has a concrete consequence, because two existing standards already do the
+work. Expressed in <b>SKOS</b>, each facet becomes a concept scheme and each tag an addressable
+concept with a URI, labels in more than one language, and an <code>exactMatch</code> or
+<code>closeMatch</code> to an external authority. Expressed in the <b>W3C Web Annotation Data
+Model</b> [2], each grounded tag becomes an annotation whose target carries a
+<code>TextQuoteSelector</code> — <code>exact</code>, <code>prefix</code>, <code>suffix</code>. That
+selector is this project's verbatim-grounding rule, already standardised: what had been a house rule
+turns out to be a W3C rule, and adopting it costs nothing but makes the layer readable by tools that
+know nothing about this project.</p>
+
+<p><b>What the conversion produced, and what it cost.</b> Reconciling the controlled vocabularies
+against Wikidata succeeded completely for the structural facets and only partly for the substantive
+ones: <b>39 of 39</b> disciplines and <b>13 of 13</b> methods were linked, against <b>15 of 25</b>
+audited statistical terms and <b>61 of 88</b> concepts shared by two or more papers. A link was
+asserted only where both a matching label or alias <i>and</i> a type statement licensing it could be
+shown; everything else was recorded as unmatched rather than guessed. The asymmetry is not noise. The
+further a term sits from the shared scaffolding of research and towards the specific content of a
+field, the less likely a global authority file is to have it — which is the same gradient this layer
+was built to work along.</p>
+
+<p>Re-expressing the tags as annotations also re-verified them, independently of this project's own
+checker. Of <b>1,964</b> verbatim spans, <b>1,313 of the 1,321</b> whose paper text we are licensed to
+publish resolve to an exact position in the published page — <b>99.4%</b>; the remaining 643 sit on
+link-only pages where the rights audit removed the body text but kept every tag. Getting there
+required fixing three things the conversion exposed: some stored quotes join two separate passages
+with an ellipsis and are not single substrings of anything (the annotation model handles this
+natively, with one target per span); PDF-extracted text and rendered text disagree about ligatures and
+whitespace far more often than about words; and our own tag chips, interleaved with the paper's
+sentences, were cutting quotes in half. None of these were errors in the tags. All three were
+invisible until a standard was applied to them.</p>
+
+<p><b>Where the analogy stops, and why the difference matters.</b> MEHDIE reconciles <i>entities</i>.
+Safed is a real place; a proposed match is right or wrong, so the method can be scored — the
+neighbouring literature reports 0.85 precision and 0.85 recall against a labelled set of 1,500 pairs
+[5]. This layer reconciles <i>concepts</i>, which have no such ground truth: whether two papers mean
+the same thing by <i>priming</i> is exactly what is contested. There is no labelled set to score
+against, and that is precisely why the layer requires a verbatim quote for every tag and reports an
+inter-rater &kappa; instead of a precision figure. The two projects are not in conflict; they carry
+the risk that suits their object. Reconciling places in this corpus made the difference tangible.
+<code>Cambridge</code> matches two of the most important academic cities in the world, and no string
+test settles which one a paper means; the 42 ambiguous place strings had to be decided by hand with
+the reason recorded beside each decision, and one string had to be decided per paper rather than
+once. That is the wall MEHDIE meets and answers with a reconciliation review interface.</p>
+
+<p><b>A stress test.</b> Nine papers on digital-humanities and Linked-Open-Data infrastructure were
+tagged with the existing facets — MEHDIE, the Pelagios Network, Recogito, a spatial entity-linkage
+algorithm, an RDF provenance review, a graph-schema validation paper and three Linked-Open-Data case
+studies; 45 quotes, each verified against the paper's own text before ingestion. The facets mostly
+held, with one clean failure: the <code>method</code> vocabulary, built for empirical work, had no
+value for <b>4 of the 9</b>. Three of those build systems rather than test hypotheses, and one is a
+systematic review. The vocabulary is missing <i>system or tool building</i>, <i>systematic review</i>
+and <i>practice report</i> — a real gap, reported rather than papered over by stretching an existing
+label. Workshop and tutorial abstracts were excluded from the batch on principle: a syllabus states
+what will be taught, not what was found, and has no claim to ground a tag in.</p>
+
+<p>The convergence worth recording is empirical, not rhetorical. MEHDIE reports that general
+gazetteers <i>"contain few, if any, toponyms in the Semitic scripts relevant to the sources of Middle
+Eastern History"</i>, that <i>"Even Wikidata, which is essentially multilingual, shows low recall"</i>,
+and gives a specific case: Wikidata holds a modern Hebrew variant of a toponym but not the archaic
+spelling the historical source actually uses [4]. Section 5.3 reports the same shape of gap on a
+different axis. Their conclusion — a preference for a bottom-up, intra-domain strategy over a
+centralised one — is an argument for building domain-grounded layers that <i>link out</i> to central
+authorities rather than waiting for those authorities to cover the domain. That is what this layer now
+does.</p>
+
 <h2>9. Availability</h2>
 <p>A public showcase provides the report and, for the papers under a verified redistributable licence,
 the full colour-tagged text; every other paper shows the tag layer with short licensing excerpts and a
@@ -535,7 +653,19 @@ statistical-grounding audit (<code>DATA/section5_statistics.json</code>) is a <b
 artifact</b> computed against each paper's full text; because most full text is not redistributed (rights),
 those grounding sub-counts are shipped as a fixed input rather than recomputed from the redistributed pages.
 It includes a <b>static, client-side search</b> over the tag layer and a generated statistics audit report. Live
-showcase: <a href="https://shir-openu.github.io/meta-tagging-showcase/">shir-openu.github.io/meta-tagging-showcase/</a>.
+showcase: <a href="https://shir-openu.github.io/meta-tagging-showcase/">shir-openu.github.io/meta-tagging-showcase/</a>.</p>
+<p><b>Linked Open Data.</b> The layer is also published in two standards it did not invent, at
+<a href="https://shir-openu.github.io/meta-tagging-showcase/lod/">/lod/</a>: a SKOS vocabulary
+(<code>vocab.jsonld</code>, <code>vocab.ttl</code>, and a browsable <code>vocab.html</code> carrying the
+same graph as embedded JSON-LD), the tags as a W3C Web Annotation collection
+(<code>annotations.jsonld</code>), and the corpus as records (<code>corpus.jsonld</code>) — together
+about 47,800 triples, each file parsed and counted as part of the build. Two things are deliberately
+absent. The reliability layer is private and is never exported. And paper-level facets are
+<code>dcterms:subject</code> statements rather than annotations, because they have no verbatim quote
+behind them and only tags that do become annotations; blurring that line would overstate what is
+grounded. The reconciliation carries its own evidence: every asserted link records the label or alias
+that matched and the type statement that licensed it, and the place decisions that required human
+adjudication are kept, with their reasons, in <code>DATA/place_adjudication.json</code>.
 A companion paper applies the same layer to a single phenomenon, testing a meta-disciplinary definition of priming against 38 tagged papers in 9 disciplines; the shared notation it uses is also implemented as the data model of an open experiment builder (<a href="https://shir-openu.github.io/PrimingToolbox/">PrimingToolbox</a>, <a href="https://github.com/shir-openu/PrimingToolbox">source</a>), in which a design-time check warns when a configured experiment violates the definition &mdash; so the same schema that describes published papers also constrains experiments not yet run. The inter-rater materials (coding manual, blinded sheet) are published at <code>kappa-study/</code>. Archived on Zenodo &mdash; DOI: <a href="https://doi.org/10.5281/zenodo.21432188">10.5281/zenodo.21432188</a>.</p>
 
 <p style="margin-top:1.4rem"><b>Acknowledgements.</b> This work grew out of the <i>Beyond Words</i>
@@ -548,13 +678,19 @@ seeded the idea of a single, uniform tag layer. This work was carried out indepe
 <li>F. Moretti, <i>Distant Reading</i>, 2013 — the "distant reading" framing this work adapts as "far reading."</li>
 <li>W3C, <i>Web Annotation Data Model</i>, Recommendation, 2017 — stand-off annotation with explicit targets.</li>
 <li>P. Groth, A. Gibson, J. Velterop, "The anatomy of a nanopublication," 2010 — minimal machine-readable assertions.</li>
+<li>S. Rusinek, T. Sagi, M. Zaga, E. Lev, M. Lavee, "MEHDIE: The Middle East Heritage Data Integration Endeavor," <i>Digital Humanities 2023</i>, Graz (CC BY 4.0); extended as T. Sagi et al., <i>Digital Scholarship in the Humanities</i> 41(Suppl. 1), i238–i246, 2026, doi:10.1093/llc/fqaf111 — reconciliation across languages rather than disciplines.</li>
+<li>S. Isaj, E. Zimányi, T. B. Pedersen, "Multi-Source Spatial Entity Linkage," <i>SSDBM</i>, 2019, doi:10.1145/3340964.3340979 — entity linkage scored against labelled data, the contrast case for §8.1.</li>
+<li>W3C, <i>SKOS Simple Knowledge Organization System Reference</i>, Recommendation, 2009 — the concept-scheme model used for the vocabulary export.</li>
 </ol>
 
-<p class="foot">Preprint · v10 negative-space revision · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21432188 · cite via CITATION.cff in the project repository.
+<p class="foot">Preprint · v11 linked-open-data revision · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21432188 · cite via CITATION.cff in the project repository.
 The v8 audit re-audited all 519 legacy statistical assignments, recalculated §5, separated semantic
 acceptance from exact-local-body grounding, implemented a sharded sorted-postings search and reproducible
 build pipeline, exported only supported graph relations, and corrected the architecture and complexity
 claims. v9 adds a per-paper redistribution-rights manifest, states the audit method (rule-based with
 LLM-assisted adjudication) and the absence of an inter-rater study, and reconciles all release metadata.
-Earlier versions introduced the priming A·S·M analysis and the statistical join-key experiment.</p>
+Earlier versions introduced the priming A·S·M analysis and the statistical join-key experiment. v11 reconciles the controlled vocabularies to Wikidata, publishes the layer as SKOS and W3C Web
+Annotation (§8.1), re-verifies 99.4% of verbatim spans by anchoring them as TextQuoteSelectors, adds nine
+digital-humanities papers as a facet stress test, adds a grounded study-location facet, and reduces the
+§5.3 negative-space claim to what the papers' own words support.</p>
 </body></html>

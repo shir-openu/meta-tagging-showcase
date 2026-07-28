@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linked Open Data — Meta-Tagging Project</title>
+<style>
+ body{font-family:Calibri,"Segoe UI",Arial,sans-serif;max-width:900px;margin:1.4rem auto;padding:0 1.1rem;color:#1c1c1c;line-height:1.7;}
+ h1{font-size:1.6rem;margin-bottom:.15rem;} .sub{color:#666;font-size:.93rem;margin:.2rem 0 1.3rem;}
+ h2{font-size:1.16rem;margin:2rem 0 .4rem;color:#00838f;border-bottom:2px solid #eee;padding-bottom:.25rem;}
+ code{background:#f2f4f7;padding:.05em .35em;border-radius:4px;font-size:.86em;}
+ pre{background:#0f2733;color:#dbe9ef;padding:.85rem 1rem;border-radius:9px;overflow-x:auto;font-size:.78rem;line-height:1.5;}
+ pre .k{color:#7fd4c1;}
+ table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6rem 0;}
+ th{background:#173f70;color:#fff;text-align:left;padding:.35rem .55rem;font-size:.8rem;}
+ td{padding:.32rem .55rem;border-bottom:1px solid #eee;} td.n{text-align:right;width:6rem;color:#555;}
+ .box{background:#effcfb;border:1px solid #b6e6e6;border-left:5px solid #00838f;border-radius:9px;padding:.75rem 1.05rem;margin:1rem 0;}
+ .caveat{background:#fdf2f8;border:1px solid #f0c4dc;border-left:5px solid #9d1b6b;border-radius:9px;padding:.75rem 1.05rem;margin:1rem 0;}
+ .files a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.3rem .7rem;border:1px solid #cfd8e3;border-radius:7px;text-decoration:none;color:#0b4f9c;font-size:.9rem;}
+ .files a:hover{background:#f2fbfb;border-color:#00838f;}
+ .foot{color:#999;font-size:.8rem;border-top:1px solid #eee;margin-top:2rem;padding-top:.7rem;}
+</style></head><body>
+<h1>Linked Open Data</h1>
+<p class="sub">The tag layer, expressed in two standards that are not ours — so that other people's tools can read it without knowing anything about this project.</p>
+
+<div class="box"><b>The short version.</b> This project normalises a verbatim sentence in one <i>discipline</i> to a shared tag. A gazetteer project like <a href="https://mehdie.org/">MEHDIE</a> or <a href="https://wiki.digitalclassicist.org/Kima">Kima</a> normalises a place name in one <i>language</i> to a shared identifier. Same operation, different axis — so the same two standards fit both:
+<ul>
+<li><b>SKOS</b> turns each tag into an addressable concept with a URI, labels in English and Hebrew, and a link to Wikidata.</li>
+<li><b>W3C Web Annotation</b> turns each grounded tag into an annotation whose target carries a <code>TextQuoteSelector</code>. That selector — exact, prefix, suffix — <i>is</i> this project's verbatim-grounding rule. The house rule turned out to be a W3C rule.</li>
+</ul></div>
+
+<h2>Files</h2>
+<p class="files">
+<a href="vocab.html">vocab.html — browse the vocabulary</a>
+<a href="vocab.jsonld">vocab.jsonld</a>
+<a href="vocab.ttl">vocab.ttl</a>
+<a href="annotations.jsonld">annotations.jsonld</a>
+<a href="corpus.jsonld">corpus.jsonld</a>
+</p>
+
+<div class="caveat"><b>Scope — read this before comparing counts.</b> This export is generated from the
+project's <i>working</i> corpus (187 records), which is larger than the frozen release corpus
+published at <a href="../DATA/corpus.json">DATA/corpus.json</a> (126 records) and uses a fuller
+schema. The two will not agree on totals, and are not meant to. Where a record has a published page the
+annotations target that page; where it does not, they target the paper's DOI. Regenerate with
+<code>python TOOLS/export_lod.py --validate</code>.</div>
+
+<h2>What is in here</h2>
+<table><thead><tr><th>Concept scheme</th><th>Concepts</th><th>Linked</th></tr></thead><tbody><tr><td>Disciplines</td><td class='n'>40</td><td class='n'>39</td></tr><tr><td>Methods</td><td class='n'>19</td><td class='n'>13</td></tr><tr><td>Domain concepts</td><td class='n'>493</td><td class='n'>61</td></tr><tr><td>Statistical terms</td><td class='n'>27</td><td class='n'>15</td></tr><tr><td>Places</td><td class='n'>69</td><td class='n'>64</td></tr></tbody></table>
+<p><b>1926</b> annotations over <b>1964</b> verbatim spans.
+<b>1313</b> of them resolve to an exact position in the published page text
+(<b>99.39%</b> of the spans whose paper text we are licensed to
+publish; the other 643 sit on link-only pages, where the rights
+audit removed the body text but kept every tag).</p>
+
+<div class="caveat"><b>Two things this export deliberately does not contain.</b>
+The reliability layer is private and is never published. And paper-level facets — discipline, method —
+are <code>dcterms:subject</code> statements about the paper, <i>not</i> annotations: they have no verbatim
+quote behind them, and only tags that do become annotations. Blurring that line would overstate what is grounded.</div>
+
+<h2>One annotation, in full</h2>
+<pre>{
+ &quot;id&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/lod/annotations.jsonld#mendel1866-plant-hybridization--quantities-0&quot;,
+ &quot;type&quot;: &quot;Annotation&quot;,
+ &quot;motivation&quot;: &quot;describing&quot;,
+ &quot;created&quot;: &quot;2026-07-28&quot;,
+ &quot;creator&quot;: {
+  &quot;id&quot;: &quot;https://orcid.org/0009-0000-2597-2824&quot;,
+  &quot;type&quot;: &quot;Person&quot;,
+  &quot;name&quot;: &quot;Shir Sivroni&quot;
+ },
+ &quot;generator&quot;: {
+  &quot;id&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/&quot;,
+  &quot;type&quot;: &quot;Software&quot;,
+  &quot;name&quot;: &quot;Meta-Tagging Project tag layer&quot;
+ },
+ &quot;body&quot;: [
+  {
+   &quot;type&quot;: &quot;TextualBody&quot;,
+   &quot;purpose&quot;: &quot;describing&quot;,
+   &quot;value&quot;: &quot;2.98:1 ≈ 3:1 — average ratio of dominant to recessive characters in hybrid offspring&quot;,
+   &quot;language&quot;: &quot;en&quot;
+  }
+ ],
+ &quot;target&quot;: {
+  &quot;type&quot;: &quot;SpecificResource&quot;,
+  &quot;source&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/papers/mendel1866-plant-hybridization.html&quot;,
+  &quot;selector&quot;: {
+   &quot;type&quot;: &quot;TextQuoteSelector&quot;,
+   &quot;exact&quot;: &quot;an average ratio of 2.98:1, or 3:1&quot;,
+   &quot;prefix&quot;: &quot;ent in the process recessive... &quot;,
+   &quot;suffix&quot;: &quot;\&quot; finding Mendel selected Pisum &quot;
+  }
+ }
+}</pre>
+
+<h2>Reconciliation was not automatic, and says so</h2>
+<p>A link is only asserted when two things could be shown: a label or alias that matched, and a
+type statement licensing it. Where that failed, the result is recorded as unmatched rather than
+guessed. Place names needed a further step — <code>Cambridge</code> is two of the most important
+academic cities in the world, and no string test settles which one a paper means. Those were
+decided by hand, one at a time, with the reason recorded next to the decision, and one string
+('Cambridge') had to be decided per paper rather than once. This is the same wall MEHDIE hits and
+answers with a reconciliation review interface.</p>
+
+<p class="foot">Meta-Tagging Project · CC BY 4.0 · generated by <code>TOOLS/export_lod.py</code> on 2026-07-28</p>
+</body></html>
