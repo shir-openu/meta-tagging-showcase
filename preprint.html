@@ -44,7 +44,7 @@
 
 <h1>A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature: A Proof of Format</h1>
 <p class="authors">Shir Sivroni</p>
-<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v16 linked-open-data revision</span></p>
+<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v17 linked-open-data revision</span></p>
 
 <div class="abstract" style="background:#effcfb;border-color:#b6e6e6;">
 <p><b>In three sentences.</b> Papers about the same thing in different fields cannot find each other,
@@ -677,6 +677,41 @@ and <i>practice report</i> — a real gap, reported rather than papered over by 
 label. Workshop and tutorial abstracts were excluded from the batch on principle: a syllabus states
 what will be taught, not what was found, and has no claim to ground a tag in.</p>
 
+<p><b>A disagreement, kept rather than smoothed over.</b> A second batch of five papers was
+tagged from the digital-humanities summer school this work comes out of, and one of them
+contradicts a design decision made here. Münz-Manor and Marienberg-Milikowsky [6] annotated a
+corpus of late-antique liturgical poetry twice, and report that they began without a tagset at
+all: <i>"although there existed a notion of a clear-cut categorization of figurative language in
+the corpus, no well-defined tagset was created"</i>, with the devices annotated in <i>"an entirely
+flat hierarchy of metaphor, metonymy, synecdoche and simile"</i>. What visualising the annotations
+then did was force the categories to change — <i>"after visualizing the material in this way, it
+often turns out that the categories themselves need to be re-assessed"</i> — until categorisation
+and visualisation formed <i>"a sort of hermeneutical circle in which both parts influence one
+another reciprocally"</i>. Their tagset is an <b>output</b> of the analysis.</p>
+
+<p>This layer does the opposite: the facets are fixed in advance and frozen, precisely so that a
+physics paper and a marketing paper are described by the same slots and can be compared at all.
+The two positions cannot both be right for the same purpose, and the honest reading is that they
+answer different questions. A scheme that emerges from a corpus fits that corpus better than any
+imported scheme could, and is the right instrument for asking what <i>this</i> material is doing.
+A scheme fixed in advance fits no corpus especially well, and is the only kind that can be a join
+key across corpora that have never been compared. What their result costs us is a real
+concession, and §4 is already the evidence for it: our frozen <code>phenomenon</code> facet did
+<i>not</i> collide across fields, which is exactly the failure mode a category imposed from
+outside should be expected to produce. What we would say back is that a tagset revised until it
+fits cannot then be used to measure whether two fields agree — the revision has absorbed the
+disagreement being measured. Their circle is a virtue for interpretation and a problem for
+comparison; our freeze is the reverse. Recording that trade-off is more useful than claiming the
+schema was right.</p>
+
+<p>The same batch supplies an argument this paper should have made earlier. Dekel and
+Marienberg-Milikowsky [7] attack distant reading at the same joint §1 does, and more precisely:
+its weakness, they write, <i>"lies in its exclusive reliance on canonical and authoritative
+historiographies, one or two for each national literature, something which is bound to
+over-simplify the complexities of national literatures"</i>. Their answer is to replace the
+authoritative summary with the aggregated readings of many people. Ours is to replace it with
+what each paper itself says, quoted. Both are refusals of the same shortcut.</p>
+
 <p>The convergence worth recording is empirical, not rhetorical. MEHDIE reports that general
 gazetteers <i>"contain few, if any, toponyms in the Semitic scripts relevant to the sources of Middle
 Eastern History"</i>, that <i>"Even Wikidata, which is essentially multilingual, shows low recall"</i>,
@@ -729,6 +764,8 @@ seeded the idea of a single, uniform tag layer. This work was carried out indepe
 <li>S. Rusinek, T. Sagi, M. Zaga, E. Lev, M. Lavee, "MEHDIE: The Middle East Heritage Data Integration Endeavor," <i>Digital Humanities 2023</i>, Graz (CC BY 4.0); extended as T. Sagi et al., <i>Digital Scholarship in the Humanities</i> 41(Suppl. 1), i238–i246, 2026, doi:10.1093/llc/fqaf111 — reconciliation across languages rather than disciplines.</li>
 <li>S. Isaj, E. Zimányi, T. B. Pedersen, "Multi-Source Spatial Entity Linkage," <i>SSDBM</i>, 2019, doi:10.1145/3340964.3340979 — entity linkage scored against labelled data, the contrast case for §8.1.</li>
 <li>W3C, <i>SKOS Simple Knowledge Organization System Reference</i>, Recommendation, 2009 — the concept-scheme model used for the vocabulary export.</li>
+<li>O. Münz-Manor, I. Marienberg-Milikowsky, "Visualization of Categorization: How to See the Wood and the Trees," <i>Digital Humanities Quarterly</i> 17(3), 2023 — a tagset that emerged from the analysis rather than preceding it.</li>
+<li>Y. Dekel, I. Marienberg-Milikowsky, "From Distant to Public Reading. The (Hebrew) Novel in the Eyes of Many," <i>magazén</i> 2(2), 225–252, 2021, doi:10.30687/mag/2724-3923/2021/01/003 — distant reading without the authoritative history.</li>
 </ol>
 
 <p class="foot">Preprint · v11 linked-open-data revision · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21432188 · cite via CITATION.cff in the project repository.
@@ -740,5 +777,8 @@ LLM-assisted adjudication) and the absence of an inter-rater study, and reconcil
 Earlier versions introduced the priming A·S·M analysis and the statistical join-key experiment. v11 reconciles the controlled vocabularies to Wikidata, publishes the layer as SKOS and W3C Web
 Annotation (§8.1), re-verifies 99.4% of verbatim spans by anchoring them as TextQuoteSelectors, adds nine
 digital-humanities papers as a facet stress test, adds a grounded study-location facet, and reduces the
-§5.3 negative-space claim to what the papers' own words support.</p>
+§5.3 negative-space claim to what the papers' own words support. v17 tags five papers from
+the digital-humanities summer school this work comes out of, and records a methodological
+disagreement with one of them rather than smoothing it over: their tagset emerged from the
+analysis, ours is frozen in advance, and §8.1 states what each choice buys and costs.</p>
 </body></html>
