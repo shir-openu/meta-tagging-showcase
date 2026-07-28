@@ -15,14 +15,52 @@
  ol.refs{font-size:.86rem;color:#3a4250;} ol.refs li{margin:.25rem 0;}
  figure{margin:1.2rem 0;text-align:center;} figcaption{color:#5a6675;font-size:.82rem;margin-top:.3rem;}
  @media print{body{margin:0;font-size:11.5pt;} figure{page-break-inside:avoid;} h2{page-break-after:avoid;}}
+
+ /* accordion: a summary you can read in a second, detail on demand */
+ details.sec{border:1px solid #e1e5ea;border-radius:9px;margin:.9rem 0;background:#fff;}
+ details.sec>summary{list-style:none;cursor:pointer;padding:.7rem .95rem;border-radius:9px;
+   display:block;position:relative;padding-inline-end:5.6rem;}
+ details.sec>summary::-webkit-details-marker{display:none;}
+ details.sec>summary:hover{background:#f7fafc;}
+ details.sec .h{font-size:1.08rem;font-weight:700;color:#161a22;margin-bottom:.2rem;}
+ details.sec .gist{color:#3a4250;font-size:.98rem;line-height:1.5;}
+ details.sec .more{position:absolute;top:.72rem;inset-inline-end:.8rem;font-size:.76rem;
+   font-weight:700;color:#00707a;background:#e2f6f7;border-radius:20px;padding:2px 11px;
+   white-space:nowrap;}
+ details.sec[open]>summary{border-bottom:1px solid #eef1f4;border-radius:9px 9px 0 0;}
+ details.sec[open]>summary .more::after{content:" \2212";}
+ details.sec:not([open])>summary .more::after{content:" +";}
+ details.sec .body{padding:.2rem 1.05rem .9rem;}
+ details.sec .body>h2{display:none;}
+ .readnote{background:#effcfb;border:1px solid #b6e6e6;border-left:5px solid #00838f;
+   border-radius:9px;padding:.6rem 1rem;margin:1.1rem 0;font-size:.93rem;}
+ @media print{
+   details.sec{border:0;margin:0;} details.sec>summary{padding:0;}
+   details.sec .more{display:none;} details.sec .gist{font-style:italic;color:#444;}
+   details.sec .body{padding:0;} details.sec .body>h2{display:block;}
+   details.sec .h{display:none;}
+ }
 </style></head><body>
 
 <h1>A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature: A Proof of Format</h1>
 <p class="authors">Shir Sivroni</p>
-<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v10 negative-space revision</span></p>
+<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v16 linked-open-data revision</span></p>
 
-<div class="abstract">
-<p><b>Abstract.</b> Academic knowledge is written almost entirely in natural language, which makes it
+<div class="abstract" style="background:#effcfb;border-color:#b6e6e6;">
+<p><b>In three sentences.</b> Papers about the same thing in different fields cannot find each other,
+because each field names it differently. This paper describes a tag layer that gives every paper the
+same small set of tags and forces each tag to quote the exact sentence it came from &mdash; then reports
+honestly what that does and does not buy: free-text names for a phenomenon almost never collide across
+fields, while a controlled vocabulary of statistical terms does create real cross-field joins. The same
+instrument, read in reverse, can point at regions of concept space that the literature occupies but has
+never named.</p>
+<p class="meta" style="margin:.4rem 0 0"><b>A note on two numbers.</b> The audited proof-of-format
+below is the frozen 126-paper corpus; the working corpus has since grown to 187 papers across 40
+disciplines, including a digital-humanities batch added as a deliberate stress test (&sect;8.1). Audited
+figures are not restated for the larger set, because they would have to be re-audited to be true.</p>
+</div>
+
+<details class="sec abs"><summary><div class="h">Abstract</div><div class="gist">The full abstract, with the audited figures.</div><span class="more">detail</span></summary><div class="body"> Academic knowledge is written almost entirely in natural language, which makes it
 readable by humans but hard to query <i>across</i> disciplines that use different words for related things.
 We describe a tag layer that assigns every paper the same small set of <b>field-neutral facets</b> —
 claim type, phenomenon (a normalised join key), claim relations, replication status, and limitations —
@@ -52,16 +90,18 @@ paradigm-specific names while <i>short-term implicit memory</i> and its variants
 Finally, the reliability of the tagging is now <b>measured</b> rather than asserted: an independent,
 blinded second coder re-coded 120 assignments, giving <b>&kappa; = 0.767</b> (95% CI 0.652–0.882),
 with the disagreement asymmetric in the direction of the original coding being stricter (§7).</p>
-</div>
+</div></div></details>
 
-<h2>1. Motivation</h2>
+<div class="readnote"><b>How to read this.</b> Every section below opens with a
+one-sentence summary. Reading only those gives the whole argument. Click <b>detail +</b> on any
+section to expand it, and again to fold it away. The PDF has everything expanded.</div><details class="sec"><summary><div class="h">1. Motivation</div><div class="gist">Papers about the same thing in different fields cannot find each other, because each field names it differently.</div><span class="more">detail</span></summary><div class="body"><h2>1. Motivation</h2>
 <p>Most scholarly literature is natural-language prose. Cross-disciplinary work is therefore bottlenecked
 not by a lack of relevant results elsewhere, but by the difficulty of <i>finding</i> them: the same
 mechanism, method, or phenomenon appears under different names in different fields. Existing structured
 resources — ontologies, citation graphs, keyword indexes — either require heavy per-field curation or
 capture topic words that are, by construction, discipline-specific and so useless as join keys.</p>
 
-<h2>2. The idea</h2>
+</div></details><details class="sec"><summary><div class="h">2. The idea</div><div class="gist">Describe every paper with the same small set of tags, and require each tag to quote the sentence it came from.</div><span class="more">detail</span></summary><div class="body"><h2>2. The idea</h2>
 <p>We tag each paper with a fixed, deliberately small set of <b>facets chosen to be field-neutral</b>
 (they describe the <i>shape</i> of a contribution, not its topic): <code>claim-type</code>
 (existence / mechanism / method / prediction / critique / null-result), <code>phenomenon</code>
@@ -76,7 +116,7 @@ layer from an ungrounded ontology
 human-auditable). The layer serves humans (HTML views with the licensing sentence attached) and machines
 (a single JSON record per paper) at once.</p>
 
-<h2>2.1 The data structure: one property graph over a grounded tag layer</h2>
+</div></details><details class="sec"><summary><div class="h">2.1 The data structure: one property graph over a grounded tag layer</div><div class="gist">One graph: papers and tags as nodes, each tag-to-paper edge carrying the exact words that justify it.</div><span class="more">detail</span></summary><div class="body"><h2>2.1 The data structure: one property graph over a grounded tag layer</h2>
 <p>The layer can be represented as a <b>property graph</b>, built in three layers (Fig.&nbsp;1). At the
 base is the <b>corpus</b> &mdash; 126 papers as raw, natural-language text, one record each. Over it sits
 the <b>grounded tag layer</b>: every paper carries the same field-neutral facets, and each non-trivial tag
@@ -180,7 +220,7 @@ lookup is expected O(1), but merging postings depends on their lengths and can b
 corpus-size-independent complexity is claimed.</figcaption>
 </figure>
 
-<h2>3. Corpus and method</h2>
+</div></details><details class="sec"><summary><div class="h">3. Corpus and method</div><div class="gist">A curated corpus spanning dozens of disciplines, tagged to one schema, with every tag checked against the paper's own text.</div><span class="more">detail</span></summary><div class="body"><h2>3. Corpus and method</h2>
 <p>The corpus is a curated, deliberately broad sample — an <i>existence proof of the format and
 procedure, not a claim of completeness or representativeness</i>. Each paper is stored as a single
 canonical record; the implemented build audits and validates statistical annotations, recalculates the
@@ -208,7 +248,7 @@ auditable against its sentence. <b>Click the figure</b> for the live page:
 <a href="https://shir-openu.github.io/meta-tagging-showcase/papers/newman2003-complex-networks.html">shir-openu.github.io/meta-tagging-showcase/papers/newman2003&hellip;</a>.</figcaption>
 </figure>
 
-<h2>4. Results</h2>
+</div></details><details class="sec"><summary><div class="h">4. Results</div><div class="gist">The honest null result: free-text phenomenon names almost never collide across fields, so as join keys they fail.</div><span class="more">detail</span></summary><div class="body"><h2>4. Results</h2>
 <p>116 papers across 38 disciplines were fully faceted.</p>
 <table>
 <tr><th>claim-type</th><td>method 55 · existence 42 · mechanism 9 · critique 8 · prediction 2 · null-result 0</td></tr>
@@ -225,7 +265,7 @@ free text — not more papers. A separate novelty scan, checking every cross-fie
 existing literature, found <b>no</b> connection that had not already been drawn; we report this null
 result plainly. The fix this points to — a canonical vocabulary — is tested directly in §5.</p>
 
-<h2>5. Audited statistical terms as cross-field join keys</h2>
+</div></details><details class="sec"><summary><div class="h">5. Audited statistical terms as cross-field join keys</div><div class="gist">What does work as a cross-field join key is the statistics — the same terms recur in every discipline, so they connect papers that share nothing else.</div><span class="more">detail</span></summary><div class="body"><h2>5. Audited statistical terms as cross-field join keys</h2>
 <p>§4 argued that the missing ingredient is a <i>canonical vocabulary</i>, not merely more papers. We
 therefore tested a frozen 24-term <code>statistic</code> vocabulary (<code>p-value</code>,
 <code>standard-deviation</code>, <code>confidence-interval</code>, <code>effect-size</code>,
@@ -292,7 +332,7 @@ than shared <i>words</i>, connects fields the free-text facet left disjoint (Fig
 <i>method</i> vocabulary is a weaker signal than a shared substantive finding — it marks where a
 connection <i>may</i> lie, consistent with the compass framing (§6), not a discovery.</p>
 
-<h2>5.1 A grounded test: does each field's priming actually carry the three features?</h2>
+</div></details><details class="sec"><summary><div class="h">5.1 A grounded test: does each field's priming actually carry the three features?</div><div class="gist">Applied to priming across nine disciplines: association and modulation always hold, and only secondariness can fail.</div><span class="more">detail</span></summary><div class="body"><h2>5.1 A grounded test: does each field's priming actually carry the three features?</h2>
 <p>Showing that "priming recurs across many fields" is trivial and long known; it needs no tool. The
 non-trivial, <i>falsifiable</i> question is whether <i>each</i> field's priming phenomenon actually
 instantiates the three defining features of the meta-priming definition — <b>A · association</b> (a
@@ -357,7 +397,7 @@ measured data</i>. <b>Click the figure</b> for the live interactive version:
 <a href="https://shir-openu.github.io/meta-tagging-showcase/PRIMING_SCALE.html">shir-openu.github.io/meta-tagging-showcase/PRIMING_SCALE.html</a>.</figcaption>
 </figure>
 
-<h2>5.2 Querying the layer: an implemented static, client-side search</h2>
+</div></details><details class="sec"><summary><div class="h">5.2 Querying the layer: an implemented static, client-side search</div><div class="gist">A search over the tag layer that runs entirely in the browser, with no server, so the demonstration cannot rot.</div><span class="more">detail</span></summary><div class="body"><h2>5.2 Querying the layer: an implemented static, client-side search</h2>
 <p>The revised search ships as static assets served over HTTP: a small manifest, a postings dictionary,
 and lazy-loadable metadata shards (500 records per shard by default). It needs no application server or
 query-time database, but it is no longer described as one embedded self-contained file. The interface
@@ -382,7 +422,7 @@ colour-tagged evidence. No application server; static HTTP hosting is required. 
 <a href="https://shir-openu.github.io/meta-tagging-showcase/SEARCH.html">shir-openu.github.io/meta-tagging-showcase/SEARCH.html</a>.</figcaption>
 </figure>
 
-<h2>5.3 The negative space: locating terms the literature lacks</h2>
+</div></details><details class="sec"><summary><div class="h">5.3 The negative space: locating terms the literature lacks</div><div class="gist">The same instrument that fails to find shared names can locate regions the literature occupies but never named — demonstrated for short-term implicit memory.</div><span class="more">detail</span></summary><div class="body"><h2>5.3 The negative space: locating terms the literature lacks</h2>
 <p>The null result of &sect;4 is usually read as a disappointment: free-text <code>phenomenon</code>
 strings almost never collide across fields, so they fail as join keys. Read the other way round, the
 same fact is a <b>detector</b>. If a set of papers occupies one region of the concept space and yet
@@ -477,14 +517,14 @@ distinction that reconciliation to a coarser authority would silently collapse, 
 for linking out to authorities rather than being replaced by them.</p>
 
 
-<h2>6. Framing: a compass, not an answer</h2>
+</div></details><details class="sec"><summary><div class="h">6. Framing: a compass, not an answer</div><div class="gist">This is a compass, not an answer: it points at where to look, and does not claim to settle what is found there.</div><span class="more">detail</span></summary><div class="body"><h2>6. Framing: a compass, not an answer</h2>
 <p>The layer is intended to enable <i>far reading</i> — a corpus-wide overview in the spirit of
 distant reading [1] — that indicates <i>where</i> a cross-disciplinary connection may lie, so that a
 scholar knows where to invest the slow <i>close reading</i> that can actually establish it. A surfaced
 link is a hypothesis to investigate, never a claimed discovery; because one cannot prove the absence of a
 prior connection, every candidate is presented with its literature check, not asserted.</p>
 
-<h2>6.1 Why a grounded layer, rather than reading on demand</h2>
+</div></details><details class="sec"><summary><div class="h">6.1 Why a grounded layer, rather than reading on demand</div><div class="gist">Because reading on demand does not scale, and an ungrounded summary cannot be checked by the person who did not do the reading.</div><span class="more">detail</span></summary><div class="body"><h2>6.1 Why a grounded layer, rather than reading on demand</h2>
 <p>A language model can read any paper in this corpus and answer questions about it, which invites the
 objection that a tagging layer is unnecessary machinery. The objection deserves a direct answer,
 because it determines what such a layer is <i>for</i>. It is not for access: these papers were always
@@ -518,7 +558,7 @@ design rationale for the layer, and as a worked demonstration in &sect;5.1, not 
 about human performance; establishing that would require a study of readers, which we have not run.</p>
 
 
-<h2>7. Limitations</h2>
+</div></details><details class="sec"><summary><div class="h">7. Limitations</div><div class="gist">Stated plainly: a curated corpus, single-coder tagging in places, a measured &kappa; of 0.767 on the statistical layer only, and facets that are not all grounded.</div><span class="more">detail</span></summary><div class="body"><h2>7. Limitations</h2>
 <ul>
 <li>The <code>statistic</code> facet (§5) records an accepted statistical or probabilistic occurrence,
 not necessarily a method the paper used. Sharing a key marks a candidate neighbourhood, a much weaker
@@ -560,7 +600,7 @@ not unbounded scale.</li>
 <li>Novelty claims are unfalsifiable in the strict sense; we can search and report, not prove a negative.</li>
 </ul>
 
-<h2>8. Relation to prior work</h2>
+</div></details><details class="sec"><summary><div class="h">8. Relation to prior work</div><div class="gist">TEI, Web Annotation, nanopublications and distant reading each do part of this; what is new is requiring all of it at once.</div><span class="more">detail</span></summary><div class="body"><h2>8. Relation to prior work</h2>
 <p>The layer sits between text-encoding standards (TEI), stand-off annotation models (the W3C Web
 Annotation Data Model [2]), machine-readable scientific assertions (nanopublications [3]), scholarly
 knowledge graphs, and computational distant reading [1]. Its distinguishing commitments are the union of
@@ -571,7 +611,7 @@ undrawn cross-field links — reported here honestly: free-text <code>phenomenon
 creates cross-field retrieval joins. These joins remain semantically and provenance-qualified, pointing
 the way to canonicalising the rest without claiming field invariance.</p>
 
-<h2>8.1 The same operation across languages and across disciplines</h2>
+</div></details><details class="sec"><summary><div class="h">8.1 The same operation across languages and across disciplines</div><div class="gist">A gazetteer reconciles a place name across languages; this layer reconciles a sentence across disciplines — the same operation, so the same standards fit.</div><span class="more">detail</span></summary><div class="body"><h2>8.1 The same operation across languages and across disciplines</h2>
 <p>The closest working analogue to this layer is not in text mining but in historical gazetteers.
 MEHDIE, a project linking Hebrew, Arabic and Syriac sources on Middle Eastern history, states the
 problem it exists to solve in terms that transfer exactly: <i>"Scholars in the Humanities often strive
@@ -647,7 +687,7 @@ centralised one — is an argument for building domain-grounded layers that <i>l
 authorities rather than waiting for those authorities to cover the domain. That is what this layer now
 does.</p>
 
-<h2>9. Availability</h2>
+</div></details><details class="sec"><summary><div class="h">9. Availability</div><div class="gist">Everything is public and rebuildable: corpus, code, vocabulary, annotations, and a rights manifest saying what may be redistributed and what may not.</div><span class="more">detail</span></summary><div class="body"><h2>9. Availability</h2>
 <p>A public showcase provides the report and, for the papers under a verified redistributable licence,
 the full colour-tagged text; every other paper shows the tag layer with short licensing excerpts and a
 link to the source, not the reproduced text. Redistribution rights are verified per paper (against the
@@ -682,7 +722,7 @@ Digital-Humanities-and-Social-Sciences (DHSS) summer school — a programme devo
 annotation. I thank its organisers, instructors, and participants, whose exercises and discussions
 seeded the idea of a single, uniform tag layer. This work was carried out independently, without research funding.</p>
 
-<ol class="refs">
+</div></details><ol class="refs">
 <li>F. Moretti, <i>Distant Reading</i>, 2013 — the "distant reading" framing this work adapts as "far reading."</li>
 <li>W3C, <i>Web Annotation Data Model</i>, Recommendation, 2017 — stand-off annotation with explicit targets.</li>
 <li>P. Groth, A. Gibson, J. Velterop, "The anatomy of a nanopublication," 2010 — minimal machine-readable assertions.</li>
