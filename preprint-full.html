@@ -91,7 +91,7 @@ figures are not restated for the larger set, because they would have to be re-au
 </div>
 
 <div class="abstract">
-<p class="fold" onclick="tp(this,event)"><span class="sum">Every paper gets the same small set of field-neutral tags, each forced to quote the sentence that licenses it — and the audit reports honestly what that buys: free-text names almost never join across fields, an audited statistical vocabulary does, and the same instrument, read in reverse, locates concepts the literature never named.<span class="cue"></span></span><span class="full"><b>Abstract.</b> Academic knowledge is written almost entirely in natural language, which makes it
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Every paper gets the same small set of field-neutral tags, each forced to quote the sentence that licenses it — and the audit reports honestly what that buys: free-text names almost never join across fields, an audited statistical vocabulary does, and the same instrument, read in reverse, locates concepts the literature never named.<span class="cue"></span></span><span class="full"><b>Abstract.</b> Academic knowledge is written almost entirely in natural language, which makes it
 readable by humans but hard to query <i>across</i> disciplines that use different words for related things.
 We describe a tag layer that assigns every paper the same small set of <b>field-neutral facets</b> —
 claim type, phenomenon (a normalised join key), claim relations, replication status, and limitations —
@@ -123,15 +123,15 @@ blinded second coder re-coded 120 assignments, giving <b>&kappa; = 0.767</b> (95
 with the disagreement asymmetric in the direction of the original coding being stricter (§7).<span class="cue"></span></span></p>
 </div>
 
-<div class="readnote"><b>How to read this.</b> Every paragraph below has been replaced by one sentence saying what it argues. <b>Click any of those sentences</b> to read the full paragraph behind it, and click again to fold it back. The figures and their legends are always shown. Nothing is omitted &mdash; the whole paper is here, one click deep. Press Ctrl+E to open everything at once; the PDF has everything open.</div><details class="sec" open><summary><div class="h">1. Motivation</div><div class="gist">Researchers cannot find the work in other fields that studies the same thing as their own, because each field calls it by a different name.</div><span class="more">section</span></summary><div class="body"><h2>1. Motivation</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Cross-field work fails not for lack of relevant results elsewhere but because every field names the same thing differently, and the existing structured resources index topics, which are field-specific by construction and therefore useless as join keys.<span class="cue"></span></span><span class="full">Most scholarly literature is natural-language prose. Cross-disciplinary work is therefore bottlenecked
+<div class="readnote"><b>This is the complete paper</b>, with every paragraph printed in full. The short version &mdash; one written sentence per paragraph, the same figures &mdash; is deposited beside this file, and the live page at shir-openu.github.io/meta-tagging-showcase/preprint.html shows those sentences with each paragraph one click behind its own.</div><details class="sec" open><summary><div class="h">1. Motivation</div><div class="gist">Researchers cannot find the work in other fields that studies the same thing as their own, because each field calls it by a different name.</div><span class="more">section</span></summary><div class="body"><h2>1. Motivation</h2>
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Cross-field work fails not for lack of relevant results elsewhere but because every field names the same thing differently, and the existing structured resources index topics, which are field-specific by construction and therefore useless as join keys.<span class="cue"></span></span><span class="full">Most scholarly literature is natural-language prose. Cross-disciplinary work is therefore bottlenecked
 not by a lack of relevant results elsewhere, but by the difficulty of <i>finding</i> them: the same
 mechanism, method, or phenomenon appears under different names in different fields. Existing structured
 resources — ontologies, citation graphs, keyword indexes — either require heavy per-field curation or
 capture topic words that are, by construction, discipline-specific and so useless as join keys.<span class="cue"></span></span></p>
 
 </div></details><details class="sec" open><summary><div class="h">2. The idea</div><div class="gist">Describe every paper with the same small set of tags, and require each tag to quote the sentence it came from.</div><span class="more">section</span></summary><div class="body"><h2>2. The idea</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Each paper carries the same five field-neutral facets — claim type, phenomenon, claim relations, replication status, limitations — under one non-negotiable rule: every tag must carry the verbatim sentence that licenses it.<span class="cue"></span></span><span class="full">We tag each paper with a fixed, deliberately small set of <b>facets chosen to be field-neutral</b>
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Each paper carries the same five field-neutral facets — claim type, phenomenon, claim relations, replication status, limitations — under one non-negotiable rule: every tag must carry the verbatim sentence that licenses it.<span class="cue"></span></span><span class="full">We tag each paper with a fixed, deliberately small set of <b>facets chosen to be field-neutral</b>
 (they describe the <i>shape</i> of a contribution, not its topic): <code>claim-type</code>
 (existence / mechanism / method / prediction / critique / null-result), <code>phenomenon</code>
 (a normalised name intended as a cross-field join key), <code>claim-relations</code>
@@ -146,7 +146,7 @@ human-auditable). The layer serves humans (HTML views with the licensing sentenc
 (a single JSON record per paper) at once.<span class="cue"></span></span></p>
 
 </div></details><details class="sec" open><summary><div class="h">2.1 The data structure: one property graph over a grounded tag layer</div><div class="gist">One graph: papers and tags as nodes, each tag-to-paper edge carrying the exact words that justify it.</div><span class="more">section</span></summary><div class="body"><h2>2.1 The data structure: one property graph over a grounded tag layer</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The layer is a three-level property graph: the raw corpus at the base, the grounded tag layer over it, and typed edges joining papers, tags, disciplines and canonical phenomena.<span class="cue"></span></span><span class="full">The layer can be represented as a <b>property graph</b>, built in three layers (Fig.&nbsp;1). At the
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The layer is a three-level property graph: the raw corpus at the base, the grounded tag layer over it, and typed edges joining papers, tags, disciplines and canonical phenomena.<span class="cue"></span></span><span class="full">The layer can be represented as a <b>property graph</b>, built in three layers (Fig.&nbsp;1). At the
 base is the <b>corpus</b> &mdash; 126 papers as raw, natural-language text, one record each. Over it sits
 the <b>grounded tag layer</b>: every paper carries the same field-neutral facets, and each non-trivial tag
 stores its licensing excerpt and provenance status. The implemented graph export reads these records as
@@ -158,7 +158,7 @@ phenomena), and projected cross-field links. The current export implements <code
 <code>HAS_CLAIM</code>, <code>HAS_PHENOMENON</code>, and audited <code>HAS_STATISTIC</code> edges;
 <code>ALIAS_OF</code>, <code>CONGRUENT_TO</code>, and projected links remain a proposed extension, not a
 measured output.<span class="cue"></span></span></p>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Two properties let it scale — verification becomes a set query instead of manual reading, and every facet value maps to a sorted postings list — but selective queries only avoid scanning unrelated records; they do not escape corpus size.<span class="cue"></span></span><span class="full">Two properties support scaling. First, verification becomes a <b>set query</b> rather than manual
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Two properties let it scale — verification becomes a set query instead of manual reading, and every facet value maps to a sorted postings list — but selective queries only avoid scanning unrelated records; they do not escape corpus size.<span class="cue"></span></span><span class="full">Two properties support scaling. First, verification becomes a <b>set query</b> rather than manual
 reading: &ldquo;does each priming phenomenon carry association, secondariness and modulation?&rdquo; is the
 intersection of four tag-sets, and its <i>complement</i> lists the exceptions automatically (&sect;5.1).
 Second, the implementation maps each facet value to a sorted postings list. Dictionary lookup is expected
@@ -214,7 +214,7 @@ edges (Layer&nbsp;3) over which verification becomes a query. Full specification
 <code>GRAPH_SCHEMA</code>.</figcaption>
 </figure>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">One JSON record per paper is the only source, and the build derives both classic structures — an inverted index and a typed adjacency list — from those records alone.<span class="cue"></span></span><span class="full">Concretely (Fig.&nbsp;2), each paper is one <b>record</b> &mdash; a JSON document holding its
+<p class="fold open" onclick="tp(this,event)"><span class="sum">One JSON record per paper is the only source, and the build derives both classic structures — an inverted index and a typed adjacency list — from those records alone.<span class="cue"></span></span><span class="full">Concretely (Fig.&nbsp;2), each paper is one <b>record</b> &mdash; a JSON document holding its
 facets and, for each audited statistical tag, the evidence excerpt, decision, reason, role, and provenance
 hashes. From these records the reproducible build derives two classic structures: an <b>inverted index</b>
 (a dictionary from a facet value to a sorted postings list of numeric document identifiers) and a typed
@@ -250,20 +250,20 @@ corpus-size-independent complexity is claimed.</figcaption>
 </figure>
 
 </div></details><details class="sec" open><summary><div class="h">3. Corpus and method</div><div class="gist">A curated corpus spanning dozens of disciplines, tagged to one schema, with every tag checked against the paper's own text.</div><span class="more">section</span></summary><div class="body"><h2>3. Corpus and method</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The corpus is a deliberately broad curated sample rather than a representative one, and the re-audit showed the intended character-level grounding was not consistently preserved, so grounding status is now an explicit field instead of an assumption.<span class="cue"></span></span><span class="full">The corpus is a curated, deliberately broad sample — an <i>existence proof of the format and
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The corpus is a deliberately broad curated sample rather than a representative one, and the re-audit showed the intended character-level grounding was not consistently preserved, so grounding status is now an explicit field instead of an assumption.<span class="cue"></span></span><span class="full">The corpus is a curated, deliberately broad sample — an <i>existence proof of the format and
 procedure, not a claim of completeness or representativeness</i>. Each paper is stored as a single
 canonical record; the implemented build audits and validates statistical annotations, recalculates the
 reported quantities, derives search shards and postings, exports a typed adjacency list, and regenerates
 the audit and paper views. The original faceting process intended character-level grounding, but the
 present re-audit shows that this invariant was not consistently preserved. Grounding status and hashes
 are now explicit fields, and unverified excerpts are reported rather than silently treated as exact.<span class="cue"></span></span></p>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Ten of 126 papers could not be faceted, every one because of a garbled text layer rather than resistant content — so that failure rate measures digitisation quality, not the tagging method.<span class="cue"></span></span><span class="full"><b>Data quality.</b> Of 126 papers, <b>10 (7.9%)</b> could not be faceted — all because of a
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Ten of 126 papers could not be faceted, every one because of a garbled text layer rather than resistant content — so that failure rate measures digitisation quality, not the tagging method.<span class="cue"></span></span><span class="full"><b>Data quality.</b> Of 126 papers, <b>10 (7.9%)</b> could not be faceted — all because of a
 <i>garbled source text layer</i> (image-only scans, dropped characters, interleaved sources), not because
 their content resisted the method. On clean text the method faceted 116/116. This failure rate therefore
 measures digitisation/sourcing quality, not the tagging method; we record such papers under an explicit
 <code>untaggable</code> tag rather than dropping them silently.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Every open-access paper is rendered as a colour-tagged reading view so a human can audit each tag against the sentence that licenses it; paywalled papers are linked by DOI, never reproduced.<span class="cue"></span></span><span class="full"><b>How a record is read back.</b> Every open-access paper is rendered as a
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Every open-access paper is rendered as a colour-tagged reading view so a human can audit each tag against the sentence that licenses it; paywalled papers are linked by DOI, never reproduced.<span class="cue"></span></span><span class="full"><b>How a record is read back.</b> Every open-access paper is rendered as a
 <b>colour-tagged reading view</b> (Fig.&nbsp;3): the same facets shown inline over the paper's own text,
 each tag colour-coded and labelled with its type, so a human can audit every tag against the sentence that
 licenses it. Paywalled papers are linked by DOI, not reproduced.<span class="cue"></span></span></p>
@@ -279,12 +279,12 @@ auditable against its sentence. <b>Click the figure</b> for the live page:
 
 </div></details><details class="sec" open><summary><div class="h">4. Results</div><div class="gist">The honest null result: free-text phenomenon names almost never collide across fields, so as join keys they fail.</div><span class="more">section</span></summary><div class="body"><h2>4. Results</h2>
 <p>116 papers across 38 disciplines were fully faceted.</p>
-<details class="tbl"><summary><b>Table</b> &mdash; claim-type, replication-status, grounded relations &middot; 2 rows</summary><table>
+<details class="tbl" open><summary><b>Table</b> &mdash; claim-type, replication-status, grounded relations &middot; 2 rows</summary><table>
 <tr><th>claim-type</th><td>method 55 · existence 42 · mechanism 9 · critique 8 · prediction 2 · null-result 0</td></tr>
 <tr><th>replication-status</th><td>untested 113 · replicated 3 · (failed/contested 0 — see §7)</td></tr>
 <tr><th>grounded relations</th><td>127 claim-relations, 87 limitations — all substring-verified</td></tr>
 </table></details>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The central null result: written as free text the phenomenon strings almost never collide — exactly one pair of disciplines shares one verbatim — so what is missing is a canonical vocabulary, not more papers.<span class="cue"></span></span><span class="full"><b>The central honest finding.</b> As free-written strings, the 113 distinct <code>phenomenon</code>
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The central null result: written as free text the phenomenon strings almost never collide — exactly one pair of disciplines shares one verbatim — so what is missing is a canonical vocabulary, not more papers.<span class="cue"></span></span><span class="full"><b>The central honest finding.</b> As free-written strings, the 113 distinct <code>phenomenon</code>
 values almost never coincide across fields: only <b>1</b> pair of disciplines shares a phenomenon string
 verbatim. The bridging one might hope for (e.g. a "priming" or "power-law" motif recurring across many
 fields) is real at the level of shared <i>concepts</i>, but the strict, verbatim-anchored phenomenon
@@ -295,7 +295,7 @@ existing literature, found <b>no</b> connection that had not already been drawn;
 result plainly. The fix this points to — a canonical vocabulary — is tested directly in §5.<span class="cue"></span></span></p>
 
 </div></details><details class="sec" open><summary><div class="h">5. Audited statistical terms as cross-field join keys</div><div class="gist">What does work as a cross-field join key is the statistics — the same terms recur in every discipline, so they connect papers that share nothing else.</div><span class="more">section</span></summary><div class="body"><h2>5. Audited statistical terms as cross-field join keys</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">To test that fix directly we froze a 24-term statistical vocabulary, which travels across fields better than topic words but still marks a place to look, not proof that two papers did the same thing.<span class="cue"></span></span><span class="full">§4 argued that the missing ingredient is a <i>canonical vocabulary</i>, not merely more papers. We
+<p class="fold open" onclick="tp(this,event)"><span class="sum">To test that fix directly we froze a 24-term statistical vocabulary, which travels across fields better than topic words but still marks a place to look, not proof that two papers did the same thing.<span class="cue"></span></span><span class="full">§4 argued that the missing ingredient is a <i>canonical vocabulary</i>, not merely more papers. We
 therefore tested a frozen 24-term <code>statistic</code> vocabulary (<code>p-value</code>,
 <code>standard-deviation</code>, <code>confidence-interval</code>, <code>effect-size</code>,
 <code>correlation</code>, <code>regression</code>, <code>hypothesis-testing</code>, …). Statistical terms
@@ -303,7 +303,7 @@ usually have more stable cross-field semantics than topic phrases, but they are 
 field-invariant: estimators, tests, parameterisations, and reporting conventions vary. A shared term is
 therefore a retrieval key, not evidence that two papers used an identical operation or reached a
 substantively comparable result.<span class="cue"></span></span></p>
-<p class="fold" onclick="tp(this,event)"><span class="sum">All 519 legacy paper–term assignments were re-audited against explicit written rules: 420 accepted, 99 rejected (19.1%), none left unresolved.<span class="cue"></span></span><span class="full"><b>Audit protocol.</b> The unit was a paper–term assignment. The re-audit was <b>rule-based with
+<p class="fold open" onclick="tp(this,event)"><span class="sum">All 519 legacy paper–term assignments were re-audited against explicit written rules: 420 accepted, 99 rejected (19.1%), none left unresolved.<span class="cue"></span></span><span class="full"><b>Audit protocol.</b> The unit was a paper–term assignment. The re-audit was <b>rule-based with
 LLM-assisted adjudication</b>: explicit semantic and provenance rules were applied programmatically, and
 borderline cases were adjudicated against those rules with model assistance. An independent
 second coder later re-coded a stratified sample of these decisions, yielding &kappa; = 0.767 (see §7). A term was
@@ -315,7 +315,7 @@ non-inferential uses of “significant”, class probabilities labelled <i>p</i>
 <b>519</b> legacy assignments: <b>420 accepted</b> and <b>99 rejected</b> (19.1%), with no unresolved audit
 decisions. The tag indicates an accepted occurrence, which may be a focal use or a substantive mention;
 it does <i>not</i> by itself assert that the paper employed that method.<span class="cue"></span></span></p>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Because the legacy corpus preserved uneven provenance, the semantically accepted set and the stricter exact-local-body subset are reported side by side rather than quietly merged.<span class="cue"></span></span><span class="full"><b>Grounding sensitivity analysis.</b> The legacy corpus did not preserve equally strong provenance for
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Because the legacy corpus preserved uneven provenance, the semantically accepted set and the stricter exact-local-body subset are reported side by side rather than quietly merged.<span class="cue"></span></span><span class="full"><b>Grounding sensitivity analysis.</b> The legacy corpus did not preserve equally strong provenance for
 every excerpt. Of the 420 semantically accepted assignments, <b>272</b> have an exact normalized excerpt
 located in the locally stored article body; 97 belong to papers whose source text is not stored locally,
 41 excerpts were not located exactly in the extracted body, and 10 supplied excerpts resolve to a
@@ -325,7 +325,7 @@ is a provenance check, not an unbiased lower bound, because local source availab
 <p>Across the full accepted set, at least one statistical key occurs in <b>100 of 126 papers</b> and
 <b>37 of 39 disciplines</b>. The strict exact-local-body subset contains <b>272 assignments in 77 papers
 across 32 disciplines</b>. The recalculated term-level results are:</p>
-<details class="tbl"><summary><b>Table</b> &mdash; join key, accepted: papers / disciplines, exact local body: papers / disciplines &middot; 6 rows</summary><table>
+<details class="tbl" open><summary><b>Table</b> &mdash; join key, accepted: papers / disciplines, exact local body: papers / disciplines &middot; 6 rows</summary><table>
 <tr><th>join key</th><th>accepted: papers / disciplines</th><th>exact local body: papers / disciplines</th></tr>
 <tr><td><code>mean</code></td><td>59 / 31</td><td>39 / 25</td></tr>
 <tr><td><code>standard-deviation</code></td><td>34 / 24</td><td>23 / 15</td></tr>
@@ -334,18 +334,18 @@ across 32 disciplines</b>. The recalculated term-level results are:</p>
 <tr><td><code>statistical-significance</code></td><td>27 / 19</td><td>18 / 13</td></tr>
 <tr><td><code>p-value</code></td><td>24 / 17</td><td>10 / 9</td></tr>
 </table></details>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Under audit the headline p-value and standard-deviation neighbourhood shrinks from 14 papers in 13 disciplines to 10 in 10, and to 3 in 3 under strict grounding.<span class="cue"></span></span><span class="full">The previously reported <code>p-value</code> + <code>standard-deviation</code> neighbourhood also changes:
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Under audit the headline p-value and standard-deviation neighbourhood shrinks from 14 papers in 13 disciplines to 10 in 10, and to 3 in 3 under strict grounding.<span class="cue"></span></span><span class="full">The previously reported <code>p-value</code> + <code>standard-deviation</code> neighbourhood also changes:
 it contains <b>10 papers across 10 disciplines</b> in the accepted analysis, not 14 papers across 13
 disciplines. Requiring both excerpts to be exact local-body matches leaves <b>3 papers across 3
 disciplines</b>. These co-occurrences define candidates for comparison; they do not establish substantive
 equivalence.<span class="cue"></span></span></p>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The revised result is narrower than first claimed but the structural point survives: a controlled namespace produces more cross-field joins than highly specific free text.<span class="cue"></span></span><span class="full">The revised result is narrower than the original claim but still supports the structural point: a
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The revised result is narrower than first claimed but the structural point survives: a controlled namespace produces more cross-field joins than highly specific free text.<span class="cue"></span></span><span class="full">The revised result is narrower than the original claim but still supports the structural point: a
 controlled namespace produces more cross-field joins than highly specific free-text phenomenon strings.
 It is evidence for the retrieval design, not proof that statistical vocabulary is field-invariant or that
 the joins are scientifically novel. The natural next step is a similarly audited canonical
 <code>phenomenon</code> namespace.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">A first structural test: the priming schema groups 16 papers across 8 disciplines under one canonical phenomenon even though each field names it differently.<span class="cue"></span></span><span class="full"><b>A first structural test already supports this.</b> Our priming schema — the association /
+<p class="fold open" onclick="tp(this,event)"><span class="sum">A first structural test: the priming schema groups 16 papers across 8 disciplines under one canonical phenomenon even though each field names it differently.<span class="cue"></span></span><span class="full"><b>A first structural test already supports this.</b> Our priming schema — the association /
 secondariness / modulation slots — groups <b>16 papers across 8 disciplines</b> (neuroscience,
 cognitive and social psychology, behavioral economics, economics, marketing, education, linguistics)
 under one canonical phenomenon, even though each field names it differently. Detected on the tag graph,
@@ -362,14 +362,14 @@ than shared <i>words</i>, connects fields the free-text facet left disjoint (Fig
 connection <i>may</i> lie, consistent with the compass framing (§6), not a discovery.</p>
 
 </div></details><details class="sec" open><summary><div class="h">5.1 A grounded test: does each field's priming actually carry the three features?</div><div class="gist">Applied to priming across nine disciplines: association and modulation always hold, and only secondariness can fail.</div><span class="more">section</span></summary><div class="body"><h2>5.1 A grounded test: does each field's priming actually carry the three features?</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The non-trivial question is not whether priming recurs across fields — that is long known — but whether each field's priming actually carries all three defining features, grounded verbatim in that paper's own text.<span class="cue"></span></span><span class="full">Showing that "priming recurs across many fields" is trivial and long known; it needs no tool. The
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The non-trivial question is not whether priming recurs across fields — that is long known — but whether each field's priming actually carries all three defining features, grounded verbatim in that paper's own text.<span class="cue"></span></span><span class="full">Showing that "priming recurs across many fields" is trivial and long known; it needs no tool. The
 non-trivial, <i>falsifiable</i> question is whether <i>each</i> field's priming phenomenon actually
 instantiates the three defining features of the meta-priming definition — <b>A · association</b> (a
 prime–target relation), <b>S · secondariness</b> (the prime is incidental / prior / task-irrelevant, not
 the reported object itself), and <b>M · modulation</b> (the outcome differs from a baseline) —
 <i>grounded verbatim in that paper's own text</i>. We turned each feature into a checkable,
 verbatim-anchored tag and audited all 16 priming papers across the 8 disciplines.<span class="cue"></span></span></p>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Association and modulation hold in 16 of 16 papers; secondariness, the feature that can fail, is grounded in 14, and the two exceptions are genuine boundary findings.<span class="cue"></span></span><span class="full">Association and modulation are <i>structural</i>: they are read directly from the tagged
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Association and modulation hold in 16 of 16 papers; secondariness, the feature that can fail, is grounded in 14, and the two exceptions are genuine boundary findings.<span class="cue"></span></span><span class="full">Association and modulation are <i>structural</i>: they are read directly from the tagged
 prime→target and baseline→outcome slots, and hold in <b>16/16</b> papers. Secondariness is the
 <i>discriminating</i> test — the prime must be textually marked as incidental, prior, or task-irrelevant,
 and it <b>can fail</b>. It is grounded in <b>14/16</b> papers; the two exceptions are findings, not noise:<span class="cue"></span></span></p>
@@ -379,7 +379,7 @@ schema — the object of instruction, not an incidental cue — so secondariness
 <li><b>Neuroscience</b> (serial-order motor control): motor <i>pre-activation</i> is a constitutive part
 of the produced action, not a task-irrelevant prime.</li>
 </ul>
-<p class="fold" onclick="tp(this,event)"><span class="sum">This is what grounding buys: the layer does not rubber-stamp the definition, it locates the boundary where a field stretches it, and the whole check is one tag intersection whose complement lists the exceptions automatically.<span class="cue"></span></span><span class="full">This is the payoff of grounding: the layer does not rubber-stamp the definition, it <b>locates the
+<p class="fold open" onclick="tp(this,event)"><span class="sum">This is what grounding buys: the layer does not rubber-stamp the definition, it locates the boundary where a field stretches it, and the whole check is one tag intersection whose complement lists the exceptions automatically.<span class="cue"></span></span><span class="full">This is the payoff of grounding: the layer does not rubber-stamp the definition, it <b>locates the
 boundary</b> where a field's usage of "priming" stretches it. The verification is a tag intersection —
 <code>phenomenon = priming AND feature:association AND feature:secondariness AND feature:modulation</code>
 — whose <i>complement</i> surfaces the exceptions automatically. In the implemented sorted-postings index,
@@ -409,7 +409,7 @@ modulation are read from the structural slots (16/16); secondariness is a textua
 <a href="https://shir-openu.github.io/meta-tagging-showcase/PRIMING_SCALE.html">shir-openu.github.io/meta-tagging-showcase/PRIMING_SCALE.html</a>.</figcaption>
 </figure>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">At scale the same query draws one canonical priming node wired to its three features, each surrounding discipline coloured by whether all three hold or one is under-met.<span class="cue"></span></span><span class="full"><b>What it looks like at scale.</b> The same indexed query can be evaluated over a thousands-paper
+<p class="fold open" onclick="tp(this,event)"><span class="sum">At scale the same query draws one canonical priming node wired to its three features, each surrounding discipline coloured by whether all three hold or one is under-met.<span class="cue"></span></span><span class="full"><b>What it looks like at scale.</b> The same indexed query can be evaluated over a thousands-paper
 corpus, with cost determined by the selected postings and output: one canonical <i>priming</i> node wired to its three
 defining features, surrounded by the disciplines that study it, each field coloured by whether all three
 features hold (turquoise) or one is under-met (red-wine — an exception to investigate). The corpus itself is one
@@ -427,7 +427,7 @@ measured data</i>. <b>Click the figure</b> for the live interactive version:
 </figure>
 
 </div></details><details class="sec" open><summary><div class="h">5.2 Querying the layer: an implemented static, client-side search</div><div class="gist">A search over the tag layer that runs entirely in the browser, with no server, so the demonstration cannot rot.</div><span class="more">section</span></summary><div class="body"><h2>5.2 Querying the layer: an implemented static, client-side search</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The search is plain static files — a manifest, a postings dictionary and lazy shards — so anyone can query the facets across all fields at once with no server and no database behind it.<span class="cue"></span></span><span class="full">The revised search ships as static assets served over HTTP: a small manifest, a postings dictionary,
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The search is plain static files — a manifest, a postings dictionary and lazy shards — so anyone can query the facets across all fields at once with no server and no database behind it.<span class="cue"></span></span><span class="full">The revised search ships as static assets served over HTTP: a small manifest, a postings dictionary,
 and lazy-loadable metadata shards (500 records per shard by default). It needs no application server or
 query-time database, but it is no longer described as one embedded self-contained file. The interface
 exposes exactly the facets the layer defines.
@@ -452,7 +452,7 @@ colour-tagged evidence. No application server; static HTTP hosting is required. 
 </figure>
 
 </div></details><details class="sec" open><summary><div class="h">5.3 The negative space: locating terms the literature lacks</div><div class="gist">The same instrument that fails to find shared names can locate regions the literature occupies but never named — demonstrated for short-term implicit memory.</div><span class="more">section</span></summary><div class="body"><h2>5.3 The negative space: locating terms the literature lacks</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">Read the other way round, the null result becomes a detector: a region of concept space that is populated yet shares no label is evidence the literature never coined a term for it — something no citation graph can show, because it operates on links between papers, not on the words they failed to share.<span class="cue"></span></span><span class="full">The null result of &sect;4 is usually read as a disappointment: free-text <code>phenomenon</code>
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Read the other way round, the null result becomes a detector: a region of concept space that is populated yet shares no label is evidence the literature never coined a term for it — something no citation graph can show, because it operates on links between papers, not on the words they failed to share.<span class="cue"></span></span><span class="full">The null result of &sect;4 is usually read as a disappointment: free-text <code>phenomenon</code>
 strings almost never collide across fields, so they fail as join keys. Read the other way round, the
 same fact is a <b>detector</b>. If a set of papers occupies one region of the concept space and yet
 shares no canonical label, that is not merely a retrieval failure &mdash; it is evidence that the
@@ -461,20 +461,20 @@ already has is a catalogue. A layer that can point at vocabulary a field is <i>m
 something else, and nothing in a citation graph can do it: co-citation and bibliographic coupling
 operate on the links between papers, not on the words the papers failed to share.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">The procedure is to cross two established dimensions and look for cells that are populated but unnamed, claiming absence only where the region is demonstrably occupied.<span class="cue"></span></span><span class="full"><b>The procedure.</b> Take two dimensions that the literature already treats as established, cross
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The procedure is to cross two established dimensions and look for cells that are populated but unnamed, claiming absence only where the region is demonstrably occupied.<span class="cue"></span></span><span class="full"><b>The procedure.</b> Take two dimensions that the literature already treats as established, cross
 them, and ask which cells are <i>populated but unnamed</i>. Operationally, over the tag layer: find
 papers that cluster on their tagged attributes yet share no tier-1 key phrase &mdash; a populated
 cluster with no dominant canonical label is a candidate missing term. The test is deliberately
 conservative: absence of a term is claimed only when the region is demonstrably occupied.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">The memory taxonomies cross duration against awareness asymmetrically, leaving the cell that would be called short-term implicit memory crowded with data and almost without a name.<span class="cue"></span></span><span class="full"><b>A worked case.</b> The canonical memory taxonomies cross duration against awareness, but not
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The memory taxonomies cross duration against awareness asymmetrically, leaving the cell that would be called short-term implicit memory crowded with data and almost without a name.<span class="cue"></span></span><span class="full"><b>A worked case.</b> The canonical memory taxonomies cross duration against awareness, but not
 symmetrically. <i>Implicit</i> is filed under long-term non-declarative memory &mdash; procedural
 skill and priming &mdash; while <i>short-term</i> is treated as working memory and tacitly explicit.
 The cell that would be named <b>short-term implicit memory</b> is therefore crowded with data and
 thin on name &mdash; there is no standard box for it in the diagrams, and the phrase itself is barely used. Counting occurrences in
 titles and abstracts (OpenAlex, July 2026) gives:<span class="cue"></span></span></p>
 
-<details class="tbl"><summary><b>Table</b> &mdash; Term, Works, Status &middot; 13 rows</summary><table>
+<details class="tbl" open><summary><b>Table</b> &mdash; Term, Works, Status &middot; 13 rows</summary><table>
 <tr><th>Term</th><th>Works</th><th>Status</th></tr>
 <tr><td>short-term memory</td><td style="text-align:right">155,238</td><td>established axis</td></tr>
 <tr><td>working memory</td><td style="text-align:right">112,772</td><td>established axis</td></tr>
@@ -491,7 +491,7 @@ titles and abstracts (OpenAlex, July 2026) gives:<span class="cue"></span></span
 <tr><td>short-term priming</td><td style="text-align:right">172</td></tr>
 </table></details>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">About 4,350 works occupy that region under five paradigm-specific names against roughly 52 under any unifying one: the concept is not absent but fragmented, which is why a researcher working in one paradigm has no name to search for the others by.<span class="cue"></span></span><span class="full">Roughly <b>4,350</b> works occupy the region under five paradigm- or modality-specific names,
+<p class="fold open" onclick="tp(this,event)"><span class="sum">About 4,350 works occupy that region under five paradigm-specific names against roughly 52 under any unifying one: the concept is not absent but fragmented, which is why a researcher working in one paradigm has no name to search for the others by.<span class="cue"></span></span><span class="full">Roughly <b>4,350</b> works occupy the region under five paradigm- or modality-specific names,
 while any unifying term for it appears in about <b>52</b> &mdash; a ratio near <b>80:1</b>. The
 correct claim is therefore <i>not</i> that the concept is absent; it plainly is not, since thousands
 of studies operate there. The claim is that the region is <b>fragmented</b>: each paradigm names its
@@ -503,7 +503,7 @@ seconds and expressed without the subject being asked to remember. Every short-t
 &sect;5.1 depends on such memory, yet no facet of the taxonomies picks it out, which is why a researcher working in one
 of those paradigms has no name to search for the others by.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">This establishes that the gap is locatable and countable rather than impressionistic — not that the missing term ought to be adopted, and one worked case is a method with an example, not a survey.<span class="cue"></span></span><span class="full"><b>What this does and does not establish.</b> It does not show that the missing term <i>ought</i>
+<p class="fold open" onclick="tp(this,event)"><span class="sum">This establishes that the gap is locatable and countable rather than impressionistic — not that the missing term ought to be adopted, and one worked case is a method with an example, not a survey.<span class="cue"></span></span><span class="full"><b>What this does and does not establish.</b> It does not show that the missing term <i>ought</i>
 to be adopted; naming is a decision for the field, and a term that unifies at one level may obscure
 distinctions at another. It shows that the gap is <b>locatable and countable</b> rather than a matter
 of impression, and that the instrument which located it is the same one that failed to find
@@ -512,7 +512,7 @@ here as a method with a worked example, and the obvious next step is to run it s
 crossed dimensions of a field and report the full set of candidate gaps, including the ones that turn
 out on inspection to be adequately named already.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Two separate claims: the worked case above rests on its own evidence, while the corpus-wide sweep that follows is a weaker exercise which can come back small without touching it.<span class="cue"></span></span><span class="full"><b>Two claims, and they stand or fall separately.</b> What precedes this paragraph is a
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Two separate claims: the worked case above rests on its own evidence, while the corpus-wide sweep that follows is a weaker exercise which can come back small without touching it.<span class="cue"></span></span><span class="full"><b>Two claims, and they stand or fall separately.</b> What precedes this paragraph is a
 <i>worked case</i>: the region named by <b>short-term implicit memory</b> is demonstrably occupied —
 roughly 4,350 works under five paradigm-specific names against about 52 under any unifying one — and
 that case rests on its own evidence. It does not depend on how many other unnamed regions exist, and
@@ -520,7 +520,7 @@ nothing below revises it. What follows is a <i>separate and weaker</i> exercise:
 often the corpus's own vocabulary is missing from a global authority file. A sweep can come back small
 without touching a demonstrated case, and here it does.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Checked against Wikidata on three independent probes, only three of the corpus's own multi-word key phrases are genuinely absent — lexical decision, category accessibility and repetition suppression — so the earlier count of fourteen is corrected down, and the reduced figure is the one claimed.<span class="cue"></span></span><span class="full"><b>An external check, and a correction to the size of that second claim.</b> Once the tag
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Checked against Wikidata on three independent probes, only three of the corpus's own multi-word key phrases are genuinely absent — lexical decision, category accessibility and repetition suppression — so the earlier count of fourteen is corrected down, and the reduced figure is the one claimed.<span class="cue"></span></span><span class="full"><b>An external check, and a correction to the size of that second claim.</b> Once the tag
 vocabulary was reconciled to Wikidata (&sect;8.1), the sweep could be run against a global authority
 file rather than against a count of our own. The substrate matters here and constrains the result. The
 <code>concepts</code> facet is <i>analyst-assigned</i>: a label chosen to describe what a paper is
@@ -536,7 +536,7 @@ analyst-assigned concepts had suggested fourteen such gaps; seven of those turne
 three more to be project vocabulary rather than the literature's, so the honest figure is the smaller
 one. The claim in this paragraph is deliberately the reduced version.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Sharper than absence: five phrases survive only as redirects — social, semantic and conceptual priming all collapse into a single Wikidata item — which is the argument for linking out to authorities rather than being replaced by them.<span class="cue"></span></span><span class="full">A second pattern is sharper than absence. Five further multi-word phrases are reachable only
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Sharper than absence: five phrases survive only as redirects — social, semantic and conceptual priming all collapse into a single Wikidata item — which is the argument for linking out to authorities rather than being replaced by them.<span class="cue"></span></span><span class="full">A second pattern is sharper than absence. Five further multi-word phrases are reachable only
 through a redirect to a differently-titled article: <i>semantic priming</i>, <i>zero shot</i>,
 <i>variational inference</i>, <i>fault tolerant</i> and <i>scale free</i>. In the priming case, the
 authority file does not lack the term so much as <b>refuse the distinction</b> — <i>social priming</i>,
@@ -547,14 +547,14 @@ for linking out to authorities rather than being replaced by them.<span class="c
 
 
 </div></details><details class="sec" open><summary><div class="h">6. Framing: a compass, not an answer</div><div class="gist">This is a compass, not an answer: it points at where to look, and does not claim to settle what is found there.</div><span class="more">section</span></summary><div class="body"><h2>6. Framing: a compass, not an answer</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The layer is a compass, not an answer engine: it points at where a cross-field connection may lie so a scholar knows where to spend the slow close reading that alone can establish it.<span class="cue"></span></span><span class="full">The layer is intended to enable <i>far reading</i> — a corpus-wide overview in the spirit of
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The layer is a compass, not an answer engine: it points at where a cross-field connection may lie so a scholar knows where to spend the slow close reading that alone can establish it.<span class="cue"></span></span><span class="full">The layer is intended to enable <i>far reading</i> — a corpus-wide overview in the spirit of
 distant reading [1] — that indicates <i>where</i> a cross-disciplinary connection may lie, so that a
 scholar knows where to invest the slow <i>close reading</i> that can actually establish it. A surfaced
 link is a hypothesis to investigate, never a claimed discovery; because one cannot prove the absence of a
 prior connection, every candidate is presented with its literature check, not asserted.<span class="cue"></span></span></p>
 
 </div></details><details class="sec" open><summary><div class="h">6.1 Why a grounded layer, rather than reading on demand</div><div class="gist">Because reading on demand does not scale, and an ungrounded summary cannot be checked by the person who did not do the reading.</div><span class="more">section</span></summary><div class="body"><h2>6.1 Why a grounded layer, rather than reading on demand</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">If a model can already read any of these papers on demand, what is a tag layer for? Not access — these papers were always available — but four properties that reading on demand does not have.<span class="cue"></span></span><span class="full">A language model can read any paper in this corpus and answer questions about it, which invites the
+<p class="fold open" onclick="tp(this,event)"><span class="sum">If a model can already read any of these papers on demand, what is a tag layer for? Not access — these papers were always available — but four properties that reading on demand does not have.<span class="cue"></span></span><span class="full">A language model can read any paper in this corpus and answer questions about it, which invites the
 objection that a tagging layer is unnecessary machinery. The objection deserves a direct answer,
 because it determines what such a layer is <i>for</i>. It is not for access: these papers were always
 available. Four properties distinguish a grounded layer from reading on demand.<span class="cue"></span></span></p>
@@ -578,7 +578,7 @@ A model trained on the literature inherits the same vocabulary, and is therefore
 the words the literature never coined &mdash; the case in &sect;5.3 is not one an on-demand reader can
 be asked to find, because the query term does not exist.</li>
 </ul>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The fifth reason is human: the obstacle is rarely that a literature is inaccessible but that it is unrecognisable, and a shared notation makes the common structure visible — offered as design rationale, not as a measured claim about readers.<span class="cue"></span></span><span class="full">A fifth consideration is human rather than computational. The obstacle facing a researcher is
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The fifth reason is human: the obstacle is rarely that a literature is inaccessible but that it is unrecognisable, and a shared notation makes the common structure visible — offered as design rationale, not as a measured claim about readers.<span class="cue"></span></span><span class="full">A fifth consideration is human rather than computational. The obstacle facing a researcher is
 usually not that a relevant literature is inaccessible but that it is <i>unrecognisable</i>: a
 political scientist studying racially coded language has little reason to search a lexical-decision
 literature. Rendering both in a shared notation makes the common structure visible, and the attached
@@ -630,7 +630,7 @@ not unbounded scale.</li>
 </ul>
 
 </div></details><details class="sec" open><summary><div class="h">8. Relation to prior work</div><div class="gist">TEI, Web Annotation, nanopublications and distant reading each do part of this; what is new is requiring all of it at once.</div><span class="more">section</span></summary><div class="body"><h2>8. Relation to prior work</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">It sits among TEI, Web Annotation, nanopublications, knowledge graphs and distant reading; what is new is the union of mandatory verbatim grounding, field-neutral facets, and a claim about cross-field links that was actually tested.<span class="cue"></span></span><span class="full">The layer sits between text-encoding standards (TEI), stand-off annotation models (the W3C Web
+<p class="fold open" onclick="tp(this,event)"><span class="sum">It sits among TEI, Web Annotation, nanopublications, knowledge graphs and distant reading; what is new is the union of mandatory verbatim grounding, field-neutral facets, and a claim about cross-field links that was actually tested.<span class="cue"></span></span><span class="full">The layer sits between text-encoding standards (TEI), stand-off annotation models (the W3C Web
 Annotation Data Model [2]), machine-readable scientific assertions (nanopublications [3]), scholarly
 knowledge graphs, and computational distant reading [1]. Its distinguishing commitments are the union of
 (i) mandatory verbatim grounding of every tag, (ii) facets chosen to be field-neutral join keys rather
@@ -641,7 +641,7 @@ creates cross-field retrieval joins. These joins remain semantically and provena
 the way to canonicalising the rest without claiming field invariance.<span class="cue"></span></span></p>
 
 </div></details><details class="sec" open><summary><div class="h">8.1 The same operation across languages and across disciplines</div><div class="gist">A gazetteer reconciles a place name across languages; this layer reconciles a sentence across disciplines — the same operation, so the same standards fit.</div><span class="more">section</span></summary><div class="body"><h2>8.1 The same operation across languages and across disciplines</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The closest working analogue is not text mining but a historical gazetteer: discipline is to a tag layer what language is to a gazetteer — a surface form, an authority record, and a pointer back to where the form was found.<span class="cue"></span></span><span class="full">The closest working analogue to this layer is not in text mining but in historical gazetteers.
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The closest working analogue is not text mining but a historical gazetteer: discipline is to a tag layer what language is to a gazetteer — a surface form, an authority record, and a pointer back to where the form was found.<span class="cue"></span></span><span class="full">The closest working analogue to this layer is not in text mining but in historical gazetteers.
 MEHDIE, a project linking Hebrew, Arabic and Syriac sources on Middle Eastern history, states the
 problem it exists to solve in terms that transfer exactly: <i>"Scholars in the Humanities often strive
 for depth and rigor in a single field&hellip; This specialization and expertise, however, come at the
@@ -651,7 +651,7 @@ This layer reconciles a verbatim sentence written in one <i>discipline</i> to a 
 the quote. <b>Discipline is to a tag layer what language is to a gazetteer</b>, and the machinery is
 the same: a surface form, an authority record, and a pointer back to where the form was found.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Two existing standards already do this work — SKOS for the vocabularies, and the Web Annotation TextQuoteSelector, which turns out to be this project's house rule on verbatim grounding, already standardised by the W3C.<span class="cue"></span></span><span class="full">Taking that seriously has a concrete consequence, because two existing standards already do the
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Two existing standards already do this work — SKOS for the vocabularies, and the Web Annotation TextQuoteSelector, which turns out to be this project's house rule on verbatim grounding, already standardised by the W3C.<span class="cue"></span></span><span class="full">Taking that seriously has a concrete consequence, because two existing standards already do the
 work. Expressed in <b>SKOS</b>, each facet becomes a concept scheme and each tag an addressable
 concept with a URI, labels in more than one language, and an <code>exactMatch</code> or
 <code>closeMatch</code> to an external authority. Expressed in the <b>W3C Web Annotation Data
@@ -661,7 +661,7 @@ selector is this project's verbatim-grounding rule, already standardised: what h
 turns out to be a W3C rule, and adopting it costs nothing but makes the layer readable by tools that
 know nothing about this project.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Reconciliation to Wikidata succeeded completely for the structural facets (39/39 disciplines, 13/13 methods) and only partly for the substantive ones (15/25 statistics, 61/88 concepts) — an asymmetry that runs along the very gradient this layer was built for.<span class="cue"></span></span><span class="full"><b>What the conversion produced, and what it cost.</b> Reconciling the controlled vocabularies
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Reconciliation to Wikidata succeeded completely for the structural facets (39/39 disciplines, 13/13 methods) and only partly for the substantive ones (15/25 statistics, 61/88 concepts) — an asymmetry that runs along the very gradient this layer was built for.<span class="cue"></span></span><span class="full"><b>What the conversion produced, and what it cost.</b> Reconciling the controlled vocabularies
 against Wikidata succeeded completely for the structural facets and only partly for the substantive
 ones: <b>39 of 39</b> disciplines and <b>13 of 13</b> methods were linked, against <b>15 of 25</b>
 audited statistical terms and <b>61 of 88</b> concepts shared by two or more papers. A link was
@@ -671,7 +671,7 @@ further a term sits from the shared scaffolding of research and towards the spec
 field, the less likely a global authority file is to have it — which is the same gradient this layer
 was built to work along.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Converting the tags to annotations re-verified them independently of our own checker: 99.4% of publishable spans anchor exactly, once ellipsis-joined quotes, ligature and whitespace drift, and our own tag chips cutting quotes in half were fixed.<span class="cue"></span></span><span class="full">Re-expressing the tags as annotations also re-verified them, independently of this project's own
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Converting the tags to annotations re-verified them independently of our own checker: 99.4% of publishable spans anchor exactly, once ellipsis-joined quotes, ligature and whitespace drift, and our own tag chips cutting quotes in half were fixed.<span class="cue"></span></span><span class="full">Re-expressing the tags as annotations also re-verified them, independently of this project's own
 checker. Of <b>1,964</b> verbatim spans, <b>1,313 of the 1,321</b> whose paper text we are licensed to
 publish resolve to an exact position in the published page — <b>99.4%</b>; the remaining 643 sit on
 link-only pages where the rights audit removed the body text but kept every tag. Getting there
@@ -682,7 +682,7 @@ whitespace far more often than about words; and our own tag chips, interleaved w
 sentences, were cutting quotes in half. None of these were errors in the tags. All three were
 invisible until a standard was applied to them.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">The analogy stops at entities: a place match can be scored against ground truth, a concept match cannot — which is exactly why this layer demands a quote for every tag and reports κ instead of precision, and why 42 ambiguous place names had to be decided by hand.<span class="cue"></span></span><span class="full"><b>Where the analogy stops, and why the difference matters.</b> MEHDIE reconciles <i>entities</i>.
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The analogy stops at entities: a place match can be scored against ground truth, a concept match cannot — which is exactly why this layer demands a quote for every tag and reports κ instead of precision, and why 42 ambiguous place names had to be decided by hand.<span class="cue"></span></span><span class="full"><b>Where the analogy stops, and why the difference matters.</b> MEHDIE reconciles <i>entities</i>.
 Safed is a real place; a proposed match is right or wrong, so the method can be scored — the
 neighbouring literature reports 0.85 precision and 0.85 recall against a labelled set of 1,500 pairs
 [5]. This layer reconciles <i>concepts</i>, which have no such ground truth: whether two papers mean
@@ -695,7 +695,7 @@ test settles which one a paper means; the 42 ambiguous place strings had to be d
 the reason recorded beside each decision, and one string had to be decided per paper rather than
 once. That is the wall MEHDIE meets and answers with a reconciliation review interface.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Nine digital-humanities and Linked-Open-Data papers stress-tested the facets: they mostly held, with one clean failure — the method vocabulary fitted none of 4 of the 9 — reported as a gap rather than papered over by stretching a label.<span class="cue"></span></span><span class="full"><b>A stress test.</b> Nine papers on digital-humanities and Linked-Open-Data infrastructure were
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Nine digital-humanities and Linked-Open-Data papers stress-tested the facets: they mostly held, with one clean failure — the method vocabulary fitted none of 4 of the 9 — reported as a gap rather than papered over by stretching a label.<span class="cue"></span></span><span class="full"><b>A stress test.</b> Nine papers on digital-humanities and Linked-Open-Data infrastructure were
 tagged with the existing facets — MEHDIE, the Pelagios Network, Recogito, a spatial entity-linkage
 algorithm, an RDF provenance review, a graph-schema validation paper and three Linked-Open-Data case
 studies; 45 quotes, each verified against the paper's own text before ingestion. The facets mostly
@@ -706,7 +706,7 @@ and <i>practice report</i> — a real gap, reported rather than papered over by 
 label. Workshop and tutorial abstracts were excluded from the batch on principle: a syllabus states
 what will be taught, not what was found, and has no claim to ground a tag in.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">One seminar paper contradicts a decision made here: Münz-Manor and Marienberg-Milikowsky began with no tagset at all and let visualisation reshape their categories, so their tagset is an output of the analysis rather than an input to it.<span class="cue"></span></span><span class="full"><b>A disagreement, kept rather than smoothed over.</b> A second batch of five papers was
+<p class="fold open" onclick="tp(this,event)"><span class="sum">One seminar paper contradicts a decision made here: Münz-Manor and Marienberg-Milikowsky began with no tagset at all and let visualisation reshape their categories, so their tagset is an output of the analysis rather than an input to it.<span class="cue"></span></span><span class="full"><b>A disagreement, kept rather than smoothed over.</b> A second batch of five papers was
 tagged from the digital-humanities summer school this work comes out of, and one of them
 contradicts a design decision made here. Münz-Manor and Marienberg-Milikowsky [6] annotated a
 corpus of late-antique liturgical poetry twice, and report that they began without a tagset at
@@ -718,7 +718,7 @@ often turns out that the categories themselves need to be re-assessed"</i> — u
 and visualisation formed <i>"a sort of hermeneutical circle in which both parts influence one
 another reciprocally"</i>. Their tagset is an <b>output</b> of the analysis.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">This layer freezes its facets in advance, and the honest reading is that the two choices answer different questions: a scheme that emerges fits its own corpus best, and only a fixed one can serve as a join key across corpora never compared before.<span class="cue"></span></span><span class="full">This layer does the opposite: the facets are fixed in advance and frozen, precisely so that a
+<p class="fold open" onclick="tp(this,event)"><span class="sum">This layer freezes its facets in advance, and the honest reading is that the two choices answer different questions: a scheme that emerges fits its own corpus best, and only a fixed one can serve as a join key across corpora never compared before.<span class="cue"></span></span><span class="full">This layer does the opposite: the facets are fixed in advance and frozen, precisely so that a
 physics paper and a marketing paper are described by the same slots and can be compared at all.
 The two positions cannot both be right for the same purpose, and the honest reading is that they
 answer different questions. A scheme that emerges from a corpus fits that corpus better than any
@@ -733,7 +733,7 @@ disagreement being measured. Their circle is a virtue for interpretation and a p
 comparison; our freeze is the reverse. Recording that trade-off is more useful than claiming the
 schema was right.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">Dekel and Marienberg-Milikowsky attack distant reading at the same joint: they replace the authoritative summary with many people's readings, we replace it with what each paper itself says, quoted — two refusals of the same shortcut.<span class="cue"></span></span><span class="full">The same batch supplies an argument this paper should have made earlier. Dekel and
+<p class="fold open" onclick="tp(this,event)"><span class="sum">Dekel and Marienberg-Milikowsky attack distant reading at the same joint: they replace the authoritative summary with many people's readings, we replace it with what each paper itself says, quoted — two refusals of the same shortcut.<span class="cue"></span></span><span class="full">The same batch supplies an argument this paper should have made earlier. Dekel and
 Marienberg-Milikowsky [7] attack distant reading at the same joint §1 does, and more precisely:
 its weakness, they write, <i>"lies in its exclusive reliance on canonical and authoritative
 historiographies, one or two for each national literature, something which is bound to
@@ -741,7 +741,7 @@ over-simplify the complexities of national literatures"</i>. Their answer is to 
 authoritative summary with the aggregated readings of many people. Ours is to replace it with
 what each paper itself says, quoted. Both are refusals of the same shortcut.<span class="cue"></span></span></p>
 
-<p class="fold" onclick="tp(this,event)"><span class="sum">MEHDIE reports the same shape of gap on a different axis — even Wikidata has low recall for the Semitic-script toponyms their sources use — which argues for domain-grounded layers that link out to central authorities instead of waiting for them.<span class="cue"></span></span><span class="full">The convergence worth recording is empirical, not rhetorical. MEHDIE reports that general
+<p class="fold open" onclick="tp(this,event)"><span class="sum">MEHDIE reports the same shape of gap on a different axis — even Wikidata has low recall for the Semitic-script toponyms their sources use — which argues for domain-grounded layers that link out to central authorities instead of waiting for them.<span class="cue"></span></span><span class="full">The convergence worth recording is empirical, not rhetorical. MEHDIE reports that general
 gazetteers <i>"contain few, if any, toponyms in the Semitic scripts relevant to the sources of Middle
 Eastern History"</i>, that <i>"Even Wikidata, which is essentially multilingual, shows low recall"</i>,
 and gives a specific case: Wikidata holds a modern Hebrew variant of a toponym but not the archaic
@@ -752,7 +752,7 @@ authorities rather than waiting for those authorities to cover the domain. That 
 does.<span class="cue"></span></span></p>
 
 </div></details><details class="sec" open><summary><div class="h">9. Availability</div><div class="gist">Everything is public and rebuildable: corpus, code, vocabulary, annotations, and a rights manifest saying what may be redistributed and what may not.</div><span class="more">section</span></summary><div class="body"><h2>9. Availability</h2>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The public showcase carries the report and, wherever redistribution rights were verified per paper, the full colour-tagged text; the repository adds the canonical corpus, the audit decisions, invariant validation and a one-command reproducible build.<span class="cue"></span></span><span class="full">A public showcase provides the report and, for the papers under a verified redistributable licence,
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The public showcase carries the report and, wherever redistribution rights were verified per paper, the full colour-tagged text; the repository adds the canonical corpus, the audit decisions, invariant validation and a one-command reproducible build.<span class="cue"></span></span><span class="full">A public showcase provides the report and, for the papers under a verified redistributable licence,
 the full colour-tagged text; every other paper shows the tag layer with short licensing excerpts and a
 link to the source, not the reproduced text. Redistribution rights are verified per paper (against the
 source landing page and the Crossref API) in an explicit <code>rights_manifest.json</code>; being
@@ -766,7 +766,7 @@ artifact</b> computed against each paper's full text; because most full text is 
 those grounding sub-counts are shipped as a fixed input rather than recomputed from the redistributed pages.
 It includes a <b>static, client-side search</b> over the tag layer and a generated statistics audit report. Live
 showcase: <a href="https://shir-openu.github.io/meta-tagging-showcase/">shir-openu.github.io/meta-tagging-showcase/</a>.<span class="cue"></span></span></p>
-<p class="fold" onclick="tp(this,event)"><span class="sum">The layer is also published in two standards it did not invent — SKOS and W3C Web Annotation, about 47,800 triples — with the reliability layer deliberately never exported and every asserted link carrying its own evidence.<span class="cue"></span></span><span class="full"><b>Linked Open Data.</b> The layer is also published in two standards it did not invent, at
+<p class="fold open" onclick="tp(this,event)"><span class="sum">The layer is also published in two standards it did not invent — SKOS and W3C Web Annotation, about 47,800 triples — with the reliability layer deliberately never exported and every asserted link carrying its own evidence.<span class="cue"></span></span><span class="full"><b>Linked Open Data.</b> The layer is also published in two standards it did not invent, at
 <a href="https://shir-openu.github.io/meta-tagging-showcase/lod/">/lod/</a>: a SKOS vocabulary
 (<code>vocab.jsonld</code>, <code>vocab.ttl</code>, and a browsable <code>vocab.html</code> carrying the
 same graph as embedded JSON-LD), the tags as a W3C Web Annotation collection
@@ -780,7 +780,7 @@ that matched and the type statement that licensed it, and the place decisions th
 adjudication are kept, with their reasons, in <code>DATA/place_adjudication.json</code>.
 A companion paper applies the same layer to a single phenomenon, testing a meta-disciplinary definition of priming against 38 tagged papers in 9 disciplines; the shared notation it uses is also implemented as the data model of an open experiment builder (<a href="https://shir-openu.github.io/PrimingToolbox/">PrimingToolbox</a>, <a href="https://github.com/shir-openu/PrimingToolbox">source</a>), in which a design-time check warns when a configured experiment violates the definition &mdash; so the same schema that describes published papers also constrains experiments not yet run. The inter-rater materials (coding manual, blinded sheet) are published at <code>kappa-study/</code>. Archived on Zenodo &mdash; DOI: <a href="https://doi.org/10.5281/zenodo.21432188">10.5281/zenodo.21432188</a>.<span class="cue"></span></span></p>
 
-<p style="margin-top:1.4rem" class="fold" onclick="tp(this,event)"><span class="sum">This work grew out of the Beyond Words DHSS summer school, whose organisers, instructors and participants seeded the idea of a single uniform tag layer; it was carried out independently, without funding.<span class="cue"></span></span><span class="full"><b>Acknowledgements.</b> This work grew out of the <i>Beyond Words</i>
+<p style="margin-top:1.4rem" class="fold open" onclick="tp(this,event)"><span class="sum">This work grew out of the Beyond Words DHSS summer school, whose organisers, instructors and participants seeded the idea of a single uniform tag layer; it was carried out independently, without funding.<span class="cue"></span></span><span class="full"><b>Acknowledgements.</b> This work grew out of the <i>Beyond Words</i>
 Digital-Humanities-and-Social-Sciences (DHSS) summer school — a programme devoted throughout to the
 <b>tagging and encoding of natural language</b>: close reading, TEI/XML text-encoding, and stand-off
 annotation. I thank its organisers, instructors, and participants, whose exercises and discussions
