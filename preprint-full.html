@@ -41,7 +41,7 @@
    details.sec .h{display:none;}
  }
 
- /* v19: one written summary sentence per paragraph; the paragraph itself on click */
+ /* v19: one written summary sentence per block; the block itself on click */
  p.fold{cursor:pointer;border-radius:7px;padding:.35rem .55rem;margin-inline-start:-.55rem;
    border-inline-start:3px solid #cfe9eb;background:#fcfdfd;transition:background .12s;}
  p.fold:hover{background:#f2fbfb;border-inline-start-color:#00707a;}
@@ -50,6 +50,18 @@
  p.fold.open .full{display:inline;}
  p.fold.open{background:#fff;border-inline-start-color:#00707a;}
  p.fold .sum{font-weight:500;color:#1e2530;}
+ li.fold{cursor:pointer;border-radius:7px;padding:.25rem .5rem;background:#fcfdfd;
+   transition:background .12s;margin-bottom:.25rem;}
+ li.fold:hover{background:#f2fbfb;}
+ li.fold .full{display:none;}
+ li.fold.open .sum{display:none;}
+ li.fold.open .full{display:inline;}
+ li.fold.open{background:#fff;}
+ li.fold .cue::after{content:"read it";color:#00707a;font-size:.68rem;font-weight:700;
+   letter-spacing:.02em;text-transform:uppercase;background:#e2f6f7;border-radius:20px;
+   padding:1px 8px;margin-inline-start:7px;white-space:nowrap;display:inline-block;
+   vertical-align:1px;}
+ li.fold.open .cue::after{content:"summary";background:#eef1f4;color:#5a6472;}
  p.fold .cue::after{content:"read the paragraph";color:#00707a;font-size:.72rem;
    font-weight:700;letter-spacing:.02em;text-transform:uppercase;background:#e2f6f7;
    border-radius:20px;padding:2px 10px;margin-inline-start:8px;white-space:nowrap;
@@ -64,10 +76,14 @@
  details.tbl>summary:hover{background:#f2fbfb;}
  details.tbl table{margin:0 0 .5rem;}
  figure{margin:1.3rem 0;}
+ .readnote .dl{display:inline-block;margin-top:.35rem;font-size:.88rem;}
+ .readnote .dl a{font-weight:600;}
  @media print{
-   p.fold .full{display:inline !important;} p.fold .sum{display:none !important;}
-   p.fold .cue{display:none;}
+   p.fold .full, li.fold .full{display:inline !important;}
+   p.fold .sum, li.fold .sum{display:none !important;}
+   p.fold .cue, li.fold .cue{display:none;}
    p.fold{padding:0;margin-inline-start:0;border:0;background:none;}
+   li.fold{padding:0;background:none;}
    details.tbl{border:0;background:none;} details.tbl>summary{display:none;}
  }
 </style></head><body>
@@ -96,14 +112,14 @@ readable by humans but hard to query <i>across</i> disciplines that use differen
 We describe a tag layer that assigns every paper the same small set of <b>field-neutral facets</b> —
 claim type, phenomenon (a normalised join key), claim relations, replication status, and limitations —
 under one non-negotiable design rule: <b>every tag must be licensed by an exact, verbatim sentence from
-the paper's own text</b> — a requirement this audit measures against the legacy data rather than assumes. We report a proof-of-<i>format</i> on a curated corpus of 126 papers spanning 39 disciplines
+the paper's own text</b> — a requirement this audit measures against the legacy data rather than assuming it was met. We report a proof-of-<i>format</i> on a curated corpus of 126 papers spanning 39 disciplines
 (1866–2023), of which 116 were fully faceted. The format is feasible and verifiable: 127 claim-relations
-and 87 limitations, each substring-checked against the source. It is also honest about what it did
+and 87 limitations, each substring-checked against the source. We are equally explicit about what it did
 <i>not</i> do: a novelty scan surfaced no cross-disciplinary link that the literature had not already
 drawn, and the phenomenon facets, written as specific verbatim-anchored strings, rarely collide across
 fields — indicating that a <b>canonical join vocabulary</b>, not free text, is the missing ingredient for
 surfacing new links. We argue the value of the layer is as a <b>compass for "far reading"</b> that points
-where slow close reading may be worthwhile, not as an answer engine. Finally, we validate the fix the
+to where slow close reading may be worthwhile, not as an answer engine. We then validate the fix the
 null result points to: a small controlled vocabulary of statistical terms supplies shared cross-field
 join keys, with the broadest audited term spanning <b>31 disciplines</b> (§5). A complete re-audit of
 519 legacy paper–term assignments rejected 99 (19.1%) and retained 420 semantically accepted assignments;
@@ -559,24 +575,24 @@ objection that a tagging layer is unnecessary machinery. The objection deserves 
 because it determines what such a layer is <i>for</i>. It is not for access: these papers were always
 available. Four properties distinguish a grounded layer from reading on demand.<span class="cue"></span></span></p>
 <ul>
-<li><b>Verifiability, not access.</b> A model that reads a paper and reports a property of it produces
+<li class="fold open" onclick="tp(this,event)"><span class="sum"><b>Verifiability, not access.</b> A model's claim about a paper cannot be checked without redoing the reading, whereas every assignment here carries the sentence that licenses it — so a reader who doubts a judgement can inspect the quote and disagree on the record.<span class="cue"></span></span><span class="full"><b>Verifiability, not access.</b> A model that reads a paper and reports a property of it produces
 a claim that cannot be checked without redoing the reading. Every assignment here instead carries the
 sentence that licenses it and an explicit provenance state, so a reader who doubts a judgement can
 inspect the quoted text and disagree on the record. As machine-generated summaries proliferate, the
-scarce commodity is not content but provenance for claims about content.</li>
-<li><b>Questions about the set, not the paper.</b> &ldquo;Which papers, in any field, carry both of
+scarce commodity is not content but provenance for claims about content.<span class="cue"></span></span></li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum"><b>Questions about the set, not the paper.</b> “Which papers, in any field, carry both of these terms?” is a set operation over an index, not a question you can put to a reader one paper at a time.<span class="cue"></span></span><span class="full"><b>Questions about the set, not the paper.</b> &ldquo;Which papers, in any field, carry both of
 these terms?&rdquo; is not a question one can put to a reader one paper at a time; it is a set
 operation over an index. Deep reading of a single document and population-level querying are
-complementary, and only the second needs a layer.</li>
-<li><b>Reproducibility.</b> A layer is computed once and queried repeatedly, returning the same answer
+complementary, and only the second needs a layer.<span class="cue"></span></span></li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum"><b>Reproducibility.</b> A layer is computed once and queried repeatedly with the same answer every time, so a disagreement about a number is settled by re-running the build rather than by trusting the author.<span class="cue"></span></span><span class="full"><b>Reproducibility.</b> A layer is computed once and queried repeatedly, returning the same answer
 each time; re-reading is neither cheap nor deterministic. Every count in this paper regenerates from
 the stored records, so a disagreement about a number is settled by re-running the build rather than by
-trusting the author, and a correction propagates to every statement that depends on it.</li>
-<li><b>Join keys must be constructed, not assumed.</b> A reader who knows one field inherits that
+trusting the author, and a correction propagates to every statement that depends on it.<span class="cue"></span></span></li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum"><b>Join keys must be constructed, not assumed.</b> A model trained on the literature inherits the literature's vocabulary and is therefore blind to the words it never coined — you cannot ask an on-demand reader to find a term that does not exist.<span class="cue"></span></span><span class="full"><b>Join keys must be constructed, not assumed.</b> A reader who knows one field inherits that
 field's vocabulary, which is precisely the barrier: the terms of &sect;5.3 do not retrieve one another.
 A model trained on the literature inherits the same vocabulary, and is therefore structurally blind to
 the words the literature never coined &mdash; the case in &sect;5.3 is not one an on-demand reader can
-be asked to find, because the query term does not exist.</li>
+be asked to find, because the query term does not exist.<span class="cue"></span></span></li>
 </ul>
 <p class="fold open" onclick="tp(this,event)"><span class="sum">The fifth reason is human: the obstacle is rarely that a literature is inaccessible but that it is unrecognisable, and a shared notation makes the common structure visible — offered as design rationale, not as a measured claim about readers.<span class="cue"></span></span><span class="full">A fifth consideration is human rather than computational. The obstacle facing a researcher is
 usually not that a relevant literature is inaccessible but that it is <i>unrecognisable</i>: a
@@ -589,43 +605,43 @@ about human performance; establishing that would require a study of readers, whi
 
 </div></details><details class="sec" open><summary><div class="h">7. Limitations</div><div class="gist">Stated plainly: a curated corpus, single-coder tagging in places, a measured &kappa; of 0.767 on the statistical layer only, and facets that are not all grounded.</div><span class="more">section</span></summary><div class="body"><h2>7. Limitations</h2>
 <ul>
-<li>The <code>statistic</code> facet (§5) records an accepted statistical or probabilistic occurrence,
+<li class="fold open" onclick="tp(this,event)"><span class="sum">The statistic facet records an accepted statistical occurrence, not necessarily a method the paper used, so a shared key marks a candidate neighbourhood rather than a shared result.<span class="cue"></span></span><span class="full">The <code>statistic</code> facet (§5) records an accepted statistical or probabilistic occurrence,
 not necessarily a method the paper used. Sharing a key marks a candidate neighbourhood, a much weaker
 signal than a shared substantive result. The full audit rejected 99 of 519 legacy assignments; semantic
-judgment error may remain.</li>
-<li>Evidence provenance is incomplete. Only 272 of 420 accepted statistical assignments currently have
+judgment error may remain.<span class="cue"></span></span></li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum">Evidence provenance is incomplete: only 272 of the 420 accepted statistical assignments have an exact excerpt located in a locally stored article body, and the rest must never be described as exact-body verified.<span class="cue"></span></span><span class="full">Evidence provenance is incomplete. Only 272 of 420 accepted statistical assignments currently have
 an exact normalized excerpt located in a locally stored article body. The other provenance states are
-reported separately and must not be described as exact-body verified.</li>
+reported separately and must not be described as exact-body verified.<span class="cue"></span></span></li>
 <li>Tagging currently depends on a large language model to read prose; the grounding guard bounds but does not eliminate interpretation error.</li>
-<li>The statistical-tag re-audit was rule-based with LLM-assisted adjudication. Its reliability has since been <b>measured</b> rather than assumed: an independent second coder (a different AI system, blinded to the original decisions) re-coded a stratified sample of 120 assignments, giving <b>&kappa;&nbsp;=&nbsp;0.767</b> (95% CI 0.652&ndash;0.882; 88.3% raw agreement), conventionally read as <i>substantial</i>. The disagreement was asymmetric &mdash; the second coder accepted 11 assignments this audit rejected and rejected 3 it accepted &mdash; so the original coding was the stricter of the two. The 14 disagreements are published for adjudication. A second coder is not a gold standard, and agreement between two systems is weaker evidence than agreement with expert human coders, which remains to be done.</li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum">The re-audit's reliability is measured rather than asserted: a blinded second coder re-coded 120 assignments for κ = 0.767, and the disagreement was asymmetric in the direction of this audit being the stricter of the two.<span class="cue"></span></span><span class="full">The statistical-tag re-audit was rule-based with LLM-assisted adjudication. Its reliability has since been <b>measured</b> rather than assumed: an independent second coder (a different AI system, blinded to the original decisions) re-coded a stratified sample of 120 assignments, giving <b>&kappa;&nbsp;=&nbsp;0.767</b> (95% CI 0.652&ndash;0.882; 88.3% raw agreement), conventionally read as <i>substantial</i>. The disagreement was asymmetric &mdash; the second coder accepted 11 assignments this audit rejected and rejected 3 it accepted &mdash; so the original coding was the stricter of the two. The 14 disagreements are published for adjudication. A second coder is not a gold standard, and agreement between two systems is weaker evidence than agreement with expert human coders, which remains to be done.<span class="cue"></span></span></li>
 <li>The corpus is curated for breadth, not sampled representatively; distributions above describe <i>this</i> corpus only.</li>
-<li><b>Not every facet is verbatim-grounded, and the difference had not been stated before.</b> The
-<code>content_tags</code> groups carry an <code>evidence</code> string and are; the
+<li class="fold open" onclick="tp(this,event)"><span class="sum">Not every facet is verbatim-grounded — the concepts facet is an analyst's label with no quote behind it — which is why §5.3 was re-run on key phrases and its claim reduced.<span class="cue"></span></span><span class="full"><b>Not every facet is verbatim-grounded, and the difference had not been stated before.</b> The
+<code>content_tags</code> groups carry an <code>evidence</code> string and are grounded in it; the
 <code>concepts</code> facet carries a term and a type but no quote, and is an analyst label for what a
 paper is about. Any argument that rests on the papers' own words must use the first kind, which is why
 &sect;5.3 was re-run on key phrases and its claim reduced. Giving the <code>concepts</code> facet the
-same grounding requirement is outstanding work.</li>
-<li>The <code>place</code> field is semantically underspecified: the TEI export writes it as
+same grounding requirement is outstanding work.<span class="cue"></span></span></li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum">The place field turned out to hold the authors' institutional city rather than the publisher's, and two of its values are not places at all; the reconciliation records that instead of quietly cleaning it.<span class="cue"></span></span><span class="full">The <code>place</code> field is semantically underspecified: the TEI export writes it as
 <code>&lt;pubPlace&gt;</code>, but reconciling it showed the values are overwhelmingly the
 <i>institutional</i> city of the authors (DeepMind &rarr; London, MIT &rarr; Cambridge MA), not the
 publisher's. Two values (<code>online</code>, <code>Online</code>) are not places at all. The
-reconciliation records this rather than silently cleaning it.</li>
-<li>The <code>study_location</code> facet (where the participants were, as distinct from where the
+reconciliation records this rather than silently cleaning it.<span class="cue"></span></span></li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum">The study-location facet is grounded but thin — 4 of the 38 human-subjects papers state it in a sentence a machine can find — and the ceiling is structural, because most of the relevant literature here is paywalled and never published.<span class="cue"></span></span><span class="full">The <code>study_location</code> facet (where the participants were, as distinct from where the
 authors were) is grounded but <b>thinly populated</b>: 4 papers of the 38 human-subjects papers whose
 text is available state it in a sentence a machine can find. The cap is structural — most
 human-subjects work in this corpus is the paywalled priming literature, whose text is held internally
 and never published, so the facet cannot see it. The low rate is reported as a finding about how
-rarely sample provenance is recoverable from a paper, not as a measurement of the corpus.</li>
-<li><code>replication-status</code> and <code>limitations</code> are grounded in each paper's <i>own</i> text; external replication outcomes (e.g. well-known failed replications) are deliberately <i>not</i> injected, because they are not grounded in the source — a candidate future extension, not a silent edit.</li>
+rarely sample provenance is recoverable from a paper, not as a measurement of the corpus.<span class="cue"></span></span></li>
+<li class="fold open" onclick="tp(this,event)"><span class="sum">Replication status and limitations are taken only from each paper's own words; known external replication failures are deliberately not injected, because nothing in the source grounds them.<span class="cue"></span></span><span class="full"><code>replication-status</code> and <code>limitations</code> are grounded in each paper's <i>own</i> text; external replication outcomes (e.g. well-known failed replications) are deliberately <i>not</i> injected, because they are not grounded in the source — a candidate future extension, not a silent edit.<span class="cue"></span></span></li>
 <li>The phenomenon join key needs canonicalisation before it can surface cross-field links at scale (§4).</li>
 <li>The implemented graph export does not include <code>ALIAS_OF</code>,
 <code>CONGRUENT_TO</code>, projected links, or graph-analysis results. The priming projection is a separate
 curated analysis and Fig.&nbsp;6 is explicitly illustrative.</li>
-<li>Full-text HTML is unsuitable as the primary Git-backed store for a much larger corpus. Production
+<li class="fold open" onclick="tp(this,event)"><span class="sum">Full-text HTML in Git is the wrong store beyond this scale: production should version metadata and code, put redistributable full text in object storage, and serve postings and record shards statically.<span class="cue"></span></span><span class="full">Full-text HTML is unsuitable as the primary Git-backed store for a much larger corpus. Production
 deployment should keep compact, versioned metadata and build code in version control, put redistributable
 full text in content-addressed object storage, and serve postings and immutable record shards through
 static hosting. The current in-memory build is intended for thousands to low tens of thousands of records,
-not unbounded scale.</li>
+not unbounded scale.<span class="cue"></span></span></li>
 <li>Novelty claims are unfalsifiable in the strict sense; we can search and report, not prove a negative.</li>
 </ul>
 
