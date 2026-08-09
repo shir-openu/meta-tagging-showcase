@@ -137,11 +137,12 @@ button.ghost{background:#fff;color:#6a1b9a}
 
 <div class="proj">The Meta-Tagging Project</div>
 <h1>Measuring Definitions: When Is a Definition Good, and How Would We Know?</h1>
-<div class="sub">2026-08-09 · version 6 · corpus: 372 cases
+<div class="sub">2026-08-09 · version 7 · corpus: 372 cases
 (289 positive · 83 negative) across 34 papers</div>
 
 <div class="toc"><b>Contents</b>
 <ol>
+<li><a href="#i0">The meta-tagging project</a></li>
 <li><a href="#i1">The need</a></li>
 <li><a href="#i2">What the literature already agrees on</a></li>
 <li><a href="#i3">What is still missing</a></li>
@@ -161,22 +162,60 @@ button.ghost{background:#fff;color:#6a1b9a}
 </ol></div>
 
 <h2 id="abs">Abstract</h2>
-<p class="abstract">A researcher who proposes a definition of a concept — "art",
-"consciousness", "game" — cannot say how good it is; they can only argue for it. The
-philosophical literature has offered criteria for the quality of a definition for seventy
-years, but no one has turned those criteria into a number measured against a body of
-evidence. We present a method that does. A definition is treated as a binary classifier
-over cases <b>the literature itself has adjudicated</b>; every adjudication carries a
-verified verbatim quotation; and rival definitions are ranked in a single run. Before any
-scoring, definitions pass three logical gates that no statistical measure detects —
-circularity, recursion without a base case, and a free parameter its author never fixed.
-We report inter-coder reliability on the act of application itself (κ = 0.547, n = 140), a
-measurement almost absent from the interpretive-tagging work we surveyed. The method
-returns one unambiguous ranking from a single command, and states explicitly which
-definitions cannot be ranked and why. The primary aim is practical: a user brings a corpus
-and a set of rival definitions, and receives the best definition that corpus supports.</p>
+<p class="abstract"><b>The meta-tagging project</b> builds a field-neutral tagging layer over
+academic literature under one non-negotiable rule: <b>every tag must quote an exact sentence
+from the paper itself</b>. The corpus currently holds 538 records across 86 disciplines, and
+an independent audit re-checked 18,416 evidence strings against the text they were drawn
+from; three failed. This paper addresses a problem the project met from the inside:
+<b>the moment one fixes which items fall under a category, a definition has been applied</b>
+— usually without being stated, and always without being measured. We present a method for
+measuring a definition against a corpus. The definition is treated as a binary classifier
+over cases <b>the literature itself adjudicated</b>, every adjudication carries a verified
+quotation, and rival definitions are ranked in a single run. Before scoring, definitions pass
+three logical gates that no statistical measure detects: circularity, recursion without a
+base case, and a free parameter the author never fixed. We report inter-coder reliability on
+the act of application itself (κ = 0.547, n = 140), a measurement almost absent from the
+interpretive-tagging work we surveyed. The output is one unambiguous ranking, alongside the
+definitions that cannot be ranked and the reason.</p>
 
-<h2 id="i1">1. The need</h2>
+<h2 id="i0">1. The meta-tagging project</h2>
+
+<p>Academic literature is written almost entirely in natural language. That is what makes it
+readable by people, and also what makes it hard to ask a question of it across disciplines:
+each field calls the same phenomenon by a different name, and a researcher in neuroscience
+will not find the paper in behavioural economics that studies exactly what she studies.</p>
+
+<p>The project proposes a <b>field-neutral</b> tagging layer: every paper receives the same
+tags — not by its topic but by the <b>shape of its contribution</b> (what kind of claim, what
+phenomenon, what relations to other work, what replication status, what limitations). The tag
+list itself is a single shared registry (<code>SCHEMA/tags.json</code>, version 0.5):
+<b>45 tags in seven layers</b>, each defined once for all papers.</p>
+
+<div class="key"><b>The rule the whole project stands on:</b> <b>no tag without a
+quotation</b>. Every tag must be licensed by an exact sentence from the paper, and the check
+is not a judgement but a string comparison — <b>and a string comparison cannot be talked into
+agreeing</b>. A tag whose quotation is not found in the text is dropped, not repaired.</div>
+
+<h3>What exists today</h3>
+<p>The corpus holds <b>538 records across 86 disciplines</b>. A standing audit re-checked
+<b>18,416</b> evidence strings against the text they came from: <b>three failed</b>. A
+further 623 verified only against an older stored copy of the same paper, which is a weaker
+claim and is reported separately rather than folded into the pass rate.</p>
+
+<h3>What the project found, including what did not work</h3>
+<p>The central measurement returned an explicit null result: <b>free-text names for a
+phenomenon almost never collide across fields</b> — 500 distinct strings for 511 papers, of
+which two cross a disciplinary boundary. A <b>controlled vocabulary, by contrast, does create
+real joins</b>: the broadest term in the statistical layer spans 31 disciplines. The
+conclusion the project drew about itself was that <b>a controlled vocabulary, not free
+text</b>, is the missing ingredient.</p>
+
+<div class="warn"><b>And this is where the present paper begins.</b> "A controlled vocabulary"
+sounds like a technical decision, and it is not: deciding which items fall under one term is
+<b>applying a definition</b>. Every tagging project in the world applies definitions, and
+none of them measures them. That is what this paper supplies.</div>
+
+<h2 id="i1">2. The need</h2>
 
 <p>Suppose you are a researcher and you must define a concept. Five rival definitions exist
 in the literature, and you have a sixth. How do you determine which is better?</p>
@@ -197,7 +236,7 @@ returns a score makes that decision visible and checkable.</p>
 and 1 for how good a given definition is, given a given corpus. Not a set of
 considerations — <b>a number</b>, reported alongside what it does not cover.</div>
 
-<h2 id="i2">2. What the literature already agrees on</h2>
+<h2 id="i2">3. What the literature already agrees on</h2>
 
 <p>Agreement is broader than it appears, and it divides in two: <b>what can be
 measured</b>, and <b>what is a position in a debate</b>.</p>
@@ -246,7 +285,7 @@ The criterion set must therefore be <b>form-neutral</b>. Otherwise a cluster con
 condition-based concept cannot appear in the same table, and the ranking would measure form
 rather than quality.</div>
 
-<h2 id="i3">3. What is still missing</h2>
+<h2 id="i3">4. What is still missing</h2>
 
 <p>None of these positions is formulated so that it can be scored against evidence. They
 state <i>what</i> a definition should do, not <i>how much</i> of it a given definition
@@ -268,7 +307,7 @@ turned on this question.</p>
 coverage or on discrimination against a real corpus. In seventy years no one has checked it
 in numbers.</p>
 
-<h2 id="i4">4. What the method does</h2>
+<h2 id="i4">5. What the method does</h2>
 
 <p>A definition is treated as a <b>binary classifier</b> over cases the corpus itself has
 adjudicated: a case is positive if a paper states explicitly that it is the concept, and
@@ -288,7 +327,7 @@ independent coders.</p>
 <p>The output is one list: place, score, confidence interval — and beside it the
 definitions that were disqualified, with the reason.</p>
 
-<h2 id="i5">5. What the method is not</h2>
+<h2 id="i5">6. What the method is not</h2>
 
 <ul>
 <li><b>It does not adjudicate what art is</b>, or any other concept. The adjudications are
@@ -308,7 +347,7 @@ and shows where each one breaks; what to do about that remains a human decision.
 </ul>
 
 
-<h2 id="s6">6. The three gates</h2>
+<h2 id="s6">7. The three gates</h2>
 
 <p>A definition is a promise: it says what is admitted and what is excluded. It can be
 tested only where cases already have an adjudication — and here the adjudication is not
@@ -371,7 +410,7 @@ the score from +0.380 to +0.664. <b>A definer does not repair their own terms</b
 settled outside the definition. The definition therefore unfolds recursively until further
 decomposition stops changing the score.</p>
 
-<h2 id="s7">7. Criteria for a good definition</h2>
+<h2 id="s7">8. Criteria for a good definition</h2>
 <p>Three are measured inside the confusion matrix, three outside it, and three gates precede
 all of them.</p>
 <table class="tbl"><thead><tr><th>#</th><th>Criterion</th><th>What it asks</th>
@@ -400,7 +439,7 @@ between two coders on what counts as a true positive, the four cells of the matr
 meaningless. On a controlled layer of statistical terms it has been measured (κ = 0.767,
 "substantial"); for definitions it is measured in §10.</div>
 
-<h2 id="s8">8. The confusion matrix</h2>
+<h2 id="s8">9. The confusion matrix</h2>
 <p>Here the "classifier" is the definition, and "ground truth" is <b>what the papers
 themselves state</b>. This is not absolute truth; it is the truth the corpus supplies, and
 that is precisely what makes the measurement relative to a corpus.</p>
@@ -467,7 +506,7 @@ decomposed with the paper as a random effect
 (<span class="fx">ICC = between / (between + within)</span>), so that twenty-five
 attestations from a single paper inflate nothing.</p>
 
-<h2 id="s9">9. Structure of the concept record</h2>
+<h2 id="s9">10. Structure of the concept record</h2>
 <p>This is the record the measurement rests on. <b>Every field in the diagram is a link</b>;
 following it reaches that field's entry in the glossary in Appendix B, which states what the
 field does, what it holds, and its data structure (string · number · array · dictionary ·
@@ -478,7 +517,7 @@ Every row links to the glossary.</figcaption>
 </figure>
 
 
-<h2 id="s10">10. Reliability of application — κ</h2>
+<h2 id="s10">11. Reliability of application — κ</h2>
 <p>Applicability is not one more row in the table: <b>it is a precondition for everything
 else</b>. If two people applying the same definition to the same case reach different
 answers, the four cells of the matrix measure the applier rather than the definition.</p>
@@ -518,7 +557,7 @@ substantive judgement. <b>A stable definition is not thereby a good one</b>, and
 measures must be reported side by side.</p>
 
 
-<h2 id="s11">11. The community: work in digital humanities, and how this connects</h2>
+<h2 id="s11">12. The community: work in digital humanities, and how this connects</h2>
 <p>This work does not stand alone. A 2026 summer school at the Open University of Israel
 brought together eight researchers who all address one problem in different guises:
 <b>how to turn text into data without losing what makes it text</b>. The account below is
@@ -595,7 +634,7 @@ this instrument would supply the reliability measure his work lacks, and would s
 work a test case that is not its own — which is the more valuable half of the exchange,
 because on that corpus the authors hold no competing definition.</div>
 
-<h2 id="s12">12. Limitations</h2>
+<h2 id="s12">13. Limitations</h2>
 <div class="crit"><b>This list belongs in the body of the text and not in a footnote.</b> A
 new measure that arrives with its limitations is received better than one that arrives
 without them, and a reviewer will find them regardless.</div>
