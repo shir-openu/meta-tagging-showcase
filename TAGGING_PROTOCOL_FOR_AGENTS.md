@@ -216,3 +216,32 @@ between five and twenty content tags, each with a copy-pasted quotation.
   early-warning signal.
 - **Do not raise throughput by lowering care.** The corpus already contains 538 records; it
   does not need more records, it needs records that survive the audit.
+
+---
+
+## 8. Order of work — clean text first
+
+`DATA/tagging_queue_priority.json` holds the queue, already gated and already cut into
+batches of twenty. **Work it in order.** Do not pick papers yourself.
+
+| Tier | Format | Papers |
+|---|---|---|
+| 1 | **XML** | 151 |
+| 2 | **HTML** | 84 |
+| 3 | pdftext | 250 |
+
+**Why XML and HTML come first.** In those formats sentence boundaries survive intact. PDF
+extraction breaks ligatures, hyphenates words across line breaks and interleaves columns —
+and **every anchoring failure this project has had came out of PDF extraction**. An agent
+working on clean text spends its time tagging; an agent working on broken text spends it
+repairing the source, and then writes a quotation that will not match.
+
+The first twelve batches are XML and HTML only. That is 235 papers before PDF is touched at
+all, and by then the drop rate from the merge step will have shown whether the protocol is
+being followed.
+
+Within a tier the longest papers come first: they carry the most tags per unit of setup, and
+a systematic error shows up in them soonest.
+
+**24 files were rejected at the gate** and are listed under `rejected` with the reason.
+Do not tag them. They need a better copy, not a more determined agent.
