@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Meta-Tagging Project — Measuring the Definitions the Tag Layer Applies</title>
+<title>A Verbatim-Grounded, Field-Neutral Tag Layer — Making the Tagging Meaningful</title>
 <style>
 :root{--ink:#1c1c1c;--soft:#6b6b6b;--line:#e4e4e4;
       --tp:#0d9488;--fn:#c0392b;--fp:#b5179e;--tn:#1565c0}
@@ -135,15 +135,16 @@ button.ghost{background:#fff;color:#6a1b9a}
 </style></head><body>
 <div class="wrap">
 
-<div class="proj">The Meta-Tagging Project</div>
-<h1>Measuring the Definitions the Tag Layer Applies:<br>When Is a Definition Good, and How Would We Know?</h1>
-<div class="sub">2026-08-09 · version 9 · corpus: 372 cases
+<div class="proj">The Meta-Tagging Project · version 12.0</div>
+<h1>A Verbatim-Grounded, Field-Neutral Tag Layer for<br>Cross-Disciplinary Reading of Academic Literature<br><span style="font-size:.72em;color:#5d4037">Making the tagging meaningful: concepts as records, and the definitions behind them measured</span></h1>
+<div class="sub">2026-08-09 · version 10 · corpus: 372 cases
 (289 positive · 83 negative) across 34 papers<br>
-<b>An advance on the meta-tagging preprint</b>
-(<a href="https://doi.org/10.5281/zenodo.21432188">doi:10.5281/zenodo.21432188</a>), not a
-separate work. Earlier versions described the tag layer and reported that free-text names
-do not join across fields. This version measures the decision the layer makes every time it
-assigns a tag: which items fall under a term.</div>
+<b>Version 12.0 of a continuing preprint</b>
+(<a href="https://doi.org/10.5281/zenodo.21432188">doi:10.5281/zenodo.21432188</a>).
+Earlier versions built the layer and reported that free-text names do not join across
+fields, concluding that a canonical vocabulary was the missing ingredient. This version
+supplies it — and, because choosing what belongs under a term is applying a definition,
+measures that too.</div>
 
 <div class="toc"><b>Contents</b>
 <ol>
@@ -167,189 +168,96 @@ assigns a tag: which items fall under a term.</div>
 </ol></div>
 
 <h2 id="abs">Abstract</h2>
-<p class="abstract"><b>The meta-tagging project</b> builds a field-neutral tagging layer over
-academic literature under one non-negotiable rule: <b>every tag must quote an exact sentence
-from the paper itself</b>. The corpus currently holds 538 records across 86 disciplines, and
-an independent audit re-checked 18,416 evidence strings against the text they were drawn
-from; three failed. This paper addresses a problem the project met from the inside:
-<b>the moment one fixes which items fall under a category, a definition has been applied</b>
-— usually without being stated, and always without being measured. We present a method for
-measuring a definition against a corpus. The definition is treated as a binary classifier
-over cases <b>the literature itself adjudicated</b>, every adjudication carries a verified
-quotation, and rival definitions are ranked in a single run. Before scoring, definitions pass
-three logical gates that no statistical measure detects: circularity, recursion without a
-base case, and a free parameter the author never fixed. We report inter-coder reliability on
-the act of application itself (κ = 0.547, n = 140), a measurement almost absent from the
-interpretive-tagging work we surveyed. The output is one unambiguous ranking, alongside the
-definitions that cannot be ranked and the reason.</p>
+<p class="abstract">Academic knowledge is written almost entirely in natural language, which
+makes it readable by humans but hard to query across disciplines that use different words for
+related things. Earlier versions of this work described a <b>tag layer</b> that assigns every
+paper the same small set of field-neutral facets, under one non-negotiable rule: every tag
+must be licensed by an exact, verbatim sentence from the paper's own text. That format proved
+feasible and verifiable — 18,416 evidence strings re-checked against their sources, three
+failed — and it returned an explicit null result: <b>free-text names for a phenomenon almost
+never collide across fields</b>. 500 distinct strings over 511 papers, two of which cross a
+disciplinary boundary. The conclusion drawn was that a canonical vocabulary, not free text,
+is the missing ingredient.</p>
+<p class="abstract">This version supplies it, and in doing so answers a question the earlier
+result left open. <b>Choosing what belongs under one term is applying a definition</b> —
+usually without stating it, and always without measuring it. So the tags become
+<b>records</b> rather than strings: a concept holds its attestations, its senses, and the
+relations between them, each grounded in a quotation. And the definition that decides
+membership is <b>measured</b>: treated as a binary classifier over cases the literature
+itself adjudicated, ranked against rivals in a single run, after three logical gates that no
+statistical measure detects — circularity, recursion without a base case, and a free
+parameter the author never fixed. We report inter-coder reliability on the act of application
+itself (κ = 0.547, n = 140), a measurement almost absent from comparable interpretive-tagging
+work.</p>
+<p class="abstract"><b>The change is what a tag now is.</b> Previously a tag proved
+provenance: the sentence exists in the paper. That is a string comparison, and a string
+comparison establishes where a tag came from and nothing about what it means. A tag now
+carries a sense, and the term that names it is one whose extension has been measured against
+evidence. Corpus at this version: 538 records across 86 disciplines.</p>
 
-<h2 id="i0">1. The meta-tagging project</h2>
+<h2 id="i0">1. What changed, and why</h2>
 
-<p>Academic literature is written almost entirely in natural language. That is what makes it
-readable by people, and also what makes it hard to ask a question of it across disciplines:
-each field calls the same phenomenon by a different name, and a researcher in neuroscience
-will not find the paper in behavioural economics that studies exactly what she studies.</p>
+<p>The layer worked as a format and failed as a join. Both halves of that sentence come from
+the previous version's own results, and this version is the response to the second half.</p>
 
-<p>The project proposes a <b>field-neutral</b> tagging layer: every paper receives the same
-tags — not by its topic but by the <b>shape of its contribution</b> (what kind of claim, what
-phenomenon, what relations to other work, what replication status, what limitations). The tag
-list itself is a single shared registry (<code>SCHEMA/tags.json</code>, version 0.5):
-<b>45 tags in seven layers</b>, each defined once for all papers.</p>
+<h3>What the earlier versions established</h3>
+<p>Every paper receives the same tags — not by topic but by the <b>shape of its
+contribution</b>: claim type, phenomenon, claim relations, replication status, limitations.
+The tag list is a single shared registry (<code>SCHEMA/tags.json</code>, version 0.5):
+45 tags in seven layers, each defined once for all papers. And one rule governs everything:</p>
 
-<div class="key"><b>The rule the whole project stands on:</b> <b>no tag without a
-quotation</b>. Every tag must be licensed by an exact sentence from the paper, and the check
-is not a judgement but a string comparison — <b>and a string comparison cannot be talked into
-agreeing</b>. A tag whose quotation is not found in the text is dropped, not repaired.</div>
+<div class="key"><b>No tag without a quotation.</b> Every tag must be licensed by an exact
+sentence from the paper, and the check is not a judgement but a string comparison — <b>and a
+string comparison cannot be talked into agreeing</b>. A tag whose quotation is not found is
+dropped, not repaired. 18,416 strings re-checked; three failed.</div>
 
-<h3>What exists today</h3>
-<p>The corpus holds <b>538 records across 86 disciplines</b>. A standing audit re-checked
-<b>18,416</b> evidence strings against the text they came from: <b>three failed</b>. A
-further 623 verified only against an older stored copy of the same paper, which is a weaker
-claim and is reported separately rather than folded into the pass rate.</p>
+<h3>And what they found did not work</h3>
+<p>The measurement returned a null result and the previous version reported it plainly:
+<b>the phenomenon facets, written as verbatim-anchored free text, rarely collide across
+fields</b>. A novelty scan surfaced no cross-disciplinary link the literature had not already
+drawn. Where a controlled vocabulary existed — the statistical layer — joins were real, the
+broadest term spanning 31 disciplines. The stated conclusion: <b>a canonical join vocabulary,
+not free text, is the missing ingredient</b>.</p>
 
-<h3>What the project found, including what did not work</h3>
-<p>The central measurement returned an explicit null result: <b>free-text names for a
-phenomenon almost never collide across fields</b> — 500 distinct strings for 511 papers, of
-which two cross a disciplinary boundary. A <b>controlled vocabulary, by contrast, does create
-real joins</b>: the broadest term in the statistical layer spans 31 disciplines. The
-conclusion the project drew about itself was that <b>a controlled vocabulary, not free
-text</b>, is the missing ingredient.</p>
+<div class="warn"><b>That conclusion is where this version begins, and it is not the technical
+matter it appears to be.</b> Building a canonical vocabulary means deciding which items
+belong under one term. That decision <b>is a definition</b>, applied — and until now applied
+silently. Every tagging project in the field applies definitions this way. None of them
+measures them.</div>
 
-<div class="warn"><b>And this is where the present paper begins.</b> "A controlled vocabulary"
-sounds like a technical decision, and it is not: deciding which items fall under one term is
-<b>applying a definition</b>. Every tagging project in the world applies definitions, and
-none of them measures them. That is what this paper supplies.</div>
+<h3>The change, in one sentence</h3>
+<blockquote>The work here makes the tagging <b>meaningful</b>: conceptually, by making a
+concept a record that holds its senses rather than a string that recurs; and operationally,
+by measuring the definition that decides what falls under it.</blockquote>
 
-<h2 id="i1">2. The need</h2>
+<p>The two are the same move seen from two sides. A concept becomes a record so that it
+<i>can</i> hold a sense; the definition is measured so that the sense is not merely asserted.
+Neither half works alone: a record with no measured definition is a filing cabinet, and a
+measured definition with nowhere to live changes nothing about the corpus.</p>
 
-<p>Suppose you are a researcher and you must define a concept. Five rival definitions exist
-in the literature, and you have a sixth. How do you determine which is better?</p>
-
-<p>The available instruments were built for a different task. Philosophical analysis
-establishes <i>which</i> conditions are defensible; corpus linguistics measures <i>usage</i>.
-Neither returns a score for a given definition against a body of evidence. Comparison
-between candidates therefore proceeds by argument and counterexample — an excellent way to
-sharpen a position, and a poor way to choose between positions. <b>What is missing is a
-number.</b></p>
-
-<p>The need is not confined to philosophy. It arises in every project that builds a tagged
-corpus: the moment one fixes which items fall under a category, a definition has been
-applied — usually without being stated, and always without being measured. A tool that
-returns a score makes that decision visible and checkable.</p>
-
-<div class="key"><b>The operational requirement, in one line:</b> a single score between 0
-and 1 for how good a given definition is, given a given corpus. Not a set of
-considerations — <b>a number</b>, reported alongside what it does not cover.</div>
-
-<h2 id="i2">3. What the literature already agrees on</h2>
-
-<p>Agreement is broader than it appears, and it divides in two: <b>what can be
-measured</b>, and <b>what is a position in a debate</b>.</p>
-
-<h3>What can be measured</h3>
-
-<p>The formal account of a well-formed definition was set out by <b>Suppes (1957)</b> and
-sharpened by <b>Belnap (1993)</b> into two conditions: <b>eliminability</b> — every sentence
-containing the defined term can be restated without it; and <b>conservativeness</b> — the
-definition licenses nothing new that does not concern the term itself. The Stanford
-Encyclopedia (<b>Gupta &amp; Mackereth, 2023</b>) names what we in fact measure:
-<b>extensional adequacy</b> — whether the definition admits exactly what it should admit.</p>
-
-<p>Belnap's two conditions are <b>logical gates</b>: they are settled yes/no before any
-scoring. Extensional adequacy is what is measured continuously, and it divides immediately
-into two complementary quantities: <b>coverage</b> — how much of what should be admitted is
-admitted; and <b>discrimination</b> — how much of what should be excluded is excluded.</p>
-
-<blockquote>Here is the translation the whole method rests on. <b>Low coverage refutes
-necessity</b>: the definition contains a condition that is not necessary, and it excludes
-cases that belong. <b>Low discrimination refutes sufficiency</b>: the conditions are not
-sufficient, and cases that are not the concept are admitted. Two binary logical notions
-become two continuous measures.</blockquote>
-
-<h3>What is a position in a debate</h3>
-
-<p>Against this stands the anti-essentialist tradition. <b>Wittgenstein (1953)</b> argued
-that "game" is organised not by conditions but by a network of family resemblance with
-blurred edges. <b>Weitz (1956)</b> extended this to art and argued that it is an <b>open
-concept</b> that must not be closed; <b>Kennick (1958)</b> added that traditional aesthetics
-erred in seeking a definition at all, not in the definitions it proposed. <b>Ziff (1953)</b>
-had already formulated the task.</p>
-
-<p>The modern form of that position is the <b>cluster concept</b>: <b>Gaut (2000, 2005)</b>
-offers ten criteria of which none is necessary, and <b>Dutton (2006)</b> builds a
-naturalistic list of recognition criteria. In parallel, procedural definitions developed:
-<b>Danto (1964)</b> and <b>Dickie (1974, 1984, 2000)</b> locate art status in an institution
-rather than a property; <b>Levinson (1979)</b> locates it in a relation to prior art; and
-<b>Carroll (1993)</b> replaces definition with historical narrative.</p>
-
-<div class="warn"><b>The distinction that organises the whole field, and is easily missed:</b>
-"necessary and sufficient conditions" is <b>a form of definition, not a criterion of its
-quality</b>. The dispute between Wittgenstein and those who define by conditions is not
-about what makes a definition good; it is about what <b>form</b> a definition should take.
-The criterion set must therefore be <b>form-neutral</b>. Otherwise a cluster concept and a
-condition-based concept cannot appear in the same table, and the ranking would measure form
-rather than quality.</div>
-
-<h2 id="i3">4. What is still missing</h2>
-
-<p>None of these positions is formulated so that it can be scored against evidence. They
-state <i>what</i> a definition should do, not <i>how much</i> of it a given definition
-does.</p>
-
-<p>Adjacent fields are in the same position. In natural language processing, the
-<i>definition modelling</i> task scores a generated definition by its similarity to a
-dictionary gloss, so a novel and correct definition is penalised exactly as a wrong one is.
-Ontology evaluation measures structure and consistency, not fit to usage. Standard scoring
-methods for classification — MCC (<b>Matthews, 1975</b>; <b>Chicco &amp; Jurman, 2020</b>),
-inter-coder reliability (<b>Cohen, 1960</b>; <b>Krippendorff, 2018</b>), and bootstrap
-confidence intervals (<b>Efron, 1979</b>) — exist and are available, but have not been
-turned on this question.</p>
-
-<blockquote><b>The gap is not an absence of criteria. It is an absence of measurement.</b></blockquote>
-
-<p>This has a concrete cost. Weitz's claim that art is an open concept is, in its form, an
-<b>empirical</b> claim: if it is true, every condition-based definition must fail on
-coverage or on discrimination against a real corpus. In seventy years no one has checked it
-in numbers.</p>
-
-<h2 id="i4">5. What the method does</h2>
-
-<p>A definition is treated as a <b>binary classifier</b> over cases the corpus itself has
-adjudicated: a case is positive if a paper states explicitly that it is the concept, and
-negative if a paper states explicitly that it is not. Silence is not negation, and every
-adjudication carries a verified verbatim quotation.</p>
-
-<p>Before scoring, definitions pass <b>three gates</b> — circularity, recursion without a
-base case, and a free parameter the author never fixed. A definition that fails one is
-reported and left unranked.</p>
-
-<p>Survivors are ranked by <b>MCC</b> rather than F<sub>1</sub>, because a positively skewed
-corpus rewards a classifier that says yes to everything; ties are settled by a <b>paired
-bootstrap at the level of the paper</b>, because cases from one paper constitute a single
-voice. Alongside the ranking we report the <b>reliability of application</b>: κ between two
-independent coders.</p>
-
-<p>The output is one list: place, score, confidence interval — and beside it the
-definitions that were disqualified, with the reason.</p>
-
-<h2 id="i5">6. What the method is not</h2>
-
+<h3>What follows from it, concretely</h3>
 <ul>
-<li><b>It does not adjudicate what art is</b>, or any other concept. The adjudications are
-the literature's; the method counts them.</li>
-<li><b>It does not validate the philosophical literature and does not replace it.</b> The
-primary aim is practical: a user with a corpus and rival definitions receives the best among
-them. Validating definitions in the literature is a possible use, and not the one it was
-built for.</li>
-<li><b>A definition that wins here has won on one corpus.</b> The corpus is a parameter of
-the measurement, not its background: a different corpus returns a different number, and that
-is correct rather than a defect.</li>
-<li><b>It does not score the Wittgensteinian position itself.</b> "Do not define by
-conditions" is not a rival definition but a proposal to forgo definition, and so falls
-outside the instrument's range — a stated limitation, not a concealed one.</li>
-<li><b>It does not read for the researcher.</b> The method narrows the field of candidates
-and shows where each one breaks; what to do about that remains a human decision.</li>
+<li><b>A concept is a record.</b> 510 concept records built from the corpus, each holding
+one <code>PaperSource</code> per paper — because twenty-five mentions in one paper are one
+author's position, not twenty-five — and one <code>Attestation</code> per mention, carrying
+the sentence, its role (defines / exemplifies / refutes / mentions) and whether the paper
+affirms, denies or leaves open.</li>
+<li><b>A concept can hold more than one sense</b>, with the relations between them recorded
+and grounded. Freud's <i>consciousness</i> and the cognitive one are not one object, and
+averaging them produces a number describing nobody. Disagreement is the datum, not the
+noise.</li>
+<li><b>The definition is measured</b>, not asserted — §§6–11 below.</li>
+<li><b>Provenance and meaning are separate gates.</b> The verbatim check proves the sentence
+exists. A second gate asks whether that sentence <i>licenses</i> the concept, and whether two
+papers using the word mean the same thing by it. The first gate is mechanical; the second is
+the one that decides whether the layer is worth anything.</li>
 </ul>
+
+<div class="key"><b>The claim this version makes is narrow and it is the honest one.</b> Not
+that the corpus has grown, and not that new cross-disciplinary links were found. It is that
+<b>a tag now carries meaning that can be checked</b> — a sense, an evidence base, and a
+membership rule whose extension has been measured. That is the difference between an index
+and a knowledge layer, and it is what the earlier null result showed was missing.</div>
 
 
 <h2 id="s6">7. The three gates</h2>
