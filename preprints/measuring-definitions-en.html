@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Meta-Tagging Project — Measuring Definitions</title>
+<style>
+:root{--ink:#1c1c1c;--soft:#6b6b6b;--line:#e4e4e4;
+      --tp:#0d9488;--fn:#c0392b;--fp:#b5179e;--tn:#1565c0}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);
+     font-family:"Segoe UI",Calibri,Arial,sans-serif;line-height:1.68;direction:ltr}
+.wrap{max-width:56rem;margin:0 auto;padding:2rem 1.1rem 5rem}
+h1{font-size:1.5rem;margin:0 0 .2rem;color:#6a1b9a;line-height:1.35}
+.sub{color:var(--soft);font-size:.9rem;border-bottom:1px solid var(--line);
+     padding-bottom:1rem;margin-bottom:1.4rem}
+h2{font-size:1.14rem;margin:2.3rem 0 .5rem;color:#4527a0;border-bottom:2px solid #ece5f3;
+   padding-bottom:.3rem}
+h3{font-size:1.01rem;margin:1.4rem 0 .3rem;color:#5d4037}
+h4{margin:0 0 .2rem;font-size:1.02rem}
+figure{margin:1.3rem 0;text-align:center}
+figcaption{font-size:.85rem;color:var(--soft);margin-top:.45rem}
+svg{max-width:100%;height:auto}
+blockquote{margin:1.1rem 0;padding:.7rem 1.1rem;border-left:4px solid #b9a5d4;
+           background:#faf7fc;font-size:1.02rem}
+.abstract{background:#f6f1fa;border-radius:12px;padding:1rem 1.3rem;font-size:1rem}
+.key{background:#f6f1fa;border:1px solid #ddd0e8;border-left:5px solid #6a1b9a;
+     border-radius:0 10px 10px 0;padding:.9rem 1.2rem;margin:1.2rem 0}
+.key b{color:#6a1b9a}
+.good{background:#f1f9f6;border:1px solid #cfe8dd;border-left:5px solid #0d9488;
+      border-radius:0 10px 10px 0;padding:.9rem 1.2rem;margin:1.2rem 0}
+.good b{color:#00695c}
+.warn{background:#fff8e6;border:1px solid #f0dfae;border-left:5px solid #ef6c00;
+      border-radius:0 10px 10px 0;padding:.9rem 1.2rem;margin:1.2rem 0}
+.warn b{color:#b35800}
+.crit{background:#fdf4f9;border:1px solid #f0cde3;border-left:5px solid #b5179e;
+      border-radius:0 10px 10px 0;padding:.9rem 1.2rem;margin:1.2rem 0}
+.crit b{color:#b5179e}
+.gate{border:1px solid var(--line);border-left:6px solid #b5179e;
+      border-radius:0 11px 11px 0;padding:.8rem 1.1rem;margin:.8rem 0;background:#fdf7fb}
+.gate h4{color:#7d0f6c}
+.step{border-left:3px solid #d8cbe6;padding:.2rem 0 .2rem 1rem;margin:.9rem 0}
+.step b{color:#4527a0}
+.fx{direction:ltr;display:inline-block;font-family:Consolas,monospace;
+    background:#f3f1f6;padding:.1rem .45rem;border-radius:5px;font-size:.95em}
+code{font-family:Consolas,monospace;background:#f2f0f5;padding:.06em .34em;
+     border-radius:4px;display:inline-block;font-size:.9em}
+ul,ol{margin:.4rem 0 .4rem 1.4rem;padding:0}li{margin:.3rem 0}
+ul.bib li{margin:.42rem 0;font-size:.93rem}
+
+
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#1c1c1c;font-family:"Segoe UI",Calibri,Arial,sans-serif;
+     line-height:1.75;direction:rtl}
+.wrap{max-width:74rem;margin:0 auto;padding:1.5rem 1.1rem 5rem}
+h1{font-size:1.6rem;color:#6a1b9a;margin:0 0 .2rem}
+h2{font-size:1.25rem;color:#4527a0;margin:2.4rem 0 .5rem;border-bottom:2px solid #ece5f3;
+   padding-bottom:.3rem}
+h3{font-size:1.1rem;margin:0 0 .3rem;display:flex;align-items:center;gap:.6rem;
+   flex-wrap:wrap}
+.sub{color:#6b6b6b;font-size:.92rem;border-bottom:1px solid #e6e2ec;padding-bottom:.9rem;
+     margin-bottom:1.2rem}
+svg{width:100%;height:auto}
+svg a{cursor:pointer}
+svg a:hover .hit{fill:#f0ebf7}
+figure{margin:1rem 0 2rem}
+figcaption{font-size:.87rem;color:#6b6b6b;text-align:center;margin-top:.5rem}
+.cls{border:2px solid;border-radius:12px;padding:.9rem 1.1rem;margin:1.1rem 0}
+.clshe{font-size:.92rem;color:#6b6b6b;font-weight:400}
+
+.about{font-size:.95rem;margin:.2rem 0 .8rem;color:#3a3a3a}
+.fld{border-right:4px solid #e6e2ec;background:#fafafa;border-radius:0 9px 9px 0;
+     padding:.55rem .8rem;margin:.45rem 0;scroll-margin-top:4rem}
+.fld:target{background:#fff8e6;border-right-color:#ef6c00;
+            box-shadow:0 0 0 2px #f0dfae}
+.fh{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin-bottom:.2rem}
+.fh code{font-family:Consolas,monospace;background:#eeeaf4;padding:.06rem .4rem;
+         border-radius:5px;direction:ltr;display:inline-block;font-size:.95em;
+         font-weight:700}
+.ty{background:#f2f2f2!important;font-weight:400!important;color:#6b6b6b;font-size:.85em!important}
+.hebn{font-weight:700}
+
+.kd{color:#6b6b6b;font-size:.85rem}
+.does,.holds{font-size:.92rem}
+.kl{display:flex;align-items:center;gap:.5rem;margin:.25rem 0}
+.legend{background:#faf8fc;border:1px solid #e8e0f0;border-radius:11px;padding:.8rem 1.1rem;
+        margin:1rem 0}
+.key{background:#f6f1fa;border:1px solid #ddd0e8;border-right:5px solid #6a1b9a;
+     border-radius:0 10px 10px 0;padding:.9rem 1.15rem;margin:1.1rem 0}
+.key b{color:#6a1b9a}
+.cbox{margin:.6rem 0 .2rem}
+.cbox label{display:block;font-size:.8rem;color:#6b6b6b;margin-bottom:.2rem}
+textarea{width:100%;min-height:2.8rem;padding:.45rem .6rem;border:1px solid #d7d2de;
+         border-radius:8px;font-family:inherit;font-size:.95rem;direction:rtl}
+.bar{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid #e6e2ec;
+     padding:.55rem 1rem;display:flex;gap:.5rem;z-index:9}
+button{font-family:inherit;font-size:.88rem;padding:.4rem .85rem;border-radius:8px;
+        border:1px solid #6a1b9a;background:#6a1b9a;color:#fff;cursor:pointer}
+button.ghost{background:#fff;color:#6a1b9a}
+
+
+.proj{font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+      color:#6a1b9a;margin-bottom:.35rem}
+
+/* House rule, set by Shir 2026-08-09: NO coloured blocks with white text anywhere.
+   Colour carries meaning through TEXT and through links, as in the report series.
+   A chip with a filled background reads as a button, competes with the prose for
+   attention, and fails in print. */
+.kind{background:none!important;color:inherit;font-weight:700;font-size:.78rem;
+      letter-spacing:.02em;text-transform:uppercase;padding:0;margin-inline-end:.4rem}
+.cnt{color:inherit!important;background:none!important;font-weight:700}
+.badge{background:none!important;border:0!important;font-weight:700;padding:0 0 0 .4rem}
+.b-in{color:#00695c}.b-out{color:#b35800}
+.back{background:none;border:0;color:#4527a0;text-decoration:underline;
+      font-size:.78rem;cursor:pointer;padding:0}
+.back:hover{background:none;color:#b5179e}
+
+.toc{background:#faf7fc;border:1px solid #e6dcef;border-radius:12px;padding:.9rem 1.4rem;
+     margin:1.5rem 0}
+.toc ol{margin:.3rem 0 0 1.3rem}
+.toc a{color:#4527a0;text-decoration:none;border-bottom:1px dotted #b9a5d4}
+.tbl{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.94rem}
+.tbl th{background:#f3eef8;color:#4527a0;text-align:left;padding:.45rem .6rem;
+        border-bottom:2px solid #e0d5ec;font-size:.88rem}
+.tbl td{padding:.42rem .6rem;border-bottom:1px solid #eee;vertical-align:top}
+.tbl tr.gated td{background:#fbfbfb;color:#8a8a8a}
+.tbl .num{font-family:Consolas,monospace;text-align:right;white-space:nowrap}
+.tbl .pl{font-weight:700;color:#6a1b9a;width:3.2rem}
+.tbl .best{background:#e6f4f1;font-weight:700}
+.hold{color:#8a8a8a;font-weight:400;font-size:.9em}
+.back{float:right;font-family:inherit;font-size:.78rem;padding:.12rem .6rem;cursor:pointer;
+      border:1px solid #c9b8dc;background:#f6f1fa;color:#4527a0;border-radius:20px;
+      margin-left:.5rem}
+.back:hover{background:#4527a0;color:#fff}
+.fld:target{background:#fffbe6;outline:2px solid #f0dfae;outline-offset:3px;border-radius:8px}
+@media print{.toc{break-inside:avoid}h2{break-after:avoid}.back{display:none}}
+</style></head><body>
+<div class="wrap">
+
+<div class="proj">The Meta-Tagging Project</div>
+<h1>Measuring Definitions: When Is a Definition Good, and How Would We Know?</h1>
+<div class="sub">2026-08-09 · version 6 · corpus: 372 cases
+(289 positive · 83 negative) across 34 papers</div>
+
+<div class="toc"><b>Contents</b>
+<ol>
+<li><a href="#i1">The need</a></li>
+<li><a href="#i2">What the literature already agrees on</a></li>
+<li><a href="#i3">What is still missing</a></li>
+<li><a href="#i4">What the method does</a> · <a href="#i5">and what it is not</a></li>
+<li><a href="#s6">The three gates</a></li>
+<li><a href="#s7">Criteria for a good definition</a></li>
+<li><a href="#s8">The confusion matrix</a></li>
+<li><a href="#s9">Structure of the concept record</a></li>
+<li><a href="#s10">Reliability of application — κ</a></li>
+<li><a href="#s11">The community: work in digital humanities, and how this connects</a></li>
+<li><a href="#s12">Limitations</a></li>
+<li><a href="#a1">Appendix A — formulae</a></li>
+<li><a href="#a2">Appendix B — field glossary</a></li>
+<li><a href="#a3">Appendix C — when the method proposes a definition itself</a></li>
+<li><a href="#a4">Appendix D — reproduction</a></li>
+<li><a href="#bib">References</a></li>
+</ol></div>
+
+<h2 id="abs">Abstract</h2>
+<p class="abstract">A researcher who proposes a definition of a concept — "art",
+"consciousness", "game" — cannot say how good it is; they can only argue for it. The
+philosophical literature has offered criteria for the quality of a definition for seventy
+years, but no one has turned those criteria into a number measured against a body of
+evidence. We present a method that does. A definition is treated as a binary classifier
+over cases <b>the literature itself has adjudicated</b>; every adjudication carries a
+verified verbatim quotation; and rival definitions are ranked in a single run. Before any
+scoring, definitions pass three logical gates that no statistical measure detects —
+circularity, recursion without a base case, and a free parameter its author never fixed.
+We report inter-coder reliability on the act of application itself (κ = 0.547, n = 140), a
+measurement almost absent from the interpretive-tagging work we surveyed. The method
+returns one unambiguous ranking from a single command, and states explicitly which
+definitions cannot be ranked and why. The primary aim is practical: a user brings a corpus
+and a set of rival definitions, and receives the best definition that corpus supports.</p>
+
+<h2 id="i1">1. The need</h2>
+
+<p>Suppose you are a researcher and you must define a concept. Five rival definitions exist
+in the literature, and you have a sixth. How do you determine which is better?</p>
+
+<p>The available instruments were built for a different task. Philosophical analysis
+establishes <i>which</i> conditions are defensible; corpus linguistics measures <i>usage</i>.
+Neither returns a score for a given definition against a body of evidence. Comparison
+between candidates therefore proceeds by argument and counterexample — an excellent way to
+sharpen a position, and a poor way to choose between positions. <b>What is missing is a
+number.</b></p>
+
+<p>The need is not confined to philosophy. It arises in every project that builds a tagged
+corpus: the moment one fixes which items fall under a category, a definition has been
+applied — usually without being stated, and always without being measured. A tool that
+returns a score makes that decision visible and checkable.</p>
+
+<div class="key"><b>The operational requirement, in one line:</b> a single score between 0
+and 1 for how good a given definition is, given a given corpus. Not a set of
+considerations — <b>a number</b>, reported alongside what it does not cover.</div>
+
+<h2 id="i2">2. What the literature already agrees on</h2>
+
+<p>Agreement is broader than it appears, and it divides in two: <b>what can be
+measured</b>, and <b>what is a position in a debate</b>.</p>
+
+<h3>What can be measured</h3>
+
+<p>The formal account of a well-formed definition was set out by <b>Suppes (1957)</b> and
+sharpened by <b>Belnap (1993)</b> into two conditions: <b>eliminability</b> — every sentence
+containing the defined term can be restated without it; and <b>conservativeness</b> — the
+definition licenses nothing new that does not concern the term itself. The Stanford
+Encyclopedia (<b>Gupta &amp; Mackereth, 2023</b>) names what we in fact measure:
+<b>extensional adequacy</b> — whether the definition admits exactly what it should admit.</p>
+
+<p>Belnap's two conditions are <b>logical gates</b>: they are settled yes/no before any
+scoring. Extensional adequacy is what is measured continuously, and it divides immediately
+into two complementary quantities: <b>coverage</b> — how much of what should be admitted is
+admitted; and <b>discrimination</b> — how much of what should be excluded is excluded.</p>
+
+<blockquote>Here is the translation the whole method rests on. <b>Low coverage refutes
+necessity</b>: the definition contains a condition that is not necessary, and it excludes
+cases that belong. <b>Low discrimination refutes sufficiency</b>: the conditions are not
+sufficient, and cases that are not the concept are admitted. Two binary logical notions
+become two continuous measures.</blockquote>
+
+<h3>What is a position in a debate</h3>
+
+<p>Against this stands the anti-essentialist tradition. <b>Wittgenstein (1953)</b> argued
+that "game" is organised not by conditions but by a network of family resemblance with
+blurred edges. <b>Weitz (1956)</b> extended this to art and argued that it is an <b>open
+concept</b> that must not be closed; <b>Kennick (1958)</b> added that traditional aesthetics
+erred in seeking a definition at all, not in the definitions it proposed. <b>Ziff (1953)</b>
+had already formulated the task.</p>
+
+<p>The modern form of that position is the <b>cluster concept</b>: <b>Gaut (2000, 2005)</b>
+offers ten criteria of which none is necessary, and <b>Dutton (2006)</b> builds a
+naturalistic list of recognition criteria. In parallel, procedural definitions developed:
+<b>Danto (1964)</b> and <b>Dickie (1974, 1984, 2000)</b> locate art status in an institution
+rather than a property; <b>Levinson (1979)</b> locates it in a relation to prior art; and
+<b>Carroll (1993)</b> replaces definition with historical narrative.</p>
+
+<div class="warn"><b>The distinction that organises the whole field, and is easily missed:</b>
+"necessary and sufficient conditions" is <b>a form of definition, not a criterion of its
+quality</b>. The dispute between Wittgenstein and those who define by conditions is not
+about what makes a definition good; it is about what <b>form</b> a definition should take.
+The criterion set must therefore be <b>form-neutral</b>. Otherwise a cluster concept and a
+condition-based concept cannot appear in the same table, and the ranking would measure form
+rather than quality.</div>
+
+<h2 id="i3">3. What is still missing</h2>
+
+<p>None of these positions is formulated so that it can be scored against evidence. They
+state <i>what</i> a definition should do, not <i>how much</i> of it a given definition
+does.</p>
+
+<p>Adjacent fields are in the same position. In natural language processing, the
+<i>definition modelling</i> task scores a generated definition by its similarity to a
+dictionary gloss, so a novel and correct definition is penalised exactly as a wrong one is.
+Ontology evaluation measures structure and consistency, not fit to usage. Standard scoring
+methods for classification — MCC (<b>Matthews, 1975</b>; <b>Chicco &amp; Jurman, 2020</b>),
+inter-coder reliability (<b>Cohen, 1960</b>; <b>Krippendorff, 2018</b>), and bootstrap
+confidence intervals (<b>Efron, 1979</b>) — exist and are available, but have not been
+turned on this question.</p>
+
+<blockquote><b>The gap is not an absence of criteria. It is an absence of measurement.</b></blockquote>
+
+<p>This has a concrete cost. Weitz's claim that art is an open concept is, in its form, an
+<b>empirical</b> claim: if it is true, every condition-based definition must fail on
+coverage or on discrimination against a real corpus. In seventy years no one has checked it
+in numbers.</p>
+
+<h2 id="i4">4. What the method does</h2>
+
+<p>A definition is treated as a <b>binary classifier</b> over cases the corpus itself has
+adjudicated: a case is positive if a paper states explicitly that it is the concept, and
+negative if a paper states explicitly that it is not. Silence is not negation, and every
+adjudication carries a verified verbatim quotation.</p>
+
+<p>Before scoring, definitions pass <b>three gates</b> — circularity, recursion without a
+base case, and a free parameter the author never fixed. A definition that fails one is
+reported and left unranked.</p>
+
+<p>Survivors are ranked by <b>MCC</b> rather than F<sub>1</sub>, because a positively skewed
+corpus rewards a classifier that says yes to everything; ties are settled by a <b>paired
+bootstrap at the level of the paper</b>, because cases from one paper constitute a single
+voice. Alongside the ranking we report the <b>reliability of application</b>: κ between two
+independent coders.</p>
+
+<p>The output is one list: place, score, confidence interval — and beside it the
+definitions that were disqualified, with the reason.</p>
+
+<h2 id="i5">5. What the method is not</h2>
+
+<ul>
+<li><b>It does not adjudicate what art is</b>, or any other concept. The adjudications are
+the literature's; the method counts them.</li>
+<li><b>It does not validate the philosophical literature and does not replace it.</b> The
+primary aim is practical: a user with a corpus and rival definitions receives the best among
+them. Validating definitions in the literature is a possible use, and not the one it was
+built for.</li>
+<li><b>A definition that wins here has won on one corpus.</b> The corpus is a parameter of
+the measurement, not its background: a different corpus returns a different number, and that
+is correct rather than a defect.</li>
+<li><b>It does not score the Wittgensteinian position itself.</b> "Do not define by
+conditions" is not a rival definition but a proposal to forgo definition, and so falls
+outside the instrument's range — a stated limitation, not a concealed one.</li>
+<li><b>It does not read for the researcher.</b> The method narrows the field of candidates
+and shows where each one breaks; what to do about that remains a human decision.</li>
+</ul>
+
+
+<h2 id="s6">6. The three gates</h2>
+
+<p>A definition is a promise: it says what is admitted and what is excluded. It can be
+tested only where cases already have an adjudication — and here the adjudication is not
+ours but <b>the literature's</b>. A case is positive if a paper states explicitly that it is
+the concept, negative if a paper states explicitly that it is not. Silence is not negation.
+Every case carries a verified verbatim quotation.</p>
+
+<h3>What the gates disqualify, and why before scoring rather than after</h3>
+<p>Three definitions in the corpus scored highly, and in each a defect emerged that no
+statistical measure detects. They are therefore disqualified <b>before</b> scoring and left
+unranked.</p>
+
+<div class="gate"><h4>Gate 1 — circularity</h4>
+The definiens contains the definiendum. Our circular control ("whatever people call art")
+achieves an almost perfect MCC precisely because it copies the answer. No measure will ever
+catch it.</div>
+
+<div class="gate"><h4>Gate 2 — recursion without a base case</h4>
+Levinson's historical definition: "a thing intended for regard as prior artworks were
+correctly regarded." It defines art by reference to prior art and never states what the
+first art was. The mathematical defence (0 is a number; n+1 is a number) works only when the
+base is given. Here there is n+1 and no 0.</div>
+
+<div class="gate"><h4>Gate 3 — failure of point identification</h4>
+Gaut's cluster account: an object is art if it meets <b>enough</b> of ten criteria, none of
+which is necessary — and he never says how many "enough" is. Dutton, who defends the same
+approach, concedes the point explicitly:
+<i>"A recognition-criteria approach ... does not tell us in advance how many of the criteria
+need be present."</i><br>
+We decomposed the ten criteria and coded 120 cases against each. Moving the threshold
+from k = 1 to k = 10 moves the score across a range of <b>0.6</b> MCC, and if k may be
+chosen per case the account attains MCC 1.000. <b>A definition with a free parameter is not
+falsifiable, and its score measures whoever applies it rather than the corpus.</b></div>
+
+<h3>Why the gates precede scoring</h3>
+<p>All three share one property: <b>no statistical measure sees them</b>. A circular
+definition classifies excellently precisely because it copies the answer; a definition with
+a free threshold receives whatever score its applier selected for it. If the gate runs after
+scoring, the defective definition already sits at the top of the table and has to be struck
+out afterwards — which is exactly what happened to us once, when an automated search was
+allowed to build a definition from a criterion list one of whose members contained the word
+"art". <b>A gate applied after generation is a gate applied too late.</b></p>
+
+<h3>Measurement versus refinement — a distinction that must be recorded</h3>
+<p>A definition changes when a case defeats it, so every definition carries a version
+history. But one difference must not be blurred:</p>
+<div class="step"><b>Measurement</b> — the wording was fixed <i>before</i> the cases were
+seen. The score is a test.</div>
+<div class="step"><b>Refinement</b> — the wording was fixed <i>after</i> it became clear
+which cases failed. The score is not a test, because the cases are already known.</div>
+<p>Both are legitimate, and neither may be reported as though the two were measured under
+the same conditions. The apparatus retains every version, never deletes, and marks each one
+accordingly.</p>
+
+<h3>Sub-concepts must themselves be defined</h3>
+<p>A definition resting on an undefined term transfers the adjudication to unwritten
+judgement. In a case we measured, defining the internal term according to what the corpus
+actually does with it — without altering a single word of the definition itself — raised
+the score from +0.380 to +0.664. <b>A definer does not repair their own terms</b>; those are
+settled outside the definition. The definition therefore unfolds recursively until further
+decomposition stops changing the score.</p>
+
+<h2 id="s7">7. Criteria for a good definition</h2>
+<p>Three are measured inside the confusion matrix, three outside it, and three gates precede
+all of them.</p>
+<table class="tbl"><thead><tr><th>#</th><th>Criterion</th><th>What it asks</th>
+<th>Where measured</th></tr></thead><tbody>
+<tr><td class="pl">G1</td><td><b>Non-circular</b></td>
+<td>Does the definiens contain the definiendum?</td><td>gate</td></tr>
+<tr><td class="pl">G2</td><td><b>Recursive base</b></td>
+<td>If recursive — is the base case stated?</td><td>gate</td></tr>
+<tr><td class="pl">G3</td><td><b>Point-identified</b></td>
+<td>Does it contain a parameter the author never fixed?</td><td>gate</td></tr>
+<tr><td class="pl">1</td><td><b>Coverage</b></td>
+<td>How much of what is agreed to be the concept does it admit?</td><td>recall</td></tr>
+<tr><td class="pl">2</td><td><b>Discrimination</b></td>
+<td>How much of what is agreed not to be the concept does it exclude?</td><td>precision</td></tr>
+<tr><td class="pl">3</td><td><b>Prediction</b></td>
+<td>Does it hold on cases not used in building it?</td><td>held-out sample</td></tr>
+<tr><td class="pl">4</td><td><b>Typicality ranking</b></td>
+<td>Does it explain why one instance is more central than another?</td><td>rank correlation</td></tr>
+<tr><td class="pl">5</td><td><b>Applicability</b></td>
+<td>Will two people reach the same answer?</td><td>κ between coders</td></tr>
+<tr><td class="pl">6</td><td><b>Minimality</b></td>
+<td>Can a condition be removed with nothing changing?</td><td>ablation</td></tr>
+</tbody></table>
+<div class="crit"><b>Criterion 5 is a precondition, not one more row.</b> Without agreement
+between two coders on what counts as a true positive, the four cells of the matrix are
+meaningless. On a controlled layer of statistical terms it has been measured (κ = 0.767,
+"substantial"); for definitions it is measured in §10.</div>
+
+<h2 id="s8">8. The confusion matrix</h2>
+<p>Here the "classifier" is the definition, and "ground truth" is <b>what the papers
+themselves state</b>. This is not absolute truth; it is the truth the corpus supplies, and
+that is precisely what makes the measurement relative to a corpus.</p>
+
+<h3>The four cells</h3>
+<ul>
+<li><b>TP</b> — the definition admits a case the papers declare to be the concept.
+<span class="fx">TP = |{ x : D(x)=1 AND corpus(x)=yes }|</span></li>
+<li><b>FP</b> — the definition admits a case the papers declare not to be the concept.
+<span class="fx">FP = |{ x : D(x)=1 AND corpus(x)=no }|</span></li>
+<li><b>FN</b> — the definition excludes a case the papers declare to be the concept.
+<span class="fx">FN = |{ x : D(x)=0 AND corpus(x)=yes }|</span></li>
+<li><b>TN</b> — the definition excludes a case the papers declare not to be the concept.
+<span class="fx">TN = |{ x : D(x)=0 AND corpus(x)=no }|</span></li>
+</ul>
+<blockquote><b>Every FN refutes necessity. Every FP refutes sufficiency.</b> This is the
+whole translation from the logical vocabulary into a measurable one.</blockquote>
+
+<p>The figures below are read from the corpus at build time: <b>372 cases</b> (289 positive ·
+83 negative) across <b>34 papers</b>. The base rate is 78% positive — hence
+<b>MCC and not F<sub>1</sub></b>: a classifier that says yes to everything obtains a high
+F<sub>1</sub> and an MCC of zero.</p>
+<table class="tbl"><thead><tr><th>Definition</th><th>TP</th><th>FP</th><th>FN</th><th>TN</th>
+<th>MCC</th></tr></thead><tbody>
+<tr><td>condition-based definition (object/action, intention, values)</td><td>260</td><td>13</td><td>29</td><td>70</td><td class="num">+0.700</td></tr>
+<tr><td>the aesthetic definition</td><td>202</td><td>11</td><td>87</td><td>72</td><td class="num">+0.477</td></tr>
+<tr><td>art as expression</td><td>139</td><td>2</td><td>150</td><td>81</td><td class="num">+0.392</td></tr>
+<tr><td>broad</td><td>245</td><td>50</td><td>44</td><td>33</td><td class="num">+0.252</td></tr>
+<tr><td>narrow</td><td>73</td><td>1</td><td>216</td><td>82</td><td class="num">+0.251</td></tr>
+<tr><td>mimesis</td><td>94</td><td>6</td><td>195</td><td>77</td><td class="num">+0.238</td></tr>
+<tr class=gated><td>circular</td><td>287</td><td>0</td><td>2</td><td>83</td><td class="num">—</td></tr>
+<tr class=gated><td>the cluster account</td><td>266</td><td>16</td><td>23</td><td>67</td><td class="num">—</td></tr>
+<tr class=gated><td>the historical definition</td><td>242</td><td>4</td><td>47</td><td>79</td><td class="num">—</td></tr>
+<tr class=gated><td>the institutional theory</td><td>220</td><td>2</td><td>69</td><td>81</td><td class="num">—</td></tr>
+<tr class=gated><td>open</td><td>282</td><td>24</td><td>7</td><td>59</td><td class="num">—</td></tr>
+</tbody></table>
+<div class="crit"><b>Note the row for the circular control.</b> It is nearly perfect,
+because it copies the answer. This is why circularity must be a <b>gate</b> and not a score:
+no statistical measure will catch it.</div>
+
+<h3>What the matrix covers, and what it does not</h3>
+<p>Three of the six criteria are computed from these four cells: coverage
+(<span class="fx">recall = TP/(TP+FN)</span>), discrimination
+(<span class="fx">precision = TP/(TP+FP)</span>), and prediction — the same four cells on a
+held-out sample not used in constructing the definition. The remaining three lie outside it.
+<b>Typicality ranking</b> requires an order rather than labels, and is measured by rank
+correlation between the ranking a definition predicts and frequency of attestation in the
+corpus. <b>Applicability</b> is measured by κ. <b>Minimality</b> is a property of the
+definition rather than of the cases, and is measured by ablation: remove one condition,
+re-score; a condition whose removal changes nothing is ornament.</p>
+
+<h3>Three states, not two</h3>
+<p>A case is positive when a paper states explicitly that it is the concept, and negative
+when a paper states explicitly that it is not. The third state is <b>silence</b>, and
+<b>silence is not negation</b>. If silence were counted as negative, every paper that did
+not mention the Mona Lisa would be recorded as claiming that it is not art. This is the
+error that destroys measurements of this kind, and it is very easy to make when counting
+automatically.</p>
+<p>The unit of analysis is accordingly neither the paper nor the passage but the
+<b>(case, paper) pair</b>. The same case may be positive in one paper and negative in
+another, and that disagreement is the most valuable datum in the corpus rather than noise:
+collapsing to the paper loses it, collapsing to the case loses who said it. Variance is
+decomposed with the paper as a random effect
+(<span class="fx">ICC = between / (between + within)</span>), so that twenty-five
+attestations from a single paper inflate nothing.</p>
+
+<h2 id="s9">9. Structure of the concept record</h2>
+<p>This is the record the measurement rests on. <b>Every field in the diagram is a link</b>;
+following it reaches that field's entry in the glossary in Appendix B, which states what the
+field does, what it holds, and its data structure (string · number · array · dictionary ·
+record · tree · graph).</p>
+<figure><svg viewBox="0 0 1290 1160" role="img" aria-label="structure of the concept record"><defs><marker id="own" markerWidth="13" markerHeight="13" refX="11" refY="6.5" orient="auto"><path d="M0 6.5 L6 2 L12 6.5 L6 11 z" fill="#6b6b6b"/></marker><marker id="ref" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0 1 L9 5.5 L0 10" fill="none" stroke="#6b6b6b" stroke-width="1.6"/></marker></defs><g font-family="Segoe UI,Calibri,Arial"><rect x="470" y="40" width="340" height="300" rx="9" fill="#fff" stroke="#6a1b9a" stroke-width="2"/><path d="M470 88 h340 v-39 a9 9 0 0 0 -9 -9 h-322 a9 9 0 0 0 -9 9 z" fill="#6a1b9a"/><text x="640.0" y="61" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">ConceptNode</text><text x="640.0" y="79" text-anchor="middle" font-size="11" fill="#fff">node in the concept tree — the main record</text><a href="#f-conceptnode-id"><rect x="473" y="90" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="103" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-conceptnode-labels"><rect x="473" y="112" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="125" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#00838f">■</tspan> labels : <tspan fill="#6b6b6b">dict[lang,str]</tspan></text></a><a href="#f-conceptnode-external-ids"><rect x="473" y="134" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="147" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#00838f">■</tspan> external_ids : <tspan fill="#6b6b6b">dict[src,str]</tspan></text></a><a href="#f-conceptnode-parent"><rect x="473" y="156" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="169" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#6a1b9a">■</tspan> parent : <tspan fill="#6b6b6b">-&gt; ConceptNode?</tspan></text></a><a href="#f-conceptnode-children"><rect x="473" y="178" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="191" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#6a1b9a">■</tspan> children : <tspan fill="#6b6b6b">-&gt; ConceptNode[]</tspan></text></a><a href="#f-conceptnode-sources"><rect x="473" y="200" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="213" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#7e57c2">■</tspan> sources : <tspan fill="#6b6b6b">PaperSource[]</tspan></text></a><a href="#f-conceptnode-senses"><rect x="473" y="222" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="235" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#7e57c2">■</tspan> senses : <tspan fill="#6b6b6b">Sense[]</tspan></text></a><a href="#f-conceptnode-sense-relations"><rect x="473" y="244" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="257" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#7e57c2">■</tspan> sense_relations : <tspan fill="#6b6b6b">SenseRelation[]</tspan></text></a><a href="#f-conceptnode-criteria-added"><rect x="473" y="266" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="279" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#7e57c2">■</tspan> criteria_added : <tspan fill="#6b6b6b">Criterion[]</tspan></text></a><a href="#f-conceptnode-contrast-cases"><rect x="473" y="288" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="301" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#7e57c2">■</tspan> contrast_cases : <tspan fill="#6b6b6b">ContrastCase[]</tspan></text></a><a href="#f-conceptnode-theorists"><rect x="473" y="310" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="323" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#7e57c2">■</tspan> theorists : <tspan fill="#6b6b6b">Theorist[]</tspan></text></a><rect x="1050" y="470" width="190" height="168" rx="9" fill="#fff" stroke="#0d9488" stroke-width="2"/><path d="M1050 518 h190 v-39 a9 9 0 0 0 -9 -9 h-172 a9 9 0 0 0 -9 9 z" fill="#0d9488"/><text x="1145.0" y="491" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">PaperSource</text><text x="1145.0" y="509" text-anchor="middle" font-size="11" fill="#fff">one paper</text><circle cx="1226" cy="466" r="15" fill="#0d9488"/><text x="1226" y="471" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">7</text><a href="#f-papersource-paper-id"><rect x="1053" y="520" width="184" height="20" fill="transparent" class="hit"/><text x="1145.0" y="533" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> paper_id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-papersource-field"><rect x="1053" y="542" width="184" height="20" fill="transparent" class="hit"/><text x="1145.0" y="555" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> field : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-papersource-year"><rect x="1053" y="564" width="184" height="20" fill="transparent" class="hit"/><text x="1145.0" y="577" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#ef6c00">■</tspan> year : <tspan fill="#6b6b6b">int</tspan></text></a><a href="#f-papersource-lang"><rect x="1053" y="586" width="184" height="20" fill="transparent" class="hit"/><text x="1145.0" y="599" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> lang : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-papersource-attest"><rect x="1053" y="608" width="184" height="20" fill="transparent" class="hit"/><text x="1145.0" y="621" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#7e57c2">■</tspan> attest : <tspan fill="#6b6b6b">Attestation[]</tspan></text></a><rect x="848" y="470" width="190" height="168" rx="9" fill="#fff" stroke="#7e57c2" stroke-width="2"/><path d="M848 518 h190 v-39 a9 9 0 0 0 -9 -9 h-172 a9 9 0 0 0 -9 9 z" fill="#7e57c2"/><text x="943.0" y="491" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">Sense</text><text x="943.0" y="509" text-anchor="middle" font-size="11" fill="#fff">a reading of the concept</text><circle cx="1024" cy="466" r="15" fill="#7e57c2"/><text x="1024" y="471" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">58</text><a href="#f-sense-id"><rect x="851" y="520" width="184" height="20" fill="transparent" class="hit"/><text x="943.0" y="533" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-sense-label"><rect x="851" y="542" width="184" height="20" fill="transparent" class="hit"/><text x="943.0" y="555" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> label : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-sense-holder"><rect x="851" y="564" width="184" height="20" fill="transparent" class="hit"/><text x="943.0" y="577" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> holder : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-sense-defining"><rect x="851" y="586" width="184" height="20" fill="transparent" class="hit"/><text x="943.0" y="599" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> defining : <tspan fill="#6b6b6b">-&gt; Attest[]</tspan></text></a><a href="#f-sense-endorsed-by"><rect x="851" y="608" width="184" height="20" fill="transparent" class="hit"/><text x="943.0" y="621" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> endorsed_by : <tspan fill="#6b6b6b">-&gt; paper_id[]</tspan></text></a><rect x="646" y="470" width="190" height="190" rx="9" fill="#fff" stroke="#0277bd" stroke-width="2"/><path d="M646 518 h190 v-39 a9 9 0 0 0 -9 -9 h-172 a9 9 0 0 0 -9 9 z" fill="#0277bd"/><text x="741.0" y="491" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">Criterion</text><text x="741.0" y="509" text-anchor="middle" font-size="11" fill="#fff">a condition in the definition</text><circle cx="822" cy="466" r="15" fill="#0277bd"/><text x="822" y="471" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">3</text><a href="#f-criterion-id"><rect x="649" y="520" width="184" height="20" fill="transparent" class="hit"/><text x="741.0" y="533" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-criterion-label"><rect x="649" y="542" width="184" height="20" fill="transparent" class="hit"/><text x="741.0" y="555" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> label : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-criterion-kind"><rect x="649" y="564" width="184" height="20" fill="transparent" class="hit"/><text x="741.0" y="577" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> kind : <tspan fill="#6b6b6b">necessary|suff</tspan></text></a><a href="#f-criterion-evidence"><rect x="649" y="586" width="184" height="20" fill="transparent" class="hit"/><text x="741.0" y="599" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> evidence : <tspan fill="#6b6b6b">-&gt; Attest[]</tspan></text></a><a href="#f-criterion-counter-ev"><rect x="649" y="608" width="184" height="20" fill="transparent" class="hit"/><text x="741.0" y="621" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> counter_ev : <tspan fill="#6b6b6b">-&gt; Attest[]</tspan></text></a><a href="#f-criterion-excludes"><rect x="649" y="630" width="184" height="20" fill="transparent" class="hit"/><text x="741.0" y="643" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> excludes : <tspan fill="#6b6b6b">-&gt; ContrastCase[]</tspan></text></a><rect x="444" y="470" width="190" height="168" rx="9" fill="#fff" stroke="#c0392b" stroke-width="2"/><path d="M444 518 h190 v-39 a9 9 0 0 0 -9 -9 h-172 a9 9 0 0 0 -9 9 z" fill="#c0392b"/><text x="539.0" y="491" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">ContrastCase</text><text x="539.0" y="509" text-anchor="middle" font-size="11" fill="#fff">what is not the concept</text><circle cx="620" cy="466" r="15" fill="#c0392b"/><text x="620" y="471" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">45</text><a href="#f-contrastcase-id"><rect x="447" y="520" width="184" height="20" fill="transparent" class="hit"/><text x="539.0" y="533" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-contrastcase-thing"><rect x="447" y="542" width="184" height="20" fill="transparent" class="hit"/><text x="539.0" y="555" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> thing : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-contrastcase-evidence"><rect x="447" y="564" width="184" height="20" fill="transparent" class="hit"/><text x="539.0" y="577" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> evidence : <tspan fill="#6b6b6b">-&gt; Attestation</tspan></text></a><a href="#f-contrastcase-excluded-by"><rect x="447" y="586" width="184" height="20" fill="transparent" class="hit"/><text x="539.0" y="599" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> excluded_by : <tspan fill="#6b6b6b">-&gt; Criterion?</tspan></text></a><a href="#f-contrastcase-judged"><rect x="447" y="608" width="184" height="20" fill="transparent" class="hit"/><text x="539.0" y="621" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#8d6e63">■</tspan> judged : <tspan fill="#6b6b6b">bool</tspan></text></a><rect x="242" y="470" width="190" height="168" rx="9" fill="#fff" stroke="#8d6e63" stroke-width="2"/><path d="M242 518 h190 v-39 a9 9 0 0 0 -9 -9 h-172 a9 9 0 0 0 -9 9 z" fill="#8d6e63"/><text x="337.0" y="491" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">Theorist</text><text x="337.0" y="509" text-anchor="middle" font-size="11" fill="#fff">holder of a position</text><circle cx="418" cy="466" r="15" fill="#8d6e63"/><text x="418" y="471" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">71</text><a href="#f-theorist-id"><rect x="245" y="520" width="184" height="20" fill="transparent" class="hit"/><text x="337.0" y="533" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-theorist-name"><rect x="245" y="542" width="184" height="20" fill="transparent" class="hit"/><text x="337.0" y="555" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> name : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-theorist-external-id"><rect x="245" y="564" width="184" height="20" fill="transparent" class="hit"/><text x="337.0" y="577" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> external_id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-theorist-senses"><rect x="245" y="586" width="184" height="20" fill="transparent" class="hit"/><text x="337.0" y="599" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> senses : <tspan fill="#6b6b6b">-&gt; Sense[]</tspan></text></a><a href="#f-theorist-evidence"><rect x="245" y="608" width="184" height="20" fill="transparent" class="hit"/><text x="337.0" y="621" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> evidence : <tspan fill="#6b6b6b">-&gt; Attest[]</tspan></text></a><rect x="40" y="470" width="190" height="168" rx="9" fill="#fff" stroke="#b5179e" stroke-width="2"/><path d="M40 518 h190 v-39 a9 9 0 0 0 -9 -9 h-172 a9 9 0 0 0 -9 9 z" fill="#b5179e"/><text x="135.0" y="491" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">SenseRelation</text><text x="135.0" y="509" text-anchor="middle" font-size="11" fill="#fff">relation between readings</text><a href="#f-senserelation-from-sense"><rect x="43" y="520" width="184" height="20" fill="transparent" class="hit"/><text x="135.0" y="533" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#c0392b">■</tspan> from_sense : <tspan fill="#6b6b6b">-&gt; Sense</tspan></text></a><a href="#f-senserelation-to-sense"><rect x="43" y="542" width="184" height="20" fill="transparent" class="hit"/><text x="135.0" y="555" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#c0392b">■</tspan> to_sense : <tspan fill="#6b6b6b">-&gt; Sense</tspan></text></a><a href="#f-senserelation-kind"><rect x="43" y="564" width="184" height="20" fill="transparent" class="hit"/><text x="135.0" y="577" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> kind : <tspan fill="#6b6b6b">contrasts|ext</tspan></text></a><a href="#f-senserelation-evidence"><rect x="43" y="586" width="184" height="20" fill="transparent" class="hit"/><text x="135.0" y="599" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> evidence : <tspan fill="#6b6b6b">-&gt; Attestation</tspan></text></a><a href="#f-senserelation-paper-id"><rect x="43" y="608" width="184" height="20" fill="transparent" class="hit"/><text x="135.0" y="621" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> paper_id : <tspan fill="#6b6b6b">str</tspan></text></a><rect x="470" y="900" width="340" height="234" rx="9" fill="#fff" stroke="#00838f" stroke-width="2"/><path d="M470 948 h340 v-39 a9 9 0 0 0 -9 -9 h-322 a9 9 0 0 0 -9 9 z" fill="#00838f"/><text x="640.0" y="921" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">Attestation</text><text x="640.0" y="939" text-anchor="middle" font-size="11" fill="#fff">a single attestation — the smallest unit</text><circle cx="796" cy="896" r="15" fill="#00838f"/><text x="796" y="901" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff" font-family="Consolas,monospace">171</text><a href="#f-attestation-id"><rect x="473" y="950" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="963" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> id : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-attestation-node-id"><rect x="473" y="972" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="985" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#b5179e">■</tspan> node_id : <tspan fill="#6b6b6b">-&gt; ConceptNode</tspan></text></a><a href="#f-attestation-quote"><rect x="473" y="994" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="1007" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> quote : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-attestation-locator"><rect x="473" y="1016" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="1029" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> locator : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-attestation-role"><rect x="473" y="1038" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="1051" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> role : <tspan fill="#6b6b6b">str</tspan></text></a><a href="#f-attestation-asserted"><rect x="473" y="1060" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="1073" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> asserted : <tspan fill="#6b6b6b">P|N|U</tspan></text></a><a href="#f-attestation-object-level"><rect x="473" y="1082" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="1095" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#8d6e63">■</tspan> object_level : <tspan fill="#6b6b6b">bool</tspan></text></a><a href="#f-attestation-kind"><rect x="473" y="1104" width="334" height="20" fill="transparent" class="hit"/><text x="640.0" y="1117" text-anchor="middle" font-size="11.6" font-family="Consolas,monospace" direction="ltr" fill="#1c1c1c"><tspan fill="#0277bd">■</tspan> kind : <tspan fill="#6b6b6b">str</tspan></text></a><path d="M640 340 L640 424 L1145.0 424 L1145.0 466" fill="none" stroke="#0d9488" stroke-width="1.8" marker-end="url(#own)"/><path d="M640 340 L640 424 L943.0 424 L943.0 466" fill="none" stroke="#7e57c2" stroke-width="1.8" marker-end="url(#own)"/><path d="M640 340 L640 424 L741.0 424 L741.0 466" fill="none" stroke="#0277bd" stroke-width="1.8" marker-end="url(#own)"/><path d="M640 340 L640 424 L539.0 424 L539.0 466" fill="none" stroke="#c0392b" stroke-width="1.8" marker-end="url(#own)"/><path d="M640 340 L640 424 L337.0 424 L337.0 466" fill="none" stroke="#8d6e63" stroke-width="1.8" marker-end="url(#own)"/><path d="M640 340 L640 424 L135.0 424 L135.0 466" fill="none" stroke="#b5179e" stroke-width="1.8" marker-end="url(#own)"/><text x="640" y="414" text-anchor="middle" font-size="12" fill="#6b6b6b">◆ ownership — the record contains them</text><path d="M810 130 q86 0 86 62 q0 62 -86 62" fill="none" stroke="#6a1b9a" stroke-width="1.8" marker-end="url(#ref)"/><text x="915" y="188" text-anchor="middle" font-size="11.5" fill="#6a1b9a" font-family="Consolas,monospace" direction="ltr">parent / children</text><text x="915" y="206" text-anchor="middle" font-size="11" fill="#6b6b6b">the tree — same type</text><path d="M1145.0 638 L1145.0 860 L640.0 860 L640.0 896" fill="none" stroke="#00838f" stroke-width="1.8" marker-end="url(#own)"/><text x="892.5" y="852" text-anchor="middle" font-size="11.5" fill="#6b6b6b">each paper holds its own attestations</text></g></svg>
+<figcaption>Rectangle = record · solid arrow = ownership · open arrow = reference.
+Every row links to the glossary.</figcaption>
+</figure>
+
+
+<h2 id="s10">10. Reliability of application — κ</h2>
+<p>Applicability is not one more row in the table: <b>it is a precondition for everything
+else</b>. If two people applying the same definition to the same case reach different
+answers, the four cells of the matrix measure the applier rather than the definition.</p>
+<p>We measured this directly. A blind sample of <b>140</b> (case × definition) pairs
+across seven definitions was coded by a second coder that was not the system which produced
+the first coding. The question put on every row was not "is this art" but <b>"does this
+definition, read literally, apply to this thing"</b>.</p>
+<table class="tbl"><thead><tr><th>Definition</th><th>κ</th><th>Agreement</th><th>n</th>
+</tr></thead><tbody>
+<tr><td>the historical definition</td><td class="num">+0.800</td><td class="num">90%</td><td class="num">20</td></tr>
+<tr><td>condition-based definition (object/action, intention, values)</td><td class="num">+0.500</td><td class="num">75%</td><td class="num">20</td></tr>
+<tr><td>the institutional theory</td><td class="num">+0.500</td><td class="num">75%</td><td class="num">20</td></tr>
+<tr><td>the aesthetic definition</td><td class="num">+0.479</td><td class="num">75%</td><td class="num">20</td></tr>
+<tr><td>the cluster account</td><td class="num">+0.417</td><td class="num">70%</td><td class="num">20</td></tr>
+<tr><td>mimesis</td><td class="num">+0.412</td><td class="num">80%</td><td class="num">20</td></tr>
+<tr><td>art as expression</td><td class="num">+0.348</td><td class="num">85%</td><td class="num">20</td></tr>
+<tr><td><b>Overall</b></td><td class="num"><b>+0.547</b></td>
+<td class="num"><b>78.6%</b></td>
+<td class="num"><b>140</b></td></tr>
+</tbody></table>
+<div class="crit"><b>The hypothesis was refuted, and that is the finding.</b> We stated in
+advance, in the coding sheet itself, that we expected κ for the cluster account to
+<b>collapse</b> relative to the others, because it does not fix how many of its ten criteria
+count as "enough". It did not collapse — +0.417, only +0.090 from the mean of the others. To the extent this sample allows, Gaut is
+right: the threshold converges in practice even when it is left unstated.</div>
+<div class="warn"><b>What is of concern.</b> An overall κ of 0.547 is
+<b>moderate</b> rather than substantial on the conventional scale (Landis &amp; Koch, 1977).
+Two coders disagree on roughly a quarter of the judgements on which every ranking in this
+document rests. For comparison, on a controlled layer of statistical terms we measured
+κ = 0.767 with the identical apparatus. <b>The difference is not noise: it is the cost of
+applying a verbal definition as against matching a term from a closed list</b>, and it is
+the open problem of the field.</div>
+<p>One incidental result deserves recording. The definition with the highest agreement is
+the one disqualified at the recursion gate. "Intended for regard as prior works were
+regarded" is easy to agree on precisely because the test is simple to apply and demands no
+substantive judgement. <b>A stable definition is not thereby a good one</b>, and the two
+measures must be reported side by side.</p>
+
+
+<h2 id="s11">11. The community: work in digital humanities, and how this connects</h2>
+<p>This work does not stand alone. A 2026 summer school at the Open University of Israel
+brought together eight researchers who all address one problem in different guises:
+<b>how to turn text into data without losing what makes it text</b>. The account below is
+written from reading their papers.</p>
+<table class="tbl"><thead><tr><th>Researcher</th><th>Unit of annotation</th>
+<th>Vocabulary</th><th>Platform</th><th>Reliability</th></tr></thead><tbody>
+<tr><td><b>Gutman</b><br><span class="hold">figurative language as a network</span></td>
+<td>a figurative instance — a manually extracted sub-sentential span</td>
+<td>closed: 103 topics</td><td>DistilBERT + Gephi</td><td class="num">not measured</td></tr>
+<tr><td><b>Dekel</b><br><span class="hold">public distant reading</span></td>
+<td>the whole novel — a work-level record</td><td>mixed: questionnaire</td>
+<td>Google Forms</td><td class="num">not measured, by stated policy</td></tr>
+<tr><td><b>Melnik</b><br><span class="hold">idioms and their flexibility</span></td>
+<td>an occurrence of an idiom in a corpus</td><td>corpus queries</td>
+<td>Hebrew corpus</td><td class="num">—</td></tr>
+<tr><td><b>Marienberg-Milikowsky</b><br><span class="hold">interpretive tagging</span></td>
+<td>a span in the text</td><td>hierarchical tagset</td><td>CATMA → ViS-À-ViS</td>
+<td class="num">—</td></tr>
+<tr><td><b>Sagiv</b><br><span class="hold">Hasidic stories</span></td>
+<td>an entity in the text: person, place, subject</td><td>the TEI-XML standard</td>
+<td>TEI-Publisher</td><td class="num">—</td></tr>
+<tr><td><b>Rusinek</b><br><span class="hold">MEHDIE · Kima</span></td>
+<td><b>a pair of records</b>, not a span in text</td><td>closed: gazetteers</td>
+<td>WHG · Recogito · Wikidata</td><td class="num">not measured</td></tr>
+<tr><td><b>Rivlin-Angert</b><br><span class="hold">political delegitimisation</span></td>
+<td>the sentence</td><td>closed: two-stage scheme</td><td>DictaLM 2.0</td>
+<td class="num"><b>κ = 0.82</b></td></tr>
+</tbody></table>
+
+<h3>What is shared, and what differs</h3>
+<p><b>Shared:</b> all of them tag <i>a phenomenon in a text</i> — a metaphor, a place name,
+delegitimisation, an idiom. <b>Different:</b> for them tagging is <b>the object</b>; here it
+is <b>the substrate</b> — the evidence against which a definition is tested. The question
+asked is not "what is in this text" but "which definition of the concept withstands this
+corpus".</p>
+
+<div class="key"><b>Two weaknesses recur across nearly all of this work, and they are
+precisely where the present method contributes.</b><br><br>
+<b>1 · Categories without definitions.</b> Gutman's 103 topics carry no definition, and he
+concedes the consequence in a footnote: two interpreters may assign different topics to the
+same word, and he defers the reliability measurement to future work.
+<b>2 · Reliability that is not measured.</b> Of the eight, only Rivlin-Angert measured it —
+three coders, a 170-sentence sample, κ = 0.82. For Dekel non-measurement is an explicit
+methodological position; in the MEHDIE paper there is no accuracy figure of any kind, and
+the evidence offered is a single worked case.<br><br>
+<b>This is what the present method adds:</b> a mandatory verbatim quotation for every tag,
+and a measurable definition for every category.</div>
+
+<h3>Why it works there and breaks here</h3>
+<p>Rusinek's Kima has the same shape as the record used here —
+<span class="fx">place → name variant → dated attestation</span> against
+<span class="fx">concept → wording → quotation</span>. The architectures are identical. The
+only difference is that a place has a <b>referent</b>: one can transliterate it to IPA and
+check whether two spellings sound the same. An abstract concept admits no such test.
+<b>That is the gap, and it is the open problem for all of us.</b></p>
+
+<h3>Interoperability — what must be emitted</h3>
+<p>Connection requires no agreement between projects. It requires three format decisions:</p>
+<ul>
+<li><b>An opaque identifier instead of a label.</b> Where the tag <i>is</i> the word, any
+change of wording silently breaks every external link. A stable identifier, with the words
+hanging off it as <code>skos:prefLabel</code> and <code>skos:altLabel</code>.</li>
+<li><b>A textual anchor that is not an offset.</b> A <code>TextQuoteSelector</code>
+(quotation plus preceding and following context) survives re-editions; character offsets do
+not. Offsets for tools that need them are derived from it at export time.</li>
+<li><b>Resolution to an external authority</b> — Wikidata, GeoNames. Once two layers point
+at the same identifier they join without any bilateral arrangement.</li>
+</ul>
+<p>Two export formats carry the community's actual practice: two-tier <b>TEI</b>
+(metadata in <code>teiHeader</code>, span annotations in <code>standOff</code>), and a pair
+of <b>Gephi</b> CSV files (nodes and edges).</p>
+<div class="good"><b>And in the other direction:</b> defining Gutman's 103 categories with
+this instrument would supply the reliability measure his work lacks, and would supply this
+work a test case that is not its own — which is the more valuable half of the exchange,
+because on that corpus the authors hold no competing definition.</div>
+
+<h2 id="s12">12. Limitations</h2>
+<div class="crit"><b>This list belongs in the body of the text and not in a footnote.</b> A
+new measure that arrives with its limitations is received better than one that arrives
+without them, and a reviewer will find them regardless.</div>
+<ul>
+<li><b>Reliability is moderate, and it bounds everything else.</b> κ = 0.547 over 140 blind
+pairs. Two coders disagree on roughly a quarter of the judgements the rankings rest on.</li>
+<li><b>Comparison is valid within a single run only.</b> The same definition scored +0.714
+in one run and +0.591 in another on identical cases; the only difference was the wording of
+the instruction given to coders. MCC is not a property of a definition but of the pair
+(definition × instruction). Numbers from two tables must therefore never be compared.</li>
+<li><b>The negatives are not a representative sample.</b> They are contrast cases someone
+troubled to write down, not a random sample of what is not the concept. Accuracy and
+specificity are therefore inadmissible, and the corpus was deliberately extended with hard
+negatives — advertisements, games, sport — where permissiveness is caught.</li>
+<li><b>There is no access to authorial intent.</b> What was not written is not measured.</li>
+<li><b>Recall has a ceiling.</b> What was missed cannot be known without knowing the whole
+set; coverage is therefore coverage relative to a documented pool, and must be named as
+such.</li>
+<li><b>The corpus is still small.</b> 34 papers. The bootstrap unit is the paper, so
+the effective n is 34 rather than 372 — which is why the lower places in a ranking are
+not separable.</li>
+<li><b>The Wittgensteinian position cannot be scored</b>, as stated in §5.</li>
+</ul>
+
+<h2 id="a1">Appendix A — formulae</h2>
+<p>All measures are computed from the four cells. <span class="fx">TP</span> and
+<span class="fx">FN</span> are counted over cases the corpus adjudicated positive,
+<span class="fx">FP</span> and <span class="fx">TN</span> over those it adjudicated
+negative.</p>
+<div class="key">
+<span class="fx">precision = TP / (TP + FP)</span> — discrimination<br>
+<span class="fx">recall = TP / (TP + FN)</span> — coverage<br>
+<span class="fx">F1 = 2 · precision · recall / (precision + recall)</span><br>
+<span class="fx">MCC = (TP·TN − FP·FN) / sqrt((TP+FP)(TP+FN)(TN+FP)(TN+FN))</span>
+</div>
+<p><b>Why MCC and not F<sub>1</sub>.</b> F<sub>1</sub> ignores <span class="fx">TN</span>,
+so on a positively skewed corpus a classifier that says yes to everything obtains a high
+F<sub>1</sub>. MCC gives that same classifier exactly <b>0.000</b> (Matthews, 1975; Chicco
+&amp; Jurman, 2020). F<sub>1</sub> is reported beside it, never alone.</p>
+
+<h3>Reliability</h3>
+<div class="key">
+<span class="fx">κ = (p_o − p_e) / (1 − p_e)</span><br>
+<span class="fx">p_o</span> = observed agreement · <span class="fx">p_e</span> = agreement
+expected by chance from the two coders' marginals (Cohen, 1960). Interpretation of values
+follows Landis &amp; Koch (1977). For more than two coders or mixed scales, Krippendorff's
+alpha (Hayes &amp; Krippendorff, 2007).
+</div>
+
+<h3>Variance between papers and within them</h3>
+<p>The same case may be judged in several papers. Variance is decomposed by analysis of
+variance:</p>
+<div class="key">
+<span class="fx">ICC = σ²_between / (σ²_between + σ²_within)</span> (Shrout &amp; Fleiss, 1979)<br>
+<b>High ICC</b> — papers disagree with one another and are internally consistent ⟶ the
+disagreement is cross-disciplinary, and the senses should be split.<br>
+<b>Low ICC</b> — the same paper holds several positions ⟶ the concept is contested within a
+single author, which is a finding in itself.
+</div>
+<p>This also answers "count cases or count papers": a hierarchical model with the paper as a
+random effect counts both, and twenty-five attestations from one paper inflate nothing.</p>
+
+<h3>Confidence intervals and comparison</h3>
+<p>Confidence intervals are computed by <b>bootstrap</b> (Efron, 1979) <b>at the level of
+the paper and not the case</b>, because cases from one paper share a single author's usage
+and are not independent; resampling cases yields intervals that are too narrow and a
+significance that does not exist. Two definitions on the same cases are compared with a
+paired test (McNemar, 1947), and a tie is declared when neither beats the other in 95% of
+resamples.</p>
+
+<h2 id="a2">Appendix B — field glossary</h2>
+<section class="cls" style="border-color:#6a1b9a">
+<h3 style="color:#6a1b9a"><code>ConceptNode</code> <span class="clshe">the concept record</span></h3>
+<p class="about">The record that holds one concept. Everything we know about "art" hangs from it. It is also a node in a tree, so it can be split into sub-types without duplicating information.</p>
+<div class="fld" id="f-conceptnode-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The concept's only key in the system.</div><div class="holds"><b>What it holds:</b> A short, fixed string, e.g. art (text)</div></div>
+<div class="fld" id="f-conceptnode-labels"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>labels</code> <span class="kind" style="color:#00838f">dictionary</span> <code class="ty">dict[lang,str]</code></div><div class="does"><b>What it does:</b> The concept's name in each language.</div><div class="holds"><b>What it holds:</b> A dictionary: language code → name. he→omanut, en→art (key→value pairs)</div></div>
+<div class="fld" id="f-conceptnode-external-ids"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>external_ids</code> <span class="kind" style="color:#00838f">dictionary</span> <code class="ty">dict[src,str]</code></div><div class="does"><b>What it does:</b> Links to authority records outside the project, so the layer can join to Wikidata and to MEHDIE.</div><div class="holds"><b>What it holds:</b> A dictionary: authority name → its identifier. wikidata→Q735 (key→value pairs)</div></div>
+<div class="fld" id="f-conceptnode-parent"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>parent</code> <span class="kind" style="color:#6a1b9a">tree</span> <code class="ty">-&gt; ConceptNode?</code></div><div class="does"><b>What it does:</b> The broader concept this one derives from. For "painting" the parent is "art".</div><div class="holds"><b>What it holds:</b> A pointer to a record of the same type, or empty if this is the root (reference to a record of the same type: parent or children)</div></div>
+<div class="fld" id="f-conceptnode-children"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>children</code> <span class="kind" style="color:#6a1b9a">tree</span> <code class="ty">-&gt; ConceptNode[]</code></div><div class="does"><b>What it does:</b> The sub-types. This is what allows a concept to be split into ten sub-types quickly, with the children inheriting the parent's criteria by reference rather than by copy.</div><div class="holds"><b>What it holds:</b> A list of pointers to records of the same type (a list of items of one type)</div></div>
+<div class="fld" id="f-conceptnode-sources"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>sources</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">PaperSource[]</code></div><div class="does"><b>What it does:</b> The papers that mention the concept, grouped by paper -- because twenty-five mentions in one paper are one opinion, not twenty-five.</div><div class="holds"><b>What it holds:</b> A list of PaperSource records (a list of items of one type)</div></div>
+<div class="fld" id="f-conceptnode-senses"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>senses</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">Sense[]</code></div><div class="does"><b>What it does:</b> The different readings the concept receives. One record can hold contradictory senses without averaging between them.</div><div class="holds"><b>What it holds:</b> A list of Sense records (a list of items of one type)</div></div>
+<div class="fld" id="f-conceptnode-sense-relations"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>sense_relations</code> <span class="kind" style="color:#7b1fa2">graph</span> <code class="ty">SenseRelation[]</code></div><div class="does"><b>What it does:</b> Who contradicts whom, who extends whom -- the concept's internal graph.</div><div class="holds"><b>What it holds:</b> A list of SenseRelation records (a list of items of one type)</div></div>
+<div class="fld" id="f-conceptnode-criteria-added"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>criteria_added</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">Criterion[]</code></div><div class="does"><b>What it does:</b> The conditions this concept adds beyond its parent's. Inheritance is resolved by walking upward, so a change at the parent reaches every child immediately.</div><div class="holds"><b>What it holds:</b> A list of Criterion records (a list of items of one type)</div></div>
+<div class="fld" id="f-conceptnode-contrast-cases"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>contrast_cases</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">ContrastCase[]</code></div><div class="does"><b>What it does:</b> What is not the concept. Without these, discrimination cannot be measured -- only coverage.</div><div class="holds"><b>What it holds:</b> A list of ContrastCase records (a list of items of one type)</div></div>
+<div class="fld" id="f-conceptnode-theorists"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>theorists</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">Theorist[]</code></div><div class="does"><b>What it does:</b> Who holds which reading.</div><div class="holds"><b>What it holds:</b> A list of Theorist records (a list of items of one type)</div></div>
+</section>
+<section class="cls" style="border-color:#00838f">
+<h3 style="color:#00838f"><code>PaperSource</code> <span class="clshe">one paper</span></h3>
+<p class="about">One paper that mentions the concept, with all of its attestations inside it. This is what stops twenty-five mentions in a single paper from counting as twenty-five independent opinions: they are one author's position.</p>
+<div class="fld" id="f-papersource-paper-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>paper_id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Which paper this is.</div><div class="holds"><b>What it holds:</b> A stable identifier for the paper (text)</div></div>
+<div class="fld" id="f-papersource-field"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>field</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Its discipline -- so that crossing of fields can be checked.</div><div class="holds"><b>What it holds:</b> A discipline label (text)</div></div>
+<div class="fld" id="f-papersource-year"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>year</code> <span class="kind" style="color:#ef6c00">number</span> <code class="ty">int</code></div><div class="does"><b>What it does:</b> When it was published -- so that change over time is visible.</div><div class="holds"><b>What it holds:</b> A year (number)</div></div>
+<div class="fld" id="f-papersource-lang"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>lang</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The language of the source.</div><div class="holds"><b>What it holds:</b> A language code (text)</div></div>
+<div class="fld" id="f-papersource-attest"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>attest</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">Attestation[]</code></div><div class="does"><b>What it does:</b> Every attestation from this paper.</div><div class="holds"><b>What it holds:</b> A list of Attestation records (a list of items of one type)</div></div>
+</section>
+<section class="cls" style="border-color:#00695c">
+<h3 style="color:#00695c"><code>Sense</code> <span class="clshe">a reading of the concept</span></h3>
+<p class="about">One reading the concept receives. A single record can hold contradictory senses without averaging between them, which is the point: disagreement is data.</p>
+<div class="fld" id="f-sense-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The sense's key.</div><div class="holds"><b>What it holds:</b> A short string (text)</div></div>
+<div class="fld" id="f-sense-label"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>label</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> What this sense is called.</div><div class="holds"><b>What it holds:</b> A short phrase (text)</div></div>
+<div class="fld" id="f-sense-holder"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>holder</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Who holds it.</div><div class="holds"><b>What it holds:</b> A theorist's name or identifier (text)</div></div>
+<div class="fld" id="f-sense-defining"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>defining</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">-&gt; Attest[]</code></div><div class="does"><b>What it does:</b> The quotations the sense is derived from -- not our paraphrase of them.</div><div class="holds"><b>What it holds:</b> A list of pointers to attestations (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-sense-endorsed-by"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>endorsed_by</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">-&gt; paper_id[]</code></div><div class="does"><b>What it does:</b> Which papers hold this sense.</div><div class="holds"><b>What it holds:</b> A list of paper identifiers (a list of items of one type)</div></div>
+</section>
+<section class="cls" style="border-color:#5d4037">
+<h3 style="color:#5d4037"><code>Criterion</code> <span class="clshe">a condition in the definition</span></h3>
+<p class="about">One condition a definition asserts, carrying both the evidence for it and the evidence against it.</p>
+<div class="fld" id="f-criterion-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The condition's key.</div><div class="holds"><b>What it holds:</b> A short string (text)</div></div>
+<div class="fld" id="f-criterion-label"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>label</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The condition in words.</div><div class="holds"><b>What it holds:</b> A phrase (text)</div></div>
+<div class="fld" id="f-criterion-kind"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>kind</code> <span class="kind" style="color:#5d4037">closed list</span> <code class="ty">necessary|sufficient</code></div><div class="does"><b>What it does:</b> Whether it is asserted as necessary or as sufficient -- two things that are measured differently.</div><div class="holds"><b>What it holds:</b> One of a closed list of values</div></div>
+<div class="fld" id="f-criterion-evidence"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>evidence</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">-&gt; Attest[]</code></div><div class="does"><b>What it does:</b> Quotations that support the condition.</div><div class="holds"><b>What it holds:</b> A list of pointers to attestations (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-criterion-counter-ev"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>counter_ev</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">-&gt; Attest[]</code></div><div class="does"><b>What it does:</b> Quotations that refute it. Every item here is a refutation of necessity.</div><div class="holds"><b>What it holds:</b> A list of pointers to attestations (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-criterion-excludes"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>excludes</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">-&gt; ContrastCase[]</code></div><div class="does"><b>What it does:</b> Which contrast cases this condition filters out.</div><div class="holds"><b>What it holds:</b> A list of pointers to contrast cases (reference to another record, not a copy of it)</div></div>
+</section>
+<section class="cls" style="border-color:#b5179e">
+<h3 style="color:#b5179e"><code>ContrastCase</code> <span class="clshe">what is not the concept</span></h3>
+<p class="about">A case the literature states is NOT the concept. Without these, discrimination cannot be measured at all -- only coverage.</p>
+<div class="fld" id="f-contrastcase-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The case's key.</div><div class="holds"><b>What it holds:</b> A short string (text)</div></div>
+<div class="fld" id="f-contrastcase-thing"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>thing</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> What the case is, briefly.</div><div class="holds"><b>What it holds:</b> A short description (text)</div></div>
+<div class="fld" id="f-contrastcase-evidence"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>evidence</code> <span class="kind" style="color:#6a1b9a">record</span> <code class="ty">-&gt; Attestation</code></div><div class="does"><b>What it does:</b> The quotation it was taken from.</div><div class="holds"><b>What it holds:</b> A pointer to one attestation (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-contrastcase-excluded-by"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>excluded_by</code> <span class="kind" style="color:#6a1b9a">record</span> <code class="ty">-&gt; Criterion?</code></div><div class="does"><b>What it does:</b> Which condition filtered it out -- this is how one learns which condition is doing work.</div><div class="holds"><b>What it holds:</b> A pointer to one criterion, or empty (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-contrastcase-judged"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>judged</code> <span class="kind" style="color:#c62828">boolean</span> <code class="ty">bool</code></div><div class="does"><b>What it does:</b> Whether the paper adjudicated it at all. An unadjudicated case is not counted as a negative; it goes into the unresolved rate.</div><div class="holds"><b>What it holds:</b> Yes or no</div></div>
+</section>
+<section class="cls" style="border-color:#1565c0">
+<h3 style="color:#1565c0"><code>Theorist</code> <span class="clshe">holder of a position</span></h3>
+<p class="about">Who holds which reading. A node in the graph, not metadata.</p>
+<div class="fld" id="f-theorist-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Internal key.</div><div class="holds"><b>What it holds:</b> A short string (text)</div></div>
+<div class="fld" id="f-theorist-name"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>name</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The name as it appears.</div><div class="holds"><b>What it holds:</b> A name (text)</div></div>
+<div class="fld" id="f-theorist-external-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>external_id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Wikidata -- so that "Arthur Danto" and "Arthur C. Danto" are not counted twice.</div><div class="holds"><b>What it holds:</b> An authority identifier (text)</div></div>
+<div class="fld" id="f-theorist-senses"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>senses</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">-&gt; Sense[]</code></div><div class="does"><b>What it does:</b> Which readings this person holds.</div><div class="holds"><b>What it holds:</b> A list of pointers to senses (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-theorist-evidence"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>evidence</code> <span class="kind" style="color:#2e7d32">array</span> <code class="ty">-&gt; Attest[]</code></div><div class="does"><b>What it does:</b> Where we know it from.</div><div class="holds"><b>What it holds:</b> A list of pointers to attestations (reference to another record, not a copy of it)</div></div>
+</section>
+<section class="cls" style="border-color:#7b1fa2">
+<h3 style="color:#7b1fa2"><code>SenseRelation</code> <span class="clshe">relation between readings</span></h3>
+<p class="about">A weighted edge between two senses: who contradicts whom, who extends whom.</p>
+<div class="fld" id="f-senserelation-from-sense"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>from_sense</code> <span class="kind" style="color:#6a1b9a">record</span> <code class="ty">-&gt; Sense</code></div><div class="does"><b>What it does:</b> One end of the edge.</div><div class="holds"><b>What it holds:</b> A pointer to a sense (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-senserelation-to-sense"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>to_sense</code> <span class="kind" style="color:#6a1b9a">record</span> <code class="ty">-&gt; Sense</code></div><div class="does"><b>What it does:</b> The other end.</div><div class="holds"><b>What it holds:</b> A pointer to a sense (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-senserelation-kind"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>kind</code> <span class="kind" style="color:#5d4037">closed list</span> <code class="ty">contrasts|extends|narrows</code></div><div class="does"><b>What it does:</b> Contradicts, extends, narrows -- and in future a weight on each edge.</div><div class="holds"><b>What it holds:</b> One of a closed list of values</div></div>
+<div class="fld" id="f-senserelation-evidence"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>evidence</code> <span class="kind" style="color:#6a1b9a">record</span> <code class="ty">-&gt; Attestation</code></div><div class="does"><b>What it does:</b> The quotation that grounds the relation.</div><div class="holds"><b>What it holds:</b> A pointer to one attestation (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-senserelation-paper-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>paper_id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Who asserts this relation.</div><div class="holds"><b>What it holds:</b> A paper identifier (text)</div></div>
+</section>
+<section class="cls" style="border-color:#ef6c00">
+<h3 style="color:#ef6c00"><code>Attestation</code> <span class="clshe">a single attestation</span></h3>
+<p class="about">One mention in one paper, with the verbatim sentence it came from. This is the atom of the whole structure.</p>
+<div class="fld" id="f-attestation-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>id</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The attestation's key.</div><div class="holds"><b>What it holds:</b> A short string (text)</div></div>
+<div class="fld" id="f-attestation-node-id"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>node_id</code> <span class="kind" style="color:#6a1b9a">record</span> <code class="ty">-&gt; ConceptNode</code></div><div class="does"><b>What it does:</b> Which concept or sub-type it belongs to. Always the most specific node that fits, otherwise information smears upward.</div><div class="holds"><b>What it holds:</b> A pointer to a concept record (reference to another record, not a copy of it)</div></div>
+<div class="fld" id="f-attestation-quote"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>quote</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> The verbatim sentence from the paper. Must be an exact substring.</div><div class="holds"><b>What it holds:</b> The sentence itself (text)</div></div>
+<div class="fld" id="f-attestation-locator"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>locator</code> <span class="kind" style="color:#0277bd">string</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Where in the text -- page or offset.</div><div class="holds"><b>What it holds:</b> A locator (text)</div></div>
+<div class="fld" id="f-attestation-role"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>role</code> <span class="kind" style="color:#5d4037">closed list</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> What the mention does: defines, exemplifies, refutes, merely mentions.</div><div class="holds"><b>What it holds:</b> One of a closed list of values</div></div>
+<div class="fld" id="f-attestation-asserted"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>asserted</code> <span class="kind" style="color:#5d4037">closed list</span> <code class="ty">P|N|U</code></div><div class="does"><b>What it does:</b> Yes / no / not adjudicated. The third value is what allows us to be honest about what the literature did not decide.</div><div class="holds"><b>What it holds:</b> One of three values</div></div>
+<div class="fld" id="f-attestation-object-level"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>object_level</code> <span class="kind" style="color:#c62828">boolean</span> <code class="ty">bool</code></div><div class="does"><b>What it does:</b> Whether this is an instance of the concept or a claim about it. Conflating the two destroyed an entire run.</div><div class="holds"><b>What it holds:</b> Yes or no</div></div>
+<div class="fld" id="f-attestation-kind"><button class="back" type="button" onclick="history.back()" title="back to the diagram">↩ back</button><div class="fh"><code>kind</code> <span class="kind" style="color:#5d4037">closed list</span> <code class="ty">str</code></div><div class="does"><b>What it does:</b> Artefact, performance, text, natural item, event, abstract. This is what makes it possible to define sub-concepts such as "an object" from the corpus rather than by assumption.</div><div class="holds"><b>What it holds:</b> One of a closed list of values</div></div>
+</section>
+
+<h2 id="a3">Appendix C — when the method proposes a definition itself</h2>
+<p>The apparatus does not only rank definitions submitted to it; it can assemble one from
+atomic conditions drawn from the definitions already in the corpus, and score it like any
+other. This is what a user asks for when they have no candidate of their own.</p>
+<div class="crit"><b>Here the important lesson about order of operations was learned.</b> In
+the first run the search was allowed to see the full inventory of conditions, including one
+phrased as "produced with the intention of making a work of art". The search selected
+exactly that one, obtained the highest score in the table, and had to be struck out
+afterwards — a fully circular definition that the machine rediscovered on its own within
+seconds. Circular conditions are now flagged <b>in the data itself</b> and removed from the
+vocabulary <b>before</b> the search begins. <b>A gate applied after generation is a gate
+applied too late.</b></div>
+<div class="key"><b>A second lesson, general and not specific to any one concept.</b> In a
+later run the method proposed a definition resting on the property "exhibits an individual
+point of view". It scored highly — until seven negative control cases were added (an opinion
+column, a party manifesto, a closing argument in court, a scientific paper, a book review, a
+restaurant review, a personal blog post). The definition admitted <b>all seven</b>, and the
+score collapsed.<br><br>
+<b>The method was not at fault. The corpus did not contain what could have taught it.</b> No
+academic paper writes "an opinion column is not a work of art", because no one needs to.
+Hence the principle, which holds for any concept: <b>a definition cannot be falsified by a
+corpus that does not contain what would falsify it.</b><br><br>
+The control cases are held in a separate file and marked explicitly as the researcher's
+labelling rather than the literature's, and every score is reported with and without them.
+They are not evidence; they are an instrument of control, exactly like the deliberately
+broken definitions run alongside the real ones.</div>
+
+<h2 id="a4">Appendix D — reproduction</h2>
+<p>Every number in this document is produced from the data files and can be recomputed:</p>
+<ul>
+<li><code>python TOOLS/final_ranking.py ART_CASE/cases_v3.json ART_CASE/art_v7_verdicts.json</code></li>
+<li><code>python TOOLS/cluster_criteria.py</code> then <code>python TOOLS/cluster_k_sweep.py</code></li>
+<li><code>python TOOLS/make_defs_kappa.py score KAPPA_STUDY_DEFS/responses.csv</code></li>
+<li><code>python TOOLS/build_defs_preprint_en.py</code> — this document</li>
+</ul>
+<p>Threshold sweep for the cluster account, referred to in §6:</p>
+<table class="tbl"><thead><tr><th>k</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr></thead>
+<tbody><tr><td><b>MCC</b></td><td class="num">+0.282</td><td class="num">+0.620</td><td class="num">+0.770</td><td class="num">+0.826</td><td class="num best">+0.882</td><td class="num">+0.847</td><td class="num">+0.781</td><td class="num">+0.738</td><td class="num">+0.660</td><td class="num">+0.576</td></tr></tbody></table>
+<p class="hold">Best fixed threshold k = 5 · worst k = 1 · range
+0.6 MCC · with k chosen per case, MCC 1.0.</p>
+
+<h2 id="bib">References</h2>
+<h3>Theory of definition</h3>
+<ul class="bib">
+<li>Belnap, N. D. (1993). On rigorous definitions. <i>Philosophical Studies</i> 72(2–3), 115–146. doi:10.1007/BF00989671</li>
+<li>Gupta, A. &amp; Mackereth, S. (2023). Definitions. <i>The Stanford Encyclopedia of Philosophy</i> (Winter 2023 ed.).</li>
+<li>Suppes, P. (1957). <i>Introduction to Logic</i>. Van Nostrand.</li>
+<li>Wittgenstein, L. (1953). <i>Philosophical Investigations</i> (G. E. M. Anscombe, trans.). Blackwell.</li>
+</ul>
+<h3>The definitional debate — the worked example</h3>
+<ul class="bib">
+<li>Ziff, P. (1953). The task of defining a work of art. <i>The Philosophical Review</i> 62(1), 58–78. doi:10.2307/2182722</li>
+<li>Weitz, M. (1956). The role of theory in aesthetics. <i>JAAC</i> 15(1), 27–35. doi:10.2307/427491</li>
+<li>Kennick, W. E. (1958). Does traditional aesthetics rest on a mistake? <i>Mind</i> 67(267), 317–334. doi:10.1093/mind/lxvii.267.317</li>
+<li>Danto, A. (1964). The artworld. <i>The Journal of Philosophy</i> 61(19), 571–584. doi:10.2307/2022937</li>
+<li>Dickie, G. (1974). <i>Art and the Aesthetic: An Institutional Analysis</i>. Cornell University Press.</li>
+<li>Dickie, G. (1984). <i>The Art Circle: A Theory of Art</i>. Haven Publications.</li>
+<li>Levinson, J. (1979). Defining art historically. <i>The British Journal of Aesthetics</i> 19(3), 232–250. doi:10.1093/bjaesthetics/19.3.232</li>
+<li>Carroll, N. (1993). Historical narratives and the philosophy of art. <i>JAAC</i> 51(3). doi:10.2307/431506</li>
+<li>Gaut, B. (2000). "Art" as a cluster concept. In N. Carroll (ed.), <i>Theories of Art Today</i>. University of Wisconsin Press.</li>
+<li>Gaut, B. (2005). The cluster account of art defended. <i>The British Journal of Aesthetics</i> 45(3), 273–288. doi:10.1093/aesthj/ayi032</li>
+<li>Dutton, D. (2006). A naturalist definition of art. <i>JAAC</i> 64(3), 367–377. doi:10.1111/j.1540-594X.2006.00217.x</li>
+</ul>
+<h3>Measurement</h3>
+<ul class="bib">
+<li>Matthews, B. W. (1975). Comparison of the predicted and observed secondary structure of T4 phage lysozyme. <i>Biochimica et Biophysica Acta</i> 405(2), 442–451. doi:10.1016/0005-2795(75)90109-9</li>
+<li>Chicco, D. &amp; Jurman, G. (2020). The advantages of the Matthews correlation coefficient (MCC) over F1 score and accuracy in binary classification evaluation. <i>BMC Genomics</i> 21, 6. doi:10.1186/s12864-019-6413-7</li>
+<li>Cohen, J. (1960). A coefficient of agreement for nominal scales. <i>Educational and Psychological Measurement</i> 20(1), 37–46. doi:10.1177/001316446002000104</li>
+<li>Landis, J. R. &amp; Koch, G. G. (1977). The measurement of observer agreement for categorical data. <i>Biometrics</i> 33(1), 159–174. doi:10.2307/2529310</li>
+<li>Hayes, A. F. &amp; Krippendorff, K. (2007). Answering the call for a standard reliability measure for coding data. <i>Communication Methods and Measures</i> 1(1), 77–89. doi:10.1080/19312450709336664</li>
+<li>Krippendorff, K. (2018). <i>Content Analysis: An Introduction to Its Methodology</i> (4th ed.). SAGE.</li>
+<li>Shrout, P. E. &amp; Fleiss, J. L. (1979). Intraclass correlations: uses in assessing rater reliability. <i>Psychological Bulletin</i> 86(2), 420–428. doi:10.1037/0033-2909.86.2.420</li>
+<li>Efron, B. (1979). Bootstrap methods: another look at the jackknife. <i>The Annals of Statistics</i> 7(1), 1–26. doi:10.1214/aos/1176344552</li>
+<li>McNemar, Q. (1947). Note on the sampling error of the difference between correlated proportions or percentages. <i>Psychometrika</i> 12(2), 153–157. doi:10.1007/BF02295996</li>
+</ul>
+<h3>The community</h3>
+<ul class="bib">
+<li>Münz-Manor, O. &amp; Marienberg-Milikowsky, I. (2023). Visualization of categorization: how to see the wood and the trees. <i>Digital Humanities Quarterly</i> 17(3).</li>
+<li>Gutman, G. (2024). A network analysis of figurative topic classification. <i>Digital Humanities Quarterly</i> 18(3).</li>
+<li>Dekel, Y. &amp; Marienberg-Milikowsky, I. (2021). From distant to public reading. <i>magazén</i> 2(2), 225–252. doi:10.30687/mag/2724-3923/2021/04/003</li>
+<li>Rivlin-Angert, N. &amp; Mor-Lan, G. (2025). The enemy from within. <i>EMNLP 2025</i>, 16634–16647. doi:10.18653/v1/2025.emnlp-main.841</li>
+<li>Sagi, T., Zaga, M., Rusinek, S., Lev, E., Lavee, M. &amp; Hose, K. (2026). MEHDIE: the Middle East Heritage Data Integration Endeavor. <i>Digital Scholarship in the Humanities</i> 41(Suppl. 1), i238–i246. doi:10.1093/llc/fqaf111</li>
+</ul>
+
+</div></body></html>
