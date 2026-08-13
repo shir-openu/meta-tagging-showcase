@@ -190,7 +190,16 @@ details.acc>summary{font-size:1rem;color:#4527a0;font-weight:700}
 details.acc .gist{font-size:.87rem;color:var(--soft);font-weight:400;margin-top:.15rem}
 details.acc .accbody{border-top:1px solid var(--line);margin-top:.6rem;padding-top:.7rem}
 .hint{font-size:.88rem;color:var(--soft);margin:.2rem 0 1rem}
-@media print{details{open:true} .exp,.acc{break-inside:avoid}}
+@media print{
+  /* `break-inside:avoid` on .acc pushed every section onto a page of its own, so half of
+     every page was white and the document read as sparse where the page reads as dense.
+     Sections may break; only the small boxes are kept whole. */
+  details{open:true}
+  .exp{break-inside:avoid}
+  .acc{break-inside:auto}
+  .key,.q,.fx,.note,figure,table{break-inside:avoid}
+  h2,h3,summary{break-after:avoid}
+}
 
 .backjump{display:block;margin:0 0 .6rem;font:inherit;font-size:.82rem;font-weight:700;
   color:#6a1b9a;background:#f6f1fa;border:1px solid #ddd0e8;border-radius:20px;
@@ -206,7 +215,8 @@ details.acc .accbody{border-top:1px solid var(--line);margin-top:.6rem;padding-t
   details:last-of-type{margin-bottom:0}
 }
 
-.flash{outline:3px solid #6a1b9a;outline-offset:3px}</style></head>
+.flash{outline:3px solid #6a1b9a;outline-offset:3px}@media print{.screenonly{display:none}}
+</style></head>
 <body>
 <div class="wrap">
 
@@ -681,7 +691,7 @@ decomposed with the paper as a random effect
 (<span class="fx">ICC = between / (between + within)</span>), so that twenty-five
 attestations from a single paper inflate nothing.</p>
 <h2>Full manuscript</h2>
-<p class="hint">Sections are collapsed for readability. Select a heading to open the complete text.</p>
+<p class="hint"><span class="screenonly">Sections are collapsed for readability. Select a heading to open the complete text.</span></p>
 <details class="acc" id="abs"><summary>Abstract<div class="gist">Background, methods, results, and conclusions.</div></summary><div class="accbody">
 <p class="abstract"><b>Background.</b> Cross-disciplinary synthesis is constrained by
 terminological heterogeneity: related phenomena may be named differently, whereas identical
