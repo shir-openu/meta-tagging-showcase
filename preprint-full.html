@@ -96,19 +96,19 @@
 
 <h1>A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature: A Proof of Format</h1>
 <p class="authors">Shir Sivroni</p>
-<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, July 2026 · v19 linked-open-data revision</span></p>
+<p class="aff">Department of Mathematics and Computer Science, The Open University of Israel · shirsivroni@gmail.com · <span class="meta">Preprint, August 2026 · v21, the definition-scoring revision</span></p>
 
-<div class="readnote"><b>This is the complete paper</b>, with every paragraph and every numbered point shown in full &mdash; nothing here folds. <span class="dl">The short version, one written sentence per block with the same figures, is at <a href="preprint.html">preprint.html</a> &middot; <a href="meta-tagging-preprint_v19_SUMMARY-VIEW.pdf">summary PDF, 13&nbsp;pp</a> &middot; <a href="meta-tagging-preprint_v19.pdf">full PDF, 21&nbsp;pp</a></span></div><div class="abstract" style="background:#effcfb;border-color:#b6e6e6;">
-<p><b>In three sentences.</b> Researchers cannot find the work in other fields that studies the same thing as their
+<div class="readnote"><b>This is the complete paper</b>, with every paragraph and every numbered point shown in full &mdash; nothing here folds. <span class="dl">The short version, one written sentence per block with the same figures, is at <a href="preprint.html">preprint.html</a> &middot; <a href="meta-tagging-preprint_v21_SUMMARY-VIEW.pdf">summary PDF, 14&nbsp;pp</a> &middot; <a href="meta-tagging-preprint_v21.pdf">full PDF, 23&nbsp;pp</a></span></div><div class="abstract" style="background:#effcfb;border-color:#b6e6e6;">
+<p><b>In four sentences.</b> Researchers cannot find the work in other fields that studies the same thing as their
 own, because each field calls it by a different name. This paper describes a tag layer that gives every paper the
 same small set of tags and forces each tag to quote the exact sentence it came from &mdash; then reports
 honestly what that does and does not buy: free-text names for a phenomenon almost never collide across
 fields, while a controlled vocabulary of statistical terms does create real cross-field joins. The same
 instrument, read in reverse, can point at regions of concept space that the literature occupies but has
-never named.</p>
+never named. The same machinery, pointed at a contested concept instead of a corpus, scores rival published definitions of <i>art</i> and of <i>game</i> against cases the literature itself decides &mdash; and finds that the control which calibrates one concept is not a control for the other.</p>
 <p class="meta" style="margin:.4rem 0 0"><b>A note on two numbers.</b> The audited proof-of-format
 below is the frozen 126-paper corpus; the working corpus has since grown to 165 tagged papers across 39
-disciplines, including a digital-humanities batch added as a deliberate stress test (&sect;8.1). A
+disciplines, including a digital-humanities batch added as a deliberate stress test (&sect;9.1). A
 further 27 records are held as citations only &mdash; works the priming manuscript cites, whose text
 we do not hold, so they carry metadata and no tags, and they are counted in no figure here. Audited
 figures are not restated for the larger set, because they would have to be re-audited to be true.</p>
@@ -144,7 +144,7 @@ called <b>short-term implicit memory</b> — that is crowded with data and almos
 paradigm-specific names while <i>short-term implicit memory</i> and its variants appear in about <b>52</b> — a gap that is countable rather than impressionistic (§5.3).
 Finally, the reliability of the tagging is now <b>measured</b> rather than asserted: an independent,
 blinded second coder re-coded 120 assignments, giving <b>&kappa; = 0.767</b> (95% CI 0.652–0.882),
-with the disagreement asymmetric in the direction of the original coding being stricter (§7).<span class="cue"></span></span></p>
+with the disagreement asymmetric in the direction of the original coding being stricter (§8). Finally, the same discipline is turned on a <b>contested concept</b> rather than a corpus: rival published definitions of <i>art</i> and of <i>game</i> are scored as classifiers over 355 and 48 cases that the literature itself decides, each carrying the sentence that decides it (&sect;7). Running it on two concepts is what makes it a method rather than a result: the circular control that calibrates the art board at +0.983 is not circular for <i>game</i> at all, scoring +0.616, because that literature exists to overrule ordinary usage.<span class="cue"></span></span></p>
 </div>
 
 <details class="sec" open><summary><div class="h">1. Motivation</div><div class="gist">Researchers cannot find the work in other fields that studies the same thing as their own, because each field calls it by a different name.</div><span class="more">section</span></summary><div class="body"><h2>1. Motivation</h2>
@@ -304,7 +304,7 @@ auditable against its sentence. <b>Click the figure</b> for the live page:
 <p>116 papers across 38 disciplines were fully faceted.</p>
 <details class="tbl" open><summary><b>Table</b> &mdash; claim-type, replication-status, grounded relations &middot; 2 rows</summary><table>
 <tr><th>claim-type</th><td>method 55 · existence 42 · mechanism 9 · critique 8 · prediction 2 · null-result 0</td></tr>
-<tr><th>replication-status</th><td>untested 113 · replicated 3 · (failed/contested 0 — see §7)</td></tr>
+<tr><th>replication-status</th><td>untested 113 · replicated 3 · (failed/contested 0 — see §8)</td></tr>
 <tr><th>grounded relations</th><td>127 claim-relations, 87 limitations — all substring-verified</td></tr>
 </table></details>
 <p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">The central null result: written as free text the phenomenon strings almost never collide — exactly one pair of disciplines shares a phenomenon string verbatim — so what is missing is a canonical vocabulary, not more papers.<span class="cue"></span></span><span class="full"><b>The central honest finding.</b> As free-written strings, the 113 distinct <code>phenomenon</code>
@@ -329,7 +329,7 @@ substantively comparable result.<span class="cue"></span></span></p>
 <p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">All 519 legacy paper–term assignments were re-audited against explicit written rules: 420 accepted, 99 rejected (19.1%), none left unresolved.<span class="cue"></span></span><span class="full"><b>Audit protocol.</b> The unit was a paper–term assignment. The re-audit was <b>rule-based with
 LLM-assisted adjudication</b>: explicit semantic and provenance rules were applied programmatically, and
 borderline cases were adjudicated against those rules with model assistance. An independent
-second coder later re-coded a stratified sample of these decisions, yielding &kappa; = 0.767 (see §7). A term was
+second coder later re-coded a stratified sample of these decisions, yielding &kappa; = 0.767 (see §8). A term was
 semantically accepted only when
 the supplied evidence or locally available article body supported an unambiguous statistical or
 probabilistic sense. Generated statistics summaries, bibliography-only matches, lexical collisions,
@@ -541,7 +541,7 @@ often the corpus's own vocabulary is missing from a global authority file. A swe
 without touching a demonstrated case, and here it does.<span class="cue"></span></span></p>
 
 <p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">Run against Wikidata rather than against a count of our own, the honest claim shrinks: of the 32 multi-word key phrases used by two or more papers, only three are absent on all three probes — lexical decision, category accessibility and repetition suppression — while the earlier fourteen came from the analyst-assigned concepts, which cannot carry the argument.<span class="cue"></span></span><span class="full"><b>An external check, and a correction to the size of that second claim.</b> Once the tag
-vocabulary was reconciled to Wikidata (&sect;8.1), the sweep could be run against a global authority
+vocabulary was reconciled to Wikidata (&sect;9.1), the sweep could be run against a global authority
 file rather than against a count of our own. The substrate matters here and constrains the result. The
 <code>concepts</code> facet is <i>analyst-assigned</i>: a label chosen to describe what a paper is
 about, so its absence from Wikidata could reflect our wording as much as a gap in the literature, and
@@ -608,8 +608,83 @@ design rationale for the layer, and as a worked demonstration in &sect;5.1, not 
 about human performance; establishing that would require a study of readers, which we have not run.<span class="cue"></span></span></p>
 
 
-</div></details><details class="sec" open><summary><div class="h">7. Limitations</div><div class="gist">Stated plainly: a curated corpus, single-coder tagging in places, a measured &kappa; of 0.767 on the statistical layer only, and facets that are not all grounded.</div><span class="more">section</span></summary><div class="body"><h2>7. Limitations</h2>
+
+</div></details><details class="sec" open><summary><div class="h">7. A second component: scoring rival definitions of a concept</div><div class="gist">The same discipline turned on a contested concept: rival published definitions scored as classifiers over cases the literature itself decides — run on two concepts, because the control that calibrates one of them fails on the other.</div><span class="more">section</span></summary><div class="body"><h2>7. A second component: scoring rival definitions of a concept</h2>
+
+<p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">A second component applies the same verbatim discipline to a contested concept: each published definition is scored as a classifier over cases the literature itself decides, with undecided cases excluded rather than guessed, and MCC used because F<sub>1</sub> would flatter a definition that admits nearly everything.<span class="cue"></span></span><span class="full">The layer above answers what a paper is about. A second component answers a different
+question with the same discipline: given a contested concept, <em>which of its published
+definitions actually fits what the literature asserts</em>. A <strong>case</strong> is a
+concrete thing that some paper explicitly asserts is, or is not, an instance of the concept,
+carrying the exact sentence in which the assertion is made; each definition is then scored as
+a classifier over those cases. Cases the literature raises and leaves undecided are excluded
+from the metric rather than counted as either answer, and the abstention rate is reported
+beside the score. We use the Matthews correlation coefficient rather than F<sub>1</sub>,
+because F<sub>1</sub> ignores true negatives, and a definition that admits nearly everything
+would score well on it.<span class="cue"></span></span></p>
+
+<p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">It runs on art (355 cases, 13 definitions) and on game (48 cases, 15) &mdash; game chosen because it is the concept Wittgenstein used to argue that some concepts cannot be defined at all, so it is the hardest available test rather than a friendly one.<span class="cue"></span></span><span class="full">The component runs on two concepts. For <strong>art</strong>,
+355 adjudicable cases drawn from 29 scored papers
+support 13 definitions. For <strong>game</strong>, 48
+adjudicable cases from 10 open-access papers support 15. Game was
+chosen deliberately as the hard case: it is the concept Wittgenstein used to argue that some
+concepts have no definition at all.<span class="cue"></span></span></p>
+
+<p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">The calibration control does not transfer between concepts: &ldquo;whatever people call it&rdquo; is a tautology for art at +0.983 but a losing, contested position for game, because that literature exists to overrule ordinary usage &mdash; so a single hard-coded control would have disabled the safety rail over a whole board.<span class="cue"></span></span><span class="full"><strong>The finding that justifies running it twice is that the control does not
+transfer.</strong> The art board carries a deliberately circular definition &mdash;
+&ldquo;whatever people call art&rdquo; &mdash; whose only job is calibration. It copies the
+answer, so it must score near +1.000; if it does not, the coding contradicts itself and no
+other row on the board may be read. It scores +0.983, exactly as intended. On the
+game board the identical sentence is not circular at all: it scores
++0.616 and loses to seven published
+definitions, because that literature is expressly in the business of overruling ordinary
+usage &mdash; Hickson denies that chess is a game, Juul denies it of ring-a-ring-a-roses,
+Rough denies it of a chess set. A definition by appeal to usage is only circular where usage
+and the literature agree. The game board therefore calibrates on a control that copies the
+corpus label instead. Hard-coding a single control would have silently disabled the safety
+rail above every number on that board.<span class="cue"></span></span></p>
+
+<p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">A definition whose content is that the concept has no boundary is allowed to decline, with permission declared in advance so nothing can skip what it finds awkward; re-scoring everyone on just the cases it answered drops it from third to eighth, and the interface says so above the ranking rather than beneath it.<span class="cue"></span></span><span class="full"><strong>Abstention is treated as a position, not a gap.</strong> One definition on the game
+board &mdash; the family-resemblance account &mdash; is permitted to decline a case, because
+its content is precisely that the concept has no boundary; forcing a verdict there would score
+a view nobody holds. Permission is declared in the definition file before any verdict is
+written, so no definition can quietly skip the cases it finds awkward. It scores
++0.827 while answering 43 of the 48
+cases, which places it third. But a definition that answers fewer questions has not
+been asked the same questions, so the board re-scores every definition on exactly the cases
+the abstainer answered &mdash; and that moves it to eighth:
+four definitions overtake it and one
+draws level. The interface reports this <em>above</em> the ranking rather than beneath it,
+whenever an abstainer leads the papers the reader has selected.<span class="cue"></span></span></p>
+
+<p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">One calibration was not enough: a control generated from the gold labels scores near-perfectly however uninformative the corpus is, so a second control tests the corpus &mdash; and it caught the game corpus growing larger and less discriminating at once, because the cases added were the ones the literature affirms rather than the ones it denies.<span class="cue"></span></span><span class="full"><strong>A second calibration proved necessary, and it was necessary because the first one
+passed while the table was not worth reading.</strong> The label-copying control is generated
+from the gold labels, so it is near-perfect however uninformative the corpus is; it certifies
+the arithmetic and the case indexing and nothing else. What tests the <em>corpus</em> is
+whether a deliberately hopeless definition finishes last. When the game corpus was enlarged to
+10 papers, the added cases were predominantly positive, the base rate rose to
+0.667, and &ldquo;any activity governed by rules&rdquo; rose to
++0.726 and beat three published
+definitions. The corpus had become larger and less discriminating at once, and the board now
+says so in as many words. We report it as a property of corpus construction rather than a
+defect of the run: a case set does not become more informative by growing, but by acquiring
+cases the literature <em>denies</em>.<span class="cue"></span></span></p>
+
+
+</div></details><details class="sec" open><summary><div class="h">8. Limitations</div><div class="gist">Stated plainly: a curated corpus, single-coder tagging in places, a measured &kappa; of 0.767 on the statistical layer only, and facets that are not all grounded.</div><span class="more">section</span></summary><div class="body"><h2>8. Limitations</h2>
 <ul>
+<li class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">The within-run-only rule now rests on a measurement rather than an estimate: two independent scorings of the same board agree on 0.911 of 392 judgements, which bounds the comparability claim without repairing it.<span class="cue"></span></span><span class="full"><strong>Judge-to-judge drift is now measured rather than assumed.</strong>
+The rule that scores may be compared only within a single run previously rested on an estimate
+that instruction wording alone moves MCC by about 0.12. The definition component supplies a
+direct measurement. The game board was scored twice: once by a single coder in one session,
+and once from scratch by 14 independent judges, one per definition, blind to the
+gold labels. Over the 392 adjudicable judgements the two runs share &mdash;
+14 definitions over 28 cases &mdash; they agree on
+0.911. Two
+definitions matched on every case; the least stable, Crawford, matched
+19 of 28; and one underdescribed hypothetical (case
+31) split seven of the 14. This bounds
+the comparability claim with a number instead of an assertion. It does not repair it: scores
+produced by different runs still must not be placed side by side.<span class="cue"></span></span></li>
 <li class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">The statistic facet records an accepted statistical occurrence, not necessarily a method the paper used, so a shared key marks a candidate neighbourhood rather than a shared result.<span class="cue"></span></span><span class="full">The <code>statistic</code> facet (§5) records an accepted statistical or probabilistic occurrence,
 not necessarily a method the paper used. Sharing a key marks a candidate neighbourhood, a much weaker
 signal than a shared substantive result. The full audit rejected 99 of 519 legacy assignments; semantic
@@ -650,7 +725,7 @@ not unbounded scale.<span class="cue"></span></span></li>
 <li>Novelty claims are unfalsifiable in the strict sense; we can search and report, not prove a negative.</li>
 </ul>
 
-</div></details><details class="sec" open><summary><div class="h">8. Relation to prior work</div><div class="gist">TEI, Web Annotation, nanopublications and distant reading each do part of this; what is new is requiring all of it at once.</div><span class="more">section</span></summary><div class="body"><h2>8. Relation to prior work</h2>
+</div></details><details class="sec" open><summary><div class="h">9. Relation to prior work</div><div class="gist">TEI, Web Annotation, nanopublications and distant reading each do part of this; what is new is requiring all of it at once.</div><span class="more">section</span></summary><div class="body"><h2>9. Relation to prior work</h2>
 <p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">It sits among TEI, Web Annotation, nanopublications, knowledge graphs and distant reading; what is new is the union of mandatory verbatim grounding, field-neutral facets, and a claim about cross-field links that was actually tested.<span class="cue"></span></span><span class="full">The layer sits between text-encoding standards (TEI), stand-off annotation models (the W3C Web
 Annotation Data Model [2]), machine-readable scientific assertions (nanopublications [3]), scholarly
 knowledge graphs, and computational distant reading [1]. Its distinguishing commitments are the union of
@@ -661,7 +736,7 @@ undrawn cross-field links — reported here honestly: free-text <code>phenomenon
 creates cross-field retrieval joins. These joins remain semantically and provenance-qualified, pointing
 the way to canonicalising the rest without claiming field invariance.<span class="cue"></span></span></p>
 
-</div></details><details class="sec" open><summary><div class="h">8.1 The same operation across languages and across disciplines</div><div class="gist">A gazetteer reconciles a place name across languages; this layer reconciles a sentence across disciplines — the same operation, so the same standards fit.</div><span class="more">section</span></summary><div class="body"><h2>8.1 The same operation across languages and across disciplines</h2>
+</div></details><details class="sec" open><summary><div class="h">9.1 The same operation across languages and across disciplines</div><div class="gist">A gazetteer reconciles a place name across languages; this layer reconciles a sentence across disciplines — the same operation, so the same standards fit.</div><span class="more">section</span></summary><div class="body"><h2>9.1 The same operation across languages and across disciplines</h2>
 <p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">The closest working analogue is not text mining but a historical gazetteer: discipline is to a tag layer what language is to a gazetteer — a surface form, an authority record, and a pointer back to where the form was found.<span class="cue"></span></span><span class="full">The closest working analogue to this layer is not in text mining but in historical gazetteers.
 MEHDIE, a project linking Hebrew, Arabic and Syriac sources on Middle Eastern history, states the
 problem it exists to solve in terms that transfer exactly: <i>"Scholars in the Humanities often strive
@@ -773,7 +848,7 @@ centralised one — is an argument for building domain-grounded layers that <i>l
 authorities rather than waiting for those authorities to cover the domain. That is what this layer now
 does.<span class="cue"></span></span></p>
 
-</div></details><details class="sec" open><summary><div class="h">9. Availability</div><div class="gist">Everything is public and rebuildable: corpus, code, vocabulary, annotations, and a rights manifest saying what may be redistributed and what may not.</div><span class="more">section</span></summary><div class="body"><h2>9. Availability</h2>
+</div></details><details class="sec" open><summary><div class="h">10. Availability</div><div class="gist">Everything is public and rebuildable: corpus, code, vocabulary, annotations, and a rights manifest saying what may be redistributed and what may not.</div><span class="more">section</span></summary><div class="body"><h2>10. Availability</h2>
 <p class="fold open" onclick="tp(this,event)" tabindex="0" role="button" aria-expanded="true"><span class="sum">The public showcase carries the report and, wherever redistribution rights were verified per paper, the full colour-tagged text; the repository adds the canonical corpus, the audit decisions, invariant validation and a one-command reproducible build.<span class="cue"></span></span><span class="full">A public showcase provides the report and, for the papers under a verified redistributable licence,
 the full colour-tagged text; every other paper shows the tag layer with short licensing excerpts and a
 link to the source, not the reproduced text. Redistribution rights are verified per paper (against the
@@ -814,28 +889,28 @@ seeded the idea of a single, uniform tag layer. This work was carried out indepe
 <li>W3C, <i>Web Annotation Data Model</i>, Recommendation, 2017 — stand-off annotation with explicit targets.</li>
 <li>P. Groth, A. Gibson, J. Velterop, "The anatomy of a nanopublication," 2010 — minimal machine-readable assertions.</li>
 <li>S. Rusinek, T. Sagi, M. Zaga, E. Lev, M. Lavee, "MEHDIE: The Middle East Heritage Data Integration Endeavor," <i>Digital Humanities 2023</i>, Graz (CC BY 4.0); extended as T. Sagi et al., <i>Digital Scholarship in the Humanities</i> 41(Suppl. 1), i238–i246, 2026, doi:10.1093/llc/fqaf111 — reconciliation across languages rather than disciplines.</li>
-<li>S. Isaj, E. Zimányi, T. B. Pedersen, "Multi-Source Spatial Entity Linkage," <i>SSDBM</i>, 2019, doi:10.1145/3340964.3340979 — entity linkage scored against labelled data, the contrast case for §8.1.</li>
+<li>S. Isaj, E. Zimányi, T. B. Pedersen, "Multi-Source Spatial Entity Linkage," <i>SSDBM</i>, 2019, doi:10.1145/3340964.3340979 — entity linkage scored against labelled data, the contrast case for §9.1.</li>
 <li>W3C, <i>SKOS Simple Knowledge Organization System Reference</i>, Recommendation, 2009 — the concept-scheme model used for the vocabulary export.</li>
 <li>O. Münz-Manor, I. Marienberg-Milikowsky, "Visualization of Categorization: How to See the Wood and the Trees," <i>Digital Humanities Quarterly</i> 17(3), 2023 — a tagset that emerged from the analysis rather than preceding it.</li>
 <li>Y. Dekel, I. Marienberg-Milikowsky, "From Distant to Public Reading. The (Hebrew) Novel in the Eyes of Many," <i>magazén</i> 2(2), 225–252, 2021, doi:10.30687/mag/2724-3923/2021/01/003 — distant reading without the authoritative history.</li>
 </ol>
 
-<p class="foot">Preprint · v19 linked-open-data revision · July 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21432188 · cite via CITATION.cff in the project repository.
+<p class="foot">Preprint · v21, the definition-scoring revision · August 2026 · licensed CC BY 4.0 · DOI: 10.5281/zenodo.21432188 (the deposited v19 record — v20 is deposited separately) · cite via CITATION.cff in the project repository.
 The v8 audit re-audited all 519 legacy statistical assignments, recalculated §5, separated semantic
 acceptance from exact-local-body grounding, implemented a sharded sorted-postings search and reproducible
 build pipeline, exported only supported graph relations, and corrected the architecture and complexity
 claims. v9 adds a per-paper redistribution-rights manifest, states the audit method (rule-based with
 LLM-assisted adjudication) and the absence of an inter-rater study, and reconciles all release metadata.
 Earlier versions introduced the priming A·S·M analysis and the statistical join-key experiment. v11 reconciles the controlled vocabularies to Wikidata, publishes the layer as SKOS and W3C Web
-Annotation (§8.1), re-verifies 99.4% of verbatim spans by anchoring them as TextQuoteSelectors, adds nine
+Annotation (§9.1), re-verifies 99.4% of verbatim spans by anchoring them as TextQuoteSelectors, adds nine
 digital-humanities papers as a facet stress test, adds a grounded study-location facet, and reduces the
 §5.3 negative-space claim to what the papers' own words support. v17 tags five papers from
 the digital-humanities summer school this work comes out of, and records a methodological
 disagreement with one of them rather than smoothing it over: their tagset emerged from the
-analysis, ours is frozen in advance, and §8.1 states what each choice buys and costs. v19 replaces every paragraph with one sentence written to say what that paragraph argues,
+analysis, ours is frozen in advance, and §9.1 states what each choice buys and costs. v19 replaces every paragraph with one sentence written to say what that paragraph argues,
 and puts the paragraph itself one click behind it; the figures and their legends are always
 shown, tables open on request, and the summaries are kept in a separate file so that a
-paragraph whose text changes loses its summary rather than keeping a stale one.</p>
+paragraph whose text changes loses its summary rather than keeping a stale one. v20 adds &sect;7, the definition-scoring component, and reports what running it on a second concept exposed: a calibration control does not transfer between concepts, abstention has to be scored as a position rather than a gap, and a corpus can grow larger and less discriminating at once. It also replaces the estimated figure for judge-to-judge drift with a measured one &mdash; two independent scorings of the same board agree on 0.911 of 392 judgements (&sect;8).</p>
 
 <script>
 /* click a summary to swap in the text it summarises; click again to swap back. */
