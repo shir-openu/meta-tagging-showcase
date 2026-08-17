@@ -207,66 +207,77 @@
         <label>STRF —operationalised-as→ delay lines</label>
         <term>STRF</term>
         <term>delay lines</term>
+        <note>the mapping this paper disputes: a fitted delay span is a description, and reading it as circuitry is the step it calls biologically unrealistic</note>
         <quote>The most direct biological interpretation of the STRF model would involve auditory cortical neurons receiving inputs at a range of simple delays spanning out to 200 ms; however, this is biologically unrealistic.</quote>
       </span>
       <span xml:id="t40" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
         <label>onset latencies —operationalised-as→ delay lines</label>
         <term>onset latencies</term>
         <term>delay lines</term>
+        <note>CRITERION: thalamic onset latencies bound what delays can exist - about 14 ms in ferret, 20 in cat, 10 in mouse, 40 in marmoset</note>
         <quote>The onset latencies of neurons in the ventral division of the medial geniculate body (vMGB), which provides the primary ascending input to primary auditory cortex (A1), are typically less than ~14 ms in the ferret [ 18 ], the animal species that provided the data that were modelled in this study. In the cat vMGB response latencies are typically less than ~20 ms [ 19 ], in the mouse less than ~10 ms [ 20 ], and in the marmoset less than ~40 ms</quote>
       </span>
       <span xml:id="t41" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
         <label>RETRACTED (DIRECTION REVERSED, and the span states the correct direction explicitly) · DNet —is-a→ NRF model</label>
         <term>DNet</term>
         <term>NRF model</term>
+        <note>RETRACTED: DIRECTION REVERSED, and the span states the correct direction explicitly. `is-a` asserts the subject is subsumed by the object, so `DNet --is-a--&gt; NRF model` claims DNet is a kind of NRF model. The span says the opposite in as many words: &#x27;all possible NRF models are a SUBSET of all possible DNet models&#x27; - NRF is inside DNet, DNet is the more general class. The equivalence in the first half of the same span is also SCOPED, not general: the two are equivalent only &#x27;when the discretized time constant for every DNet model unit is at the smallest possible value ( t = 1, d = 0)&#x27;. So the edge fails twice over - wrong direction for the subsumption, and unscoped for the equivalence. WHAT THE SPAN DOES SAY (Q-309), now recorded as two edges that split the two claims apart: `NRF model --is-a--&gt; DNet` for the general subsumption, and `DNet --same-as--&gt; NRF model` carrying `holds_when` for the equivalence that holds at one point of the parameter space. Raised by meta-claude as a load-bearing-scope case; reading the span showed the scope was the second fault, not the first. — the NRF is the DNet with every time constant at minimum, which is why the DNet losing to it is a fitting artefact and not a finding</note>
         <quote>Note that the DNet model is equivalent to the NRF model when the discretized time constant for every DNet model unit is at the smallest possible value ( τ = 1, d = 0). Hence, because all possible NRF models are a subset of all possible DNet models, the DNet should in theory always equal or outperform the NRF model.</quote>
       </span>
       <span xml:id="t42" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
         <label>time constant —operationalised-as→ membrane time constant</label>
         <term>time constant</term>
         <term>membrane time constant</term>
+        <note>intended as membrane integration but explicitly not exclusive of channel adaptation, synaptic depression or recurrence</note>
         <quote>We note, however, that although the DNet model was developed with membrane dynamics in mind, aspects of all the above listed dynamic processes could be captured by the same exponentially-decaying memory in the DNet. These different processes are not exclusive of each other, and combinations of them may contribute to the effects we find.</quote>
       </span>
       <span xml:id="t43" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
         <label>DNet —contrasted-with→ sDNet</label>
         <term>DNet</term>
         <term>sDNet</term>
+        <note>CRITERION: decay after the nonlinearity beats decay before it, which is the membrane versus synaptic distinction made testable</note>
         <quote>The sDNet model achieves best performance in predicting neural responses when the duration of the STRFs is 200 ms (CC norm = 0.71) ( Fig 8A ). Although the sDNet with 25-ms STRFs predicts neural responses better (CC norm = 0.67) than the 25-ms LN model (CC norm = 0.51) and the 25-ms NRF model (CC norm = 0.51), it is worse than the 25-ms DNet model (CC norm = 0.71). This suggests that a large percentage of the variance of neural responses can be explained by a time constant before non-linearity, but that having a time constant after the non-linearity further improves prediction.</quote>
       </span>
       <span xml:id="t44" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.9">
         <label>time constant —causes→ IE score</label>
         <term>time constant</term>
         <term>IE score</term>
+        <note>not built in: the units that end up with long memories are almost all inhibitory</note>
         <quote>We found that almost all units having large time constants are inhibitory in nature</quote>
       </span>
       <span xml:id="t45" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
         <label>LASSO regularization —causes→ hidden units</label>
         <term>LASSO regularization</term>
         <term>hidden units</term>
+        <note>SIGN: prunes. 20 specified units become 2-8 effective ones, so the fitted model is not the stated architecture</note>
         <quote>Although the DNet model had 20 hidden units, the L1 regularization eliminated unnecessary units. Hence there were fewer effective HUs, and for the 25-ms DNet model this number was found to be between 2 and 8</quote>
       </span>
       <span xml:id="t46" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
         <label>noise ratio —operationalised-as→ A1</label>
         <term>noise ratio</term>
         <term>A1</term>
+        <note>the inclusion rule that turns 549 recorded units into the 73 the paper is about</note>
         <quote>The noise ratio was calculated as a measure of how much the response of each unit is dependent on the stimuli [ 9 , 24 ]. The noise ratio was measured over all 20 stimuli and 20 repeats. Any unit with a noise ratio &gt; 40 were excluded from the study. Also, only putative single units were used. This resulted in 73 neurons for the study.</quote>
       </span>
       <span xml:id="t47" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
         <label>cochleagram —part-of→ STRF</label>
         <term>cochleagram</term>
         <term>STRF</term>
+        <note>every model shares this front end, so all comparisons are conditional on the same modelled periphery</note>
         <quote>The models receive the input as a cochleagram, a spectrogram-like transformation of the sound waveform. The cochleagram approximates the spectral filtering performed by the auditory periphery</quote>
       </span>
       <span xml:id="t48" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
         <label>stimulus history —operationalised-as→ time constant</label>
         <term>stimulus history</term>
         <term>time constant</term>
+        <note>the paper&#x27;s central substitution: history dependence rendered as decaying memory rather than as stored delays</note>
         <quote>These findings suggest that integration due to the membrane time constants or other exponentially-decaying memory processes may underlie linear temporal receptive fields of neurons beyond 25 ms.</quote>
       </span>
       <span xml:id="t49" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.9">
         <label>short term synaptic plasticity —same-as→ time constant</label>
         <term>short term synaptic plasticity</term>
         <term>time constant</term>
+        <note>one of several processes the same fitted decay could be; weight low because the paper declines to distinguish them</note>
         <quote>We note, however, that although the DNet model was developed with membrane dynamics in mind, aspects of all the above listed dynamic processes could be captured by the same exponentially-decaying memory in the DNet. These different processes are not exclusive of each other, and combinations of them may contribute to the effects we find.</quote>
       </span>
       <span xml:id="t50" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.9">

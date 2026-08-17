@@ -152,7 +152,8 @@
         <quote>Negative correlation between activity in a set of areas that together comprise the DMN, and behavioral performance was observed. The DMN is known to be active in mind wandering ( Mason et al., 2007 ). Greater activation in this network, therefore, implies more mind wandering during the maintenance period and, therefore, poorer performance.</quote>
       </span>
       <span xml:id="t25" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
-        <label>LTM → hippocampus — COMMON CAUSE, NOT A CHAIN</label>
+        <label>LTM → hippocampus</label>
+        <note>COMMON CAUSE, NOT A CHAIN. Subjects who cannot sustain attention rely more on LTM; LTM reliance predicts BOTH greater hippocampal activation AND poorer performance, the latter via proactive interference from previously presented tones. The hippocampal signal and the performance drop are sibling effects. Stated as a PREDICTION, not a result.</note>
         <quote>In light of the proposal by Jeneson and Squire (2011) , we predicted that subjects who could not maintain a sustained focus of attention on the tone to be maintained would rely more on LTM, and, therefore, hippocampus would be activated to a greater extent in these subjects. These subjects, however, would perform poorly on the task because recalling the tone from LTM would entail proactive interference from tones that were presented on previous trials, which are also held in LTM; as per the model of Cowan (1995) , these tones are held in the activated part of LTM. A negative correlation between hippocampus activity and behavioral performance is thus expected.</quote>
       </span>
       <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
@@ -215,90 +216,105 @@
         <label>sustained activity —distinct-from→ WM</label>
         <term>sustained activity</term>
         <term>WM</term>
+        <note>TWO WAYS THE OLD INDEX FAILS: a region can carry content without elevated activity, and elevated activity can be sustained attention instead</note>
         <quote>However, a number of recent studies ( Harrison and Tong, 2009 ; Serences et al., 2009 ; Riggall and Postle, 2012 ) have shown that although a brain region may not show elevated activity during the delay period, patterns of subthreshold activity within the same area may nevertheless contain information about the remembered stimulus. Moreover, sustained activity does not imply that the activity is related to WM per se (e.g., it may be related to sustained attention).</quote>
       </span>
       <span xml:id="t41" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
         <label>MVPA —operationalised-as→ maintenance</label>
         <term>MVPA</term>
         <term>maintenance</term>
+        <note>and it is the univariate NULL that motivates it - no mean difference between holding a low and a high tone</note>
         <quote>Using standard univariate (GLM) analysis, no difference in activity during the maintenance period was found for retention of a low versus a high tone. We used MVPA to test whether patterns of activity during the maintenance period could distinguish between low and high tones.</quote>
       </span>
       <span xml:id="t42" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
         <label>encoding —distinct-from→ maintenance</label>
         <term>encoding</term>
         <term>maintenance</term>
+        <note>CONFOUND MEASURED, NOT ASSUMED: the two regressors correlate at 0.04, so maintenance activity is not encoding leaking forward through the lagged BOLD response</note>
         <quote>One concern in WM studies using fMRI is that the maintenance phase immediately follows the encoding phase and, because of the delay intrinsic to the BOLD signal, the regressors for the maintenance and encoding phases may be correlated. The activity observed in the maintenance phase may thus be contaminated with activity during the encoding phase. In our study, because the maintenance duration was much longer than the encoding phase, the correlation coefficient between the encoding and maintenance regressors in the design matrix was very small (0.04). Activity during the maintenance phase is not therefore explained by correlation between the regressors in this design.</quote>
       </span>
       <span xml:id="t43" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
         <label>retrieval —distinct-from→ maintenance</label>
         <term>retrieval</term>
         <term>maintenance</term>
+        <note>LEAKAGE THE OTHER WAY: the probe was of the cued category, so 4 s is trimmed from each end of the delay before decoding</note>
         <quote>In our experiment, the probe tone presented at the retrieval phase was of the same category that was cued for the maintenance phase. It is, therefore, likely that the probe tone could aid in the classification of tones during the maintenance phase (because of the common variance captured by maintenance and recall phase regressors). To ensure that this was not so, only the middle 10.5 s of the maintenance period was modeled, leaving 4 s on either side based on recommendations by Zarahn et al. (1997) .</quote>
       </span>
       <span xml:id="t44" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
         <label>HG —contrasted-with→ PT</label>
         <term>HG</term>
         <term>PT</term>
+        <note>PT carries 84% of the surviving maintenance voxels and yet HG is the one whose PATTERNS decode the tone - activation and content dissociate</note>
         <quote>During maintenance ( Fig. 2 A , middle row), significant activity in the auditory cortex was mostly confined to PT bilaterally: of all the voxels that survived threshold, 84.42% were located in the PT. The percentages in the medial, middle, and lateral part of HG were 3.19%, 5.59%, and 6.79%, respectively.</quote>
       </span>
       <span xml:id="t45" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
         <label>LIFG —contrasted-with→ RIFG</label>
         <term>LIFG</term>
         <term>RIFG</term>
+        <note>CRITERION: both are active throughout maintenance and only the LEFT carries decodable content - activation and content dissociate here too</note>
         <quote>Is the sustained activity in LIFG and RIFG specific to the information held in WM? Application of MVPA to these ROIs showed that, while patterns of activity in the LIFG could distinguish which of the two tones was held in WM, the RIFG could not.</quote>
       </span>
       <span xml:id="t46" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
         <label>hippocampus —operationalised-as→ LTM</label>
         <term>hippocampus</term>
         <term>LTM</term>
+        <note>the activity is assigned to the activated-LTM component rather than to maintenance itself</note>
         <quote>In our study, we used tones that changed across trials that were maintained for long intervals of time (16 s). It is, therefore, likely that subjects relied on LTM to perform the task activating hippocampus in the process. Activity in hippocampus in that case would form part of the activated LTM component of WM.</quote>
       </span>
       <span xml:id="t47" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
         <label>RETRACTED (TWO EFFECTS OF A COMMON CAUSE, TAGGED AS CAUSING EACH OTHER - a class I have not named before) · hippocampus —causes→ behavioral performance</label>
         <term>hippocampus</term>
         <term>behavioral performance</term>
+        <note>RETRACTED: TWO EFFECTS OF A COMMON CAUSE, TAGGED AS CAUSING EACH OTHER - a class I have not named before. The edge is `hippocampus --causes--&gt; behavioral performance`. The span is a chain of PREDICTIONS: &#x27;we PREDICTED that subjects who could not maintain a sustained focus of attention ... would rely more on LTM, and, THEREFORE, hippocampus WOULD BE ACTIVATED to a greater extent in these subjects. These subjects, however, WOULD PERFORM POORLY on the task BECAUSE recalling the tone from LTM would entail proactive interference&#x27;. The upstream cause is failure to sustain attention, which produces LTM reliance; LTM reliance produces BOTH greater hippocampal activation AND poor performance. Hippocampal activation is a MARKER of the same upstream process, not a cause of the performance. Reading the two consequences as one causing the other is the classic confound, and here the paper itself lays the structure out. WHAT THE SPAN DOES SAY (Q-309): housed below as the common-cause structure, since no type can record &#x27;these two share a cause&#x27;. — SIGN NEGATIVE, AND PREDICTED IN ADVANCE FROM THE RIVAL&#x27;S MODEL: more hippocampal activity should mean worse performance if it reflects falling back on long-term memory</note>
         <quote>In light of the proposal by Jeneson and Squire (2011) , we predicted that subjects who could not maintain a sustained focus of attention on the tone to be maintained would rely more on LTM, and, therefore, hippocampus would be activated to a greater extent in these subjects. These subjects, however, would perform poorly on the task because recalling the tone from LTM would entail proactive interference from tones that were presented on previous trials, which are also held in LTM; as per the model of Cowan (1995) , these tones are held in the activated part of LTM. A negative correlation between hippocampus activity and behavioral performance is thus expected.</quote>
       </span>
       <span xml:id="t48" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
         <label>DMN —causes→ behavioral performance</label>
         <term>DMN</term>
         <term>behavioral performance</term>
+        <note>SIGN NEGATIVE: read as mind wandering during the delay</note>
         <quote>Negative correlation between activity in a set of areas that together comprise the DMN, and behavioral performance was observed. The DMN is known to be active in mind wandering ( Mason et al., 2007 ). Greater activation in this network, therefore, implies more mind wandering during the maintenance period and, therefore, poorer performance.</quote>
       </span>
       <span xml:id="t49" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.9">
         <label>IFJ —causes→ LTM</label>
         <term>IFJ</term>
         <term>LTM</term>
+        <note>the same logic as the hippocampal correlation - updating working memory from long-term memory predicts worse performance</note>
         <quote>Negative correlation was also observed in the right IFJ. Evidence ( Roth and Courtney, 2007 ) shows that IFJ is involved in updating the contents of WM from LTM. The subjects who used LTM to perform the task activated the IFJ more but (as explained above in the case for hippocampus) performed poorly, which explains the negative correlation observed in IFJ.</quote>
       </span>
       <span xml:id="t50" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
         <label>retro-cue —causes→ auditory cortex</label>
         <term>retro-cue</term>
         <term>auditory cortex</term>
+        <note>THE DESIGN VARIABLE THAT RECONCILES A CONTRADICTION: cueing one of two tones gives activation where holding both uncued gave suppression</note>
         <quote>We observed sustained activation of the auditory cortex during a maintenance period, which is in contrast to findings from Linke et al. (2011) , who observed suppression during maintenance. This might be attributable to differences in the task in the two studies. While Linke et al. (2011) required subjects to maintain two tones from different categories without any cue before or after the tones, participants in the present study were explicitly instructed to maintain one of the two tones after the tones were presented (retro-cue).</quote>
       </span>
       <span xml:id="t51" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.8">
         <label>rehearsal —operationalised-as→ LIFG</label>
         <term>rehearsal</term>
         <term>LIFG</term>
+        <note>inferred from the tones being in the vocal range and from motor activation, not instructed or measured</note>
         <quote>Although we did not explicitly instruct the subjects to follow any particular strategy in our study, pitch values of the low tone were in the vocal range that could be rehearsed as a basis for the LIFG activity. Activation of motor areas during maintenance ( Table 1 ) also support the possibility of rehearsal being used during the maintenance period. It should, however, be noted that the role of motor areas in working memory is still controversial as studies using nonrehearsable stimuli also show activity in motor areas during WM</quote>
       </span>
       <span xml:id="t52" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="1.0">
         <label>PPI —operationalised-as→ connectivity</label>
         <term>PPI</term>
         <term>connectivity</term>
+        <note>and the rest BASELINE IS REFUSED for it: heart rate differs between task and rest, so every contrast is task-against-task</note>
         <quote>Connectivity analysis was conducted using psychophysiological interactions (PPIs) as implemented in the CONN toolbox</quote>
       </span>
       <span xml:id="t53" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
         <label>auditory cortex —causes→ hippocampus</label>
         <term>auditory cortex</term>
         <term>hippocampus</term>
+        <note>connectivity appears during maintenance and is ABSENT during encoding, which is what makes it maintenance-specific</note>
         <quote>Connectivity during maintenance compared with encoding (2) Auditory cortex is strongly connected to the right hippocampus (right HG and right PT are connected to the right posterior hippocampus, and left PT is connected to the right anterior hippocampus). (3) Auditory cortex is strongly connected to left IFG; both left HG and PT in each hemisphere are connected to left IFG.</quote>
       </span>
       <span xml:id="t54" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="1.0">
         <label>auditory cortex —causes→ LIFG</label>
         <term>auditory cortex</term>
         <term>LIFG</term>
+        <note>read as the frontal side keeping auditory representations alive by rehearsal</note>
         <quote>Connectivity of LIFG with the auditory cortex during the maintenance period is consistent with the role of LIFG in keeping the representations active in auditory cortex by subvocal rehearsal of the tones.</quote>
       </span>
       <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">

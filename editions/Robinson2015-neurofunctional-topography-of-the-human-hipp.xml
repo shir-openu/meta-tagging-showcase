@@ -238,12 +238,14 @@
         <label>clusters —distinct-from→ gradient</label>
         <term>clusters</term>
         <term>gradient</term>
+        <note>THE OUTPUT TYPE IS A PROPERTY OF THE METHOD: defining the topography as distinct clusters is called a theoretical choice, and a gradient is called plausible and likely and beyond what the method can represent</note>
         <quote>Finally, another theoretical consideration is that we have defined segmentation in terms of distinct clusters. It is plausible, and likely, that there is a gradient component to processing within the hippocampus that our current method cannot account for.</quote>
       </span>
       <span xml:id="t47" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
         <label>clustering —operationalised-as→ clusters</label>
         <term>clustering</term>
         <term>clusters</term>
+        <note>every voxel is assigned to one of k non-overlapping clusters, so the analysis cannot return no answer - only a differently shaped one</note>
         <quote>K ‐means clustering is a non‐hierarchical clustering method that uses an iterative algorithm to separate the voxels in the ROI into k non‐overlapping clusters [Forgy, 1965 ; Hartigan and Wong, 1979 ], by minimizing the variance within clusters and maximizing the variance between clusters. To do this, the algorithm computes the centroid of each cluster, and subsequently reassigns voxels to the clusters such that their difference from the centroid is minimal [Bzdok et al., 2012 , 2013 ; Cieslik et al., 2013 ; Clos et al., 2013 ; Eickhoff et al., 2011 ]. Centroids are chosen at random for each new iteration.</quote>
       </span>
       <span xml:id="t48" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
@@ -256,18 +258,21 @@
         <label>clusters —part-of→ voxel</label>
         <term>clusters</term>
         <term>voxel</term>
+        <note>k from 2 to 7 was run for each region, so seven answers existed before any criterion was applied</note>
         <quote>In our search, we chose 1,000 iterations to provide increased confidence at finding the optimal solution. In short, each voxel within the ROI is assigned to one of k clusters based on the coactivation profile to every other brain voxel. K ‐values of 2 through 7 were performed for each ROI.</quote>
       </span>
       <span xml:id="t50" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
         <label>deviants —distinct-from→ cluster size</label>
         <term>deviants</term>
         <term>cluster size</term>
+        <note>THE CRITERIA DISAGREE: misclassified voxels favour 2 to 4 on the left and 2, 3 or 5 on the right, while the minimum-to-mean size favours 2 and 3 for both, and the distance criterion favours 3 on the left and 2 or 5 on the right</note>
         <quote>Panels A&amp;D depict the percentage of misclassified voxels, demonstrating a stable cluster solutions of 2–4 for the left hippocampus and 2, 3, and 5 for the right. Good solutions are considered those K parcellations where percentages of deviants are not significantly increased compared with the K ‐ 1 solution, especially if the K + 1 solution leads to a significantly higher percentage of deviants (as is the case for K = 4 for the left and K = 5 for the right). Panels B&amp;E depict the proportion of the minimum cluster size (in red ) to the mean cluster size (in blue ). Good solutions are those where the size of the minimum cluster size is more than half of the average cluster size within a given K solution. Here, cluster solutions K = 2 and K = 3 are ideal for both the left and right hippocampus. Finally, in panels C&amp;F , the change in inter‐/intracluster distance is demonstrated. Here, optimal solutions are those where the subsequent K+1 solution does not show a significantly larger increase in intercluster to intracluster distance. The K = 3 solution is ideal for the left hippocampus, and the K = 2 and 5 solutions are ideal for the right hippocampus.</quote>
       </span>
       <span xml:id="t51" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
         <label>deviants —operationalised-as→ filters</label>
         <term>deviants</term>
         <term>filters</term>
+        <note>and the same statistic picks the filter as picks the cluster count - the sweep runs from 20 to 200 experiments per voxel in steps of 5</note>
         <quote>Analyses were run using several filters to allow for different degrees of association, assigning 20 through 200 experiments for each voxel in increments of 5 (please see Fig. 2 for an overview of our meta‐analytic approach). Methodology used here is identical to that reported previously [Chase et al., 2015 ; Clos et al., 2013 ]. Stable filters were selected for the left (90–180 experiments) and right (100–160 experiments) hippocampus based on filters with the lowest number of deviants (i.e., numbers of voxels that were assigned differently compared with the solution from the majority of filters; we used z ‐scores to objectively guide this selection procedure).</quote>
       </span>
       <span xml:id="t52" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
@@ -280,6 +285,7 @@
         <label>voxel —operationalised-as→ experiments</label>
         <term>voxel</term>
         <term>experiments</term>
+        <note>no single voxel is reported by enough studies, so each one borrows the nearest reported activations by Euclidian distance - the profile is a neighbourhood, not a measurement</note>
         <quote>In this application, however, since we are examining every voxel within our ROIs, it is expected that not every voxel will be activated by a sufficiently high number of experiments. As such, we pooled across the neighborhood of each seed voxel and identified those experiments from the BrainMap database that reported activation closest to the voxel by calculating and sorting the Euclidian distances between it and any activation reported in the BrainMap database.</quote>
       </span>
       <span xml:id="t54" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
@@ -298,6 +304,7 @@
         <label>BrainMap —part-of→ behavioral domain</label>
         <term>BrainMap</term>
         <term>behavioral domain</term>
+        <note>THE ARCHIVE STORES COORDINATES PLUS A CONTROLLED VOCABULARY - behavioral domain, paradigm class, subject population - and the vocabulary is what makes any of this analysable</note>
         <quote>BrainMap archives functional neuroimaging studies by coding statistically significant results, in the form of stereotactic coordinates, with associated meta‐data such as behavioral domain, paradigm class, and subject population (for a full list of meta‐data and operational definitions, please see the BrainMap lexicon at</quote>
       </span>
       <span xml:id="t57" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="1.0">
@@ -310,12 +317,14 @@
         <label>paradigm class —part-of→ experiments</label>
         <term>paradigm class</term>
         <term>experiments</term>
+        <note>2,630 papers, 12,623 experiments, 100 paradigm classes, 52,289 subjects</note>
         <quote>At the present time, the database is comprised of 2,630 papers, representing 12,623 experiments, 100 paradigm classes, and 52,289 subjects.</quote>
       </span>
       <span xml:id="t59" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
         <label>forward inference —operationalised-as→ taxonomic label</label>
         <term>forward inference</term>
         <term>taxonomic label</term>
+        <note>THE SAME TAG READ IN ONE DIRECTION: is activation more probable for this label inside the cluster than across the whole database</note>
         <quote>For the forward inference approach, a cluster&#x27;s neurofunctional profile was determined by computing the disparity between the probability of finding activation associated to a specific taxonomic label within the boundaries of the each cluster, compared with the probability of activation for that same taxonomic label across the entire database. A significant difference [using a binomial test—i.e., P(Activation|Task) &gt; P(Activation)] favoring probability within the cluster would constitute a behavioral/paradigm classification for that cluster.</quote>
       </span>
       <span xml:id="t60" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="1.0">
@@ -328,30 +337,35 @@
         <label>reverse inference —operationalised-as→ behavioral domain</label>
         <term>reverse inference</term>
         <term>behavioral domain</term>
+        <note>AND IN THE OTHER: which label is most likely given activation here - the two questions are not the same and both are reported</note>
         <quote>For the reverse inference approach, the neurofunctional profiles were determined by identifying the most likely behavioral domain and paradigm class given activation within the cluster [i.e., P(Task|Activation &gt; P(Task)]. Significance was assessed using χ 2 .</quote>
       </span>
       <span xml:id="t62" type="concept_edges" ana="#concept_edges[16]" resp="#tagger" cert="1.0">
         <label>ALE —operationalised-as→ activation</label>
         <term>ALE</term>
         <term>activation</term>
+        <note>convergence is tested against a null of random spatial association with the within-experiment focus distribution held fixed</note>
         <quote>This was computed by creating activation likelihood estimation (ALE) maps for each of the clusters, which compared the ALE scores to a null‐distribution reflecting random spatial associations between experiments with a fixed within‐experiment distribution of foci, yielding a P ‐value based on the proportion of equal or higher random values [Eickhoff et al., 2009 , 2012 ]. By using this random effects inference approach, we assessed the above‐chance convergence between experiments, converted the non‐parametric P ‐values to z ‐scores, and thresholded the results using a FWE</quote>
       </span>
       <span xml:id="t63" type="concept_edges" ana="#concept_edges[17]" resp="#tagger" cert="1.0">
         <label>ROI —operationalised-as→ thresholded</label>
         <term>ROI</term>
         <term>thresholded</term>
+        <note>THE OBJECT IS MADE BY A CUT: a probability atlas at 75 percent, chosen to be conservative and, explicitly, to be easy to describe to other researchers</note>
         <quote>Each ROI was thresholded at 75%, yielding a conservative anatomical representation, assuring that the ROI captured and confined the brain structure of interest, with the added benefit of being easily described to the neuroimaging community.</quote>
       </span>
       <span xml:id="t64" type="concept_edges" ana="#concept_edges[18]" resp="#tagger" cert="1.0">
         <label>ROI —operationalised-as→ probability</label>
         <term>ROI</term>
         <term>probability</term>
+        <note>and the resulting object is reported with its own membership statistics - mean 86 to 88 percent, centroid over 97</note>
         <quote>The mean probability for the left (M ± SD: 86.41% ± 7.10%) and right hippocampus (87.75% ± 7.39%) was over 87%, and the centroid for each was over 97% (left: 97.1% at MNI coordinates [ x,y,z ] −26, −18.8, −17.2; right: 97.3% at MNI coordinates 27.52, −18.2, −16.8).</quote>
       </span>
       <span xml:id="t65" type="concept_edges" ana="#concept_edges[19]" resp="#tagger" cert="1.0">
         <label>seed masks —distinct-from→ target masks</label>
         <term>seed masks</term>
         <term>target masks</term>
+        <note>each cluster against 110 atlas regions, themselves thresholded at 50 percent - a second layer of cuts underneath the first</note>
         <quote>Specifically, we estimated connectivity probabilities between the seed masks (defined as each CBP segment separately) and target masks (defined as the 55 subcortical and cortical ROIs within the Harvard‐Oxford Subcortical and Cortical Probability Atlases, thresholded to 50%, and applied to both left and right hemispheres for a total of 110 total masks) by repeatedly sampling the connected pathways through the probability distribution function.</quote>
       </span>
       <span xml:id="t66" type="concept_edges" ana="#concept_edges[20]" resp="#tagger" cert="1.0">
@@ -364,6 +378,7 @@
         <label>CBP —contrasted-with→ subiculum</label>
         <term>CBP</term>
         <term>subiculum</term>
+        <note>the same pipeline on one subfield also returned five clusters, which is read both as support and as a reason to doubt that the whole structure is the right unit</note>
         <quote>In a recent study by Chase et al. ( 2015 ) using nearly identical methodology, but examining only the subiculum, they demonstrated a 5‐cluster anterior–posterior solution along the long‐axis. This may provide support for our 5‐cluster solution, but it could also be interpreted in such a way as to suggest that we need to examine CBP models within hippocampal subfields.</quote>
       </span>
       <span xml:id="t68" type="concept_edges" ana="#concept_edges[22]" resp="#tagger" cert="1.0">
@@ -376,24 +391,28 @@
         <label>topography —operationalised-as→ segmentation</label>
         <term>topography</term>
         <term>segmentation</term>
+        <note>three left segments running anterior to posterior, labelled by the tasks that most often activate them</note>
         <quote>We identified neurofunctional topography of the left hippocampus, comprised of three anterior to posterior segmentations, consistent with previous research [Fanselow and Dong, 2010 ; King et al., 2008 ]. The anterior‐most segmentation was associated with face monitoring/discrimination, cued explicit recall, and encoding. The middle segment was significantly associated with paired associate recall, cued explicit recognition, and encoding. The most posterior segment was associated with perceptual functioning</quote>
       </span>
       <span xml:id="t70" type="concept_edges" ana="#concept_edges[24]" resp="#tagger" cert="1.0">
         <label>hippocampus —part-of→ lateralization</label>
         <term>hippocampus</term>
         <term>lateralization</term>
+        <note>the two sides return different cluster counts, and the right is called more functionally heterogeneous - which is offered as the reason its solution is less stable</note>
         <quote>Our investigation supports lateralization differences given the different clustering profiles between the left and right hippocampus. The right hippocampus appears to be more functionally heterogeneous, as suggested by the post‐hoc functional decoding. This is likely also the reason for the less stable cluster solution.</quote>
       </span>
       <span xml:id="t71" type="concept_edges" ana="#concept_edges[25]" resp="#tagger" cert="1.0">
         <label>gradient —distinct-from→ topography</label>
         <term>gradient</term>
         <term>topography</term>
+        <note>AND THE OTHER READING OF THE SAME AMBIGUITY: perhaps the right hippocampus is not organised by behavioural features at all, and the topography is genuinely gradient-like rather than under-powered</note>
         <quote>Alternatively, the right hippocampus may not function under rigorous behavioral or stimulus specific features, thus the topography is less concrete, and may have a more gradient</quote>
       </span>
       <span xml:id="t72" type="concept_edges" ana="#concept_edges[26]" resp="#tagger" cert="1.0">
         <label>anterior —contrasted-with→ posterior</label>
         <term>anterior</term>
         <term>posterior</term>
+        <note>the hot and cold division, carried across from the rodent ventral and dorsal poles</note>
         <quote>Furthermore, they speculated that the ventral (anterior in humans) portion was more engaged in limbic processes (i.e., “hot” processing), and the dorsal (posterior in humans) was preferentially activated during tasks such as spatial navigation, or learned associations (i.e.,</quote>
       </span>
       <span xml:id="t73" type="concept_edges" ana="#concept_edges[27]" resp="#tagger" cert="1.0">
@@ -406,12 +425,14 @@
         <label>amygdala —distinct-from→ parahippocampal gyrus</label>
         <term>amygdala</term>
         <term>parahippocampal gyrus</term>
+        <note>the anterior clusters&#x27; structural partners, together with the thalamus and a brainstem connection in most of the sample</note>
         <quote>DTI analyses demonstrated strong ipsilateral structural connectivity with limited contralateral connectivity. L1&#x27;s strongest connectivity was to the left amygdala, thalamus, and the parahippocampal gyrus, with a moderate portion of our sample also demonstrating connections to the posterior portion of the temporal fusiform gyrus (Supporting Information, Fig. 2). L2 had a similar pattern of anatomical connectivity, but also had voxels whose strongest connectivity was to portions of the occipital lobe. Both L1 and L2 were found to have connections to the brainstem in the majority of our sample, suggesting their roles may be more aligned to implicit processes, or to more</quote>
       </span>
       <span xml:id="t75" type="concept_edges" ana="#concept_edges[29]" resp="#tagger" cert="1.0">
         <label>occipital —operationalised-as→ perceptual</label>
         <term>occipital</term>
         <term>perceptual</term>
+        <note>the posterior left cluster reaches the lingual gyrus and occipital pole and lacks the sub-lobar connections of the other two</note>
         <quote>L3 was found to be anatomically connected to the posterior portion of the parahippocampal gyrus and the posterior cingulate in addition to the amygdala, but also had connections to the occipital lobe, specifically the lingual gyrus and the occipital pole. Interestingly, L3 did not demonstrate the strong sub‐lobar connectivity. This distributed connectivity pattern would support more perceptual processing as indicated by our CBP analysis.</quote>
       </span>
       <span xml:id="t76" type="concept_edges" ana="#concept_edges[30]" resp="#tagger" cert="1.0">
@@ -424,24 +445,28 @@
         <label>functional connectivity —distinct-from→ structural connectivity</label>
         <term>functional connectivity</term>
         <term>structural connectivity</term>
+        <note>two independent modalities are used to check a parcellation derived from neither</note>
         <quote>Data revealed strong support for an evolutionarily preserved topography along the long‐axis. Specifically, the left hippocampus was segmented into three distinct clusters: an emotional processing cluster supported by structural and functional connectivity to the amygdala and parahippocampal gyrus, a cognitive operations cluster, with functional connectivity to the anterior cingulate and inferior frontal gyrus, and a posterior perceptual cluster with distinct structural connectivity patterns to the occipital lobe coupled with functional connectivity to the precuneus and angular gyrus.</quote>
       </span>
       <span xml:id="t78" type="concept_edges" ana="#concept_edges[32]" resp="#tagger" cert="1.0">
         <label>H.M. —is-a→ case study</label>
         <term>H.M.</term>
         <term>case study</term>
+        <note>THE FOUNDATIONAL RECORD WAS WRONG: imaging in the 1990s revealed discrepancies in the neurosurgical account of the lesion, confirmed after death</note>
         <quote>Further complicating this field of research is the notion that much of what we assume about human memory and hippocampal functioning has been derived from a case study over half a century ago, when patient H.M. underwent a bilateral hippocampal resection [Scoville and Milner, 1957 ]. It was not until the early 1990s that H.M. received a magnetic resonance imaging scan that revealed potential discrepancies in the neurosurgical account of his lesions, which were confirmed following his death when more sophisticated imaging procedures could be carried out</quote>
       </span>
       <span xml:id="t79" type="concept_edges" ana="#concept_edges[33]" resp="#tagger" cert="1.0">
         <label>memory —distinct-from→ topography</label>
         <term>memory</term>
         <term>topography</term>
+        <note>the field&#x27;s inferences are said to rest on non-human data, case studies and narrowly focused memory or navigation experiments</note>
         <quote>Thus, we have relied on inferences about hippocampal topography drawn from data in non‐human species, from case studies, and/or from focused cognitive processing (i.e., memory or spatial navigation) studies.</quote>
       </span>
       <span xml:id="t80" type="concept_edges" ana="#concept_edges[34]" resp="#tagger" cert="1.0">
         <label>encoding —operationalised-as→ thresholded</label>
         <term>encoding</term>
         <term>thresholded</term>
+        <note>the two-cluster right solution&#x27;s anterior labels are the ones that did pass correction, at FDR-corrected P below 0.05</note>
         <quote>An alternative solution to the 5‐cluster model is a 2‐cluster solution, which was found to be slightly less favorable. For the 2‐cluster solution, an anterior and posterior segment emerged, with the anterior segment associated with face monitoring/discrimination, affective pictures, encoding, and cued explicit recognition, all thresholded at FDR‐corrected P &lt; 0.05. The posterior segment was associated with imagined objects/scenes and explicit memory.</quote>
       </span>
       <span xml:id="t81" type="concept_edges" ana="#concept_edges[35]" resp="#tagger" cert="0.8">

@@ -158,7 +158,8 @@
         <quote>One mechanism underlying the supralinear summation effect might be the initiation of dendritic spikes triggered by supersynchronous inputs, as shown in hippocampal neurons 30 . Such dendritic boosting may be particularly prominent in certain interneuron types because of the high densities of voltage-gated sodium and potassium ion channels in distal dendrites</quote>
       </span>
       <span xml:id="t27" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
-        <label>variation in firing rates → detectability — RULED OUT BY THE AUTHORS AS AN EXPLANATION: because spikes are uniformly distributed across maze positions, the observed differences in monosynaptic activity are LESS LIKELY TO BE DUE TO firing-rate variation acting on detectability</label>
+        <label>variation in firing rates → detectability</label>
+        <note>RULED OUT BY THE AUTHORS AS AN EXPLANATION: because spikes are uniformly distributed across maze positions, the observed differences in monosynaptic activity are LESS LIKELY TO BE DUE TO firing-rate variation acting on detectability. A control argument, not a relation that holds - and no edge type can say a relation FAILS.</note>
         <quote>The argument is then that, all other things being equal, because the spikes are uniformly distributed in maze positions, differences in monosynaptic activity as a function of position are less likely to be due to the effect of variation in firing rates on detectability (that is, power</quote>
       </span>
       <span xml:id="t28" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
@@ -213,42 +214,49 @@
         <label>monosynaptic —operationalised-as→ cross-correlogram</label>
         <term>monosynaptic</term>
         <term>cross-correlogram</term>
+        <note>it can ONLY be inferred indirectly from an extracellular signal - the paper opens the section by saying so</note>
         <quote>Monosynaptic interactions can only be indirectly inferred from an extracellular signal. This is typically done by examining counts of co-occurrences of spiking in the putative pre- and postsynaptic neurons at various differential time lags, as exemplified by the cross-correlogram</quote>
       </span>
       <span xml:id="t41" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
         <label>monosynaptic —distinct-from→ firing rates</label>
         <term>monosynaptic</term>
         <term>firing rates</term>
+        <note>THE NULL CONTAINS EVERYTHING BUT THE TIMESCALE OF INTEREST: jittering preserves rates at broader timescales, so surviving coincidences cannot be rate effects at tens of milliseconds</note>
         <quote>Because the jittered data sets preserve firing rates on timescales much broader than that of the jitter interval, the overall effect of the analysis is to identify as monosynaptic those pairs that showed excess co-firing at short latencies that cannot be accounted for by firing rates varying only at timescales of tens of milliseconds</quote>
       </span>
       <span xml:id="t42" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
         <label>jitter —operationalised-as→ monosynaptic</label>
         <term>jitter</term>
         <term>monosynaptic</term>
+        <note>1,000 surrogates, each spike moved independently within ±5 ms</note>
         <quote>To disambiguate multiple-timescale effects, we used jitter techniques 26 to infer monosynaptic connections. Each spike in each neuron in the original data set was randomly and independently perturbed (or ‘jittered’) on a uniform interval of [−5,+5] ms to form a surrogate data set. The process was repeated independently 1,000 times to form many such surrogate data sets.</quote>
       </span>
       <span xml:id="t43" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
         <label>monosynaptic —distinct-from→ jitter</label>
         <term>monosynaptic</term>
         <term>jitter</term>
+        <note>THE ASSUMPTION REJECTED BY NAME elsewhere: under independence, broad-timescale effects alone can push short-latency co-occurrence above chance, so a jitter surrogate replaces it</note>
         <quote>To disambiguate multiple-timescale effects, we used jitter techniques 26 to infer monosynaptic connections. Each spike in each neuron in the original data set was randomly and independently perturbed (or ‘jittered’) on a uniform interval of [−5,+5] ms to form a surrogate data set. The process was repeated independently 1,000 times to form many such surrogate data sets.</quote>
       </span>
       <span xml:id="t44" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
         <label>thinning —distinct-from→ power</label>
         <term>thinning</term>
         <term>power</term>
+        <note>DISCARD DATA TO MAKE THE CONFOUND CONSTANT: spikes are deleted at random until rates are flat across positions, so position-dependent detectability cannot produce the result</note>
         <quote>To more rigorously demonstrate position-dependent monosynaptic effects (the statistical issue is one of power; see Methods), we used a heuristic randomization argument based on thinning. For a given cell pair, we randomly and iteratively removed spikes occurring in maze segment(s) of interest until the remaining (‘thinned’) spikes were uniformly distributed in different maze segments for both cells (that is, so that the thinned spike trains had rates that were ‘flat’, with less than 10% rate variation) and then used the jittering technique to assess position dependence of monosynaptic activity.</quote>
       </span>
       <span xml:id="t45" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
         <label>RETRACTED (THE SPAN ARGUES AGAINST A CAUSAL ROLE AND THE EDGE ASSERTS ONE) · power —causes→ firing rates</label>
         <term>power</term>
         <term>firing rates</term>
+        <note>RETRACTED: THE SPAN ARGUES AGAINST A CAUSAL ROLE AND THE EDGE ASSERTS ONE. The edge is `power --causes--&gt; firing rates`. The span is a control argument: &#x27;BECAUSE the spikes are uniformly distributed in maze positions, differences in monosynaptic activity as a function of position are LESS LIKELY TO BE DUE TO the effect of variation in firing rates on detectability (that is, power&#x27;. The authors are RULING OUT firing-rate variation as an explanation of their result - the negation of the relation the edge records. WHAT THE SPAN DOES SAY (Q-309): a negative, housed below. FOURTH INSTANCE TONIGHT of the polarity gap - after Colgin2016 (does not hold), Osman2018 (inverse, later reclassified as a correlation) and Pereira2020 (undetermined) - and the only reason it is recorded at all is that `unhoused_relations` exists. — the confound is DETECTABILITY, not the effect - more spikes make a connection easier to see</note>
         <quote>The argument is then that, all other things being equal, because the spikes are uniformly distributed in maze positions, differences in monosynaptic activity as a function of position are less likely to be due to the effect of variation in firing rates on detectability (that is, power</quote>
       </span>
       <span xml:id="t46" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
         <label>pyramidal —causes→ interneuron</label>
         <term>pyramidal</term>
         <term>interneuron</term>
+        <note>THE REATTRIBUTION: earlier work read the same short-latency peaks as pyramidal-to-pyramidal; with physiological classification they are mostly pyramidal-to-interneuron</note>
         <quote>In these earlier studies, such short-term effects, often described as ‘functional’ connectivity 34 , were assumed to reflect pyramidal-pyramidal interactions and to correspond to hypothetical physiological mechanisms underlying associative mechanisms, learning, memory or reward expectancy. In contrast, taking into account physiological criteria to separate excitatory and inhibitory neurons, our analysis indicated that most such short-latency peaks in cross-correlograms were likely to correspond to monosynaptic excitation of GABAergic interneurons by their presynaptic pyramidal cells</quote>
       </span>
       <span xml:id="t47" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
@@ -261,30 +269,35 @@
         <label>facilitation —contrasted-with→ depression</label>
         <term>facilitation</term>
         <term>depression</term>
+        <note>both found, and elsewhere BOTH ON ONE POSTSYNAPTIC CELL from different presynaptic partners, which is what rules out passive membrane properties</note>
         <quote>Seeking potential mechanisms for such effects, we found evidence for both firing pattern–dependent facilitation and depression, as well as for a supralinear effect of presynaptic coincidence on the firing of postsynaptic targets.</quote>
       </span>
       <span xml:id="t49" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.8">
         <label>RETRACTED (REVERSED) · supralinear —causes→ dendritic spikes</label>
         <term>supralinear</term>
         <term>dendritic spikes</term>
+        <note>RETRACTED: REVERSED. The span offers dendritic spikes as the MECHANISM UNDERLYING the supralinear summation, so the spikes produce the supralinearity. — offered as a candidate mechanism, by analogy to hippocampal neurons</note>
         <quote>One mechanism underlying the supralinear summation effect might be the initiation of dendritic spikes triggered by supersynchronous inputs, as shown in hippocampal neurons 30 . Such dendritic boosting may be particularly prominent in certain interneuron types because of the high densities of voltage-gated sodium and potassium ion channels in distal dendrites</quote>
       </span>
       <span xml:id="t50" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
         <label>central arm —operationalised-as→ goal representation</label>
         <term>central arm</term>
         <term>goal representation</term>
+        <note>CRITERION: differential firing in the shared arm, BEFORE the paths diverge, is what makes it goal rather than movement</note>
         <quote>However, by considering separately the trials in which the rat ran to the left reward area and those in which the rat ran to the right, we see that the neuron already showed a goal-specific elevation of discharge in the central arm itself, suggestive of goal representation.</quote>
       </span>
       <span xml:id="t51" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="1.0">
         <label>cell assemblies —part-of→ mPFC</label>
         <term>cell assemblies</term>
         <term>mPFC</term>
+        <note>distributed across a large volume with no spatial clustering of similar tuning</note>
         <quote>Neurons active at any given part of the maze were recorded with equal probability at all probe shanks, and we found no evidence for spatial clustering of neurons with similar task-relevant firing patterns. Thus, information in mPFC appears to be sparsely encoded by cell assemblies distributed in a large neuronal volume.</quote>
       </span>
       <span xml:id="t52" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="1.0">
         <label>silicon probe —operationalised-as→ mPFC</label>
         <term>silicon probe</term>
         <term>mPFC</term>
+        <note>positioned for superficial or deep layers, which is what makes the layer comparison possible at all</note>
         <quote>The tips of the silicon probes were positioned to record from either the superficial (layers 2/3) or deep (layer 5) layers of the mPFC</quote>
       </span>
       <span xml:id="t53" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
