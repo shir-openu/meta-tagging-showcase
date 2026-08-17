@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">30 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">39 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -104,72 +104,116 @@
         <label>global matrix factorization (from latent semantic analysis) combined with local context windows to learn word vectors</label>
         <quote>combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>word vector</label>
+        <term>word vector</term>
+        <quote>where w ∈ Rd are word vectors and ˜w ∈ Rd are separate context word vectors whose role will be discussed</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>context word</label>
+        <term>context word</term>
+        <quote>the distinction between a word and a context word is arbitrary</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>word analogy</label>
+        <term>word analogy</term>
+        <quote>introduced a new evaluation scheme based on word analogies that probes the finer structure of the word vector space</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>context window</label>
+        <term>context window</term>
+        <quote>A context window that extends to the left and right of a target word will be called symmetric</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>syntactic subtask</label>
+        <term>syntactic subtask</term>
+        <quote>Performance is better on the syntactic subtask for small and asymmetric context windows</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>what the paper calls its own object - WORD VECTORS AND WORD REPRESENTATIONS, NEVER EMBEDDINGS: it uses those two terms 24 and 11 times; &#x27;word embeddings&#x27; appears exactly once and describes another group&#x27;s method rather than this paper&#x27;s output, and &#x27;distributional semantics&#x27; does not appear at all</label>
         <quote>The result, GloVe, is a new global log-bilinear regression model for the unsupervised learning of word representations that outperforms other models on word analogy, word similarity, and named entity recognition tasks</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>&#x27;word embeddings&#x27; IN THIS PAPER - SOMEONE ELSE&#x27;S OBJECT: the single occurrence attributes the term to Levy et al., alongside vLBL and ivLBL, as a rival PPMI-based approach; the authors never apply the word to what they themselves produce</label>
         <quote>proposed closely-related vector log-bilinear models, vLBL and ivLBL, and Levy et al. (2014) proposed explicit word embeddings based on a PPMI metric</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the analogy evaluation - AS DIMENSIONS OF DIFFERENCE, NOT DISTANCE: it probes the vector space by examining the various dimensions of difference between vectors rather than the scalar distance between them, which is why a model can win on similarity and lose on analogy</label>
         <quote>introduced a new evaluation scheme based on word analogies that probes the finer structure of the word vector space by examining not the scalar distance between word vectors, but rather their various dimensions of difference</quote>
       </span>
-      <span xml:id="t18" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>the context window - SYMMETRIC OR ASYMMETRIC, AND THE CHOICE MOVES ONE SUBTASK ONLY: a window extending both ways is called symmetric and one extending only left asymmetric, and the syntactic subtask specifically improves with small asymmetric windows</label>
         <quote>A context window that extends to the left and right of a target word will be called symmetric, and one which extends only to the left will be called asymmetric</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → global matrix factorization (LSA) and local context-window methods</label>
         <quote>combines the advantages of the two major model families in the literature: global matrix factorization and local context</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → Baroni et al. (2014)</label>
-        <quote>Currently, prediction-based models garner substantial support; for example, Baroni et al. (2014) argue that these models perform better across a range of tasks.</quote>
+        <quote>Currently, prediction-based models garner substantial support; for example, Baroni et al. (2014) argue that these models perform better across a range of tasks. In this work we argue that the two classes of methods are not dramatically different at a fundamental level since they both probe the underlying co-occurrence statistics of the corpus, but the efficiency with which the count-based methods capture global statistics can be advantageous.</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → skip-gram and ivLBL window-based models</label>
         <quote>Therefore, in this subsection we show how these models are related to our proposed model, as defined in Eqn. (8).</quote>
       </span>
-      <span xml:id="t22" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>word vector —same-as→ context word</label>
         <term>word vector</term>
         <term>context word</term>
         <quote>When X is symmetric, W and ˜W are equivalent and differ only as a result of their random initializations; the two sets of vectors should perform equivalently</quote>
       </span>
-      <span xml:id="t23" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>context window —causes→ syntactic subtask</label>
         <term>context window</term>
         <term>syntactic subtask</term>
         <quote>Performance is better on the syntactic subtask for small and asymmetric context windows, which aligns with the intuition that syntactic information is mostly drawn from the immediate context and can depend strongly on word order</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>75% — accuracy on the word analogy task (GloVe headline result)</label>
         <quote>its performance of 75% on a recent word analogy task</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>6 billion — corpus size used to build the co-occurrence statistics</label>
         <quote>from a 6 billion token corpus</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>GloVe, a global log-bilinear regression model trained on nonzero word-word co-occurrence counts, yields word vectors with meaningful linear substructure and 75% on word analogies, outperforming prior models on similarity and NER.</label>
+        <quote>The result is a new global logbilinear regression model that combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods.</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Meaning is encoded in RATIOS of co-occurrence probabilities, not raw counts — the ratio cancels noise from non-discriminative words.</label>
         <quote>Only in the ratio does noise from non-discriminative words like water and fashion cancel out</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>word-word co-occurrence counts</label>
+        <term>word-word co-occurrence counts</term>
+        <quote>training only on the nonzero elements in a word-word cooccurrence matrix</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>word analogy accuracy</label>
         <term>word analogy accuracy</term>
         <quote>its performance of 75% on a recent word analogy task</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>GloVe (Global Vectors)</label>
+        <term>GloVe (Global Vectors)</term>
+        <quote>a new global logbilinear regression model that combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>word analogy task</label>
         <term>word analogy task</term>
         <quote>the analogy “king is to queen as man is to woman” should be encoded in the vector</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>correlation</label>
         <term>correlation</term>
         <quote>We compute Spearman’s rank correlation coefficient between this score and the human judgments.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <quote>The result is a new global logbilinear regression model that combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods.</quote>
       </span>
     </spanGrp>
   </standOff>

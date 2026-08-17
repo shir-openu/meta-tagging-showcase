@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">26 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">43 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -54,103 +54,187 @@
         <term>system-or-tool-building</term>
         <quote>We used our Raft implementation to measure the performance of Raft’s leader election algorithm and answer two questions.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>design alternatives are chosen by asking two stated questions about UNDERSTANDABILITY - how hard is each to explain, and how easily can a reader completely grasp it and its implications - and the authors state plainly that this analysis is highly subjective</term>
+        <quote>There were numerous points in the design of Raft where we had to choose among alternative approaches. In these situations we evaluated the alternatives based on understandability: how hard is it to explain each alternative (for example, how complex is its state space, and does it have subtle implications?), and how easy will it be for a reader to completely understand the approach and its implications? We recognize that there is a high degree of subjectivity in such analysis; nonetheless, we used two techniques that are generally applicable.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the first technique is problem decomposition: the problem is divided into pieces that can be solved, explained AND understood relatively independently, and the paper names the four it used</term>
+        <quote>The first technique is the well-known approach of problem decomposition: wherever possible, we divided problems into separate pieces that could be solved, explained, and understood relatively independently. For example, in Raft we separated leader election, log replication, safety, and membership changes.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the second technique reduces the STATE SPACE rather than the code - fewer states to consider, more coherence, nondeterminism removed where possible - and it is made concrete by two rules about what logs are not allowed to do</term>
+        <quote>Our second approach was to simplify the state space by reducing the number of states to consider, making the system more coherent and eliminating nondeterminism where possible. Specifically, logs are not allowed to have holes, and Raft limits the ways in which logs can become inconsistent with each other.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>NONDETERMINISM IS DELIBERATELY ADDED WHERE IT SHRINKS THE STATE SPACE: randomised approaches handle all possible choices in one fashion - choose any, it does not matter - so randomisation is used to simplify leader election even though the general policy was to eliminate it</term>
+        <quote>Although in most cases we tried to eliminate nondeterminism, there are some situations where nondeterminism actually improves understandability. In particular, randomized approaches introduce nondeterminism, but they tend to reduce the state space by handling all possible choices in a similar fashion (“choose any; it doesn’t matter”). We used randomization to simplify the Raft leader election algorithm.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the comparison is a within-subject crossover: every participant learns both algorithms and takes both quizzes, with the ORDER reversed for about half of them, so that individual differences and the experience gained from the first half are both accounted for</term>
+        <quote>Each student watched one video, took the corresponding quiz, watched the second video, and took the second quiz. About half of the participants did the Paxos portion first and the other half did the Raft portion first in order to account for both individual differences in performance and experience gained from the first portion of the study.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the two ways the experiment FAVOURED THE COMPETITOR are stated by the authors rather than left to a reader: some participants had prior experience with the rival algorithm, and the rival&#x27;s teaching video was longer</term>
+        <quote>We tried to make the comparison between Paxos and Raft as fair as possible. The experiment favored Paxos in two ways: 15 of the 43 participants reported having some prior experience with Paxos, and the Paxos video is 14% longer than the Raft video.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the regression model&#x27;s estimate of the quiz effect is reported as LARGER than the raw score difference, and the gap between the two is explained by prior experience with the rival algorithm rather than set aside</term>
+        <quote>The model predicts that the choice of quiz produces a 12.5-point difference in favor of Raft. This is significantly higher than the observed difference of 4.9 points, because many of the actual students had prior Paxos experience, which helped Paxos considerably, whereas it helped Raft slightly less.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the participants&#x27; own preference is collected AND THEN DISCOUNTED by the authors, who name both reasons it may be unreliable: self-report against measured scores, and the participants&#x27; possible knowledge of the hypothesis being tested</term>
+        <quote>An overwhelming majority of participants reported Raft would be easier to implement and explain (33 of 41 for each question). However, these self-reported feelings may be less reliable than participants’ quiz scores, and participants may have been biased by knowledge of our hypothesis that Raft is easier to understand.</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the correctness argument is anchored to a formal specification that is itself the subject of the proof, and the paper states exactly how far the mechanisation reaches - one property mechanically proven, resting on invariants that have not been mechanically checked</term>
+        <quote>We have developed a formal specification and a proof of safety for the consensus mechanism described in Section 5. The formal specification [31] makes the information summarized in Figure 2 completely precise using the TLA+ specification language [17]. It is about 400 lines long and serves as the subject of the proof. It is also useful on its own for anyone implementing Raft. We have mechanically proven the Log Completeness Property using the TLA proof system [7]. However, this proof relies on invariants that have not been mechanically checked</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>without extra measures split votes could repeat indefinitely</label>
         <quote>without extra measures split votes could repeat indefinitely</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t13" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>The mechanised safety proof rests on invariants that were never mechanically checked</label>
         <quote>However, this proof relies on invariants that have not been mechanically checked (for example, we have not proven the type safety of the specification).</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t14" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The participants&#x27; self-reported preference for Raft may be unreliable and biased by knowledge of the authors&#x27; hypothesis</label>
         <quote>However, these self-reported feelings may be less reliable than participants’ quiz scores, and participants may have been biased by knowledge of our hypothesis that Raft is easier to understand.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+      <span xml:id="t15" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>Raft&#x27;s strong-leader design rules out some performance optimisations available to leaderless algorithms</label>
         <quote>Raft’s strong leadership approach simplifies the algorithm, but it precludes some performance optimizations.</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger">
+      <span xml:id="t16" type="limitations" ana="#limitations[4]" resp="#tagger">
         <label>Optimisations known for other consensus algorithms were not applied or evaluated here</label>
         <quote>Various optimizations have been proposed in the literature for other algorithms; many of these could be applied to Raft, but we leave this to future work.</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The design criterion the paper is built around is the authors&#x27; own judgement about how hard things are to explain.</label>
         <quote>In these situations we evaluated the alternatives based on understandability: how hard is it to explain each alternative (for example, how complex is its state space, and does it have subtle implications?), and how easy will it be for a reader to completely understand the approach and its implications</quote>
       </span>
-      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>The understandability result is a quiz given to students on two named courses.</label>
         <quote>To measure Raft’s understandability relative to Paxos, we conducted an experimental study using upper-level undergraduate and graduate students in an Advanced Operating Systems course at Stanford University</quote>
       </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The equivalence claimed with the algorithm it replaces is on result and efficiency, with the structure explicitly different.</label>
         <quote>It produces a result equivalent to (multi-)Paxos, and it is as efficient as Paxos, but its structure is different from Paxos</quote>
       </span>
-      <span xml:id="t11" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
         <label>Removing nondeterminism was the general aim, and the paper records where that aim was abandoned.</label>
         <quote>Although in most cases we tried to eliminate nondeterminism, there are some situations where nondeterminism actually improves understandability</quote>
       </span>
-      <span xml:id="t12" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>understandability</label>
+        <term>understandability</term>
+        <quote>Our approach was unusual in that our primary goal was understandability</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>Paxos</label>
+        <term>Paxos</term>
+        <quote>Unfortunately, Paxos is quite difficult to understand, in spite of numerous attempts to make it more approachable</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>decomposition</label>
+        <term>decomposition</term>
+        <quote>we applied specific techniques to improve understandability, including decomposition (Raft separates leader election, log replication, and safety</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>nondeterminism</label>
+        <term>nondeterminism</term>
+        <quote>Although in most cases we tried to eliminate nondeterminism, there are some situations where nondeterminism actually improves understandability</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>state space</label>
+        <term>state space</term>
+        <quote>how complex is its state space</quote>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>understandability AT DESIGN TIME - AS TWO QUESTIONS THE AUTHORS ASK THEMSELVES: how hard is each alternative to explain, including how complex its state space is and whether it has subtle implications, and how easy it will be for a reader to understand it completely</label>
         <quote>In these situations we evaluated the alternatives based on understandability: how hard is it to explain each alternative (for example, how complex is its state space, and does it have subtle implications?), and how easy will it be for a reader to completely understand the approach and its implications</quote>
       </span>
-      <span xml:id="t13" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>understandability AT EVALUATION TIME - AS A QUIZ SCORE: the same word is measured by testing upper-level undergraduate and graduate students on two named university courses, so the paper&#x27;s central term has one meaning while designing and a different, countable one while evaluating</label>
         <quote>To measure Raft’s understandability relative to Paxos, we conducted an experimental study using upper-level undergraduate and graduate students in an Advanced Operating Systems course at Stanford University</quote>
       </span>
-      <span xml:id="t14" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the equivalence with Paxos - ON RESULT AND EFFICIENCY ONLY: the paper states the result is equivalent and the efficiency comparable while the structure is different, so a claim proved about one is not automatically a claim about the other</label>
         <quote>It produces a result equivalent to (multi-)Paxos, and it is as efficient as Paxos, but its structure is different from Paxos; this makes Raft more understandable than Paxos</quote>
       </span>
-      <span xml:id="t15" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → Paxos consensus algorithm</label>
         <quote>It produces a result equivalent to (multi-)Paxos</quote>
       </span>
-      <span xml:id="t16" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → Paxos (Lamport)</label>
         <quote>Because of these problems, we concluded that Paxos does not provide a good foundation either for system building or for education.</quote>
       </span>
-      <span xml:id="t17" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → Oki and Liskov&#x27;s Viewstamped Replication</label>
         <quote>Raft is similar in many ways to existing consensus algorithms (most notably, Oki and Liskov’s Viewstamped Replication [29, 22]), but it has several novel features:</quote>
       </span>
-      <span xml:id="t18" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>understandability —operationalised-as→ state space</label>
         <term>understandability</term>
         <term>state space</term>
         <quote>In these situations we evaluated the alternatives based on understandability: how hard is it to explain each alternative (for example, how complex is its state space, and does it have subtle implications?), and how easy will it be for a reader to completely understand the approach and its implications</quote>
       </span>
-      <span xml:id="t19" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>decomposition —causes→ understandability</label>
         <term>decomposition</term>
         <term>understandability</term>
         <quote>we applied specific techniques to improve understandability, including decomposition (Raft separates leader election, log replication, and safety</quote>
       </span>
-      <span xml:id="t20" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>43 — user-study size comparing Raft vs Paxos learnability</label>
         <quote>A user study with 43 students at two universities</quote>
       </span>
-      <span xml:id="t21" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>A user study with 43 students showed Raft is easier to learn than Paxos; Raft also adds cluster-membership changes using overlapping majorities for safety.</label>
+        <quote>Results from a user study demonstrate that Raft is easier for students to learn than Paxos. Raft also includes a new mechanism for changing the cluster membership, which uses overlapping majorities to guarantee safety.</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>consensus-algorithm design (Raft vs Paxos)</label>
         <term>consensus-algorithm design (Raft vs Paxos)</term>
         <quote>its structure is different from Paxos; this makes Raft more understandable than Paxos</quote>
       </span>
-      <span xml:id="t22" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>understandability / learnability</label>
         <term>understandability / learnability</term>
         <quote>Results from a user study demonstrate that Raft is easier for students to learn than Paxos</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>consensus algorithm</label>
+        <term>consensus algorithm</term>
+        <quote>Consensus algorithms allow a collection of machines to work as a coherent group that can survive the failures of some of its members</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>replicated state machine</label>
         <term>replicated state machine</term>
         <quote>the replicated state machine problem</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
         <quote>We also created a linear regression model that predicts a new student’s quiz scores based on three factors: which quiz they took, their degree of prior Paxos experience, and s t n a p c i t r a p</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>statistical-significance</label>
+        <term>statistical-significance</term>
+        <quote>Each implementation begins with Paxos, discovers the difficulties in implementing it, and then develops a significantly different architecture.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>t-test</label>
         <term>t-test</term>
         <quote>A paired t-test states that, with 95% confidence, the true distribution of Raft scores has a mean at least 2.5 points larger than the true distribution of Paxos scores.</quote>

@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">21 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">35 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -56,80 +56,150 @@
         <term>system-or-tool-building</term>
         <quote>Beginning in February 2016, and supported by renewed funding from the Andrew W. Mellon Foundation, we therefore started to develop a new version of Recogito, redesigned from the bottom up, with the aim of establishing the technical infrastructure for an open, collaborative, generally usable, and useful, work environment.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>datasets are joined by making everyone refer to the SAME IDENTIFIER: whenever a place is mentioned it is named by a shared gazetteer URI, and otherwise isolated datasets become implicitly joined into one interconnected graph with the gazetteers as its central backbone</term>
+        <quote>Pelagios advocates the idea that whenever you refer to a place in your data, you should do so using a gazetteer URI. How the place relates to that data may vary, and will generally depend on the type of data. For example, the place could be the find spot of a coin or an item in an archaeological database; it could be mentioned in a piece of literature or a research article; it could be attested to in a digitized old map; or it could be the location of a historic site depicted on a photograph. By expressing the places through the use of shared gazetteer URIs, otherwise isolated datasets become implicitly joined up to an interconnected graph, with the gazetteers as their central backbone</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>CONNECTIVITY THROUGH COMMON REFERENCES RATHER THAN A COMMON SCHEMA: the annotations are published separately from the data they annotate, as standoff markup, so no model is mandated for the data themselves and no constraint is put on how they are represented</term>
+        <quote>One core advantage of this model is that annotations can be published separately from the dataset they are annotating, as “standoff markup” (Thompson and McKelvie, 1997). We refer to this approach as connectivity —as opposed to connectivity through a through common references ​ common schema—because it doesn’t mandate a specific model for the data themselves, or otherwise put any constraints on how the data are being represented.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the word ANNOTATION is chosen for what it connotes: that the association is NOT to be taken as certain fact but as somebody - a human editor or an automated script - claiming a relation between a document and a place</term>
+        <quote>On the one hand, annotation works as a suitable conceptual metaphor, since it carries the connotation that the association being made ought not to be considered certain fact; rather somebody (a human editor or an automated geo-parsing script) is making a claim that there is some relation between content x and place y.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>whether a term counts as ontological is settled SOCIALLY and not formally: the distinguishing property is a commonly understood meaning under a shared conceptualization, so the benefit claimed for Linked Data is a shared social understanding rather than machine-readability</term>
+        <quote>Ontological annotations, finally, are formal annotations where terminology has a commonly understood meaning according to a shared conceptualization. Oren et al. rightfully point out that whether a term is ontological or not is a purely social matter, not a technical, nor formal one. The benefit of the ontological—or semantic—annotation, and in fact of Linked Data as a whole, is therefore not so much the machine-readability of the data as such, but rather that it is represents a shared social understanding, expressed with a shared vocabulary.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>EVERY AUTOMATIC MATCH IS MARKED UNVERIFIED UNTIL A HUMAN ACTS ON IT, and the state is shown in the interface rather than stored quietly - grey until a user confirms or corrects it, then green</term>
+        <quote>As a general policy, every automatic match remains marked as “unverified”—indicated using the colour grey—until a user either explicitly confirms its correctness, or manually changes it using the integrated gazetteer search (Fig.2 )—in both instances turning it green.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>a reference that cannot be resolved is EXPLICITLY FLAGGED as not identifiable rather than left blank or guessed, and several gazetteer matches may be attached at once when the reference is unclear or genuinely denotes more than one place</term>
+        <quote>It is also possible to explicitly flag a place as “not identifiable” (yellow), when no suitable gazetteer match could be found; or to add multiple gazetteer matches, when, for instance, the reference is unclear, or when the annotated phrase does indeed refer to multiple places at once.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>each contribution to an annotation carries its contributor and its time, so an annotation becomes a sequence of interactions - a micro discussion thread - and an audit trail of additions and changes makes the version history inspectable and the document revertible</term>
+        <quote>Each contribution to an annotation is associated with the user who contributed it, 14 and the time it was made. Since annotations generally consist of a sequence of different contributions and interactions (comments, replies, transcriptions, gazetteer matches, etc.), they can essentially function as “micro discussion threads” with multiple participants. Also, because Recogito keeps an audit trail of additions and changes, it is possible to inspect the version history of the annotations, and revert the document to a previous state in time.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the workflow&#x27;s bottleneck is MEASURED rather than asserted: geo-resolution accounted for 2% of all user actions in the first workshop, and a redesign of the interface between workshops raised it to about 7% - an improvement the authors report while still calling it the bottleneck</term>
+        <quote>This was confirmed by the contribution statistics from the workshops: in the first workshop, geo-resolution actions accounted only for 2% of the total number of user actions. A redesign of the user interface between the first and the second workshop yielded noticeable improvement, raising the percentage of geo-resolutions relative to other tasks to about 7%. But it is obvious that geo-resolution remained the productivity bottleneck in our workflow.</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the two design choices credited with the tool&#x27;s acceptance are stated as a pair: every automated step must always require human verification, AND wherever that verification is missing it must be displayed prominently - with the interface emphasising manual control while offering automated suggestions</term>
+        <quote>Crucial to this approval were the fundamental design choices that we had identified initially, namely that: (i) every automated step—Named Entity Recognition, and automated matching of place names to gazetteer records—must always require human verification, and, whenever such verification was missing, this would be prominently displayed visually; and (ii) that users felt comfortable performing semantic tagging in an interface that put the emphasis on manual control, while offering support through automated suggestions.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Geo-resolution stayed the productivity bottleneck of the workflow even after a UI redesign.</label>
         <quote>But it is obvious that geo-resolution remained the productivity bottleneck in our workflow.</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t13" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Gazetteers are so far the only controlled vocabulary the tool supports for semantic annotation.</label>
         <quote>At the time of writing, gazetteers are the only type of controlled vocabulary available for semantic annotation.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t14" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The tool was still unreleased at the time of writing, with public release only scheduled.</label>
         <quote>Already available for testing at http://recogito.pelagios.org , its formal release to the public is scheduled for December 2016.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>An annotation is presented as somebody&#x27;s claim, not as established fact.</label>
         <quote>On the one hand, annotation works as a suitable conceptual metaphor, since it carries the connotation that the association being made ought not to be considered certain fact; rather somebody (a human editor or an automated geo-parsing script) is making a claim</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t16" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>Whether the vocabulary is ontological is a social fact about a community, not a property of the data.</label>
         <quote>rightfully point out that whether a term is ontological or not is a purely social matter, not a technical, nor formal one</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The approach&#x27;s success is credited to a shared vocabulary that already existed for that period and region.</label>
         <quote>This was not least due to the fact that for this period of time and geographic area, a suitable, focused historical URI-based gazetteer existed already, and was widely acknowledged among the scholarly community</quote>
       </span>
-      <span xml:id="t9" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>annotation</label>
+        <term>annotation</term>
+        <quote>On the one hand, annotation works as a suitable conceptual metaphor, since it carries the connotation that the association being made ought not to be considered certain fact; rather somebody (a human editor or an automated geo-parsing script) is making a claim</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>claim</label>
+        <term>claim</term>
+        <quote>rather somebody (a human editor or an automated geo-parsing script) is making a claim</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>gazetteer URI</label>
+        <term>gazetteer URI</term>
+        <quote>Pelagios advocates the idea that whenever you refer to a place in your data, you should do so using a gazetteer URI</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>place</label>
+        <term>place</term>
+        <quote>Pelagios advocates the idea that whenever you refer to a place in your data, you should do so using a gazetteer URI</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>ontological annotation</label>
+        <term>ontological annotation</term>
+        <quote>Ontological annotations, finally, are formal annotations where terminology has a commonly understood meaning according to a shared conceptualization</quote>
+      </span>
+      <span xml:id="t23" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>an annotation - AN ASSERTION OF AN INTERPRETATION, NOT A STATEMENT OF FACT: the paper says the association ought not to be considered certain fact and that somebody - explicitly either a human editor or an automated geo-parsing script - is making a claim; the annotator&#x27;s kind is part of what the annotation records</label>
         <quote>On the one hand, annotation works as a suitable conceptual metaphor, since it carries the connotation that the association being made ought not to be considered certain fact; rather somebody (a human editor or an automated geo-parsing script) is making a claim</quote>
       </span>
-      <span xml:id="t10" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t24" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>ontological annotation - DEFINED BY COMMUNITY AGREEMENT, NOT BY FORMALISM: formal annotations use formally defined terms, and ontological ones are those whose terminology has a commonly understood meaning according to a shared conceptualization - so the top of the hierarchy is a social condition, and the authors endorse the point that it is a purely social matter and not a technical or formal one</label>
         <quote>Ontological annotations, finally, are formal annotations where terminology has a commonly understood meaning according to a shared conceptualization. Oren et al. rightfully point out that whether a term is ontological or not is a purely social matter, not a technical, nor formal one</quote>
       </span>
-      <span xml:id="t11" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t25" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the benefit of Linked Data - A SHARED SOCIAL UNDERSTANDING, NOT MACHINE-READABILITY: the paper puts the value of semantic annotation in the shared vocabulary rather than in the data being machine-processable, which is the answer this project owes to the objection that formalising meaning loses what matters</label>
         <quote>The benefit of the ontological—or semantic—annotation, and in fact of Linked Data as a whole, is therefore not so much the machine-readability of the data as such, but rather that it is represents a shared social understanding, expressed with a shared vocabulary</quote>
       </span>
-      <span xml:id="t12" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → Recogito 1 (Simon et al. 2015)</label>
         <quote>Unlike Recogito 1, Recogito 2 now supports a combination of free-text commentary and semantic annotations (URI-based references to terms in controlled vocabularies).</quote>
       </span>
-      <span xml:id="t13" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → Pundit (Grassi et al. 2012, 2013)</label>
         <quote>However, Pundit confronts the user with the full breadth of technical terminology.</quote>
       </span>
-      <span xml:id="t14" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>annotation —is-a→ claim</label>
         <term>annotation</term>
         <term>claim</term>
         <quote>On the one hand, annotation works as a suitable conceptual metaphor, since it carries the connotation that the association being made ought not to be considered certain fact; rather somebody (a human editor or an automated geo-parsing script) is making a claim</quote>
       </span>
-      <span xml:id="t15" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>place —operationalised-as→ gazetteer URI</label>
         <term>place</term>
         <term>gazetteer URI</term>
         <quote>Pelagios advocates the idea that whenever you refer to a place in your data, you should do so using a gazetteer URI</quote>
       </span>
-      <span xml:id="t16" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Shared gazetteer URIs are what joins otherwise isolated datasets; the gazetteer becomes the backbone of the graph.</label>
         <quote>By expressing the places through the use of shared gazetteer URIs, otherwise isolated datasets become implicitly joined up to an interconnected graph, with the gazetteers as their central backbone</quote>
       </span>
-      <span xml:id="t17" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>The tool deliberately targets a gap in existing tools: manual intervention and editorial control, in the service of data quality.</label>
         <quote>by emphasizing the development of mechanisms for manual intervention and editorial control that support the curation of quality data</quote>
       </span>
-      <span xml:id="t18" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>Annotation had been restricted to the technically expert, and to tools that offered little interoperability.</label>
         <quote>has tended to be restricted to researchers with technical expertise, and to tools that offer little to no opportunity for interoperability and data exchange</quote>
       </span>
-      <span xml:id="t19" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>semantic annotation</label>
         <term>semantic annotation</term>
         <quote>the task of enriching content with references to controlled vocabularies</quote>
       </span>
-      <span xml:id="t20" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>geo-annotation</label>
         <term>geo-annotation</term>
         <quote>annotating documents with references to gazetteers</quote>

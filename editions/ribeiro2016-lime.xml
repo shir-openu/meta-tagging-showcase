@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">29 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">47 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -55,119 +55,208 @@
         <term>system-or-tool-building</term>
         <quote>We proposed LIME, a modular and extensible approach to faithfully explain the predictions of any model in an interpretable manner.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE EXPLANATION&#x27;S VOCABULARY IS NOT THE MODEL&#x27;S: an interpretable representation is defined separately from the features the classifier actually uses - presence or absence of a word, or of a contiguous patch of similar pixels - while the model may work over embeddings or a three-channel tensor</term>
+        <quote>Before we present the explanation system, it is important to distinguish between features and interpretable data representations. As mentioned before, interpretable explanations need to use a representation that is understandable to humans, regardless of the actual features used by the model. For example, a possible interpretable representation for text classification is a binary vector indicating the presence or absence of a word, even though the classifier may use more complex (and incomprehensible) features such as word embeddings. Likewise for image classification, an interpretable representation may be a binary vector indicating the “presence” or “absence” of a contiguous patch of similar pixels (a super-pixel), while the classifier may represent the image as a tensor with three color channels per pixel.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>INTERPRETABILITY IS DEFINED AS AUDIENCE-RELATIVE, not as a property of the model class: the authors state that a linear model, a gradient vector or an additive model MAY OR MAY NOT be interpretable, because the criterion has to take the user&#x27;s limitations into account</term>
+        <quote>An essential criterion for explanations is that they must be interpretable, i.e., provide qualitative understanding between the input variables and the response. We note that interpretability must take into account the user’s limitations. Thus, a linear model [24], a gradient vector [2] or an additive model [6] may or may not be interpretable.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>and the audience-relativity is made concrete rather than left as a caveat: practitioners may be able to read a small Bayesian network where laymen are better served by a few weighted features</term>
+        <quote>Finally, we note that the notion of interpretability also depends on the target audience. Machine learning practitioners may be able to interpret small Bayesian networks, but laymen may be more comfortable with a small number of weighted features as an explanation.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE IMPOSSIBILITY IS STATED BEFORE THE CRITERION IS WEAKENED: an explanation cannot be completely faithful unless it IS the complete description of the model, so the requirement imposed instead is that it be faithful in the vicinity of the instance being explained</term>
+        <quote>Although it is often impossible for an explanation to be completely faithful unless it is the complete description of the model itself, for an explanation to be meaningful it must at least be locally faithful, i.e. it must correspond to how the model behaves in the vicinity of the instance being predicted.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>AND THE IMPLICATION IS STATED TO RUN ONE WAY ONLY: local fidelity does not imply global fidelity - a feature that matters globally may not matter locally, and the reverse - while global fidelity would imply local, and globally faithful interpretable explanations are said to remain a challenge</term>
+        <quote>We note that local fidelity does not imply global fidelity: features that are globally important may not be important in the local context, and vice versa. While global fidelity would imply local fidelity, identifying globally faithful explanations that are interpretable remains a challenge for complex models.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the explainer is required to treat the model as a BLACK BOX, and the reason given is not only that current classifiers are uninterpretable but that model-agnosticism buys the ability to explain classifiers that do not exist yet</term>
+        <quote>an explainer should be able to explain any model, and thus be model-agnostic (i.e. treat the original model as a black box). Apart from the fact that many state-ofthe-art classifiers are not currently interpretable, this also provides flexibility to explain future classifiers.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE TRADE-OFF IS PUT IN THE OBJECTIVE RATHER THAN LEFT TO JUDGEMENT: unfaithfulness in the neighbourhood is minimised while a separate measure of the explanation&#x27;s own complexity is held low enough for a human to read, and the authors note the same formulation admits different explanation families, fidelity functions and complexity measures</term>
+        <quote>In order to ensure both interpretability and local fidelity, we must minimize L(f, g, πx) while having Ω(g) be low enough to be interpretable by humans. The explanation produced by LIME is obtained by the following: ξ(x) = argmin L(f, g, πx) + Ω(g) (1) g∈G This formulation can be used with different explanation families</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the neighbourhood is explored BY SAMPLING rather than by assumption, precisely to keep the method model-agnostic: no assumption is made about the model, and the local loss is approximated by drawing samples weighted by proximity to the instance</term>
+        <quote>We want to minimize the locality-aware loss L(f, g, πx) without making any assumptions about f , since we want the explainer to be model-agnostic. Thus, in order to learn the local behavior of f as the interpretable inputs vary, we approximate L(f, g, πx) by drawing samples, weighted by πx.</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>samples are drawn both near the instance and FAR from it, weighted by proximity - which is what lets a globally complex model still be approximated locally, and what the authors say makes the method fairly robust to sampling noise</term>
+        <quote>The primary intuition behind LIME is presented in Figure 3, where we sample instances both in the vicinity of x (which have a high weight due to πx) and far away from x (low weight from πx). Even though the original model may be too complex to explain globally, LIME presents an explanation that is locally faithful (linear in this case), where the locality is captured by πx. It is worth noting that our method is fairly robust to sampling noise since the samples are weighted by</quote>
+      </span>
+      <span xml:id="t12" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>A CLASSIFIER AT 94% HELD-OUT ACCURACY IS SHOWN TO BE UNTRUSTWORTHY BY ITS EXPLANATIONS: the words it relies on are said to have no connection to either class, and one of them appears in 22% of training examples with 99% of those in a single class - and removing the headers only substitutes the names of prolific posters, which would not generalise either</term>
+        <quote>Although this classifier achieves 94% held-out accuracy, and one would be tempted to trust it based on this, the explanation for an instance shows that predictions are made for quite arbitrary reasons (words “Posting”, “Host”, and “Re” have no connection to either Christianity or Atheism). The word “Posting” appears in 22% of examples in the training set, 99% of them in the class “Atheism”. Even if headers are removed, proper names of prolific posters in the original newsgroups are selected by the classifier, which would also not generalize.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>explanations are only locally faithful (learned locally around each prediction)</label>
         <quote>by learning an interpretable model locally around the prediction</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t14" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Some model behaviours cannot be captured at all by the chosen interpretable representation.</label>
         <quote>First, while the underlying model can be treated as a black-box, certain interpretable representations will not be powerful enough to explain certain behaviors.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t15" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Sparse linear explanations may be unfaithful where the underlying model is highly non-linear even locally.</label>
         <quote>Second, our choice of G (sparse linear models) means that if the underlying model is highly non-linear even in the locality of the prediction, there may not be a faithful explanation.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+      <span xml:id="t16" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>The submodular pick step is not worked out for images.</label>
         <quote>One issue that we do not mention in this work was how to perform the pick step for images, and we would like to address this limitation in the future.</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger">
+      <span xml:id="t17" type="limitations" ana="#limitations[4]" resp="#tagger">
         <label>The husky-versus-wolf human-subject experiment had a small sample.</label>
         <quote>Although our sample size is small, this experiment demonstrates the utility of explaining individual predictions for getting insights into classifiers knowing when not to trust them and why.</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>Interpretability is a property of the reader, not of the explanation: the same model may or may not be interpretable depending on who is looking at it.</label>
         <quote>We note that interpretability must take into account the user’s limitations. Thus, a linear model [24], a gradient vector [2] or an additive model [6] may or may not be interpretable</quote>
       </span>
-      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>The vocabulary of the explanation is deliberately not the vocabulary of the model.</label>
         <quote>This requirement further implies that explanations should be easy to understand, which is not necessarily true of the features used by the model, and thus the “input variables” in the explanations may need to be different than the features</quote>
       </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>Complete faithfulness is stated to be impossible short of reproducing the model itself.</label>
         <quote>Although it is often impossible for an explanation to be completely faithful unless it is the complete description of the model itself</quote>
       </span>
-      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="concepts" ana="#concepts[0]" resp="#paper">
+        <label>interpretability</label>
+        <term>interpretability</term>
+        <quote>Finally, we note that the notion of interpretability also depends on the target audience</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>local fidelity</label>
+        <term>local fidelity</term>
+        <quote>Another essential criterion is local fidelity. Although it is often impossible for an explanation to be completely faithful unless it is the complete description of the model itself, for an explanation to be meaningful it must at least be locally faithful, i.e. it must correspond to how the model behaves in the vicinity of the instance being predicted</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>global fidelity</label>
+        <term>global fidelity</term>
+        <quote>We note that local fidelity does not imply global fidelity</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>LIME</label>
+        <term>LIME</term>
+        <quote>we propose LIME, a novel explanation technique that explains the predictions of any classifier in an interpretable and faithful manner, by learning an interpretable model locally around the prediction</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>model-agnostic</label>
+        <term>model-agnostic</term>
+        <quote>an explainer should be able to explain any model, and thus be model-agnostic (i.e. treat the original model as a black box</quote>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>trust - SENSE 1, IN A PREDICTION: whether a user is willing to act on one individual output, which is the question an explanation of a single prediction addresses</label>
         <quote>It is important to differentiate between two different (but related) definitions of trust: (1) trusting a prediction</quote>
       </span>
-      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>interpretability - AUDIENCE-RELATIVE: it depends on the target audience, so practitioners may read a small Bayesian network while laymen need a few weighted features, and the same artefact is interpretable for one and not the other</label>
         <quote>Finally, we note that the notion of interpretability also depends on the target audience. Machine learning practitioners may be able to interpret small Bayesian networks, but laymen may be more comfortable with a small number of weighted features as an explanation</quote>
       </span>
-      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>fidelity - LOCAL AND GLOBAL, AND THE IMPLICATION RUNS ONE WAY ONLY: local fidelity does not give global fidelity, and features that matter globally may not matter locally</label>
         <quote>We note that local fidelity does not imply global fidelity: features that are globally important may not be important in the local context</quote>
       </span>
-      <span xml:id="t14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → model-agnostic explanation by learning an interpretable model on the original model&#x27;s predictions [2, 7, 22]</label>
         <quote>A common approach to model-agnostic explanation is learning a potentially interpretable model on the predictions of the original model [2, 7, 22].</quote>
       </span>
-      <span xml:id="t15" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → prior perturbation-based explanation work [24]</label>
         <quote>The idea of perturbing inputs for explanations has been explored before [24], where the authors focus on learning a specific contribution model, as opposed to our general framework.</quote>
       </span>
-      <span xml:id="t16" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the 1-1/e greedy approximation guarantee for submodular coverage maximisation [15]</label>
         <quote>Due to submodularity, a greedy algorithm that iteratively adds the instance with the highest marginal coverage gain to the solution offers a constant-factor approximation guarantee of 1−1/e to the optimum [15].</quote>
       </span>
-      <span xml:id="t17" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>local fidelity —distinct-from→ global fidelity</label>
         <term>local fidelity</term>
         <term>global fidelity</term>
         <quote>We note that local fidelity does not imply global fidelity: features that are globally important may not be important in the local context</quote>
       </span>
-      <span xml:id="t18" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>LIME —operationalised-as→ local fidelity</label>
         <term>LIME</term>
         <term>local fidelity</term>
         <quote>we propose LIME, a novel explanation technique that explains the predictions of any classifier in an interpretable and faithful manner, by learning an interpretable model locally around the prediction</quote>
       </span>
-      <span xml:id="t19" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>LIME explains the prediction of ANY (black-box, model-agnostic) classifier by learning an interpretable model locally around that prediction — producing interpretable, faithful explanations to help users assess trust.</label>
+        <quote>we propose LIME, a novel explanation technique that explains the predictions of any classifier in an interpretable and faithful manner, by learning an interpretable model locally around the prediction</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>SP-LIME selects a small, non-redundant set of representative instance explanations (via submodular optimization) to help users decide whether to trust the whole model.</label>
         <quote>SP-LIME, a method that selects a set of representative instances with explanations to address the “trusting the model” problem</quote>
       </span>
-      <span xml:id="t20" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>local perturbations around an instance (surrogate input)</label>
         <term>local perturbations around an instance (surrogate input)</term>
         <quote>by learning an interpretable model locally around the prediction</quote>
       </span>
-      <span xml:id="t21" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>interpretable explanation / user trust in the prediction</label>
         <term>interpretable explanation / user trust in the prediction</term>
         <quote>Understanding the reasons behind predictions is, however, quite important in assessing trust</quote>
       </span>
-      <span xml:id="t22" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>LIME (Local Interpretable Model-agnostic Explanations)</label>
+        <term>LIME (Local Interpretable Model-agnostic Explanations)</term>
+        <quote>we propose LIME, a novel explanation technique that explains the predictions of any classifier in an interpretable and faithful manner</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>model-agnostic explanation</label>
         <term>model-agnostic explanation</term>
         <quote>able to explain any model, and thus be model-agnostic (i.e. treat the original model as a black box)</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>Machine learning practitioners may be able to interpret small Bayesian networks, but laymen may be more comfortable with a small number of weighted features as an explanation.</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>Each subject took an average of 3.6 minutes per round of cleaning, resulting in just under 11 minutes to produce a classifier that generalizes much better to real world data.</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>p-value</label>
         <term>p-value</term>
         <quote>The top 3 classes predicted are “Electric Guitar” (p = 0.32), “Acoustic guitar” (p = 0.24) and “Labrador” (p = 0.21) 4.</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
         <quote>We train decision trees (DT), logistic regression with L2 regularization (LR), nearest neighbors (NN), and support vector machines with RBF kernel (SVM), all using bag of words as features.</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <quote>Although our sample size is small, this experiment demonstrates the utility of explaining individual predictions for getting insights into classifiers knowing when not to trust them and why.</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>standard-error</label>
         <term>standard-error</term>
         <quote>Averages and standard errors from 800 runs.</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>statistical-significance</label>
         <term>statistical-significance</term>
         <quote>However, real-world data is often significantly different, and further, the evaluation metric may not be indicative of the product’s goal.</quote>

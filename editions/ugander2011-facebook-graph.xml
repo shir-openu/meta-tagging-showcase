@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">29 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">44 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -56,117 +56,192 @@
         <term>large-scale-network-analysis</term>
         <quote>Unless otherwise noted, calculations were performed on a Hadoop cluster with 2,250 machines, using the Hadoop/Hive data analysis framework developed at Facebook [45, 46].</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the population is fixed by a STIPULATED definition of an active user - logged in within the last 28 days AND holding at least one friend - and the authors state that this is not the platform&#x27;s own definition and that their statistics therefore differ from company figures</term>
+        <quote>We defined a user of Facebook as an active member of the social network if they logged into the site in the last 28 days from our time of measurement in May 2011 and had at least one Facebook friend. We note that this definition is not precisely Facebook’s ordinary definition of active user, and therefore some of our statistics differ slightly from company statistics.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the whole graph is analysed rather than sampled or crawled, and the stated reason is a defect of the alternatives rather than a preference: sampling and crawling cannot tell an active account from a stale one</term>
+        <quote>Then another thread of research has measured some large-scale network properties of the Facebook graph through sampling, crawling, and other methods to collect network data [22,23]. Notably, these methodologies have no way of distinguishing between active and stale accounts. Unlike these studies, we analyze the entire Facebook graph in anonymized form and focus on the set of active user accounts reliably corresponding to people.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the neighbourhood function is used in place of the diameter, because the diameter is an extremal measure that a single ill-connected path in a peripheral region can wildly distort, while a percentile of vertex pairs is robust to it</term>
+        <quote>The diameter is an extremal measure, and it is commonly considered less interesting than the full neighborhood function, which measures what percentile of vertex pairs are within a given distance. The exact diameter can be wildly distorted by the presence of a single ill-connected path in some peripheral region of the graph, while the neighborhood function and its average are thought to robustly capture the ‘typical’ distances between pairs of vertices.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the paper rejects the power-law model for its degree distribution and then DECLINES to fit a replacement, naming instead the features of the distribution it takes to be the relevant results</term>
+        <quote>We conclude, like Ref. [23], that strict power-law models are inappropriate for Facebook’s degree distribution. It is not our intent, though, to determine which parametric form best models the distribution. The relevant results are the monotonicity and curvature of the degree distribution, the degrees of typical users, the large variance in degrees, and the network’s sparsity.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the component structure is computed by a union-find algorithm with path compression that records components as edges are added, which is chosen because IT DOES NOT REQUIRE THE EDGES TO BE HELD IN MEMORY - the whole edge list is streamed past a single machine instead</term>
+        <quote>The NZ algorithm, a type of Union-Find algorithm with path compression, records component structure dynamically as edges are added to a network that begins completely empty of edges. When all edges are added, the algorithm has computed the component structure of the network. Crucially for our purposes, the NZ algorithm does not require the edges to be retained in memory. We apply it to the Facebook network on a single computer with 64GB of RAM by streaming over the list of edges.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>neighbourhood statistics are estimated from a stratified sample rather than the whole graph: users are drawn by reservoir sampling at each of a hundred log-spaced neighbourhood sizes, and the reported percentiles are stated to be empirical percentiles of that sample rather than of the population</term>
+        <quote>For analyzing network neighborhoods, 5,000 users were randomly selected using reservoir sampling for each of 100 log-spaced neighborhood sizes, creating a sample of 500,000 users for which the analysis was performed. The percentiles shown for the clustering coefficient and degeneracy for each neighborhood size are therefore empirical percentiles from this sample population of 5,000 users.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the path-length figures are produced by running the neighbourhood-function algorithm repeatedly on one machine and AVERAGING ACROSS THE RUNS rather than computing once</term>
+        <quote>For path length calculations, neighborhood functions were computed on a single 24-core machine with 72 GB of RAM using the HyperANF algorithm [48], averaging across 10 runs.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the edge relation is restricted to RECIPROCAL friendships only, and the authors date the restriction: the analysis predated the existence of subscriptions on the platform</term>
+        <quote>Our analysis predated the existence of ‘subscriptions’ on Facebook, and in this work we study only reciprocal Facebook friendships.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>The paper&#x27;s own definition of an &#x27;active&#x27; user departs from Facebook&#x27;s, so its statistics differ from company figures.</label>
         <quote>We note that this definition is not precisely Facebook’s ordinary definition of active user, and therefore some of our statistics differ slightly from company statistics.</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Country assignment relies on geo-IP data, which is imperfect and only reliable at national granularity.</label>
         <quote>While imperfect, so-called geo-IP data is generally reliable on a national level.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The analysis is acknowledged as non-exhaustive with respect to available network measures.</label>
         <quote>While our computations have elucidated many aspects of the structure of the world’s largest social network, we have certainly not exhausted the possibilities of network analysis.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>The &#x27;six degrees&#x27; confirmation is a statement about percentages of pairs in a friendship graph, not a repeat of the experiment that produced the phrase.</label>
         <quote>As Figure 2 shows, fully 92% of all pairs of Facebook users were within five degrees of separation, and 99.6% were within six degrees</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The object studied is an abstraction the authors themselves call limited.</label>
         <quote>This abstract view of human relationships, while certainly limited, has been very useful for characterizing social relationships</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>A small group of accounts sits far outside the typical user, so the average describes nobody in particular.</label>
         <quote>The small population of users with abnormally high degrees, sometimes called hubs in the networks literature, have degrees far larger than the average or median Facebook user</quote>
       </span>
-      <span xml:id="t9" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>active user</label>
+        <term>active user</term>
+        <quote>We defined a user of Facebook as an active member of the social network if they logged into the site in the last 28 days from our time of measurement in May 2011 and had at least one Facebook friend</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>degrees of separation</label>
+        <term>degrees of separation</term>
+        <quote>As Figure 2 shows, fully 92% of all pairs of Facebook users were within five degrees of separation, and 99.6% were within six degrees</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>short path lengths</label>
+        <term>short path lengths</term>
+        <quote>Short path lengths between individuals, the so-called “six degrees of separation” found by Stanley Milgram’s experiments investigating the social network of the United States [26], are here seen in Facebook on a global scale</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>local clustering coefficient</label>
+        <term>local clustering coefficient</term>
+        <quote>for users with 100 friends, the average local clustering coefficient is 0.14, indicating that for a median user, 14% of all their friend pairs are themselves friends</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>hubs</label>
+        <term>hubs</term>
+        <quote>The small population of users with abnormally high degrees, sometimes called hubs in the networks literature</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>&#x27;active user&#x27; - STIPULATED, AND EXPLICITLY NOT THE PLATFORM&#x27;S: logged in within 28 days and holding at least one friend, which the authors state is not Facebook&#x27;s ordinary definition and is why their statistics differ from the company&#x27;s; the 721 million figure counts exactly what this sentence picks out</label>
         <quote>We defined a user of Facebook as an active member of the social network if they logged into the site in the last 28 days from our time of measurement in May 2011 and had at least one Facebook friend. We note that this definition is not precisely Facebook’s ordinary definition of active user, and therefore some of our statistics differ slightly from company statistics</quote>
       </span>
-      <span xml:id="t10" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>&#x27;six degrees of separation&#x27; - MILGRAM&#x27;S PHRASE ON A DIFFERENT INSTRUMENT: the original is letter-forwarding chains among Americans, this is shortest paths in a friendship graph, and the paper says the phenomenon is here SEEN in Facebook rather than claiming the two measurements are the same</label>
         <quote>Short path lengths between individuals, the so-called “six degrees of separation” found by Stanley Milgram’s experiments investigating the social network of the United States [26], are here seen in Facebook on a global scale</quote>
       </span>
-      <span xml:id="t11" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t24" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the local clustering coefficient - READ AS A PERCENTAGE OF FRIEND PAIRS: an average coefficient of 0.14 for users with 100 friends is glossed as 14% of a median user&#x27;s friend pairs being friends themselves, so an average over users is reported as a fact about a median one</label>
         <quote>for users with 100 friends, the average local clustering coefficient is 0.14, indicating that for a median user, 14% of all their friend pairs are themselves friends</quote>
       </span>
-      <span xml:id="t12" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>replicates → the small-world / six-degrees-of-separation phenomenon (Milgram)</label>
         <quote>the average distance between pairs of users was 4</quote>
       </span>
-      <span xml:id="t13" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>replicates → Stanley Milgram&#x27;s &#x27;six degrees of separation&#x27; experiments [26]</label>
         <quote>Short path lengths between individuals, the so-called “six degrees of separation” found by Stanley Milgram’s experiments investigating the social network of the United States [26], are here seen in Facebook on a global scale.</quote>
       </span>
-      <span xml:id="t14" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → Feld&#x27;s friendship paradox (&#x27;your friends have more friends than you&#x27;) [30]</label>
         <quote>This phenomena has been discussed at length by Feld [30], and Facebook displays the effect on a grand scale.</quote>
       </span>
-      <span xml:id="t15" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → Watts and Strogatz&#x27;s small-world networks [44]</label>
         <quote>Many other empirical networks, social and non-social, have also been observed with these characteristics, and Watts and Strogatz called networks with these properties ‘smallworld networks’ [44].</quote>
       </span>
-      <span xml:id="t16" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>short path lengths —same-as→ degrees of separation</label>
         <term>short path lengths</term>
         <term>degrees of separation</term>
         <quote>Short path lengths between individuals, the so-called “six degrees of separation” found by Stanley Milgram’s experiments investigating the social network of the United States [26], are here seen in Facebook on a global scale</quote>
       </span>
-      <span xml:id="t17" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>active user —contrasted-with→ hubs</label>
         <term>active user</term>
         <term>hubs</term>
         <quote>The small population of users with abnormally high degrees, sometimes called hubs in the networks literature, have degrees far larger than the average or median Facebook user</quote>
       </span>
-      <span xml:id="t18" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>721 million — size of the Facebook graph analysed (May 2011)</label>
         <quote>a network then comprised of 721 million active users. To our knowledge, this is the largest social network ever analyzed.</quote>
       </span>
-      <span xml:id="t19" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>99.91% — fraction of users in the single large connected component</label>
         <quote>the social network is nearly fully connected, with 99.91% of individuals belonging to a single large connected component</quote>
       </span>
-      <span xml:id="t20" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>4.7 — average distance between Facebook users (May 2011) — four degrees</label>
         <quote>The average distance between users on Facebook in May 2011 was 4.7</quote>
       </span>
-      <span xml:id="t21" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Although the graph is globally sparse, users local neighborhoods are surprisingly dense, and the graph shows clear assortativity by demographic and network properties.</label>
         <quote>while the Facebook graph as a whole is clearly sparse, the graph neighborhoods of users contain surprisingly dense structure</quote>
       </span>
-      <span xml:id="t22" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>user degree / neighborhood locality</label>
         <term>user degree / neighborhood locality</term>
         <quote>the average local clustering coefficient and degeneracy of graph neighborhoods</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>global connectivity / average path length / assortativity</label>
         <term>global connectivity / average path length / assortativity</term>
         <quote>The average distance between users on Facebook in May 2011 was 4.7</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>assortativity</label>
         <term>assortativity</term>
         <quote>we characterize the assortativity patterns present in the graph by studying the basic demographic and network properties of users</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>connected component</label>
         <term>connected component</term>
         <quote>99.91% of individuals belonging to a single large connected component</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>correlation</label>
         <term>correlation</term>
         <quote>For the Facebook network, r = 0.226, displaying positive correlations with similar magnitude to other social graphs.</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <quote>6a, the mean of these distributions is clearly less than the mean of the orange distribution which represents following a random edge in the network, except for the green line denoting k = 500.</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>median</label>
+        <term>median</term>
+        <quote>For example, for users with 100 friends, the average local clustering coefficient is 0.14, indicating that for a median user, 14% of all their friend pairs are themselves friends.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>sample-size</label>
         <term>sample-size</term>
         <quote>According to our definition of active, the population of active Facebook users consisted of around n = 721 million individuals at the time of our measurements.</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>statistical-significance</label>
         <term>statistical-significance</term>
         <quote>Restricting the comparison to individuals age 13 or more and with access to the internet (the set of individuals eligible to have Facebook accounts) would put this percentage significantly higher.</quote>

@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">26 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">45 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -55,99 +55,192 @@
         <term>system-or-tool-building</term>
         <quote>Motivated by style transfer literature [27], we re-design the generator architecture in a way that exposes novel ways to control the image synthesis process.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>each style controls exactly one convolution: AdaIN normalises the channel to zero mean and unit variance first, so the incoming style&#x27;s scale and bias do not depend on the previous statistics and are overridden by the next AdaIN</term>
+        <quote>To see the reason for this localization, let us consider how the AdaIN operation (Eq. 1) first normalizes each channel to zero mean and unit variance, and only then applies scales and biases based on the style. The new per-channel statistics, as dictated by the style, modify the relative importance of features for the subsequent convolution operation, but they do not depend on the original statistics because of the normalization. Thus each style controls only one convolution before being overridden by the next AdaIN operation.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>style localisation is trained for, not only architected: a percentage of images are generated from two latent codes with a crossover point, which stops the network assuming adjacent styles are correlated</term>
+        <quote>To further encourage the styles to localize, we employ mixing regularization, where a given percentage of images are generated using two random latent codes instead of one during training. When generating such an image, we simply switch from one latent code to another — an operation we refer to as style mixing — at a randomly selected point in the synthesis network. To be specific, we run two latent codes z1, z2 through the mapping network, and have the corresponding w1, w2 control the styles so that w1 applies before the crossover point and w2 after it. This regularization technique prevents the network from assuming that adjacent styles are correlated.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">
+        <label>the paper&#x27;s reason - that a traditional generator must otherwise invent spatially-varying pseudorandom numbers from earlier activations - is the preceding paragraph, not this span</label>
+        <term>stochastic detail is supplied by the architecture: per-pixel noise is added after each convolution</term>
+        <quote>Our architecture sidesteps these issues altogether by adding per-pixel noise after each convolution.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>the division of labour between style and noise is enforced by the discriminator rather than by design: using noise for a global property would produce spatially inconsistent decisions and be penalised</term>
+        <quote>If the network tried to control, e.g., pose using the noise, that would lead to spatially inconsistent decisions that would then be penalized by the discriminator. Thus the network learns to use the global and local channels appropriately, without explicit guidance.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>the intermediate latent space is defined by what it is NOT required to do - it need not follow the training data&#x27;s density, which is the constraint the paper blames for entanglement in the input space</term>
+        <quote>The input latent space must follow the probability density of the training data, and we argue that this leads to some degree of unavoidable entanglement. Our intermediate latent space is free from that restriction and is therefore allowed to be disentangled.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
+        <label>the second adjustment - dividing by epsilon squared because the perceptual distance is quadratic - is a separate sentence far down the section; a span reaching it crosses a footnote, Table 3 and a figure caption</label>
+        <term>the path length is defined as a limit under infinitely fine subdivision and computed as an approximation with a small finite epsilon instead</term>
+        <quote>A natural definition for the perceptual path length would be the limit of this sum under infinitely fine subdivision, but in practice we approximate it using a small subdivision epsilon</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.9">
+        <label>the conditional entropy and its exponentiation into the final score are described in the sentences after this span</label>
+        <term>separability is measured without an encoder: auxiliary attribute classifiers label generated images, the least confident half is discarded, and a linear SVM is fitted per attribute on the latent-space points</term>
+        <quote>To measure the separability of one attribute, we generate 200,000 images with z ∼ P (z) and classify them using the auxiliary classification network. We then sort the samples according to classifier confidence and remove the least confident half, yielding 100,000 labeled latent-space vectors. For each attribute, we fit a linear SVM to predict the label based on the latent-space point — z for traditional and w for style-based — and classify the points by this plane.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>the input latent space, constrained to follow the training-data density, has some unavoidable entanglement</label>
         <quote>The input latent space must follow the probability density of the training data, and we argue that this leads to some degree of unavoidable entanglement.</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>The perceptual path length measurement is admitted to be biased in favour of the input latent space Z.</label>
         <quote>Yet, this measurement is in fact slightly biased in favor of the input latent space Z.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Continued FID improvement during training comes at the cost of a more entangled representation (rising path lengths).</label>
         <quote>Even when the training has reached the full 10242 resolution, the slowly rising path lengths indicate that the improvements in FID come at the cost of a more entangled representation.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>The new FFHQ face dataset was crawled from Flickr and therefore inherits that site&#x27;s biases.</label>
         <quote>(thus inheriting all the biases of that website) and automatically aligned [31] and cropped.</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The central term has no agreed definition and the paper proceeds on a shared goal instead.</label>
         <quote>There are various definitions for disentanglement [54, 50, 2, 7, 19], but a common goal is a latent space that consists of linear subspaces, each of which controls one factor of variation</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The two metrics reported are new because the existing ones cannot be run here, so the numbers compare to nobody.</label>
         <quote>Unfortunately the metrics recently proposed for quantifying disentanglement [26, 32, 7, 19] require an encoder network that maps input images to latent codes</quote>
       </span>
-      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>The perceptual distance the headline metric is built on is another network&#x27;s embedding, fitted to human ratings.</label>
         <quote>we use a perceptually-based pairwise image distance [65] that is calculated as a weighted difference between two VGG16 [58] embeddings, where the weights are fit so that the metric agrees with human perceptual similarity judgments</quote>
       </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The mechanism claimed for the improvement is posited rather than shown.</label>
         <quote>We posit that there is pressure for the generator to do so, as it should be easier to generate realistic images based on a disentangled representation than based on an entangled representation</quote>
       </span>
-      <span xml:id="t11" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
         <label>What the paper controls under the name &#x27;style&#x27; includes the pose and the shape of the face.</label>
         <quote>Copying the styles corresponding to coarse spatial resolutions (42 – 82) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B</quote>
       </span>
-      <span xml:id="t12" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>style</label>
+        <term>style</term>
+        <quote>We choose to reuse the word “style” for y because similar network architectures are already used for feedforward style transfer [27], unsupervised image-toimage translation [28], and domain mixtures</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>spatially invariant statistics</label>
+        <term>spatially invariant statistics</term>
+        <quote>where it has been established that spatially invariant statistics (Gram matrix, channel-wise mean, variance, etc.) reliably encode the style of an image</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>disentanglement</label>
+        <term>disentanglement</term>
+        <quote>There are various definitions for disentanglement</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>perceptual path length</label>
+        <term>perceptual path length</term>
+        <quote>we propose two new automated metrics — perceptual path length and linear separability — for quantifying these aspects of the generator</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>linear separability</label>
+        <term>linear separability</term>
+        <quote>perceptual path length and linear separability</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>coarse spatial resolutions</label>
+        <term>coarse spatial resolutions</term>
+        <quote>Copying the styles corresponding to coarse spatial resolutions (42 – 82) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B</quote>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>&#x27;style&#x27; - REUSED BY THE AUTHORS&#x27; OWN DECISION, FOR ARCHITECTURAL RESEMBLANCE: they say plainly that they choose to reuse the word for the vector y because similar network architectures are already used in feedforward style transfer and image-to-image translation, so the word marks a family of architectures rather than a property of a picture</label>
         <quote>We choose to reuse the word “style” for y because similar network architectures are already used for feedforward style transfer [27], unsupervised image-toimage translation [28], and domain mixtures</quote>
       </span>
-      <span xml:id="t13" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>style, once more removed - AS SPATIALLY INVARIANT STATISTICS: the paper&#x27;s warrant is the style transfer literature&#x27;s finding that spatially invariant statistics encode style while spatially varying features encode the instance, which is the same move gatys2015 made with a Gram matrix</label>
         <quote>This observation is in line with style transfer literature, where it has been established that spatially invariant statistics (Gram matrix, channel-wise mean, variance, etc.) reliably encode the style of an image [20, 39] while spatially varying features encode a specific instance</quote>
       </span>
-      <span xml:id="t14" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>disentanglement - A GOAL STANDING IN FOR A DEFINITION: the paper records that the literature holds various definitions and adopts the shared aim of a latent space of linear subspaces, then measures that aim with two metrics of its own devising</label>
         <quote>There are various definitions for disentanglement [54, 50, 2, 7, 19], but a common goal is a latent space that consists of linear subspaces, each of which controls one factor of variation</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>style AT COARSE RESOLUTION - POSE, FACE SHAPE AND EYEGLASSES: the styles copied from the coarse spatial resolutions carry high-level aspects of the subject itself, so at this level the word ranges over what the picture is OF and not only how it looks</label>
         <quote>Copying the styles corresponding to coarse spatial resolutions (42 – 82) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
         <label>style ON NON-FACE DATASETS - CAMERA VIEWPOINT AND CHOICE OF FURNITURE: in bedrooms the coarse styles control where the camera is and the middle styles select which furniture appears, which an art historian would call composition and subject matter rather than style</label>
         <quote>the coarse styles basically control the viewpoint of the camera, middle styles select the particular furniture, and fine styles deal with colors and smaller details of materials</quote>
       </span>
-      <span xml:id="t17" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → style transfer literature</label>
         <quote>Motivated by style transfer literature [27], we re-design the generator architecture in a way that exposes novel ways to control the image synthesis process.</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Progressive GAN (Karras et al.)</label>
         <quote>Our baseline configuration (A) is the Progressive GAN setup of Karras et al.</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the Progressive GAN setup of Karras et al. [30]</label>
         <quote>Our baseline configuration (A) is the Progressive GAN setup of Karras et al. [30], from which we inherit the networks and all hyperparameters except where stated otherwise.</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → the parallel self-modulation work of Chen et al. [6]</label>
         <quote>In parallel work, Chen et al. [6] “self modulate” the generator using AdaINs, similarly to our work, but do not consider an intermediate latent space or noise inputs.</quote>
       </span>
-      <span xml:id="t21" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>style —operationalised-as→ spatially invariant statistics</label>
         <term>style</term>
         <term>spatially invariant statistics</term>
         <quote>This observation is in line with style transfer literature, where it has been established that spatially invariant statistics (Gram matrix, channel-wise mean, variance, etc.) reliably encode the style of an image [20, 39] while spatially varying features encode a specific instance</quote>
       </span>
-      <span xml:id="t22" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>perceptual path length —distinct-from→ linear separability</label>
         <term>perceptual path length</term>
         <term>linear separability</term>
         <quote>we propose two new automated metrics — perceptual path length and linear separability — for quantifying these aspects of the generator</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>50,000 — images used to compute the FID metric</label>
         <quote>we calculate the FIDs using 50,000 images drawn randomly</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>1024×1024 — output resolution (progressive from 4x4 to 1024x1024)</label>
         <quote>two for each resolution (42 − 10242)</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>A style-based generator (borrowing from style-transfer) drives synthesis via a mapping network + AdaIN per layer, giving automatic unsupervised separation of high-level attributes (pose/identity) from stochastic detail (freckles/hair) and scale-specific control.</label>
+        <quote>an automatically learned, unsupervised separation of high-level attributes (e.g., pose and identity when trained on human faces) and stochastic variation in the generated images (e.g., freckles, hair), and it enables intuitive, scale-specific control of the synthesis</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>It improves state-of-the-art distribution quality (FID), yields better interpolation and better disentangles latent factors; two new automated metrics quantify interpolation/disentanglement, plus a new FFHQ face dataset.</label>
+        <quote>The new generator improves the state-of-the-art in terms of traditional distribution quality metrics, leads to demonstrably better interpolation properties, and also better disentangles the latent factors of variation.</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>style (latent w) applied via AdaIN per layer</label>
+        <term>style (latent w) applied via AdaIN per layer</term>
+        <quote>which then controls the generator through adaptive instance normalization (AdaIN) at each convolution layer</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>image quality (FID) / disentanglement</label>
+        <term>image quality (FID) / disentanglement</term>
+        <quote>Fr´echet inception distance (FID) for various generator designs (lower is better</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>adaptive instance normalization (AdaIN)</label>
+        <term>adaptive instance normalization (AdaIN)</term>
+        <quote>controls the generator through adaptive instance normalization (AdaIN) at each convolution layer</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <quote>In particular, we use the same discriminator architecture, resolutiondependent minibatch sizes, Adam [33] hyperparameters, and exponential moving average of the generator.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
         <quote>(a) Generated image (b) Stochastic variation (c) Standard deviation (a) Two generated Figure 4.</quote>

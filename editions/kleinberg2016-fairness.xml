@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">31 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">40 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -100,82 +100,127 @@
         <label>probabilistic fairness criteria (calibration, error-rate balance) applied to risk scores used in consequential legal / policy decisions</label>
         <quote>concern over discrimination in machine learning has led to a large body of new work seeking to better understand and prevent it</quote>
       </span>
-      <span xml:id="t14" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t14" type="concepts" ana="#concepts[1]" resp="#paper">
+        <label>calibration</label>
+        <term>calibration</term>
+        <quote>A first basic goal in this literature is that the probability estimates provided by the algorithm should be well-calibrated: if the algorithm identifies a set of people as having a probability z of constituting positive instances, then approximately a z fraction of this set should indeed be positive instances</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[2]" resp="#paper">
+        <label>risk score</label>
+        <term>risk score</term>
+        <quote>an officer of the court may use quantitative risk tools to assess a defendant’s probability of recidivism — future arrest — based on their past history and other attributes</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>balance for the positive class</label>
+        <term>balance for the positive class</term>
+        <quote>We could think of this as balance for the positive class, since a violation of it would mean that people constituting positive instances in one group receive consistently lower probability estimates than people constituting positive instances in another group</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>balance for the negative class</label>
+        <term>balance for the negative class</term>
+        <quote>There is a completely analogous property with respect to negative instances, which we could call balance for the negative class</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>statistical parity</label>
+        <term>statistical parity</term>
+        <quote>This latter global requirement is a version of statistical parity</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>base rates</label>
+        <term>base rates</term>
+        <quote>it is simply a fact about risk estimates when the base rates differ between two groups</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>Balance for the positive and negative classes</label>
+        <term>Balance for the positive and negative classes</term>
+        <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person, the chance of making a mistake on them should not depend on which group they belong to.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>statistical parity</label>
+        <term>statistical parity</term>
+        <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person, the chance of making a mistake on them should not depend on which group they belong to.</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>fairness - AS CALIBRATION WITHIN GROUPS (condition A): within each group, the people in a bin scored v really do belong to the positive class at rate v, i.e. the scores mean what they claim to mean when read separately in each group</label>
         <quote>Calibration within groups requires that for each group t, and each bin b with associated score vb, the expected number of people from group t in b who belong to the positive class should be a vb fraction of the expected number of people from group t assigned to b</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>fairness - AS BALANCE FOR THE NEGATIVE CLASS (condition B): people who do NOT have the property get the same average score whichever group they are in, so the errors are not systematically worse for one group&#x27;s negative instances</label>
         <quote>Balance for the negative class requires that the average score assigned to people of group 1 who belong to the negative class should be the same as the average score assigned to people of group 2 who belong to the negative class. In other words, the assignment of scores shouldn’t be systematically more inaccurate for negative instances in one group than the other</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t24" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>fairness - AS BALANCE FOR THE POSITIVE CLASS (condition C): people who DO have the property get the same average score whichever group they are in - the condition the COMPAS critique turned on</label>
         <quote>Balance for the positive class symmetrically requires that the average score assigned to people of group 1 who belong to the positive class should be the same as the average score assigned to people of group 2 who belong to the positive class</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t25" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>the impossibility - AS A FACT ABOUT BASE RATES, NOT ABOUT A DOMAIN: the authors state that the trade-off is not a fact about medicine but about risk estimates whenever base rates differ, which is the paper stating its own transfer condition</label>
         <quote>The point is that this trade-off among (a), (b), and (c) is not a fact about medicine; it is simply a fact about risk estimates when the base rates differ between two groups</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>contradicts → the assumption that fairness criteria can be jointly satisfied</label>
         <quote>there is no method that can satisfy these three conditions simultaneously</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → Dietrich et al.&#x27;s empirical observation that error-rate symmetry across groups is hard to achieve when base rates differ</label>
         <quote>Our formulation of the balance conditions for the positive and negative classes, and our result showing the incompatibility of these conditions with calibration, provides a theoretical basis for such observations.</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the Angwin et al. critique of the COMPAS risk tool and its counter-arguments</label>
         <quote>For example, in the analysis of the COMPAS risk tool for criminal defendants, the critique by Angwin et al. focused on the risk tool’s violation of conditions (B) and (C); the counter-arguments established that it satisfies condition (A).</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → the concurrent binary-classifier analysis of Hardt et al. [19]</label>
         <quote>In recent work concurrent with ours, Hardt et al. consider the natural analogues of our conditions (B) and (C), balance for the negative and positive classes, in the case of classifiers that output binary “yes/no” predictions rather than real-valued scores as in our case [19].</quote>
       </span>
-      <span xml:id="t22" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>balance for the positive class —distinct-from→ statistical parity</label>
         <term>balance for the positive class</term>
         <term>statistical parity</term>
         <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person, the chance of making a mistake on them should not depend on which group they belong to.</quote>
       </span>
-      <span xml:id="t23" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t31" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>balance for the negative class —distinct-from→ statistical parity</label>
         <term>balance for the negative class</term>
         <term>statistical parity</term>
         <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person</quote>
       </span>
-      <span xml:id="t24" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
         <label>Balance for the positive and negative classes —distinct-from→ statistical parity</label>
         <term>Balance for the positive and negative classes</term>
         <term>statistical parity</term>
         <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person, the chance of making a mistake on them should not depend on which group they belong to.</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>three — the number of fairness conditions proven jointly unsatisfiable</label>
         <quote>We formalize three fairness conditions that lie at the heart of these debates</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Three natural fairness conditions for probabilistic risk scores (calibration + balance for the positive and negative classes) cannot all hold simultaneously except in highly constrained special cases (equal base rates or perfect prediction).</label>
         <quote>we prove that except in highly constrained special cases, there is no method that can satisfy these three conditions simultaneously</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Even approximate satisfaction of all three forces the data to nearly match those special cases — so key fairness notions are inherently incompatible, an unavoidable trade-off.</label>
         <quote>even satisfying all three conditions approximately requires that the data lie in an approximate version of one of the constrained special cases identified by our theorem</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>group base rates (fraction in positive class)</label>
         <term>group base rates (fraction in positive class)</term>
         <quote>the two groups have the same fraction of members in the positive class</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>joint satisfiability of the three fairness conditions</label>
         <term>joint satisfiability of the three fairness conditions</term>
         <quote>there is no method that can satisfy these three conditions simultaneously</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>balance for the positive class</label>
         <term>balance for the positive class</term>
         <quote>balance for the positive class, since a violation of it would mean that people constituting positive instances in one group receive</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <quote>Suppose, alternately, that the two groups have the same fraction of members in the positive class; that is, the average value of pσ is the same for the members of group 1 and group 2</quote>
       </span>
     </spanGrp>
   </standOff>

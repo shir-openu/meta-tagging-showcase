@@ -38,8 +38,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">36 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">41 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -102,101 +102,126 @@
         <label>graph neural networks / deep learning, applied to predict quantum-chemical properties of molecules</label>
         <quote>using machine learning (and especially deep learning)</quote>
       </span>
-      <span xml:id="t14" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t14" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>chemical accuracy</label>
+        <term>chemical accuracy</term>
+        <quote>The second, known as “chemical accuracy,” is a target error that has been established by the chemistry community</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>DFT error</label>
+        <term>DFT error</term>
+        <quote>The first is the estimated average error of the DFT approximation to nature, which we refer to as “DFT error.”</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>Message Passing Neural Networks</label>
+        <term>Message Passing Neural Networks</term>
+        <quote>we reformulate existing models into a single common framework we call Message Passing Neural Networks</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>ground truth labels</label>
+        <term>ground truth labels</term>
+        <quote>In the rest of this paper when we talk about chemical accuracy we generally mean with respect to our available ground truth labels</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>QM9</label>
+        <term>QM9</term>
+        <quote>QM9 consists of 130k molecules with 13 properties for each molecule which are approximated by an expensive1 quantum mechanical simulation method (DFT), to yield 13 corresponding regression tasks</quote>
+      </span>
+      <span xml:id="t19" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>&#x27;chemical accuracy&#x27; - TWO REFERENCE POINTS, AND THE PAPER PICKS THE NEARER ONE: the chemistry community&#x27;s target error is relative to nature, DFT error is the gap between the simulation and nature, and this paper states that its own use of the phrase means error against its available labels - so the headline measures agreement with a simulation, not with a molecule</label>
         <quote>The first is the estimated average error of the DFT approximation to nature, which we refer to as “DFT error.” The second, known as “chemical accuracy,” is a target error that has been established by the chemistry community</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>MPNN - A NAME GIVEN TO EIGHT EXISTING MODELS AFTER THE FACT: the framework is introduced as a reformulation of models already in the literature under one label, which is the inverse of the usual naming failure - here a paper renames its field rather than being renamed by it</label>
         <quote>we reformulate existing models into a single common framework we call Message Passing Neural Networks (MPNNs) and explore additional novel variations within this framework</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the prediction target - A MODEL OF A MODEL: what the network predicts is the outcome of a computationally expensive DFT calculation, so the object being learned is itself a simulation of the quantity of interest rather than the quantity</label>
         <quote>A Message Passing Neural Network predicts quantum properties of an organic molecule by modeling a computationally expensive DFT calculation</quote>
       </span>
-      <span xml:id="t17" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → graph neural networks (invariant to molecular symmetries)</label>
         <quote>neural network models invariant to molecular symmetries have already been described in the literature</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Gated Graph Neural Networks (GG-NN), Li et al. (2016)</label>
         <quote>We began our exploration of MPNNs around the GG-NN model which we believe to be a strong baseline.</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the set2set model, Vinyals et al. (2015)</label>
         <quote>Second is a set2set model from Vinyals et al. (2015).</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → Interaction Networks, Battaglia et al. (2016)</label>
         <quote>Thus we also tried using a variant on the message function as described in (Battaglia et al., 2016).</quote>
       </span>
-      <span xml:id="t21" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t26" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>chemical accuracy —operationalised-as→ ground truth labels</label>
         <term>chemical accuracy</term>
         <term>ground truth labels</term>
         <quote>In the rest of this paper when we talk about chemical accuracy we generally mean with respect to our available ground truth labels</quote>
       </span>
-      <span xml:id="t22" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>chemical accuracy —distinct-from→ DFT error</label>
         <term>chemical accuracy</term>
         <term>DFT error</term>
         <quote>The first is the estimated average error of the DFT approximation to nature, which we refer to as “DFT error.” The second, known as “chemical accuracy,” is a target error that has been established by the chemistry community</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t28" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>130k — size of the QM9 benchmark with 13 properties each</label>
         <quote>QM9 consists of 130k</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>11 — targets predicted within chemical accuracy by the best MPNN</label>
         <quote>predicts DFT to within chemical accuracy on 11 out of 13 targets</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>8 — prior models unified under the MPNN framework</label>
         <quote>There are at least eight notable examples of models from</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>MPNN variants achieve a new state of the art on the QM9 dataset</label>
         <quote>we are able to both achieve a new state of</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>the readout must be permutation-invariant for graph-isomorphism invariance</label>
         <quote>R operates on the set of node states and must be invariant to</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>Duvenaud-style message passing cannot capture edge-node correlations</label>
         <quote>is unable to identify correlations between edge</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>node features xv / edge features evw</label>
         <term>node features xv / edge features evw</term>
         <quote>with node features xv and edge features evw</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>hidden states h^t_v</label>
         <term>hidden states h^t_v</term>
         <quote>hidden states ht</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>T (time steps)</label>
         <term>T (time steps)</term>
         <quote>The message passing phase runs for T</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>message/update/readout functions</label>
         <term>message/update/readout functions</term>
         <quote>are all learned differentiable functions</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>chemical accuracy</label>
         <term>chemical accuracy</term>
         <quote>is a target error that</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>DFT error</label>
         <term>DFT error</term>
         <quote>the estimated average error of the DFT approximation</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>readout phase</label>
         <term>readout phase</term>
         <quote>The readout phase computes a feature vector for the</quote>

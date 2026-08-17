@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">21 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">36 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -54,81 +54,155 @@
         <term>system-or-tool-building</term>
         <quote>We introduce a twostage classification pipeline, and benchmark finetuned encoder models and decoder LLMs.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>a two-stage pipeline: a binary classifier first decides whether a sentence carries PDD at all, and only sentences it marks positive go on to be classified for properties and target spans</term>
+        <quote>We model PDD as a two-stage pipeline: 1. Binary PDD classifier. Encoders are trained with three types of loss: default, class weights and focal loss (Lin et al., 2017), and decoders are trained to produce a Hebrew True/False label. 2. 2nd stage tasks (only where PDD=1). (a) Multi-task classifier for properties of PDD. Encoder models are trained with multi-task loss (6 binary labels and one multi-class label with three categories). Decoders are fine-tuned to produce a JSON representation of the outputs with Hebrew language keys and numeric values. (b) Span classifier for target of PDD. We utilize the decoder models only, finetuned to reproduce the input sentence with %%% tokens wrapping any mentions of PDD targets.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>the category is drawn by what the utterance DOES to the target&#x27;s standing rather than by whether it is rude, and the paper says this is why classifiers built on surface hostility miss the subtle cases</term>
+        <quote>PDD differs fundamentally from incivility, hate speech and toxicity: it is defined not by the presence of profanity or insults but by its symbolic goal of denying an actor’s right to political inclusion; it is not solely about the how something is said (e.g., whether it is rude or offensive), but rather about what it does: denies the political legitimacy of a person, group, or institution. Beyond these categories, NLP has developed adjacent tasks such as stance detection and targeted sentiment analysis. Stance detection aims to classify whether a text expresses support, opposition, or neutrality toward a given proposition or entity (ALDayel and Magdy, 2021; Mohammad et al., 2017). Targeted sentiment analysis similarly seeks to identify the polarity of sentiment directed toward specific targets (Zhang et al., 2016). PDD also differs from stance detection and targeted sentiment analysis. While stance detection and targeted sentiment analysis provide valuable tools for measuring attitudes, they capture a general evaluative direction and not the specific symbolic act of denying political legitimacy. For example, a politician may express negative sentiment or opposition toward another, without necessarily questioning their right to participate in the political system. Although PDD can manifest through aggressive language, it may operates through subtler means - such as strategic framing, implication, or selective factual emphasis - that question a person’s or group’s legitimacy without violating surface-level norms. Because these instances lack overt hostility, previous classifiers frequently overlook them, underestimating the true prevalence of delegitimizing rhetoric.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>the boundary against policy criticism is enforced by a worked NEGATIVE example rather than by a rule</term>
+        <quote>Importantly, critique or negative attitudes towards policy issues is not in itself a sufficient condition for PDD, even if phrased in harsh terms. For example, the sentence “This [budget] is an example of negligence and promiscuous conduct, endangering both the economy and society in Israel.” is not annotated as PDD.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>every proportion is computed by aggregating at the SPEAKER level first, so that prolific politicians cannot dominate the rate</term>
+        <quote>For all analyses, the proportions were computed by first aggregating at the speaker level to avoid over-weighting more active politicians.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>distinctive targets per political bloc are identified with a weighted log-odds method rather than by raw frequency</term>
+        <quote>Using the weighted log odds method proposed by Monroe et al. (2008), we identify the PDD target tokens most strongly associated with each political bloc.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>The study&#x27;s scope and transferability are limited.</label>
         <quote>A key limitation of our study concerns its scope and transferability.</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Findings from the Hebrew-language, Israeli case may not generalize to other languages or political systems.</label>
         <quote>While our Hebrew-language corpus and Israeli political focus enable an indepth case study, the findings may not directly generalize to other linguistic or institutional and political contexts.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The social media analysis covers only Facebook posts from 2018-2021, excluding other platforms and later periods.</label>
         <quote>Likewise, our social-media analysis is limited to Facebook posts from 2018-2021, leaving unexamined discourse on other platforms and in more recent periods.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+      <span xml:id="t11" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>Porting the approach to other languages and political contexts is expected to be difficult because delegitimization is shaped by local dynamics.</label>
         <quote>The transfer of our approach to other languages and political contexts may pose several challenges.</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t12" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The category is defined by excluding policy criticism, a line a coder must draw in each sentence.</label>
         <quote>sentence is considered positive for PDD if it targets a political actor, group, or institution and conveys a hostile characterization not grounded in policy critique but in symbol-based delegitimization</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t13" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>Reliability was established on a 170-sentence sample by coders who include the study&#x27;s lead author.</label>
         <quote>Delegitimization was annotated as a binary category (T/F) by three human annotators, including the lead author and two graduate students. A sample of 170 sentences was used for inter-coder reliability, showing a high average correlation of 0.91 between the annotators and an average Cohen’s Kappa of 0.82, indicating substantial agreement</quote>
       </span>
-      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t14" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Only a sixth of the labelled corpus carries the finer annotations the characterisation rests on.</label>
         <quote>We curate and manually annotate a novel Hebrew-language corpus of 10,410 sentences drawn from parliamentary speeches (1993- 2023), Facebook posts, and leading news outlets (2018-2021), of which 1,812 instances (17.4%) exhibit PDD and 642 carry additional annotations for intensity, incivility, target type, and affective framing</quote>
       </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The category is proposed by this paper rather than inherited from the literature.</label>
         <quote>In this paper, we propose Political Delegitimization Discourse (PDD) as a distinct analytical category and introduce a computational pipeline for its large-scale detection and characterization</quote>
       </span>
-      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>Political Delegitimization Discourse</label>
+        <term>Political Delegitimization Discourse</term>
+        <quote>In this paper, we propose Political Delegitimization Discourse (PDD) as a distinct analytical category</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>PDD</label>
+        <term>PDD</term>
+        <quote>sentence is considered positive for PDD if it targets a political actor, group, or institution and conveys a hostile characterization not grounded in policy critique but in symbol-based delegitimization</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>policy critique</label>
+        <term>policy critique</term>
+        <quote>not grounded in policy critique but in symbol-based delegitimization</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>incivility</label>
+        <term>incivility</term>
+        <quote>Additional binary annotations recorded whether the sentence includes incivility features (such as mockery, slander, or profanity</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>annotation scheme</label>
+        <term>annotation scheme</term>
+        <quote>We developed an annotation scheme grounded in a conceptual definition of PDD</quote>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>PDD - A STIPULATED CATEGORY WHOSE BOUNDARY IS SYMBOL VERSUS POLICY: hostility toward a political actor counts only when it is not grounded in policy critique, so the same anger about the same target falls inside or outside the category depending on what the coder judges it to be aimed at</label>
         <quote>sentence is considered positive for PDD if it targets a political actor, group, or institution and conveys a hostile characterization not grounded in policy critique but in symbol-based delegitimization</quote>
       </span>
-      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>the boundary, SHOWN RATHER THAN STATED: the paper prints a sentence calling a budget an example of negligence and promiscuous conduct endangering the economy and society, and records that it is NOT annotated as PDD - a published negative case, which is rarer in this corpus than a definition</label>
         <quote>For example, the sentence “This [budget] is an example of negligence and promiscuous conduct, endangering both the economy and society in Israel.” is not annotated as PDD</quote>
       </span>
-      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the conceptual definition BEHIND the annotation scheme: discourse aimed at discrediting political groups or actors by attacking their symbolic and affective dimensions - the scheme is built on that phrase, and every count in the paper inherits it</label>
         <quote>We developed an annotation scheme grounded in a conceptual definition of PDD as discourse aimed at discrediting political groups or actors by attacking their symbolic and affective dimensions</quote>
       </span>
-      <span xml:id="t14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → Rivlin-Angert (2025), on delegitimization of political identities</label>
         <quote>The objective of PDD is to establish political dominance and suppress alternative narratives by narrowing the boundaries of acceptable discourse and excluding specific ideas and ideologies from being considered legitimate (Rivlin-Angert, 2025).</quote>
       </span>
-      <span xml:id="t15" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Mor-Lan et al. (2024), IsraParlTweet dataset of Knesset speeches</label>
         <quote>We utilize the Isra- ParlTweet dataset (Mor-Lan et al., 2024), a full archive of Knesset floor speeches from 1992-2023.</quote>
       </span>
-      <span xml:id="t16" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → Monroe et al. (2008), weighted log odds method</label>
         <quote>Using the weighted log odds method proposed by Monroe et al. (2008), we identify the PDD target tokens most strongly associated with each political bloc.</quote>
       </span>
-      <span xml:id="t17" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → existing NLP tasks: toxicity detection, stance detection, targeted sentiment analysis</label>
         <quote>Our work extends beyond existing NLP tasks such as toxicity detection, stance detection, and targeted sentiment analysis.</quote>
       </span>
-      <span xml:id="t18" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>PDD —same-as→ Political Delegitimization Discourse</label>
         <term>PDD</term>
         <term>Political Delegitimization Discourse</term>
         <quote>In this paper, we propose Political Delegitimization Discourse (PDD) as a distinct analytical category</quote>
       </span>
-      <span xml:id="t19" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>PDD —distinct-from→ policy critique</label>
         <term>PDD</term>
         <term>policy critique</term>
         <quote>sentence is considered positive for PDD if it targets a political actor, group, or institution and conveys a hostile characterization not grounded in policy critique but in symbol-based delegitimization</quote>
       </span>
-      <span xml:id="t20" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>Delegitimization intensity was annotated on an explicit three-point scale, not left to the annotator&#x27;s impression.</label>
+        <quote>This includes a rating of delegitimization intensity on a three-point scale (0 = weak, 2 = strong</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Earlier computational work on hostile political speech classified abuse directed at politicians rather than attacks on legitimacy itself.</label>
         <quote>Early approaches used supervised classifiers to identify abusive language directed at politicians</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.9">
+        <label>inter-coder reliability on a 170-sentence sample: average correlation 0.91 and average Cohen&#x27;s Kappa 0.82, called substantial agreement</label>
+        <term>inter-coder reliability on a 170-sentence sample: average correlation 0.91 and average Cohen&#x27;s Kappa 0.82, called substantial agreement</term>
+        <quote>A sample of 170 sentences was used for inter-coder reliability, showing a high average correlation of 0.91 between the annotators and an average Cohen’s Kappa of 0.82, indicating substantial agreement.</quote>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.9">
+        <label>the rise in parliamentary PDD: mean share 6.6% to 9.8%, reported with t = -105.24 and p &lt; 0.01 alongside |d| = 0.13</label>
+        <term>the rise in parliamentary PDD: mean share 6.6% to 9.8%, reported with t = -105.24 and p &lt; 0.01 alongside |d| = 0.13</term>
+        <quote>We find that the mean share of PDD increased from 6.6% in 1992–2019 to 9.8% in 2019–2023. This difference in means is statistically significant (t = −105.24, p &lt; 0.01, |d| = 0.13).</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.9">
+        <label>the gender difference: 0.066 against 0.055, called modest in the same sentence as significant, t = 2.613, p = 0.010, |d| = 0.268</label>
+        <term>the gender difference: 0.066 against 0.055, called modest in the same sentence as significant, t = 2.613, p = 0.010, |d| = 0.268</term>
+        <quote>The results indicate that male politicians exhibit slightly higher average levels of PDD (mean = 0.066) than their female counterparts (mean = 0.055). Although the difference in means is modest, it is statistically significant (t = 2.613, p = 0.010, |d| = 0.268)</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger" cert="0.9">
+        <label>the corpus: 10,410 annotated sentences, 1,812 PDD-positive at 17.4%, and 642 carrying the second-stage annotations</label>
+        <term>the corpus: 10,410 annotated sentences, 1,812 PDD-positive at 17.4%, and 642 carrying the second-stage annotations</term>
+        <quote>This process results in a novel annotated corpus of 10,410 Hebrew-language sentences, of which 1,812 instances (17.4%) exhibit PDD and 642 sentences carry additional annotations for intensity, incivility, target type, and affective framing. The resulting dataset was split</quote>
       </span>
     </spanGrp>
   </standOff>

@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">25 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">33 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -79,77 +79,115 @@
         <label>The explanation offered for faster convergence is labelled a conjecture by the authors.</label>
         <quote>We conjecture that in spite of the larger number of parameters and the greater depth of our nets compared to (Krizhevsky et al., 2012), the nets required less epochs to converge due to (a) implicit regularisation imposed by greater depth</quote>
       </span>
-      <span xml:id="t9" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t9" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>ConvNet</label>
+        <term>ConvNet</term>
+        <quote>In this paper, we address another important aspect of ConvNet architecture design</quote>
+      </span>
+      <span xml:id="t10" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>weight layers</label>
+        <term>weight layers</term>
+        <quote>and differ only in the depth: from 11 weight layers in the network A (8 conv. and 3 FC layers) to 19 weight layers in the network E (16 conv. and 3 FC layers)</quote>
+      </span>
+      <span xml:id="t11" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>receptive field</label>
+        <term>receptive field</term>
+        <quote>where we use filters with a very small receptive field: 3 × 3 (which is the smallest size to capture the notion of left/right, up/down</quote>
+      </span>
+      <span xml:id="t12" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>implicit regularisation</label>
+        <term>implicit regularisation</term>
+        <quote>We conjecture that in spite of the larger number of parameters and the greater depth of our nets compared to (Krizhevsky et al., 2012), the nets required less epochs to converge due to (a) implicit regularisation imposed by greater depth</quote>
+      </span>
+      <span xml:id="t13" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>depth</label>
+        <term>depth</term>
+        <quote>To this end, we fix other parameters of the architecture, and steadily increase the depth of the network by adding more convolutional layers</quote>
+      </span>
+      <span xml:id="t14" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>depth - AS A COUNT OF WEIGHT LAYERS: the configurations differ only in this number, from 11 in network A to 19 in E, so &#x27;depth&#x27; here is an integer in a controlled series and not a general property of an architecture</label>
         <quote>and differ only in the depth: from 11 weight layers in the network A (8 conv. and 3 FC layers) to 19 weight layers in the network E (16 conv. and 3 FC layers)</quote>
       </span>
-      <span xml:id="t10" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>ConvNet - THE PAPER&#x27;S OWN WORD, AND THE ONLY ONE IT USES: it says ConvNet 44 times and never writes &#x27;convolutional neural network&#x27; or &#x27;deep learning&#x27;, both of which this record is filed under; the expanded name and the field&#x27;s later label are absent from the paper that made them famous</label>
         <quote>In this paper, we address another important aspect of ConvNet architecture design</quote>
       </span>
-      <span xml:id="t11" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t16" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the conclusion - ABOUT REPRESENTATION DEPTH ON A CONVENTIONAL ARCHITECTURE: the paper&#x27;s own summary is that depth is beneficial and that the state of the art can be reached with a conventional architecture substantially deepened, which is a narrower claim than &#x27;deeper is better&#x27;</label>
         <quote>It was demonstrated that the representation depth is beneficial for the classification accuracy, and that state-of-the-art performance on the ImageNet challenge dataset can be achieved using a conventional ConvNet architecture (LeCun et al., 1989; Krizhevsky et al., 2012) with substantially increased depth</quote>
       </span>
-      <span xml:id="t12" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t17" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → prior convolutional network configurations</label>
         <quote>a significant improvement on the prior-art configurations can be achieved by pushing the depth</quote>
       </span>
-      <span xml:id="t13" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t18" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Krizhevsky et al. (2012) ConvNet training procedure</label>
         <quote>The ConvNet training procedure generally follows Krizhevsky et al. (2012) (except for sampling the input crops from multi-scale training images, as explained later).</quote>
       </span>
-      <span xml:id="t14" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t19" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → the classical ConvNet architecture of LeCun et al. (1989)</label>
         <quote>Notably, we did not depart from the classical ConvNet architecture of LeCun et al. (1989), but improved it by substantially increasing the depth.</quote>
       </span>
-      <span xml:id="t15" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t20" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → Ciresan et al. (2011) small-filter networks</label>
         <quote>Small-size convolution filters have been previously used by Ciresan et al. (2011), but their nets are significantly less deep than ours, and they did not evaluate on the large-scale ILSVRC dataset.</quote>
       </span>
-      <span xml:id="t16" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t21" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>depth —operationalised-as→ weight layers</label>
         <term>depth</term>
         <term>weight layers</term>
         <quote>and differ only in the depth: from 11 weight layers in the network A (8 conv. and 3 FC layers) to 19 weight layers in the network E (16 conv. and 3 FC layers)</quote>
       </span>
-      <span xml:id="t17" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t22" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>depth —causes→ implicit regularisation</label>
         <term>depth</term>
         <term>implicit regularisation</term>
         <quote>We conjecture that in spite of the larger number of parameters and the greater depth of our nets compared to (Krizhevsky et al., 2012), the nets required less epochs to converge due to (a) implicit regularisation imposed by greater depth</quote>
       </span>
-      <span xml:id="t18" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t23" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>3 × 3 — very small convolution filter (receptive field) used throughout the network</label>
         <quote>an architecture with very small (3 × 3) convolution filters</quote>
       </span>
-      <span xml:id="t19" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t24" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>16–19 — network depth that yields the improvement</label>
         <quote>a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16–19 weight layers</quote>
       </span>
-      <span xml:id="t20" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>1000 — ILSVRC classification output dimension</label>
+        <quote>the third performs 1000- way ILSVRC classification and thus contains 1000 channels (one for each class</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>Increasing ConvNet depth to 16–19 weight layers with uniformly small 3×3 filters substantially improves large-scale image recognition — securing 1st (localisation) and 2nd (classification) at ImageNet 2014.</label>
+        <quote>pushing the depth to 16–19 weight layers. These findings were the basis of our ImageNet Challenge 2014 submission, where our team secured the first and the second places in the localisation and classification tracks respectively.</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>The learned deep representations generalise well, achieving state-of-the-art results on other image datasets.</label>
         <quote>We also show that our representations generalise well to other datasets, where they achieve state-of-the-art results.</quote>
       </span>
-      <span xml:id="t21" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t28" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>convolutional network depth (number of weight layers)</label>
         <term>convolutional network depth (number of weight layers)</term>
         <quote>we investigate the effect of the convolutional network depth on its accuracy</quote>
       </span>
-      <span xml:id="t22" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>classification/localisation accuracy (top-1/top-5 error)</label>
         <term>classification/localisation accuracy (top-1/top-5 error)</term>
         <quote>the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>top-5 error</label>
         <term>top-5 error</term>
         <quote>the top-1 and top-5 error. The former is a multi-class classification error, i.e. the proportion of incorrectly classified images</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>receptive field (3×3)</label>
         <term>receptive field (3×3)</term>
         <quote>filters with a very small receptive field: 3 × 3 (which is the smallest size to capture the notion of left/right, up/down, center)</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <quote>Namely, the training is carried out by optimising the multinomial logistic regression objective using mini-batch gradient descent (based on back-propagation (LeCun et al., 1989)) with momentum</quote>
       </span>
     </spanGrp>
   </standOff>

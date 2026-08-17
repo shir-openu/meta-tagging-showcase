@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">57 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">66 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -149,152 +149,197 @@
         <label>only CANONICALISED SMILES strings used for training</label>
         <quote>We used only canonicalized SMILES for training to avoid dealing with equivalent SMILES representations.</quote>
       </span>
-      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper">
+        <label>variational autoencoder</label>
+        <term>variational autoencoder</term>
+        <quote>VAEs generalize autoencoders, adding stochasticity to the encoder which combined with a penalty term encourages all areas of the latent space to correspond to a valid decoding.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[4]" resp="#paper" cert="1.0">
+        <label>latent representation</label>
+        <term>latent representation</term>
+        <quote>We call the vector-encoded molecule the latent representation of the molecule.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[5]" resp="#paper" cert="1.0">
+        <label>SMILES</label>
+        <term>SMILES</term>
+        <quote>We chose to use SMILES representation because this representation can be readily converted into a molecule.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[6]" resp="#paper" cert="1.0">
+        <label>InChI</label>
+        <term>InChI</term>
+        <quote>We also tested InChI 29 as an alternative string representation, but found it to perform substantially worse than SMILES, presumably due to a more complex syntax that includes counting and arithmetic.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[7]" resp="#paper" cert="1.0">
+        <label>autoencoder</label>
+        <term>autoencoder</term>
+        <quote>Key to the design of the autoencoder is the mapping of strings through an information bottleneck .</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="1.0">
+        <label>information bottleneck</label>
+        <term>information bottleneck</term>
+        <quote>This bottleneck—here the fixed-length continuous vector—induces the network to learn a compressed representation that captures the most statistically salient information in the data.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="1.0">
+        <label>chemical space</label>
+        <term>chemical space</term>
+        <quote>However, optimization in molecular space is extremely challenging, because the search space is large, discrete, and unstructured.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[10]" resp="#paper" cert="1.0">
+        <label>gradient-based optimization</label>
+        <term>gradient-based optimization</term>
+        <quote>Second, if we develop a differentiable model that maps from molecular representations to desirable properties, we can enable the use of gradient-based optimization to make larger jumps in chemical space.</quote>
+      </span>
+      <span xml:id="t33" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>representation - DISCRETE: the molecule as a symbol string, which a chemist can read and a machine can turn back into a structure</label>
         <quote>We chose to use SMILES representation because this representation can be readily converted into a molecule.</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t34" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>representation - CONTINUOUS: the molecule as a real-valued vector, on which arithmetic and gradients are defined</label>
         <quote>We report a method to convert discrete representations of molecules to and from a multidimensional continuous representation.</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t35" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>representation - LATENT: specifically the compressed code inside the bottleneck, which is a representation because it discards, not because it depicts</label>
         <quote>This bottleneck—here the fixed-length continuous vector—induces the network to learn a compressed representation that captures the most statistically salient information in the data.</quote>
       </span>
-      <span xml:id="t28" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t36" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>representation - as used across images, text, speech and music, where the same low-dimensional continuous code supports interpolation and analogy</label>
         <quote>Such models usually also produce low-dimensional continuous representations of the data being modeled, allowing interpolation or analogical reasoning for natural images, 19 text, 20 speech, and music. 21 , 22</quote>
       </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → autoencoders (deep generative models, AI)</label>
         <quote>a pair of deep networks trained as an autoencoder</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Bowman et al. (ref 20), variational autoencoders with recurrent encoder/decoder for English sentences</label>
         <quote>Variational autoencoders with recurrent neural network encoding/decoding were proposed by Bowman et al. in the context of written English sentences, and we followed their approach closely.</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t39" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>contradicts → existing discrete search methods for chemical space (genetic algorithms and discrete interpolation techniques, refs 10-18)</label>
         <quote>Discrete optimization methods have difficulty effectively searching large areas of chemical space because it is not possible to guide the search with gradients.</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">
         <label>builds-on → Bowman et al., variational autoencoders for written English sentences</label>
         <quote>Variational autoencoders with recurrent neural network encoding/decoding were proposed by Bowman et al. in the context of written English sentences, and we followed their approach closely. 20</quote>
       </span>
-      <span xml:id="t33" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.9">
+      <span xml:id="t41" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.9">
         <label>contradicts → fixed-library and genetic-algorithm approaches to molecular search</label>
         <quote>The genetic generation of compounds requires manual specification of heuristics for mutation and crossover rules.</quote>
       </span>
-      <span xml:id="t34" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t42" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>RETRACTED (THE PAPER&#x27;S OWN WORD AND THE FIELD&#x27;S TAXONOMY POINT OPPOSITE WAYS, AND I WILL NOT DECIDE IT FOR THEM) · autoencoder —is-a→ variational autoencoder</label>
         <term>autoencoder</term>
         <term>variational autoencoder</term>
         <quote>VAEs generalize autoencoders, adding stochasticity to the encoder which combined with a penalty term encourages all areas of the latent space to correspond to a valid decoding.</quote>
       </span>
-      <span xml:id="t35" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t43" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>information bottleneck —part-of→ autoencoder</label>
         <term>information bottleneck</term>
         <term>autoencoder</term>
         <quote>Key to the design of the autoencoder is the mapping of strings through an information bottleneck .</quote>
       </span>
-      <span xml:id="t36" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+      <span xml:id="t44" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
         <label>SMILES —contrasted-with→ InChI</label>
         <term>SMILES</term>
         <term>InChI</term>
         <quote>We also tested InChI 29 as an alternative string representation, but found it to perform substantially worse than SMILES, presumably due to a more complex syntax that includes counting and arithmetic.</quote>
       </span>
-      <span xml:id="t37" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+      <span xml:id="t45" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
         <label>chemical space —operationalised-as→ latent representation</label>
         <term>chemical space</term>
         <term>latent representation</term>
         <quote>To solve the inverse design challenge in chemistry, we convert molecules into continuous vector representations using neural networks.</quote>
       </span>
-      <span xml:id="t38" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
+      <span xml:id="t46" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
         <label>information bottleneck —causes→ latent representation</label>
         <term>information bottleneck</term>
         <term>latent representation</term>
         <quote>This bottleneck—here the fixed-length continuous vector—induces the network to learn a compressed representation that captures the most statistically salient information in the data.</quote>
       </span>
-      <span xml:id="t39" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">
+      <span xml:id="t47" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">
         <label>latent representation —causes→ gradient-based optimization</label>
         <term>latent representation</term>
         <term>gradient-based optimization</term>
         <quote>Second, if we develop a differentiable model that maps from molecular representations to desirable properties, we can enable the use of gradient-based optimization to make larger jumps in chemical space.</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>hundreds of thousands — training set size of existing molecules</label>
         <quote>A deep neural network was trained on hundreds of thousands of existing chemical structures</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="1.0">
         <label>10^8 synthesised vs 10^23–10^60 possible — the size of the search problem the method addresses</label>
         <quote>Only about 10 8 substances have ever been synthesized, 1 whereas the range of potential drug-like molecules is estimated to be between 10 23 and 10 60 . 2</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>An autoencoder converts discrete SMILES molecules to and from a continuous latent vector space, enabling generation of new molecules by decoding, perturbing, or interpolating in that space.</label>
         <quote>a pair of deep networks trained as an autoencoder to convert molecules represented as SMILES strings into a continuous vector representation</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="1.0">
         <label>Once molecules are points in a continuous space, generation becomes arithmetic - decode a random vector, perturb a known molecule, interpolate between two.</label>
         <quote>Continuous representations of molecules allow us to automatically generate novel chemical structures by performing simple operations in the latent space, such as decoding random vectors, perturbing known chemical structures, or interpolating between molecules.</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="1.0">
         <label>The encoding matters: SMILES works and InChI works substantially worse, apparently because its syntax involves counting and arithmetic.</label>
         <quote>We also tested InChI 29 as an alternative string representation, but found it to perform substantially worse than SMILES, presumably due to a more complex syntax that includes counting and arithmetic.</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="1.0">
         <label>The search problem is one of scale: about 10^8 substances have ever been made, against an estimated 10^23 to 10^60 drug-like possibilities.</label>
         <quote>Only about 10 8 substances have ever been synthesized, 1 whereas the range of potential drug-like molecules is estimated to be between 10 23 and 10 60 . 2</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="1.0">
         <label>The older alternatives each need hand-built rules - fixed libraries need curation, genetic methods need mutation and crossover heuristics.</label>
         <quote>The genetic generation of compounds requires manual specification of heuristics for mutation and crossover rules.</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t55" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>continuous latent representation of a molecule</label>
         <term>continuous latent representation of a molecule</term>
         <quote>The encoder converts the discrete representation of a molecule into a real-valued continuous vector</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t56" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>predicted molecular property</label>
         <term>predicted molecular property</term>
         <quote>a multilayer perceptron that predicts property values from the continuous representation</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t57" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger" cert="1.0">
         <label>the choice of discrete string encoding - SMILES or InChI</label>
         <term>the choice of discrete string encoding - SMILES or InChI</term>
         <quote>We also tested InChI 29 as an alternative string representation, but found it to perform substantially worse than SMILES, presumably due to a more complex syntax that includes counting and arithmetic.</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger" cert="0.9">
+      <span xml:id="t58" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger" cert="0.9">
         <label>validity and property values of the decoded molecules</label>
         <term>validity and property values of the decoded molecules</term>
         <quote>We employed the open source cheminformatics suite RDKit 30 to validate the chemical structures of output molecules and discard invalid ones.</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t59" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>encoder / decoder / predictor</label>
+        <term>encoder / decoder / predictor</term>
+        <quote>three coupled functions: an encoder, a decoder, and a predictor. The encoder converts the discrete representation of a molecule into a real-valued continuous ve</quote>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>SMILES strings</label>
         <term>SMILES strings</term>
         <quote>molecules represented as SMILES strings</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t61" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="1.0">
         <label>latent representation</label>
         <term>latent representation</term>
         <quote>We call the vector-encoded molecule the latent representation of the molecule.</quote>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t62" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="1.0">
         <label>the information bottleneck</label>
         <term>the information bottleneck</term>
         <quote>Key to the design of the autoencoder is the mapping of strings through an information bottleneck .</quote>
       </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t63" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="1.0">
         <label>the variational autoencoder, as a generalisation of the autoencoder</label>
         <term>the variational autoencoder, as a generalisation of the autoencoder</term>
         <quote>VAEs generalize autoencoders, adding stochasticity to the encoder which combined with a penalty term encourages all areas of the latent space to correspond to a valid decoding.</quote>
       </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
         <quote>automatically build an even larger implicit library, and then use the smaller set of labeled examples to build a regression model from the continuous representation to the desired properties.</quote>
       </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger" cert="0.9">
+      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger" cert="0.9">
         <label>regression</label>
         <term>regression</term>
         <quote>Second, if we develop a differentiable model that maps from molecular representations to desirable properties, we can enable the use of gradient-based optimization to make larger jumps in chemical space.</quote>

@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">22 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">37 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -55,87 +55,161 @@
         <term>system-or-tool-building</term>
         <quote>In this paper, we address the problem of spatial entity linkage across different location-based sources.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the blocking structure&#x27;s splitting criterion is changed from CAPACITY to density and diagonal, because a count of points is not a spatial quantity: a dense city block should split before its capacity is reached, and two farm points far apart may still be one entity</term>
+        <quote>First, a quadtree needs a capacity (number of points) as a parameter. The capacity is not a meaningful parameter for spatial blocking, while the density of the area is a better candidate. For example, if the area is too dense (e.g., city center), even though the capacity is not reached, a further split would be more beneficial. On the contrary, two points in the countryside (e.g., a farm) might be farther apart, but they still might be the same entity. Second, a quadtree does not limit the distance between points. Even though two points might be in an area that respects the density, if they are quite distant from each other, it is not necessary to compare them. The maximal distance between two points in a child is the diagonal of the area (all quadtree children are rectangular). We used m, the diagonal of an area, as a parameter that controls the distance of points rather than comparing all distances between all spatial entities.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>a point is allowed to be assigned to MORE THAN ONE child of the split, so that two nearby entities are not separated merely because a dividing line happened to fall between them</term>
+        <quote>Finally, a quadtree splits into four children, and sometimes nearby points might fall into different leaves. We modify the procedure of the assignment of the points into a child by allowing more than one assignment.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the address is deliberately NOT compared by edit distance, because syntactic and spatial closeness come apart in both directions - one changed digit is 650 metres, eight added characters is the same building - and is instead scored by equality, inclusion, or nothing</term>
+        <quote>The similarity between two addresses cannot be measured with Levenshtein, Jaccard, Cosine, etc. since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart. However, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 15 9480 Løkken Denmark” have a distance of 8 and Levenshtein similarity of 0.772, but they are the same building. In [17, 18] the address is considered as another textual attribute. In our case, we perform some data cleaning (removing commas, punctuation marks, lowercase, etc.), and then we search for equality or inclusion of the strings. We assign a similarity of 1.0 in the case of equality, 0.9 in the case of inclusion, and 0.0 otherwise.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>category and keyword similarity is taken as the MAXIMUM over all cross-pairs of the two entities&#x27; keyword lists under a Wordnet-based measure, rather than by string matching, so that synonyms count as agreement</term>
+        <quote>The similarity of fields like categories, keywords, or metadata cannot be compared only syntactically. Sometimes, several synonyms are used to express the same idea. Thus, we need to find a similarity than considers the synonyms as well. We use Wordnet [20] for detecting the type of relationship between two words and Wu&amp; Palmer similarity measure (wup) [21]. The semantic similarity between two spatial entities is the maximal similarity between their list of categories, keywords, or metadata.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the weighted scoring function is removed entirely and replaced by Pareto optimality: points on one frontier have equal utility, so the method says a pair is better than another WITHOUT quantifying by how much, and needs no attribute weights to do it</term>
+        <quote>We propose a more relaxed technique that uses Pareto optimality [28] for filtering the positive class. A solution (x, y) is Pareto optimal when no other solution can increase x without decreasing y. The points in the same Pareto frontier or skyline have the same utility. Widely used in economics and multi-objective problems, Pareto optimality is free of weights and similarity score functions. In the context of entity resolution, the skylines provide a selection of points that are better than others, but without quantifying how much better.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the whole threshold problem is collapsed to ONE number - which skyline level separates the classes - in place of a threshold per attribute similarity plus another for the function that aggregates them</term>
+        <quote>In contrast to the threshold-based methods used in entity resolution problems [13, 18, 19] where we have to find a threshold for each similarity of the attributes and then a threshold for the similarity function that aggregates the similarity scores, we have simplified our problem to only one parameter: k.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>THE UNSUPERVISED CUT-OFF WORKS BECAUSE THE POSITIVE CLASS IS NOT A CLUSTER: matching pairs are scattered, since several different patterns can make a match, so instead of intra-class compactness the method separates them by their distance to the NEGATIVE class, and sets the cut-off where that inter-class distance starts to increase</term>
+        <quote>Our classes are not characterized by a small intra-class distance. Various patterns can reveal a positive class; for example, a similar name but different category or similar category and similar address, etc. Thus, the positive pairs, positioned in the first skylines, are scattered and do not necessarily form a cluster. However, they can still be separated from the rest, considering the distance to the negative class. Theoretically, the inter-class distance stays small when we are in the first skylines (potential positives), then starts to increase while we move into later skylines and finally falls again when we enter the deeper skylines (potential negatives). SkyEx-D notices the increase of the inter-class distance and sets kd accordingly.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the attributes used to BUILD the ground truth - phone, opening hours - are excluded from the similarity computation, and the stated reason is that they are used to construct the ground truth</term>
+        <quote>The similarity between two fields expressed as numbers, dates, times or intervals is a boolean decision (true or false). Even though the similarity of these fields relies only on an equality check, most of the effort is put in data preparation. For example, the different phone formats should be identified and cleaned from prefixes. Other data formats like intervals (opening hours) might require temporal queries for similarity, inclusion, and intersection of the intervals. In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Ground truth for the full dataset is mostly automatic, not manually checked, because manual labelling at that scale was not feasible.</label>
         <quote>Checking the labels manually on the full dataset of 777,452 pairs is unfeasible.</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Performance on the full dataset is lower than on the manually labelled sample, possibly an artefact of the automatic labelling rather than of the method.</label>
         <quote>The evaluation on the full dataset yields lower values (F-measure of 0.72) compared to the sample (F-measure of 0.85), which might be a simple consequence of automatic labeling.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The skyline-based algorithms could in principle degrade to cubic complexity.</label>
         <quote>However, there is a theoretical risk of a cubic complexity in SkyEx-F and SkyEx-D if the number of skylines K = |P |.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+      <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>The ranking step is computationally expensive because it requires repeated Pareto frontier computation.</label>
         <quote>SkyRank requires calculating the Pareto frontiers, which is time-consuming.</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The attributes that define a correct match are the ones excluded from the scoring, so identity is fixed by whichever fields were reserved.</label>
         <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>String similarity is stated to be inapplicable to the attribute that looks most like a key, with a worked counterexample.</label>
         <quote>The similarity between two addresses cannot be measured with Levenshtein, Jaccard, Cosine, etc. since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
       </span>
-      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Coordinates fail as an identifier in both directions at once.</label>
         <quote>Different spatial entities might co-exist in the same coordinates (shops in a shopping mall), or the same entity might be located in different but nearby coordinates across different sources (e.g., ”Chicago Roasthouse” appears in Yelp and Google Places with coordinates 82 meters apart</quote>
       </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The methods this work builds on were fitted to a different kind of entity, and the authors say the resemblance cannot be assumed.</label>
         <quote>The proposed solutions for entity resolution in individuals, either supervised or based on an experimental threshold, are learned on human entity datasets. One can not merely assume the resemblance of behaviors in a human entity dataset to a spatial entity one</quote>
       </span>
-      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="concepts" ana="#concepts[1]" resp="#paper">
+        <label>spatial entity linkage</label>
+        <term>spatial entity linkage</term>
+        <quote>Unfortunately, the identity of a spatial entity is sometimes difficult to infer due to the inconsistencies within and among the sources</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>spatial entity</label>
+        <term>spatial entity</term>
+        <quote>The identity of a spatial entity is the combination of several attributes</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>spatial object</label>
+        <term>spatial object</term>
+        <quote>However, while a spatial object is identified only by the coordinates</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>ground truth</label>
+        <term>ground truth</term>
+        <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>spatial blocking</label>
+        <term>spatial blocking</term>
+        <quote>However, the existing quadtree algorithm needs to be adapted for spatial blocking</quote>
+      </span>
+      <span xml:id="t24" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>spatial entity vs spatial object - THE DISTINCTION THE WHOLE PAPER RESTS ON: an object is identified by its coordinates alone, an entity is not, so the two words name things that need different identity conditions even though both sit at a point on a map</label>
         <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
       </span>
-      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t25" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>identity - AS A COMBINATION OF ATTRIBUTES, NOT A KEY: the paper states outright that what makes a spatial entity itself is several attributes together, and that inconsistency between sources makes that combination hard to infer</label>
         <quote>The identity of a spatial entity is the combination of several attributes. Unfortunately, the identity of a spatial entity is sometimes difficult to infer due to the inconsistencies within and among the sources; each location-based source contains different attributes; some attributes might be missing and even contradicting</quote>
       </span>
-      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t26" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>similarity - SYNTACTIC AND SPATIAL COME APART: a one-character change in an address is a 0.963 string similarity and 650 metres on the ground, which is why the paper refuses ordinary string metrics for exactly the field that looks most like an identifier</label>
         <quote>since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
       </span>
-      <span xml:id="t14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → the authors&#x27; earlier conference paper [38] (QuadFlex + SkyEx)</label>
         <quote>We significantly extend a previous conference paper [38].</quote>
       </span>
-      <span xml:id="t15" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → the skyline computation method of [38] for spatial blocking and pairwise comparison</label>
         <quote>The present paper uses the solution in [38] for the spatial blocking and the pairwise comparisons.</quote>
       </span>
-      <span xml:id="t16" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the lattice-based skyline algorithm of [42]</label>
         <quote>SkyRank uses the method proposed in [42], which first scales down the d-dimensional domain and then pre-filters the data using a lattice.</quote>
       </span>
-      <span xml:id="t17" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → WordNet [20] and the Wu &amp; Palmer semantic similarity measure [21]</label>
         <quote>We use Wordnet [20] for detecting the type of relationship between two words and Wu&amp; Palmer similarity measure (wup) [21].</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>contradicts → the spatial entity matching tools of Karam et al. [17], Berjawi et al. [18] and Morana et al. [19]</label>
         <quote>The works in [17–19] lack an evaluation of the algorithms.</quote>
       </span>
-      <span xml:id="t19" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>RETRACTED (RE-GROUNDED) · spatial entity —distinct-from→ spatial object</label>
         <term>spatial entity</term>
         <term>spatial object</term>
         <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
       </span>
-      <span xml:id="t20" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>spatial entity linkage —operationalised-as→ ground truth</label>
         <term>spatial entity linkage</term>
         <term>ground truth</term>
         <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
       </span>
-      <span xml:id="t21" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
         <label>spatial entity —distinct-from→ spatial object</label>
         <term>spatial entity</term>
         <term>spatial object</term>
         <quote>Spatial objects differ from spatial entities mainly because a spatial object is fully determined by its coordinates or its spatial shape whereas a spatial entity, in addition to being geo-located, has a welldefined identity (name, phone, categories).</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>spatial entity linkage</label>
+        <term>spatial entity linkage</term>
+        <quote>The problem of finding which spatial entities belong to the same physical entity is referred to as spatial entity linkage or spatial entity resolution</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>0.87 precision / 0.6 recall — QuadSky on a semi-manually labelled set of 777,452 pairs</label>
+        <quote>0.87 precision and 0.6 recall for a semi-manually labeled dataset of 777,452 pairs</quote>
       </span>
     </spanGrp>
   </standOff>

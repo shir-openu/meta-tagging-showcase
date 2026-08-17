@@ -36,53 +36,151 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">10 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">30 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" type="limitations" ana="#limitations[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t0" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE WHOLE ALGORITHM IS ONE INTEGER KNOB: the state is built by alternating two operators p times over a uniform starting superposition, and the paper&#x27;s claim is that the quality of the approximation improves as p is raised</term>
+        <quote>We introduce a quantum algorithm that produces approximate solutions for combinatorial op- timization problems. The algorithm depends on an integer p ≥ 1 and the quality of the approx- imation improves as p is increased.</quote>
+      </span>
+      <span xml:id="t1" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the first operator is made diagonal in the computational basis, which buys two things at once - every term in the product COMMUTES, and each term&#x27;s locality is no worse than the locality of the clause it came from</term>
+        <quote>All of the terms in this product commute because they are diagonal in the computational basis and each term’s locality is the locality of the clause α .</quote>
+      </span>
+      <span xml:id="t2" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE PARAMETER RANGE IS DERIVED FROM A PROPERTY OF THE OBJECTIVE, NOT CHOSEN: because the objective has integer eigenvalues, one angle can be restricted to lie between 0 and 2 pi</term>
+        <quote>Because C has integer eigen- values we can restrict γ to lie between 0 and 2 π.</quote>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>MONOTONICITY IS STRUCTURAL RATHER THAN EMPIRICAL: the maximisation at p minus one IS a constrained maximisation at p, so the best value at each depth can never fall below the best value at the depth beneath it</term>
+        <quote>Note that the maximization at p − 1 can be viewed as a constrained maximization at p so Mp ≥ Mp−1. (9)</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the algorithm is used by repetition rather than by a single shot: measure in the computational basis, evaluate the objective on the string obtained, and repeat with the SAME angles - enough repetitions produce a string whose value is very near or above the expectation</term>
+        <quote>Use the quantum computer to get the state |γ , β ⟩. Measure in the computational basis to get a string z and evaluate C(z). Repeat with the same angles. Enough repetitions will produce a strin g z with C(z) very near or greater than Fp</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the authors name the difficulty rather than presenting the method as complete - it is not obvious in advance how to pick good angles - and for p that does not grow with n they offer a search over a fine grid on the compact parameter set</term>
+        <quote>The rub is that it is not obvious in advance how to pick good angles. If p doesn’t grow with n, one possibility is to run the quantum computer with angles (γ , β ) chosen from a ﬁne grid on the compact set [0 , 2π]p × [0, π ]p, moving through the grid to ﬁnd the maximum of Fp.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the grid search is made tractable by a BOUND ON THE PARTIAL DERIVATIVES of the objective&#x27;s expectation, which is what turns a search over a continuous compact set into an efficient one</term>
+        <quote>Since the partial derivatives of Fp(γ , β ) in (7) are bounded by O(m2 + mn) this search will eﬃciently produce a string z for which C(z) is close to Mp or larger.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>for fixed p and bounded clause participation the angles are found by an EFFICIENT CLASSICAL CALCULATION rather than by quantum search, and those angles are then used to run the quantum computer and produce the measured string</term>
+        <quote>However we show in the next section that if p does not grow with n and each bit is involved in no more than a ﬁxed number of clauses, then there is an e ﬃcient classical calculation that determines the angles that maximize Fp. These angles are then used to run the quantum computer to produce the state |γ , β ⟩ which is measured in the computational basis to get a string z.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>THE CONSTRAINT IS ENFORCED BY THE BASIS: for the independent-set variant the orthonormal basis consists only of strings that correspond to independent sets, so the space is exponentially large but smaller than the full 2^n, and is NOT a simple tensor product of qubits</term>
+        <quote>The Hilbert space for our quantum algorithm has an orthonormal ba sis |z⟩ where z is any string corresponding to an independent set. In cases of interest , the Hilbert space dimension is exponentially large in n, though not as big as 2 n. The Hilbert space is not a simple tensor product of qubits.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the mixing operator is likewise restricted rather than penalised: it is the adjacency matrix of the hypercube confined to the legal strings, so the walk it generates can only ever move between independent sets</term>
+        <quote>Note that B is the adjacency matrix of the hypercube restricted to the legal s trings, that is, those that correspond to independent sets in the given graph.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>the classical preprocessing to choose the angles can require space doubly exponential in p</label>
+        <quote>class ical algorithm which evaluates (25) using (24) could require space doubly exponential in p</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="1.0">
         <label>The authors state their headline result is beaten by classical methods already known.</label>
         <quote>This p = 1 result on 3-regular graphs is not as good as known classical algorithms</quote>
       </span>
-      <span xml:id="t1" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
         <label>The next case up is analysed only partially, and the paper says so.</label>
         <quote>It is possible to analyze the performance of the QAOA for p = 2 on 3-regular graphs. However it is more complicated then the p = 1 case and we will just show partial results</quote>
       </span>
-      <span xml:id="t2" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>The cost of the improvement is circuit depth, which grows with the same knob that buys the quality.</label>
         <quote>The depth of the circuit grows linearly with p times (at worst) the number of constraints</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>There is a property of the input the algorithm at p = 2 is stated to be unable to see at all.</label>
         <quote>The QAOA at p = 2 cannot detect whether the graph is bipartite, that is, completely satisﬁable</quote>
       </span>
-      <span xml:id="t4" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>MaxCut</label>
+        <term>MaxCut</term>
+        <quote>We study its performance in special cases of MaxCut and also propose an alternate form of the algorithm</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>QAOA</label>
+        <term>QAOA</term>
+        <quote>The QAOA can be run on a quantum computer with p growing with n as long as there is a strategy for choosing sets of angles</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>approximation ratio</label>
+        <term>approximation ratio</term>
+        <quote>ratio is C(z), where z is the output of the quantum algorithm, divided by the maximum of C</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>classical algorithms</label>
+        <term>classical algorithms</term>
+        <quote>This p = 1 result on 3-regular graphs is not as good as known classical algorithms</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>circuit depth</label>
+        <term>circuit depth</term>
+        <quote>So this algorithm has a circuit depth independent of n</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the approximation ratio - AS OUTPUT OVER OPTIMUM: the quantity reported is the objective value at the algorithm&#x27;s own output divided by the true maximum, so it is a ratio against a quantity that must already be known to state it</label>
         <quote>ratio is C(z), where z is the output of the quantum algorithm, divided by the maximum of C</quote>
       </span>
-      <span xml:id="t5" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>the algorithm&#x27;s names - ITS OWN ACRONYM SURVIVED AND A SECOND NAME WAS ADDED LATER: the paper calls it the QAOA throughout - its expanded name survives only inside a damaged sentence - while the word the field now uses for its class, variational, appears nowhere in it</label>
         <quote>The QAOA can be run on a quantum computer with p growing with n as long as there is a strategy for choosing sets of angles</quote>
       </span>
-      <span xml:id="t6" type="senses" ana="#senses[2]" resp="#tagger" cert="0.9">
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="0.9">
         <label>p - THE ONE KNOB, AND IT SETS BOTH SIDES OF THE TRADE: the paper introduces the algorithm as depending on an integer p, with quality improving as p rises and circuit depth rising with it, so a result quoted without its p is not a result about this algorithm</label>
         <quote>The depth of the circuit grows linearly with p times (at worst) the number of constraints</quote>
       </span>
-      <span xml:id="t7" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t23" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>QAOA —operationalised-as→ approximation ratio</label>
         <term>QAOA</term>
         <term>approximation ratio</term>
         <quote>ratio is C(z), where z is the output of the quantum algorithm, divided by the maximum of C</quote>
       </span>
-      <span xml:id="t8" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t24" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>QAOA —contrasted-with→ classical algorithms</label>
         <term>QAOA</term>
         <term>classical algorithms</term>
         <quote>This p = 1 result on 3-regular graphs is not as good as known classical algorithms</quote>
       </span>
-      <span xml:id="t9" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t25" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>QAOA produces approximate solutions to combinatorial optimization via a depth-p quantum circuit of unitary gates; approximation quality improves with p and can be made arbitrarily close to 1 as p grows, independent of problem size n.</label>
+        <quote>our quantum algorithm can produce an approximation r atio that can be made arbitrarily close to 1 by making p large enough, independent of n</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>circuit depth p (number of QAOA layers)</label>
+        <term>circuit depth p (number of QAOA layers)</term>
+        <quote>The algorithm depends on an integer p ≥ 1 and the quality of the approx- imation improves as p is increased</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>approximation ratio</label>
+        <term>approximation ratio</term>
+        <quote>an approximation r atio that can be made arbitrarily close to 1 by making p large enough</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>MaxCut</label>
+        <term>MaxCut</term>
+        <quote>MaxCut for graphs with bounded d egree. The input is a graph with n vertices and an edge set</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>The mean of C(z) for strings obtained in this way is Mp.</quote>

@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">24 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">39 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -55,97 +55,170 @@
         <term>system-or-tool-building</term>
         <quote>We provide the full Caffe[6]-based implementation and the trained networks4.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>overlap-tile prediction with mirrored extrapolation at the border: the missing context outside the image is manufactured by reflecting the image itself, so a tile can be segmented without the network ever seeing beyond the edge</term>
+        <quote>To predict the pixels in the border region of the image, the missing context is extrapolated by mirroring the input image. This tiling strategy is important to apply the network to large images, since otherwise the resolution would be limited by the GPU memory.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.9">
+        <label>the paper&#x27;s claim that this teaches invariance WITHOUT annotating the transformations is made in the introduction, not in this span; tagged separately or not at all</label>
+        <term>elastic deformation of the training images, generated from random displacement vectors on a coarse 3 by 3 grid, sampled from a Gaussian with 10 pixels standard deviation and interpolated to per-pixel displacements with bicubic interpolation</term>
+        <quote>We generate smooth deformations using random displacement vectors on a coarse 3 by 3 grid. The displacements are sampled from a Gaussian distribution with 10 pixels standard deviation. Per-pixel displacements are then computed using bicubic interpolation.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">
+        <label>the size of that weight - w0 = 10 - is stated in a different sentence and is not claimed here</label>
+        <term>a per-pixel loss weight, pre-computed from each ground truth segmentation by morphological operations, that both compensates class frequency and forces the network to learn the small separation borders introduced between touching cells</term>
+        <quote>We pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels from a certain class in the training data set, and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>a large number of feature channels in the expansive path, which is what carries context from the contracting path up into the high-resolution layers and makes the architecture symmetric</term>
+        <quote>One important modification in our architecture is that in the upsampling part we have also a large number of feature channels, which allow the network to propagate context information to higher resolution layers. As a consequence, the expansive path is more or less symmetric to the contracting path, and yields a u-shaped architecture.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>batch size traded down to a single image so the input tile can be large, with the momentum raised to 0.99 so that the update still integrates many previously seen samples</term>
+        <quote>To minimize the overhead and make maximum use of the GPU memory, we favor large input tiles over a large batch size and hence reduce the batch to a single image. Accordingly we use a high momentum (0.99) such that a large number of the previously seen training samples determine the update in the current optimization step.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>initial weights drawn so that each feature map starts at approximately unit variance, which is what stops one path through the network from saturating while another never contributes</term>
+        <quote>In deep networks with many convolutional layers and different paths through the network, a good initialization of the weights is extremely important. Otherwise, parts of the network might give excessive activations, while other parts never contribute. Ideally the initial weights should be adapted such that each feature map in the network has approximately unit variance.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Because convolutions are unpadded, border pixels are lost at every layer and feature maps must be cropped before concatenation.</label>
         <quote>The cropping is necessary due to the loss of border pixels in every convolution.</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t10" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Without the overlap-tile strategy the resolution the network can handle is bounded by GPU memory.</label>
         <quote>This tiling strategy is important to apply the network to large images, since otherwise the resolution would be limited by the GPU memory.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t11" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
         <label>Part of what the network is trained to detect is inserted by the authors: the separation borders between touching cells are synthesised, not annotated.</label>
         <quote>and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t12" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>How heavily those borders count is set by two chosen constants in the loss.</label>
         <quote>In our experiments we set w0 = 10 and σ ≈ 5 pixels</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t13" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The invariances the network has are the ones the augmentation supplied, and the paper says the corpus never contained them.</label>
         <quote>This allows the network to learn invariance to such deformations, without the need to see these transformations in the annotated image corpus</quote>
       </span>
-      <span xml:id="t8" type="transfers" ana="#transfers[0]" resp="#tagger">
+      <span xml:id="t14" type="transfers" ana="#transfers[0]" resp="#tagger">
         <label>convolutional networks applied to biomedical image segmentation</label>
         <quote>outperforms the prior best method (a sliding-window convolutional network) on the ISBI challenge for segmentation of</quote>
       </span>
-      <span xml:id="t9" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>data augmentation</label>
+        <term>data augmentation</term>
+        <quote>Data augmentation is essential to teach the network the desired invariance and robustness properties, when only few training samples are available</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>elastic deformations</label>
+        <term>elastic deformations</term>
+        <quote>we use excessive data augmentation by applying elastic deformations to the available training images</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>invariance</label>
+        <term>invariance</term>
+        <quote>This allows the network to learn invariance to such deformations</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>weight map</label>
+        <term>weight map</term>
+        <quote>is a weight map that we introduced to give some pixels more importance in the training</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>separation border</label>
+        <term>separation border</term>
+        <quote>The separation border is computed using morphological operations</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the ground truth - PARTLY SYNTHESISED: the annotation is augmented with separation borders computed by morphological operations so that touching instances can be pulled apart, so the target is the annotation plus an artefact of the method</label>
         <quote>We pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels from a certain class in the training data set, and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
       </span>
-      <span xml:id="t10" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>very few images - AS THIRTY, AND THEN AS PATCHES: the electron-microscopy training set is 30 images, and the paper notes that in patches the training data is much larger than the image count suggests</label>
         <quote>The training data is a set of 30 images (512x512 pixels) from serial section transmission electron microscopy of the Drosophila first instar larva ventral nerve cord</quote>
       </span>
-      <span xml:id="t11" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>invariance - AS A PROPERTY OF THE AUGMENTATION: what the network is invariant to is what was applied to the training images, not what was observed in the microscopy</label>
         <quote>As for our tasks there is very little training data available, we use excessive data augmentation by applying elastic deformations to the available training images</quote>
       </span>
-      <span xml:id="t12" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → sliding-window convolutional networks</label>
         <quote>outperforms the prior best method (a sliding-window convolutional network)</quote>
       </span>
-      <span xml:id="t13" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → the assumption that deep networks need thousands of annotated samples</label>
         <quote>requires many thousand annotated training samples</quote>
       </span>
-      <span xml:id="t14" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the fully convolutional network of Long et al. [9]</label>
         <quote>In this paper, we build upon a more elegant architecture, the so-called “fully convolutional network” [9].</quote>
       </span>
-      <span xml:id="t15" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → the fully convolutional network of Long et al. [9]</label>
         <quote>We modify and extend this architecture such that it works with very few training images and yields more precise segmentations; see Figure 1.</quote>
       </span>
-      <span xml:id="t16" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>contradicts → the sliding-window patch strategy of Ciresan et al. [1]</label>
         <quote>Obviously, the strategy in Ciresan et al. [1] has two drawbacks.</quote>
       </span>
-      <span xml:id="t17" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>elastic deformations —causes→ invariance</label>
         <term>elastic deformations</term>
         <term>invariance</term>
         <quote>This allows the network to learn invariance to such deformations, without the need to see these transformations in the annotated image corpus</quote>
       </span>
-      <span xml:id="t18" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>RETRACTED (RE-GROUNDED) · weight map —causes→ separation border</label>
         <term>weight map</term>
         <term>separation border</term>
         <quote>and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
       </span>
-      <span xml:id="t19" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
         <label>weight map —causes→ separation border</label>
         <term>weight map</term>
         <term>separation border</term>
         <quote>We pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels from a certain class in the training data set, and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d).</quote>
       </span>
-      <span xml:id="t20" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>30 — training set size for the ISBI EM segmentation task</label>
         <quote>The training data is a set of 30 images (512x512 pixels) from serial section transmission electron microscopy</quote>
       </span>
-      <span xml:id="t21" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>7 — test-time averaging over rotated inputs</label>
         <quote>The u-net (averaged over 7 rotated versions of the input data)</quote>
       </span>
-      <span xml:id="t22" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>A U-shaped fully-convolutional network — a contracting path for context plus a symmetric expanding path for precise localization — trains end-to-end from very few images using heavy data augmentation.</label>
+        <quote>The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization.</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>U-Net won the ISBI 2015 cell-tracking challenge (phase-contrast and DIC microscopy) by a large margin and beat the prior sliding-window best on ISBI neuronal-structure segmentation.</label>
+        <quote>we won the ISBI cell tracking challenge 2015 in these categories by a large margin</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>annotated training images (with elastic-deformation augmentation)</label>
         <term>annotated training images (with elastic-deformation augmentation)</term>
         <quote>the strong use of data augmentation to use the available annotated samples more efficiently</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>per-pixel segmentation label</label>
         <term>per-pixel segmentation label</term>
         <quote>a class label is supposed to be assigned to each pixel</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>contracting path / expanding path (U-shaped architecture)</label>
+        <term>contracting path / expanding path (U-shaped architecture)</term>
+        <quote>a contracting path to capture context and a symmetric expanding path that enables precise localization</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>data augmentation (elastic deformations)</label>
+        <term>data augmentation (elastic deformations)</term>
+        <quote>excessive data augmentation by applying elastic deformations to the available training images</quote>
       </span>
     </spanGrp>
   </standOff>

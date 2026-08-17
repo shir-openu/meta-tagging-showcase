@@ -41,8 +41,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">35 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">41 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -117,83 +117,113 @@
         <label>a column showing the NEAREST TRAINING EXAMPLE beside each generated sample</label>
         <quote>Rightmost column shows the nearest training example of the neighboring sample, in order to demonstrate that the model has not memorized the training set.</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="concepts" ana="#concepts[2]" resp="#paper">
+        <label>discriminator</label>
+        <term>discriminator</term>
+        <quote>The number of steps to apply to the discriminator, k, is a hyperparameter</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[3]" resp="#paper">
+        <label>minimax game</label>
+        <term>minimax game</term>
+        <quote>D and G play the following two-player minimax game with value function</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>adversarial nets</label>
+        <term>adversarial nets</term>
+        <quote>We refer to this special case as adversarial nets</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>Parzen window</label>
+        <term>Parzen window</term>
+        <quote>by fitting a Gaussian Parzen window to the samples generated with G</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>log-likelihood</label>
+        <term>log-likelihood</term>
+        <quote>and reporting the log-likelihood under this distribution</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the training objective - AS ANALYSED vs AS TRAINED: the minimax value function of Eq. 1 is what the theorems are about; the implementation maximises a different function with the same fixed point, because the analysed one saturates early in learning</label>
         <quote>This objective function results in the same fixed point of the dynamics of G and D but provides much stronger gradients early in learning</quote>
       </span>
-      <span xml:id="t18" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>log-likelihood - AS A PARZEN-WINDOW ESTIMATE: not computed from the model, but from a Gaussian fitted to samples drawn from it, because the model has no tractable density</label>
         <quote>We estimate probability of the test set data under pg by fitting a Gaussian Parzen window to the samples generated with G and reporting the log-likelihood under this distribution</quote>
       </span>
-      <span xml:id="t19" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t24" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>adversarial nets - THE PAPER&#x27;S OWN NAME, and it names the special case, not the framework: the framework is general and &#x27;adversarial nets&#x27; is what the authors call the multilayer-perceptron instance of it</label>
         <quote>We refer to this special case as adversarial nets</quote>
       </span>
-      <span xml:id="t20" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t25" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>the failure mode - NAMED AS A JOKE: &#x27;the Helvetica scenario&#x27;, in which the generator maps too many inputs to the same output; the field later renamed this mode collapse, and Table 2 records it as the single word Helvetica</label>
         <quote>in particular, G must not be trained too much without updating D, in order to avoid “the Helvetica scenario” in which G collapses too many values of z to the same value of x to have enough diversity to model pdata</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → game theory (minimax two-player game)</label>
         <quote>This framework corresponds to a minimax two-player game</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → SML/PCD training [31, 29]</label>
         <quote>This strategy is analogous to the way that SML/PCD [31, 29] training maintains samples from a Markov chain from one learning step to the next in order to avoid burning in a Markov chain as part of the inner loop of learning.</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the Parzen-window likelihood evaluation procedure of Breuleux et al. [8]</label>
         <quote>This procedure was introduced in Breuleux et al. [8] and used for various generative models for which the exact likelihood is not tractable [25, 3, 5].</quote>
       </span>
-      <span xml:id="t24" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → the generative stochastic network (GSN) framework [5]</label>
         <quote>Compared to GSNs, the adversarial nets framework does not require a Markov chain for sampling.</quote>
       </span>
-      <span xml:id="t25" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>extends → noise-contrastive estimation (NCE) [13]</label>
         <quote>However, rather than fitting a separate discriminative model, the generative model itself is used to discriminate generated data from samples a fixed noise distribution.</quote>
       </span>
-      <span xml:id="t26" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t31" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>log-likelihood —operationalised-as→ Parzen window</label>
         <term>log-likelihood</term>
         <term>Parzen window</term>
         <quote>We estimate probability of the test set data under pg by fitting a Gaussian Parzen window to the samples generated with G and reporting the log-likelihood under this distribution</quote>
       </span>
-      <span xml:id="t27" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>adversarial nets —operationalised-as→ minimax game</label>
         <term>adversarial nets</term>
         <term>minimax game</term>
         <quote>D and G play the following two-player minimax game with value function</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>D = 1/2 — discriminator output at the optimal solution (cannot distinguish real from fake)</label>
         <quote>a unique solution exists, with G recovering the training data distribution and D equal to 1 2 everywhere</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>At the unique optimum, G recovers the true data distribution and D outputs 1/2 everywhere; with MLPs the whole system trains by backpropagation, needing no Markov chains or unrolled inference.</label>
         <quote>a unique solution exists, with G recovering the training data distribution and D equal to 1 2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation.</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>generated-sample realism / distribution match</label>
         <term>generated-sample realism / distribution match</term>
         <quote>with G recovering the training data distribution and D equal to 1 2 everywhere</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>generative adversarial net (minimax game)</label>
         <term>generative adversarial net (minimax game)</term>
         <quote>This framework corresponds to a minimax two-player game</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>discriminator D</label>
         <term>discriminator D</term>
         <quote>a discriminative model D that estimates the probability that a sample came from the training data rather than G</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>More recent examples of training a generative machine by back-propagating into it include recent work on auto-encoding variational Bayes [20] and stochastic backpropagation [24].</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>standard-error</label>
+        <term>standard-error</term>
+        <quote>The reported numbers on MNIST are the mean loglikelihood of samples on test set, with the standard error of the mean computed across examples.</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <quote>This method of estimating the likelihood has somewhat high variance and does not perform well in high dimensional spaces but it is the best method available to our knowledge.</quote>

@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-15"
-              who="build_paper_edition.py">31 spans placed by verified search</change>
+      <change when="2026-08-18"
+              who="build_paper_edition.py">50 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -56,123 +56,218 @@
         <term>observational-data-analysis</term>
         <quote>We use a collection of ten different datasets from Twitter, each of which contains a set of tweets on a given topic of discussion.</quote>
       </span>
-      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>content and network are measured JOINTLY at the level of the individual user, rather than content consumption alone, and the authors state that as the study&#x27;s distinguishing move</term>
+        <quote>Unlike many previous works that focus on measuring only content consumption to quantify the echo-chamber effects, we study content consumption and production jointly at the level of individual users, and examine how different content profiles correlate with the network position of users. Though we are not the first to study echo chambers on Twitter, to the best of our knowledge, this is the first study to jointly use content and network to characterize echo chambers.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>POLITICAL LEANING IS NOT INFERRED FROM THE TEXT AT ALL: scoring short snippets is called very challenging, so the leaning is inherited from an externally supplied per-domain ground truth of news organisations</term>
+        <quote>Obtaining a characterization of political leaning for short text snippets, such as tweets, is a very challenging problem, in general. To confront this challenge, we use a ground truth of political leaning scores of various news organizations with</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>and that borrowed score has a stated meaning of its own - the FRACTION OF FACEBOOK USERS VISITING A DOMAIN WHO IDENTIFY THEMSELVES AS CONSERVATIVE ON THEIR PROFILE - which the authors read as the domain having a conservative or liberal bent in its coverage</term>
+        <quote>The score takes values between 0 and 1 and expresses the fraction of Facebook users who visit these pages that identify themselves as conservative on their Facebook profile. A value close to 1 (0) indicates that the domain has a conservative (liberal) bent in their coverage.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the measurement is deliberately restricted to what can be scored: only tweets carrying a link to a news organisation with a known and independently derived leaning are counted at all</term>
+        <quote>To quantify the political leaning of content posted on Twitter, we consider only messages that contain a link to an online news organization with a known and independently derived political leaning. In particular, we use the dataset of the political leaning scores of news organizations described in Section 3.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>CONSUMPTION IS DEFINED THROUGH THE NETWORK: a user&#x27;s produced content is the tweets they post, and their consumed content is the tweets posted by the accounts they follow</term>
+        <quote>For the content production of a user u, we consider tweets posted by user u. For the content consumption of a user u we consider tweets posted by users whom u follows.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>partisanship is given a PARAMETERISED definition rather than a threshold - a user is delta-partisan when their production polarity lies within delta of either extreme - and the authors state the nesting property that follows, so a claim at one delta implies the claim at every larger one</term>
+        <quote>We say that a user is δ -partisan, for some value 0 ≤ δ ≤ 1 2 , if their production polarity is within δ from either extreme value min{p(u), 1 − p(u)} ≤ δ . (2) The smaller the value of δ the more partisan a user is. Note also that if a user u is δ -partisan then u is also δ ′-partisan for δ &lt; δ ′ ≤ 1</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>VARIANCE IS MEASURED ALONGSIDE THE MEAN over the same set of tweets, with the stated objective of quantifying the RANGE of opinions a user&#x27;s produced content covers</term>
+        <quote>Besides the average political leaning of produced tweets, we also measure the variance in political leaning over the same set of tweets. The objective is to quantify the range of opinions of a user covered by the produced content.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>FIVE NON-POLITICAL DATASETS ARE COLLECTED AS A BASELINE for the political ones - tbt, ff, gameofthrones, love, foodporn - each built from one hashtag by parsing an archive, filtering to users with at least five tweets, and then taking all of those users&#x27; tweets</term>
+        <quote>To have a baseline for our measurements over the Political datasets, we also use five datasets that correspond to non-political topics, in particular: tbt (“throwback Thursday”), ff (“follow Friday”), gameofthrones, love, and foodporn. Each of these topics is associated with a particular hashtag (e.g., #tbt for tbt). The datasets are built as follows. First, we parse the tweets in the Internet Archive collection and select tweets that contain the corresponding hashtag for each topic during the month of June 2016. Second, we filter out users who have less than 5 tweets. Third, we obtain all tweets generated by these users.</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>automated accounts are excluded by minimum AND maximum thresholds on tweets per day, followers and friends, together with a requirement that the account be at least one year old at collection time</term>
+        <quote>For all the datasets, we perform simple checks to remove bots, using minimum and maximum thresholds for number of tweets per day, followers, friends, and ensure that the account is at least one year old at the time of data collection.</quote>
+      </span>
+      <span xml:id="t12" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the paper STIPULATES &#x27;gatekeeper&#x27; against the established sense and says so: in communication studies the term names news media sources acting as filters, and here it names an individual user who receives content from both leanings but produces only one</term>
+        <quote>Gatekeeping is a term commonly used in communication studies to refer to news media sources that act as filters of information [27]. Barzilai-Nahon [8] propose a model based on network theory for gatekeeping which generalizes the concept of gatekeeping for the Internet and applies to all information types (not just news). Several studies have looked at gatekeeping practices on Twitter [25, 39] and conclude that unlike in traditional media, any common user can become a gatekeeper on social media. The definition of these gatekeepers on social media also differs from the traditional gatekeepers in media organizations, due to the alternative information pathways available to social media users. In our case, we define gatekeepers as users who receive content from both political leanings, but only produce content from a single leaning, thus “filtering” information from one side.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>political leaning is measured only from tweets that link to news sources of known, independently-derived leaning, not the message content itself</label>
         <quote>To quantify the political leaning of content posted on Twitter, we consider only messages that contain a link to an online news organization with a known and independently derived political leaning.</quote>
       </span>
-      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+      <span xml:id="t14" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>All data come from Twitter and are only a sample of social-media discussion.</label>
         <quote>First, the datasets used are just a sample of all the discussions in social media, and they all come from Twitter.</quote>
       </span>
-      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+      <span xml:id="t15" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Results are drawn from politically-savvy users and should not be assumed to generalise to the general public.</label>
         <quote>However, as we focused on politically-savvy users on Twitter, the reader should not infer that our observations generalize immediately to other settings, or that echo chamber effects are as pronounced for the general public.</quote>
       </span>
-      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+      <span xml:id="t16" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>The polarity measures depend on externally supplied political labels for news sources.</label>
         <quote>Second, our production and consumption scores rely on external labeling of news sources along a political axis.</quote>
       </span>
-      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger">
+      <span xml:id="t17" type="limitations" ana="#limitations[4]" resp="#tagger">
         <label>Following is used as a proxy for actual consumption; users may not read everything their neighbours post.</label>
         <quote>Moreover, our analysis assumes that each user consumes all content produced by all their neighbors.</quote>
       </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger">
+      <span xml:id="t18" type="limitations" ana="#limitations[5]" resp="#tagger">
         <label>Some articles from the scored news domains may not be political.</label>
         <quote>Finally, it is possible that not all news articles from the news sources we base the polarity measures are political.</quote>
       </span>
-      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger">
+      <span xml:id="t19" type="limitations" ana="#limitations[6]" resp="#tagger">
         <label>The causal relations between selective exposure, biased assimilation, algorithmic filtering and echo chambers are not addressed.</label>
         <quote>Understanding how all these phenomena interact with each other and the precise causality relations is beyond the scope of this paper.</quote>
       </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The literature has no consensus definition of the paper&#x27;s central term, so the authors chose one.</label>
         <quote>As there is no consensus on a formal definition in the literature, we opt for this definition, which is general enough and reasonably captures the essence of the phenomenon</quote>
       </span>
-      <span xml:id="t11" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
         <label>A term is borrowed from another field with its unit of analysis changed, which the authors state.</label>
         <quote>Gatekeepers are defined in media and communication studies as media sources that act as filters (or ‘gatekeepers’) of information [27]. In our case, we consider consumption and production of content jointly, and define gatekeepers as users who consume content from both sides of the political spectrum but only produce content from one side</quote>
       </span>
-      <span xml:id="t12" type="limitations" ana="#limitations[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="limitations" ana="#limitations[9]" resp="#tagger" cert="1.0">
         <label>A second definition of the same category was tested and its results not presented.</label>
         <quote>We also experimented with a different definition of gatekeepers – users who have a high consumption variance and low production variance. This definition captures a slightly broader set of users (compared to Equation 5), e.g., users who consume from both ends of the political spectrum and produce balanced ‘centrist’ content. The results were almost identical to the ones reported above in Section 5.3, and so we do not present them explicitly</quote>
       </span>
-      <span xml:id="t13" type="limitations" ana="#limitations[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="limitations" ana="#limitations[10]" resp="#tagger" cert="1.0">
         <label>What the identified users are actually doing is left open by the authors.</label>
         <quote>Nevertheless, from our current analysis, it is not clear if such users act as open-minded net-citizens</quote>
       </span>
-      <span xml:id="t14" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t24" type="concepts" ana="#concepts[0]" resp="#paper">
+        <label>echo chamber</label>
+        <term>echo chamber</term>
+        <quote>We say that an echo chamber exists if the political leaning of the content that users receive from the network agrees with that of the content they share. As there is no consensus on a formal definition in the literature, we opt for this definition, which is general enough and reasonably captures the essence of the phenomenon</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>gatekeeper</label>
+        <term>gatekeeper</term>
+        <quote>Gatekeepers are defined in media and communication studies as media sources that act as filters (or ‘gatekeepers’) of information [27]. In our case, we consider consumption and production of content jointly, and define gatekeepers as users who consume content from both sides of the political spectrum but only produce content from one side. These users block or filter information from one side, and hence can be considered gatekeepers</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>media sources</label>
+        <term>media sources</term>
+        <quote>Gatekeeping is a term commonly used in communication studies to refer to news media sources that act as filters of information</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>leaning</label>
+        <term>leaning</term>
+        <quote>as a score that quantifies alignment with one political side. Similar terms in the literature include “ideology,” “polarity,” or “ideological stance</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>consumption variance</label>
+        <term>consumption variance</term>
+        <quote>We also experimented with a different definition of gatekeepers – users who have a high consumption variance and low production variance</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>price of bipartisanship</label>
+        <term>price of bipartisanship</term>
+        <quote>This finding hints at the existence of a “price of bipartisanship,” required to be paid by users who try to bridge echo chambers</quote>
+      </span>
+      <span xml:id="t30" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>an echo chamber - AS AGREEMENT BETWEEN TWO PER-USER SCORES: it exists, for this paper, when the leaning of the content a user receives agrees with the leaning of what they share; not a group, not a network structure, not an isolation measure, but a correlation computed per user - and the authors adopt it because the literature offers no consensus formal definition to inherit</label>
         <quote>We say that an echo chamber exists if the political leaning of the content that users receive from the network agrees with that of the content they share. As there is no consensus on a formal definition in the literature, we opt for this definition, which is general enough and reasonably captures the essence of the phenomenon</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t31" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>a gatekeeper - AN INDIVIDUAL USER, NOT A MEDIA SOURCE: communication studies gives the word to institutions that filter what passes into a channel, and this paper reassigns it to a person at a particular position on two scores, stating the earlier sense and supplying a bridging argument - that such users block information from one side, and hence can be considered gatekeepers</label>
         <quote>Gatekeepers are defined in media and communication studies as media sources that act as filters (or ‘gatekeepers’) of information [27]. In our case, we consider consumption and production of content jointly, and define gatekeepers as users who consume content from both sides of the political spectrum but only produce content from one side. These users block or filter information from one side, and hence can be considered gatekeepers</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t32" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>leaning - A STIPULATED SCORE, WITH ITS OWN SYNONYMS NAMED IN THE FOOTNOTE THAT STIPULATES IT: the authors define it as a score quantifying alignment with one political side and list the terms the literature uses for the same thing, so four words - leaning, ideology, polarity, ideological stance - are declared interchangeable by the paper itself</label>
         <quote>as a score that quantifies alignment with one political side. Similar terms in the literature include “ideology,” “polarity,” or “ideological stance</quote>
       </span>
-      <span xml:id="t17" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → the study of political polarization and echo chambers</label>
         <quote>The results shown in this study are just one step towards the understanding of echo chambers and the interplay between network and content, which open up several directions for future work.</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → the latent space model of Barberá et al. [7]</label>
         <quote>We adopt the latent space model proposed by Barberá et al. [7] to estimate a user polarity score.</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the news-source leaning scores and hard/soft news classifier of Bakshy et al. [4]</label>
         <quote>During preprocessing, we attempted to split news articles from these sources into hard (politics, opinion, etc.) and soft news (gossip, entertainment, etc.) and applied the classifier from Bakshy et al. [4].</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>replicates → Barberá [6] on higher polarization of retweet networks for political topics</label>
         <quote>This result reinforces the validity of the proposed measures — and agrees with similar conclusions presented by Barberá [6], where retweet networks exhibit higher polarization for political topics.</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>extends → prior echo-chamber studies that measure either content or network alone</label>
         <quote>In this paper, we propose measures to identify the existence of an echo chamber by using both the content being read/shared and the network that enables the content to propagate.</quote>
       </span>
-      <span xml:id="t22" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t38" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>echo chamber —operationalised-as→ leaning</label>
         <term>echo chamber</term>
         <term>leaning</term>
         <quote>We say that an echo chamber exists if the political leaning of the content that users receive from the network agrees with that of the content they share. As there is no consensus on a formal definition in the literature, we opt for this definition, which is general enough and reasonably captures the essence of the phenomenon</quote>
       </span>
-      <span xml:id="t23" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t39" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>gatekeeper —contrasted-with→ media sources</label>
         <term>gatekeeper</term>
         <term>media sources</term>
         <quote>Gatekeepers are defined in media and communication studies as media sources that act as filters (or ‘gatekeepers’) of information [27]. In our case, we consider consumption and production of content jointly, and define gatekeepers as users who consume content from both sides of the political spectrum but only produce content from one side</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Studying political echo chambers on Twitter via a production-vs-consumption measure of users political leaning, users are largely exposed to opinions agreeing with their own — confirming echo chambers.</label>
         <quote>By comparing the two, we find that Twitter users are, to a large degree, exposed to political opinions that agree with their own.</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Exposure is measured at three levels — production (what a user shares), consumption (what appears in their feed), and engagement (what they click).</label>
         <quote>engagement, which includes all content that a user clicks</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>content production vs consumption political leaning</label>
         <term>content production vs consumption political leaning</term>
         <quote>We define a production and consumption measure for social-media users, which captures the political leaning of the content shared and received by them</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>exposure to agreeing vs opposing opinions (echo-chamber strength)</label>
         <term>exposure to agreeing vs opposing opinions (echo-chamber strength)</term>
         <quote>Twitter users are, to a large degree, exposed to political opinions that agree with their own</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>echo chamber</label>
+        <term>echo chamber</term>
+        <quote>Echo chambers, i.e., situations where one is exposed only to opinions that agree with their own</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>production / consumption / engagement measures</label>
         <term>production / consumption / engagement measures</term>
         <quote>engagement, which includes all content that a user clicks</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>correlation</label>
+        <term>correlation</term>
+        <quote>he difference between the two groups of datasets is stark: production and consumption polarities are highly correlated for Political datasets, which means that users indeed tend to consume content with political leaning aligned t</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>effect-size</label>
         <term>effect-size</term>
         <quote>Finally, their tweets are more appreciated, i.e., a higher fraction of their tweets receives a retweet, albeit the effect size is smaller in this case (figure not shown).</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>p-value</label>
+        <term>p-value</term>
+        <quote>A ✓ indicates that the corresponding feature is significantly higher for the group of the column (p &lt; 0.001) for at least 4 of the 6 thresholds δ used, for most datasets</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>statistical-significance</label>
         <term>statistical-significance</term>
         <quote>Table 2 (second column) summarizes the results for partisan users and lists the features for which the difference is statistically significant on a majority of the datasets.</quote>
