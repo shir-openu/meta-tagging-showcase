@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-13"
-              who="build_paper_edition.py">170 spans placed by verified search</change>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">173 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -65,18 +65,22 @@
       </span>
       <span xml:id="t5" type="method" ana="#method" resp="#paper">
         <label>simulation</label>
+        <term>simulation</term>
         <quote>Because only the amplitude variability model is analytically tractable, we ran numerical simulations to estimate the Fisher information for populations with other forms of heterogeneity.</quote>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
         <label>mechanisms</label>
+        <term>Raising correlations redistributes noise power out of the high-frequency Fourier components, and because heterogeneous tuning spreads the stimulus signal into exactly those components, their signal-to-noise ratio rises</term>
         <quote>When correlations are increased, the noise power increases in a few low-frequency Fourier components while it decreases in all higher-frequency components (it quickly asymptotes to 1 − c 0 with increasing frequency; Fig. 1 D ).</quote>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">
         <label>mechanisms</label>
+        <term>Heterogeneous tuning distributes the encoded signal across all spatial frequencies, so the high-frequency channels favoured by strong correlations carry stimulus information</term>
         <quote>In heterogeneous populations, in contrast, the stimulus encoding is distributed among all frequencies and the high-frequency components have a better signal-to-noise ratio if correlations are strong.</quote>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">
         <label>mechanisms</label>
+        <term>Attention improves coding by suppressing a shared noise source (raising rates, lowering Fano factors and correlations together), which lowers noise entropy, rather than by decorrelation per se</term>
         <quote>Our analysis suggests an alternative interpretation: the higher firing rates under attention increase the signal while the reduced Fano factors and correlations indicate the suppression of a common noise source, which reduces the noise entropy and therefore leads to improved coding accuracy.</quote>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="1.0">
@@ -143,584 +147,712 @@
         <label>408 measured orientation tuning curves, used to set the heterogeneity parameter rather than to test the theory</label>
         <quote>We set κ = 0.25 as determined from a dataset of 408 orientation tuning curves of neurons recorded in macaque primary visual cortex ( Ecker et al., 2010 ). We further assume that the noise correlation between two neurons depends only on their difference in preferred direction (limited range structure) and that variances of the neurons are Poisson-like (i.e., the variances are equal to the mean firing rates). In our model, the level of correlations is controlled by c 0 , the correlation coefficient of two neurons with identical preferred directions. The relationship of c 0 to the average level of correlations 〈 r 〉 depends on the decay constant in the correlation structure ( Fig. 1 C ). For the set of parameters we used, 〈 r 〉 is ∼0.3 c 0 . Our choice of parameterization by c 0 is motivated by the fact that, for large populations, it is the more relevant quantity compared with the average correlations. Although we have to choose a specific set of parameters for the figures, our results hold more generally, as long as both tuning curves and correlation structure do not change as a function of the population size and are sufficiently smooth and slowly varying.</quote>
       </span>
-      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t25" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a second analysis holding the TOTAL noise (the noise entropy) constant while varying only the correlation structure</label>
+        <quote>we also analyzed population codes in which the total amount of noise (the noise entropy) is kept constant and only the correlation structure is changed</quote>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>THE FIELD&#x27;S CONCLUSION WAS A PROPERTY OF ITS SIMPLIFYING ASSUMPTION: most previous studies use HOMOGENEOUS population models in which neurons differ only in preferred stimulus, and heterogeneity CRITICALLY ALTERS the properties of a population code - &#x27;this has not been sufficiently appreciated&#x27;</label>
         <quote>Most previous theoretical studies of population coding use homogeneous population models, in which all neurons have tuning functions that differ only in their preferred stimulus and are otherwise identical ( Snippe and Koenderink, 1992 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ). In these models, limited range correlations introduce a strong noise component in the subspace in which the stimulus is encoded, impairing the population code ( Sompolinsky et al., 2001 ). However, a very prominent feature of cortical neurons is the diversity of their tuning functions. This heterogeneity changes the way the stimulus is encoded and can critically alter the properties of a population code ( Shamir and Sompolinsky, 2006 ). Unfortunately, this has not been sufficiently appreciated.</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>with the belief stated in the form it is usually held - if correlations are unavoidable, it is GENERALLY BELIEVED that reducing them improves a population code, which is why falling correlations under attention, adaptation and learning are read as better coding</label>
         <quote>If correlations are unavoidable, it is generally believed that reducing them improves a population code ( Zohary et al., 1994 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Ecker et al., 2010 ). In line with this notion, a number of recent experimental studies find reduced spike count correlations under experimental conditions in which improved coding is expected, such as under attention ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ), adaptation ( Gutnisky and Dragoi, 2008 ), or after learning ( Gu et al., 2011 ).</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>AND THE ANSWER REVERSES: in populations with more than a few hundred neurons, INCREASING limited-range correlations can substantially IMPROVE encoding accuracy</label>
         <quote>Here, we analyze the role of limited range correlations in more realistic, heterogeneous population models. We use Fisher information and maximum-likelihood decoding to show that reduced correlations do not necessarily improve encoding accuracy. In fact, in populations with more than a few hundred neurons, increasing the level of limited range correlations can substantially improve encoding accuracy.</quote>
       </span>
-      <span xml:id="t28" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>PUBLISHED PAPERS DISAGREE AND THE PARAMETER THEIR DISAGREEMENT TURNS ON IS NAMED: &#x27;The apparent discrepancy arises from SUBTLE DIFFERENCES IN THE ASSUMPTIONS that were made about the population activity, such as for instance the noise model (additive vs Poisson-like)&#x27;</label>
         <quote>This question has been addressed by a number of authors who reported different results ( Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Shamir and Sompolinsky, 2006 ). The apparent discrepancy arises from subtle differences in the assumptions that were made about the population activity, such as for instance the noise model (additive vs Poisson-like). In the following, we provide a comprehensive treatment of this problem using our framework that includes most of the previous studies as special cases.</quote>
       </span>
-      <span xml:id="t29" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
         <label>and the two conditions are stated exactly: the information saturates ONLY IF the variances do not depend on the stimulus AND all neurons have identical tuning curves - fail either and it grows linearly</label>
         <quote>In summary, the Fisher information saturates to a finite bound only if the variances of the neurons do not depend on the stimulus and all neurons have identical tuning curves. If one of these two conditions is not satisfied, the Fisher information increases linearly with the population size.</quote>
       </span>
-      <span xml:id="t30" type="senses" ana="#senses[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t31" type="senses" ana="#senses[5]" resp="#tagger" cert="1.0">
         <label>A FREE PARAMETER THAT SHOULD NEVER HAVE BEEN FREE: the level of correlations cannot be optimized on its own with tuning functions and variances held fixed, because that drives the model to a DEGENERATE, biologically implausible solution</label>
         <quote>With regard to the first question, we suggest that the level of correlations should not be interpreted as a free parameter that can be optimized independently while all other parameters, such as tuning functions and variances, are kept fixed. Under such assumptions, increasing the level of correlations to the maximum (i.e., c 0 = 1) leads to maximum Fisher information ( Figs. 4 B , 6 ). The noise power in the high frequencies vanishes (as it asymptotes to 1 − c 0 ; Fig. 1 D ), allowing for effectively noise-free decoding of any signal that is encoded in these directions. However, in real neural populations, the amount of noise in the response cannot be arbitrarily small because input noise cannot be removed by processing. Thus, finding the optimal level of correlations under the assumption of fixed tuning functions and variances leads to a degenerate solution, which is not biologically plausible.</quote>
       </span>
-      <span xml:id="t31" type="senses" ana="#senses[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t32" type="senses" ana="#senses[6]" resp="#tagger" cert="1.0">
         <label>stated against its own model too - MOST MODELS USED IN PREVIOUS STUDIES, INCLUDING OUR ABOVE MODEL, are not well constrained, because they permit the noise entropy to be made arbitrarily small</label>
         <quote>This implies that most models used in previous studies (including our above model) are not well constrained if the correlation strength is considered a free parameter because they allow for a degenerate case in which the noise entropy becomes arbitrarily small (by simply increasing the level of correlations until c 0 = 1). To disentangle the effect of the noise correlation structure from that of the noise entropy, we here introduce an additional constraint and fix the noise entropy as the correlations are changed.</quote>
       </span>
-      <span xml:id="t32" type="senses" ana="#senses[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t33" type="senses" ana="#senses[7]" resp="#tagger" cert="1.0">
         <label>AND ONCE THE RIGHT THING IS HELD CONSTANT, THE QUANTITY THE WHOLE LITERATURE MEASURES DROPS OUT: with noise entropy fixed, the information depends ONLY on amplitude variability and is INDEPENDENT of both the structure and the magnitude of correlations</label>
         <quote>Thus, J mean depends only on the amount of amplitude variability, κ. It is independent of both the structure and the magnitude of correlations as none of the parameters of the correlation structure (e.g., c 0 or L ) enter the right-hand side of Equation 46 .</quote>
       </span>
-      <span xml:id="t33" type="senses" ana="#senses[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t34" type="senses" ana="#senses[8]" resp="#tagger" cert="1.0">
         <label>with the conclusion drawn in the field&#x27;s own terms - accuracy is set by the amount of heterogeneity and the overall noise entropy, and the specific noise structure is NOT AS IMPORTANT AS COMMONLY ASSUMED</label>
         <quote>Our results demonstrate that, under this constraint, the performance of population codes in large populations is primarily determined by the amount of heterogeneity in the tuning functions of the neurons and by the overall noise entropy ( Fig. 10 D , Eq. 46 ), while the specific structure of the noise does not appear to be as important as commonly assumed.</quote>
       </span>
-      <span xml:id="t34" type="senses" ana="#senses[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t35" type="senses" ana="#senses[9]" resp="#tagger" cert="1.0">
         <label>A BOUND IS ONLY A BOUND UNTIL YOU SHOW IT IS TIGHT: Fisher information gives the Cramer-Rao bound, the bound is not always attainable, and COMPARING LOOSE UPPER BOUNDS IS MEANINGLESS</label>
         <quote>One potential caveat that has to be addressed when using Fisher information is that it provides only a bound (the Cramér–Rao bound) on the accuracy of a population code. Unfortunately, under some conditions potentially relevant for neural coding this bound is not tight, which means there exists no estimator that achieves this performance ( Bethge et al., 2002 ; Berens et al., 2011 ). If certain assumptions are placed on the statistics of population activity (e.g., independent and identically distributed samples), the maximum-likelihood estimator can be proven to converge (for large n ) to the Cramér–Rao bound. However, under the conditions studied here, the responses are neither independent nor identically distributed and we do not know whether and how fast the bound is attained. Thus, it is unclear whether comparing Fisher information under different conditions (such as different levels of correlation or different amounts of heterogeneity) can provide insights into the accuracy of population codes because comparing loose upper bounds is meaningless.</quote>
       </span>
-      <span xml:id="t35" type="senses" ana="#senses[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t36" type="senses" ana="#senses[10]" resp="#tagger" cert="1.0">
         <label>so the measure is validated before it is used - the maximum-likelihood estimator comes within 5% of the bound for every population above 64 neurons</label>
         <quote>To address this problem, we additionally evaluated the efficiency of the maximum-likelihood estimator numerically (for details, see Materials and Methods). For both homogeneous and heterogeneous populations, it attains the Cramér–Rao bound very quickly ( Fig. 7 ), even in the case of nonidentical and nonindependent samples. Interestingly, for homogeneous populations, the rate of convergence depends more on the level of correlations than for heterogeneous populations ( Fig. 7 ). More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons. Thus, the bound is sufficiently tight and the use of Fisher information is well justified.</quote>
       </span>
-      <span xml:id="t36" type="senses" ana="#senses[11]" resp="#tagger" cert="1.0">
-        <label>THE SAME MODEL GIVES THE OPPOSITE ANSWER UNDER A DIFFERENT DECODER: the optimal LINEAR estimator does not improve with correlations at any population size, so under a linear readout REDUCING correlations increases accuracy</label>
+      <span xml:id="t37" type="senses" ana="#senses[11]" resp="#tagger" cert="1.0">
+        <label>THE SAME MODEL GIVES THE OPPOSITE ANSWER UNDER A DIFFERENT DECODER: the OLE does not improve with correlations at any population size, so under a linear readout REDUCING correlations increases accuracy</label>
         <quote>Even though J mean is often referred to as the portion of the information that can be read out by linear methods, this notion is problematic—at least in the framework of stimulus reconstruction considered here. To illustrate this point, we estimated the performance of the OLE decoding the activity of a heterogeneous population of neurons. The efficiency of the OLE does not converge to the inverse of J mean ( Fig. 12 A ). In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ). The reason for this behavior is the fact that the OLE is a biased estimator, for which the Cramér–Rao bound is not simply the inverse of the Fisher information but the bias has to be taken into account. Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information. Consequently, if downstream areas are confined to linear readout mechanisms, reducing pairwise correlations increases the readout accuracy.</quote>
       </span>
-      <span xml:id="t37" type="senses" ana="#senses[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t38" type="senses" ana="#senses[12]" resp="#tagger" cert="1.0">
         <label>and a standard interpretation is refused on the way - the linear part of the Fisher information is often called the portion readable by linear methods, and that notion is PROBLEMATIC because the linear estimator is BIASED</label>
         <quote>Even though J mean is often referred to as the portion of the information that can be read out by linear methods, this notion is problematic—at least in the framework of stimulus reconstruction considered here. To illustrate this point, we estimated the performance of the OLE decoding the activity of a heterogeneous population of neurons. The efficiency of the OLE does not converge to the inverse of J mean ( Fig. 12 A ). In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ). The reason for this behavior is the fact that the OLE is a biased estimator, for which the Cramér–Rao bound is not simply the inverse of the Fisher information but the bias has to be taken into account. Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information. Consequently, if downstream areas are confined to linear readout mechanisms, reducing pairwise correlations increases the readout accuracy.</quote>
       </span>
-      <span xml:id="t38" type="senses" ana="#senses[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t39" type="senses" ana="#senses[13]" resp="#tagger" cert="1.0">
         <label>TWO QUANTITIES THAT MOVE TOGETHER AND CANNOT BE APPORTIONED: removing one common noise source changes correlations by 50% and variances by 5%, and CONSIDERING EACH ONE IN ISOLATION IS NOT MEANINGFUL</label>
         <quote>For example, if the response of a population of neurons with unit variances and weak correlations (〈 r 〉 = 0.05) is confounded by a common noise source with variance 0.05, removing this common noise source reduces noise correlations from ∼0.1 to ∼0.05 (a 50% change) while reducing the variances from ∼1.05 to 1 (a 5% change). In this situation, however, the changes in correlations cannot be separated from the changes in variances and neither of both is more important than the other. In fact, considering each one in isolation is not meaningful.</quote>
       </span>
-      <span xml:id="t39" type="senses" ana="#senses[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t40" type="senses" ana="#senses[14]" resp="#tagger" cert="1.0">
         <label>with the published comparison called out by name - the relative importance of correlations was assessed using HIGHLY SUBOPTIMAL POOLING RULES, and conclusions from those do not generalize</label>
         <quote>Assuming optimal readout, a third possibility is that the improved performance is not exclusively due to reduced correlations. For instance, under attention Fano factors decrease and firing rates increase ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ). Although it has been argued that these changes are small compared with the relative changes in correlation strength and their effect is negligible for large populations, this argument is problematic. The effect of different factors was assessed using highly suboptimal pooling rules ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ) and the conclusions derived from these pooling models do not generalize to other (e.g., optimal) readout mechanisms—as our above results show.</quote>
       </span>
-      <span xml:id="t40" type="senses" ana="#senses[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t41" type="senses" ana="#senses[15]" resp="#tagger" cert="1.0">
         <label>THE MODEL SILENTLY STOPS BEING VALID PAST A SIZE: with variable correlation coefficients the covariance matrix is positive definite only up to a critical n, beyond which the model is not valid any more</label>
         <quote>Unfortunately, if the variance of the correlation coefficients is fixed independent of the population size, the covariance matrix will be valid (positive definite) only up to n ≈ 1/(2σ) 2 . Thus, as the population size is increased, from a critical n on, the model will not be valid any more.</quote>
       </span>
-      <span xml:id="t41" type="senses" ana="#senses[16]" resp="#tagger" cert="0.9">
+      <span xml:id="t42" type="senses" ana="#senses[16]" resp="#tagger" cert="0.9">
         <label>AND THE EXPLANATION THAT WOULD SAVE THE OLD READING IS TESTED AND REJECTED ON ITS OWN TERMS: it would need the read-out population to be at most a few hundred cells, which - given the number in a single cortical column - seems rather unlikely</label>
         <quote>One possibility is that the size of the population that is read out is small enough to be in the low-correlation regime. Although we did not assess this in detail by taking into account all relevant parameters from these studies, Figures 5 and 8 B suggest that the relevant population size would have to be on the order of at most a few hundred cells. Given the number of cells even in a single cortical column, this seems rather unlikely.</quote>
       </span>
-      <span xml:id="t42" type="senses" ana="#senses[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t43" type="senses" ana="#senses[17]" resp="#tagger" cert="1.0">
         <label>and the claim is bounded in its final sentence - reducing correlations improving encoding is NOT A GENERAL PRINCIPLE but true only under certain conditions, with the assumptions about population size and readout named as what can change it</label>
         <quote>In summary, the notion that reducing correlations leads to a more accurate encoding is not a general principle but is only true under certain conditions. Assumptions about the size of the population and the way information is read out can strongly affect the conclusions. For optimal decoding of large populations, the total amount of noise—as measured by the noise entropy—is more important than the specific noise correlation structure.</quote>
       </span>
-      <span xml:id="t43" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → Sompolinsky et al., 2001; Shamir and Sompolinsky, 2006</label>
         <quote>We extended the approach pioneered by Sompolinsky and colleagues ( Sompolinsky et al., 2001 ; Shamir and Sompolinsky, 2006 ) to study population codes with heterogeneous tuning functions, arbitrary mean/variance relationships (Fano factors), and a broad range of correlation structures.</quote>
       </span>
-      <span xml:id="t44" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → Shamir and Sompolinsky (2006)</label>
         <quote>We here generalize the results of Shamir and Sompolinsky (2006) to the case with nonadditive, stimulus-dependent noise.</quote>
       </span>
-      <span xml:id="t45" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>contradicts → Cohen and Maunsell, 2009; Mitchell et al., 2009</label>
         <quote>The effect of different factors was assessed using highly suboptimal pooling rules ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ) and the conclusions derived from these pooling models do not generalize to other (e.g., optimal) readout mechanisms—as our above results show.</quote>
       </span>
-      <span xml:id="t46" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>replicates → Zohary et al., 1994; Abbott and Dayan, 1999; Sompolinsky et al., 2001; Wilke and Eurich, 2002</label>
         <quote>Generally, small limited-range correlations decrease the accuracy compared with the independent case, consistent with previous reports ( Zohary et al., 1994 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ).</quote>
       </span>
-      <span xml:id="t47" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
         <label>contradicts → the general principle that reducing noise correlations improves a population code</label>
         <quote>In summary, the notion that reducing correlations leads to a more accurate encoding is not a general principle but is only true under certain conditions. Assumptions about the size of the population and the way information is read out can strongly affect the conclusions. For optimal decoding of large populations, the total amount of noise—as measured by the noise entropy—is more important than the specific noise correlation structure.</quote>
       </span>
-      <span xml:id="t48" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t49" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
         <label>explains-away → the disagreement among earlier theoretical studies, as arising from different unstated noise-model and tuning assumptions</label>
         <quote>This question has been addressed by a number of authors who reported different results ( Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Shamir and Sompolinsky, 2006 ). The apparent discrepancy arises from subtle differences in the assumptions that were made about the population activity, such as for instance the noise model (additive vs Poisson-like). In the following, we provide a comprehensive treatment of this problem using our framework that includes most of the previous studies as special cases.</quote>
       </span>
-      <span xml:id="t49" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t50" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
         <label>critiques → the practice of treating correlation strength as a free parameter while holding tuning and variances fixed, which admits a degenerate noise-free optimum</label>
         <quote>With regard to the first question, we suggest that the level of correlations should not be interpreted as a free parameter that can be optimized independently while all other parameters, such as tuning functions and variances, are kept fixed. Under such assumptions, increasing the level of correlations to the maximum (i.e., c 0 = 1) leads to maximum Fisher information ( Figs. 4 B , 6 ). The noise power in the high frequencies vanishes (as it asymptotes to 1 − c 0 ; Fig. 1 D ), allowing for effectively noise-free decoding of any signal that is encoded in these directions. However, in real neural populations, the amount of noise in the response cannot be arbitrarily small because input noise cannot be removed by processing. Thus, finding the optimal level of correlations under the assumption of fixed tuning functions and variances leads to a degenerate solution, which is not biologically plausible.</quote>
       </span>
-      <span xml:id="t50" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="0.9">
+      <span xml:id="t51" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="0.9">
         <label>critiques → the attention studies&#x27; attribution of improved coding to reduced correlations, since the pooling rules used were suboptimal and correlations and variances moved together</label>
         <quote>Assuming optimal readout, a third possibility is that the improved performance is not exclusively due to reduced correlations. For instance, under attention Fano factors decrease and firing rates increase ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ). Although it has been argued that these changes are small compared with the relative changes in correlation strength and their effect is negligible for large populations, this argument is problematic. The effect of different factors was assessed using highly suboptimal pooling rules ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ) and the conclusions derived from these pooling models do not generalize to other (e.g., optimal) readout mechanisms—as our above results show.</quote>
       </span>
-      <span xml:id="t51" type="claim_relations" ana="#claim_relations[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t52" type="claim_relations" ana="#claim_relations[8]" resp="#tagger" cert="1.0">
         <label>supports → the use of Fisher information here specifically, having shown the maximum-likelihood estimator comes within 5% of the bound</label>
         <quote>To address this problem, we additionally evaluated the efficiency of the maximum-likelihood estimator numerically (for details, see Materials and Methods). For both homogeneous and heterogeneous populations, it attains the Cramér–Rao bound very quickly ( Fig. 7 ), even in the case of nonidentical and nonindependent samples. Interestingly, for homogeneous populations, the rate of convergence depends more on the level of correlations than for heterogeneous populations ( Fig. 7 ). More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons. Thus, the bound is sufficiently tight and the use of Fisher information is well justified.</quote>
       </span>
-      <span xml:id="t52" type="claim_relations" ana="#claim_relations[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t53" type="claim_relations" ana="#claim_relations[9]" resp="#tagger" cert="1.0">
         <label>distinguishes-from → the linear-readout case, in which the original conclusion does hold</label>
         <quote>Even though J mean is often referred to as the portion of the information that can be read out by linear methods, this notion is problematic—at least in the framework of stimulus reconstruction considered here. To illustrate this point, we estimated the performance of the OLE decoding the activity of a heterogeneous population of neurons. The efficiency of the OLE does not converge to the inverse of J mean ( Fig. 12 A ). In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ). The reason for this behavior is the fact that the OLE is a biased estimator, for which the Cramér–Rao bound is not simply the inverse of the Fisher information but the bias has to be taken into account. Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information. Consequently, if downstream areas are confined to linear readout mechanisms, reducing pairwise correlations increases the readout accuracy.</quote>
       </span>
-      <span xml:id="t53" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t54" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
         <label>homogeneous —causes→ population code</label>
+        <term>homogeneous</term>
+        <term>population code</term>
         <quote>In homogeneous populations of neurons, this limited range correlation structure is highly detrimental to the accuracy of a population code. Therefore, reduced spike count correlations under attention, after adaptation, or after learning have been interpreted as evidence for a more efficient population code.</quote>
       </span>
-      <span xml:id="t54" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t55" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
         <label>attention —causes→ correlation</label>
+        <term>attention</term>
+        <term>correlation</term>
         <quote>In homogeneous populations of neurons, this limited range correlation structure is highly detrimental to the accuracy of a population code. Therefore, reduced spike count correlations under attention, after adaptation, or after learning have been interpreted as evidence for a more efficient population code.</quote>
       </span>
-      <span xml:id="t55" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t56" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
         <label>Fisher information —operationalised-as→ encoding accuracy</label>
+        <term>Fisher information</term>
+        <term>encoding accuracy</term>
         <quote>Here, we analyze the role of limited range correlations in more realistic, heterogeneous population models. We use Fisher information and maximum-likelihood decoding to show that reduced correlations do not necessarily improve encoding accuracy. In fact, in populations with more than a few hundred neurons, increasing the level of limited range correlations can substantially improve encoding accuracy.</quote>
       </span>
-      <span xml:id="t56" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
         <label>correlation —causes→ encoding accuracy</label>
+        <term>correlation</term>
+        <term>encoding accuracy</term>
         <quote>Here, we analyze the role of limited range correlations in more realistic, heterogeneous population models. We use Fisher information and maximum-likelihood decoding to show that reduced correlations do not necessarily improve encoding accuracy. In fact, in populations with more than a few hundred neurons, increasing the level of limited range correlations can substantially improve encoding accuracy.</quote>
       </span>
-      <span xml:id="t57" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t58" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
         <label>maximum-likelihood —operationalised-as→ decoding</label>
+        <term>maximum-likelihood</term>
+        <term>decoding</term>
         <quote>Here, we analyze the role of limited range correlations in more realistic, heterogeneous population models. We use Fisher information and maximum-likelihood decoding to show that reduced correlations do not necessarily improve encoding accuracy. In fact, in populations with more than a few hundred neurons, increasing the level of limited range correlations can substantially improve encoding accuracy.</quote>
       </span>
-      <span xml:id="t58" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t59" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
         <label>noise entropy —causes→ encoding accuracy</label>
+        <term>noise entropy</term>
+        <term>encoding accuracy</term>
         <quote>We found that this improvement results from a decrease in noise entropy that is associated with increasing correlations if the marginal distributions are unchanged. Surprisingly, for constant noise entropy and in the limit of large populations, the encoding accuracy is independent of both structure and magnitude of noise correlations.</quote>
       </span>
-      <span xml:id="t59" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t60" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
         <label>model —part-of→ tuning</label>
+        <term>model</term>
+        <term>tuning</term>
         <quote>Most previous theoretical studies of population coding use homogeneous population models, in which all neurons have tuning functions that differ only in their preferred stimulus and are otherwise identical ( Snippe and Koenderink, 1992 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ). In these models, limited range correlations introduce a strong noise component in the subspace in which the stimulus is encoded, impairing the population code ( Sompolinsky et al., 2001 ). However, a very prominent feature of cortical neurons is the diversity of their tuning functions. This heterogeneity changes the way the stimulus is encoded and can critically alter the properties of a population code ( Shamir and Sompolinsky, 2006 ). Unfortunately, this has not been sufficiently appreciated.</quote>
       </span>
-      <span xml:id="t60" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t61" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
         <label>heterogeneity —causes→ population code</label>
+        <term>heterogeneity</term>
+        <term>population code</term>
         <quote>Most previous theoretical studies of population coding use homogeneous population models, in which all neurons have tuning functions that differ only in their preferred stimulus and are otherwise identical ( Snippe and Koenderink, 1992 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ). In these models, limited range correlations introduce a strong noise component in the subspace in which the stimulus is encoded, impairing the population code ( Sompolinsky et al., 2001 ). However, a very prominent feature of cortical neurons is the diversity of their tuning functions. This heterogeneity changes the way the stimulus is encoded and can critically alter the properties of a population code ( Shamir and Sompolinsky, 2006 ). Unfortunately, this has not been sufficiently appreciated.</quote>
       </span>
-      <span xml:id="t61" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t62" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
         <label>correlation —causes→ population code</label>
+        <term>correlation</term>
+        <term>population code</term>
         <quote>If correlations are unavoidable, it is generally believed that reducing them improves a population code ( Zohary et al., 1994 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Ecker et al., 2010 ). In line with this notion, a number of recent experimental studies find reduced spike count correlations under experimental conditions in which improved coding is expected, such as under attention ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ), adaptation ( Gutnisky and Dragoi, 2008 ), or after learning ( Gu et al., 2011 ).</quote>
       </span>
-      <span xml:id="t62" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t63" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
         <label>assumption —causes→ model</label>
+        <term>assumption</term>
+        <term>model</term>
         <quote>This question has been addressed by a number of authors who reported different results ( Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Shamir and Sompolinsky, 2006 ). The apparent discrepancy arises from subtle differences in the assumptions that were made about the population activity, such as for instance the noise model (additive vs Poisson-like). In the following, we provide a comprehensive treatment of this problem using our framework that includes most of the previous studies as special cases.</quote>
       </span>
-      <span xml:id="t63" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t64" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
         <label>noise —part-of→ assumption</label>
+        <term>noise</term>
+        <term>assumption</term>
         <quote>This question has been addressed by a number of authors who reported different results ( Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Shamir and Sompolinsky, 2006 ). The apparent discrepancy arises from subtle differences in the assumptions that were made about the population activity, such as for instance the noise model (additive vs Poisson-like). In the following, we provide a comprehensive treatment of this problem using our framework that includes most of the previous studies as special cases.</quote>
       </span>
-      <span xml:id="t64" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t65" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="1.0">
         <label>variance —causes→ bound</label>
+        <term>variance</term>
+        <term>bound</term>
         <quote>In summary, the Fisher information saturates to a finite bound only if the variances of the neurons do not depend on the stimulus and all neurons have identical tuning curves. If one of these two conditions is not satisfied, the Fisher information increases linearly with the population size.</quote>
       </span>
-      <span xml:id="t65" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t66" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="1.0">
         <label>size —causes→ Fisher information</label>
+        <term>size</term>
+        <term>Fisher information</term>
         <quote>In summary, the Fisher information saturates to a finite bound only if the variances of the neurons do not depend on the stimulus and all neurons have identical tuning curves. If one of these two conditions is not satisfied, the Fisher information increases linearly with the population size.</quote>
       </span>
-      <span xml:id="t66" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t67" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
         <label>size —causes→ correlation</label>
+        <term>size</term>
+        <term>correlation</term>
         <quote>There are two regimes for the effect of changes in correlation strength: one in which reducing correlation improves and one in which it impairs the performance. Which of the two applies to a given population code depends on whether correlations are smaller or larger than the minimum in the curves in Figure 4 B . We term this value the “maximally detrimental” correlation strength c min . If correlations are below c min , decreasing them further improves the population code. In this regime, which we refer to as the “low-correlation regime,” the behavior is similar to that of homogeneous populations. In the “high-correlation regime,” in contrast, increasing the correlation strength improves the population code. The value of c min is inversely related to the population size and decreases with O (1/ n ) ( Fig. 5 ). For large populations, it converges to zero and, hence, increasing correlations is almost always advantageous.</quote>
       </span>
-      <span xml:id="t67" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t68" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="1.0">
         <label>heterogeneity —contrasted-with→ correlation</label>
+        <term>heterogeneity</term>
+        <term>correlation</term>
         <quote>Thus, asymptotically the relative performance depends only on the correlation coefficient of two neurons with identical preferred orientations, c 0 , and the degree of heterogeneity, κ. The more heterogeneous a population is, the higher J mean becomes ( Fig. 6 ).</quote>
       </span>
-      <span xml:id="t68" type="concept_edges" ana="#concept_edges[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t69" type="concept_edges" ana="#concept_edges[15]" resp="#tagger" cert="1.0">
         <label>amplitude —causes→ constraint</label>
+        <term>amplitude</term>
+        <term>constraint</term>
         <quote>However, it should be noted that J mean cannot be increased arbitrarily by simply increasing the heterogeneity, κ, because the amplitudes a j are constrained to be positive, have an average of 1, and neurons have a maximum possible firing rate due to biophysical constraints. At the same time, the value κ = 0.25 that we used for the above figures is likely to be an underestimate because in real neural populations sources of heterogeneity other than amplitudes exist.</quote>
       </span>
-      <span xml:id="t69" type="concept_edges" ana="#concept_edges[16]" resp="#tagger" cert="0.9">
+      <span xml:id="t70" type="concept_edges" ana="#concept_edges[16]" resp="#tagger" cert="0.9">
         <label>parameter —causes→ degenerate</label>
+        <term>parameter</term>
+        <term>degenerate</term>
         <quote>With regard to the first question, we suggest that the level of correlations should not be interpreted as a free parameter that can be optimized independently while all other parameters, such as tuning functions and variances, are kept fixed. Under such assumptions, increasing the level of correlations to the maximum (i.e., c 0 = 1) leads to maximum Fisher information ( Figs. 4 B , 6 ). The noise power in the high frequencies vanishes (as it asymptotes to 1 − c 0 ; Fig. 1 D ), allowing for effectively noise-free decoding of any signal that is encoded in these directions. However, in real neural populations, the amount of noise in the response cannot be arbitrarily small because input noise cannot be removed by processing. Thus, finding the optimal level of correlations under the assumption of fixed tuning functions and variances leads to a degenerate solution, which is not biologically plausible.</quote>
       </span>
-      <span xml:id="t70" type="concept_edges" ana="#concept_edges[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t71" type="concept_edges" ana="#concept_edges[17]" resp="#tagger" cert="1.0">
         <label>assumption —part-of→ variance</label>
+        <term>assumption</term>
+        <term>variance</term>
         <quote>With regard to the first question, we suggest that the level of correlations should not be interpreted as a free parameter that can be optimized independently while all other parameters, such as tuning functions and variances, are kept fixed. Under such assumptions, increasing the level of correlations to the maximum (i.e., c 0 = 1) leads to maximum Fisher information ( Figs. 4 B , 6 ). The noise power in the high frequencies vanishes (as it asymptotes to 1 − c 0 ; Fig. 1 D ), allowing for effectively noise-free decoding of any signal that is encoded in these directions. However, in real neural populations, the amount of noise in the response cannot be arbitrarily small because input noise cannot be removed by processing. Thus, finding the optimal level of correlations under the assumption of fixed tuning functions and variances leads to a degenerate solution, which is not biologically plausible.</quote>
       </span>
-      <span xml:id="t71" type="concept_edges" ana="#concept_edges[18]" resp="#tagger" cert="1.0">
-        <label>constraint —operationalised-as→ noise entropy</label>
+      <span xml:id="t72" type="concept_edges" ana="#concept_edges[18]" resp="#tagger" cert="1.0">
+        <label>RETRACTED (A DIAGNOSIS OF A MODELLING PROBLEM, TAGGED AS AN OPERATIONALISATION) · constraint —operationalised-as→ noise entropy</label>
+        <term>constraint</term>
+        <term>noise entropy</term>
         <quote>This implies that most models used in previous studies (including our above model) are not well constrained if the correlation strength is considered a free parameter because they allow for a degenerate case in which the noise entropy becomes arbitrarily small (by simply increasing the level of correlations until c 0 = 1). To disentangle the effect of the noise correlation structure from that of the noise entropy, we here introduce an additional constraint and fix the noise entropy as the correlations are changed.</quote>
       </span>
-      <span xml:id="t72" type="concept_edges" ana="#concept_edges[19]" resp="#tagger" cert="1.0">
-        <label>model —part-of→ parameter</label>
+      <span xml:id="t73" type="concept_edges" ana="#concept_edges[19]" resp="#tagger" cert="1.0">
+        <label>RETRACTED (`parameter` DOES NOT CONTAIN `model`) · model —part-of→ parameter</label>
+        <term>model</term>
+        <term>parameter</term>
         <quote>This implies that most models used in previous studies (including our above model) are not well constrained if the correlation strength is considered a free parameter because they allow for a degenerate case in which the noise entropy becomes arbitrarily small (by simply increasing the level of correlations until c 0 = 1). To disentangle the effect of the noise correlation structure from that of the noise entropy, we here introduce an additional constraint and fix the noise entropy as the correlations are changed.</quote>
       </span>
-      <span xml:id="t73" type="concept_edges" ana="#concept_edges[20]" resp="#tagger" cert="1.0">
+      <span xml:id="t74" type="concept_edges" ana="#concept_edges[20]" resp="#tagger" cert="1.0">
         <label>amplitude —distinct-from→ correlation</label>
+        <term>amplitude</term>
+        <term>correlation</term>
         <quote>Thus, J mean depends only on the amount of amplitude variability, κ. It is independent of both the structure and the magnitude of correlations as none of the parameters of the correlation structure (e.g., c 0 or L ) enter the right-hand side of Equation 46 .</quote>
       </span>
-      <span xml:id="t74" type="concept_edges" ana="#concept_edges[21]" resp="#tagger" cert="1.0">
+      <span xml:id="t75" type="concept_edges" ana="#concept_edges[21]" resp="#tagger" cert="1.0">
         <label>heterogeneity —contrasted-with→ noise entropy</label>
+        <term>heterogeneity</term>
+        <term>noise entropy</term>
         <quote>Our results demonstrate that, under this constraint, the performance of population codes in large populations is primarily determined by the amount of heterogeneity in the tuning functions of the neurons and by the overall noise entropy ( Fig. 10 D , Eq. 46 ), while the specific structure of the noise does not appear to be as important as commonly assumed.</quote>
       </span>
-      <span xml:id="t75" type="concept_edges" ana="#concept_edges[22]" resp="#tagger" cert="1.0">
+      <span xml:id="t76" type="concept_edges" ana="#concept_edges[22]" resp="#tagger" cert="1.0">
         <label>bound —contrasted-with→ estimator</label>
+        <term>bound</term>
+        <term>estimator</term>
         <quote>One potential caveat that has to be addressed when using Fisher information is that it provides only a bound (the Cramér–Rao bound) on the accuracy of a population code. Unfortunately, under some conditions potentially relevant for neural coding this bound is not tight, which means there exists no estimator that achieves this performance ( Bethge et al., 2002 ; Berens et al., 2011 ). If certain assumptions are placed on the statistics of population activity (e.g., independent and identically distributed samples), the maximum-likelihood estimator can be proven to converge (for large n ) to the Cramér–Rao bound. However, under the conditions studied here, the responses are neither independent nor identically distributed and we do not know whether and how fast the bound is attained. Thus, it is unclear whether comparing Fisher information under different conditions (such as different levels of correlation or different amounts of heterogeneity) can provide insights into the accuracy of population codes because comparing loose upper bounds is meaningless.</quote>
       </span>
-      <span xml:id="t76" type="concept_edges" ana="#concept_edges[23]" resp="#tagger" cert="1.0">
+      <span xml:id="t77" type="concept_edges" ana="#concept_edges[23]" resp="#tagger" cert="1.0">
         <label>estimator —operationalised-as→ Fisher information</label>
+        <term>estimator</term>
+        <term>Fisher information</term>
         <quote>To address this problem, we additionally evaluated the efficiency of the maximum-likelihood estimator numerically (for details, see Materials and Methods). For both homogeneous and heterogeneous populations, it attains the Cramér–Rao bound very quickly ( Fig. 7 ), even in the case of nonidentical and nonindependent samples. Interestingly, for homogeneous populations, the rate of convergence depends more on the level of correlations than for heterogeneous populations ( Fig. 7 ). More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons. Thus, the bound is sufficiently tight and the use of Fisher information is well justified.</quote>
       </span>
-      <span xml:id="t77" type="concept_edges" ana="#concept_edges[24]" resp="#tagger" cert="1.0">
+      <span xml:id="t78" type="concept_edges" ana="#concept_edges[24]" resp="#tagger" cert="1.0">
         <label>readout —operationalised-as→ linear</label>
+        <term>readout</term>
+        <term>linear</term>
         <quote>A second explanation is related to the neural readout mechanism. Because we currently do not know how information is read out by downstream neurons (or populations thereof), we quantified the maximum amount of information that can be extracted from the population response. Of course, the effect of correlations can be different for other, computationally constrained readouts. If, for instance, a linear readout is assumed, the conclusions would be different.</quote>
       </span>
-      <span xml:id="t78" type="concept_edges" ana="#concept_edges[25]" resp="#tagger" cert="1.0">
+      <span xml:id="t79" type="concept_edges" ana="#concept_edges[25]" resp="#tagger" cert="1.0">
         <label>bias —causes→ bound</label>
+        <term>bias</term>
+        <term>bound</term>
         <quote>Even though J mean is often referred to as the portion of the information that can be read out by linear methods, this notion is problematic—at least in the framework of stimulus reconstruction considered here. To illustrate this point, we estimated the performance of the OLE decoding the activity of a heterogeneous population of neurons. The efficiency of the OLE does not converge to the inverse of J mean ( Fig. 12 A ). In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ). The reason for this behavior is the fact that the OLE is a biased estimator, for which the Cramér–Rao bound is not simply the inverse of the Fisher information but the bias has to be taken into account. Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information. Consequently, if downstream areas are confined to linear readout mechanisms, reducing pairwise correlations increases the readout accuracy.</quote>
       </span>
-      <span xml:id="t79" type="concept_edges" ana="#concept_edges[26]" resp="#tagger" cert="1.0">
+      <span xml:id="t80" type="concept_edges" ana="#concept_edges[26]" resp="#tagger" cert="1.0">
         <label>linear —causes→ correlation</label>
+        <term>linear</term>
+        <term>correlation</term>
         <quote>Even though J mean is often referred to as the portion of the information that can be read out by linear methods, this notion is problematic—at least in the framework of stimulus reconstruction considered here. To illustrate this point, we estimated the performance of the OLE decoding the activity of a heterogeneous population of neurons. The efficiency of the OLE does not converge to the inverse of J mean ( Fig. 12 A ). In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ). The reason for this behavior is the fact that the OLE is a biased estimator, for which the Cramér–Rao bound is not simply the inverse of the Fisher information but the bias has to be taken into account. Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information. Consequently, if downstream areas are confined to linear readout mechanisms, reducing pairwise correlations increases the readout accuracy.</quote>
       </span>
-      <span xml:id="t80" type="concept_edges" ana="#concept_edges[27]" resp="#tagger" cert="0.85">
+      <span xml:id="t81" type="concept_edges" ana="#concept_edges[27]" resp="#tagger" cert="0.85">
         <label>Fano factor —causes→ attention</label>
+        <term>Fano factor</term>
+        <term>attention</term>
         <quote>Assuming optimal readout, a third possibility is that the improved performance is not exclusively due to reduced correlations. For instance, under attention Fano factors decrease and firing rates increase ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ). Although it has been argued that these changes are small compared with the relative changes in correlation strength and their effect is negligible for large populations, this argument is problematic. The effect of different factors was assessed using highly suboptimal pooling rules ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ) and the conclusions derived from these pooling models do not generalize to other (e.g., optimal) readout mechanisms—as our above results show.</quote>
       </span>
-      <span xml:id="t81" type="concept_edges" ana="#concept_edges[28]" resp="#tagger" cert="1.0">
+      <span xml:id="t82" type="concept_edges" ana="#concept_edges[28]" resp="#tagger" cert="1.0">
         <label>pooling —part-of→ readout</label>
+        <term>pooling</term>
+        <term>readout</term>
         <quote>Assuming optimal readout, a third possibility is that the improved performance is not exclusively due to reduced correlations. For instance, under attention Fano factors decrease and firing rates increase ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ). Although it has been argued that these changes are small compared with the relative changes in correlation strength and their effect is negligible for large populations, this argument is problematic. The effect of different factors was assessed using highly suboptimal pooling rules ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ) and the conclusions derived from these pooling models do not generalize to other (e.g., optimal) readout mechanisms—as our above results show.</quote>
       </span>
-      <span xml:id="t82" type="concept_edges" ana="#concept_edges[29]" resp="#tagger" cert="1.0">
+      <span xml:id="t83" type="concept_edges" ana="#concept_edges[29]" resp="#tagger" cert="1.0">
         <label>variance —contrasted-with→ correlation</label>
+        <term>variance</term>
+        <term>correlation</term>
         <quote>For example, if the response of a population of neurons with unit variances and weak correlations (〈 r 〉 = 0.05) is confounded by a common noise source with variance 0.05, removing this common noise source reduces noise correlations from ∼0.1 to ∼0.05 (a 50% change) while reducing the variances from ∼1.05 to 1 (a 5% change). In this situation, however, the changes in correlations cannot be separated from the changes in variances and neither of both is more important than the other. In fact, considering each one in isolation is not meaningful.</quote>
       </span>
-      <span xml:id="t83" type="concept_edges" ana="#concept_edges[30]" resp="#tagger" cert="1.0">
+      <span xml:id="t84" type="concept_edges" ana="#concept_edges[30]" resp="#tagger" cert="1.0">
         <label>model —causes→ size</label>
+        <term>model</term>
+        <term>size</term>
         <quote>Unfortunately, if the variance of the correlation coefficients is fixed independent of the population size, the covariance matrix will be valid (positive definite) only up to n ≈ 1/(2σ) 2 . Thus, as the population size is increased, from a critical n on, the model will not be valid any more.</quote>
       </span>
-      <span xml:id="t84" type="concept_edges" ana="#concept_edges[31]" resp="#tagger" cert="0.8">
+      <span xml:id="t85" type="concept_edges" ana="#concept_edges[31]" resp="#tagger" cert="0.8">
         <label>assumption —causes→ neuron</label>
+        <term>assumption</term>
+        <term>neuron</term>
         <quote>In the above analysis, we assumed that the preferred directions of the neurons are arranged on a regular grid around the circle. As this is not the case in real neural populations, we numerically analyzed the effect of this assumption on the results presented above. We found that the Fisher information is virtually unaffected by randomly assigning preferred directions compared with equally spacing them (data not shown).</quote>
       </span>
-      <span xml:id="t85" type="concept_edges" ana="#concept_edges[32]" resp="#tagger" cert="1.0">
+      <span xml:id="t86" type="concept_edges" ana="#concept_edges[32]" resp="#tagger" cert="1.0">
         <label>tuning —operationalised-as→ parameter</label>
+        <term>tuning</term>
+        <term>parameter</term>
         <quote>Another issue that has to be addressed is whether our findings above generalize to other forms of tuning curve heterogeneity, such as variable widths and baseline firing rates. Because only the amplitude variability model is analytically tractable, we ran numerical simulations to estimate the Fisher information for populations with other forms of heterogeneity. First, we varied the tuning widths while keeping all other parameters constant ( Fig. 8 A , C ). Second, we created populations of neurons by randomly drawing sets of tuning parameters from a dataset of orientation tuning curves in monkey V1 ( Fig. 8 B , D ). In both cases, the dependence of the Fisher information on the level of correlations is similar to that in the amplitude variability model. One notable difference is that J cov is not completely independent of correlation strength if parameters other than tuning amplitude are variable. For moderate levels of correlation, however, the differences are relatively small.</quote>
       </span>
-      <span xml:id="t86" type="concept_edges" ana="#concept_edges[33]" resp="#tagger" cert="1.0">
+      <span xml:id="t87" type="concept_edges" ana="#concept_edges[33]" resp="#tagger" cert="1.0">
         <label>tuning —part-of→ neuron</label>
+        <term>tuning</term>
+        <term>neuron</term>
         <quote>We set κ = 0.25 as determined from a dataset of 408 orientation tuning curves of neurons recorded in macaque primary visual cortex ( Ecker et al., 2010 ). We further assume that the noise correlation between two neurons depends only on their difference in preferred direction (limited range structure) and that variances of the neurons are Poisson-like (i.e., the variances are equal to the mean firing rates). In our model, the level of correlations is controlled by c 0 , the correlation coefficient of two neurons with identical preferred directions. The relationship of c 0 to the average level of correlations 〈 r 〉 depends on the decay constant in the correlation structure ( Fig. 1 C ). For the set of parameters we used, 〈 r 〉 is ∼0.3 c 0 . Our choice of parameterization by c 0 is motivated by the fact that, for large populations, it is the more relevant quantity compared with the average correlations. Although we have to choose a specific set of parameters for the figures, our results hold more generally, as long as both tuning curves and correlation structure do not change as a function of the population size and are sufficiently smooth and slowly varying.</quote>
       </span>
-      <span xml:id="t87" type="concept_edges" ana="#concept_edges[34]" resp="#tagger" cert="1.0">
+      <span xml:id="t88" type="concept_edges" ana="#concept_edges[34]" resp="#tagger" cert="1.0">
         <label>noise —operationalised-as→ variance</label>
+        <term>noise</term>
+        <term>variance</term>
         <quote>We set κ = 0.25 as determined from a dataset of 408 orientation tuning curves of neurons recorded in macaque primary visual cortex ( Ecker et al., 2010 ). We further assume that the noise correlation between two neurons depends only on their difference in preferred direction (limited range structure) and that variances of the neurons are Poisson-like (i.e., the variances are equal to the mean firing rates). In our model, the level of correlations is controlled by c 0 , the correlation coefficient of two neurons with identical preferred directions. The relationship of c 0 to the average level of correlations 〈 r 〉 depends on the decay constant in the correlation structure ( Fig. 1 C ). For the set of parameters we used, 〈 r 〉 is ∼0.3 c 0 . Our choice of parameterization by c 0 is motivated by the fact that, for large populations, it is the more relevant quantity compared with the average correlations. Although we have to choose a specific set of parameters for the figures, our results hold more generally, as long as both tuning curves and correlation structure do not change as a function of the population size and are sufficiently smooth and slowly varying.</quote>
       </span>
-      <span xml:id="t88" type="concept_edges" ana="#concept_edges[35]" resp="#tagger" cert="1.0">
+      <span xml:id="t89" type="concept_edges" ana="#concept_edges[35]" resp="#tagger" cert="1.0">
         <label>Fourier —operationalised-as→ frequency</label>
+        <term>Fourier</term>
+        <term>frequency</term>
         <quote>When correlations are increased, the noise power increases in a few low-frequency Fourier components while it decreases in all higher-frequency components (it quickly asymptotes to 1 − c 0 with increasing frequency; Fig. 1 D ). Because in homogeneous populations the stimulus encoding is confined to the low-frequency Fourier components, higher correlations have detrimental effects. In heterogeneous populations, in contrast, the stimulus encoding is distributed among all frequencies and the high-frequency components have a better signal-to-noise ratio if correlations are strong. These two mechanisms compete, leading to the non-monotonic correlation dependence of the Fisher information of heterogeneous populations.</quote>
       </span>
-      <span xml:id="t89" type="concept_edges" ana="#concept_edges[36]" resp="#tagger" cert="1.0">
+      <span xml:id="t90" type="concept_edges" ana="#concept_edges[36]" resp="#tagger" cert="1.0">
         <label>frequency —contrasted-with→ homogeneous</label>
+        <term>frequency</term>
+        <term>homogeneous</term>
         <quote>When correlations are increased, the noise power increases in a few low-frequency Fourier components while it decreases in all higher-frequency components (it quickly asymptotes to 1 − c 0 with increasing frequency; Fig. 1 D ). Because in homogeneous populations the stimulus encoding is confined to the low-frequency Fourier components, higher correlations have detrimental effects. In heterogeneous populations, in contrast, the stimulus encoding is distributed among all frequencies and the high-frequency components have a better signal-to-noise ratio if correlations are strong. These two mechanisms compete, leading to the non-monotonic correlation dependence of the Fisher information of heterogeneous populations.</quote>
       </span>
-      <span xml:id="t90" type="concept_edges" ana="#concept_edges[37]" resp="#tagger" cert="1.0">
+      <span xml:id="t91" type="concept_edges" ana="#concept_edges[37]" resp="#tagger" cert="1.0">
         <label>correlation —causes→ noise entropy</label>
+        <term>correlation</term>
+        <term>noise entropy</term>
         <quote>In general, increasing correlations between neurons while keeping the variances of the individual neurons fixed reduces the noise entropy of the population. Because a lower noise entropy reduces the variance in most directions, it is likely to improve the encoding.</quote>
       </span>
-      <span xml:id="t91" type="concept_edges" ana="#concept_edges[38]" resp="#tagger" cert="1.0">
+      <span xml:id="t92" type="concept_edges" ana="#concept_edges[38]" resp="#tagger" cert="1.0">
         <label>noise entropy —causes→ population code</label>
+        <term>noise entropy</term>
+        <term>population code</term>
         <quote>Because the accuracy of a population code depends on how the signal is encoded relative to the noise, a lower noise entropy by itself does not necessarily imply an improvement in coding accuracy. For instance, in the toy example in Figure 9 B , the variance along the main diagonal is larger than in the independent case in Figure 9 A . Therefore, estimating the mean activity of the two neurons is less accurate than, for instance, their difference. In a heterogeneous population of neurons, the signal encoding is distributed across all directions ( Fig. 1 M ). Because the Fisher information is the sum over the signal-to-noise ratios in each frequency component, a reduction in noise entropy should lead to an improvement in coding accuracy in this case.</quote>
       </span>
-      <span xml:id="t92" type="concept_edges" ana="#concept_edges[39]" resp="#tagger" cert="1.0">
+      <span xml:id="t93" type="concept_edges" ana="#concept_edges[39]" resp="#tagger" cert="1.0">
         <label>assumption —contrasted-with→ size</label>
+        <term>assumption</term>
+        <term>size</term>
         <quote>In summary, the notion that reducing correlations leads to a more accurate encoding is not a general principle but is only true under certain conditions. Assumptions about the size of the population and the way information is read out can strongly affect the conclusions. For optimal decoding of large populations, the total amount of noise—as measured by the noise entropy—is more important than the specific noise correlation structure.</quote>
       </span>
-      <span xml:id="t93" type="concept_edges" ana="#concept_edges[40]" resp="#tagger" cert="1.0">
+      <span xml:id="t94" type="concept_edges" ana="#concept_edges[40]" resp="#tagger" cert="1.0">
         <label>decoding —contrasted-with→ noise entropy</label>
+        <term>decoding</term>
+        <term>noise entropy</term>
         <quote>In summary, the notion that reducing correlations leads to a more accurate encoding is not a general principle but is only true under certain conditions. Assumptions about the size of the population and the way information is read out can strongly affect the conclusions. For optimal decoding of large populations, the total amount of noise—as measured by the noise entropy—is more important than the specific noise correlation structure.</quote>
       </span>
-      <span xml:id="t94" type="concept_edges" ana="#concept_edges[41]" resp="#tagger" cert="0.9">
-        <label>population —causes→ size</label>
+      <span xml:id="t95" type="concept_edges" ana="#concept_edges[41]" resp="#tagger" cert="0.9">
+        <label>RETRACTED (A POPULATION DOES NOT CAUSE ITS OWN SIZE) · population —causes→ size</label>
+        <term>population</term>
+        <term>size</term>
         <quote>One possibility is that the size of the population that is read out is small enough to be in the low-correlation regime. Although we did not assess this in detail by taking into account all relevant parameters from these studies, Figures 5 and 8 B suggest that the relevant population size would have to be on the order of at most a few hundred cells. Given the number of cells even in a single cortical column, this seems rather unlikely.</quote>
       </span>
-      <span xml:id="t95" type="concept_edges" ana="#concept_edges[42]" resp="#tagger" cert="0.9">
-        <label>stimulus —causes→ correlation</label>
+      <span xml:id="t96" type="concept_edges" ana="#concept_edges[42]" resp="#tagger" cert="0.9">
+        <label>RETRACTED (AN OPEN QUESTION ABOUT SCENARIOS THIS PAPER EXPLICITLY DID NOT TEST) · stimulus —causes→ correlation</label>
+        <term>stimulus</term>
+        <term>correlation</term>
         <quote>Whether the noise entropy is of the same importance for predicting the accuracy of a population code also for other scenarios not considered explicitly in this study—such as stimulus-dependent ( Josić et al., 2009 ) and heterogeneous correlations, or simultaneous encoding of multiple stimulus dimensions ( Zhang and Sejnowski, 1999 )—remains to be investigated.</quote>
       </span>
-      <span xml:id="t96" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t97" type="concept_edges" ana="#concept_edges[43]" resp="#tagger">
+        <label>correlation —causes→ population code</label>
+        <term>correlation</term>
+        <term>population code</term>
+        <quote>If correlations are below c min , decreasing them further improves the population code. In this regime, which we refer to as the “low-correlation regime,” the behavior is similar to that of homogeneous populations</quote>
+      </span>
+      <span xml:id="t98" type="concept_edges" ana="#concept_edges[44]" resp="#tagger">
+        <label>correlation —causes→ population code</label>
+        <term>correlation</term>
+        <term>population code</term>
+        <quote>In the “high-correlation regime,” in contrast, increasing the correlation strength improves the population code</quote>
+      </span>
+      <span xml:id="t99" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Fisher information</label>
+        <term>Fisher information</term>
         <quote>To quantify the encoding accuracy of the population, we use Fisher information ( Cover and Thomas, 1991 ).</quote>
       </span>
-      <span xml:id="t97" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t100" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>maximum likelihood estimation</label>
+        <term>maximum likelihood estimation</term>
         <quote>To characterize the encoding accuracy, we used Fisher information and maximum-likelihood decoding and studied a simple model with heterogeneous tuning functions, Poisson-like noise, and limited range correlation structure.</quote>
       </span>
-      <span xml:id="t98" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t101" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>Cramér-Rao bound</label>
+        <term>Cramér-Rao bound</term>
         <quote>One potential caveat that has to be addressed when using Fisher information is that it provides only a bound (the Cramér–Rao bound) on the accuracy of a population code.</quote>
       </span>
-      <span xml:id="t99" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t102" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>mean squared error</label>
+        <term>mean squared error</term>
         <quote>Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information.</quote>
       </span>
-      <span xml:id="t100" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t103" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>lognormal distribution</label>
+        <term>lognormal distribution</term>
         <quote>In the first model (see Fig. 8 A ), we randomly drew the tuning widths, γ, from a lognormal distribution with mean 2 and variance 4 while keeping all other parameters constant as in the homogeneous model described above.</quote>
       </span>
-      <span xml:id="t101" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t104" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger" cert="1.0">
+        <label>Fisher information</label>
+        <term>Fisher information</term>
         <quote>Here, we analyze the role of limited range correlations in more realistic, heterogeneous population models. We use Fisher information and maximum-likelihood decoding to show that reduced correlations do not necessarily improve encoding accuracy. In fact, in populations with more than a few hundred neurons, increasing the level of limited range correlations can substantially improve encoding accuracy.</quote>
       </span>
-      <span xml:id="t102" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t105" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger" cert="1.0">
+        <label>maximum-likelihood</label>
+        <term>maximum-likelihood</term>
         <quote>To address this problem, we additionally evaluated the efficiency of the maximum-likelihood estimator numerically (for details, see Materials and Methods). For both homogeneous and heterogeneous populations, it attains the Cramér–Rao bound very quickly ( Fig. 7 ), even in the case of nonidentical and nonindependent samples. Interestingly, for homogeneous populations, the rate of convergence depends more on the level of correlations than for heterogeneous populations ( Fig. 7 ). More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons. Thus, the bound is sufficiently tight and the use of Fisher information is well justified.</quote>
       </span>
-      <span xml:id="t103" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t106" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger" cert="1.0">
+        <label>Fano factor</label>
+        <term>Fano factor</term>
         <quote>Assuming optimal readout, a third possibility is that the improved performance is not exclusively due to reduced correlations. For instance, under attention Fano factors decrease and firing rates increase ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ). Although it has been argued that these changes are small compared with the relative changes in correlation strength and their effect is negligible for large populations, this argument is problematic. The effect of different factors was assessed using highly suboptimal pooling rules ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ) and the conclusions derived from these pooling models do not generalize to other (e.g., optimal) readout mechanisms—as our above results show.</quote>
       </span>
-      <span xml:id="t104" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t107" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>In heterogeneous populations of more than a few hundred neurons, increasing rather than decreasing limited-range noise correlations substantially improves encoding accuracy.</label>
         <quote>In fact, in populations with more than a few hundred neurons, increasing the level of limited range correlations can substantially improve encoding accuracy.</quote>
       </span>
-      <span xml:id="t105" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t108" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>The accuracy gain from stronger correlations is attributable to the drop in noise entropy that accompanies them when marginal distributions are held fixed.</label>
         <quote>We found that this improvement results from a decrease in noise entropy that is associated with increasing correlations if the marginal distributions are unchanged.</quote>
       </span>
-      <span xml:id="t106" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t109" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>Once noise entropy is held constant, encoding accuracy in large populations no longer depends on the structure or magnitude of the correlations at all.</label>
         <quote>Surprisingly, for constant noise entropy and in the limit of large populations, the encoding accuracy is independent of both structure and magnitude of noise correlations.</quote>
       </span>
-      <span xml:id="t107" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t110" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>Fisher information stops growing with population size only under the restrictive combination of stimulus-independent variances and identical tuning curves.</label>
         <quote>In summary, the Fisher information saturates to a finite bound only if the variances of the neurons do not depend on the stimulus and all neurons have identical tuning curves.</quote>
       </span>
-      <span xml:id="t108" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+      <span xml:id="t111" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
         <label>The correlation level that is worst for the code shrinks inversely with population size, so for large populations more correlation is nearly always beneficial.</label>
         <quote>The value of c min is inversely related to the population size and decreases with O (1/ n ) ( Fig. 5 ).</quote>
       </span>
-      <span xml:id="t109" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
+      <span xml:id="t112" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
         <label>The maximum-likelihood estimator comes close enough to the Cramér–Rao bound that comparing Fisher information across conditions is legitimate.</label>
         <quote>More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons.</quote>
       </span>
-      <span xml:id="t110" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
-        <label>For a suboptimal linear readout the conclusion reverses: the optimal linear estimator gains nothing from stronger correlations even in large populations.</label>
+      <span xml:id="t113" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
+        <label>For a suboptimal linear readout the conclusion reverses: the OLE gains nothing from stronger correlations even in large populations.</label>
         <quote>In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ).</quote>
       </span>
-      <span xml:id="t111" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t114" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="1.0">
         <label>IN HOMOGENEOUS POPULATIONS limited range correlations are highly detrimental, which is why falling correlations under attention, adaptation and learning are read as better coding</label>
         <quote>In homogeneous populations of neurons, this limited range correlation structure is highly detrimental to the accuracy of a population code. Therefore, reduced spike count correlations under attention, after adaptation, or after learning have been interpreted as evidence for a more efficient population code.</quote>
       </span>
-      <span xml:id="t112" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t115" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
         <label>AND THE ANSWER REVERSES: in populations with more than a few hundred neurons, INCREASING the level of limited range correlations can substantially improve encoding accuracy</label>
         <quote>Here, we analyze the role of limited range correlations in more realistic, heterogeneous population models. We use Fisher information and maximum-likelihood decoding to show that reduced correlations do not necessarily improve encoding accuracy. In fact, in populations with more than a few hundred neurons, increasing the level of limited range correlations can substantially improve encoding accuracy.</quote>
       </span>
-      <span xml:id="t113" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t116" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
         <label>with the improvement traced to a decrease in noise entropy, and - for constant entropy in the large-population limit - accuracy INDEPENDENT of both structure and magnitude of correlations</label>
         <quote>We found that this improvement results from a decrease in noise entropy that is associated with increasing correlations if the marginal distributions are unchanged. Surprisingly, for constant noise entropy and in the limit of large populations, the encoding accuracy is independent of both structure and magnitude of noise correlations.</quote>
       </span>
-      <span xml:id="t114" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t117" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
         <label>THE CONCLUSION WAS A PROPERTY OF THE SIMPLIFYING ASSUMPTION: most previous studies use homogeneous models, and heterogeneity CRITICALLY ALTERS a population code - &#x27;this has not been sufficiently appreciated&#x27;</label>
         <quote>Most previous theoretical studies of population coding use homogeneous population models, in which all neurons have tuning functions that differ only in their preferred stimulus and are otherwise identical ( Snippe and Koenderink, 1992 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ). In these models, limited range correlations introduce a strong noise component in the subspace in which the stimulus is encoded, impairing the population code ( Sompolinsky et al., 2001 ). However, a very prominent feature of cortical neurons is the diversity of their tuning functions. This heterogeneity changes the way the stimulus is encoded and can critically alter the properties of a population code ( Shamir and Sompolinsky, 2006 ). Unfortunately, this has not been sufficiently appreciated.</quote>
       </span>
-      <span xml:id="t115" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t118" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
         <label>with the belief stated as it is held - it is GENERALLY BELIEVED that reducing correlations improves any population code</label>
         <quote>If correlations are unavoidable, it is generally believed that reducing them improves a population code ( Zohary et al., 1994 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Ecker et al., 2010 ). In line with this notion, a number of recent experimental studies find reduced spike count correlations under experimental conditions in which improved coding is expected, such as under attention ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ), adaptation ( Gutnisky and Dragoi, 2008 ), or after learning ( Gu et al., 2011 ).</quote>
       </span>
-      <span xml:id="t116" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t119" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
         <label>A NUMBER OF AUTHORS REPORTED DIFFERENT RESULTS, and the apparent discrepancy arises from subtle differences in the assumptions that were made about the population activity, such as the noise model, additive against Poisson-like</label>
         <quote>This question has been addressed by a number of authors who reported different results ( Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ; Shamir and Sompolinsky, 2006 ). The apparent discrepancy arises from subtle differences in the assumptions that were made about the population activity, such as for instance the noise model (additive vs Poisson-like). In the following, we provide a comprehensive treatment of this problem using our framework that includes most of the previous studies as special cases.</quote>
       </span>
-      <span xml:id="t117" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t120" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
         <label>and the two conditions are stated exactly - the information saturates ONLY IF variances are stimulus-independent AND all tuning curves identical</label>
         <quote>In summary, the Fisher information saturates to a finite bound only if the variances of the neurons do not depend on the stimulus and all neurons have identical tuning curves. If one of these two conditions is not satisfied, the Fisher information increases linearly with the population size.</quote>
       </span>
-      <span xml:id="t118" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t121" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
         <label>TWO REGIMES, with the boundary falling as 1/n, so that for large populations increasing correlations is almost always advantageous</label>
         <quote>There are two regimes for the effect of changes in correlation strength: one in which reducing correlation improves and one in which it impairs the performance. Which of the two applies to a given population code depends on whether correlations are smaller or larger than the minimum in the curves in Figure 4 B . We term this value the “maximally detrimental” correlation strength c min . If correlations are below c min , decreasing them further improves the population code. In this regime, which we refer to as the “low-correlation regime,” the behavior is similar to that of homogeneous populations. In the “high-correlation regime,” in contrast, increasing the correlation strength improves the population code. The value of c min is inversely related to the population size and decreases with O (1/ n ) ( Fig. 5 ). For large populations, it converges to zero and, hence, increasing correlations is almost always advantageous.</quote>
       </span>
-      <span xml:id="t119" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t122" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
         <label>asymptotically the relative performance depends only on the same-preference correlation coefficient and on the degree of heterogeneity</label>
         <quote>Thus, asymptotically the relative performance depends only on the correlation coefficient of two neurons with identical preferred orientations, c 0 , and the degree of heterogeneity, κ. The more heterogeneous a population is, the higher J mean becomes ( Fig. 6 ).</quote>
       </span>
-      <span xml:id="t120" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t123" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">
         <label>and heterogeneity cannot be pushed arbitrarily far, while the value used is likely an UNDERESTIMATE because real populations vary in more than amplitude</label>
         <quote>However, it should be noted that J mean cannot be increased arbitrarily by simply increasing the heterogeneity, κ, because the amplitudes a j are constrained to be positive, have an average of 1, and neurons have a maximum possible firing rate due to biophysical constraints. At the same time, the value κ = 0.25 that we used for the above figures is likely to be an underestimate because in real neural populations sources of heterogeneity other than amplitudes exist.</quote>
       </span>
-      <span xml:id="t121" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t124" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">
         <label>A FREE PARAMETER THAT SHOULD NEVER HAVE BEEN FREE: optimising correlations with tuning and variances held fixed reaches a DEGENERATE, biologically implausible solution</label>
         <quote>With regard to the first question, we suggest that the level of correlations should not be interpreted as a free parameter that can be optimized independently while all other parameters, such as tuning functions and variances, are kept fixed. Under such assumptions, increasing the level of correlations to the maximum (i.e., c 0 = 1) leads to maximum Fisher information ( Figs. 4 B , 6 ). The noise power in the high frequencies vanishes (as it asymptotes to 1 − c 0 ; Fig. 1 D ), allowing for effectively noise-free decoding of any signal that is encoded in these directions. However, in real neural populations, the amount of noise in the response cannot be arbitrarily small because input noise cannot be removed by processing. Thus, finding the optimal level of correlations under the assumption of fixed tuning functions and variances leads to a degenerate solution, which is not biologically plausible.</quote>
       </span>
-      <span xml:id="t122" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">
+      <span xml:id="t125" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">
         <label>said against its own model too - MOST MODELS USED IN PREVIOUS STUDIES, INCLUDING OUR ABOVE MODEL, are not well constrained</label>
         <quote>This implies that most models used in previous studies (including our above model) are not well constrained if the correlation strength is considered a free parameter because they allow for a degenerate case in which the noise entropy becomes arbitrarily small (by simply increasing the level of correlations until c 0 = 1). To disentangle the effect of the noise correlation structure from that of the noise entropy, we here introduce an additional constraint and fix the noise entropy as the correlations are changed.</quote>
       </span>
-      <span xml:id="t123" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">
+      <span xml:id="t126" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">
         <label>AND THE QUANTITY THE WHOLE LITERATURE MEASURES DROPS OUT: with noise entropy fixed the information depends only on amplitude variability, and no correlation-structure parameter enters</label>
         <quote>Thus, J mean depends only on the amount of amplitude variability, κ. It is independent of both the structure and the magnitude of correlations as none of the parameters of the correlation structure (e.g., c 0 or L ) enter the right-hand side of Equation 46 .</quote>
       </span>
-      <span xml:id="t124" type="content_tags" ana="#content_tags.findings[20]" resp="#tagger" cert="1.0">
+      <span xml:id="t127" type="content_tags" ana="#content_tags.findings[20]" resp="#tagger" cert="1.0">
         <label>so accuracy is set by heterogeneity and overall noise entropy, and the specific noise structure is NOT AS IMPORTANT AS COMMONLY ASSUMED</label>
         <quote>Our results demonstrate that, under this constraint, the performance of population codes in large populations is primarily determined by the amount of heterogeneity in the tuning functions of the neurons and by the overall noise entropy ( Fig. 10 D , Eq. 46 ), while the specific structure of the noise does not appear to be as important as commonly assumed.</quote>
       </span>
-      <span xml:id="t125" type="content_tags" ana="#content_tags.findings[21]" resp="#tagger" cert="1.0">
+      <span xml:id="t128" type="content_tags" ana="#content_tags.findings[21]" resp="#tagger" cert="1.0">
         <label>A BOUND IS ONLY A BOUND UNTIL YOU SHOW IT IS TIGHT: the responses here are neither independent nor identically distributed, and COMPARING LOOSE UPPER BOUNDS IS MEANINGLESS</label>
         <quote>One potential caveat that has to be addressed when using Fisher information is that it provides only a bound (the Cramér–Rao bound) on the accuracy of a population code. Unfortunately, under some conditions potentially relevant for neural coding this bound is not tight, which means there exists no estimator that achieves this performance ( Bethge et al., 2002 ; Berens et al., 2011 ). If certain assumptions are placed on the statistics of population activity (e.g., independent and identically distributed samples), the maximum-likelihood estimator can be proven to converge (for large n ) to the Cramér–Rao bound. However, under the conditions studied here, the responses are neither independent nor identically distributed and we do not know whether and how fast the bound is attained. Thus, it is unclear whether comparing Fisher information under different conditions (such as different levels of correlation or different amounts of heterogeneity) can provide insights into the accuracy of population codes because comparing loose upper bounds is meaningless.</quote>
       </span>
-      <span xml:id="t126" type="content_tags" ana="#content_tags.findings[22]" resp="#tagger" cert="1.0">
+      <span xml:id="t129" type="content_tags" ana="#content_tags.findings[22]" resp="#tagger" cert="1.0">
         <label>so it is checked before use - the maximum-likelihood estimator is within 5% of the bound for every population above 64 neurons</label>
         <quote>To address this problem, we additionally evaluated the efficiency of the maximum-likelihood estimator numerically (for details, see Materials and Methods). For both homogeneous and heterogeneous populations, it attains the Cramér–Rao bound very quickly ( Fig. 7 ), even in the case of nonidentical and nonindependent samples. Interestingly, for homogeneous populations, the rate of convergence depends more on the level of correlations than for heterogeneous populations ( Fig. 7 ). More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons. Thus, the bound is sufficiently tight and the use of Fisher information is well justified.</quote>
       </span>
-      <span xml:id="t127" type="content_tags" ana="#content_tags.findings[23]" resp="#tagger" cert="1.0">
+      <span xml:id="t130" type="content_tags" ana="#content_tags.findings[23]" resp="#tagger" cert="1.0">
         <label>THE SAME MODEL GIVES THE OPPOSITE ANSWER UNDER A DIFFERENT DECODER: under a linear readout, reducing pairwise correlations increases accuracy</label>
         <quote>Even though J mean is often referred to as the portion of the information that can be read out by linear methods, this notion is problematic—at least in the framework of stimulus reconstruction considered here. To illustrate this point, we estimated the performance of the OLE decoding the activity of a heterogeneous population of neurons. The efficiency of the OLE does not converge to the inverse of J mean ( Fig. 12 A ). In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ). The reason for this behavior is the fact that the OLE is a biased estimator, for which the Cramér–Rao bound is not simply the inverse of the Fisher information but the bias has to be taken into account. Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information. Consequently, if downstream areas are confined to linear readout mechanisms, reducing pairwise correlations increases the readout accuracy.</quote>
       </span>
-      <span xml:id="t128" type="content_tags" ana="#content_tags.findings[24]" resp="#tagger" cert="1.0">
+      <span xml:id="t131" type="content_tags" ana="#content_tags.findings[24]" resp="#tagger" cert="1.0">
         <label>and a standard interpretation is refused - calling the linear Fisher term the portion readable by linear methods is PROBLEMATIC, because that estimator is biased</label>
         <quote>Even though J mean is often referred to as the portion of the information that can be read out by linear methods, this notion is problematic—at least in the framework of stimulus reconstruction considered here. To illustrate this point, we estimated the performance of the OLE decoding the activity of a heterogeneous population of neurons. The efficiency of the OLE does not converge to the inverse of J mean ( Fig. 12 A ). In addition, in contrast to the Fisher information and the maximum-likelihood estimator, the accuracy of the OLE does not increase with increased correlations, not even for large population sizes ( Fig. 12 B ). The reason for this behavior is the fact that the OLE is a biased estimator, for which the Cramér–Rao bound is not simply the inverse of the Fisher information but the bias has to be taken into account. Because the estimator bias depends on the correlations, the dependence of the mean squared error on correlations is not captured well by the Fisher information. Consequently, if downstream areas are confined to linear readout mechanisms, reducing pairwise correlations increases the readout accuracy.</quote>
       </span>
-      <span xml:id="t129" type="content_tags" ana="#content_tags.findings[25]" resp="#tagger" cert="1.0">
+      <span xml:id="t132" type="content_tags" ana="#content_tags.findings[25]" resp="#tagger" cert="1.0">
         <label>because the readout mechanism is unknown, the paper quantifies the MAXIMUM extractable information and states that a linear readout would give different conclusions</label>
         <quote>A second explanation is related to the neural readout mechanism. Because we currently do not know how information is read out by downstream neurons (or populations thereof), we quantified the maximum amount of information that can be extracted from the population response. Of course, the effect of correlations can be different for other, computationally constrained readouts. If, for instance, a linear readout is assumed, the conclusions would be different.</quote>
       </span>
-      <span xml:id="t130" type="content_tags" ana="#content_tags.findings[26]" resp="#tagger" cert="1.0">
+      <span xml:id="t133" type="content_tags" ana="#content_tags.findings[26]" resp="#tagger" cert="1.0">
         <label>TWO QUANTITIES THAT MOVE TOGETHER AND CANNOT BE APPORTIONED: removing one common noise source gives a 50% change in correlation and a 5% change in variance, and considering each in isolation IS NOT MEANINGFUL</label>
         <quote>For example, if the response of a population of neurons with unit variances and weak correlations (〈 r 〉 = 0.05) is confounded by a common noise source with variance 0.05, removing this common noise source reduces noise correlations from ∼0.1 to ∼0.05 (a 50% change) while reducing the variances from ∼1.05 to 1 (a 5% change). In this situation, however, the changes in correlations cannot be separated from the changes in variances and neither of both is more important than the other. In fact, considering each one in isolation is not meaningful.</quote>
       </span>
-      <span xml:id="t131" type="content_tags" ana="#content_tags.findings[27]" resp="#tagger" cert="1.0">
+      <span xml:id="t134" type="content_tags" ana="#content_tags.findings[27]" resp="#tagger" cert="1.0">
         <label>with the published comparison named - the relative importance of correlations was assessed using HIGHLY SUBOPTIMAL POOLING RULES</label>
         <quote>Assuming optimal readout, a third possibility is that the improved performance is not exclusively due to reduced correlations. For instance, under attention Fano factors decrease and firing rates increase ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ). Although it has been argued that these changes are small compared with the relative changes in correlation strength and their effect is negligible for large populations, this argument is problematic. The effect of different factors was assessed using highly suboptimal pooling rules ( Cohen and Maunsell, 2009 ; Mitchell et al., 2009 ) and the conclusions derived from these pooling models do not generalize to other (e.g., optimal) readout mechanisms—as our above results show.</quote>
       </span>
-      <span xml:id="t132" type="content_tags" ana="#content_tags.findings[28]" resp="#tagger" cert="1.0">
+      <span xml:id="t135" type="content_tags" ana="#content_tags.findings[28]" resp="#tagger" cert="1.0">
         <label>THE MODEL SILENTLY STOPS BEING VALID PAST A SIZE: with variable correlation coefficients the covariance matrix is positive definite only up to a critical n</label>
         <quote>Unfortunately, if the variance of the correlation coefficients is fixed independent of the population size, the covariance matrix will be valid (positive definite) only up to n ≈ 1/(2σ) 2 . Thus, as the population size is increased, from a critical n on, the model will not be valid any more.</quote>
       </span>
-      <span xml:id="t133" type="content_tags" ana="#content_tags.findings[29]" resp="#tagger" cert="0.8">
+      <span xml:id="t136" type="content_tags" ana="#content_tags.findings[29]" resp="#tagger" cert="0.8">
         <label>the regular-grid assumption on preferred directions is checked and found not to matter - DATA NOT SHOWN</label>
         <quote>In the above analysis, we assumed that the preferred directions of the neurons are arranged on a regular grid around the circle. As this is not the case in real neural populations, we numerically analyzed the effect of this assumption on the results presented above. We found that the Fisher information is virtually unaffected by randomly assigning preferred directions compared with equally spacing them (data not shown).</quote>
       </span>
-      <span xml:id="t134" type="content_tags" ana="#content_tags.findings[30]" resp="#tagger" cert="1.0">
+      <span xml:id="t137" type="content_tags" ana="#content_tags.findings[30]" resp="#tagger" cert="1.0">
         <label>with generality checked against random tuning widths and against triples drawn from real V1 tuning curves</label>
         <quote>Another issue that has to be addressed is whether our findings above generalize to other forms of tuning curve heterogeneity, such as variable widths and baseline firing rates. Because only the amplitude variability model is analytically tractable, we ran numerical simulations to estimate the Fisher information for populations with other forms of heterogeneity. First, we varied the tuning widths while keeping all other parameters constant ( Fig. 8 A , C ). Second, we created populations of neurons by randomly drawing sets of tuning parameters from a dataset of orientation tuning curves in monkey V1 ( Fig. 8 B , D ). In both cases, the dependence of the Fisher information on the level of correlations is similar to that in the amplitude variability model. One notable difference is that J cov is not completely independent of correlation strength if parameters other than tuning amplitude are variable. For moderate levels of correlation, however, the differences are relatively small.</quote>
       </span>
-      <span xml:id="t135" type="content_tags" ana="#content_tags.findings[31]" resp="#tagger" cert="1.0">
+      <span xml:id="t138" type="content_tags" ana="#content_tags.findings[31]" resp="#tagger" cert="1.0">
         <label>and the heterogeneity parameter SET from 408 measured macaque V1 tuning curves rather than tested against them</label>
         <quote>We set κ = 0.25 as determined from a dataset of 408 orientation tuning curves of neurons recorded in macaque primary visual cortex ( Ecker et al., 2010 ). We further assume that the noise correlation between two neurons depends only on their difference in preferred direction (limited range structure) and that variances of the neurons are Poisson-like (i.e., the variances are equal to the mean firing rates). In our model, the level of correlations is controlled by c 0 , the correlation coefficient of two neurons with identical preferred directions. The relationship of c 0 to the average level of correlations 〈 r 〉 depends on the decay constant in the correlation structure ( Fig. 1 C ). For the set of parameters we used, 〈 r 〉 is ∼0.3 c 0 . Our choice of parameterization by c 0 is motivated by the fact that, for large populations, it is the more relevant quantity compared with the average correlations. Although we have to choose a specific set of parameters for the figures, our results hold more generally, as long as both tuning curves and correlation structure do not change as a function of the population size and are sufficiently smooth and slowly varying.</quote>
       </span>
-      <span xml:id="t136" type="content_tags" ana="#content_tags.findings[32]" resp="#tagger" cert="1.0">
+      <span xml:id="t139" type="content_tags" ana="#content_tags.findings[32]" resp="#tagger" cert="1.0">
         <label>the mechanism in Fourier terms - correlations move noise power into a few low frequencies and out of all higher ones, and the two effects COMPETE</label>
         <quote>When correlations are increased, the noise power increases in a few low-frequency Fourier components while it decreases in all higher-frequency components (it quickly asymptotes to 1 − c 0 with increasing frequency; Fig. 1 D ). Because in homogeneous populations the stimulus encoding is confined to the low-frequency Fourier components, higher correlations have detrimental effects. In heterogeneous populations, in contrast, the stimulus encoding is distributed among all frequencies and the high-frequency components have a better signal-to-noise ratio if correlations are strong. These two mechanisms compete, leading to the non-monotonic correlation dependence of the Fisher information of heterogeneous populations.</quote>
       </span>
-      <span xml:id="t137" type="content_tags" ana="#content_tags.findings[33]" resp="#tagger" cert="1.0">
+      <span xml:id="t140" type="content_tags" ana="#content_tags.findings[33]" resp="#tagger" cert="1.0">
         <label>correlating neurons at fixed marginal variances lowers the noise entropy, which shrinks the variance in most directions</label>
         <quote>In general, increasing correlations between neurons while keeping the variances of the individual neurons fixed reduces the noise entropy of the population. Because a lower noise entropy reduces the variance in most directions, it is likely to improve the encoding.</quote>
       </span>
-      <span xml:id="t138" type="content_tags" ana="#content_tags.findings[34]" resp="#tagger" cert="1.0">
+      <span xml:id="t141" type="content_tags" ana="#content_tags.findings[34]" resp="#tagger" cert="1.0">
         <label>but lower entropy alone is not enough - it helps only because a heterogeneous population spreads its signal across the directions the reduction touches</label>
         <quote>Because the accuracy of a population code depends on how the signal is encoded relative to the noise, a lower noise entropy by itself does not necessarily imply an improvement in coding accuracy. For instance, in the toy example in Figure 9 B , the variance along the main diagonal is larger than in the independent case in Figure 9 A . Therefore, estimating the mean activity of the two neurons is less accurate than, for instance, their difference. In a heterogeneous population of neurons, the signal encoding is distributed across all directions ( Fig. 1 M ). Because the Fisher information is the sum over the signal-to-noise ratios in each frequency component, a reduction in noise entropy should lead to an improvement in coding accuracy in this case.</quote>
       </span>
-      <span xml:id="t139" type="content_tags" ana="#content_tags.findings[35]" resp="#tagger" cert="1.0">
+      <span xml:id="t142" type="content_tags" ana="#content_tags.findings[35]" resp="#tagger" cert="1.0">
         <label>THE ESCAPE ROUTE IS TESTED AND REJECTED ON ITS OWN TERMS: it would need the read-out population to be at most a few hundred cells, which given a single cortical column seems RATHER UNLIKELY</label>
         <quote>One possibility is that the size of the population that is read out is small enough to be in the low-correlation regime. Although we did not assess this in detail by taking into account all relevant parameters from these studies, Figures 5 and 8 B suggest that the relevant population size would have to be on the order of at most a few hundred cells. Given the number of cells even in a single cortical column, this seems rather unlikely.</quote>
       </span>
-      <span xml:id="t140" type="content_tags" ana="#content_tags.findings[36]" resp="#tagger" cert="1.0">
+      <span xml:id="t143" type="content_tags" ana="#content_tags.findings[36]" resp="#tagger" cert="1.0">
         <label>and the claim is bounded in its last sentence - NOT A GENERAL PRINCIPLE but true only under certain conditions</label>
         <quote>In summary, the notion that reducing correlations leads to a more accurate encoding is not a general principle but is only true under certain conditions. Assumptions about the size of the population and the way information is read out can strongly affect the conclusions. For optimal decoding of large populations, the total amount of noise—as measured by the noise entropy—is more important than the specific noise correlation structure.</quote>
       </span>
-      <span xml:id="t141" type="content_tags" ana="#content_tags.findings[37]" resp="#tagger" cert="1.0">
+      <span xml:id="t144" type="content_tags" ana="#content_tags.findings[37]" resp="#tagger" cert="1.0">
         <label>with what is left open named: stimulus-dependent and heterogeneous correlations, and several stimulus dimensions at once</label>
         <quote>Whether the noise entropy is of the same importance for predicting the accuracy of a population code also for other scenarios not considered explicitly in this study—such as stimulus-dependent ( Josić et al., 2009 ) and heterogeneous correlations, or simultaneous encoding of multiple stimulus dimensions ( Zhang and Sejnowski, 1999 )—remains to be investigated.</quote>
       </span>
-      <span xml:id="t142" type="content_tags" ana="#content_tags.findings[38]" resp="#tagger" cert="1.0">
+      <span xml:id="t145" type="content_tags" ana="#content_tags.findings[38]" resp="#tagger" cert="1.0">
         <label>and the code that reproduces every figure released, with the note that it HAS NOT BEEN PEER REVIEWED</label>
         <quote>It contains MATLAB code to reproduce all figures and numerical simulations in this paper. This material has not been peer reviewed.</quote>
       </span>
-      <span xml:id="t143" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t146" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>limited range correlation structure</label>
+        <term>limited range correlation structure</term>
         <quote>This means that the correlation between two neurons is maximal if they have identical preferred directions and decreases with increasing difference in preferred direction.</quote>
       </span>
-      <span xml:id="t144" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t147" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>homogeneous population model</label>
+        <term>homogeneous population model</term>
         <quote>In the homogeneous population model, all neurons have identical tuning functions except for their preferred directions.</quote>
       </span>
-      <span xml:id="t145" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t148" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>J mean and J cov (the two components of Fisher information)</label>
+        <term>J mean and J cov (the two components of Fisher information)</term>
         <quote>J mean can be thought of as the information that is encoded in the average population activity, while J cov is the information contained in the variances and covariances.</quote>
       </span>
-      <span xml:id="t146" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t149" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>relative J mean</label>
+        <term>relative J mean</term>
         <quote>We refer to this quantity ( J mean / J indep ) as the relative J mean .</quote>
       </span>
-      <span xml:id="t147" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t150" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
+        <label>low-correlation regime</label>
+        <term>low-correlation regime</term>
         <quote>In this regime, which we refer to as the “low-correlation regime,” the behavior is similar to that of homogeneous populations.</quote>
       </span>
-      <span xml:id="t148" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t151" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
+        <label>noise entropy</label>
+        <term>noise entropy</term>
         <quote>In general, increasing correlations between neurons while keeping the variances of the individual neurons fixed reduces the noise entropy of the population. Because a lower noise entropy reduces the variance in most directions, it is likely to improve the encoding.</quote>
       </span>
-      <span xml:id="t149" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.9">
-        <label>definitions</label>
+      <span xml:id="t152" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.9">
+        <label>degenerate</label>
+        <term>degenerate</term>
         <quote>With regard to the first question, we suggest that the level of correlations should not be interpreted as a free parameter that can be optimized independently while all other parameters, such as tuning functions and variances, are kept fixed. Under such assumptions, increasing the level of correlations to the maximum (i.e., c 0 = 1) leads to maximum Fisher information ( Figs. 4 B , 6 ). The noise power in the high frequencies vanishes (as it asymptotes to 1 − c 0 ; Fig. 1 D ), allowing for effectively noise-free decoding of any signal that is encoded in these directions. However, in real neural populations, the amount of noise in the response cannot be arbitrarily small because input noise cannot be removed by processing. Thus, finding the optimal level of correlations under the assumption of fixed tuning functions and variances leads to a degenerate solution, which is not biologically plausible.</quote>
       </span>
-      <span xml:id="t150" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t153" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
+        <label>bound</label>
+        <term>bound</term>
         <quote>One potential caveat that has to be addressed when using Fisher information is that it provides only a bound (the Cramér–Rao bound) on the accuracy of a population code. Unfortunately, under some conditions potentially relevant for neural coding this bound is not tight, which means there exists no estimator that achieves this performance ( Bethge et al., 2002 ; Berens et al., 2011 ). If certain assumptions are placed on the statistics of population activity (e.g., independent and identically distributed samples), the maximum-likelihood estimator can be proven to converge (for large n ) to the Cramér–Rao bound. However, under the conditions studied here, the responses are neither independent nor identically distributed and we do not know whether and how fast the bound is attained. Thus, it is unclear whether comparing Fisher information under different conditions (such as different levels of correlation or different amounts of heterogeneity) can provide insights into the accuracy of population codes because comparing loose upper bounds is meaningless.</quote>
       </span>
-      <span xml:id="t151" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="0.9">
-        <label>definitions</label>
+      <span xml:id="t154" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="0.9">
+        <label>heterogeneity</label>
+        <term>heterogeneity</term>
         <quote>Most previous theoretical studies of population coding use homogeneous population models, in which all neurons have tuning functions that differ only in their preferred stimulus and are otherwise identical ( Snippe and Koenderink, 1992 ; Abbott and Dayan, 1999 ; Sompolinsky et al., 2001 ; Wilke and Eurich, 2002 ). In these models, limited range correlations introduce a strong noise component in the subspace in which the stimulus is encoded, impairing the population code ( Sompolinsky et al., 2001 ). However, a very prominent feature of cortical neurons is the diversity of their tuning functions. This heterogeneity changes the way the stimulus is encoded and can critically alter the properties of a population code ( Shamir and Sompolinsky, 2006 ). Unfortunately, this has not been sufficiently appreciated.</quote>
       </span>
-      <span xml:id="t152" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t155" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>population size (number of neurons, n)</label>
+        <term>population size (number of neurons, n)</term>
         <quote>We first study how the Fisher information depends on the number of neurons in the population.</quote>
       </span>
-      <span xml:id="t153" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t156" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>correlation strength c0</label>
+        <term>correlation strength c0</term>
         <quote>In our model, the level of correlations is controlled by c 0 , the correlation coefficient of two neurons with identical preferred directions.</quote>
       </span>
-      <span xml:id="t154" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t157" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>degree of tuning-curve heterogeneity (amplitude variability κ)</label>
+        <term>degree of tuning-curve heterogeneity (amplitude variability κ)</term>
         <quote>Setting κ &gt; 0 results in a heterogeneous population (amplitude variability model).</quote>
       </span>
-      <span xml:id="t155" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t158" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>Fisher information J (encoding accuracy)</label>
+        <term>Fisher information J (encoding accuracy)</term>
         <quote>To quantify the accuracy of a population code, we calculate the Fisher information, J , which under the assumption of Gaussian noise can be written as the sum of two terms as follows:</quote>
       </span>
-      <span xml:id="t156" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t159" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+        <label>noise entropy (held constant via the Fano factor)</label>
+        <term>noise entropy (held constant via the Fano factor)</term>
         <quote>To disentangle the effect of the noise correlation structure from that of the noise entropy, we here introduce an additional constraint and fix the noise entropy as the correlations are changed.</quote>
       </span>
-      <span xml:id="t157" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t160" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger" cert="1.0">
+        <label>correlation</label>
+        <term>correlation</term>
         <quote>There are two regimes for the effect of changes in correlation strength: one in which reducing correlation improves and one in which it impairs the performance. Which of the two applies to a given population code depends on whether correlations are smaller or larger than the minimum in the curves in Figure 4 B . We term this value the “maximally detrimental” correlation strength c min . If correlations are below c min , decreasing them further improves the population code. In this regime, which we refer to as the “low-correlation regime,” the behavior is similar to that of homogeneous populations. In the “high-correlation regime,” in contrast, increasing the correlation strength improves the population code. The value of c min is inversely related to the population size and decreases with O (1/ n ) ( Fig. 5 ). For large populations, it converges to zero and, hence, increasing correlations is almost always advantageous.</quote>
       </span>
-      <span xml:id="t158" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t161" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="1.0">
+        <label>noise entropy</label>
+        <term>noise entropy</term>
         <quote>Our results demonstrate that, under this constraint, the performance of population codes in large populations is primarily determined by the amount of heterogeneity in the tuning functions of the neurons and by the overall noise entropy ( Fig. 10 D , Eq. 46 ), while the specific structure of the noise does not appear to be as important as commonly assumed.</quote>
       </span>
-      <span xml:id="t159" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t162" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="1.0">
+        <label>size</label>
+        <term>size</term>
         <quote>In summary, the Fisher information saturates to a finite bound only if the variances of the neurons do not depend on the stimulus and all neurons have identical tuning curves. If one of these two conditions is not satisfied, the Fisher information increases linearly with the population size.</quote>
       </span>
-      <span xml:id="t160" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t163" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
+        <label>amplitude</label>
+        <term>amplitude</term>
         <quote>Thus, J mean depends only on the amount of amplitude variability, κ. It is independent of both the structure and the magnitude of correlations as none of the parameters of the correlation structure (e.g., c 0 or L ) enter the right-hand side of Equation 46 .</quote>
       </span>
-      <span xml:id="t161" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t164" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>κ = 0.25 — degree of tuning-amplitude heterogeneity used throughout, taken from 408 measured macaque V1 orientation tuning curves</label>
         <quote>We set κ = 0.25 as determined from a dataset of 408 orientation tuning curves of neurons recorded in macaque primary visual cortex ( Ecker et al., 2010 ).</quote>
       </span>
-      <span xml:id="t162" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t165" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>within 5% — how close the maximum-likelihood estimator gets to the Cramér–Rao bound for populations larger than 64 neurons</label>
         <quote>More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons.</quote>
       </span>
-      <span xml:id="t163" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t166" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>∼0.5 bits — entropy reduction produced by correlating two neurons at r = 0.8 while leaving their marginals unchanged</label>
         <quote>The entropy of this correlated distribution is ∼0.5 bits smaller than that of the uncorrelated distribution with identical marginals.</quote>
       </span>
-      <span xml:id="t164" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t167" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+        <label>1.29 — marginal standard deviation needed to restore the independent population&#x27;s entropy once a correlation of 0.8 is imposed</label>
         <quote>To generate a distribution that has the same entropy as our reference distribution but a correlation of 0.8, we have to increase the marginal SDs to 1.29 ( Fig. 9 C ).</quote>
       </span>
-      <span xml:id="t165" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t168" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+        <label>4096 — number of simulated heterogeneous population realizations generated per population size for the maximum-likelihood analysis</label>
         <quote>For each population size (minimum, 32; maximum, 4096 neurons), we generated 4096 realizations of heterogeneous populations.</quote>
       </span>
-      <span xml:id="t166" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t169" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="1.0">
+        <label>5% — how close the maximum-likelihood estimator comes to the bound above 64 neurons - the check that makes every later comparison of Fisher information meaningful</label>
         <quote>To address this problem, we additionally evaluated the efficiency of the maximum-likelihood estimator numerically (for details, see Materials and Methods). For both homogeneous and heterogeneous populations, it attains the Cramér–Rao bound very quickly ( Fig. 7 ), even in the case of nonidentical and nonindependent samples. Interestingly, for homogeneous populations, the rate of convergence depends more on the level of correlations than for heterogeneous populations ( Fig. 7 ). More importantly, for both types of population models, the performance of the maximum-likelihood estimator is within 5% of the Cramér–Rao bound for all population sizes &gt;64 neurons. Thus, the bound is sufficiently tight and the use of Fisher information is well justified.</quote>
       </span>
-      <span xml:id="t167" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t170" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="1.0">
+        <label>50% ... 5% — the change in correlation and in variance produced by removing ONE common noise source - two numbers from one cause, which is why neither can be credited with the effect</label>
         <quote>For example, if the response of a population of neurons with unit variances and weak correlations (〈 r 〉 = 0.05) is confounded by a common noise source with variance 0.05, removing this common noise source reduces noise correlations from ∼0.1 to ∼0.05 (a 50% change) while reducing the variances from ∼1.05 to 1 (a 5% change). In this situation, however, the changes in correlations cannot be separated from the changes in variances and neither of both is more important than the other. In fact, considering each one in isolation is not meaningful.</quote>
       </span>
-      <span xml:id="t168" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t171" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">
+        <label>408 — measured macaque V1 tuning curves used to SET the heterogeneity parameter, so the model&#x27;s key input is data and its test is not</label>
         <quote>We set κ = 0.25 as determined from a dataset of 408 orientation tuning curves of neurons recorded in macaque primary visual cortex ( Ecker et al., 2010 ). We further assume that the noise correlation between two neurons depends only on their difference in preferred direction (limited range structure) and that variances of the neurons are Poisson-like (i.e., the variances are equal to the mean firing rates). In our model, the level of correlations is controlled by c 0 , the correlation coefficient of two neurons with identical preferred directions. The relationship of c 0 to the average level of correlations 〈 r 〉 depends on the decay constant in the correlation structure ( Fig. 1 C ). For the set of parameters we used, 〈 r 〉 is ∼0.3 c 0 . Our choice of parameterization by c 0 is motivated by the fact that, for large populations, it is the more relevant quantity compared with the average correlations. Although we have to choose a specific set of parameters for the figures, our results hold more generally, as long as both tuning curves and correlation structure do not change as a function of the population size and are sufficiently smooth and slowly varying.</quote>
       </span>
-      <span xml:id="t169" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t172" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
+        <label>a few hundred — the largest read-out population that would rescue the old interpretation - stated so that it can be judged implausible against a cortical column</label>
         <quote>One possibility is that the size of the population that is read out is small enough to be in the low-correlation regime. Although we did not assess this in detail by taking into account all relevant parameters from these studies, Figures 5 and 8 B suggest that the relevant population size would have to be on the order of at most a few hundred cells. Given the number of cells even in a single cortical column, this seems rather unlikely.</quote>
       </span>
     </spanGrp>

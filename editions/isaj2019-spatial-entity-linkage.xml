@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Multi-Source Spatial Entity Linkage</title>
+        <author>Suela Isaj</author>
+        <author>Esteban Zimányi</author>
+        <author>Torben Bach Pedersen</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Multi-Source Spatial Entity Linkage</title>
+          <date>2019</date>
+          <publisher>SSDBM</publisher>
+          <idno type="DOI">10.1145/3340964.3340979</idno>
+          
+          <idno type="record">isaj2019-spatial-entity-linkage</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\isaj2019-spatial-entity-linkage.txt</note>
+          <note type="text-sha1">56cb61cd9b7512d58f69f636202e29627b1ae7c2</note>
+          <note type="rights">gold-oa</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>computer-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">22 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>Our proposed solution (QuadSky) starts with a time-efficient spatial blocking technique (QuadFlex), compares pairwise the spatial entities in the same block, ranks the pairs using Pareto optimality with the SkyRank algorithm, and finally, classifies the pairs with our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs and 0.87 precision and 0.6 recall for a semi-manually labeled dataset of 777,452 pairs.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>spatial entity linkage across location-based sources</label>
+        <quote>The problem of finding which spatial entities belong to the same physical entity is referred to as spatial entity linkage or spatial entity resolution.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <quote>In this paper, we address the problem of spatial entity linkage across different location-based sources.</quote>
+      </span>
+      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>Ground truth for the full dataset is mostly automatic, not manually checked, because manual labelling at that scale was not feasible.</label>
+        <quote>Checking the labels manually on the full dataset of 777,452 pairs is unfeasible.</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Performance on the full dataset is lower than on the manually labelled sample, possibly an artefact of the automatic labelling rather than of the method.</label>
+        <quote>The evaluation on the full dataset yields lower values (F-measure of 0.72) compared to the sample (F-measure of 0.85), which might be a simple consequence of automatic labeling.</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The skyline-based algorithms could in principle degrade to cubic complexity.</label>
+        <quote>However, there is a theoretical risk of a cubic complexity in SkyEx-F and SkyEx-D if the number of skylines K = |P |.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The ranking step is computationally expensive because it requires repeated Pareto frontier computation.</label>
+        <quote>SkyRank requires calculating the Pareto frontiers, which is time-consuming.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+        <label>The attributes that define a correct match are the ones excluded from the scoring, so identity is fixed by whichever fields were reserved.</label>
+        <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>String similarity is stated to be inapplicable to the attribute that looks most like a key, with a worked counterexample.</label>
+        <quote>The similarity between two addresses cannot be measured with Levenshtein, Jaccard, Cosine, etc. since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>Coordinates fail as an identifier in both directions at once.</label>
+        <quote>Different spatial entities might co-exist in the same coordinates (shops in a shopping mall), or the same entity might be located in different but nearby coordinates across different sources (e.g., ”Chicago Roasthouse” appears in Yelp and Google Places with coordinates 82 meters apart</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The methods this work builds on were fitted to a different kind of entity, and the authors say the resemblance cannot be assumed.</label>
+        <quote>The proposed solutions for entity resolution in individuals, either supervised or based on an experimental threshold, are learned on human entity datasets. One can not merely assume the resemblance of behaviors in a human entity dataset to a spatial entity one</quote>
+      </span>
+      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>spatial entity vs spatial object - THE DISTINCTION THE WHOLE PAPER RESTS ON: an object is identified by its coordinates alone, an entity is not, so the two words name things that need different identity conditions even though both sit at a point on a map</label>
+        <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
+      </span>
+      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>identity - AS A COMBINATION OF ATTRIBUTES, NOT A KEY: the paper states outright that what makes a spatial entity itself is several attributes together, and that inconsistency between sources makes that combination hard to infer</label>
+        <quote>The identity of a spatial entity is the combination of several attributes. Unfortunately, the identity of a spatial entity is sometimes difficult to infer due to the inconsistencies within and among the sources; each location-based source contains different attributes; some attributes might be missing and even contradicting</quote>
+      </span>
+      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>similarity - SYNTACTIC AND SPATIAL COME APART: a one-character change in an address is a 0.963 string similarity and 650 metres on the ground, which is why the paper refuses ordinary string metrics for exactly the field that looks most like an identifier</label>
+        <quote>since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
+      </span>
+      <span xml:id="t14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → the authors&#x27; earlier conference paper [38] (QuadFlex + SkyEx)</label>
+        <quote>We significantly extend a previous conference paper [38].</quote>
+      </span>
+      <span xml:id="t15" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → the skyline computation method of [38] for spatial blocking and pairwise comparison</label>
+        <quote>The present paper uses the solution in [38] for the spatial blocking and the pairwise comparisons.</quote>
+      </span>
+      <span xml:id="t16" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the lattice-based skyline algorithm of [42]</label>
+        <quote>SkyRank uses the method proposed in [42], which first scales down the d-dimensional domain and then pre-filters the data using a lattice.</quote>
+      </span>
+      <span xml:id="t17" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>builds-on → WordNet [20] and the Wu &amp; Palmer semantic similarity measure [21]</label>
+        <quote>We use Wordnet [20] for detecting the type of relationship between two words and Wu&amp; Palmer similarity measure (wup) [21].</quote>
+      </span>
+      <span xml:id="t18" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+        <label>contradicts → the spatial entity matching tools of Karam et al. [17], Berjawi et al. [18] and Morana et al. [19]</label>
+        <quote>The works in [17–19] lack an evaluation of the algorithms.</quote>
+      </span>
+      <span xml:id="t19" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>RETRACTED (RE-GROUNDED) · spatial entity —distinct-from→ spatial object</label>
+        <term>spatial entity</term>
+        <term>spatial object</term>
+        <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
+      </span>
+      <span xml:id="t20" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>spatial entity linkage —operationalised-as→ ground truth</label>
+        <term>spatial entity linkage</term>
+        <term>ground truth</term>
+        <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
+      </span>
+      <span xml:id="t21" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+        <label>spatial entity —distinct-from→ spatial object</label>
+        <term>spatial entity</term>
+        <term>spatial object</term>
+        <quote>Spatial objects differ from spatial entities mainly because a spatial object is fully determined by its coordinates or its spatial shape whereas a spatial entity, in addition to being geo-located, has a welldefined identity (name, phone, categories).</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1145/3340964.3340979.</note></p>
+    </body>
+  </text>
+</TEI>

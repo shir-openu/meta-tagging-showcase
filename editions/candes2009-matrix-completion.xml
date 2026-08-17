@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Exact Matrix Completion via Convex Optimization</title>
+        <author>Emmanuel J. Candès</author>
+        <author>Benjamin Recht</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Exact Matrix Completion via Convex Optimization</title>
+          <date>2009</date>
+          <publisher>Foundations of Computational Mathematics / arXiv</publisher>
+          <idno type="DOI">10.1007/s10208-009-9045-5</idno>
+          <idno type="arXiv">0805.4471</idno>
+          <idno type="record">candes2009-matrix-completion</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\candes2009-matrix-completion.txt</note>
+          <note type="text-sha1">2689bd96b52b634c7f94cb6dc3c834c506210102</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>mathematics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-17"
+              who="build_paper_edition.py">37 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>In this paper, we consider an alternative which minimizes the sum of the singular values over the constraint set.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>low-rank matrix completion</label>
+        <quote>Our main result (Theorem 1.3) extends to a variety of other low-rank matrix completion problems beyond the sampling of entries.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>mathematical-proof</label>
+        <term>mathematical-proof</term>
+        <quote>To prove Theorem 1.3, we first establish sufficient conditions which guarantee that the true low-rank matrix M is the unique solution to (1.5) in Sect. 3.</quote>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the quantity actually wanted - the rank - is replaced by the sum of the singular values, because minimising rank is NP-hard and every known exact algorithm takes time doubly exponential in the dimension, while the substitute is convex</term>
+        <quote>This is unfortunately of little practical use because this optimization problem is not only NP-hard, but all known algorithms which provide exact solutions require time doubly exponential in the dimension n of the matrix in both theory and practice [13]. If a matrix has rank r, then it has exactly r nonzero singular values so that the rank function in (1.3) is simply the number of nonvanishing singular values. In this paper, we consider an alternative which minimizes the sum of the singular values over the constraint set.</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>the substitution is licensed by an analogy the authors state rather than assume: the nuclear norm stands to the rank function as the convex l1 norm stands to the counting l0 norm in sparse signal recovery - one counts nonvanishing singular values, the other sums their amplitude</term>
+        <quote>Whereas the rank function counts the number of nonvanishing singular values, the nuclear norm sums their amplitude and in some sense, is to the rank functional what the convex (cid:4)1 norm is to the counting (cid:4)0 norm in the area of sparse signal recovery.</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the informal requirement that the singular vectors be spread out is converted into a MEASURED quantity - the coherence of a subspace against the standard basis - whose smallest value is one, attained when the spanning vectors&#x27; entries all share a magnitude, and whose largest is attained by any subspace containing a standard basis element</term>
+        <quote>Note that for any subspace, the smallest μ(U ) can be is 1, achieved, for example, if U is spanned by vectors whose entries all have magnitude 1/ n. The largest possible value for μ(U ) is n/r which would correspond to any subspace that contains a standard basis element.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>necessity is established by exhibiting a matrix rather than by argument: this one cannot be recovered from a sample of its entries unless nearly all are seen, because for most sampling sets one would see only zeros and would have no way to guess the matrix is not zero</term>
+        <quote>Clearly, this matrix cannot be recovered from a sampling of its entries unless we pretty much see all the entries. The reason is that for most sampling sets, we would only get to see zeros so that we would have no way of guessing that the matrix is not zero.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>a second necessary condition is derived the same way, from an adversarial sampling set rather than a random one: with no sample in some row, one component is unobserved and no method whatsoever can recover it, so at least one observation per row and per column is required</term>
+        <quote>Then if we do not have samples from the first row, for example, one could never guess the value of the first component of x1 by any method whatsoever; no information about x1 is observed. There is of course nothing special about the first row and this argument extends to any row or column. To have any hope of recovering an unknown matrix, one needs at least one observation per row and one observation per column.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the impossibility is side-stepped by changing the question from ALL sampling sets to MOST - adversarial sampling defeats even rank one, so what is asked instead is whether recovery succeeds for almost all sampling sets of a given size</term>
+        <quote>We have just seen that if the sampling is adversarial, e.g., one observes all of the entries of M but those in the first row, then one would not even be able to recover matrices of rank 1. But what happens for most sampling sets? Can one recover a low-rank matrix from almost all sampling sets of cardinality m?</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the class of matrices the theorem covers is fixed by an explicitly stated assumption rather than left to the reader: both coherences must be bounded above by a single positive constant, which is what turns &#x27;the singular vectors are spread out&#x27; into a checkable premise</term>
+        <quote>A0 The coherences obey max(μ(U ), μ(V )) ≤ μ0 for some positive μ0.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the convex program is put into a form existing software already solves: for a positive semidefinite unknown the nuclear norm IS the trace of the matrix, so the heuristic collapses into minimising the trace over the constraint set</term>
+        <quote>Indeed, when the matrix variable is symmetric and positive semidefinite, the nuclear norm of X is the sum of the (nonnegative) eigenvalues and thus equal to the trace of X. Hence, for positive semidefinite unknowns, (1.5) would simply minimize the trace over the constraint set:</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>The guarantee covers exactly low-rank matrices; extension to approximately low-rank matrices is left open.</label>
+        <quote>It would be of interest to extend our results to the case where the unknown matrix is approximately low-rank.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The sampling bounds proved may be far more demanding than what is needed in practice.</label>
+        <quote>Interestingly, the experiments reveal very similar plots for different n, suggesting that our asymptotic conditions for recovery may be rather conservative.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The semidefinite program the theory relies on does not scale with off-the-shelf solvers.</label>
+        <quote>Standard interior point methods will be impractical for problems where the unknown matrix has hundreds of rows or columns.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The general problem of recovery from arbitrary linear functionals is not treated.</label>
+        <quote>To avoid unnecessary confusion and notational clutter, we leave this general low-rank recovery problem for future work.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+        <label>The paper states that the general problem is impossible and narrows the question before answering it.</label>
+        <quote>It is therefore impossible to recover all low-rank matrices from a set of sampled entries but can one recover most of them</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The tractable method is a relaxation whose equivalence to the real problem holds for most instances, not all.</label>
+        <quote>In other words, for most problems, the nuclear norm relaxation is formally equivalent to the combinatorially hard rank minimization problem</quote>
+      </span>
+      <span xml:id="t17" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The recovery guarantee holds only for matrices whose row and column spaces satisfy an incoherence condition.</label>
+        <quote>if a matrix has row and column spaces that are incoherent with the standard basis, then nuclear norm minimization can recover this matrix from a random sampling of a small number of entries</quote>
+      </span>
+      <span xml:id="t18" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The exact-solution alternative is not merely slow but doubly exponential in the dimension.</label>
+        <quote>this optimization problem is not only NP-hard, but all known algorithms which provide exact solutions require time doubly exponential in the dimension</quote>
+      </span>
+      <span xml:id="t19" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>&#x27;exact&#x27; recovery - EXACT UNDER CONDITIONS, NOT IN GENERAL: recovery of the true matrix is proved for matrices incoherent with the standard basis and from a random sample, after the paper has stated that recovering ALL low-rank matrices is impossible, so the word describes the outcome when the hypotheses hold rather than the reach of the method</label>
+        <quote>It is therefore impossible to recover all low-rank matrices from a set of sampled entries but can one recover most of them</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>the nuclear norm - A HEURISTIC STANDING IN FOR RANK: the problem actually wanted is combinatorially hard, the nuclear norm is introduced as a heuristic optimisation, and the theorem is that the two coincide for most problems - so the method solves a different problem that usually has the same answer</label>
+        <quote>In other words, for most problems, the nuclear norm relaxation is formally equivalent to the combinatorially hard rank minimization problem</quote>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>incoherence - THE HYPOTHESIS THE HEADLINE DEPENDS ON: the recoverable matrices are those whose row and column spaces are incoherent with the standard basis, a property nothing in an application guarantees and which the result cannot be quoted without</label>
+        <quote>if a matrix has row and column spaces that are incoherent with the standard basis, then nuclear norm minimization can recover this matrix from a random sampling of a small number of entries</quote>
+      </span>
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → convex optimization (nuclear-norm minimization)</label>
+        <quote>finds the matrix with minimum nuclear norm that fits the data</quote>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → the theory of compressed sensing</label>
+        <quote>From this viewpoint, the results in this paper greatly extend the theory of compressed sensing by showing that other types of interesting objects or structures, beyond sparse signals and images, can be recovered from a limited set of measurements.</quote>
+      </span>
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the nuclear norm heuristic introduced by Fazel [19]</label>
+        <quote>Nuclear norm minimization is a recent heuristic introduced by Fazel in [19], and is an extension of the trace heuristic often used by the control community; see, e.g., [4, 28].</quote>
+      </span>
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → the notion of incoherence of a unitary transformation introduced in [9]</label>
+        <quote>This paper generalizes the notion of incoherence to problems beyond the setting of sparse signal recovery.</quote>
+      </span>
+      <span xml:id="t26" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>nuclear norm —same-as→ rank minimization</label>
+        <term>nuclear norm</term>
+        <term>rank minimization</term>
+        <quote>In other words, for most problems, the nuclear norm relaxation is formally equivalent to the combinatorially hard rank minimization problem</quote>
+      </span>
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>incoherent —contrasted-with→ standard basis</label>
+        <term>incoherent</term>
+        <term>standard basis</term>
+        <quote>if a matrix has row and column spaces that are incoherent with the standard basis, then nuclear norm minimization can recover this matrix from a random sampling of a small number of entries</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>m ≥ C·n^1.2·r·log n — sample complexity: entries sufficient to recover most rank-r n×n matrices</label>
+        <quote>if the number m of sampled entries obeys m ≥ C n1.2r log n for some positive numerical constant C, then with very high probability, most n × n matrices of rank r can be perfectly recovered</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>1.25 — replacing 1.2 with 1.25 makes the result hold for all ranks</label>
+        <quote>if one replaces the 1.2 exponent with 1.25, then the result holds for all values of the rank</quote>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>number of observed matrix entries m (and rank r)</label>
+        <term>number of observed matrix entries m (and rank r)</term>
+        <quote>if the number m of sampled entries obeys m ≥ C n1.2r log n</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>exact recovery of the full matrix</label>
+        <term>exact recovery of the full matrix</term>
+        <quote>most n × n matrices of rank r can be perfectly recovered</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>matrix completion</label>
+        <term>matrix completion</term>
+        <quote>the recovery of a data matrix from a sampling of its entries</quote>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>nuclear norm minimization</label>
+        <term>nuclear norm minimization</term>
+        <quote>This program finds the matrix with minimum nuclear norm that fits the data</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>chi-square</label>
+        <term>chi-square</term>
+        <quote>Lemma 2.3 Let Yd be distributed as a chi-squared random variable with d degrees of freedom.</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>degrees-of-freedom</label>
+        <term>degrees-of-freedom</term>
+        <quote>Lemma 2.3 Let Yd be distributed as a chi-squared random variable with d degrees of freedom.</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <quote>matrices from on the order of nr— up to logarithmic multiplicative factors—randomly selected entries? Can the sample size be merely proportional to the true complexity of the low-rank object we wish to recover? In this direction, w</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1007/s10208-009-9045-5.</note></p>
+    </body>
+  </text>
+</TEI>

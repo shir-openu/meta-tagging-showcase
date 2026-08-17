@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>The Information Bottleneck Method</title>
+        <author>Naftali Tishby</author>
+        <author>Fernando C. Pereira</author>
+        <author>William Bialek</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>The Information Bottleneck Method</title>
+          <date>1999</date>
+          <publisher>Allerton Conference / arXiv</publisher>
+          
+          <idno type="arXiv">physics/0004057</idno>
+          <idno type="record">tishby1999-information-bottleneck</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\tishby1999-information-bottleneck.txt</note>
+          <note type="text-sha1">8520923960fceb55c1b08fe27fbe705c9b5dfdb6</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>information-theory</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">23 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>We derive self consistent equations and an iterative algorithm for finding representations of the signal that capture its relevant structure, and prove 3 convergence of this algorithm.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>relevant information extraction under lossy compression</label>
+        <quote>A fundamental problem in formalizing our intuitive ideas about information is to provide a quantitative notion of “meaningful” or “relevant” information.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>mathematical-proof</label>
+        <term>mathematical-proof</term>
+        <quote>To prove the convergence of the iterations it is enough to verify that each of the iteration steps minimizes the same functional, independently, and that this functional is bounded from below as a sum of two non–negative terms.</quote>
+      </span>
+      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>The convergence proof does not establish that the solution is unique, since the functional is convex in each distribution separately but not jointly.</label>
+        <quote>Thus our convergence proof does not imply uniqueness of the solution.</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The solution is formal: the conditional distribution appearing in the exponent is defined only implicitly in terms of the mapping being solved for.</label>
+        <quote>This solution has a number of interesting features, but we must emphasize that it is a formal solution since p(y|˜x) in the exponential is defined implicitly in terms of the assignment mapping p(˜x|x).</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The structure and cardinality of the compressed representation still have to be specified externally and are not determined by the theory.</label>
+        <quote>The formal solution of the self consistent equations, described above, still requires a specification of the structure and cardinality of ˜X, as in rate distortion theory.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The method assumes access to the joint distribution; how to obtain an adequate sample of it is left outside the paper.</label>
+        <quote>The problem of actually obtaining a good enough sample of this distribution is an interesting issue in learning theory, but is beyond the scope of this paper.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>The convergence proof for the bottleneck iterations is only sketched in this paper for reasons of length.</label>
+        <quote>For lack of space we can only outline the proof.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The problem the paper addresses is stated to be ill-posed until someone supplies a definition of relevance, which is a choice and not a measurement.</label>
+        <quote>The problem of extracting a relevant summary of data, a compressed description that captures only the relevant or meaningful information, is not well posed without a suitable definition of relevance</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>Choosing the distortion function is choosing which features matter, and the paper says the correct one is virtually impossible to obtain for a real signal.</label>
+        <quote>an arbitrary choice of the distortion function is in fact an arbitrary feature selection. In the speech example, we have at best very partial knowledge of what precise components of the signal are perceived by our (neural) speech recognition system. Those relevant components depend not only on the complex structure of the auditory nervous system, but also on the sounds and utterances to which we are exposed during our early life. It therefore is virtually impossible to come up with the “correct” distortion function for acoustic signals</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The trade-off the method exposes has no uniquely right setting; the balance point is a parameter the analyst turns.</label>
+        <quote>there is no single right solution for the tradeoff</quote>
+      </span>
+      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>relevant information - DEFINED BY A CHOSEN SECOND VARIABLE: what a signal tells you about another signal Y, so relevance is never a property of the signal alone and the choice of Y fixes which features count</label>
+        <quote>We define the relevant information in a signal x ∈ X as being the information that this signal provides about another signal</quote>
+      </span>
+      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>relevance - AS SET BY THE ANALYST&#x27;S PURPOSE: the same speech signal has different relevant features depending on whether the task is recognition or speaker identification, and the paper lists the choice per domain</label>
+        <quote>In the speech case it might be the transcription of the signal, if we are interested in the speech recognition problem, or it might be the speaker’s identity if speaker identification is our goal. For natural language processing, it might be the part of speech labels for words in grammar checking, but the dictionary senses of ambiguous words in information retrieval. Similarly, for the protein folding problem we have a joint database of sequences and three dimensional structures, and for neural coding a simultaneous recording of sensory stimuli and neural responses defines implicitly the relevant variables in each domain. All of these problems have the same formal underlying structure: extract the information from one variable that is relevant for the prediction of another one. The choice of additional variable determines the relevant components or features of the signal in each case</quote>
+      </span>
+      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>meaning - WHAT SHANNON DELIBERATELY LEFT OUT: information theory was formulated about transmitting information rather than judging its value to the recipient, and this paper returns to the excluded question</label>
+        <quote>These issues were intentionally left out of information theory in its original formulation by Shannon, who focused attention on the problem of transmitting information rather than judging its value to the recipient</quote>
+      </span>
+      <span xml:id="t14" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+        <label>the distortion measure - EMERGENT, NOT ASSUMED: the KL divergence falls out of the variational principle rather than being chosen in advance, which is the paper&#x27;s answer to the arbitrariness it identifies</label>
+        <quote>The Kullback–Leibler divergence, DKL[p(y|x)|p(y|˜x)], emerged as the relevant “effective distortion measure” from our variational principle but is not assumed otherwise anywhere</quote>
+      </span>
+      <span xml:id="t15" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → rate-distortion theory (Shannon)</label>
+        <quote>a generalization of rate distortion theory</quote>
+      </span>
+      <span xml:id="t16" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>contradicts → the arbitrary choice of distortion function in rate-distortion theory</label>
+        <quote>an arbitrary choice of the distortion function is in fact an arbitrary feature selection</quote>
+      </span>
+      <span xml:id="t17" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>extends → rate distortion theory</label>
+        <quote>This constrained optimization problem can be seen as a generalization of rate distortion theory in which the distortion measure d(x, ˜x) emerges from the joint statistics of X and Y .</quote>
+      </span>
+      <span xml:id="t18" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → the Blahut–Arimoto algorithm</label>
+        <quote>Solutions to these equations can be found by a convergent re–estimation method that generalizes the Blahut–Arimoto algorithm.</quote>
+      </span>
+      <span xml:id="t19" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+        <label>builds-on → the convergence lemma of Csiszár and Tusnády</label>
+        <quote>The following lemma, due to Csisz´ar and Tusn´ady [3], assures global convergence in this case.</quote>
+      </span>
+      <span xml:id="t20" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>relevant information —operationalised-as→ distortion function</label>
+        <term>relevant information</term>
+        <term>distortion function</term>
+        <quote>Thus the distortion function specifies implicitly what are the most relevant aspects of values in X.</quote>
+      </span>
+      <span xml:id="t21" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>relevant information —operationalised-as→ relevance variable</label>
+        <term>relevant information</term>
+        <term>relevance variable</term>
+        <quote>We define the relevant information in a signal x ∈ X as being the information that this signal provides about another signal</quote>
+      </span>
+      <span xml:id="t22" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>preserved relevant information about Y</label>
+        <term>preserved relevant information about Y</term>
+        <quote>finding a short code for X that preserves the maximum information about Y</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://arxiv.org/abs/physics/0004057.</note></p>
+    </body>
+  </text>
+</TEI>

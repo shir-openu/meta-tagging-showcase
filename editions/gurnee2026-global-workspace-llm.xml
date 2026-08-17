@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Verbalizable Representations Form a Global Workspace in Language Models</title>
+        <author>Wes Gurnee</author>
+        <author>Nicholas Sofroniew</author>
+        <author>Jack Lindsey</author>
+        <author>et al. (Anthropic)</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Verbalizable Representations Form a Global Workspace in Language Models</title>
+          <date>2026</date>
+          <publisher>Transformer Circuits Thread</publisher>
+          
+          
+          <idno type="record">gurnee2026-global-workspace-llm</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\gurnee2026-global-workspace-llm.txt</note>
+          <note type="text-sha1">f8862134eecf3870c1222d3331c02cd7981dd708</note>
+          <note type="rights">personal-copy</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">30 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>existence</label>
+        <quote>In this paper, we provide evidence that LLMs do possess such workspace-like representations.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>global workspace / conscious-access-like representations in large language models</label>
+        <quote>Specifically, we observe that language models maintain a privileged set of internal representations, available for report, modulation, and flexible internal reasoning, atop a much larger volume of automatic processing.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <quote>The Jacobian lens is a technique for inspecting the contents of the residual stream at these intermediate layers.</quote>
+      </span>
+      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>The lens is acknowledged as an approximate and incomplete proxy for whatever the model&#x27;s real workspace is.</label>
+        <quote>The Jacobian lens is an imperfect tool, which we believe only approximately and incompletely captures the model’s underlying workspace structure.</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>It can only name concepts that happen to be single tokens in the vocabulary.</label>
+        <quote>This construction means that the set of concepts the lens can name is exactly the set of concepts that have a single-token name in the tokenizer&#x27;s vocabulary.</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The readout is a flat bag of concepts and cannot show how they are bound or structured together.</label>
+        <quote>Even setting the vocabulary issue aside, the J-lens treats the workspace as a flat collection of independently active concept vectors.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>Readouts are not always interpretable, and the rate of uninterpretable ones was not characterised systematically.</label>
+        <quote>In our experience this is the typical case at workspace-layer positions, but it is not the universal one: at some positions and layers, the top lens tokens are ones we cannot make sense of.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>The apparent emptiness of the early layers may be a fact about the model or an artefact of the lens; the authors cannot tell which.</label>
+        <quote>W e do not know whether this is a fact about the model or an artifact of the lens.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger">
+        <label>No mechanism is offered for how a representation comes to enter the workspace.</label>
+        <quote>W e have not characterized what causes a representation to enter it.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger">
+        <label>The authors decline to claim the J-space is sufficient for alignment monitoring, since automatic or well-practised misaligned behaviour could bypass it.</label>
+        <quote>W e do not feel comfortable making the stronger claim that monitoring the J-space is sufficient for alignment monitoring, or that any sophisticated plan the model might execute must be represented there.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger">
+        <label>Findings are from large production models only; scaling and training-time emergence are untested.</label>
+        <quote>W e have studied the workspace primarily in fully trained production LLMs of considerable size.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[8]" resp="#tagger">
+        <label>The analogy to global workspace theory is explicitly partial: architectural features such as encapsulated processors and recurrent broadcast are not claimed.</label>
+        <quote>Despite these similarities, we do not claim that language models reproduce the full architecture global workspace theory ascribes to the brain</quote>
+      </span>
+      <span xml:id="t12" type="controls" ana="#controls[0]" resp="#tagger" cert="0.9">
+        <label>a positive control on the ablation itself, checking it removes the content the J-space was shown to carry</label>
+        <quote>W e first verify, as a positive control, that the ablation removes the kind of content the preceding sections showed the J-space to carry.</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>a story-writing task run under the same ablation, scoring general story quality alongside the rate of experiential language</label>
+        <quote>A story-writing control confirms the effect is not due to broad degradation of writing capability: ablation only slightly reduces graded story quality, while still reducing the rate of experiential language within those stories ( §A.23 ).</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[2]" resp="#tagger" cert="0.8">
+        <label>zeroing equal-sized, layer-matched sets of randomly chosen heads - the sentence states the control and not its outcome, so no outcome is recorded here</label>
+        <quote>W e zero the heads&#x27; outputs at every token position, and as a control we do the same to equal-sized, layer-matched sets of randomly chosen heads.</quote>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>a perturbation of equal magnitude applied to a different concept of the same category</label>
+        <quote>As a control, to ensure the effect on avoidance behavior is not simply due to perturbations generically degrading the model’s capabilities, or due to noise leading to regression-to-mean effects, we tried applying a perturbation of equal magnitude, inhibiting the J-lens vector of some other concept of the same category as the primed one.</quote>
+      </span>
+      <span xml:id="t16" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>global workspace - the theory&#x27;s sense: a shared space a representation is posted to, from which many downstream processes can read</label>
+        <quote>A representation becomes consciously accessible when it is posted to a shared &quot;global workspace&quot; from which many downstream processes can read .</quote>
+      </span>
+      <span xml:id="t17" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>global workspace - a processing hub that integrates and broadcasts, so the information can be used for flexible internal reasoning and report</label>
+        <quote>Under the theory, the workspace is a processing hub that integrates and broadcasts information, allowing it to be used for flexible internal reasoning and report .</quote>
+      </span>
+      <span xml:id="t18" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>nameable concept - bounded by the tokenizer: exactly those concepts holding a single-token name, which is what the lens can report at all</label>
+        <quote>This construction means that the set of concepts the lens can name is exactly the set of concepts that have a single-token name in the tokenizer&#x27;s vocabulary.</quote>
+      </span>
+      <span xml:id="t19" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+        <label>global workspace - what the paper explicitly does NOT claim language models reproduce</label>
+        <quote>we do not claim that language models reproduce the full architecture global workspace theory ascribes to the brain</quote>
+      </span>
+      <span xml:id="t20" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → the logit lens</label>
+        <quote>While the logit lens assumes that representations use the same coordinates in all layers, the Jacobian lens corrects for representational changes that take place across layers, allowing it to uncover meaningful information in earlier layers where the logit lens produces uninterpretable readouts.</quote>
+      </span>
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → Hernandez et al., per-relation linear maps from Jacobians</label>
+        <quote>The J-lens applies the same first-order approximation to the map from activations to model outputs, rather than to a single relation.</quote>
+      </span>
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>replicates → Li et al., logit-lens decoding and patching of multi-hop intermediates</label>
+        <quote>Closest to our approach, Li et al. use the logit lens to decode the intermediate entity in a multi-hop query from middle layers and patch along the decoded directions to redirect the answer, paralleling the internal-reasoning results of §3.3 .</quote>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>builds-on → work on implicit chain-of-thought</label>
+        <quote>More closely related to our method is work on “implicit chain-of-thought” , which establishes that training on auxiliary reasoning text can shape computation in that context, even when the auxiliary text is dropped at inference.</quote>
+      </span>
+      <span xml:id="t24" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>consciously accessible information —operationalised-as→ global workspace</label>
+        <term>consciously accessible information</term>
+        <term>global workspace</term>
+        <quote>A representation becomes consciously accessible when it is posted to a shared &quot;global workspace&quot; from which many downstream processes can read .</quote>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>LLMs maintain a privileged set of internal representations available for report, modulation, and flexible reasoning</label>
+        <quote>language models maintain a privileged set of internal representations, available for report, modulation, and flexible internal reasoning</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>an analogous accessible/unconscious functional distinction has emerged in modern AI models</label>
+        <quote>an analogous functional distinction has emerged in modern AI</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>a new interpretability technique surfaces the concepts a model is poised to verbalize</label>
+        <quote>a new interpretability technique, which surfaces the concepts a model is poised</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>verbalizable vs automatic internal representations</label>
+        <term>verbalizable vs automatic internal representations</term>
+        <quote>the concepts a model is poised</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>global workspace (LLM analog)</label>
+        <term>global workspace (LLM analog)</term>
+        <quote>a privileged set of internal representations, available for report, modulation, and flexible internal reasoning</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://transformer-circuits.pub/.</note></p>
+    </body>
+  </text>
+</TEI>

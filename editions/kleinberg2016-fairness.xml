@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Inherent Trade-Offs in the Fair Determination of Risk Scores</title>
+        <author>Jon Kleinberg</author>
+        <author>Sendhil Mullainathan</author>
+        <author>Manish Raghavan</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Inherent Trade-Offs in the Fair Determination of Risk Scores</title>
+          <date>2016</date>
+          <publisher>ITCS / arXiv</publisher>
+          
+          <idno type="arXiv">1609.05807</idno>
+          <idno type="record">kleinberg2016-fairness</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\kleinberg2016-fairness.txt</note>
+          <note type="text-sha1">0ca3215190756a34b432d6e3a4e301f56cef817f</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>law</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">31 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>existence</label>
+        <quote>Our main result, however, is that these conditions are in general incompatible with each other; they can only be simultaneously satisfied in certain highly constrained cases.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>fairness conditions for probabilistic risk scores</label>
+        <quote>Recent discussion in the public sphere about algorithmic classification has involved tension between competing notions of what it means for a probabilistic classification to be fair to different groups.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>formal-proof</label>
+        <term>formal-proof</term>
+        <quote>We formalize three fairness conditions that lie at the heart of these debates, and we prove that except in highly constrained special cases, there is no method that can satisfy these three conditions simultaneously.</quote>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>an impossibility theorem: calibration and balanced error rates across groups cannot all hold simultaneously except when base rates are equal or prediction is perfect</term>
+        <quote>there is no method that can satisfy these three conditions simultaneously</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>the incompatibility holds except in highly constrained special cases</label>
+        <quote>except in highly constrained special cases</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The computational tractability of finding a minimum-loss fair assignment (or even deciding whether a non-trivial one exists) is left open.</label>
+        <quote>It is an open question whether there is a polynomial-time algorithm to find a fair assignment of minimum loss, or even to determine whether a non-trivial fair solution exists.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The NP-completeness result covers only the integral case, not the general model where a feature vector may be split across bins.</label>
+        <quote>(Our NP-completeness result applies only to the case in which everyone with a given feature vector must be assigned to the same bin.)</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The paper deliberately does not analyse which fairness definitions are violated in real applications or datasets.</label>
+        <quote>Nor is our intention to analyze which definitions of fairness are violated in particular applications or datasets.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>The exposition is restricted to two groups.</label>
+        <quote>We focus on the case of two groups for simplicity of exposition, but it is straightforward to extend all of our definitions to the case of more than two groups.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger">
+        <label>The model assumes the true positive-class rate for each feature vector is known to the procedure; the unknown case is not analysed.</label>
+        <quote>Clearly the case in which the value of pσ is unknown is an important version of the problem as well; however, since our main results establish strong limitations on what is achievable, these limitations are only stronger because they apply even to the case of known pσ.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>Withholding the group attribute from the procedure does not stop it exhibiting bias between groups, and the paper says so in a parenthesis as it defines the model.</label>
+        <quote>Note that the rule does not have access to the group t of the person being considered, only their feature vector σ. (As we will see, this does not mean that the rule is incapable of exhibiting bias between the two groups</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The modelling assumption that group membership adds nothing beyond the feature vector is defended by a construction in which the feature vector conveys group perfectly.</label>
+        <quote>the assumption that the group provides no additional information beyond σ does not restrict the generality of the model, since we can always consider instances in which people of different groups never have the same feature vector σ, and hence σ implicitly conveys perfect information about a person</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+        <label>A fourth and legally mandated notion of fairness is set aside as often neither feasible nor desirable, so the impossibility result does not speak to it.</label>
+        <quote>In some cases statistical parity is a central goal (and in some it is legally mandated), but the examples considered so far suggest that classification and risk assessment are much broader activities where statistical parity is often neither feasible nor desirable</quote>
+      </span>
+      <span xml:id="t13" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>probabilistic fairness criteria (calibration, error-rate balance) applied to risk scores used in consequential legal / policy decisions</label>
+        <quote>concern over discrimination in machine learning has led to a large body of new work seeking to better understand and prevent it</quote>
+      </span>
+      <span xml:id="t14" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>fairness - AS CALIBRATION WITHIN GROUPS (condition A): within each group, the people in a bin scored v really do belong to the positive class at rate v, i.e. the scores mean what they claim to mean when read separately in each group</label>
+        <quote>Calibration within groups requires that for each group t, and each bin b with associated score vb, the expected number of people from group t in b who belong to the positive class should be a vb fraction of the expected number of people from group t assigned to b</quote>
+      </span>
+      <span xml:id="t15" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>fairness - AS BALANCE FOR THE NEGATIVE CLASS (condition B): people who do NOT have the property get the same average score whichever group they are in, so the errors are not systematically worse for one group&#x27;s negative instances</label>
+        <quote>Balance for the negative class requires that the average score assigned to people of group 1 who belong to the negative class should be the same as the average score assigned to people of group 2 who belong to the negative class. In other words, the assignment of scores shouldn’t be systematically more inaccurate for negative instances in one group than the other</quote>
+      </span>
+      <span xml:id="t16" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>fairness - AS BALANCE FOR THE POSITIVE CLASS (condition C): people who DO have the property get the same average score whichever group they are in - the condition the COMPAS critique turned on</label>
+        <quote>Balance for the positive class symmetrically requires that the average score assigned to people of group 1 who belong to the positive class should be the same as the average score assigned to people of group 2 who belong to the positive class</quote>
+      </span>
+      <span xml:id="t17" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+        <label>the impossibility - AS A FACT ABOUT BASE RATES, NOT ABOUT A DOMAIN: the authors state that the trade-off is not a fact about medicine but about risk estimates whenever base rates differ, which is the paper stating its own transfer condition</label>
+        <quote>The point is that this trade-off among (a), (b), and (c) is not a fact about medicine; it is simply a fact about risk estimates when the base rates differ between two groups</quote>
+      </span>
+      <span xml:id="t18" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>contradicts → the assumption that fairness criteria can be jointly satisfied</label>
+        <quote>there is no method that can satisfy these three conditions simultaneously</quote>
+      </span>
+      <span xml:id="t19" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → Dietrich et al.&#x27;s empirical observation that error-rate symmetry across groups is hard to achieve when base rates differ</label>
+        <quote>Our formulation of the balance conditions for the positive and negative classes, and our result showing the incompatibility of these conditions with calibration, provides a theoretical basis for such observations.</quote>
+      </span>
+      <span xml:id="t20" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the Angwin et al. critique of the COMPAS risk tool and its counter-arguments</label>
+        <quote>For example, in the analysis of the COMPAS risk tool for criminal defendants, the critique by Angwin et al. focused on the risk tool’s violation of conditions (B) and (C); the counter-arguments established that it satisfies condition (A).</quote>
+      </span>
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → the concurrent binary-classifier analysis of Hardt et al. [19]</label>
+        <quote>In recent work concurrent with ours, Hardt et al. consider the natural analogues of our conditions (B) and (C), balance for the negative and positive classes, in the case of classifiers that output binary “yes/no” predictions rather than real-valued scores as in our case [19].</quote>
+      </span>
+      <span xml:id="t22" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>balance for the positive class —distinct-from→ statistical parity</label>
+        <term>balance for the positive class</term>
+        <term>statistical parity</term>
+        <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person, the chance of making a mistake on them should not depend on which group they belong to.</quote>
+      </span>
+      <span xml:id="t23" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>balance for the negative class —distinct-from→ statistical parity</label>
+        <term>balance for the negative class</term>
+        <term>statistical parity</term>
+        <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person</quote>
+      </span>
+      <span xml:id="t24" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>Balance for the positive and negative classes —distinct-from→ statistical parity</label>
+        <term>Balance for the positive and negative classes</term>
+        <term>statistical parity</term>
+        <quote>Balance for the positive and negative classes, however, is a goal that can be discussed independently of statistical parity, since these two balance conditions simply ask that once we condition on the “correct” answer for a person, the chance of making a mistake on them should not depend on which group they belong to.</quote>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>three — the number of fairness conditions proven jointly unsatisfiable</label>
+        <quote>We formalize three fairness conditions that lie at the heart of these debates</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>Three natural fairness conditions for probabilistic risk scores (calibration + balance for the positive and negative classes) cannot all hold simultaneously except in highly constrained special cases (equal base rates or perfect prediction).</label>
+        <quote>we prove that except in highly constrained special cases, there is no method that can satisfy these three conditions simultaneously</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>Even approximate satisfaction of all three forces the data to nearly match those special cases — so key fairness notions are inherently incompatible, an unavoidable trade-off.</label>
+        <quote>even satisfying all three conditions approximately requires that the data lie in an approximate version of one of the constrained special cases identified by our theorem</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>group base rates (fraction in positive class)</label>
+        <term>group base rates (fraction in positive class)</term>
+        <quote>the two groups have the same fraction of members in the positive class</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>joint satisfiability of the three fairness conditions</label>
+        <term>joint satisfiability of the three fairness conditions</term>
+        <quote>there is no method that can satisfy these three conditions simultaneously</quote>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>balance for the positive class</label>
+        <term>balance for the positive class</term>
+        <quote>balance for the positive class, since a violation of it would mean that people constituting positive instances in one group receive</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://arxiv.org/abs/1609.05807.</note></p>
+    </body>
+  </text>
+</TEI>

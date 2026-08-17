@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>GloVe: Global Vectors for Word Representation</title>
+        <author>Jeffrey Pennington</author>
+        <author>Richard Socher</author>
+        <author>Christopher D. Manning</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>GloVe: Global Vectors for Word Representation</title>
+          <date>2014</date>
+          <publisher>EMNLP</publisher>
+          <idno type="DOI">10.3115/v1/D14-1162</idno>
+          
+          <idno type="record">pennington2014-glove</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\pennington2014-glove.txt</note>
+          <note type="text-sha1">7e04499f0f4da137a1324b38d54fa808b5fcf7f8</note>
+          <note type="rights">open-access</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>linguistics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">30 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>The result is a new global logbilinear regression model that combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>word vector representations from co-occurrence statistics</label>
+        <quote>The statistics of word occurrences in a corpus is the primary source of information available to all unsupervised methods for learning word representations, and although many such methods now exist, the question still remains as to how meaning is generated from these statistics, and how the resulting word vectors might represent that meaning.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <quote>We propose a specific weighted least squares model that trains on global word-word co-occurrence counts and thus makes efficient use of statistics.</quote>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>learn word vectors from the global co-occurrence matrix via a log-bilinear model on ratios of co-occurrence probabilities, so vector differences encode meaning</term>
+        <quote>word vector learning should be with ratios of co-occurrence probabilities rather than the probabilities themselves</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>the origin of the linguistic regularities captured by word-vector arithmetic was not understood</label>
+        <quote>the origin of these regularities has remained opaque</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The chosen exponent in the weighting function is justified only empirically, not derived.</label>
+        <quote>Although we offer only empirical motivation for choosing the value 3/4, it is interesting that a similar fractional power scaling was found to give the best performance in (Mikolov et al., 2013a).</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The head-to-head comparison with word2vec is confounded by many performance-affecting parameters.</label>
+        <quote>A rigorous quantitative comparison of GloVe with word2vec is complicated by the existence of many parameters that have a strong effect on performance.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>Unspecified parameters were left at defaults, a simplification the authors say a more thorough analysis should relax.</label>
+        <quote>We set any unspecified parameters to their default values, assuming that they are close to optimal, though we acknowledge that this simplification should be relaxed in a more thorough analysis.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>The largest-corpus (840B token) run used a different preprocessing, so its results are not comparable with the reported ones.</label>
+        <quote>To demonstrate the scalability of the model, we also trained it on a much larger sixth corpus, containing 840 billion tokens of web data, but in this case we did not lowercase the vocabulary, so the results are not directly comparable.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The comparison that establishes the headline result runs the competing method at default settings, assumed near-optimal, and the paper says the assumption should be relaxed.</label>
+        <quote>We set any unspecified parameters to their default values, assuming that they are close to optimal, though we acknowledge that this simplification should be relaxed in a more thorough analysis</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The exponent that shapes the weighting function has empirical motivation only.</label>
+        <quote>Although we offer only empirical motivation for choosing the value 3/4, it is interesting that a similar fractional power scaling was found to give the best performance</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The distinction the model is built on is declared arbitrary by the authors.</label>
+        <quote>note that for word-word co-occurrence matrices, the distinction between a word and a context word is arbitrary and that we are free to exchange the two roles</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+        <label>The largest corpus in the paper was processed differently, so its numbers do not sit on the same scale as the rest.</label>
+        <quote>we also trained it on a much larger sixth corpus, containing 840 billion tokens of web data, but in this case we did not lowercase the vocabulary, so the results are not directly comparable</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[9]" resp="#tagger" cert="1.0">
+        <label>The complexity result rests on an assumed distribution rather than a measured one.</label>
+        <quote>In order to make any concrete statements about the number of nonzero elements in X, it is necessary to make some assumptions about the distribution of word co-occurrences. In particular, we will assume that the number of co-occurrences of word i with word j, Xi j , can be modeled as a power-law function of the frequency rank of that word pair</quote>
+      </span>
+      <span xml:id="t14" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>global matrix factorization (from latent semantic analysis) combined with local context windows to learn word vectors</label>
+        <quote>combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods</quote>
+      </span>
+      <span xml:id="t15" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>what the paper calls its own object - WORD VECTORS AND WORD REPRESENTATIONS, NEVER EMBEDDINGS: it uses those two terms 24 and 11 times; &#x27;word embeddings&#x27; appears exactly once and describes another group&#x27;s method rather than this paper&#x27;s output, and &#x27;distributional semantics&#x27; does not appear at all</label>
+        <quote>The result, GloVe, is a new global log-bilinear regression model for the unsupervised learning of word representations that outperforms other models on word analogy, word similarity, and named entity recognition tasks</quote>
+      </span>
+      <span xml:id="t16" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>&#x27;word embeddings&#x27; IN THIS PAPER - SOMEONE ELSE&#x27;S OBJECT: the single occurrence attributes the term to Levy et al., alongside vLBL and ivLBL, as a rival PPMI-based approach; the authors never apply the word to what they themselves produce</label>
+        <quote>proposed closely-related vector log-bilinear models, vLBL and ivLBL, and Levy et al. (2014) proposed explicit word embeddings based on a PPMI metric</quote>
+      </span>
+      <span xml:id="t17" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>the analogy evaluation - AS DIMENSIONS OF DIFFERENCE, NOT DISTANCE: it probes the vector space by examining the various dimensions of difference between vectors rather than the scalar distance between them, which is why a model can win on similarity and lose on analogy</label>
+        <quote>introduced a new evaluation scheme based on word analogies that probes the finer structure of the word vector space by examining not the scalar distance between word vectors, but rather their various dimensions of difference</quote>
+      </span>
+      <span xml:id="t18" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+        <label>the context window - SYMMETRIC OR ASYMMETRIC, AND THE CHOICE MOVES ONE SUBTASK ONLY: a window extending both ways is called symmetric and one extending only left asymmetric, and the syntactic subtask specifically improves with small asymmetric windows</label>
+        <quote>A context window that extends to the left and right of a target word will be called symmetric, and one which extends only to the left will be called asymmetric</quote>
+      </span>
+      <span xml:id="t19" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → global matrix factorization (LSA) and local context-window methods</label>
+        <quote>combines the advantages of the two major model families in the literature: global matrix factorization and local context</quote>
+      </span>
+      <span xml:id="t20" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>contradicts → Baroni et al. (2014)</label>
+        <quote>Currently, prediction-based models garner substantial support; for example, Baroni et al. (2014) argue that these models perform better across a range of tasks.</quote>
+      </span>
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>extends → skip-gram and ivLBL window-based models</label>
+        <quote>Therefore, in this subsection we show how these models are related to our proposed model, as defined in Eqn. (8).</quote>
+      </span>
+      <span xml:id="t22" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>word vector —same-as→ context word</label>
+        <term>word vector</term>
+        <term>context word</term>
+        <quote>When X is symmetric, W and ˜W are equivalent and differ only as a result of their random initializations; the two sets of vectors should perform equivalently</quote>
+      </span>
+      <span xml:id="t23" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>context window —causes→ syntactic subtask</label>
+        <term>context window</term>
+        <term>syntactic subtask</term>
+        <quote>Performance is better on the syntactic subtask for small and asymmetric context windows, which aligns with the intuition that syntactic information is mostly drawn from the immediate context and can depend strongly on word order</quote>
+      </span>
+      <span xml:id="t24" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>75% — accuracy on the word analogy task (GloVe headline result)</label>
+        <quote>its performance of 75% on a recent word analogy task</quote>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>6 billion — corpus size used to build the co-occurrence statistics</label>
+        <quote>from a 6 billion token corpus</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>Meaning is encoded in RATIOS of co-occurrence probabilities, not raw counts — the ratio cancels noise from non-discriminative words.</label>
+        <quote>Only in the ratio does noise from non-discriminative words like water and fashion cancel out</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>word analogy accuracy</label>
+        <term>word analogy accuracy</term>
+        <quote>its performance of 75% on a recent word analogy task</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>word analogy task</label>
+        <term>word analogy task</term>
+        <quote>the analogy “king is to queen as man is to woman” should be encoded in the vector</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>correlation</label>
+        <term>correlation</term>
+        <quote>We compute Spearman’s rank correlation coefficient between this score and the human judgments.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.3115/v1/D14-1162.</note></p>
+    </body>
+  </text>
+</TEI>

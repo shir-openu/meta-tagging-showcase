@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Equality of Opportunity in Supervised Learning</title>
+        <author>Moritz Hardt</author>
+        <author>Eric Price</author>
+        <author>Nathan Srebro</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Equality of Opportunity in Supervised Learning</title>
+          <date>2016</date>
+          <publisher>NeurIPS / arXiv</publisher>
+          
+          <idno type="arXiv">1610.02413</idno>
+          <idno type="record">hardt2016-equality-opportunity</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\hardt2016-equality-opportunity.txt</note>
+          <note type="text-sha1">3c77c2aa41ec542e7e1e89a65fbd7b6eada105cd</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>law</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">36 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>We propose a simple, interpretable, and actionable framework for measuring and removing discrimination based on protected attributes.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>discrimination against protected attributes in supervised learning</label>
+        <quote>As machine learning increasingly affects decisions in domains protected by anti-discrimination law, there is much interest in algorithmically measuring and ensuring fairness in machine learning.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <quote>We give a simple and effective framework for constructing classifiers satisfying our criterion from an arbitrary learned predictor.</quote>
+      </span>
+      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>the criterion is oblivious - it uses only joint statistics, not the interpretation of individual features</label>
+        <quote>it depends only on the joint statistics of the predictor, the target and the protected attribute, but not on interpretation of individual features</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Satisfying the proposed oblivious criterion is not a proof of fairness (nor is violating it a proof of unfairness).</label>
+        <quote>Due to the limitations we described, satisfying our notion (or any other oblivious measure) should not be considered a conclusive proof of fairness.</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The criterion requires reliable observed outcome labels, which are not always available and may themselves be biased.</label>
+        <quote>That said, having access to reliable “labeled data” is not always possible.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The near-optimality guarantee is relative to other constrained predictors only; the derived predictor need not be good in absolute terms.</label>
+        <quote>However, this does not mean that the predictor is necessarily good in an absolute sense.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+        <label>No test of this kind can tell two situations apart, and the authors prove it about their own class of test.</label>
+        <quote>we pause to consider to what extent “black box” oblivious tests like ours can identify discriminatory predictions. To shed light on this issue, we introduce two possible scenarios for the dependency structure of the score, the target and the protected attribute. We will argue that while these two scenarios can have fundamentally different interpretations from the point of view of fairness, they can be indistinguishable from their joint distribution. In particular, no oblivious test can resolve which of the two scenarios applies</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>Access to the features does not rescue the test, without assumptions the authors decline to make.</label>
+        <quote>Without attaching meaning to the features or making causal assumptions about them, we do not gain any further insight on the two scores</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>Meeting the criterion can require deciding individual cases partly at random.</label>
+        <quote>This cannot be achieved with a single threshold for each group, but requires randomization</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>Who pays for the fairness is a property of the design, and the authors name the payer.</label>
+        <quote>The cost is thus born by the company using the classifier, which can decide to invest in better classification, rather than the classified group, which cannot</quote>
+      </span>
+      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>equal opportunity vs equalized odds - TWO CRITERIA, ONE STRICTLY WEAKER, AND THE PAPER PRICES THE GAP: equal opportunity relaxes equalized odds to the advantaged outcome group only, and in the case study equal opportunity keeps 92.8% of maximal profit against equalized odds&#x27; 80.2%, so a claim citing &#x27;Hardt et al.&#x27; without saying which criterion is a claim about neither</label>
+        <quote>Equal opportunity is a weaker, though still interesting, notion of non-discrimination, and thus typically allows for stronger utility as we shall see in our case study</quote>
+      </span>
+      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>oblivious - IN A FORMAL SENSE THE PAPER DEFINES: a property is oblivious if it depends only on the joint distribution of target, protected attribute and prediction, which is what makes the criterion checkable from published statistics and also what makes it blind</label>
+        <quote>In line with other studies, our notion is oblivious: it depends only on the joint statistics of the predictor, the target and the protected attribute, but not on interpretation of individual features</quote>
+      </span>
+      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>demographic parity - THE CRITERION THIS ONE IS DEFINED AGAINST: it requires the decision to be independent of the protected attribute, which the authors reject because it forbids the perfectly accurate predictor and costs the most utility of the four thresholds they compare</label>
+        <quote>Demographic parity requires that a decision—such as accepting or denying a loan application—be independent of the protected attribute</quote>
+      </span>
+      <span xml:id="t14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>contradicts → fairness through unawareness (ignoring protected attributes)</label>
+        <quote>is ineffective due to the existence of redundant encodings</quote>
+      </span>
+      <span xml:id="t15" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → Dwork et al. [DHP+12], &quot;Fairness through Awareness&quot;</label>
+        <quote>Unfortunately, as was already argued by Dwork et al. [DHP+12], the notion is seriously flawed on two counts.</quote>
+      </span>
+      <span xml:id="t16" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → Kleinberg, Mullainathan and Raghavan [KMR16] on calibration within groups</label>
+        <quote>In a recent concurrent work, Kleinberg, Mullainathan and Raghavan [KMR16] showed that in general a score that is calibrated within each group does not satisfy a criterion equivalent to equalized odds for binary predictors.</quote>
+      </span>
+      <span xml:id="t17" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>contradicts → demographic parity as a non-discrimination criterion</label>
+        <quote>We argue that, unlike demographic parity, our framework provides a meaningful measure of discrimination, while demonstrating in theory and experiment that we also achieve much higher utility.</quote>
+      </span>
+      <span xml:id="t18" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>equal opportunity —distinct-from→ equalized odds</label>
+        <term>equal opportunity</term>
+        <term>equalized odds</term>
+        <quote>Equal opportunity is a weaker, though still interesting, notion of non-discrimination, and thus typically allows for stronger utility as we shall see in our case study</quote>
+      </span>
+      <span xml:id="t19" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>equalized odds —contrasted-with→ demographic parity</label>
+        <term>equalized odds</term>
+        <term>demographic parity</term>
+        <quote>First, it remedies the main conceptual shortcomings of demographic parity as a fairness notion</quote>
+      </span>
+      <span xml:id="t20" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>2 — ways demographic parity is flawed</label>
+        <quote>the notion is seriously flawed on two counts</quote>
+      </span>
+      <span xml:id="t21" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>May 2014 — Obama Big Data report warning on discrimination</label>
+        <quote>In May 2014, the Obama Administration</quote>
+      </span>
+      <span xml:id="t22" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>demographic parity is seriously flawed on two counts</label>
+        <quote>the notion is seriously flawed on two counts</quote>
+      </span>
+      <span xml:id="t23" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>fairness through unawareness fails because of redundant encodings</label>
+        <quote>is ineffective due to the existence</quote>
+      </span>
+      <span xml:id="t24" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>their criterion always permits the perfectly accurate predictor</label>
+        <quote>our notion always allows for the perfectly accurate solution</quote>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+        <label>the criterion aligns fairness with predictive accuracy</label>
+        <quote>our criterion is easier to achieve the more accurate the predictor</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>protected attribute A</label>
+        <term>protected attribute A</term>
+        <quote>a specified protected attribute A</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>target Y</label>
+        <term>target Y</term>
+        <quote>the goal is to predict a true outcome Y from features X</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>predictor</label>
+        <term>predictor</term>
+        <quote>This data is used to construct a predictor</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>features X</label>
+        <term>features X</term>
+        <quote>does not evaluate the features in X</quote>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>demographic parity</label>
+        <term>demographic parity</term>
+        <quote>parity requires that a decision</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>fairness through unawareness</label>
+        <term>fairness through unawareness</term>
+        <quote>should ignore all protected attributes such as race, color, religion, gender, disability, or family</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>oblivious notion</label>
+        <term>oblivious notion</term>
+        <quote>our notion is oblivious: it depends only on the joint statistics of</quote>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>equal opportunity by design</label>
+        <term>equal opportunity by design</term>
+        <quote>as a guiding principle in domains</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Bayesian</label>
+        <term>Bayesian</term>
+        <quote>Moreover, we quantify the loss that follows from imposing our non-discrimination condition in case the score we start from deviates from Bayesian optimality.</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>correlation</label>
+        <term>correlation</term>
+        <quote>If A and X3, and thus A and Y , are positively correlated, then (cid:101)R would depend inversely on A (see numerical construction below), introducing a form of “corrective</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://arxiv.org/abs/1610.02413.</note></p>
+    </body>
+  </text>
+</TEI>

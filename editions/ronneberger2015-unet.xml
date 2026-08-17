@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>U-Net: Convolutional Networks for Biomedical Image Segmentation</title>
+        <author>Olaf Ronneberger</author>
+        <author>Philipp Fischer</author>
+        <author>Thomas Brox</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>U-Net: Convolutional Networks for Biomedical Image Segmentation</title>
+          <date>2015</date>
+          <publisher>MICCAI / arXiv</publisher>
+          
+          <idno type="arXiv">1505.04597</idno>
+          <idno type="record">ronneberger2015-unet</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\ronneberger2015-unet.txt</note>
+          <note type="text-sha1">6150cb065c2701e8b18886a0691747bb98e0ed61</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>medicine</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">24 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>In this paper, we present a network and training strategy that relies on the strong use of data augmentation to use the available annotated samples more efficiently.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>biomedical image segmentation</label>
+        <quote>However, in many visual tasks, especially in biomedical image processing, the desired output should include localization, i.e., a class label is supposed to be assigned to each pixel.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <quote>We provide the full Caffe[6]-based implementation and the trained networks4.</quote>
+      </span>
+      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>Because convolutions are unpadded, border pixels are lost at every layer and feature maps must be cropped before concatenation.</label>
+        <quote>The cropping is necessary due to the loss of border pixels in every convolution.</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Without the overlap-tile strategy the resolution the network can handle is bounded by GPU memory.</label>
+        <quote>This tiling strategy is important to apply the network to large images, since otherwise the resolution would be limited by the GPU memory.</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
+        <label>Part of what the network is trained to detect is inserted by the authors: the separation borders between touching cells are synthesised, not annotated.</label>
+        <quote>and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
+        <label>How heavily those borders count is set by two chosen constants in the loss.</label>
+        <quote>In our experiments we set w0 = 10 and σ ≈ 5 pixels</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+        <label>The invariances the network has are the ones the augmentation supplied, and the paper says the corpus never contained them.</label>
+        <quote>This allows the network to learn invariance to such deformations, without the need to see these transformations in the annotated image corpus</quote>
+      </span>
+      <span xml:id="t8" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>convolutional networks applied to biomedical image segmentation</label>
+        <quote>outperforms the prior best method (a sliding-window convolutional network) on the ISBI challenge for segmentation of</quote>
+      </span>
+      <span xml:id="t9" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>the ground truth - PARTLY SYNTHESISED: the annotation is augmented with separation borders computed by morphological operations so that touching instances can be pulled apart, so the target is the annotation plus an artefact of the method</label>
+        <quote>We pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels from a certain class in the training data set, and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
+      </span>
+      <span xml:id="t10" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>very few images - AS THIRTY, AND THEN AS PATCHES: the electron-microscopy training set is 30 images, and the paper notes that in patches the training data is much larger than the image count suggests</label>
+        <quote>The training data is a set of 30 images (512x512 pixels) from serial section transmission electron microscopy of the Drosophila first instar larva ventral nerve cord</quote>
+      </span>
+      <span xml:id="t11" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>invariance - AS A PROPERTY OF THE AUGMENTATION: what the network is invariant to is what was applied to the training images, not what was observed in the microscopy</label>
+        <quote>As for our tasks there is very little training data available, we use excessive data augmentation by applying elastic deformations to the available training images</quote>
+      </span>
+      <span xml:id="t12" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → sliding-window convolutional networks</label>
+        <quote>outperforms the prior best method (a sliding-window convolutional network)</quote>
+      </span>
+      <span xml:id="t13" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>contradicts → the assumption that deep networks need thousands of annotated samples</label>
+        <quote>requires many thousand annotated training samples</quote>
+      </span>
+      <span xml:id="t14" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the fully convolutional network of Long et al. [9]</label>
+        <quote>In this paper, we build upon a more elegant architecture, the so-called “fully convolutional network” [9].</quote>
+      </span>
+      <span xml:id="t15" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → the fully convolutional network of Long et al. [9]</label>
+        <quote>We modify and extend this architecture such that it works with very few training images and yields more precise segmentations; see Figure 1.</quote>
+      </span>
+      <span xml:id="t16" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+        <label>contradicts → the sliding-window patch strategy of Ciresan et al. [1]</label>
+        <quote>Obviously, the strategy in Ciresan et al. [1] has two drawbacks.</quote>
+      </span>
+      <span xml:id="t17" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>elastic deformations —causes→ invariance</label>
+        <term>elastic deformations</term>
+        <term>invariance</term>
+        <quote>This allows the network to learn invariance to such deformations, without the need to see these transformations in the annotated image corpus</quote>
+      </span>
+      <span xml:id="t18" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>RETRACTED (RE-GROUNDED) · weight map —causes→ separation border</label>
+        <term>weight map</term>
+        <term>separation border</term>
+        <quote>and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
+      </span>
+      <span xml:id="t19" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+        <label>weight map —causes→ separation border</label>
+        <term>weight map</term>
+        <term>separation border</term>
+        <quote>We pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels from a certain class in the training data set, and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d).</quote>
+      </span>
+      <span xml:id="t20" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>30 — training set size for the ISBI EM segmentation task</label>
+        <quote>The training data is a set of 30 images (512x512 pixels) from serial section transmission electron microscopy</quote>
+      </span>
+      <span xml:id="t21" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>7 — test-time averaging over rotated inputs</label>
+        <quote>The u-net (averaged over 7 rotated versions of the input data)</quote>
+      </span>
+      <span xml:id="t22" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>annotated training images (with elastic-deformation augmentation)</label>
+        <term>annotated training images (with elastic-deformation augmentation)</term>
+        <quote>the strong use of data augmentation to use the available annotated samples more efficiently</quote>
+      </span>
+      <span xml:id="t23" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>per-pixel segmentation label</label>
+        <term>per-pixel segmentation label</term>
+        <quote>a class label is supposed to be assigned to each pixel</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://arxiv.org/abs/1505.04597.</note></p>
+    </body>
+  </text>
+</TEI>

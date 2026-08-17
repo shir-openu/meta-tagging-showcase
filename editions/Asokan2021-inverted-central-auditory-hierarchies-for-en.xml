@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-13"
-              who="build_paper_edition.py">128 spans placed by verified search</change>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">130 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -65,18 +65,22 @@
       </span>
       <span xml:id="t5" type="method" ana="#method" resp="#paper">
         <label>electrophysiology</label>
+        <term>electrophysiology</term>
         <quote>To test this idea, we used three high-density probes to make simultaneous recordings from hundreds of single units along the IC-MGB-A1 hierarchy in awake, head-fixed mice ( Figure 1B ).</quote>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
         <label>mechanisms</label>
+        <term>Dendrite-targeting cortical GABAergic interneurons dampen pyramidal-neuron spike decay when stimulus timing becomes predictable</term>
         <quote>Cortical GABAergic neurons that express somatostatin or neuron-derived neurotrophic factor are clear candidates to dampen principal neuron spiking timing because they target the distal dendrites of A1 pyramidal neurons to regulate network excitability and recurrent excitation, but are also sensitive to slowly changing internal state variables.</quote>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">
         <label>mechanisms</label>
+        <term>Corticothalamic feedback recruits thalamic reticular nucleus inhibition, which dampens feedforward thalamocortical drive during rhythms</term>
         <quote>These effects hint at an additional (or alternative) circuit mediated through corticothalamic feedback, which could dampen feedforward thalamocortical synaptic inputs via inhibition from the thalamic reticular nucleus.</quote>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">
         <label>mechanisms</label>
+        <term>Cortex switches from a recurrent deliberative mode to a pass-through mode once incoming sound matches internal predictive models</term>
         <quote>This may reflect a physiological transition in the cortex from a “deliberative” mode when sound features are unpredictable, typified by strong inter- and intra-columnar recurrent activity, to a “pass through” mode when environmental stimuli match internal predictive models.</quote>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="1.0">
@@ -147,412 +151,493 @@
         <label>the binary support vector machine, used here as a readout of ensemble state</label>
         <quote>We then used a binary support vector machine (SVM) on the principal components projection to classify whether ensemble activity for each cycle came from the rhythmic or random stimulus context</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t26" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a random-random stimulus, keeping the stimulus random for all 50 post-baseline cycles instead of switching from rhythmic to random (Figure S4 - three sentences describe this one control, recorded once)</label>
+        <quote>To control for the possibility that the ordinal arrangement of random following rhythmic could account for differences in spike patterning, we created a random-random stimulus but found that classification was near chance throughout and no systematic changes in neural timescales were observed ( Figure S4 ).</quote>
+      </span>
+      <span xml:id="t27" type="controls" ana="#controls[1]" resp="#tagger" cert="0.75">
+        <label>repeating the whole analysis on cycle-order-shuffled data, for every recording in all three brain regions - the exclusion is carried by the word shuffling rather than spelled out, hence the lower weight</label>
+        <quote>As a control, we performed the same analysis after shuffling the ordering of cycles and we repeat this process for each recording in all three brain regions.</quote>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>neural timescale = the decay constant of a single unit&#x27;s spike-count autocorrelation, about 20ms in A1 - NOT the window over which the unit integrates, which is 800ms; the paper states the 40x gap itself</label>
         <quote>It is interesting that cortical spiking timescales are sensitive to a stimulus feature that is approximately 40× slower than the timescale itself (800ms vs 20ms), which suggests that A1 regular-spiking unit timescale dynamics are likely the product of other local or long-range circuits that respond more directly to the change in predicable stimulus timing.</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>regular, sense 1 = a property of the stimulus sequence (intervals repeating in a fixed order), the paper&#x27;s independent variable</label>
         <quote>First, with the protocol described here, there are no low- or high-probability stimuli. All stimuli were identical frozen noise bursts separated by a single set of intervals used in both random and regular contexts. The only explicit feature that distinguished random from regular contexts was whether the sequence of inter-burst intervals repeated across cycles or randomly arranged from one cycle to the next.</quote>
       </span>
-      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>regular, sense 2 = a waveform class of neuron (trough-to-peak &gt; 0.6ms, putative pyramidal); same word, unrelated referent, both used throughout</label>
         <quote>For the regular versus fast spike waveform classification, the trough to peak interval of the mean spike waveform formed a bimodal distribution, which was used to subdivide neurons with intervals exceeding 0.6ms as regular spiking, while neurons with intervals shorter than 0.6ms were fast spiking</quote>
       </span>
-      <span xml:id="t29" type="senses" ana="#senses[3]" resp="#tagger" cert="0.9">
+      <span xml:id="t31" type="senses" ana="#senses[3]" resp="#tagger" cert="0.9">
         <label>context = the global statistics of the stimulus sequence (random vs rhythmic), not behavioural or task context</label>
         <quote>Like the protocol we used here, SSA is characterized by contrasting the neural response to an identical stimulus that differs only according to global context.</quote>
       </span>
-      <span xml:id="t30" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t32" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
         <label>tonotopy here is an instrument, not an object: the frequency gradient and its reversal are used to certify that the probe is in A1</label>
         <quote>We ensured recordings were made from A1 based on the best frequency gradient along the rostro-caudal axis and the tonotopic reversal towards the rostral edge of the craniotomy.</quote>
       </span>
-      <span xml:id="t31" type="senses" ana="#senses[5]" resp="#tagger" cert="0.9">
+      <span xml:id="t33" type="senses" ana="#senses[5]" resp="#tagger" cert="0.9">
         <label>hierarchy = the ascending anatomical pathway IC to MGB to A1, ordered by synaptic distance from the cochlea</label>
         <quote>Neural timescales significantly increased across the hierarchy (Kruskal-Wallis, 1.7x10 −10 ; post-hoc pairwise comparisons with Bonferroni correction for multiple comparisons, IC vs MGB, 1/0.05; IC vs A1, 1x10 −6 /0.51; MGB vs A1, 1x10 −8 /0.41 for p-value/Cliff’s delta).</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>replicates → previously documented progressive loss of temporal fidelity along the ascending auditory pathway (reviews cited as refs 1, 2, 4)</label>
         <quote>From midbrain to cortex, decoding accuracy was reduced overall and restricted to a limited range of longer intervals ( Figure 1G ), such that the median threshold of interval decoding rose from 1.4ms for IC units, to 16ms for MGB units, and 64ms in A1 ( Figure 1H ), reflecting a progressive loss of temporal fidelity along the ascending auditory pathway that has been documented in many previous studies (for reviews see 1 , 2 , 4 ).</quote>
       </span>
-      <span xml:id="t33" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → prior animal work on stimulus-specific adaptation (SSA) and contrast gain control (refs 17, 20-26)</label>
         <quote>While our approach is conceptually similar to prior work on SSA or contrast gain control in animal models, the methodological approach and neurophysiological results differ in several key respects.</quote>
       </span>
-      <span xml:id="t34" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the neural-timescale measure (autocorrelation decay constant) established across visual cortical hierarchies (refs 6, 7)</label>
         <quote>Adapting this approach to our data, we confirmed a progression of neural timescales in the auditory system that approximately doubled from midbrain to cortex ( Figure 1D ).</quote>
       </span>
-      <span xml:id="t35" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → human work on cortical activity and perceptual awareness of complex repeating acoustic patterns (refs 15, 16)</label>
         <quote>The protocol we introduce here was inspired by changes in cortical activity and perceptual awareness of complex repeating acoustic patterns in human subjects.</quote>
       </span>
-      <span xml:id="t36" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
         <label>distinguishes-from → stimulus-specific adaptation and contrast gain control</label>
         <quote>While our approach is conceptually similar to prior work on SSA or contrast gain control in animal models, the methodological approach and neurophysiological results differ in several key respects.</quote>
       </span>
-      <span xml:id="t37" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t39" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
         <label>distinguishes-from → SSA and contrast gain control, on anatomical distribution</label>
         <quote>Third, while SSA, 20 - 22 contrast gain control, 23 - 25 or other neural signatures of stimulus context changes 26 are robustly expressed in the A1, they are also clearly represented the IC and MGB. The context sensitivity we report here is completely absent in our sample of IC units and is weakly expressed in MGB neurons.</quote>
       </span>
-      <span xml:id="t38" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
         <label>distinguishes-from → rate-based accounts of context-dependent adaptation</label>
         <quote>Fourth, and perhaps most importantly, SSA, contrast gain control and other forms of context-dependent adaptation are based on changes in spike rate, whereas our findings demonstrate that random or rhythmic arrangements of temporal intervals can be decoded from A1 spiking ( Figure 2D ) without any change in mean spike rate ( Figure 3E - F ). Instead, stimulus context was represented solely by changes in how sound-evoked spikes were arranged in time.</quote>
       </span>
-      <span xml:id="t39" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="0.9">
+      <span xml:id="t41" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="0.9">
         <label>extends → human work on cortical responses to repeating acoustic patterns</label>
         <quote>The protocol we introduce here was inspired by changes in cortical activity and perceptual awareness of complex repeating acoustic patterns in human subjects.</quote>
       </span>
-      <span xml:id="t40" type="claim_relations" ana="#claim_relations[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t42" type="claim_relations" ana="#claim_relations[8]" resp="#tagger" cert="1.0">
         <label>builds-on → visual-cortex measurements of neural timescale by autocorrelation decay</label>
         <quote>Neural timescales also increase across hierarchies of visual cortical areas, where it is quantified as the decay time constant ( τ ) of an exponential fit to the temporal spike count autocorrelation.</quote>
       </span>
-      <span xml:id="t41" type="claim_relations" ana="#claim_relations[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t43" type="claim_relations" ana="#claim_relations[9]" resp="#tagger" cert="1.0">
         <label>confirms → prior reports of declining temporal fidelity along the ascending auditory pathway</label>
         <quote>From midbrain to cortex, decoding accuracy was reduced overall and restricted to a limited range of longer intervals ( Figure 1G ), such that the median threshold of interval decoding rose from 1.4ms for IC units, to 16ms for MGB units, and 64ms in A1 ( Figure 1H ), reflecting a progressive loss of temporal fidelity along the ascending auditory pathway that has been documented in many previous studies</quote>
       </span>
-      <span xml:id="t42" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t44" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
         <label>neural timescale —operationalised-as→ decay time constant</label>
+        <term>neural timescale</term>
+        <term>decay time constant</term>
         <quote>Neural timescales also increase across hierarchies of visual cortical areas, where it is quantified as the decay time constant ( τ ) of an exponential fit to the temporal spike count autocorrelation.</quote>
       </span>
-      <span xml:id="t43" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t45" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
         <label>stimulus regularity —operationalised-as→ inter-burst intervals repeated across cycles</label>
+        <term>stimulus regularity</term>
+        <term>inter-burst intervals repeated across cycles</term>
         <quote>First, with the protocol described here, there are no low- or high-probability stimuli. All stimuli were identical frozen noise bursts separated by a single set of intervals used in both random and regular contexts. The only explicit feature that distinguished random from regular contexts was whether the sequence of inter-burst intervals repeated across cycles or randomly arranged from one cycle to the next.</quote>
       </span>
-      <span xml:id="t44" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t46" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
         <label>A1 —operationalised-as→ best frequency gradient</label>
+        <term>A1</term>
+        <term>best frequency gradient</term>
         <quote>We ensured recordings were made from A1 based on the best frequency gradient along the rostro-caudal axis and the tonotopic reversal towards the rostral edge of the craniotomy.</quote>
       </span>
-      <span xml:id="t45" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t47" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
         <label>regular spiking —operationalised-as→ trough to peak interval</label>
+        <term>regular spiking</term>
+        <term>trough to peak interval</term>
         <quote>For the regular versus fast spike waveform classification, the trough to peak interval of the mean spike waveform formed a bimodal distribution, which was used to subdivide neurons with intervals exceeding 0.6ms as regular spiking, while neurons with intervals shorter than 0.6ms were fast spiking</quote>
       </span>
-      <span xml:id="t46" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.7">
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.7">
         <label>fast spiking —same-as→ putative parvalbumin-expressing interneuron</label>
+        <term>fast spiking</term>
+        <term>putative parvalbumin-expressing interneuron</term>
         <quote>Neural timescales were equivalently compressed for regular spiking putative pyramidal neurons across A1 layers ( Figure S2 ), yet no effect of context was observed in fast spiking putative parvalbumin-expressing interneurons</quote>
       </span>
-      <span xml:id="t47" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
         <label>context sensitivity —distinct-from→ SSA</label>
+        <term>context sensitivity</term>
+        <term>SSA</term>
         <quote>Third, while SSA, 20 - 22 contrast gain control, 23 - 25 or other neural signatures of stimulus context changes 26 are robustly expressed in the A1, they are also clearly represented the IC and MGB. The context sensitivity we report here is completely absent in our sample of IC units and is weakly expressed in MGB neurons.</quote>
       </span>
-      <span xml:id="t48" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
         <label>context sensitivity —distinct-from→ contrast gain control</label>
+        <term>context sensitivity</term>
+        <term>contrast gain control</term>
         <quote>Third, while SSA, 20 - 22 contrast gain control, 23 - 25 or other neural signatures of stimulus context changes 26 are robustly expressed in the A1, they are also clearly represented the IC and MGB. The context sensitivity we report here is completely absent in our sample of IC units and is weakly expressed in MGB neurons.</quote>
       </span>
-      <span xml:id="t49" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t51" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
         <label>SSA —is-a→ spike rate adaptation</label>
+        <term>SSA</term>
+        <term>spike rate adaptation</term>
         <quote>As the name implies, SSA is fundamentally a spike rate adaptation process dominated by synaptic fatigue for standard inputs, whereas synaptic inputs elicited by improbable deviant inputs remain unadapted, or even potentiated through as yet undefined recurrent or descending circuit mechanisms.</quote>
       </span>
-      <span xml:id="t50" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t52" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
         <label>decay constant —distinct-from→ mean firing rate</label>
+        <term>decay constant</term>
+        <term>mean firing rate</term>
         <quote>Presenting the intervals in rhythmic patterns had no consistent effect on mean firing rate within the 100ms response window ( Figure 3E - F ), but instead only on how the spikes were arranged withing the 100ms response window, both in terms of shorter decay constants and less variation in first spike latency</quote>
       </span>
-      <span xml:id="t51" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t53" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
         <label>A1 —contrasted-with→ IC</label>
+        <term>A1</term>
+        <term>IC</term>
         <quote>We observed that the changes in ensemble spiking were sufficient to classify the change from rhythmic to random sequences in A1, but not in MGB or IC</quote>
       </span>
-      <span xml:id="t52" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t54" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
         <label>A1 —contrasted-with→ MGB</label>
+        <term>A1</term>
+        <term>MGB</term>
         <quote>We observed that the changes in ensemble spiking were sufficient to classify the change from rhythmic to random sequences in A1, but not in MGB or IC</quote>
       </span>
-      <span xml:id="t53" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.9">
+      <span xml:id="t55" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.9">
         <label>slow neural timescales —causes→ interfere with precise temporal coding</label>
+        <term>slow neural timescales</term>
+        <term>interfere with precise temporal coding</term>
         <quote>While the slow neural timescales in the cortex may interfere with precise temporal coding, we reasoned that the sluggish temporal processing could suggest a cortical advantage over subcortical stations for encoding slowly evolving features.</quote>
       </span>
-      <span xml:id="t54" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="0.9">
+      <span xml:id="t56" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="0.9">
         <label>slow neural timescales —causes→ cortical advantage</label>
+        <term>slow neural timescales</term>
+        <term>cortical advantage</term>
         <quote>While the slow neural timescales in the cortex may interfere with precise temporal coding, we reasoned that the sluggish temporal processing could suggest a cortical advantage over subcortical stations for encoding slowly evolving features.</quote>
       </span>
-      <span xml:id="t55" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
         <label>rhythmic patterns —causes→ shorter decay constants</label>
+        <term>rhythmic patterns</term>
+        <term>shorter decay constants</term>
         <quote>Presenting the intervals in rhythmic patterns had no consistent effect on mean firing rate within the 100ms response window ( Figure 3E - F ), but instead only on how the spikes were arranged withing the 100ms response window, both in terms of shorter decay constants and less variation in first spike latency</quote>
       </span>
-      <span xml:id="t56" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="0.9">
+      <span xml:id="t58" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="0.9">
         <label>A1 —part-of→ IC-MGB-A1 hierarchy</label>
+        <term>A1</term>
+        <term>IC-MGB-A1 hierarchy</term>
         <quote>Classification accuracy increases along the IC-MGB-A1 hierarchy (Two-way repeated measures ANOVAs, main effect for classification over cycles: IC [F = 0.5, p = 0.99], MGB [F = 0.69, p = 0.93], A1 [F = 18.81, p = 0]; interaction term for classification × condition, IC [F = 1.23, p = 0.15], MGB [F = 1.55, p = 0.01], A1, [F = 21.28, p = 0]).</quote>
       </span>
-      <span xml:id="t57" type="concept_edges" ana="#concept_edges[15]" resp="#tagger" cert="0.9">
+      <span xml:id="t59" type="concept_edges" ana="#concept_edges[15]" resp="#tagger" cert="0.9">
         <label>IC —part-of→ ascending auditory pathway</label>
+        <term>IC</term>
+        <term>ascending auditory pathway</term>
         <quote>From midbrain to cortex, decoding accuracy was reduced overall and restricted to a limited range of longer intervals ( Figure 1G ), such that the median threshold of interval decoding rose from 1.4ms for IC units, to 16ms for MGB units, and 64ms in A1 ( Figure 1H ), reflecting a progressive loss of temporal fidelity along the ascending auditory pathway that has been documented in many previous studies</quote>
       </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Kruskal-Wallis test</label>
+        <term>Kruskal-Wallis test</term>
         <quote>Neural timescales significantly increased across the hierarchy (Kruskal-Wallis, 1.7x10 −10 ; post-hoc pairwise comparisons with Bonferroni correction for multiple comparisons, IC vs MGB, 1/0.05; IC vs A1, 1x10 −6 /0.51; MGB vs A1, 1x10 −8 /0.41 for p-value/Cliff’s delta).</quote>
       </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>ANOVA</label>
+        <term>ANOVA</term>
         <quote>Interval classification accuracy is significantly reduced at successive stages of the IC-MGB-A1 hierarchy (Mixed design ANOVA, main effect for structure, F = 20.95, p = 6x10 −9 ).</quote>
       </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>ANOVA</label>
+        <term>ANOVA</term>
         <quote>Classification accuracy increases along the IC-MGB-A1 hierarchy (Two-way repeated measures ANOVAs, main effect for classification over cycles: IC [F = 0.5, p = 0.99], MGB [F = 0.69, p = 0.93], A1 [F = 18.81, p = 0]</quote>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>t-test</label>
+        <term>t-test</term>
         <quote>Asterisk denotes statistical significance with a paired t-test (p &lt; 0.05 and Cohen’s d &gt; 0.5); (IC, 0.7/0.05; MGB, 0.00009/0.33; A1, 3x10 −14 /0.65 for p-value/Cohen’s d).</quote>
       </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>t-test</label>
+        <term>t-test</term>
         <quote>Neural timescales are significantly reduced during rhythmic epochs in A1, slightly reduced in the MGB, but not affected in the IC (one-sample t-test against a population mean of 0; IC, 0.27/0.08; MGB, 0.00002/0.33; A1, 8x10 −13 /0.59 for p-value/Cohen’s d).</quote>
       </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+        <label>effect size</label>
+        <term>effect size</term>
         <quote>Effect sizes were estimated with Cohen’s d for normally distributed data and with Cliff’s delta for samples that did not conform to a normal distribution.</quote>
       </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+        <label>normality test</label>
+        <term>normality test</term>
         <quote>The Lilliefors test was used to check for normality of the data.</quote>
       </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+        <label>multiple-comparison correction</label>
+        <term>multiple-comparison correction</term>
         <quote>Multiple post-hoc comparisons were corrected using Bonferroni correction.</quote>
       </span>
-      <span xml:id="t66" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+        <label>principal component analysis</label>
+        <term>principal component analysis</term>
         <quote>From the simultaneously recorded ensemble of neurons within each region, we reduced dimensionality using principal component analysis.</quote>
       </span>
-      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+        <label>support vector machine classification</label>
+        <term>support vector machine classification</term>
         <quote>We then fed the responses from the top principal components that capture 75% the variance in the data to a SVM with a linear kernel.</quote>
       </span>
-      <span xml:id="t68" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
+        <label>cross-validation</label>
+        <term>cross-validation</term>
         <quote>We trained and cross-validated the classifier using 10-fold cross-validation which was iterated 100 times with a different random split for each iteration.</quote>
       </span>
-      <span xml:id="t69" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger" cert="1.0">
+        <label>Kruskal-Wallis</label>
+        <term>Kruskal-Wallis</term>
         <quote>Neural timescales significantly increased across the hierarchy (Kruskal-Wallis, 1.7x10 −10 ; post-hoc pairwise comparisons with Bonferroni correction for multiple comparisons, IC vs MGB, 1/0.05; IC vs A1, 1x10 −6 /0.51; MGB vs A1, 1x10 −8 /0.41 for p-value/Cliff’s delta).</quote>
       </span>
-      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t72" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger" cert="1.0">
+        <label>Cliff&#x27;s delta</label>
+        <term>Cliff&#x27;s delta</term>
         <quote>Neural timescales significantly increased across the hierarchy (Kruskal-Wallis, 1.7x10 −10 ; post-hoc pairwise comparisons with Bonferroni correction for multiple comparisons, IC vs MGB, 1/0.05; IC vs A1, 1x10 −6 /0.51; MGB vs A1, 1x10 −8 /0.41 for p-value/Cliff’s delta).</quote>
       </span>
-      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t73" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger" cert="1.0">
+        <label>Bonferroni correction</label>
+        <term>Bonferroni correction</term>
         <quote>Neural timescales significantly increased across the hierarchy (Kruskal-Wallis, 1.7x10 −10 ; post-hoc pairwise comparisons with Bonferroni correction for multiple comparisons, IC vs MGB, 1/0.05; IC vs A1, 1x10 −6 /0.51; MGB vs A1, 1x10 −8 /0.41 for p-value/Cliff’s delta).</quote>
       </span>
-      <span xml:id="t72" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t74" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger" cert="1.0">
+        <label>one-sample t-test</label>
+        <term>one-sample t-test</term>
         <quote>Neural timescales are significantly reduced when noise bursts form rhythms than during random arrangements with cycle sizes of 4, but not 8 or 12 (one-sample t-test against a population mean of 0, 4 intervals, 2x10 −12 /0.59; 8 intervals, 0.002/0.24; 12 intervals, 0.31/0.08, for p-value/Cohen’s d).</quote>
       </span>
-      <span xml:id="t73" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t75" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger" cert="1.0">
+        <label>Cohen&#x27;s d</label>
+        <term>Cohen&#x27;s d</term>
         <quote>Neural timescales are significantly reduced when noise bursts form rhythms than during random arrangements with cycle sizes of 4, but not 8 or 12 (one-sample t-test against a population mean of 0, 4 intervals, 2x10 −12 /0.59; 8 intervals, 0.002/0.24; 12 intervals, 0.31/0.08, for p-value/Cohen’s d).</quote>
       </span>
-      <span xml:id="t74" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t76" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
+        <label>two-way repeated measures ANOVA</label>
+        <term>two-way repeated measures ANOVA</term>
         <quote>Classification accuracy increases along the IC-MGB-A1 hierarchy (Two-way repeated measures ANOVAs, main effect for classification over cycles: IC [F = 0.5, p = 0.99], MGB [F = 0.69, p = 0.93], A1 [F = 18.81, p = 0]; interaction term for classification × condition, IC [F = 1.23, p = 0.15], MGB [F = 1.55, p = 0.01], A1, [F = 21.28, p = 0]).</quote>
       </span>
-      <span xml:id="t75" type="content_tags" ana="#content_tags.statistics[17]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t77" type="content_tags" ana="#content_tags.statistics[17]" resp="#tagger" cert="1.0">
+        <label>principal components analysis</label>
+        <term>principal components analysis</term>
         <quote>We then used a binary support vector machine (SVM) on the principal components projection to classify whether ensemble activity for each cycle came from the rhythmic or random stimulus context</quote>
       </span>
-      <span xml:id="t76" type="content_tags" ana="#content_tags.statistics[18]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t78" type="content_tags" ana="#content_tags.statistics[18]" resp="#tagger" cert="1.0">
+        <label>support vector machine</label>
+        <term>support vector machine</term>
         <quote>We then used a binary support vector machine (SVM) on the principal components projection to classify whether ensemble activity for each cycle came from the rhythmic or random stimulus context</quote>
       </span>
-      <span xml:id="t77" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t79" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Neural timescales, measured as the autocorrelation decay constant, roughly double from auditory midbrain to cortex.</label>
         <quote>Adapting this approach to our data, we confirmed a progression of neural timescales in the auditory system that approximately doubled from midbrain to cortex ( Figure 1D ).</quote>
       </span>
-      <span xml:id="t78" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t80" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Accuracy of decoding the interval between two noise bursts falls progressively from midbrain to thalamus to cortex.</label>
         <quote>From midbrain to cortex, decoding accuracy was reduced overall and restricted to a limited range of longer intervals ( Figure 1G ), such that the median threshold of interval decoding rose from 1.4ms for IC units, to 16ms for MGB units, and 64ms in A1 ( Figure 1H )</quote>
       </span>
-      <span xml:id="t79" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t81" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>Only cortical ensemble activity, not thalamic or midbrain activity, allowed a classifier to tell rhythmic from random interval sequences.</label>
         <quote>We observed that the changes in ensemble spiking were sufficient to classify the change from rhythmic to random sequences in A1, but not in MGB or IC ( Figure 2C - D ).</quote>
       </span>
-      <span xml:id="t80" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t82" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>Rhythmic context shortened neural timescales strongly and reliably in A1, weakly in MGB, and not at all in IC.</label>
         <quote>We found that neural timescales were unaffected by random or rhythmic sequences in the IC, were slightly and inconsistently dampened in the MGB, but were strongly and reliably dampened in A1 during rhythmic patterns ( Figure 3C - D ).</quote>
       </span>
-      <span xml:id="t81" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+      <span xml:id="t83" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
         <label>Regularity was encoded by the arrangement of spikes in time rather than by any change in mean firing rate.</label>
         <quote>Presenting the intervals in rhythmic patterns had no consistent effect on mean firing rate within the 100ms response window ( Figure 3E - F ), but instead only on how the spikes were arranged withing the 100ms response window, both in terms of shorter decay constants and less variation in first spike latency ( Figure S1 ).</quote>
       </span>
-      <span xml:id="t82" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
+      <span xml:id="t84" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
         <label>Cortical sensitivity to regularity was bounded, disappearing for rhythmic cycles longer than roughly 4 to 8 repeating intervals.</label>
         <quote>Therefore, at least for A1 in passively listening mice, single unit sensitivity to regularity is limited to stimulus timescales on the order of 4-8 repeating elements or 0.8 – 1.6s.</quote>
       </span>
-      <span xml:id="t83" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
+      <span xml:id="t85" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
         <label>The timescale compression occurred in putative pyramidal (regular-spiking) neurons across layers but not in putative parvalbumin interneurons.</label>
         <quote>Neural timescales were equivalently compressed for regular spiking putative pyramidal neurons across A1 layers ( Figure S2 ), yet no effect of context was observed in fast spiking putative parvalbumin-expressing interneurons ( Figure S3 ).</quote>
       </span>
-      <span xml:id="t84" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
+      <span xml:id="t86" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
         <label>A random-random control sequence produced chance-level classification and no timescale change, ruling out simple stimulus-order effects.</label>
         <quote>To control for the possibility that the ordinal arrangement of random following rhythmic could account for differences in spike patterning, we created a random-random stimulus but found that classification was near chance throughout and no systematic changes in neural timescales were observed ( Figure S4 ).</quote>
       </span>
-      <span xml:id="t85" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t87" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
         <label>neural timescales roughly double from midbrain to cortex</label>
         <quote>Adapting this approach to our data, we confirmed a progression of neural timescales in the auditory system that approximately doubled from midbrain to cortex</quote>
       </span>
-      <span xml:id="t86" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t88" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
         <label>the median interval-decoding threshold rises from 1.4ms in IC to 16ms in MGB to 64ms in A1</label>
         <quote>such that the median threshold of interval decoding rose from 1.4ms for IC units, to 16ms for MGB units, and 64ms in A1</quote>
       </span>
-      <span xml:id="t87" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t89" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
         <label>ensemble spiking distinguishes rhythmic from random sequences in A1 but not in MGB or IC</label>
         <quote>We observed that the changes in ensemble spiking were sufficient to classify the change from rhythmic to random sequences in A1, but not in MGB or IC</quote>
       </span>
-      <span xml:id="t88" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t90" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
         <label>the discriminating signal is spike arrangement in time; mean firing rate does not change</label>
         <quote>Presenting the intervals in rhythmic patterns had no consistent effect on mean firing rate within the 100ms response window ( Figure 3E - F ), but instead only on how the spikes were arranged withing the 100ms response window, both in terms of shorter decay constants and less variation in first spike latency</quote>
       </span>
-      <span xml:id="t89" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t91" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
         <label>the effect holds for cycles of four intervals, weakens at eight and is absent at twelve</label>
         <quote>Spiking decay constants in A1 were slightly reduced during rhythms composed of eight repeating intervals, and were equivalent between random and rhythmic epochs with twelve intervals per cycle</quote>
       </span>
-      <span xml:id="t90" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t92" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
         <label>the timescale compression appears in regular-spiking units across all A1 layers and not at all in fast-spiking units</label>
         <quote>Neural timescales were equivalently compressed for regular spiking putative pyramidal neurons across A1 layers ( Figure S2 ), yet no effect of context was observed in fast spiking putative parvalbumin-expressing interneurons</quote>
       </span>
-      <span xml:id="t91" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="0.9">
+      <span xml:id="t93" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="0.9">
         <label>under regular input the cortex comes to resemble the thalamus on the two timing measures</label>
         <quote>Our findings show that – at least from the perspective of first spike latency jitter and spike decay time constants – the cortex becomes more like the thalamus when sound features are regular and predictable.</quote>
       </span>
-      <span xml:id="t92" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t94" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
         <label>a random-to-random control produced near-chance classification, ruling out the ordinal position of the epoch</label>
         <quote>To control for the possibility that the ordinal arrangement of random following rhythmic could account for differences in spike patterning, we created a random-random stimulus but found that classification was near chance throughout and no systematic changes in neural timescales were observed</quote>
       </span>
-      <span xml:id="t93" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t95" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>neural timescale (tau)</label>
+        <term>neural timescale (tau)</term>
         <quote>We defined the neural timescale ( τ ) for each unit as the decay time constant of an exponential fit to the temporal autocorrelation function.</quote>
       </span>
-      <span xml:id="t94" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t96" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>decoder accuracy threshold</label>
+        <term>decoder accuracy threshold</term>
         <quote>Decoder threshold was calculated as the shortest interval after which classifier accuracy is always above chance.</quote>
       </span>
-      <span xml:id="t95" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t97" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>neural timescale asymmetry index</label>
+        <term>neural timescale asymmetry index</term>
         <quote>Histogram of neural timescale asymmetry index ([random – rhythm] / [random + rhythm]), where values &lt; 0 indicate more dampened responses during random intervals and values &gt; 0 indicate more dampened responses during rhythmic intervals.</quote>
       </span>
-      <span xml:id="t96" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t98" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>regular-spiking versus fast-spiking unit classification</label>
+        <term>regular-spiking versus fast-spiking unit classification</term>
         <quote>For the regular versus fast spike waveform classification, the trough to peak interval of the mean spike waveform formed a bimodal distribution, which was used to subdivide neurons with intervals exceeding 0.6ms as regular spiking, while neurons with intervals shorter than 0.6ms were fast spiking ( Figure S4a ).</quote>
       </span>
-      <span xml:id="t97" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t99" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="1.0">
+        <label>SSA</label>
+        <term>SSA</term>
         <quote>There is a long history of studying cortical adaptation to stimulus history in the auditory system, most notably with paradigms related to stimulus-specific adaptation (SSA), in which sound-evoked firing rates are modulated according to the probability of stimulus presentation.</quote>
       </span>
-      <span xml:id="t98" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t100" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
+        <label>neural timescale</label>
+        <term>neural timescale</term>
         <quote>Neural timescales also increase across hierarchies of visual cortical areas, where it is quantified as the decay time constant ( τ ) of an exponential fit to the temporal spike count autocorrelation.</quote>
       </span>
-      <span xml:id="t99" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t101" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="1.0">
+        <label>neural timescale asymmetry index</label>
+        <term>neural timescale asymmetry index</term>
         <quote>Histogram of neural timescale asymmetry index ([random – rhythm] / [random + rhythm]), where values &lt; 0 indicate more dampened responses during random intervals and values &gt; 0 indicate more dampened responses during rhythmic intervals.</quote>
       </span>
-      <span xml:id="t100" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t102" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
+        <label>template matching</label>
+        <term>template matching</term>
         <quote>To classify the interval separating paired pulses, we used a decoder that works by creating a set of templates based on n-1 trial-averaged neural responses to stimuli and then assigning the raw spiking response to the remaining trial, the stimulus with the ‘closest’ template in the Euclidean distance sense. Hence, it’s a template matching, minimum Euclidean distance classifier that is based on first-order statistics.</quote>
       </span>
-      <span xml:id="t101" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t103" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
+        <label>regular spiking</label>
+        <term>regular spiking</term>
         <quote>For the regular versus fast spike waveform classification, the trough to peak interval of the mean spike waveform formed a bimodal distribution, which was used to subdivide neurons with intervals exceeding 0.6ms as regular spiking, while neurons with intervals shorter than 0.6ms were fast spiking</quote>
       </span>
-      <span xml:id="t102" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t104" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>hierarchical stage of auditory processing (IC, MGB, A1)</label>
+        <term>hierarchical stage of auditory processing (IC, MGB, A1)</term>
         <quote>We performed simultaneous single unit ensemble recordings from three hierarchical stages of auditory processing in awake mice – the inferior colliculus (IC), medial geniculate body of the thalamus (MGB) and primary auditory cortex (A1).</quote>
       </span>
-      <span xml:id="t103" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t105" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>stimulus context: random versus rhythmic interval arrangement</label>
+        <term>stimulus context: random versus rhythmic interval arrangement</term>
         <quote>To test this idea, we arranged the intervals separating consecutive noise bursts randomly or in a pattern (i.e., a rhythm) ( Figure 2A , top ).</quote>
       </span>
-      <span xml:id="t104" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t106" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>cycle size (4, 8 or 12 intervals per cycle)</label>
+        <term>cycle size (4, 8 or 12 intervals per cycle)</term>
         <quote>To determine if A1 neurons could integrate over even longer stimulus timescales, we tested the same units with random or rhythmic noise burst sequences composed of eight and twelve intervals per cycle (which repeated every 1.6s and 3.2s, respectively) ( Figure 4a ).</quote>
       </span>
-      <span xml:id="t105" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t107" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>neural timescale (autocorrelation decay constant)</label>
+        <term>neural timescale (autocorrelation decay constant)</term>
         <quote>We defined the neural timescale ( τ ) for each unit as the decay time constant of an exponential fit to the temporal autocorrelation function.</quote>
       </span>
-      <span xml:id="t106" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t108" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+        <label>interval decoding threshold</label>
+        <term>interval decoding threshold</term>
         <quote>Decoder threshold was calculated as the shortest interval after which classifier accuracy is always above chance.</quote>
       </span>
-      <span xml:id="t107" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t109" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
+        <label>sound-evoked mean firing rate</label>
+        <term>sound-evoked mean firing rate</term>
         <quote>Presenting the intervals in rhythmic patterns had no consistent effect on mean firing rate within the 100ms response window ( Figure 3E - F ), but instead only on how the spikes were arranged withing the 100ms response window, both in terms of shorter decay constants and less variation in first spike latency ( Figure S1 ).</quote>
       </span>
-      <span xml:id="t108" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t110" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger">
+        <label>cycle-order shuffled decoding control</label>
+        <term>cycle-order shuffled decoding control</term>
         <quote>As a control, we performed the same analysis after shuffling the ordering of cycles and we repeat this process for each recording in all three brain regions.</quote>
       </span>
-      <span xml:id="t109" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t111" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger">
+        <label>random-random control stimulus</label>
+        <term>random-random control stimulus</term>
         <quote>To control for the possibility that the ordinal arrangement of random following rhythmic could account for differences in spike patterning, we created a random-random stimulus but found that classification was near chance throughout and no systematic changes in neural timescales were observed ( Figure S4 ).</quote>
       </span>
-      <span xml:id="t110" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t112" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
+        <label>stimulus context (random or rhythmic)</label>
+        <term>stimulus context (random or rhythmic)</term>
         <quote>Because the stimuli, the silent interval durations and the total cycle duration for random and rhythmic periods were matched, the sole feature distinguishing random and rhythmic contexts was regularity, which can only be encoded by integrating over at least one complete cycle (0.8s).</quote>
       </span>
-      <span xml:id="t111" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t113" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
+        <label>cycle size (4, 8 or 12 intervals)</label>
+        <term>cycle size (4, 8 or 12 intervals)</term>
         <quote>To determine if A1 neurons could integrate over even longer stimulus timescales, we tested the same units with random or rhythmic noise burst sequences composed of eight and twelve intervals per cycle (which repeated every 1.6s and 3.2s, respectively</quote>
       </span>
-      <span xml:id="t112" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t114" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
+        <label>recording structure (IC, MGB, A1)</label>
+        <term>recording structure (IC, MGB, A1)</term>
         <quote>To test this idea, we used three high-density probes to make simultaneous recordings from hundreds of single units along the IC-MGB-A1 hierarchy in awake, head-fixed mice</quote>
       </span>
-      <span xml:id="t113" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t115" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="1.0">
+        <label>spike decay time constant</label>
+        <term>spike decay time constant</term>
         <quote>Neural timescales also increase across hierarchies of visual cortical areas, where it is quantified as the decay time constant ( τ ) of an exponential fit to the temporal spike count autocorrelation.</quote>
       </span>
-      <span xml:id="t114" type="content_tags" ana="#content_tags.variables[12]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t116" type="content_tags" ana="#content_tags.variables[12]" resp="#tagger" cert="1.0">
+        <label>sound-evoked firing rate</label>
+        <term>sound-evoked firing rate</term>
         <quote>Presenting the intervals in rhythmic patterns had no consistent effect on mean firing rate within the 100ms response window ( Figure 3E - F ), but instead only on how the spikes were arranged withing the 100ms response window, both in terms of shorter decay constants and less variation in first spike latency</quote>
       </span>
-      <span xml:id="t115" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t117" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>1.4ms, 16ms, 64ms — median interval-decoding threshold in inferior colliculus, medial geniculate body and primary auditory cortex respectively</label>
         <quote>From midbrain to cortex, decoding accuracy was reduced overall and restricted to a limited range of longer intervals ( Figure 1G ), such that the median threshold of interval decoding rose from 1.4ms for IC units, to 16ms for MGB units, and 64ms in A1 ( Figure 1H )</quote>
       </span>
-      <span xml:id="t116" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t118" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>0.8s — duration of one complete stimulus cycle, the minimum integration window needed to detect regularity</label>
         <quote>Because the stimuli, the silent interval durations and the total cycle duration for random and rhythmic periods were matched, the sole feature distinguishing random and rhythmic contexts was regularity, which can only be encoded by integrating over at least one complete cycle (0.8s).</quote>
       </span>
-      <span xml:id="t117" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t119" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>40x — how much slower the stimulus feature (800ms rhythm) is than the cortical spiking timescale (20ms) it modulates</label>
         <quote>It is interesting that cortical spiking timescales are sensitive to a stimulus feature that is approximately 40× slower than the timescale itself (800ms vs 20ms)</quote>
       </span>
-      <span xml:id="t118" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t120" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+        <label>F = 20.95, p = 6x10 −9 — main effect of brain structure on interval classification accuracy in the mixed-design ANOVA</label>
         <quote>Interval classification accuracy is significantly reduced at successive stages of the IC-MGB-A1 hierarchy (Mixed design ANOVA, main effect for structure, F = 20.95, p = 6x10 −9 ).</quote>
       </span>
-      <span xml:id="t119" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t121" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+        <label>5/164 — number of mice and single units contributing A1 timescale measurements in the random versus rhythmic comparison</label>
         <quote>Neural timescale measurements from sound-evoked spiking during random and rhythmic epochs in IC (n=5/50, mice/single units), MGB (6/154), and A1 (5/164).</quote>
       </span>
-      <span xml:id="t120" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t122" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="1.0">
+        <label>1.4ms, 16ms, 64ms — median interval-decoding threshold in IC, MGB and A1</label>
         <quote>such that the median threshold of interval decoding rose from 1.4ms for IC units, to 16ms for MGB units, and 64ms in A1</quote>
       </span>
-      <span xml:id="t121" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t123" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="1.0">
+        <label>0.8 - 1.6s — the span of stimulus regularity A1 single units are sensitive to</label>
         <quote>Therefore, at least for A1 in passively listening mice, single unit sensitivity to regularity is limited to stimulus timescales on the order of 4-8 repeating elements or 0.8 – 1.6s.</quote>
       </span>
-      <span xml:id="t122" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t124" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">
+        <label>approximately 40x — how much slower the driving stimulus feature is than the timescale that reports it (800ms vs 20ms)</label>
         <quote>It is interesting that cortical spiking timescales are sensitive to a stimulus feature that is approximately 40× slower than the timescale itself (800ms vs 20ms), which suggests that A1 regular-spiking unit timescale dynamics are likely the product of other local or long-range circuits that respond more directly to the change in predicable stimulus timing.</quote>
       </span>
-      <span xml:id="t123" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t125" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
+        <label>0.6ms — trough-to-peak cut between regular- and fast-spiking units</label>
         <quote>For the regular versus fast spike waveform classification, the trough to peak interval of the mean spike waveform formed a bimodal distribution, which was used to subdivide neurons with intervals exceeding 0.6ms as regular spiking, while neurons with intervals shorter than 0.6ms were fast spiking</quote>
       </span>
-      <span xml:id="t124" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t126" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">
+        <label>200ms — mean inter-burst interval, with no interval below 100ms so that forward suppression cannot contribute</label>
         <quote>We created several libraries composed of different temporal interval arrangements, each set to a mean inter-burst interval of 200ms (with no interval shorter than 100ms) to avoid forward suppression, as supported by the analysis above</quote>
       </span>
-      <span xml:id="t125" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t127" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
+        <label>20 ms, 70 dB SPL, 1-64 kHz — duration, level and bandwidth of the frozen noise burst used throughout</label>
         <quote>Auditory stimuli were frozen broadband noise bursts (20 ms duration, 5 ms raised cosine onset/offset ramps, 70 dB SPL, 1-64 kHz bandwidth).</quote>
       </span>
-      <span xml:id="t126" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t128" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="1.0">
+        <label>less than 5% — permitted refractory-period violations for a cluster to count as a single unit</label>
         <quote>We ensured our units were well isolated clusters and had refractory period violations for less than 5% of the total spikes (inter-spike interval &lt; 1.5ms for IC and &lt; 2ms for MGB and A1).</quote>
       </span>
-      <span xml:id="t127" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t129" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">
+        <label>6-8 weeks — age of the C57BL6 mice at recording</label>
         <quote>We used adult male and female C57BL6 mice aged 6-8 weeks at the time of recording.</quote>
       </span>
     </spanGrp>

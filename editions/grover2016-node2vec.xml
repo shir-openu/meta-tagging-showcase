@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>node2vec: Scalable Feature Learning for Networks</title>
+        <author>Aditya Grover</author>
+        <author>Jure Leskovec</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>node2vec: Scalable Feature Learning for Networks</title>
+          <date>2016</date>
+          <publisher>KDD / arXiv</publisher>
+          <idno type="DOI">10.1145/2939672.2939754</idno>
+          <idno type="arXiv">1607.00653</idno>
+          <idno type="record">grover2016-node2vec</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\grover2016-node2vec.txt</note>
+          <note type="text-sha1">88852e58e6526487511b472d2422103677e4c716</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>network-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">24 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>Here we propose node2vec, an algorithmic framework for learning continuous feature representations for nodes in networks.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>network feature learning (node embeddings)</label>
+        <quote>We formulate feature learning in networks as a maximum likelihood optimization problem.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <quote>Datasets and a reference implementation of node2vec are available on the project page: http://snap.stanford.edu/node2vec.</quote>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>biased (2nd-order) random-walk sampling of node neighborhoods</term>
+        <quote>We use a 2nd order random walk approach to generate (sample) network neighborhoods for nodes</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>Reusing walk samples across source nodes trades statistical purity for efficiency and can bias the procedure.</label>
+        <quote>Note that sample reuse can introduce some bias in the overall procedure.</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>When the search phase does not matter for a given network, node2vec collapses to the DeepWalk baseline and offers no gain.</label>
+        <quote>In the worst case, the search phase has little bearing on learned representations in which case node2vec is equivalent to DeepWalk.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The paper does not explain why the Hadamard edge operator works best, nor give equivalence notions for edges.</label>
+        <quote>As a future work, we would like to explore the reasons behind the success of Hadamard operator over others, as well as establish interpretable equivalence notions for edges based on the search parameters.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
+        <label>The likelihood is factorised by assuming each neighbourhood node is observed independently of the others given the source, and the paper gives tractability as the reason.</label>
+        <quote>In order to make the optimization problem tractable, we make two standard assumptions: • Conditional independence. We factorize the likelihood by assuming that the likelihood of observing a neighborhood node is independent of observing any other neighborhood node given the feature representation of the source</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+        <label>The construct borrowed from language does not carry over, and the paper says why: text is linear and networks are not, so the neighbourhood had to be redefined.</label>
+        <quote>Feature learning methods based on the Skip-gram architecture have been originally developed in the context of natural language [21]. Given the linear nature of text, the notion of a neighborhood can be naturally defined using a sliding window over consecutive words. Networks, however, are not linear, and thus a richer notion of a neighborhood is needed</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>Prior methods are criticised for assuming a particular relationship between network structure and the prediction task, with spectral clustering named as an example.</label>
+        <quote>For instance, spectral clustering makes a strong homophily assumption that graph cuts will be useful for classification [29]. Such assumptions are reasonable in many scenarios, but unsatisfactory in effectively generalizing across diverse networks</quote>
+      </span>
+      <span xml:id="t10" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>the Skip-gram word-embedding architecture (word2vec), applied to graph nodes</label>
+        <quote>We proceed by extending the Skip-gram architecture to networks</quote>
+      </span>
+      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>node similarity - AS HOMOPHILY: two nodes count as alike when they sit in the same tightly knit community, which is one of the two organising principles the paper says networks mix</label>
+        <quote>nodes in networks could be organized based on communities they belong to (i.e., homophily); in other cases, the organization could be based on the structural roles of nodes in the network (i.e., structural equivalence)</quote>
+      </span>
+      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>node similarity - AS STRUCTURAL EQUIVALENCE: two nodes count as alike when they play the same role, EVEN IN DIFFERENT COMMUNITIES - the paper&#x27;s own figure has u alike to s1 under the first sense and alike to s6 under this one, so the two senses pick out different pairs</label>
+        <quote>For instance, in Figure 1, we observe nodes u and s1 belonging to the same tightly knit community of nodes, while the nodes u and s6 in the two distinct communities share the same structural role of a hub node</quote>
+      </span>
+      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>network neighborhood - AS A SAMPLED SET, NOT A RADIUS: not restricted to immediate neighbours, and its shape changes with the sampling strategy, so the neighbourhood is a design choice rather than a property of the graph</label>
+        <quote>The neighborhoods NS(u) are not restricted to just immediate neighbors but can have vastly different structures depending on the sampling strategy</quote>
+      </span>
+      <span xml:id="t14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → the Skip-gram (word2vec) model from NLP</label>
+        <quote>Inspired by the Skip-gram model</quote>
+      </span>
+      <span xml:id="t15" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → the Skip-gram model of Mikolov et al. [21] (and its network use in [24])</label>
+        <quote>We proceed by extending the Skip-gram architecture to networks [21, 24].</quote>
+      </span>
+      <span xml:id="t16" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>extends → DeepWalk [24]</label>
+        <quote>The sampling strategy in DeepWalk can be seen as a special case of node2vec with p = 1 and q = 1.</quote>
+      </span>
+      <span xml:id="t17" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → DeepWalk [24] and LINE [28] (rigid sampling strategies)</label>
+        <quote>Our algorithm node2vec overcomes this limitation by designing a flexible objective that is not tied to a particular sampling strategy and provides parameters to tune the explored search space (see Section 3).</quote>
+      </span>
+      <span xml:id="t18" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>homophily —contrasted-with→ structural equivalence</label>
+        <term>homophily</term>
+        <term>structural equivalence</term>
+        <quote>nodes in networks could be organized based on communities they belong to (i.e., homophily); in other cases, the organization could be based on the structural roles of nodes in the network (i.e., structural equivalence)</quote>
+      </span>
+      <span xml:id="t19" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>network neighborhood —operationalised-as→ random walk</label>
+        <term>network neighborhood</term>
+        <term>random walk</term>
+        <quote>We use a 2nd order random walk approach to generate (sample) network neighborhoods for nodes</quote>
+      </span>
+      <span xml:id="t20" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>node2vec learns continuous low-dimensional feature representations for graph nodes by maximizing likelihood of preserving network neighborhoods, using a biased random walk that flexibly interpolates between BFS and DFS exploration.</label>
+        <quote>In node2vec, we learn a mapping of nodes to a low-dimensional space of features that maximizes the likelihood of preserving network neighborhoods of nodes. We define a flexible notion of a node’s network neighborhood and design a biased random walk procedure</quote>
+      </span>
+      <span xml:id="t21" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>biased random-walk parameters (BFS vs DFS exploration)</label>
+        <term>biased random-walk parameters (BFS vs DFS exploration)</term>
+        <quote>design a biased random walk procedure, which efficiently explores diverse neighborhoods</quote>
+      </span>
+      <span xml:id="t22" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <quote>The node feature representations are input to a one-vs-rest logistic regression classifier with L2 regularization.</quote>
+      </span>
+      <span xml:id="t23" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <quote>The opposite is true for DFS which can explore larger parts of the network as it can move further away from the source node u (with sample size k being fixed).</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1145/2939672.2939754.</note></p>
+    </body>
+  </text>
+</TEI>

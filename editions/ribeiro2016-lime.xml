@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Why Should I Trust You? Explaining the Predictions of Any Classifier</title>
+        <author>Marco Tulio Ribeiro</author>
+        <author>Sameer Singh</author>
+        <author>Carlos Guestrin</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Why Should I Trust You? Explaining the Predictions of Any Classifier</title>
+          <date>2016</date>
+          <publisher>KDD / arXiv</publisher>
+          
+          <idno type="arXiv">1602.04938</idno>
+          <idno type="record">ribeiro2016-lime</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\ribeiro2016-lime.txt</note>
+          <note type="text-sha1">a7d1281b5d00af5e68d9a3c7ca17907abce14a20</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>statistics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">29 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>In this work, we propose LIME, a novel explanation technique that explains the predictions of any classifier in an interpretable and faithful manner, by learning an interpretable model locally around the prediction.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>human trust in individual predictions of black-box classifiers</label>
+        <quote>Understanding the reasons behind predictions is, however, quite important in assessing trust, which is fundamental if one plans to take action based on a prediction, or when choosing whether to deploy a new model.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <quote>We proposed LIME, a modular and extensible approach to faithfully explain the predictions of any model in an interpretable manner.</quote>
+      </span>
+      <span xml:id="t3" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>explanations are only locally faithful (learned locally around each prediction)</label>
+        <quote>by learning an interpretable model locally around the prediction</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Some model behaviours cannot be captured at all by the chosen interpretable representation.</label>
+        <quote>First, while the underlying model can be treated as a black-box, certain interpretable representations will not be powerful enough to explain certain behaviors.</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>Sparse linear explanations may be unfaithful where the underlying model is highly non-linear even locally.</label>
+        <quote>Second, our choice of G (sparse linear models) means that if the underlying model is highly non-linear even in the locality of the prediction, there may not be a faithful explanation.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The submodular pick step is not worked out for images.</label>
+        <quote>One issue that we do not mention in this work was how to perform the pick step for images, and we would like to address this limitation in the future.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>The husky-versus-wolf human-subject experiment had a small sample.</label>
+        <quote>Although our sample size is small, this experiment demonstrates the utility of explaining individual predictions for getting insights into classifiers knowing when not to trust them and why.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>Interpretability is a property of the reader, not of the explanation: the same model may or may not be interpretable depending on who is looking at it.</label>
+        <quote>We note that interpretability must take into account the user’s limitations. Thus, a linear model [24], a gradient vector [2] or an additive model [6] may or may not be interpretable</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The vocabulary of the explanation is deliberately not the vocabulary of the model.</label>
+        <quote>This requirement further implies that explanations should be easy to understand, which is not necessarily true of the features used by the model, and thus the “input variables” in the explanations may need to be different than the features</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>Complete faithfulness is stated to be impossible short of reproducing the model itself.</label>
+        <quote>Although it is often impossible for an explanation to be completely faithful unless it is the complete description of the model itself</quote>
+      </span>
+      <span xml:id="t11" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>trust - SENSE 1, IN A PREDICTION: whether a user is willing to act on one individual output, which is the question an explanation of a single prediction addresses</label>
+        <quote>It is important to differentiate between two different (but related) definitions of trust: (1) trusting a prediction</quote>
+      </span>
+      <span xml:id="t12" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>interpretability - AUDIENCE-RELATIVE: it depends on the target audience, so practitioners may read a small Bayesian network while laymen need a few weighted features, and the same artefact is interpretable for one and not the other</label>
+        <quote>Finally, we note that the notion of interpretability also depends on the target audience. Machine learning practitioners may be able to interpret small Bayesian networks, but laymen may be more comfortable with a small number of weighted features as an explanation</quote>
+      </span>
+      <span xml:id="t13" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>fidelity - LOCAL AND GLOBAL, AND THE IMPLICATION RUNS ONE WAY ONLY: local fidelity does not give global fidelity, and features that matter globally may not matter locally</label>
+        <quote>We note that local fidelity does not imply global fidelity: features that are globally important may not be important in the local context</quote>
+      </span>
+      <span xml:id="t14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → model-agnostic explanation by learning an interpretable model on the original model&#x27;s predictions [2, 7, 22]</label>
+        <quote>A common approach to model-agnostic explanation is learning a potentially interpretable model on the predictions of the original model [2, 7, 22].</quote>
+      </span>
+      <span xml:id="t15" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → prior perturbation-based explanation work [24]</label>
+        <quote>The idea of perturbing inputs for explanations has been explored before [24], where the authors focus on learning a specific contribution model, as opposed to our general framework.</quote>
+      </span>
+      <span xml:id="t16" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the 1-1/e greedy approximation guarantee for submodular coverage maximisation [15]</label>
+        <quote>Due to submodularity, a greedy algorithm that iteratively adds the instance with the highest marginal coverage gain to the solution offers a constant-factor approximation guarantee of 1−1/e to the optimum [15].</quote>
+      </span>
+      <span xml:id="t17" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>local fidelity —distinct-from→ global fidelity</label>
+        <term>local fidelity</term>
+        <term>global fidelity</term>
+        <quote>We note that local fidelity does not imply global fidelity: features that are globally important may not be important in the local context</quote>
+      </span>
+      <span xml:id="t18" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>LIME —operationalised-as→ local fidelity</label>
+        <term>LIME</term>
+        <term>local fidelity</term>
+        <quote>we propose LIME, a novel explanation technique that explains the predictions of any classifier in an interpretable and faithful manner, by learning an interpretable model locally around the prediction</quote>
+      </span>
+      <span xml:id="t19" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>SP-LIME selects a small, non-redundant set of representative instance explanations (via submodular optimization) to help users decide whether to trust the whole model.</label>
+        <quote>SP-LIME, a method that selects a set of representative instances with explanations to address the “trusting the model” problem</quote>
+      </span>
+      <span xml:id="t20" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>local perturbations around an instance (surrogate input)</label>
+        <term>local perturbations around an instance (surrogate input)</term>
+        <quote>by learning an interpretable model locally around the prediction</quote>
+      </span>
+      <span xml:id="t21" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>interpretable explanation / user trust in the prediction</label>
+        <term>interpretable explanation / user trust in the prediction</term>
+        <quote>Understanding the reasons behind predictions is, however, quite important in assessing trust</quote>
+      </span>
+      <span xml:id="t22" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>model-agnostic explanation</label>
+        <term>model-agnostic explanation</term>
+        <quote>able to explain any model, and thus be model-agnostic (i.e. treat the original model as a black box)</quote>
+      </span>
+      <span xml:id="t23" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Bayesian</label>
+        <term>Bayesian</term>
+        <quote>Machine learning practitioners may be able to interpret small Bayesian networks, but laymen may be more comfortable with a small number of weighted features as an explanation.</quote>
+      </span>
+      <span xml:id="t24" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <quote>Each subject took an average of 3.6 minutes per round of cleaning, resulting in just under 11 minutes to produce a classifier that generalizes much better to real world data.</quote>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>p-value</label>
+        <term>p-value</term>
+        <quote>The top 3 classes predicted are “Electric Guitar” (p = 0.32), “Acoustic guitar” (p = 0.24) and “Labrador” (p = 0.21) 4.</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <quote>We train decision trees (DT), logistic regression with L2 regularization (LR), nearest neighbors (NN), and support vector machines with RBF kernel (SVM), all using bag of words as features.</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+        <label>standard-error</label>
+        <term>standard-error</term>
+        <quote>Averages and standard errors from 800 runs.</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+        <label>statistical-significance</label>
+        <term>statistical-significance</term>
+        <quote>However, real-world data is often significantly different, and further, the evaluation metric may not be indicative of the product’s goal.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://arxiv.org/abs/1602.04938.</note></p>
+    </body>
+  </text>
+</TEI>

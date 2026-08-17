@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-13"
-              who="build_paper_edition.py">109 spans placed by verified search</change>
+      <change when="2026-08-15"
+              who="build_paper_edition.py">111 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -64,18 +64,22 @@
       </span>
       <span xml:id="t5" type="method" ana="#method" resp="#paper">
         <label>electrophysiology</label>
+        <term>electrophysiology</term>
         <quote>After training, we recorded the simultaneous activity of multiple well-isolated single neurons in the caudolateral mesopallium (CLM) in response to task-relevant and task-irrelevant motifs and a third set of novel motifs under urethane anesthesia ( Supplemental Figure S2A-P ; Experimental Procedures).</quote>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
         <label>mechanisms</label>
+        <term>when noise correlation runs opposite to tuning similarity, a downstream reader can subtract the responses of dissimilarly tuned neurons, cancelling the shared noise while adding the signal, so the same spikes carry more information</term>
         <quote>In contrast, negative relationships can improve population coding because common noise among dissimilarly tuned neurons can be subtracted, which strengthens the signal while dissipating the noise.</quote>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">
         <label>mechanisms</label>
+        <term>learning-driven changes to feed-forward synaptic weights (with excitatory-inhibitory noise cancellation) decorrelate similarly tuned neurons and preserve or increase correlation among dissimilarly tuned ones, producing the inverted correlation structure</term>
         <quote>The plausibility of such circuitry is supported by a recent network model showing that learning-driven modulations to feed-forward synaptic weights yields decreased noise correlations for similarly tuned cortical neurons, and increased noise correlations for dissimilarly tuned neurons</quote>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">
         <label>mechanisms</label>
+        <term>the trigger for the correlation change is the learned stimulus-to-action mapping (the motif signalling which port to peck), not reward pairing, familiarity or exposure, which were equated across motif classes</term>
         <quote>Thus, learning-dependent changes in the inter-neuronal correlation patterns depend on associations formed between stimuli and behavior, rather than experience, familiarity, or reward contingency.</quote>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="1.0">
@@ -146,336 +150,395 @@
         <label>multinomial logistic regression, chosen because stimulus identity is categorical and cannot be parameterised</label>
         <quote>Because motif identity is best regarded as a nominal, or categorical, variable (i.e. motifs cannot be easily described with a small number of parameters), we use multinomial logistic regression (MNLR) to find the optimal classifier that maximizes the predictability of motif identity from the firing rates of multiple neurons (Experimental Procedures). This technique is particularly well-suited to our data because it can be applied to any number of neurons and any number of nominal categories (i.e. motifs).</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t26" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the trial-shuffling repeated 50 times, with the AVERAGE classification probability used rather than a single shuffle</label>
+        <quote>To ensure that random correlations introduced by this process did not affect our analysis, we repeated the shuffling process 50 times and used the average probability of correct classification from these shuffles.</quote>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>noise correlation is shared trial-to-trial variability; signal correlation is tuning similarity - and the coding consequence of the first depends entirely on the sign of the second</label>
         <quote>In such circuits, noise correlations can either enhance or impair coding fidelity, depending on how the noise correlation relates to tuning similarity (known as “signal correlation”) for each pair of neurons</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>task-relevant means the motif signalled which response was correct; task-irrelevant motifs were equally familiar and equally rewarded, so relevance here is purely a stimulus-response association</label>
         <quote>All the motifs used during training were heard equally often in the context of the task and paired equally with reinforcement, but only the task-relevant motifs signaled the correct behavioral response on each trial. Thus, any effect of learning mediated directly by reinforcement should apply to all of the training motifs.</quote>
       </span>
-      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the classification ratio is defined so that above one means correlations help and below one means they hurt, making the sign of the effect readable directly</label>
         <quote>We expressed this potential benefit as the “classification ratio,” which is simply the ratio of the MNLR classification accuracy with correlations intact to the classification accuracy without correlations (i.e. with trials shuffled, Experimental Procedures). Classification ratios greater than one indicate that correlations improve encoding while classification ratios less than one indicate that correlations impair encoding.</quote>
       </span>
-      <span xml:id="t29" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>the CLM representation is interpreted as a predictive mapping of the learned response rather than a sensory trace - occasion setting rather than encoding</label>
         <quote>In this context, which psychologists refer to as occasion setting ( Schmajuk and Holland, 1998 ), we suggest that the neural representation of motifs in CLM is less a sensory trace than a predictive mapping of the learned behavioral response.</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → Oram et al. (1998)</label>
         <quote>Our results support the longstanding hypothesis that these activity patterns underlie behaviorally relevant discrimination of sensory signals ( Oram et al., 1998 ).</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>replicates → Cohen and Kohn (2011); Gu et al. (2011); Kohn and Smith (2005); Zohary et al. (1994)</label>
         <quote>Consistent with previous reports ( Cohen and Kohn, 2011 ; Gu et al., 2011 ; Kohn and Smith, 2005 ; Zohary et al., 1994 ), we observed broad distributions of noise correlations that had small, but positive, mean values (task-relevant: 0.082 ± 0.012; task-irrelevant: 0.100 ± 0.012; novel: 0.087 ± 0.012; Figure 3A ).</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>replicates → Jeanne et al. (2011); Gentner and Margoliash (2003); Thompson and Gentner (2010)</label>
         <quote>This finding is consistent with previous reports that song recognition learning alters encoding by single neurons in CLM ( Jeanne et al., 2011 ) and neighboring regions ( Gentner and Margoliash, 2003 ; Thompson and Gentner, 2010 ).</quote>
       </span>
-      <span xml:id="t33" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">
         <label>contradicts → the inference from earlier work that stimulus-reward association drives auditory cortical plasticity</label>
         <quote>What we observe, however, is very different. Only the task-relevant—motifs those that birds learned to associate with a particular pecking location—elicited neural population activity with a negative relationship between signal and noise correlations. In contrast, task-irrelevant motifs—those that birds never learned to associate with a particular pecking location—elicited neural population activity with a positive correlation relationship indistinguishable from that elicited by novel motifs that birds never heard while awake. Thus, learning-dependent changes in the inter-neuronal correlation patterns depend on associations formed between stimuli and behavior, rather than experience, familiarity, or reward contingency.</quote>
       </span>
-      <span xml:id="t34" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
         <label>confirms → the theoretical prediction that changing the sign of the signal-noise correlation relationship could underlie attention or learning</label>
         <quote>To our knowledge, a negative relationship between signal and noise correlations has not previously been demonstrated. Theoretical studies, however, have predicted that changes to the sign of this relationship might underlie cognitive functions such as attention or learning ( Oram et al., 1998 ). We thus provide the first evidence to support this prediction: associative learning inverts this relationship, substantially enhancing population encoding of learned motifs.</quote>
       </span>
-      <span xml:id="t35" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
         <label>qualifies → Gu et al., who found perceptual learning did not alter the slope of this relationship</label>
         <quote>Indeed, a recent study found that perceptual learning did not alter the slope of the relationship between signal and noise correlations for neurons in the primate medial superior temporal area ( Gu et al., 2011 ). This study differed from ours in multiple ways (e.g. species, brain region, and sensory modality) that make direct comparisons difficult, but one important difference is in the type of learning.</quote>
       </span>
-      <span xml:id="t36" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
         <label>supports → theoretical work showing correlations help when signal and noise correlations have opposite sign</label>
         <quote>Thus, our data demonstrate that the observed correlations improve encoding when signal and noise correlations are of opposite sign and impair encoding when signal and noise correlations are of the same sign (2-way ANOVA interaction term, p = 1.8</quote>
       </span>
-      <span xml:id="t37" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t38" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
         <label>noise correlation —contrasted-with→ signal correlation</label>
+        <term>noise correlation</term>
+        <term>signal correlation</term>
         <quote>In such circuits, noise correlations can either enhance or impair coding fidelity, depending on how the noise correlation relates to tuning similarity (known as “signal correlation”) for each pair of neurons</quote>
       </span>
-      <span xml:id="t38" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
-        <label>task-relevant —contrasted-with→ task-irrelevant</label>
+      <span xml:id="t39" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
+        <label>RETRACTED (RE-GROUNDED) · task-relevant —contrasted-with→ task-irrelevant</label>
+        <term>task-relevant</term>
+        <term>task-irrelevant</term>
         <quote>All the motifs used during training were heard equally often in the context of the task and paired equally with reinforcement, but only the task-relevant motifs signaled the correct behavioral response on each trial. Thus, any effect of learning mediated directly by reinforcement should apply to all of the training motifs.</quote>
       </span>
-      <span xml:id="t39" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t40" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
         <label>noise correlation —causes→ population code</label>
+        <term>noise correlation</term>
+        <term>population code</term>
         <quote>Thus, the relationship between signal and noise correlations has considerable impact on the fidelity of neural representations that cannot be predicted from the average responses of individual neurons.</quote>
       </span>
-      <span xml:id="t40" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t41" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
         <label>population code —operationalised-as→ classification ratio</label>
+        <term>population code</term>
+        <term>classification ratio</term>
         <quote>We expressed this potential benefit as the “classification ratio,” which is simply the ratio of the MNLR classification accuracy with correlations intact to the classification accuracy without correlations (i.e. with trials shuffled, Experimental Procedures). Classification ratios greater than one indicate that correlations improve encoding while classification ratios less than one indicate that correlations impair encoding.</quote>
       </span>
-      <span xml:id="t41" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t42" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
         <label>CLM —operationalised-as→ occasion setting</label>
+        <term>CLM</term>
+        <term>occasion setting</term>
         <quote>In this context, which psychologists refer to as occasion setting ( Schmajuk and Holland, 1998 ), we suggest that the neural representation of motifs in CLM is less a sensory trace than a predictive mapping of the learned behavioral response.</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t43" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
+        <label>task-relevant —contrasted-with→ task-irrelevant</label>
+        <term>task-relevant</term>
+        <term>task-irrelevant</term>
+        <quote>The primary difference between the task-relevant and task-irrelevant motifs was thus the learned association between motifs and explicit behavioral choices.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Spearman correlation</label>
+        <term>Spearman correlation</term>
         <quote>For task-relevant motifs, this relationship was negative (Spearman correlation coefficient: r = −0.15, p = 0.051, Fig. 4A ): larger signal correlations were accompanied by smaller noise correlations.</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>Pearson correlation</label>
+        <term>Pearson correlation</term>
         <quote>Signal correlations were computed for each pair of neurons as the Pearson product-moment correlation coefficient between the mean (averaged over trials) firing rates to the four motifs within the task-relevant, task-irrelevant, and novel classes.</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>ANCOVA</label>
+        <term>ANCOVA</term>
         <quote>The difference between these relationships was highly significant (ANCOVA motif class × regression slope interaction, p = 7.9×10 −5 ).</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>repeated measures ANOVA</label>
+        <term>repeated measures ANOVA</term>
         <quote>Surprisingly, there were no differences in the mean noise correlation between motif classes (repeated measures ANOVA, p = 0.21; Figure 3A,C ).</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>Friedman test</label>
+        <term>Friedman test</term>
         <quote>We indeed found that task relevant motifs exhibit a higher classification ratio than the task-irrelevant or novel motifs (Friedman test, p = 0.018; Figure 6B ), consistent with our observations of the correlation structure.</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+        <label>Kruskal-Wallis test</label>
+        <term>Kruskal-Wallis test</term>
         <quote>Among neuron pairs with strong positive signal correlations (greater than 0.4), the task-irrelevant and novel motifs evoked significantly larger noise correlations than the task-relevant motifs (Kruskal-Wallis Test, p = 0.0038; Figure 4D ).</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+        <label>t-test</label>
+        <term>t-test</term>
         <quote>Conversely, for neuron pairs with negative noise correlations, the classification ratio is larger for pairs with positive signal correlations than for pairs with negative signal correlations (t-test, p = 0.044; Figure 6A ).</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+        <label>Wilcoxon signed-rank test</label>
+        <term>Wilcoxon signed-rank test</term>
         <quote>On average, firing rates were modestly higher for task-relevant motifs (3.03 ± 0.38Hz) than for task-irrelevant motifs (2.74 ± 0.33Hz, Wilcoxon signed-rank test, p = 0.0080) and were similar between task-irrelevant motifs and novel motifs (2.80 ± 0.34Hz).</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+        <label>multinomial logistic regression</label>
+        <term>multinomial logistic regression</term>
         <quote>we use multinomial logistic regression (MNLR) to find the optimal classifier that maximizes the predictability of motif identity from the firing rates of multiple neurons</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+        <label>cross-validation</label>
+        <term>cross-validation</term>
         <quote>To avoid overfitting, we fit the model to 75% of the trials for each population and predicted motif identity for the remaining 25% of trials.</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
+        <label>trial shuffling (permutation control)</label>
+        <term>trial shuffling (permutation control)</term>
         <quote>we shuffled the trial ordering of each neuron in each dataset, refit the model, and recomputed the probability of correct classification</quote>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger">
+        <label>Lilliefors normality test</label>
+        <term>Lilliefors normality test</term>
         <quote>All data were tested for normality using the Lilliefors test evaluated at p &lt; 0.05.</quote>
       </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger">
+        <label>Hartigan&#x27;s dip test for bimodality</label>
+        <term>Hartigan&#x27;s dip test for bimodality</term>
         <quote>The distribution of action potential widths is bimodal (Hartigan’s dip test, p = 0.041</quote>
       </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger">
+        <label>principal components analysis</label>
+        <term>principal components analysis</term>
         <quote>Putative action potentials in the recorded voltage traces were identified by amplitude, and sorted into single units with principal components analysis on waveform shape using Spike2 software</quote>
       </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger">
-        <label>statistics</label>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger">
+        <label>standard error of the mean</label>
+        <term>standard error of the mean</term>
         <quote>Central tendencies are reported as means ± standard errors of the mean, except where noted.</quote>
       </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger" cert="1.0">
+        <label>multinomial logistic regression decoding</label>
+        <term>multinomial logistic regression decoding</term>
         <quote>Because motif identity is best regarded as a nominal, or categorical, variable (i.e. motifs cannot be easily described with a small number of parameters), we use multinomial logistic regression (MNLR) to find the optimal classifier that maximizes the predictability of motif identity from the firing rates of multiple neurons (Experimental Procedures). This technique is particularly well-suited to our data because it can be applied to any number of neurons and any number of nominal categories (i.e. motifs).</quote>
       </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
+        <label>trial shuffling</label>
+        <term>trial shuffling</term>
         <quote>To distinguish these two sources of increased performance, we compared the classification performance without correlations (i.e. with trials shuffled, which does not alter individual neuron responses) to that with correlations intact.</quote>
       </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[17]" resp="#tagger" cert="1.0">
-        <label>statistics</label>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[17]" resp="#tagger" cert="1.0">
+        <label>two-way ANOVA interaction</label>
+        <term>two-way ANOVA interaction</term>
         <quote>Thus, our data demonstrate that the observed correlations improve encoding when signal and noise correlations are of opposite sign and impair encoding when signal and noise correlations are of the same sign (2-way ANOVA interaction term, p = 1.8</quote>
       </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[18]" resp="#tagger" cert="0.85">
-        <label>statistics</label>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[18]" resp="#tagger" cert="0.85">
+        <label>Friedman test</label>
+        <term>Friedman test</term>
         <quote>We indeed found that task relevant motifs exhibit a higher classification ratio than the task-irrelevant or novel motifs (Friedman test, p = 0.018; Figure 6B ), consistent with our observations of the correlation structure.</quote>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t63" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>For motifs that had guided the birds&#x27; choices, the usual positive coupling between signal and noise correlation was inverted to a negative one.</label>
         <quote>For task-relevant motifs, this relationship was negative (Spearman correlation coefficient: r = −0.15, p = 0.051, Fig. 4A ): larger signal correlations were accompanied by smaller noise correlations.</quote>
       </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t64" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Equally familiar but behaviourally uninformative motifs, and never-heard novel motifs, retained the canonical positive coupling, so the inversion was specific to task relevance rather than to exposure or reward.</label>
         <quote>For task-irrelevant and novel motifs, in contrast, the relationship was positive (task-irrelevant: r = 0.19, p = 0.012; novel: r = 0.23, p = 0.0022; Figure 4B,C ): larger signal correlations were accompanied by larger noise correlations.</quote>
       </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t65" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>The mean level of noise correlation itself did not differ between motif classes, so the learning effect lies in the correlation structure rather than in correlation magnitude.</label>
         <quote>Surprisingly, there were no differences in the mean noise correlation between motif classes (repeated measures ANOVA, p = 0.21; Figure 3A,C ).</quote>
       </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t66" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>The magnitude of signal correlation was likewise unaffected by task relevance.</label>
         <quote>However, we found no evidence that task-relevance influenced the magnitude of signal correlations ( Figure 3B ; Friedman test, p = 0.18).</quote>
       </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+      <span xml:id="t67" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
         <label>Correlations improved decoding of task-relevant motifs more than of the other classes, confirming that the restructured correlations translate into better discrimination.</label>
         <quote>We indeed found that task relevant motifs exhibit a higher classification ratio than the task-irrelevant or novel motifs (Friedman test, p = 0.018; Figure 6B ), consistent with our observations of the correlation structure.</quote>
       </span>
-      <span xml:id="t66" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
+      <span xml:id="t68" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
         <label>The coding benefit conferred by correlations was flat with population size for irrelevant and novel motifs but grew steadily with population size for task-relevant motifs.</label>
         <quote>We find that the effect of correlations on coding of task-irrelevant and novel motifs is small and does not depend on population size; in contrast, for task-relevant motifs, a modest effect in pairs of neurons grows considerably with population size</quote>
       </span>
-      <span xml:id="t67" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
+      <span xml:id="t69" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
         <label>Single-neuron firing rates showed only a small learning effect, much weaker than the population-level effect.</label>
         <quote>On average, firing rates were modestly higher for task-relevant motifs (3.03 ± 0.38Hz) than for task-irrelevant motifs (2.74 ± 0.33Hz, Wilcoxon signed-rank test, p = 0.0080) and were similar between task-irrelevant motifs and novel motifs (2.80 ± 0.34Hz).</quote>
       </span>
-      <span xml:id="t68" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
+      <span xml:id="t70" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
         <label>The authors claim priority for observing a negative signal-noise correlation relationship in cortex.</label>
         <quote>To our knowledge, a negative relationship between signal and noise correlations has not previously been demonstrated.</quote>
       </span>
-      <span xml:id="t69" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t71" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
         <label>learning inverted the relationship between signal and noise correlations, but only for task-relevant motifs</label>
         <quote>We show that learning produces stimulus specific changes in the pattern of inter-neuronal correlations that enhance the ability of neural populations to recognize signals relevant for behavior. This learning-dependent enhancement increases with population size.</quote>
       </span>
-      <span xml:id="t70" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t72" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
         <label>correlations improve encoding when signal and noise correlations have opposite sign and impair it when they share sign</label>
         <quote>Thus, our data demonstrate that the observed correlations improve encoding when signal and noise correlations are of opposite sign and impair encoding when signal and noise correlations are of the same sign (2-way ANOVA interaction term, p = 1.8</quote>
       </span>
-      <span xml:id="t71" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t73" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
         <label>task-relevant motifs showed a higher classification ratio than task-irrelevant or novel motifs</label>
         <quote>We indeed found that task relevant motifs exhibit a higher classification ratio than the task-irrelevant or novel motifs (Friedman test, p = 0.018; Figure 6B ), consistent with our observations of the correlation structure.</quote>
       </span>
-      <span xml:id="t72" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t74" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
         <label>the benefit of correlations grows with population size for task-relevant motifs and not for the others</label>
         <quote>We find that the effect of correlations on coding of task-irrelevant and novel motifs is small and does not depend on population size; in contrast, for task-relevant motifs, a modest effect in pairs of neurons grows considerably with population size</quote>
       </span>
-      <span xml:id="t73" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t75" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
         <label>enhanced coding comes from both single-neuron plasticity and correlation change, separated by shuffling</label>
         <quote>This suggests that the enhanced coding fidelity for task-relevant motifs results both from single neuron response properties and from correlations between neurons.</quote>
       </span>
-      <span xml:id="t74" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t76" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
         <label>single-neuron firing rate differences were modest relative to the behavioural change</label>
         <quote>The modulation of single neuron firing rates is subtle, however, especially in light of the animals’ robust changes in behavioral performance over training ( Figure 1D ) and differential responding to relevant and irrelevant motifs after training</quote>
       </span>
-      <span xml:id="t75" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t77" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
         <label>task-irrelevant motifs were indistinguishable from novel motifs in correlation structure despite being equally familiar and rewarded</label>
         <quote>What we observe, however, is very different. Only the task-relevant—motifs those that birds learned to associate with a particular pecking location—elicited neural population activity with a negative relationship between signal and noise correlations. In contrast, task-irrelevant motifs—those that birds never learned to associate with a particular pecking location—elicited neural population activity with a positive correlation relationship indistinguishable from that elicited by novel motifs that birds never heard while awake. Thus, learning-dependent changes in the inter-neuronal correlation patterns depend on associations formed between stimuli and behavior, rather than experience, familiarity, or reward contingency.</quote>
       </span>
-      <span xml:id="t76" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t78" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
         <label>a negative relationship between signal and noise correlations had not previously been demonstrated</label>
         <quote>To our knowledge, a negative relationship between signal and noise correlations has not previously been demonstrated. Theoretical studies, however, have predicted that changes to the sign of this relationship might underlie cognitive functions such as attention or learning ( Oram et al., 1998 ). We thus provide the first evidence to support this prediction: associative learning inverts this relationship, substantially enhancing population encoding of learned motifs.</quote>
       </span>
-      <span xml:id="t77" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t79" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>noise correlation</label>
+        <term>noise correlation</term>
         <quote>Pooling responses across distributed populations of similarly tuned neurons can enhance encoding fidelity by averaging out this response variability (known as “noise correlation”), but only the component of this noise that is independent between neurons</quote>
       </span>
-      <span xml:id="t78" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t80" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>signal correlation</label>
+        <term>signal correlation</term>
         <quote>In such circuits, noise correlations can either enhance or impair coding fidelity, depending on how the noise correlation relates to tuning similarity (known as “signal correlation”) for each pair of neurons</quote>
       </span>
-      <span xml:id="t79" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t81" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>task-relevant vs task-irrelevant motif</label>
+        <term>task-relevant vs task-irrelevant motif</term>
         <quote>One motif in the pair (referred to as “task-relevant”) always signaled the correct behavioral response for the trial (i.e. whether to peck at the left or right port to receive food) and the other motif (referred to as “task-irrelevant”) never signaled the correct response</quote>
       </span>
-      <span xml:id="t80" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t82" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>classification ratio</label>
+        <term>classification ratio</term>
         <quote>We expressed this potential benefit as the “classification ratio,” which is simply the ratio of the MNLR classification accuracy with correlations intact to the classification accuracy without correlations</quote>
       </span>
-      <span xml:id="t81" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t83" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
+        <label>motif</label>
+        <term>motif</term>
         <quote>We constructed all stimuli from 12 motifs (stereotyped multi-note elements of natural starling song) recorded from the song repertoires of three adult European starlings.</quote>
       </span>
-      <span xml:id="t82" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t84" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger">
+        <label>inverted correlation structure</label>
+        <term>inverted correlation structure</term>
         <quote>Conversely, an inverted correlation structure in which noise correlations negatively co-vary with signal correlations can yield higher fidelity population representations relative to independent noise</quote>
       </span>
-      <span xml:id="t83" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger">
-        <label>definitions</label>
+      <span xml:id="t85" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger">
+        <label>wide spiking (WS) and narrow spiking (NS) neurons</label>
+        <term>wide spiking (WS) and narrow spiking (NS) neurons</term>
         <quote>we divided our dataset into wide spiking (WS) and narrow spiking (NS) neurons on the basis of action potential width</quote>
       </span>
-      <span xml:id="t84" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t86" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
+        <label>classification ratio</label>
+        <term>classification ratio</term>
         <quote>We expressed this potential benefit as the “classification ratio,” which is simply the ratio of the MNLR classification accuracy with correlations intact to the classification accuracy without correlations (i.e. with trials shuffled, Experimental Procedures). Classification ratios greater than one indicate that correlations improve encoding while classification ratios less than one indicate that correlations impair encoding.</quote>
       </span>
-      <span xml:id="t85" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
-        <label>definitions</label>
+      <span xml:id="t87" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
+        <label>why noise correlation sign matters</label>
+        <term>why noise correlation sign matters</term>
         <quote>In such circuits, noise correlations can either enhance or impair coding fidelity, depending on how the noise correlation relates to tuning similarity (known as “signal correlation”) for each pair of neurons</quote>
       </span>
-      <span xml:id="t86" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t88" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>behavioural relevance of a motif (task-relevant / task-irrelevant / novel)</label>
+        <term>behavioural relevance of a motif (task-relevant / task-irrelevant / novel)</term>
         <quote>Using an associative learning procedure, we manipulated the behavioral relevance of natural acoustic signals and examined the evoked spiking activity in auditory cortical neurons in songbirds.</quote>
       </span>
-      <span xml:id="t87" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t89" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>population size (2 to 8 simultaneously recorded neurons)</label>
+        <term>population size (2 to 8 simultaneously recorded neurons)</term>
         <quote>To assess the relationship between the number of neurons and the probability of correct classification, we considered each simultaneously-recorded population of size greater than or equal to 3 (range: 3 to 8 neurons; n = 12 populations).</quote>
       </span>
-      <span xml:id="t88" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t90" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>noise correlation between neuron pairs</label>
+        <term>noise correlation between neuron pairs</term>
         <quote>we observed broad distributions of noise correlations that had small, but positive, mean values (task-relevant: 0.082 ± 0.012; task-irrelevant: 0.100 ± 0.012; novel: 0.087 ± 0.012</quote>
       </span>
-      <span xml:id="t89" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t91" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>signal correlation between neuron pairs</label>
+        <term>signal correlation between neuron pairs</term>
         <quote>Signal correlations were computed for each pair of neurons as the Pearson product-moment correlation coefficient between the mean (averaged over trials) firing rates to the four motifs within the task-relevant, task-irrelevant, and novel classes.</quote>
       </span>
-      <span xml:id="t90" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t92" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+        <label>classification ratio (decoding accuracy with correlations intact relative to shuffled)</label>
+        <term>classification ratio (decoding accuracy with correlations intact relative to shuffled)</term>
         <quote>We expressed this potential benefit as the “classification ratio,” which is simply the ratio of the MNLR classification accuracy with correlations intact to the classification accuracy without correlations</quote>
       </span>
-      <span xml:id="t91" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t93" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
+        <label>assignment of particular motifs to the three classes (counter-balanced across birds)</label>
+        <term>assignment of particular motifs to the three classes (counter-balanced across birds)</term>
         <quote>To ensure that learning effects were not due to intrinsic acoustic differences between motifs, motif assignment to task-relevant, task-irrelevant, and novel categories was counter-balanced across birds.</quote>
       </span>
-      <span xml:id="t92" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t94" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger">
+        <label>response analysis window fixed at 565 ms</label>
+        <term>response analysis window fixed at 565 ms</term>
         <quote>we use only the first 565ms (the minimum motif duration) of each response in the analyses reported here</quote>
       </span>
-      <span xml:id="t93" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger">
-        <label>variables</label>
+      <span xml:id="t95" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger">
+        <label>cell type (wide-spiking vs narrow-spiking)</label>
+        <term>cell type (wide-spiking vs narrow-spiking)</term>
         <quote>Our results also provide initial evidence that flexibility in the relationship between signal and noise correlations is cell-type specific.</quote>
       </span>
-      <span xml:id="t94" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t96" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
+        <label>task relevance of the motif</label>
+        <term>task relevance of the motif</term>
         <quote>All the motifs used during training were heard equally often in the context of the task and paired equally with reinforcement, but only the task-relevant motifs signaled the correct behavioral response on each trial. Thus, any effect of learning mediated directly by reinforcement should apply to all of the training motifs.</quote>
       </span>
-      <span xml:id="t95" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t97" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
+        <label>population size</label>
+        <term>population size</term>
         <quote>We find that the effect of correlations on coding of task-irrelevant and novel motifs is small and does not depend on population size; in contrast, for task-relevant motifs, a modest effect in pairs of neurons grows considerably with population size</quote>
       </span>
-      <span xml:id="t96" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
-        <label>variables</label>
+      <span xml:id="t98" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
+        <label>sign of the signal correlation</label>
+        <term>sign of the signal correlation</term>
         <quote>Thus, our data demonstrate that the observed correlations improve encoding when signal and noise correlations are of opposite sign and impair encoding when signal and noise correlations are of the same sign (2-way ANOVA interaction term, p = 1.8</quote>
       </span>
-      <span xml:id="t97" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t99" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>r = −0.15, p = 0.051 — correlation between signal correlation and noise correlation across neuron pairs for task-relevant motifs (negative)</label>
         <quote>For task-relevant motifs, this relationship was negative (Spearman correlation coefficient: r = −0.15, p = 0.051, Fig. 4A ): larger signal correlations were accompanied by smaller noise correlations.</quote>
       </span>
-      <span xml:id="t98" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t100" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>r = 0.19 and r = 0.23 — the same signal-noise coupling for task-irrelevant and for novel motifs (positive)</label>
         <quote>For task-irrelevant and novel motifs, in contrast, the relationship was positive (task-irrelevant: r = 0.19, p = 0.012; novel: r = 0.23, p = 0.0022; Figure 4B,C ): larger signal correlations were accompanied by larger noise correlations.</quote>
       </span>
-      <span xml:id="t99" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t101" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>p = 7.9×10 −5 — significance of the difference in regression slopes between motif classes</label>
         <quote>The difference between these relationships was highly significant (ANCOVA motif class × regression slope interaction, p = 7.9×10 −5 ).</quote>
       </span>
-      <span xml:id="t100" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t102" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+        <label>0.082 / 0.100 / 0.087 — mean noise correlation for task-relevant, task-irrelevant and novel motifs - small and positive in every class</label>
         <quote>we observed broad distributions of noise correlations that had small, but positive, mean values (task-relevant: 0.082 ± 0.012; task-irrelevant: 0.100 ± 0.012; novel: 0.087 ± 0.012</quote>
       </span>
-      <span xml:id="t101" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t103" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+        <label>n = 176 pairs from 98 single neurons — the analysed sample of wide-spiking neuron pairs (narrow-spiking sample of 17 pairs was too small to analyse)</label>
         <quote>We focus on WS neurons (n = 176 pairs from 98 single neurons) because our sample of NS neurons was not sufficient (n = 17 pairs from 36 single neurons) to perform reliable analysis.</quote>
       </span>
-      <span xml:id="t102" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t104" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
+        <label>51% vs 25% — decoding accuracy of the example two-neuron classifier against chance for four motifs</label>
         <quote>In the example case ( Figure 5 ), the classifier correctly predicted motif identity with 51% accuracy (far better than chance performance of 25%).</quote>
       </span>
-      <span xml:id="t103" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t105" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
+        <label>5–6 neurons — population size at which the coding benefit of the learned correlation structure becomes substantial</label>
         <quote>Moreover, the effects of this plasticity on neural coding increase substantially with population size, becoming quite considerable once the population reaches 5–6 neurons.</quote>
       </span>
-      <span xml:id="t104" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger">
-        <label>quantities</label>
+      <span xml:id="t106" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger">
+        <label>Nine — number of wild-caught European starlings trained on the two-alternative choice task</label>
         <quote>Nine wild-caught adult European starlings ( Sturnus vulgaris ) were trained using a two-alternative choice operant conditioning paradigm</quote>
       </span>
-      <span xml:id="t105" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t107" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
+        <label>176 pairs from 98 wide-spiking neurons, against 17 pairs from 36 narrow-spiking — the analysed sample and the excluded one</label>
         <quote>We focus on WS neurons (n = 176 pairs from 98 single neurons) because our sample of NS neurons was not sufficient (n = 17 pairs from 36 single neurons) to perform reliable analysis.</quote>
       </span>
-      <span xml:id="t106" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="0.8">
-        <label>quantities</label>
+      <span xml:id="t108" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="0.8">
+        <label>3.03 versus 2.74 Hz, p = 0.0080 — the modest single-neuron firing rate difference</label>
         <quote>The modulation of single neuron firing rates is subtle, however, especially in light of the animals’ robust changes in behavioral performance over training ( Figure 1D ) and differential responding to relevant and irrelevant motifs after training</quote>
       </span>
-      <span xml:id="t107" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
-        <label>quantities</label>
+      <span xml:id="t109" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
+        <label>p = 1.8e-8 for the interaction — the dependence of the coding effect on the sign relationship</label>
         <quote>Thus, our data demonstrate that the observed correlations improve encoding when signal and noise correlations are of opposite sign and impair encoding when signal and noise correlations are of the same sign (2-way ANOVA interaction term, p = 1.8</quote>
       </span>
-      <span xml:id="t108" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="0.8">
-        <label>quantities</label>
+      <span xml:id="t110" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="0.8">
+        <label>sets of up to 8 neurons — the population sizes available for the scaling analysis</label>
         <quote>We find that the effect of correlations on coding of task-irrelevant and novel motifs is small and does not depend on population size; in contrast, for task-relevant motifs, a modest effect in pairs of neurons grows considerably with population size</quote>
       </span>
     </spanGrp>
