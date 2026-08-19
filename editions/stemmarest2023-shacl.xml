@@ -40,289 +40,74 @@
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
-        <label>The variant graph data model used to represent text collations, and whether its constraints can be expressed formally.</label>
-        <quote>In 2020 there was an attempt to create an ontology (Andrews, 2020) for the variant graph, which is a data model used in tools such as CollateX (Haentjens Dekker et al., 2015), Stemmarest (Andrews, 2019), and TraVIZ (Jänicke et al., 2015) to represent and visualize text collations and certain sorts of annotation.</quote>
-      </span>
-      <span xml:id="t1" type="claim_type" ana="#claim_type" resp="#paper">
-        <label>method</label>
-        <quote>This language solves exactly the problem that ontologies do not; specifically, in conjunction with a database that supports transactions and their rollbacks such as Neo4J, a set of SHACL constraints can ensure the consistency of data added to the graph, so that (to take the example above) a witness from one text tradition cannot be included in a stemma belonging to an entirely different tradition.</quote>
-      </span>
-      <span xml:id="t2" type="phenomenon" ana="#phenomenon" resp="#paper">
-        <label>graph schema validation</label>
-        <quote>In this sense, the critics of graph-based models do have a point; how do we validate our graphs?</quote>
-      </span>
-      <span xml:id="t3" type="method" ana="#method" resp="#paper">
-        <label>review</label>
-        <term>review</term>
-        <quote>Recently, however, there have been two intriguing developments in the Semantic Web world that are especially relevant to digital humanities projects, not least Stemmarest.</quote>
-      </span>
-      <span xml:id="t4" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
-        <label>An ontology describes what kinds of thing exist and how they relate, but cannot forbid a combination that is well-typed and still wrong</label>
-        <quote>Thus, while the Stemmarest ontology can describe the data reasonably well, it is not an adequate tool for setting constraints; these must still be described in code.</quote>
-      </span>
-      <span xml:id="t5" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">
-        <label>The hard constraints are cross-object: an entity appearing in one structure must be consistent with its membership elsewhere</label>
-        <quote>For example, if a witness W appears in a stemma belonging to tradition A, the model software should ensure that W also belongs to tradition A as a witness and not, for example, an unrelated tradition B; moreover, W should not appear in any stemmata of tradition B.</quote>
-      </span>
-      <span xml:id="t6" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">
-        <label>Some constraints are global properties of the whole graph and cannot be checked object by object at all</label>
-        <quote>Even more intractable problems arise with more complex specifications: for example, the need to ensure that the variant graph is self-consistent, so that a user cannot create a situation in the model where a portion of the edited text loops back onto itself or is omitted altogether.</quote>
-      </span>
-      <span xml:id="t7" type="mechanisms" ana="#mechanisms[3]" resp="#tagger">
-        <label>The original failure was not a modelling mistake but a mismatch of purpose - OWL was built for open-world inference and editors want description and consistency</label>
-        <quote>We would argue here that most editors are less interested in the sort of open-world inference for which OWL was intended (though Vogeler makes a case for why it might be interesting), as opposed to the formalisation, description, and consistency of their data.</quote>
-      </span>
-      <span xml:id="t8" type="mechanisms" ana="#mechanisms[4]" resp="#tagger">
-        <label>Constraints only bite if the store can undo a rejected write, so validation needs transactions and rollback underneath it</label>
-        <quote>This language solves exactly the problem that ontologies do not; specifically, in conjunction with a database that supports transactions and their rollbacks such as Neo4J, a set of SHACL constraints can ensure the consistency of data added to the graph, so that (to take the example above) a witness from one text tradition cannot be included in a stemma belonging to an entirely different tradition.</quote>
-      </span>
-      <span xml:id="t9" type="mechanisms" ana="#mechanisms[5]" resp="#tagger">
-        <label>Allowing arbitrary code inside constraints erases the code/data boundary that sustainability practice depends on, which the author treats as a feature</label>
-        <quote>In a sense, this affordance challenges the idea of the separation of program code and data that is the usual gold standard for sustainability efforts, insofar as constraints can be expressed as arbitrarily complex programming logic, embedded in RDF or Turtle files and saved as a schema alongside the data itself.</quote>
-      </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger">
-        <label>The author&#x27;s own earlier Stemmarest ontology describes the data adequately but cannot express the model&#x27;s constraints, which still have to be written in program code.</label>
-        <note>what this limits: any use of the ontology to enforce the model: WHILE THE STEMMAREST ONTOLOGY CAN DESCRIBE THE DATA REASONABLY WELL, IT IS NOT AN ADEQUATE TOOL FOR SETTING CONSTRAINTS; THESE MUST STILL BE DESCRIBED IN CODE</note>
-        <quote>Thus, while the Stemmarest ontology can describe the data reasonably well, it is not an adequate tool for setting constraints; these must still be described in code.</quote>
-      </span>
-      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger">
-        <label>RDF*, the extension the interoperability half of the proposal depends on, is acknowledged to be immature.</label>
-        <note>what this limits: the interoperability half of the proposal: RDF* IS STILL IN AN EARLY PHASE OF DEVELOPMENT</note>
-        <quote>While it is still in an early phase of development, RDF* provides the long-awaited ability to set context for LOD statements, and promises to triple stores the same ability to set properties on relationships that graph databases such as Neo4J have always provided; this in turn has opened the way for Stemmarest, and many other projects besides, to take advantage of Neo4J’s powerful graph traversal and analysis algorithms while preserving full interoperability with LOD formats.</quote>
-      </span>
-      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger">
-        <label>SHACL&#x27;s SPARQL/Javascript constraint components undermine the separation of code from data that sustainability practice normally treats as the gold standard.</label>
-        <note>what this limits: the sustainability claim for SHACL: constraint components CHALLENGE THE IDEA OF THE SEPARATION OF PROGRAM CODE AND DATA THAT IS THE USUAL GOLD STANDARD</note>
-        <quote>In a sense, this affordance challenges the idea of the separation of program code and data that is the usual gold standard for sustainability efforts, insofar as constraints can be expressed as arbitrarily complex programming logic, embedded in RDF or Turtle files and saved as a schema alongside the data itself.</quote>
-      </span>
-      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger">
-        <label>The 2020 ontology attempt failed because RDF and OWL handle property attributes badly, and the model depends on them</label>
-        <note>what this limits: any RDF/OWL serialisation of a property-bearing graph: THE ONTOLOGY WAS NOT SUITABLE FOR EXPRESSING THE FULL DATA MODEL ... NOT LEAST BECAUSE ALL OF THEM ... RELY ON PROP[erty attributes]</note>
-        <quote>The conclusion was that the ontology was not suitable for expressing the full data model employed in variant graphs, not least because all of them (Stemmarest most heavily) rely on property attributes, which RDF and OWL do not handle well and which can therefore not be suitably represented in an ontology definition.</quote>
-      </span>
-      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger">
-        <label>The graph database&#x27;s own constraint mechanism reaches only data properties, not structure</label>
-        <note>what this limits: the graph-database alternative: CONSTRAINT ENFORCEMENT IN NEO4J ... IS INDEED LIMITED STRICTLY TO DATA PROPERTIES OF NODES AND RELATIONSHIPS, not structure</note>
-        <quote>Constraint enforcement in Neo4J, perhaps the most popular graph database, is indeed limited strictly to data properties of nodes and relationships (Neo4J, Inc., 2022).</quote>
-      </span>
-      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger">
-        <label>The extension that would fix the property problem is not yet mature</label>
-        <note>what this limits: the same scope as item 1 - the fix for the property problem is immature</note>
-        <quote>While it is still in an early phase of development, RDF* provides the long-awaited ability to set context for LOD statements, and promises to triple stores the same ability to set properties on relationships that graph databases such as Neo4J have always provided; this in turn has opened the way for Stemmarest, and many other projects besides, to take advantage of Neo4J’s powerful graph traversal and analysis algorithms while preserving full interoperability with LOD formats.</quote>
-      </span>
-      <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger">
-        <label>Linked-data stores are in no better position, having relied on ontologies alone</label>
-        <note>what this limits: the linked-data alternative: LOD STORES ... HAVE SO FAR DEPENDED MORE OR LESS ENTIRELY ON ONTOLOGY SPECIFICATIONS, WITH LIMITATIONS AS DESCRIBED ABOVE</note>
-        <quote>The situation is hardly better for LOD stores, which have so far depended more or less entirely on ontology specifications, with limitations as described above, to describe their data.</quote>
-      </span>
-      <span xml:id="t17" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
-        <label>schema - as DESCRIPTION: says what classes exist and how they may relate, which an ontology does well</label>
-        <quote>While many of the classes used by Stemmarest and their relationships to each other can be described adequately in OWL, the model relies upon many additional constraints that, while seemingly simple, go beyond OWL’s capabilities.</quote>
-      </span>
-      <span xml:id="t18" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
-        <label>schema - as CONSTRAINT: forbids configurations that are well-typed and still wrong, which is what validation actually needs</label>
-        <quote>However, one of the important aspects of validation is to prevent inattentive mistakes in the data model.</quote>
-      </span>
-      <span xml:id="t19" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
-        <label>the graph problem - LOCAL: a property on a single node or relationship, which Neo4J can already enforce</label>
-        <quote>Constraint enforcement in Neo4J, perhaps the most popular graph database, is indeed limited strictly to data properties of nodes and relationships (Neo4J, Inc., 2022).</quote>
-      </span>
-      <span xml:id="t20" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
-        <label>the graph problem - GLOBAL: a property of the whole graph, such as the edited text not looping back on itself, which nothing local can check</label>
-        <quote>Even more intractable problems arise with more complex specifications: for example, the need to ensure that the variant graph is self-consistent, so that a user cannot create a situation in the model where a portion of the edited text loops back onto itself or is omitted altogether.</quote>
-      </span>
-      <span xml:id="t21" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
-        <label>OWL&#x27;s purpose - as intended: open-world inference, deriving new facts from stated ones</label>
-        <quote>Vogeler (2021, p. 80) notes in his discussion of graph-based models for critical edition that “the formal affordance of OWL is not really exploited in Digital Scholarly Editions”.</quote>
-      </span>
-      <span xml:id="t22" type="senses" ana="#senses[5]" resp="#tagger" cert="1.0">
-        <label>OWL&#x27;s purpose - as wanted by editors: formalisation, description and consistency, which is a different job it was not built for</label>
-        <quote>We would argue here that most editors are less interested in the sort of open-world inference for which OWL was intended (though Vogeler makes a case for why it might be interesting), as opposed to the formalisation, description, and consistency of their data.</quote>
-      </span>
-      <span xml:id="t23" type="alternatives" ana="#alternatives.claim_type" resp="#tagger">
-        <label>claim_type: method</label>
-        <note>a second reading reaching the same value. Recorded: method — a second reading reaching the same value from a different sentence. Not applied - a person decides.</note>
-        <quote>The second major development is SHACL (Shapes Constraint Language), a language whose purpose is to define a set of constraints against which RDF graphs can be validated (Knublauch and Kontokostas, 2017).</quote>
-      </span>
-      <span xml:id="t24" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
-        <label>builds-on → Andrews (2020), the 2020 attempt to build an ontology for the variant graph / Stemmarest</label>
-        <quote>What the 2020 project showed, in the end, was the inadequacy of ontologies and especially OWL as a validation model for graph-based data.</quote>
-      </span>
-      <span xml:id="t25" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
-        <label>extends → Vogeler (2021) on graph-based models for critical edition and the unexploited affordance of OWL</label>
-        <quote>We would argue here that most editors are less interested in the sort of open-world inference for which OWL was intended (though Vogeler makes a case for why it might be interesting), as opposed to the formalisation, description, and consistency of their data.</quote>
-      </span>
-      <span xml:id="t26" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
-        <label>builds-on → SHACL (Shapes Constraint Language), Knublauch and Kontokostas (2017)</label>
-        <quote>This language solves exactly the problem that ontologies do not; specifically, in conjunction with a database that supports transactions and their rollbacks such as Neo4J, a set of SHACL constraints can ensure the consistency of data added to the graph, so that (to take the example above) a witness from one text tradition cannot be included in a stemma belonging to an entirely different tradition.</quote>
-      </span>
-      <span xml:id="t27" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
-        <label>builds-on → RDF* (Arndt et al., 2021)</label>
-        <quote>While it is still in an early phase of development, RDF* provides the long-awaited ability to set context for LOD statements, and promises to triple stores the same ability to set properties on relationships that graph databases such as Neo4J have always provided; this in turn has opened the way for Stemmarest, and many other projects besides, to take advantage of Neo4J’s powerful graph traversal and analysis algorithms while preserving full interoperability with LOD formats.</quote>
-      </span>
-      <span xml:id="t28" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
-        <label>critiques → the author&#x27;s own 2020 attempt to build a variant-graph ontology</label>
-        <quote>What the 2020 project showed, in the end, was the inadequacy of ontologies and especially OWL as a validation model for graph-based data.</quote>
-      </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
-        <label>critiques → the argument that graph databases lack the sustainability foundations of XML or relational schemas</label>
-        <quote>In this sense, the critics of graph-based models do have a point; how do we validate our graphs?</quote>
-      </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[6]" resp="#tagger">
-        <label>extends → Vogeler on graph-based models for critical edition</label>
-        <quote>Vogeler (2021, p. 80) notes in his discussion of graph-based models for critical edition that “the formal affordance of OWL is not really exploited in Digital Scholarly Editions”.</quote>
-      </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[7]" resp="#tagger">
-        <label>supports → the codework literature arguing that code embodies scholarship</label>
-        <quote>The SHACL model thus provides a fascinating way to bring the intellectual contributions inherent in codework (Zundert, 2016; Antonijevic Ubois, van Zundert, and Andrews, 2018) across the “sustainability divide” that allows them to be properly valued and conserved as scholarship; at the same time, it points to a promising future model of digital work in the humanities, in which domain-specific code can live alongside the data, to be processed by more generic (and thus, hopefully, more long-lived) software platforms.</quote>
-      </span>
-      <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
-        <label>SHACL —contrasted-with→ ontology</label>
-        <term>SHACL</term>
-        <term>ontology</term>
-        <note>strength of the relation: 1</note>
-        <quote>This language solves exactly the problem that ontologies do not; specifically, in conjunction with a database that supports transactions and their rollbacks such as Neo4J, a set of SHACL constraints can ensure the consistency of data added to the graph, so that (to take the example above) a witness from one text tradition cannot be included in a stemma belonging to an entirely different tradition.</quote>
-      </span>
-      <span xml:id="t33" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
-        <label>OWL —operationalised-as→ ontology</label>
-        <term>OWL</term>
-        <term>ontology</term>
-        <note>strength of the relation: 1</note>
-        <quote>What the 2020 project showed, in the end, was the inadequacy of ontologies and especially OWL as a validation model for graph-based data.</quote>
-      </span>
-      <span xml:id="t34" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
-        <label>RDF* —operationalised-as→ property attributes</label>
-        <term>RDF*</term>
-        <term>property attributes</term>
-        <note>strength of the relation: 1</note>
-        <quote>While it is still in an early phase of development, RDF* provides the long-awaited ability to set context for LOD statements, and promises to triple stores the same ability to set properties on relationships that graph databases such as Neo4J have always provided; this in turn has opened the way for Stemmarest, and many other projects besides, to take advantage of Neo4J’s powerful graph traversal and analysis algorithms while preserving full interoperability with LOD formats.</quote>
-      </span>
-      <span xml:id="t35" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
-        <label>property attributes —distinct-from→ OWL</label>
-        <term>property attributes</term>
-        <term>OWL</term>
-        <note>strength of the relation: 1</note>
-        <quote>The conclusion was that the ontology was not suitable for expressing the full data model employed in variant graphs, not least because all of them (Stemmarest most heavily) rely on property attributes, which RDF and OWL do not handle well and which can therefore not be suitably represented in an ontology definition.</quote>
-      </span>
-      <span xml:id="t36" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
-        <label>witness —part-of→ tradition</label>
-        <term>witness</term>
-        <term>tradition</term>
-        <note>strength of the relation: 1</note>
-        <quote>For example, in the Stemmarest ontology we can say that a Witness can belong to a Tradition and also to one or more Stemmata, and that a Tradition can contain multiple Stemmata.</quote>
-      </span>
-      <span xml:id="t37" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">
-        <label>RETRACTED (RE-GROUNDED (Q-267)) · stemma —part-of→ tradition</label>
-        <term>stemma</term>
-        <term>tradition</term>
-        <note>RETRACTED: RE-GROUNDED (Q-267). The old span attested `stemma` only inside `Stemmarest`, the TOOL&#x27;S OWN NAME - a run of letters, not the word. This clause writes both terms and states the containment in the paper&#x27;s own verb: a stemma BELONGS TO a tradition. — strength of the relation: 1</note>
-        <quote>For example, in the Stemmarest ontology we can say that a Witness can belong to a Tradition and also to one or more Stemmata, and that a Tradition can contain multiple Stemmata.</quote>
-      </span>
-      <span xml:id="t38" type="concept_edges" ana="#concept_edges[6]" resp="#tagger">
-        <label>RETRACTED (DIRECTION REVERSED, AND THE TYPE IS LOOSE EITHER WAY) · SHACL —part-of→ SPARQL</label>
-        <term>SHACL</term>
-        <term>SPARQL</term>
-        <note>RETRACTED: DIRECTION REVERSED, AND THE TYPE IS LOOSE EITHER WAY. The edge says SHACL is part of SPARQL. The span says the opposite direction of containment - SHACL has &#x27;the ability to INCLUDE constraint components EXPRESSED IN SPARQL&#x27;. But the reverse is not clean either: SPARQL is the LANGUAGE the components are written in, not a component sitting inside SHACL, and `part-of` between two languages is not what the span asserts. Withdrawn rather than flipped into a second wrong edge. — strength of the relation: 1</note>
-        <quote>Perhaps the most intriguing feature of SHACL is the ability to include “constraint components” expressed in SPARQL or Javascript, providing more or less limitless possibilities for formalising complex models.</quote>
-      </span>
-      <span xml:id="t39" type="concept_edges" ana="#concept_edges[7]" resp="#tagger">
-        <label>Neo4J —operationalised-as→ variant graph</label>
-        <term>Neo4J</term>
-        <term>variant graph</term>
-        <note>strength of the relation: 0.9</note>
-        <quote>Constraint enforcement in Neo4J, perhaps the most popular graph database, is indeed limited strictly to data properties of nodes and relationships (Neo4J, Inc., 2022).</quote>
-      </span>
-      <span xml:id="t40" type="concept_edges" ana="#concept_edges[8]" resp="#tagger">
-        <label>Stemmarest —operationalised-as→ variant graph</label>
-        <term>Stemmarest</term>
-        <term>variant graph</term>
-        <note>strength of the relation: 1</note>
-        <quote>In 2020 there was an attempt to create an ontology (Andrews, 2020) for the variant graph, which is a data model used in tools such as CollateX (Haentjens Dekker et al., 2015), Stemmarest (Andrews, 2019), and TraVIZ (Jänicke et al., 2015) to represent and visualize text collations and certain sorts of annotation.</quote>
-      </span>
-      <span xml:id="t41" type="concept_edges" ana="#concept_edges[9]" resp="#tagger">
-        <label>TEI XML —contrasted-with→ variant graph</label>
-        <term>TEI XML</term>
-        <term>variant graph</term>
-        <note>strength of the relation: 1</note>
-        <quote>one major motivation for undertaking the 2020 project at all was to address the concerns, frequently heard by the author in a very heavily XML-based community, that since graph databases do not tend to have schemas and certainly have no way to enforce these schemas, they lack the foundations for sustainability and interoperability that TEI XML schemas or, indeed, relational database schemas provide</quote>
-      </span>
-      <span xml:id="t42" type="concept_edges" ana="#concept_edges[10]" resp="#tagger">
-        <label>codework —contrasted-with→ sustainability</label>
-        <term>codework</term>
-        <term>sustainability</term>
-        <note>strength of the relation: 0.9</note>
-        <quote>The SHACL model thus provides a fascinating way to bring the intellectual contributions inherent in codework (Zundert, 2016; Antonijevic Ubois, van Zundert, and Andrews, 2018) across the “sustainability divide” that allows them to be properly valued and conserved as scholarship; at the same time, it points to a promising future model of digital work in the humanities, in which domain-specific code can live alongside the data, to be processed by more generic (and thus, hopefully, more long-lived) software platforms.</quote>
-      </span>
-      <span xml:id="t43" type="concept_edges" ana="#concept_edges[11]" resp="#tagger">
-        <label>critical apparatus —part-of→ digital scholarly edition</label>
-        <term>critical apparatus</term>
-        <term>digital scholarly edition</term>
-        <note>strength of the relation: 1</note>
-        <quote>Indeed, although ontologies have in the meantime been proposed for various aspects of digital scholarly edition (NIE-INE, 2019) and specifically for critical apparatus (Giovannetti, 2021) and an opportunity to discuss these together would be very welcome, one major motivation for undertaking the 2020 project at all was to address the concerns, frequently heard by the author in a very heavily XML-based community, that since graph databases do not tend to have schemas and certainly have no way to enforce these schemas, they lack the foundations for sustainability and interoperability that TEI XML schemas or, indeed, relational database schemas provide.</quote>
-      </span>
-      <span xml:id="t44" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="0.9">
-        <label>stemma —part-of→ tradition</label>
-        <term>stemma</term>
-        <term>tradition</term>
-        <note>strength of the relation: 1 — RE-GROUNDS stemmarest2023-shacl[5]: Q-267, the endpoint was attested mid-word.</note>
-        <quote>a witness W appears in a stemma belonging to tradition A</quote>
-      </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
-        <label>An ontology could not express the variant graph model, because the model relies on property attributes that RDF and OWL handle badly.</label>
-        <quote>rely on property attributes, which RDF and OWL do not handle well and which can therefore not be suitably represented in an ontology definition</quote>
-      </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
-        <label>The project&#x27;s conclusion was about the limits of OWL as a validation model, not about the data model.</label>
-        <quote>What the 2020 project showed, in the end, was the inadequacy of ontologies and especially OWL as a validation model for graph-based data.</quote>
-      </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
-        <label>The concern being answered is that graph databases lack the schema enforcement that gives XML and relational data their sustainability and interoperability.</label>
-        <quote>they lack the foundations for sustainability and interoperability that TEI XML schemas or, indeed, relational database schemas provide</quote>
-      </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
-        <label>an ontology can describe the model adequately and still be unable to constrain it, leaving the constraints in code</label>
-        <quote>Thus, while the Stemmarest ontology can describe the data reasonably well, it is not an adequate tool for setting constraints; these must still be described in code.</quote>
-      </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
-        <label>the failure traces to RDF and OWL handling properties on relationships badly</label>
-        <quote>The conclusion was that the ontology was not suitable for expressing the full data model employed in variant graphs, not least because all of them (Stemmarest most heavily) rely on property attributes, which RDF and OWL do not handle well and which can therefore not be suitably represented in an ontology definition.</quote>
-      </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
-        <label>RDF* supplies the missing ability to put properties on relationships, though it is early</label>
-        <quote>While it is still in an early phase of development, RDF* provides the long-awaited ability to set context for LOD statements, and promises to triple stores the same ability to set properties on relationships that graph databases such as Neo4J have always provided; this in turn has opened the way for Stemmarest, and many other projects besides, to take advantage of Neo4J’s powerful graph traversal and analysis algorithms while preserving full interoperability with LOD formats.</quote>
-      </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
-        <label>SHACL constraints plus a transactional store can enforce the cross-object consistency an ontology cannot</label>
-        <quote>This language solves exactly the problem that ontologies do not; specifically, in conjunction with a database that supports transactions and their rollbacks such as Neo4J, a set of SHACL constraints can ensure the consistency of data added to the graph, so that (to take the example above) a witness from one text tradition cannot be included in a stemma belonging to an entirely different tradition.</quote>
-      </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
-        <label>variant graph</label>
-        <term>variant graph</term>
-        <quote>the variant graph, which is a data model used in tools such as CollateX</quote>
-      </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
-        <label>SHACL</label>
-        <term>SHACL</term>
-        <quote>SHACL (Shapes Constraint Language), a language whose purpose is to define a set of constraints against which RDF graphs can be validated</quote>
-      </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
-        <label>RDF*</label>
-        <term>RDF*</term>
-        <quote>RDF*, an extension to RDF that allows an entire triple to be the subject or object in further triple statements</quote>
-      </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
-        <label>variant graph</label>
-        <term>variant graph</term>
-        <quote>the variant graph, which is a data model used in tools such as CollateX (Haentjens Dekker et al., 2015), Stemmarest (Andrews, 2019), and TraVIZ (Jänicke et al., 2015) to represent and visualize text collations and certain sorts of annotation</quote>
-      </span>
+      <span xml:id="t0" from="#a1" to="#a5" type="object_of_study" ana="#object_of_study" resp="#paper">The variant graph data model used to represent text collations, and whether its constraints can be expressed formally.</span>
+      <span xml:id="t1" from="#a51" to="#a52" type="claim_type" ana="#claim_type" resp="#paper">method</span>
+      <span xml:id="t2" from="#a35" to="#a36" type="phenomenon" ana="#phenomenon" resp="#paper">graph schema validation</span>
+      <span xml:id="t3" from="#a41" to="#a42" type="method" ana="#method" resp="#paper">review<term>review</term></span>
+      <span xml:id="t4" from="#a29" to="#a30" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">An ontology describes what kinds of thing exist and how they relate, but cannot forbid a combination that is well-typed and still wrong</span>
+      <span xml:id="t5" from="#a23" to="#a26" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">The hard constraints are cross-object: an entity appearing in one structure must be consistent with its membership elsewhere</span>
+      <span xml:id="t6" from="#a27" to="#a28" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">Some constraints are global properties of the whole graph and cannot be checked object by object at all</span>
+      <span xml:id="t7" from="#a33" to="#a34" type="mechanisms" ana="#mechanisms[3]" resp="#tagger">The original failure was not a modelling mistake but a mismatch of purpose - OWL was built for open-world inference and editors want description and consistency</span>
+      <span xml:id="t8" from="#a51" to="#a52" type="mechanisms" ana="#mechanisms[4]" resp="#tagger">Constraints only bite if the store can undo a rejected write, so validation needs transactions and rollback underneath it</span>
+      <span xml:id="t9" from="#a55" to="#a56" type="mechanisms" ana="#mechanisms[5]" resp="#tagger">Allowing arbitrary code inside constraints erases the code/data boundary that sustainability practice depends on, which the author treats as a feature</span>
+      <span xml:id="t10" from="#a29" to="#a30" type="limitations" ana="#limitations[0]" resp="#tagger">The author&#x27;s own earlier Stemmarest ontology describes the data adequately but cannot express the model&#x27;s constraints, which still have to be written in program code.<note>what this limits: any use of the ontology to enforce the model: WHILE THE STEMMAREST ONTOLOGY CAN DESCRIBE THE DATA REASONABLY WELL, IT IS NOT AN ADEQUATE TOOL FOR SETTING CONSTRAINTS; THESE MUST STILL BE DESCRIBED IN CODE</note></span>
+      <span xml:id="t11" from="#a45" to="#a46" type="limitations" ana="#limitations[1]" resp="#tagger">RDF*, the extension the interoperability half of the proposal depends on, is acknowledged to be immature.<note>what this limits: the interoperability half of the proposal: RDF* IS STILL IN AN EARLY PHASE OF DEVELOPMENT</note></span>
+      <span xml:id="t12" from="#a55" to="#a56" type="limitations" ana="#limitations[2]" resp="#tagger">SHACL&#x27;s SPARQL/Javascript constraint components undermine the separation of code from data that sustainability practice normally treats as the gold standard.<note>what this limits: the sustainability claim for SHACL: constraint components CHALLENGE THE IDEA OF THE SEPARATION OF PROGRAM CODE AND DATA THAT IS THE USUAL GOLD STANDARD</note></span>
+      <span xml:id="t13" from="#a6" to="#a9" type="limitations" ana="#limitations[3]" resp="#tagger">The 2020 ontology attempt failed because RDF and OWL handle property attributes badly, and the model depends on them<note>what this limits: any RDF/OWL serialisation of a property-bearing graph: THE ONTOLOGY WAS NOT SUITABLE FOR EXPRESSING THE FULL DATA MODEL ... NOT LEAST BECAUSE ALL OF THEM ... RELY ON PROP[erty attributes]</note></span>
+      <span xml:id="t14" from="#a37" to="#a38" type="limitations" ana="#limitations[4]" resp="#tagger">The graph database&#x27;s own constraint mechanism reaches only data properties, not structure<note>what this limits: the graph-database alternative: CONSTRAINT ENFORCEMENT IN NEO4J ... IS INDEED LIMITED STRICTLY TO DATA PROPERTIES OF NODES AND RELATIONSHIPS, not structure</note></span>
+      <span xml:id="t15" from="#a45" to="#a46" type="limitations" ana="#limitations[5]" resp="#tagger">The extension that would fix the property problem is not yet mature<note>what this limits: the same scope as item 1 - the fix for the property problem is immature</note></span>
+      <span xml:id="t16" from="#a39" to="#a40" type="limitations" ana="#limitations[6]" resp="#tagger">Linked-data stores are in no better position, having relied on ontologies alone<note>what this limits: the linked-data alternative: LOD STORES ... HAVE SO FAR DEPENDED MORE OR LESS ENTIRELY ON ONTOLOGY SPECIFICATIONS, WITH LIMITATIONS AS DESCRIBED ABOVE</note></span>
+      <span xml:id="t17" from="#a17" to="#a18" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">schema - as DESCRIPTION: says what classes exist and how they may relate, which an ontology does well</span>
+      <span xml:id="t18" from="#a21" to="#a22" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">schema - as CONSTRAINT: forbids configurations that are well-typed and still wrong, which is what validation actually needs</span>
+      <span xml:id="t19" from="#a37" to="#a38" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">the graph problem - LOCAL: a property on a single node or relationship, which Neo4J can already enforce</span>
+      <span xml:id="t20" from="#a27" to="#a28" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">the graph problem - GLOBAL: a property of the whole graph, such as the edited text not looping back on itself, which nothing local can check</span>
+      <span xml:id="t21" from="#a31" to="#a32" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">OWL&#x27;s purpose - as intended: open-world inference, deriving new facts from stated ones</span>
+      <span xml:id="t22" from="#a33" to="#a34" type="senses" ana="#senses[5]" resp="#tagger" cert="1.0">OWL&#x27;s purpose - as wanted by editors: formalisation, description and consistency, which is a different job it was not built for</span>
+      <span xml:id="t23" from="#a47" to="#a50" type="alternatives" ana="#alternatives.claim_type" resp="#tagger">claim_type: method<note>a second reading reaching the same value. Recorded: method — a second reading reaching the same value from a different sentence. Not applied - a person decides.</note></span>
+      <span xml:id="t24" from="#a15" to="#a16" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">builds-on → Andrews (2020), the 2020 attempt to build an ontology for the variant graph / Stemmarest</span>
+      <span xml:id="t25" from="#a33" to="#a34" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">extends → Vogeler (2021) on graph-based models for critical edition and the unexploited affordance of OWL</span>
+      <span xml:id="t26" from="#a51" to="#a52" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">builds-on → SHACL (Shapes Constraint Language), Knublauch and Kontokostas (2017)</span>
+      <span xml:id="t27" from="#a45" to="#a46" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">builds-on → RDF* (Arndt et al., 2021)</span>
+      <span xml:id="t28" from="#a15" to="#a16" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">critiques → the author&#x27;s own 2020 attempt to build a variant-graph ontology</span>
+      <span xml:id="t29" from="#a35" to="#a36" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">critiques → the argument that graph databases lack the sustainability foundations of XML or relational schemas</span>
+      <span xml:id="t30" from="#a31" to="#a32" type="claim_relations" ana="#claim_relations[6]" resp="#tagger">extends → Vogeler on graph-based models for critical edition</span>
+      <span xml:id="t31" from="#a57" to="#a58" type="claim_relations" ana="#claim_relations[7]" resp="#tagger">supports → the codework literature arguing that code embodies scholarship</span>
+      <span xml:id="t32" from="#a51" to="#a52" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">SHACL —contrasted-with→ ontology<note>strength of the relation: 1</note><term>SHACL</term><term>ontology</term></span>
+      <span xml:id="t33" from="#a15" to="#a16" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">OWL —operationalised-as→ ontology<note>strength of the relation: 1</note><term>OWL</term><term>ontology</term></span>
+      <span xml:id="t34" from="#a45" to="#a46" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">RDF* —operationalised-as→ property attributes<note>strength of the relation: 1</note><term>RDF*</term><term>property attributes</term></span>
+      <span xml:id="t35" from="#a6" to="#a9" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">property attributes —distinct-from→ OWL<note>strength of the relation: 1</note><term>property attributes</term><term>OWL</term></span>
+      <span xml:id="t36" from="#a19" to="#a20" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">witness —part-of→ tradition<note>strength of the relation: 1</note><term>witness</term><term>tradition</term></span>
+      <span xml:id="t37" from="#a19" to="#a20" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">RETRACTED (RE-GROUNDED (Q-267)) · stemma —part-of→ tradition<note>RETRACTED: RE-GROUNDED (Q-267). The old span attested `stemma` only inside `Stemmarest`, the TOOL&#x27;S OWN NAME - a run of letters, not the word. This clause writes both terms and states the containment in the paper&#x27;s own verb: a stemma BELONGS TO a tradition. — strength of the relation: 1</note><term>stemma</term><term>tradition</term></span>
+      <span xml:id="t38" from="#a53" to="#a54" type="concept_edges" ana="#concept_edges[6]" resp="#tagger">RETRACTED (DIRECTION REVERSED, AND THE TYPE IS LOOSE EITHER WAY) · SHACL —part-of→ SPARQL<note>RETRACTED: DIRECTION REVERSED, AND THE TYPE IS LOOSE EITHER WAY. The edge says SHACL is part of SPARQL. The span says the opposite direction of containment - SHACL has &#x27;the ability to INCLUDE constraint components EXPRESSED IN SPARQL&#x27;. But the reverse is not clean either: SPARQL is the LANGUAGE the components are written in, not a component sitting inside SHACL, and `part-of` between two languages is not what the span asserts. Withdrawn rather than flipped into a second wrong edge. — strength of the relation: 1</note><term>SHACL</term><term>SPARQL</term></span>
+      <span xml:id="t39" from="#a37" to="#a38" type="concept_edges" ana="#concept_edges[7]" resp="#tagger">Neo4J —operationalised-as→ variant graph<note>strength of the relation: 0.9</note><term>Neo4J</term><term>variant graph</term></span>
+      <span xml:id="t40" from="#a1" to="#a5" type="concept_edges" ana="#concept_edges[8]" resp="#tagger">Stemmarest —operationalised-as→ variant graph<note>strength of the relation: 1</note><term>Stemmarest</term><term>variant graph</term></span>
+      <span xml:id="t41" from="#a11" to="#a13" type="concept_edges" ana="#concept_edges[9]" resp="#tagger">TEI XML —contrasted-with→ variant graph<note>strength of the relation: 1</note><term>TEI XML</term><term>variant graph</term></span>
+      <span xml:id="t42" from="#a57" to="#a58" type="concept_edges" ana="#concept_edges[10]" resp="#tagger">codework —contrasted-with→ sustainability<note>strength of the relation: 0.9</note><term>codework</term><term>sustainability</term></span>
+      <span xml:id="t43" from="#a10" to="#a14" type="concept_edges" ana="#concept_edges[11]" resp="#tagger">critical apparatus —part-of→ digital scholarly edition<note>strength of the relation: 1</note><term>critical apparatus</term><term>digital scholarly edition</term></span>
+      <span xml:id="t44" from="#a24" to="#a25" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="0.9">stemma —part-of→ tradition<note>strength of the relation: 1 — RE-GROUNDS stemmarest2023-shacl[5]: Q-267, the endpoint was attested mid-word.</note><term>stemma</term><term>tradition</term></span>
+      <span xml:id="t45" from="#a7" to="#a8" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">An ontology could not express the variant graph model, because the model relies on property attributes that RDF and OWL handle badly.</span>
+      <span xml:id="t46" from="#a15" to="#a16" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">The project&#x27;s conclusion was about the limits of OWL as a validation model, not about the data model.</span>
+      <span xml:id="t47" from="#a12" to="#a13" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">The concern being answered is that graph databases lack the schema enforcement that gives XML and relational data their sustainability and interoperability.</span>
+      <span xml:id="t48" from="#a29" to="#a30" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">an ontology can describe the model adequately and still be unable to constrain it, leaving the constraints in code</span>
+      <span xml:id="t49" from="#a6" to="#a9" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">the failure traces to RDF and OWL handling properties on relationships badly</span>
+      <span xml:id="t50" from="#a45" to="#a46" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">RDF* supplies the missing ability to put properties on relationships, though it is early</span>
+      <span xml:id="t51" from="#a51" to="#a52" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">SHACL constraints plus a transactional store can enforce the cross-object consistency an ontology cannot</span>
+      <span xml:id="t52" from="#a2" to="#a3" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">variant graph<term>variant graph</term></span>
+      <span xml:id="t53" from="#a48" to="#a49" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">SHACL<term>SHACL</term></span>
+      <span xml:id="t54" from="#a43" to="#a44" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">RDF*<term>RDF*</term></span>
+      <span xml:id="t55" from="#a2" to="#a4" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">variant graph<term>variant graph</term></span>
     </spanGrp>
   </standOff>
   <text>
     <body>
-      <p><note type="rights">The full text of this article is not redistributable, so it is
-      not included here. Every tag above carries the exact sentence it was made from, quoted
-      under fair quotation. The article itself is at https://doi.org/10.5281/zenodo.8107471.</note></p>
+        <p><anchor xml:id="a0"/> <anchor xml:id="a1"/>In 2020 there was an attempt to create an ontology   (Andrews, 2020) for <anchor xml:id="a2"/>the variant graph, which is a data model used in tools such as CollateX<anchor xml:id="a3"/> (Haentjens Dekker et al., 2015), Stemmarest   (Andrews, 2019), and TraVIZ (Jänicke et al., 2015) to represent and visualize text collations and certain sorts of annotation<anchor xml:id="a4"/>.<anchor xml:id="a5"/> <anchor xml:id="a6"/>The conclusion was that the ontology was not suitable for expressing the full data model employed in variant graphs, not least because all of them (Stemmarest most heavily) <anchor xml:id="a7"/>rely on property attributes, which RDF and OWL do not handle well and which can therefore not be suitably represented in an ontology definition<anchor xml:id="a8"/>.<anchor xml:id="a9"/></p>
+        <p><anchor xml:id="a10"/>Indeed, although ontologies have in the meantime been proposed for various aspects of digital scholarly edition   (NIE-INE, 2019) and specifically for critical apparatus   (Giovannetti, 2021) and an opportunity to discuss these together would be very welcome, <anchor xml:id="a11"/>one major motivation for undertaking the 2020 project at all was to address the concerns, frequently heard by the author in a very heavily XML-based community, that since graph databases do not tend to have schemas and certainly have no way to enforce these schemas, <anchor xml:id="a12"/>they lack the foundations for sustainability and interoperability that TEI XML schemas or, indeed, relational database schemas provide<anchor xml:id="a13"/>.<anchor xml:id="a14"/> Many of those who expressed concerns went on to point to ontologies as examples of schemas that can be used to validate RDF data.</p>
+        <p><anchor xml:id="a15"/>What the 2020 project showed, in the end, was the inadequacy of ontologies and especially OWL as a validation model for graph-based data.<anchor xml:id="a16"/> <anchor xml:id="a17"/>While many of the classes used by Stemmarest and their relationships to each other can be described adequately in OWL, the model relies upon many additional constraints that, while seemingly simple, go beyond OWL’s capabilities.<anchor xml:id="a18"/> <anchor xml:id="a19"/>For example, in the Stemmarest ontology we can say that a Witness can belong to a Tradition and also to one or more Stemmata, and that a Tradition can contain multiple Stemmata.<anchor xml:id="a20"/> <anchor xml:id="a21"/>However, one of the important aspects of validation is to prevent inattentive mistakes in the data model.<anchor xml:id="a22"/> <anchor xml:id="a23"/>For example, if <anchor xml:id="a24"/>a witness W appears in a stemma belonging to tradition A<anchor xml:id="a25"/>, the model software should ensure that W also belongs to tradition A as a witness and not, for example, an unrelated tradition B; moreover, W should not appear in any stemmata of tradition B.<anchor xml:id="a26"/> <anchor xml:id="a27"/>Even more intractable problems arise with more complex specifications: for example, the need to ensure that the variant graph is self-consistent, so that a user cannot create a situation in the model where a portion of the edited text loops back onto itself or is omitted altogether.<anchor xml:id="a28"/> <anchor xml:id="a29"/>Thus, while the Stemmarest ontology can describe the data reasonably well, it is not an adequate tool for setting constraints; these must still be described in code.<anchor xml:id="a30"/></p>
+        <p><anchor xml:id="a31"/>Vogeler   (2021, p. 80) notes in his discussion of graph-based models for critical edition that “the formal affordance of OWL is not really exploited in Digital Scholarly Editions”.<anchor xml:id="a32"/> <anchor xml:id="a33"/>We would argue here that most editors are less interested in the sort of open-world inference for which OWL was intended (though Vogeler makes a case for why it might be interesting), as opposed to the formalisation, description, and consistency of their data.<anchor xml:id="a34"/> <anchor xml:id="a35"/>In this sense, the critics of graph-based models do have a point; how do we validate our graphs?<anchor xml:id="a36"/> <anchor xml:id="a37"/>Constraint enforcement in Neo4J, perhaps the most popular graph database, is indeed limited strictly to data properties of nodes and relationships   (Neo4J, Inc., 2022).<anchor xml:id="a38"/> <anchor xml:id="a39"/>The situation is hardly better for LOD stores, which have so far depended more or less entirely on ontology specifications, with limitations as described above, to describe their data.<anchor xml:id="a40"/></p>
+        <p><anchor xml:id="a41"/>Recently, however, there have been two intriguing developments in the Semantic Web world that are especially relevant to digital humanities projects, not least Stemmarest.<anchor xml:id="a42"/> The first of these is <anchor xml:id="a43"/>RDF*, an extension to RDF that allows an entire triple to be the subject or object in further triple statements<anchor xml:id="a44"/>   (Arndt et al., 2021). <anchor xml:id="a45"/>While it is still in an early phase of development, RDF* provides the long-awaited ability to set context for LOD statements, and promises to triple stores the same ability to set properties on relationships that graph databases such as Neo4J have always provided; this in turn has opened the way for Stemmarest, and many other projects besides, to take advantage of Neo4J’s powerful graph traversal and analysis algorithms while preserving full interoperability with LOD formats.<anchor xml:id="a46"/></p>
+        <p><anchor xml:id="a47"/>The second major development is <anchor xml:id="a48"/>SHACL (Shapes Constraint Language), a language whose purpose is to define a set of constraints against which RDF graphs can be validated<anchor xml:id="a49"/>   (Knublauch and Kontokostas, 2017).<anchor xml:id="a50"/> <anchor xml:id="a51"/>This language solves exactly the problem that ontologies do not; specifically, in conjunction with a database that supports transactions and their rollbacks such as Neo4J, a set of SHACL constraints can ensure the consistency of data added to the graph, so that (to take the example above) a witness from one text tradition cannot be included in a stemma belonging to an entirely different tradition.<anchor xml:id="a52"/></p>
+        <p><anchor xml:id="a53"/>Perhaps the most intriguing feature of SHACL is the ability to include “constraint components” expressed in SPARQL or Javascript, providing more or less limitless possibilities for formalising complex models.<anchor xml:id="a54"/> <anchor xml:id="a55"/>In a sense, this affordance challenges the idea of the separation of program code and data that is the usual gold standard for sustainability efforts, insofar as constraints can be expressed as arbitrarily complex programming logic, embedded in RDF or Turtle files and saved as a schema alongside the data itself.<anchor xml:id="a56"/></p>
+        <p><anchor xml:id="a57"/>The SHACL model thus provides a fascinating way to bring the intellectual contributions inherent in codework   (Zundert, 2016; Antonijevic Ubois, van Zundert, and Andrews, 2018) across the “sustainability divide” that allows them to be properly valued and conserved as scholarship; at the same time, it points to a promising future model of digital work in the humanities, in which domain-specific code can live alongside the data, to be processed by more generic (and thus, hopefully, more long-lived) software platforms.<anchor xml:id="a58"/></p>
     </body>
   </text>
 </TEI>
