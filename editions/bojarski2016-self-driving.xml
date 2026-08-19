@@ -98,42 +98,52 @@
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>more work is needed to improve robustness and to verify/visualize the network&#x27;s internal processing</label>
+        <note>what this limits: the deployment readiness of the system: MORE WORK IS NEEDED TO IMPROVE THE ROBUSTNESS OF THE NETWORK</note>
         <quote>More work is needed to improve the robustness of the network</quote>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>The viewpoint transformation used for augmentation is an approximation because the true 3D scene geometry is unknown.</label>
+        <note>what this limits: every augmented training example: PRECISE VIEWPOINT TRANSFORMATION REQUIRES 3D SCENE KNOWLEDGE WHICH WE DON&#x27;T HAVE</note>
         <quote>Precise viewpoint transformation requires 3D scene knowledge which we don’t have.</quote>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>That approximation distorts objects standing above the ground plane.</label>
+        <note>what this limits: the augmentation for anything but flat road: IT INTRODUCES DISTORTIONS FOR OBJECTS THAT STICK ABOVE THE GROUND, SUCH AS CARS, POLES, TREES, AND BUILDINGS - the distorted objects are the ones that matter</note>
         <quote>This works fine for flat terrain but it introduces distortions for objects that stick above the ground, such as cars, poles, trees, and buildings.</quote>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>Larger augmentation magnitudes introduce undesirable artifacts into the training data.</label>
+        <note>what this limits: the benefit of larger augmentation: ARTIFICIALLY AUGMENTING THE DATA DOES ADD UNDESIRABLE ARTIFACTS AS THE MAGNITUDE INCREASES</note>
         <quote>Artificially augmenting the data does add undesirable artifacts as the magnitude increases (see Section 2).</quote>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger">
         <label>Robustness of the network, methods to verify it, and internal-state visualisation all remain open.</label>
+        <note>what this limits: any safety or verification claim: MORE WORK IS NEEDED ... TO FIND METHODS TO VERIFY THE ROBUSTNESS, AND TO IMPROVE VISUALIZATION OF THE NETWORK-INTERNAL PROCESSING STEPS</note>
         <quote>More work is needed to improve the robustness of the network, to find methods to verify the robustness, and to improve visualization of the network-internal processing steps.</quote>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger">
         <label>The results are explicitly preliminary.</label>
+        <note>what this limits: the standing of every result reported: THIS PAPER DESCRIBES PRELIMINARY RESULTS OF THIS NEW EFFORT</note>
         <quote>This paper describes preliminary results of this new effort.</quote>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>The reported autonomy percentage is built on an assumed six-second cost per intervention, which the authors state as an assumption rather than measure.</label>
+        <note>what this limits: any autonomy percentage from this paper: it multiplies the intervention count by an assumed six seconds - the time the authors take a human to retake control, re-centre and restart self-steering - so the figure moves with that assumption</note>
         <quote>We assume that in real life an actual intervention would require a total of six seconds: this is the time required for a human to retake control of the vehicle, re-center it, and then restart the self-steering mode</quote>
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>An intervention is a threshold crossing in simulation, not a human decision: the car counts as having failed when it passes one metre from the centre line.</label>
+        <note>what this limits: the intervention count behind the autonomy figure: an intervention is triggered automatically when the simulated vehicle departs the centre line by more than one metre, so the number depends on that threshold</note>
         <quote>These interventions occur when the simulated vehicle departs from the center line by more than one meter</quote>
       </span>
       <span xml:id="t19" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
         <label>After every simulated intervention the car is placed back on the recorded ground truth, so the measure cannot observe how a failure would have developed.</label>
+        <note>what this limits: simulated autonomy as evidence of safety: after each intervention the vehicle is reset to the ground truth of the original video, so errors never compound and the metric counts how often the car left the lane rather than how badly</note>
         <quote>a virtual human intervention is triggered, and the virtual vehicle position and orientation is reset to match the ground truth of the corresponding frame of the original test video</quote>
       </span>
       <span xml:id="t20" type="limitations" ana="#limitations[9]" resp="#tagger" cert="1.0">
         <label>The training set is deliberately not the driving distribution: one driver activity is kept, the rest discarded, and curves are then over-represented on purpose.</label>
+        <note>what this limits: the trained network as a model of driving: only frames where the driver was staying in a lane were kept, the rest discarded, and road curves were then deliberately over-represented to remove a bias towards driving straight</note>
         <quote>To train a CNN to do lane following we only select data where the driver was staying in a lane and discard the rest. We then sample that video at 10 FPS. A higher sampling rate would result in including images that are highly similar and thus not provide much useful information. 4 Center cameraCNNNetwork computed steering commandDrive by wire interface Figure 4: CNN architecture. The network has about 27 million connections and 250 thousand parameters. To remove a bias towards driving straight the training data includes a higher proportion of frames that represent road curves</quote>
       </span>
       <span xml:id="t21" type="controls" ana="#controls[0]" resp="#tagger" cert="0.8">

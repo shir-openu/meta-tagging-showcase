@@ -63,26 +63,32 @@
       </span>
       <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Masking creates a mismatch between pre-training and fine-tuning because [MASK] never appears downstream.</label>
+        <note>what this limits: any account of what the pre-trained model has learned to expect: WE ARE CREATING A MISMATCH BETWEEN PRE-TRAINING AND FINE-TUNING, SINCE THE [MASK] TOKEN DOES NOT APPEAR DURING FINE-TUNING</note>
         <quote>Although this allows us to obtain a bidirectional pre-trained model, a downside is that we are creating a mismatch between pre-training and fine-tuning, since the [MASK] token does not appear during fine-tuning.</quote>
       </span>
       <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>The [CLS] vector is not usable as a sentence representation without fine-tuning.</label>
+        <note>what this limits: any use of the [CLS] vector as a sentence embedding without fine-tuning: THE VECTOR C IS NOT A MEANINGFUL SENTENCE REPRESENTATION WITHOUT FINE-TUNING, SINCE IT WAS TRAINED WITH NSP</note>
         <quote>The vector C is not a meaningful sentence representation without fine-tuning, since it was trained with NSP.</quote>
       </span>
       <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Fine-tuning the large model was unstable on small datasets and required multiple random restarts.</label>
+        <note>what this limits: the reported small-dataset results: FOR BERT_LARGE WE FOUND THAT FINETUNING WAS SOMETIMES UNSTABLE ON SMALL DATASETS, SO WE RAN SEVERAL RANDOM RESTARTS AND SELECTED THE BEST MODEL ON THE DEV SET</note>
         <quote>Additionally, for BERTLARGE we found that finetuning was sometimes unstable on small datasets, so we ran several random restarts and selected the best model on the Dev set.</quote>
       </span>
       <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>The reported average is not the official score of the benchmark it is reported on.</label>
+        <note>what this limits: the GLUE averages quoted from this table: the authors state the Average column is slightly different from the official GLUE score because the WNLI set is excluded, so it is not comparable with an official GLUE average</note>
         <quote>column is slightly different than the official GLUE score, since we exclude the problematic WNLI set</quote>
       </span>
       <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The pre-training objective is an existing task under a new name, which the authors state.</label>
+        <note>what this limits: any claim of novelty for the masked LM objective: the authors note the same procedure is often referred to as a Cloze task in the literature, citing Taylor 1953</note>
         <quote>We refer to this procedure as a “masked LM” (MLM), although it is often referred to as a Cloze task in the literature</quote>
       </span>
       <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The paper&#x27;s central adjective is one the systems it is compared against also use.</label>
+        <note>what this limits: any comparison of bidirectional models: the authors distinguish their deep bidirectional pre-training from a shallow concatenation of independently trained left-to-right and right-to-left language models, so the word alone does not separate the architectures</note>
         <quote>BERT uses masked language models to enable pretrained deep bidirectional representations. This is also in contrast to Peters et al. (2018a), which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs</quote>
       </span>
       <span xml:id="t10" type="concepts" ana="#concepts[4]" resp="#paper">

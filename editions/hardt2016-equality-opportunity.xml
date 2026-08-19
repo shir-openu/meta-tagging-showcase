@@ -127,34 +127,42 @@
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>the criterion is oblivious - it uses only joint statistics, not the interpretation of individual features</label>
+        <note>what this limits: everything the criterion can detect: IT DEPENDS ONLY ON THE JOINT STATISTICS OF THE PREDICTOR, THE TARGET AND THE PROTECTED ATTRIBUTE, BUT NOT ON INTERPRETATION OF INDIVIDUAL FEATURES</note>
         <quote>it depends only on the joint statistics of the predictor, the target and the protected attribute, but not on interpretation of individual features</quote>
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Satisfying the proposed oblivious criterion is not a proof of fairness (nor is violating it a proof of unfairness).</label>
+        <note>what this limits: any use of the criterion as a fairness certificate: SATISFYING OUR NOTION (OR ANY OTHER OBLIVIOUS MEASURE) SHOULD NOT BE CONSIDERED A CONCLUSIVE PROOF OF FAIRNESS</note>
         <quote>Due to the limitations we described, satisfying our notion (or any other oblivious measure) should not be considered a conclusive proof of fairness.</quote>
       </span>
       <span xml:id="t19" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The criterion requires reliable observed outcome labels, which are not always available and may themselves be biased.</label>
+        <note>what this limits: every application of the method: HAVING ACCESS TO RELIABLE LABELED DATA IS NOT ALWAYS POSSIBLE, and the labels may themselves carry the bias being measured</note>
         <quote>That said, having access to reliable “labeled data” is not always possible.</quote>
       </span>
       <span xml:id="t20" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>The near-optimality guarantee is relative to other constrained predictors only; the derived predictor need not be good in absolute terms.</label>
+        <note>what this limits: the optimality claim: THIS DOES NOT MEAN THAT THE PREDICTOR IS NECESSARILY GOOD IN AN ABSOLUTE SENSE - near-optimality is relative to other constrained predictors</note>
         <quote>However, this does not mean that the predictor is necessarily good in an absolute sense.</quote>
       </span>
       <span xml:id="t21" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>No test of this kind can tell two situations apart, and the authors prove it about their own class of test.</label>
+        <note>what this limits: a verdict of non-discrimination obtained from this criterion: the authors show no oblivious test can resolve which of two dependency structures applies, so two scenarios with different intuitive fairness are indistinguishable to it</note>
         <quote>we pause to consider to what extent “black box” oblivious tests like ours can identify discriminatory predictions. To shed light on this issue, we introduce two possible scenarios for the dependency structure of the score, the target and the protected attribute. We will argue that while these two scenarios can have fundamentally different interpretations from the point of view of fairness, they can be indistinguishable from their joint distribution. In particular, no oblivious test can resolve which of the two scenarios applies</quote>
       </span>
       <span xml:id="t22" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>Access to the features does not rescue the test, without assumptions the authors decline to make.</label>
+        <note>what this limits: the suggestion that inspecting the model&#x27;s features would settle what this test cannot: the authors state that without attaching meaning to the features or making causal assumptions about them, no further insight is gained</note>
         <quote>Without attaching meaning to the features or making causal assumptions about them, we do not gain any further insight on the two scores</quote>
       </span>
       <span xml:id="t23" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Meeting the criterion can require deciding individual cases partly at random.</label>
+        <note>what this limits: the deployment of this criterion on individual decisions: achieving it cannot be done with a single threshold per group and requires randomization</note>
         <quote>This cannot be achieved with a single threshold for each group, but requires randomization</quote>
       </span>
       <span xml:id="t24" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>Who pays for the fairness is a property of the design, and the authors name the payer.</label>
+        <note>what this limits: the incidence of the utility cost reported here: the authors state the cost is borne by the company using the classifier, which can invest in better classification, rather than by the classified group, which cannot</note>
         <quote>The cost is thus born by the company using the classifier, which can decide to invest in better classification, rather than the classified group, which cannot</quote>
       </span>
       <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper">

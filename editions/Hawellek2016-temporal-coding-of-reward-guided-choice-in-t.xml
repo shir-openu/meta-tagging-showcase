@@ -37,7 +37,7 @@
     </profileDesc>
     <revisionDesc>
       <change when="2026-08-19"
-              who="build_paper_edition.py">186 spans placed by verified search</change>
+              who="build_paper_edition.py">189 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -104,34 +104,42 @@
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Mutual information estimates could have been inflated at phase bins containing few spikes; the authors re-ran the analysis with stratified spike counts.</label>
+        <note>what this limits: every mutual-information value: MI ESTIMATION MAY HAVE BEEN BIASED BY THE DIFFERING SPIKE COUNTS AT DIFFERENT PHASES OF ACTIVITY</note>
         <quote>MI estimation may have been biased by the differing spike counts at different phases of activity.</quote>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>How the beta-band dissociation between spiking and information is generated, and how downstream populations could read it out, is left open.</label>
+        <note>what this limits: the mechanism behind the beta dissociation: it RAISES QUESTIONS ABOUT HOW THE ACTIVITY CAN BE GENERATED AND HOW OTHER NEURONAL POPULATIONS CAN DECODE SUCH ACTIVITY EFFICIENTLY</note>
         <quote>The dissociation that we observe between spike counts and choice information for beta activity raises questions about how the activity can be generated and how other neuronal populations can decode such activity efficiently.</quote>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
         <label>how such a code is generated and how any downstream population could read it efficiently is left open</label>
+        <note>what this limits: the same scope as item 1 - generation and readout both open</note>
         <quote>The dissociation that we observe between spike counts and choice information for beta activity raises questions about how the activity can be generated and how other neuronal populations can decode such activity efficiently.</quote>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>the proposed source of the beta dissociation - the beta to gamma phase difference - was tested and did not correlate with it</label>
+        <note>what this limits: the paper&#x27;s own candidate explanation, which it tested and rejected: WE OBSERVED NO CORRELATION BETWEEN THE BETA-GAMMA PHASE DIFFERENCE AND THE MOMENT OF THE BETA CHOICE-MI</note>
         <quote>The beta–gamma phase difference seemed to match roughly the dissociation of the moment of the choice-MI from spiking for beta activity. Beta–gamma phase–phase coupling could contribute to the temporal localization of the choice-MI with respect to the beta activity. However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level</quote>
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>the primary modulation statistic assumes a single concentration across phase bins and cannot see multimodal modulation, so a second statistic had to be run</label>
+        <note>what this limits: the modulation-strength statistic: THE MEAN RESULTANT LENGTH R ASSUMES A UNIMODAL CONCENTRATION ... IT IS INSENSITIVE TO MORE COMPLEX FORMS OF MODULATION SUCH AS MULTIMODAL MODULATIONS - so the analysis was REPEATED using entropy-based permutation statistics</note>
         <quote>Because the mean resultant length R assumes a unimodal concentration of quantities across phase bins, it is insensitive to more complex forms of modulation such as multimodal modulations. Thus we repeated the analysis of modulation strength across frequencies using permutation statistics based on the entropy (nonuniformity) H of the phase-dependent histogram</quote>
       </span>
       <span xml:id="t19" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>MI is positively biased for smaller samples and spuriously high for phase bins with few spikes, and spike counts differ across phases, so MI had to be reestimated with the counts equal across phase bins</label>
+        <note>what this limits: the same scope as item 0, with the correction reported: WE REESTIMATED MI WHILE STRATIFYING SPIKE COUNTS TO BE EQUAL ACROSS PHASE BINS ... THE PATTERN ... PERSISTED</note>
         <quote>MI estimation may have been biased by the differing spike counts at different phases of activity. MI is positively biased for smaller samples and is spuriously high for phase bins with few spikes. We reestimated MI while stratifying spike counts to be equal across phase bins ( SI Materials and Methods ). The pattern of modulated choice-MI by beta and gamma activity persisted</quote>
       </span>
       <span xml:id="t20" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>the unit of analysis is mixed: 149 units of which only 45 are single units, the rest multiunit</label>
+        <note>what this limits: what a &#x27;unit&#x27; means in every count here: 149 UNITS [97 ... (31 SINGLE UNITS AND 66 MULTIUNITS) FOR MONKEY C AND 52 (14 SINGLE UNITS AND 38 MULTIUNITS) FOR MONKEY R]</note>
         <quote>We analyzed the activity of 149 units [97 units (31 single units and 66 multiunits) for monkey C and 52 units (14 single units and 38 multiunits) for monkey R] and 186 simultaneously recorded local field potentials (LFP) (116 LFPs in monkey C and 70 LFPs in monkey R, one or two LFP electrodes per unit) from nearby (within ∼2 mm) electrodes.</quote>
       </span>
       <span xml:id="t21" type="limitations" ana="#limitations[7]" resp="#tagger" cert="0.9">
         <label>gamma coherence depended on how far apart the two electrodes were, which is read as gamma being more local rather than as a recording artefact</label>
+        <note>what this limits: the spatial reach of the gamma result: THE DISTANCE BETWEEN THE ELECTRODE TIPS OF THE RECORDING PAIRS INFLUENCED THE SFC, comparing pairs at a median separation of 1.07 mm against the farther half</note>
         <quote>However, the distance between the electrode tips of the recording pairs influenced the SFC. Electrodes usually were separated from each other by about 2 mm during the recordings. However, when comparing the SFC for the half of the recordings with electrode tips near each other (median separation of 1.07 mm) and the half of the recordings with far electrode tips farther apart (median separation of 2.86 mm), we found that higher-frequency SFC (&gt;20 Hz), particularly including the gamma activity, was stronger for electrode tips that were closer to each other ( P FDR &lt; 0.05) ( Fig. S2 E and F ). Thus, gamma activity appeared to be more local than either theta or beta activity.</quote>
       </span>
       <span xml:id="t22" type="transfers" ana="#transfers[0]" resp="#tagger" cert="1.0">
@@ -190,757 +198,772 @@
         <label>THEY TEST THEIR OWN PROPOSED MECHANISM AND IT FAILS: the beta to gamma phase difference looked like it could produce the dissociation, and the correlation is absent</label>
         <quote>The beta–gamma phase difference seemed to match roughly the dissociation of the moment of the choice-MI from spiking for beta activity. Beta–gamma phase–phase coupling could contribute to the temporal localization of the choice-MI with respect to the beta activity. However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level</quote>
       </span>
-      <span xml:id="t36" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t36" type="alternatives" ana="#alternatives.claim_type" resp="#tagger">
+        <label>claim_type: existence</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: mechanism — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note>
+        <quote>Choice information contained in neural firing varied with the phase of beta and gamma activity. For gamma activity, maximum choice information occurred at the same phase as the maximum spike count. However, for beta activity, choice information and spike count were greatest at different phases.</quote>
+      </span>
+      <span xml:id="t37" type="alternatives" ana="#alternatives.method" resp="#tagger">
+        <label>method: spike-field coherence and phase-binned mutual information between firing and choice, with the spike-count prediction regressed out to give an orthogonal information measure, and cross-frequency coupling between the three bands</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: electrophysiology — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note>
+        <quote>We defined eight different LFP phase bins and calculated how much choice-MI varies across the different bins ( Fig. 3 A ). We analyzed the choice epoch 200–1,000 ms after choice target onset and included all units that exhibited significant SFC and significant choice-MI during the choice epoch [79 units (53%); 54 units for monkey C and 25 units for monkey R). The period of 200–1,000 ms covered the choice epoch, avoiding visual onset transients present in the first 200 ms of PPC activity.</quote>
+      </span>
+      <span xml:id="t38" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger">
+        <label>phenomenon: phase-of-firing coding: the same firing rate carries different amounts of information about a decision depending on the phase of the surrounding rhythm</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: phase-dependent coding of choice in posterior parietal cortex — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note>
+        <quote>We find that in a central cortical hub—the posterior parietal cortex—firing rate information about upcoming decisions is pulsed according to intrinsic temporal structure in the beta- and gamma-frequency ranges. The brain may use temporal structure at several time scales to support distributed computations that underlie reward-guided decisions.</quote>
+      </span>
+      <span xml:id="t39" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → the body of evidence linking firing-rate information to ongoing population dynamics in cortex (refs 35, 40-48)</label>
         <quote>Our findings demonstrate a potential role for temporal coding in the PPC during the formation of decisions and add to a growing body of evidence linking firing rate information to ongoing population dynamics in cortex ( 35 , 40 – 48 ).</quote>
       </span>
-      <span xml:id="t37" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → recent accounts positing that beta and gamma activity reflect different network-level processes (refs 31, 49-52)</label>
         <quote>These observations generally agree with recent findings positing that beta and gamma activity reflect different network-level processes.</quote>
       </span>
-      <span xml:id="t38" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t41" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → previous reports on the impact of temporal structure on firing-rate encoding in primate cortex (refs 47, 48)</label>
         <quote>Our observations agree well with previous reports on the impact of temporal structure on firing rate encoding in the primate cortex.</quote>
       </span>
-      <span xml:id="t39" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t42" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">
         <label>extends → work showing that coherently active parietal ensembles predict reaction times and movement choices better than incoherent neurons</label>
         <quote>Previous studies have shown that coherently active ensembles of cells in the PPC predict reaction times ( 9 ) and movement choices ( 13 , 21 ) better than neurons without coherent dynamics. However, whether and how the coding of decisions depends on the temporally structured firing of PPC neurons remains unknown.</quote>
       </span>
-      <span xml:id="t40" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t43" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
         <label>supports → primate visual cortex work in which gamma enhances selectivity around peak excitability</label>
         <quote>Our observations agree well with previous reports on the impact of temporal structure on firing rate encoding in the primate cortex. During visual stimulation in primate primary visual cortex ( 48 ), the gamma activity enhances selectivity, primarily at around peak excitability. However, during working memory demands in primate prefrontal cortex ( 47 ), information about sequentially presented objects occurs at different times with respect to the beta activity.</quote>
       </span>
-      <span xml:id="t41" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="1.0">
         <label>supports → prefrontal working-memory work in which information about sequential objects arrives at different beta phases</label>
         <quote>Our observations agree well with previous reports on the impact of temporal structure on firing rate encoding in the primate cortex. During visual stimulation in primate primary visual cortex ( 48 ), the gamma activity enhances selectivity, primarily at around peak excitability. However, during working memory demands in primate prefrontal cortex ( 47 ), information about sequentially presented objects occurs at different times with respect to the beta activity.</quote>
       </span>
-      <span xml:id="t42" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
         <label>supports → the account in which gamma reflects local bottom-up processing and beta top-down linkage across a larger cortical scale</label>
         <quote>Specifically, gamma activity may reflect bottom-up–driven local processing, and beta activity may reflect top-down–driven processes that link local information to processing on a larger cortical scale ( 31 , 49 – 52 ). The coherent relationship we observe between the gamma and beta activity suggests that decision signals in the PPC arise in the interaction between these two types of influences.</quote>
       </span>
-      <span xml:id="t43" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="1.0">
         <label>qualifies → its own explanation of the beta dissociation, by testing the beta to gamma phase difference against it and finding no relationship</label>
         <note>differs in: THE AXIS IS THE REFERENCE RHYTHM. &#x27;Beta-gamma phase-phase coupling COULD CONTRIBUTE TO THE TEMPORAL LOCALIZATION OF THE CHOICE-MI with respect to the beta [rhythm].&#x27; The paper qualifies its own account by naming what the localisation is measured AGAINST - a self-qualification, which is the rarer and more careful use of this type. Q-444. CORRECTED AT Q-489: the quote originally ended at &#x27;could contribute to the temporal localization of the choice-MI&#x27; - THE HYPOTHESIS HALF OF THE SPAN. The paper then rejects it: &#x27;HOWEVER, WE OBSERVED NO CORRELATION between the beta-gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level.&#x27; The target already said &#x27;finding no relationship&#x27;, so the row&#x27;s prose was right and its EVIDENCE recorded the possibility rather than the finding. Widened through the reversal.</note>
         <quote>The beta–gamma phase difference seemed to match roughly the dissociation of the moment of the choice-MI from spiking for beta activity. Beta–gamma phase–phase coupling could contribute to the temporal localization of the choice-MI with respect to the beta activity. However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level</quote>
       </span>
-      <span xml:id="t44" type="claim_relations" ana="#claim_relations[8]" resp="#tagger" cert="0.9">
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[8]" resp="#tagger" cert="0.9">
         <label>builds-on → the view that theta-band activity regulates activity on faster time scales</label>
         <quote>We found significant PAC between theta phases and beta amplitudes (permutation test, P &lt; 10 −4 ) ( Fig. 4 A ). PAC for theta phases and gamma amplitudes (permutation test, P = 0.031) and beta phases and gamma amplitudes (permutation test, P &lt; 10 −4 ) also was significant, albeit weaker (permutation tests, theta–beta vs. theta–gamma, P = 0.007; theta–beta vs. beta–gamma, P = 0.01; theta–gamma vs. beta–gamma, P = 0.48). In addition we found significant phase concentrations for the preferred PAC phases for the theta–beta and theta–gamma frequency combinations across the electrode pairs (Rayleigh tests: theta–beta, P &lt; 10 −5 ; theta–gamma, P = 0.007) ( Fig. 4 A ). We found no significant concentration of the preferred PAC phase for the beta–gamma coupling (Rayleigh test, P = 0.22). Thus, the different time scales of PPC activity were nested with each other, with slower phases predicting faster amplitudes.</quote>
       </span>
-      <span xml:id="t45" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
         <label>choice-MI —distinct-from→ spike count</label>
         <term>choice-MI</term>
         <term>spike count</term>
         <note>differs in: THE AXIS IS SYMMETRY AROUND THE PREFERRED PHASE. &#x27;UNLIKE THE SPIKE COUNTS, THE CHOICE-MI WAS ASYMMETRIC around the SPIKE-PREFERRED BETA PHASE.&#x27; Both quantities are measured against the same reference phase; only one is distributed evenly about it, which is what dissociates the information from the firing that carries it. Q-467. · strength of the relation: 1 — THE RESULT: in the beta band the two histograms have significantly different moments, so information and firing peak at different times in the cycle</note>
         <quote>Choice-MI showed a peak-to-trough modulation by the beta activity of 15.3%. Unlike the spike counts, the choice-MI was asymmetric around the spike-preferred beta phase. The moment of the choice-MI histogram differed significantly from the moment of the beta spike-count histogram (permutation test, P &lt; 10 −4 ) with MI peaking during the downswing of the spiking cycle ( Fig. 3 C ). In other words, spike count and choice-MI peaked at different times during the beta activity.</quote>
       </span>
-      <span xml:id="t46" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
         <label>beta activity —causes→ choice-MI</label>
         <term>beta activity</term>
         <term>choice-MI</term>
         <note>strength of the relation: 1 — peak-to-trough modulation of 15.3 percent, with the information raised on the downswing and lowered on the upswing</note>
         <quote>Choice-MI showed a peak-to-trough modulation by the beta activity of 15.3%. Unlike the spike counts, the choice-MI was asymmetric around the spike-preferred beta phase. The moment of the choice-MI histogram differed significantly from the moment of the beta spike-count histogram (permutation test, P &lt; 10 −4 ) with MI peaking during the downswing of the spiking cycle ( Fig. 3 C ). In other words, spike count and choice-MI peaked at different times during the beta activity.</quote>
       </span>
-      <span xml:id="t47" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
         <label>gamma activity —causes→ choice-MI</label>
         <term>gamma activity</term>
         <term>choice-MI</term>
         <note>strength of the relation: 1 — AND HERE THEY COINCIDE: no difference between the moments of information and spike count, so the same rhythm behaves differently in the two bands</note>
         <quote>Peak-to-trough modulation of choice-MI by gamma activity was 12.3%. Choice-MI shared the same temporal concentration along gamma phases ( Fig. 3 F ). We found no difference between the moments of choice-MI and spike count in the gamma activity (permutation test, P = 0.59).</quote>
       </span>
-      <span xml:id="t48" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t51" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
         <label>beta activity —contrasted-with→ gamma activity</label>
         <term>beta activity</term>
         <term>gamma activity</term>
         <note>strength of the relation: 1 — the entire claim is a comparison of two bands measured in the same spikes at the same time</note>
         <quote>Choice information contained in neural firing varied with the phase of beta and gamma activity. For gamma activity, maximum choice information occurred at the same phase as the maximum spike count. However, for beta activity, choice information and spike count were greatest at different phases.</quote>
       </span>
-      <span xml:id="t49" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t52" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
         <label>spike count —distinct-from→ beta activity</label>
         <term>spike count</term>
         <term>beta activity</term>
         <note>strength of the relation: 1</note>
         <quote>To assess directly whether the beta activity varied with the spike counts and encoding properties of PPC neurons independently, we repeated the analysis after estimating an orthogonal-MI. To estimate the orthogonal-MI, we removed the spike-count histogram’s prediction about the shape of the choice-MI histogram for each unit through regression ( Fig. 3 D and Fig. S4 ). The orthogonal-MI histogram was significantly modulated (permutation test, P &lt; 10 −4 ). Thus, beta activity independently correlated with the spike counts and choice encoding of PPC units.</quote>
       </span>
-      <span xml:id="t50" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t53" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="1.0">
         <label>orthogonal-MI —operationalised-as→ spike count</label>
         <term>orthogonal-MI</term>
         <term>spike count</term>
         <note>strength of the relation: 1 — the spike-count histogram&#x27;s linear prediction of the information histogram is regressed away, per unit, and what survives is what beta does independently</note>
         <quote>To assess directly whether the beta activity varied with the spike counts and encoding properties of PPC neurons independently, we repeated the analysis after estimating an orthogonal-MI. To estimate the orthogonal-MI, we removed the spike-count histogram’s prediction about the shape of the choice-MI histogram for each unit through regression ( Fig. 3 D and Fig. S4 ). The orthogonal-MI histogram was significantly modulated (permutation test, P &lt; 10 −4 ). Thus, beta activity independently correlated with the spike counts and choice encoding of PPC units.</quote>
       </span>
-      <span xml:id="t51" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t54" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
         <label>orthogonal-MI —operationalised-as→ gamma activity</label>
         <term>orthogonal-MI</term>
         <term>gamma activity</term>
         <note>strength of the relation: 1 — THE NULL IS THE FINDING: the same subtraction leaves gamma&#x27;s information flat across phase bins, so gamma&#x27;s two effects are not separable while beta&#x27;s are</note>
         <quote>We then estimated the orthogonal-MI for gamma frequency activity ( Fig. 3 G ). The orthogonal-MI for gamma activity was distributed uniformly across phase bins (permutation test, P = 0.30). No phase bin exhibited differences from the average orthogonal-MI across gamma-phase bins (permutation tests, all P &gt; 0.05). Thus, correlations between gamma activity, choice-MI, and spike counts were not independent.</quote>
       </span>
-      <span xml:id="t52" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t55" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
         <label>choice-MI —causes→ bias</label>
         <term>choice-MI</term>
         <term>bias</term>
         <note>strength of the relation: 1 — THE ARTEFACT POINTS THE SAME WAY AS THE HYPOTHESIS: information is positively biased at small samples and the spike count differs by phase bin, so an unequal sample alone would produce phase-dependent information</note>
         <quote>MI estimation may have been biased by the differing spike counts at different phases of activity. MI is positively biased for smaller samples and is spuriously high for phase bins with few spikes. We reestimated MI while stratifying spike counts to be equal across phase bins ( SI Materials and Methods ). The pattern of modulated choice-MI by beta and gamma activity persisted</quote>
       </span>
-      <span xml:id="t53" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t56" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
         <label>stratifying —operationalised-as→ spike count</label>
         <term>stratifying</term>
         <term>spike count</term>
         <note>strength of the relation: 1 — spikes in excess of the smallest bin are deleted at random and the estimate repeated a thousand times - data discarded on purpose to equalise the samples</note>
         <quote>To control for confounding associations between the amount of spiking and MI, we also performed the above analysis while stratifying the number of spikes at each phase bin. To do so, we randomly deleted spikes in excess of the minimum observed spike count across phase bins and then computed the MI at a given phase bin. We repeated this procedure 1,000 times and averaged the observed MI at each phase bin.</quote>
       </span>
-      <span xml:id="t54" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
         <label>stratifying —distinct-from→ bias</label>
         <term>stratifying</term>
         <term>bias</term>
         <note>strength of the relation: 1</note>
         <quote>MI estimation may have been biased by the differing spike counts at different phases of activity. MI is positively biased for smaller samples and is spuriously high for phase bins with few spikes. We reestimated MI while stratifying spike counts to be equal across phase bins ( SI Materials and Methods ). The pattern of modulated choice-MI by beta and gamma activity persisted</quote>
       </span>
-      <span xml:id="t55" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t58" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="1.0">
         <label>resultant length —operationalised-as→ phase bins</label>
         <term>resultant length</term>
         <term>phase bins</term>
         <note>strength of the relation: 1 — THE STATISTIC NAMES ITS OWN BLIND SPOT: it assumes one concentration across the bins and is insensitive to multimodal modulation, which is why an entropy measure is run beside it</note>
         <quote>Because the mean resultant length R assumes a unimodal concentration of quantities across phase bins, it is insensitive to more complex forms of modulation such as multimodal modulations. Thus we repeated the analysis of modulation strength across frequencies using permutation statistics based on the entropy (nonuniformity) H of the phase-dependent histogram</quote>
       </span>
-      <span xml:id="t56" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t59" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="1.0">
         <label>modulation entropy —operationalised-as→ choice-MI</label>
         <term>modulation entropy</term>
         <term>choice-MI</term>
         <note>strength of the relation: 1</note>
         <quote>Choice-MI varied significantly with LFP phases in the beta- and gamma-frequency ranges (permutation tests, P FWER &lt; 0.05) ( Fig. 3 A ) but not with theta phases. Repeating the analysis based on modulation entropy, which makes fewer distributional assumptions, yielded similar results ( SI Materials and Methods and Fig. S3 B ). The information that PPC units carried in their firing rates varied along phases in beta and gamma frequencies.</quote>
       </span>
-      <span xml:id="t57" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t60" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="1.0">
         <label>mutual information —operationalised-as→ movement choice</label>
         <term>mutual information</term>
         <term>movement choice</term>
         <note>strength of the relation: 1 — 101 of 149 units carried significant choice information in the firing rate before any phase is considered</note>
         <quote>As expected, the firing rate of PPC neurons robustly encoded the upcoming movement choice. After choice target onset, units exhibited a strong transient increase in the firing rate regardless of the upcoming movement choice ( Fig. 1 C ). Firing rates separated depending on the movement choice. We quantified the information about upcoming movements in the firing rate by estimating the mutual information (MI) between the movement choice and the firing rate ( Fig. 1 D ). A total of 101 units (68%; 68 units for monkey C and 33 units for monkey R) exhibited significant choice-MI in the choice epoch (200–1,000 ms after choice target onset) (permutation tests, P &lt; 0.05).</quote>
       </span>
-      <span xml:id="t58" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t61" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="1.0">
         <label>firing rate —operationalised-as→ response field</label>
         <term>firing rate</term>
         <term>response field</term>
         <note>strength of the relation: 1 — the condition being decoded is in or out of the response field, so the information is about direction rather than about the shape chosen</note>
         <quote>We studied the encoding properties of neurons’ firing rates by quantifying the MI between the spiking of a neuron S and the movement condition C (in or out of response field) M I ( C , S ) = ∑ s , c P ( c ) P ( s | c ) l o g 2 ( P ( s | c ) P ( s ) ) . To derive the marginal and conditional probabilities of spiking and movement condition, we created two binary matrices that represented the presence of a spike and the movement condition, respectively, for each time point and trial at 1-kHz sampling.</quote>
       </span>
-      <span xml:id="t59" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t62" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="1.0">
         <label>SFC —operationalised-as→ LFP</label>
         <term>SFC</term>
         <term>LFP</term>
         <note>strength of the relation: 1</note>
         <quote>Based on these tests, we labeled a unit as coherent if at least one frequency bin exhibited significant SFC. Where we recorded LFP activity on multiple electrodes, we chose the LFP recording with the maximum number of significant SFC frequency bins for further analyses.</quote>
       </span>
-      <span xml:id="t60" type="concept_edges" ana="#concept_edges[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t63" type="concept_edges" ana="#concept_edges[15]" resp="#tagger" cert="1.0">
         <label>SFC —operationalised-as→ electrode</label>
         <term>SFC</term>
         <term>electrode</term>
         <note>strength of the relation: 1 — A GEOMETRY EFFECT READ AS A PROPERTY: coherence above 20 Hz was stronger for closer electrode tips, which is taken to mean gamma is more local rather than that it is a recording artefact</note>
         <quote>However, the distance between the electrode tips of the recording pairs influenced the SFC. Electrodes usually were separated from each other by about 2 mm during the recordings. However, when comparing the SFC for the half of the recordings with electrode tips near each other (median separation of 1.07 mm) and the half of the recordings with far electrode tips farther apart (median separation of 2.86 mm), we found that higher-frequency SFC (&gt;20 Hz), particularly including the gamma activity, was stronger for electrode tips that were closer to each other ( P FDR &lt; 0.05) ( Fig. S2 E and F ). Thus, gamma activity appeared to be more local than either theta or beta activity.</quote>
       </span>
-      <span xml:id="t61" type="concept_edges" ana="#concept_edges[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t64" type="concept_edges" ana="#concept_edges[16]" resp="#tagger" cert="1.0">
         <label>LFP —distinct-from→ electrode</label>
         <term>LFP</term>
         <term>electrode</term>
         <note>strength of the relation: 1 — spikes and phases always come from different electrodes, which removes the spike bleed-through artefact by design rather than by correction</note>
         <quote>For all analyses spikes and phases of the LFP were obtained from separate electrodes within the same area.</quote>
       </span>
-      <span xml:id="t62" type="concept_edges" ana="#concept_edges[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t65" type="concept_edges" ana="#concept_edges[17]" resp="#tagger" cert="1.0">
         <label>coherent —operationalised-as→ electrode</label>
         <term>coherent</term>
         <term>electrode</term>
         <note>strength of the relation: 1 — the label is earned if any one of 59 frequency bins passes, and where two electrodes were available the one with more significant bins was kept</note>
         <quote>Based on these tests, we labeled a unit as coherent if at least one frequency bin exhibited significant SFC. Where we recorded LFP activity on multiple electrodes, we chose the LFP recording with the maximum number of significant SFC frequency bins for further analyses.</quote>
       </span>
-      <span xml:id="t63" type="concept_edges" ana="#concept_edges[18]" resp="#tagger" cert="1.0">
+      <span xml:id="t66" type="concept_edges" ana="#concept_edges[18]" resp="#tagger" cert="1.0">
         <label>single units —distinct-from→ multiunits</label>
         <term>single units</term>
         <term>multiunits</term>
         <note>strength of the relation: 1 — 45 against 104, and every percentage in the paper is reported for the two classes separately instead of pooled</note>
         <quote>We analyzed the activity of 149 units [97 units (31 single units and 66 multiunits) for monkey C and 52 units (14 single units and 38 multiunits) for monkey R] and 186 simultaneously recorded local field potentials (LFP) (116 LFPs in monkey C and 70 LFPs in monkey R, one or two LFP electrodes per unit) from nearby (within ∼2 mm) electrodes.</quote>
       </span>
-      <span xml:id="t64" type="concept_edges" ana="#concept_edges[19]" resp="#tagger" cert="1.0">
+      <span xml:id="t67" type="concept_edges" ana="#concept_edges[19]" resp="#tagger" cert="1.0">
         <label>single units —operationalised-as→ spike waveforms</label>
         <term>single units</term>
         <term>spike waveforms</term>
         <note>strength of the relation: 1 — k-means over-clustering in a three-dimensional feature space, manual merging, and acceptance only where the cluster stayed clear of the multiunit cloud for a whole 100 second window</note>
         <quote>To isolate single-unit activity, we projected spike waveforms into a 3D principal component feature space on a moving 100-s time window. We used the unsupervised clustering algorithm k -means to over-cluster the spike waveforms. We then manually merged clusters that displayed clear separation from the multiunit cloud. Only time periods during the recording in which the single-unit cluster was clearly isolated from the multiunit cloud over the entire 100-s time window were accepted as single units.</quote>
       </span>
-      <span xml:id="t65" type="concept_edges" ana="#concept_edges[20]" resp="#tagger" cert="1.0">
+      <span xml:id="t68" type="concept_edges" ana="#concept_edges[20]" resp="#tagger" cert="1.0">
         <label>single units —part-of→ temporal structure</label>
         <term>single units</term>
         <term>temporal structure</term>
         <note>strength of the relation: 0.8 — and the two classes give different rates throughout - 38 percent of single units against 60 percent of multiunits coherent in both theta and beta</note>
         <quote>Given the presence of activity at three distinct time scales, we wondered whether the activities co-occurred more often than would be expected by chance during the choice period. We found that 79 units [17 single units (38%) and 62 multiunits (60%)] were coherent both in the theta and beta ranges (Fisher’s exact test, P FWER = 2.27 × 10 −8 ), 40 units [eight single units (18%), 32 multiunits (31%)] were coherent in the theta and gamma ranges (Fisher’s exact test, P FWER = 0.0052), and 42 units [10 single units (22%) and 32 multiunits (31%)] were coherent in the beta and gamma ranges (Fisher’s exact test, P FWER = 6.53 × 10 −5 ). Thus, the units in the PPC often displayed temporal structure across multiple time scales.</quote>
       </span>
-      <span xml:id="t66" type="concept_edges" ana="#concept_edges[21]" resp="#tagger" cert="1.0">
+      <span xml:id="t69" type="concept_edges" ana="#concept_edges[21]" resp="#tagger" cert="1.0">
         <label>theta activity —part-of→ temporal structure</label>
         <term>theta activity</term>
         <term>temporal structure</term>
         <note>strength of the relation: 1 — three scales that respond differently to the same event: theta constant, beta down, gamma up</note>
         <quote>Thus, PPC spiking contains temporal structure at three time scales—theta, beta, and gamma—that respond differently to choice. During choice, theta activity remained constant, beta activity decreased, and gamma activity increased.</quote>
       </span>
-      <span xml:id="t67" type="concept_edges" ana="#concept_edges[22]" resp="#tagger" cert="0.9">
+      <span xml:id="t70" type="concept_edges" ana="#concept_edges[22]" resp="#tagger" cert="0.9">
         <label>beta activity —causes→ theta activity</label>
         <term>beta activity</term>
         <term>theta activity</term>
         <note>strength of the relation: 0.7 — beta sits in the middle - coupled to theta by PAC and to gamma by phase-phase coupling</note>
         <quote>Overall, we identified three interrelated temporal modes of neuronal activity in the PPC. Beta activity took a central role and was most prominently coupled to slower theta activity through PAC and to faster gamma activity through phase–phase coupling.</quote>
       </span>
-      <span xml:id="t68" type="concept_edges" ana="#concept_edges[23]" resp="#tagger" cert="1.0">
+      <span xml:id="t71" type="concept_edges" ana="#concept_edges[23]" resp="#tagger" cert="1.0">
         <label>PAC —operationalised-as→ electrode</label>
         <term>PAC</term>
         <term>electrode</term>
         <note>strength of the relation: 1 — estimated across electrodes, with the slower frequency taken at the field electrode and the faster at the spiking electrode</note>
         <quote>We found significant PAC between theta phases and beta amplitudes (permutation test, P &lt; 10 −4 ) ( Fig. 4 A ). PAC for theta phases and gamma amplitudes (permutation test, P = 0.031) and beta phases and gamma amplitudes (permutation test, P &lt; 10 −4 ) also was significant, albeit weaker (permutation tests, theta–beta vs. theta–gamma, P = 0.007; theta–beta vs. beta–gamma, P = 0.01; theta–gamma vs. beta–gamma, P = 0.48). In addition we found significant phase concentrations for the preferred PAC phases for the theta–beta and theta–gamma frequency combinations across the electrode pairs (Rayleigh tests: theta–beta, P &lt; 10 −5 ; theta–gamma, P = 0.007) ( Fig. 4 A ). We found no significant concentration of the preferred PAC phase for the beta–gamma coupling (Rayleigh test, P = 0.22). Thus, the different time scales of PPC activity were nested with each other, with slower phases predicting faster amplitudes.</quote>
       </span>
-      <span xml:id="t69" type="concept_edges" ana="#concept_edges[24]" resp="#tagger" cert="1.0">
+      <span xml:id="t72" type="concept_edges" ana="#concept_edges[24]" resp="#tagger" cert="1.0">
         <label>phase–phase coupling —operationalised-as→ beta activity</label>
         <term>phase–phase coupling</term>
         <term>beta activity</term>
         <note>strength of the relation: 1 — strongest between beta and gamma, with beta leading; theta and gamma phases were not coupled</note>
         <quote>Again we found pronounced cross-frequency interaction involving the beta activity ( Fig. 4 C ). The strongest phase–phase coupling was between the beta and gamma phases (permutation test, P &lt; 10 −4 ) followed by significant but weaker coupling between theta and beta phases (permutation test, P &lt; 10 −4 ; beta–gamma vs. theta–beta, P &lt; 10 −4 ; beta–gamma vs. theta–gamma, P &lt; 10 −4 ; theta–beta vs. theta–gamma, P = 0.038). Theta phases were not significantly coupled with gamma phases (permutation test, P = 0.27).</quote>
       </span>
-      <span xml:id="t70" type="concept_edges" ana="#concept_edges[25]" resp="#tagger" cert="1.0">
+      <span xml:id="t73" type="concept_edges" ana="#concept_edges[25]" resp="#tagger" cert="1.0">
         <label>phase–phase coupling —distinct-from→ choice-MI</label>
         <term>phase–phase coupling</term>
         <term>choice-MI</term>
         <note>differs in: NOT MIS-TYPED - I HAD READ ONLY THE FIRST TWO SENTENCES. The span raises the possibility and then rejects it: &#x27;Beta-gamma phase-phase coupling COULD CONTRIBUTE to the temporal localization of the choice-MI ... HOWEVER, WE OBSERVED NO CORRELATION BETWEEN THE BETA-GAMMA PHASE DIFFERENCE AND THE MOMENT OF THE BETA CHOICE-MI PHASE HISTOGRAM ON A SINGLE-SPIKE LFP LEVEL.&#x27; THE AXIS IS WHETHER THE PHASE DIFFERENCE PREDICTS THE CHOICE-MI MOMENT, and the evidence for the distinction is a NULL - the polarity gap again, in a row I had queued for retraction. Q-488. · strength of the relation: 1 — THEY TEST THEIR OWN PROPOSED MECHANISM AND IT FAILS: the beta to gamma phase difference looked like it could produce the dissociation, and the circular correlation is flat</note>
         <quote>The beta–gamma phase difference seemed to match roughly the dissociation of the moment of the choice-MI from spiking for beta activity. Beta–gamma phase–phase coupling could contribute to the temporal localization of the choice-MI with respect to the beta activity. However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level</quote>
       </span>
-      <span xml:id="t71" type="concept_edges" ana="#concept_edges[26]" resp="#tagger" cert="1.0">
+      <span xml:id="t74" type="concept_edges" ana="#concept_edges[26]" resp="#tagger" cert="1.0">
         <label>choice-MI —distinct-from→ baseline epoch</label>
         <term>choice-MI</term>
         <term>baseline epoch</term>
         <note>strength of the relation: 1 — the effect is absent before the targets appear and absent in coherent units that carry no choice information - two places it should not be, and is not</note>
         <quote>The pulsed choice-MI was specific to the choice period as well as to units that encoded upcoming choices. It was absent during the baseline epoch and for coherent units without choice-MI</quote>
       </span>
-      <span xml:id="t72" type="concept_edges" ana="#concept_edges[27]" resp="#tagger" cert="1.0">
+      <span xml:id="t75" type="concept_edges" ana="#concept_edges[27]" resp="#tagger" cert="1.0">
         <label>IPS —distinct-from→ temporal structure</label>
         <term>IPS</term>
         <term>temporal structure</term>
         <note>strength of the relation: 1 — no difference between the medial and lateral banks, so the anatomy does not split the result</note>
         <quote>We also examined whether the observed temporal structure differed between the lateral and medial banks of the intraparietal sulcus (IPS). We found no significant difference</quote>
       </span>
-      <span xml:id="t73" type="concept_edges" ana="#concept_edges[28]" resp="#tagger" cert="1.0">
+      <span xml:id="t76" type="concept_edges" ana="#concept_edges[28]" resp="#tagger" cert="1.0">
         <label>trigonometric moment —operationalised-as→ spike count</label>
         <term>trigonometric moment</term>
         <term>spike count</term>
         <note>strength of the relation: 1 — the spike histogram&#x27;s moment is indistinguishable from its preferred phase, which is what makes it symmetric and the information histogram&#x27;s asymmetry meaningful</note>
         <quote>In the beta-frequency band, the peak-to-trough modulation of spike counts was 13.6%, corresponding to a modulation in firing rate by about 6.6 spikes/s ( Fig. 3 B ). Spiking was distributed symmetrically about the spike-preferred beta-phase with no significant differences in the amount of spiking between the bins before and after the spike-preferred beta-phase (permutation test, P = 0.99). Measuring the spike counts for evenly spaced beta-activity phase bins allowed us to study the temporal concentration (trigonometric moment) of spiking in great detail (see radial black lines in Fig. 3 B – F ). The moment of the beta spike-count histogram was indistinguishable from the average spike-preferred beta phase during the analysis epoch, further indicating the symmetry of the distribution of spikes with beta-frequency phase.</quote>
       </span>
-      <span xml:id="t74" type="concept_edges" ana="#concept_edges[29]" resp="#tagger" cert="1.0">
+      <span xml:id="t77" type="concept_edges" ana="#concept_edges[29]" resp="#tagger" cert="1.0">
         <label>downswing —causes→ choice-MI</label>
         <term>downswing</term>
         <term>choice-MI</term>
         <note>strength of the relation: 1</note>
         <quote>Choice-MI showed a peak-to-trough modulation by the beta activity of 15.3%. Unlike the spike counts, the choice-MI was asymmetric around the spike-preferred beta phase. The moment of the choice-MI histogram differed significantly from the moment of the beta spike-count histogram (permutation test, P &lt; 10 −4 ) with MI peaking during the downswing of the spiking cycle ( Fig. 3 C ). In other words, spike count and choice-MI peaked at different times during the beta activity.</quote>
       </span>
-      <span xml:id="t75" type="concept_edges" ana="#concept_edges[30]" resp="#tagger" cert="0.9">
+      <span xml:id="t78" type="concept_edges" ana="#concept_edges[30]" resp="#tagger" cert="0.9">
         <label>excitability —contrasted-with→ beta activity</label>
         <term>excitability</term>
         <term>beta activity</term>
         <note>differs in: THE AXIS IS WHETHER INFORMATION SITS AT ONE PHASE OR SPREADS ACROSS THE CYCLE. &#x27;During visual stimulation in primate primary visual cortex, THE GAMMA ACTIVITY ENHANCES SELECTIVITY, PRIMARILY AT AROUND PEAK EXCITABILITY. However, during working memory demands in primate prefrontal cortex, information about sequentially presented objects occurs AT DIFFERENT TIMES WITH RESPECT TO THE BETA ACTIVITY.&#x27; Both are phase-referenced codes; they differ on whether one phase carries the information or several do, which is what makes the second a sequence rather than a gain. Q-472. · strength of the relation: 1 — the two prior results this sits between - gamma sharpening selectivity at peak excitability in visual cortex, and prefrontal information arriving at different beta phases</note>
         <quote>Our observations agree well with previous reports on the impact of temporal structure on firing rate encoding in the primate cortex. During visual stimulation in primate primary visual cortex ( 48 ), the gamma activity enhances selectivity, primarily at around peak excitability. However, during working memory demands in primate prefrontal cortex ( 47 ), information about sequentially presented objects occurs at different times with respect to the beta activity.</quote>
       </span>
-      <span xml:id="t76" type="concept_edges" ana="#concept_edges[31]" resp="#tagger" cert="0.7">
+      <span xml:id="t79" type="concept_edges" ana="#concept_edges[31]" resp="#tagger" cert="0.7">
         <label>integration —operationalised-as→ beta activity</label>
         <term>integration</term>
         <term>beta activity</term>
         <note>strength of the relation: 0.7 — the proposal is that a downstream population reading beta must sum past the moment of greatest synchrony to reach the information</note>
         <quote>Our findings are consistent with this view and suggest that beta and gamma activity may differ in the window of integration by downstream ensembles. Although the gamma activity may be most informative when spiking is greatest, the integration period for the beta activity may extend past the time of greatest synchronous activity to include a later period of peak information.</quote>
       </span>
-      <span xml:id="t77" type="concept_edges" ana="#concept_edges[32]" resp="#tagger" cert="0.5">
+      <span xml:id="t80" type="concept_edges" ana="#concept_edges[32]" resp="#tagger" cert="0.5">
         <label>multiplex —operationalised-as→ decision</label>
         <term>multiplex</term>
         <term>decision</term>
         <note>strength of the relation: 0.5 — the record marks this weak — offered as a possibility, not a result</note>
         <quote>An intriguing possibility is that PPC spiking may multiplex decision signals into beta and gamma channels</quote>
       </span>
-      <span xml:id="t78" type="concept_edges" ana="#concept_edges[33]" resp="#tagger" cert="1.0">
+      <span xml:id="t81" type="concept_edges" ana="#concept_edges[33]" resp="#tagger" cert="1.0">
         <label>reward magnitudes —causes→ decision</label>
         <term>reward magnitudes</term>
         <term>decision</term>
         <note>strength of the relation: 1</note>
         <quote>We recorded neuronal activity while monkeys performed reward-guided look-and-reach decisions. At the start of each trial, in the baseline epoch, the monkeys maintained touch and fixation on a central target. Then, in the choice epoch, they were presented with two alternatives, a circle and a triangle, and had to choose one with a combined look-and-reach movement ( Fig. 1 A ). We presented targets in two locations, randomly interleaved trial by trial. Both shapes were associated with changing reward magnitudes that presented a dynamic and challenging reward environment for the animals ( Fig. S1 ). Each monkey reliably allocated its choices according to the shapes’ relative reward magnitudes</quote>
       </span>
-      <span xml:id="t79" type="concept_edges" ana="#concept_edges[34]" resp="#tagger" cert="1.0">
+      <span xml:id="t82" type="concept_edges" ana="#concept_edges[34]" resp="#tagger" cert="1.0">
         <label>temporal structure —causes→ decision</label>
         <term>temporal structure</term>
         <term>decision</term>
         <note>strength of the relation: 1 — stated as a hypothesis before any measurement</note>
         <quote>We hypothesize that the encoding of decisions in the PPC should depend on the temporal structure present in neuronal activity.</quote>
       </span>
-      <span xml:id="t80" type="concept_edges" ana="#concept_edges[35]" resp="#tagger" cert="1.0">
+      <span xml:id="t83" type="concept_edges" ana="#concept_edges[35]" resp="#tagger" cert="1.0">
         <label>PPC —part-of→ decision</label>
         <term>PPC</term>
         <term>decision</term>
         <note>strength of the relation: 1</note>
         <quote>We test how the encoding of choice in a key decision-making node, the posterior parietal cortex (PPC), depends on the temporal structure of the surrounding population activity. We recorded spiking and local field potential (LFP) activity in the PPC while two rhesus macaques performed a decision-making task. We quantified the mutual information that neurons carried about an upcoming choice and its dependence on LFP activity.</quote>
       </span>
-      <span xml:id="t81" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t84" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>mutual information</label>
         <term>mutual information</term>
         <quote>We quantified the information about upcoming movements in the firing rate by estimating the mutual information (MI) between the movement choice and the firing rate ( Fig. 1 D ).</quote>
       </span>
-      <span xml:id="t82" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t85" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>permutation test</label>
         <term>permutation test</term>
         <quote>To determine which spike-field pairs had significant SFC, we used a random permutation test to compare the magnitude of the SFC within a frequency range of 2–60 Hz (59 frequency bins) against an empirical null distribution obtained by separately permuting spike trials and LFP trials (10,000 permutations).</quote>
       </span>
-      <span xml:id="t83" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t86" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>false discovery rate correction</label>
         <term>false discovery rate correction</term>
         <quote>We controlled the FDR at P &lt; 0.05 for the tests between the two intervals ( 70 ).</quote>
       </span>
-      <span xml:id="t84" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t87" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>familywise error correction</label>
         <term>familywise error correction</term>
         <quote>We controlled the FWE across frequencies using rank-based maximum resample statistics ( 68 , 69 ).</quote>
       </span>
-      <span xml:id="t85" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t88" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>Rayleigh test (circular uniformity)</label>
         <term>Rayleigh test (circular uniformity)</term>
         <quote>We found significant phase concentrations (Rayleigh tests, all P FWER &lt; 0.05), during the baseline epoch that remained stable during the choice epoch.</quote>
       </span>
-      <span xml:id="t86" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t89" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>Watson-Williams test</label>
         <term>Watson-Williams test</term>
         <quote>Phase concentrations did not differ significantly between epochs for all frequency ranges (Watson–Williams tests between epochs for all units with significant SFC during both epochs, all P &gt; 0.05).</quote>
       </span>
-      <span xml:id="t87" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t90" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>Fisher&#x27;s exact test</label>
         <term>Fisher&#x27;s exact test</term>
         <quote>We found that 79 units [17 single units (38%) and 62 multiunits (60%)] were coherent both in the theta and beta ranges (Fisher’s exact test, P FWER = 2.27 × 10 −8 )</quote>
       </span>
-      <span xml:id="t88" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t91" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>circular correlation</label>
         <term>circular correlation</term>
         <quote>However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level (circular correlation, same electrode pairs from Fig. 3 ; n = 79, r = −0.063, P = 0.55).</quote>
       </span>
-      <span xml:id="t89" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+      <span xml:id="t92" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
         <label>linear regression</label>
         <term>linear regression</term>
         <quote>In addition we studied energy in the histograms unrelated to the spike count by removing the linear prediction of the MI by the spike count through linear regression (see Fig. 3 , choice-MI and orthogonal-MI, and Fig. S4 for an example).</quote>
       </span>
-      <span xml:id="t90" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+      <span xml:id="t93" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
         <label>bootstrap</label>
         <term>bootstrap</term>
         <quote>We then used a bootstrapping procedure to estimate the average amount of MI for each phase bin.</quote>
       </span>
-      <span xml:id="t91" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
+      <span xml:id="t94" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
         <label>confidence interval</label>
         <term>confidence interval</term>
         <quote>Lines and shadings show the means and their 95% confidence interval, respectively.</quote>
       </span>
-      <span xml:id="t92" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger">
+      <span xml:id="t95" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger">
         <label>maximum likelihood estimation</label>
         <term>maximum likelihood estimation</term>
         <quote>We obtained maximum likelihood estimates of the four parameters a , b , c , and d that characterized the horizontal offset ( d ), the vertical offset ( a ), the slope ( c ), and the amplitude ( d ).</quote>
       </span>
-      <span xml:id="t93" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger">
+      <span xml:id="t96" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger">
         <label>psychometric function fitting</label>
         <term>psychometric function fitting</term>
         <quote>we binned the single-trial reward differences between the shapes into six bins (after normalizing the rewards within each day to range from 0 to 1) and fit a psychometric function to the choice probabilities across bins</quote>
       </span>
-      <span xml:id="t94" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger">
+      <span xml:id="t97" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger">
         <label>multitaper spectral estimation</label>
         <term>multitaper spectral estimation</term>
         <quote>We estimated spectral densities, oscillatory phases, and SFC throughout all analyses using multitaper methods (time/bandwidth parameters: 500 ms and 5 Hz) ( 66 , 67 ).</quote>
       </span>
-      <span xml:id="t95" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger">
+      <span xml:id="t98" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger">
         <label>principal component analysis</label>
         <term>principal component analysis</term>
         <quote>To isolate single-unit activity, we projected spike waveforms into a 3D principal component feature space on a moving 100-s time window.</quote>
       </span>
-      <span xml:id="t96" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger">
+      <span xml:id="t99" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger">
         <label>k-means clustering</label>
         <term>k-means clustering</term>
         <quote>We used the unsupervised clustering algorithm k -means to over-cluster the spike waveforms.</quote>
       </span>
-      <span xml:id="t97" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t100" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
         <label>mutual information</label>
         <term>mutual information</term>
         <quote>We studied the encoding properties of neurons’ firing rates by quantifying the MI between the spiking of a neuron S and the movement condition C (in or out of response field) M I ( C , S ) = ∑ s , c P ( c ) P ( s | c ) l o g 2 ( P ( s | c ) P ( s ) ) . To derive the marginal and conditional probabilities of spiking and movement condition, we created two binary matrices that represented the presence of a spike and the movement condition, respectively, for each time point and trial at 1-kHz sampling.</quote>
       </span>
-      <span xml:id="t98" type="content_tags" ana="#content_tags.statistics[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t101" type="content_tags" ana="#content_tags.statistics[17]" resp="#tagger" cert="1.0">
         <label>permutation tests</label>
         <term>permutation tests</term>
         <quote>Choice-MI varied significantly with LFP phases in the beta- and gamma-frequency ranges (permutation tests, P FWER &lt; 0.05) ( Fig. 3 A ) but not with theta phases. Repeating the analysis based on modulation entropy, which makes fewer distributional assumptions, yielded similar results ( SI Materials and Methods and Fig. S3 B ). The information that PPC units carried in their firing rates varied along phases in beta and gamma frequencies.</quote>
       </span>
-      <span xml:id="t99" type="content_tags" ana="#content_tags.statistics[18]" resp="#tagger" cert="1.0">
+      <span xml:id="t102" type="content_tags" ana="#content_tags.statistics[18]" resp="#tagger" cert="1.0">
         <label>Rayleigh tests</label>
         <term>Rayleigh tests</term>
         <quote>Examining the preferred phases of the SFC, we observed clustering around the downswing and trough of the LFP activity ( Fig. 2 C ). We found significant phase concentrations (Rayleigh tests, all P FWER &lt; 0.05), during the baseline epoch that remained stable during the choice epoch. Phase concentrations did not differ significantly between epochs for all frequency ranges</quote>
       </span>
-      <span xml:id="t100" type="content_tags" ana="#content_tags.statistics[19]" resp="#tagger" cert="1.0">
+      <span xml:id="t103" type="content_tags" ana="#content_tags.statistics[19]" resp="#tagger" cert="1.0">
         <label>Watson–Williams tests</label>
         <term>Watson–Williams tests</term>
         <quote>Examining the preferred phases of the SFC, we observed clustering around the downswing and trough of the LFP activity ( Fig. 2 C ). We found significant phase concentrations (Rayleigh tests, all P FWER &lt; 0.05), during the baseline epoch that remained stable during the choice epoch. Phase concentrations did not differ significantly between epochs for all frequency ranges</quote>
       </span>
-      <span xml:id="t101" type="content_tags" ana="#content_tags.statistics[20]" resp="#tagger" cert="1.0">
+      <span xml:id="t104" type="content_tags" ana="#content_tags.statistics[20]" resp="#tagger" cert="1.0">
         <label>Fisher’s exact test</label>
         <term>Fisher’s exact test</term>
         <quote>Given the presence of activity at three distinct time scales, we wondered whether the activities co-occurred more often than would be expected by chance during the choice period. We found that 79 units [17 single units (38%) and 62 multiunits (60%)] were coherent both in the theta and beta ranges (Fisher’s exact test, P FWER = 2.27 × 10 −8 ), 40 units [eight single units (18%), 32 multiunits (31%)] were coherent in the theta and gamma ranges (Fisher’s exact test, P FWER = 0.0052), and 42 units [10 single units (22%) and 32 multiunits (31%)] were coherent in the beta and gamma ranges (Fisher’s exact test, P FWER = 6.53 × 10 −5 ). Thus, the units in the PPC often displayed temporal structure across multiple time scales.</quote>
       </span>
-      <span xml:id="t102" type="content_tags" ana="#content_tags.statistics[21]" resp="#tagger" cert="1.0">
+      <span xml:id="t105" type="content_tags" ana="#content_tags.statistics[21]" resp="#tagger" cert="1.0">
         <label>circular correlation</label>
         <term>circular correlation</term>
         <quote>The beta–gamma phase difference seemed to match roughly the dissociation of the moment of the choice-MI from spiking for beta activity. Beta–gamma phase–phase coupling could contribute to the temporal localization of the choice-MI with respect to the beta activity. However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level</quote>
       </span>
-      <span xml:id="t103" type="content_tags" ana="#content_tags.statistics[22]" resp="#tagger" cert="1.0">
+      <span xml:id="t106" type="content_tags" ana="#content_tags.statistics[22]" resp="#tagger" cert="1.0">
         <label>false-discovery rate</label>
         <term>false-discovery rate</term>
         <quote>Beta activity varied with task epoch. SFC and power ( Fig. 2 A , Inset ) decreased significantly during the choice epoch compared with the baseline epoch</quote>
       </span>
-      <span xml:id="t104" type="content_tags" ana="#content_tags.statistics[23]" resp="#tagger" cert="0.7">
+      <span xml:id="t107" type="content_tags" ana="#content_tags.statistics[23]" resp="#tagger" cert="0.7">
         <label>linear regression</label>
         <term>linear regression</term>
         <quote>To control for confounding associations between the amount of spiking and MI, we also performed the above analysis while stratifying the number of spikes at each phase bin. To do so, we randomly deleted spikes in excess of the minimum observed spike count across phase bins and then computed the MI at a given phase bin. We repeated this procedure 1,000 times and averaged the observed MI at each phase bin.</quote>
       </span>
-      <span xml:id="t105" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t108" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Most recorded parietal units carried significant information about the animal&#x27;s upcoming choice in their firing rate.</label>
         <quote>A total of 101 units (68%; 68 units for monkey C and 33 units for monkey R) exhibited significant choice-MI in the choice epoch (200–1,000 ms after choice target onset) (permutation tests, P &lt; 0.05).</quote>
       </span>
-      <span xml:id="t106" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t109" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>How much choice information a neuron&#x27;s spiking carried depended on the phase of beta and gamma field activity, but not on theta phase.</label>
         <quote>Choice-MI varied significantly with LFP phases in the beta- and gamma-frequency ranges (permutation tests, P FWER &lt; 0.05) ( Fig. 3 A ) but not with theta phases.</quote>
       </span>
-      <span xml:id="t107" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t110" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>For beta activity, choice information peaked at a different phase from spike count, on the downswing of the cycle.</label>
         <quote>The moment of the choice-MI histogram differed significantly from the moment of the beta spike-count histogram (permutation test, P &lt; 10 −4 ) with MI peaking during the downswing of the spiking cycle ( Fig. 3 C ).</quote>
       </span>
-      <span xml:id="t108" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t111" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>For gamma activity, by contrast, choice information and spike count peaked at the same phase.</label>
         <quote>We found no difference between the moments of choice-MI and spike count in the gamma activity (permutation test, P = 0.59).</quote>
       </span>
-      <span xml:id="t109" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+      <span xml:id="t112" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
         <label>Once spike count was regressed out, gamma phase no longer modulated choice information, showing the gamma effect was not independent of excitability.</label>
         <quote>The orthogonal-MI for gamma activity was distributed uniformly across phase bins (permutation test, P = 0.30).</quote>
       </span>
-      <span xml:id="t110" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
+      <span xml:id="t113" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
         <label>Gamma coherence was stronger for closely spaced electrode pairs, indicating gamma activity is more spatially local than theta or beta.</label>
         <quote>Thus, gamma activity appeared to be more local than either theta or beta activity.</quote>
       </span>
-      <span xml:id="t111" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
+      <span xml:id="t114" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
         <label>The three rhythms responded differently to the onset of the decision: theta unchanged, beta reduced, gamma enhanced.</label>
         <quote>During choice, theta activity remained constant, beta activity decreased, and gamma activity increased.</quote>
       </span>
-      <span xml:id="t112" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
+      <span xml:id="t115" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
         <label>Beta activity sits at the hub of cross-frequency interactions, coupled to theta by PAC and to gamma by phase-phase coupling.</label>
         <quote>Beta activity took a central role and was most prominently coupled to slower theta activity through PAC and to faster gamma activity through phase–phase coupling.</quote>
       </span>
-      <span xml:id="t113" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t116" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="1.0">
         <label>101 of 149 units carried significant information about the upcoming choice in their firing rate</label>
         <quote>As expected, the firing rate of PPC neurons robustly encoded the upcoming movement choice. After choice target onset, units exhibited a strong transient increase in the firing rate regardless of the upcoming movement choice ( Fig. 1 C ). Firing rates separated depending on the movement choice. We quantified the information about upcoming movements in the firing rate by estimating the mutual information (MI) between the movement choice and the firing rate ( Fig. 1 D ). A total of 101 units (68%; 68 units for monkey C and 33 units for monkey R) exhibited significant choice-MI in the choice epoch (200–1,000 ms after choice target onset) (permutation tests, P &lt; 0.05).</quote>
       </span>
-      <span xml:id="t114" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t117" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
         <label>spiking was coherent with the nearby field at three separate scales - theta, beta and gamma - which responded differently to the choice event</label>
         <quote>Thus, PPC spiking contains temporal structure at three time scales—theta, beta, and gamma—that respond differently to choice. During choice, theta activity remained constant, beta activity decreased, and gamma activity increased.</quote>
       </span>
-      <span xml:id="t115" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t118" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
         <label>beta coherence and power both fell during the choice epoch</label>
         <quote>Beta activity varied with task epoch. SFC and power ( Fig. 2 A , Inset ) decreased significantly during the choice epoch compared with the baseline epoch</quote>
       </span>
-      <span xml:id="t116" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t119" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
         <label>gamma coherence rose during the choice epoch while gamma field power did not, so the change is in the spike timing rather than in the field</label>
         <quote>Last, the activity in the gamma range (40–60 Hz) varied after the onset of the choice targets. Gamma-band SFC, but, interestingly, not LFP power, increased significantly during the choice epoch (permutation tests, P FDR &lt; 0.05)</quote>
       </span>
-      <span xml:id="t117" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t120" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
         <label>units coherent in one band were more often coherent in another than chance allows, across all three pairings</label>
         <quote>Given the presence of activity at three distinct time scales, we wondered whether the activities co-occurred more often than would be expected by chance during the choice period. We found that 79 units [17 single units (38%) and 62 multiunits (60%)] were coherent both in the theta and beta ranges (Fisher’s exact test, P FWER = 2.27 × 10 −8 ), 40 units [eight single units (18%), 32 multiunits (31%)] were coherent in the theta and gamma ranges (Fisher’s exact test, P FWER = 0.0052), and 42 units [10 single units (22%) and 32 multiunits (31%)] were coherent in the beta and gamma ranges (Fisher’s exact test, P FWER = 6.53 × 10 −5 ). Thus, the units in the PPC often displayed temporal structure across multiple time scales.</quote>
       </span>
-      <span xml:id="t118" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t121" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
         <label>preferred phases clustered on the downswing and trough and did not shift between baseline and choice</label>
         <quote>Examining the preferred phases of the SFC, we observed clustering around the downswing and trough of the LFP activity ( Fig. 2 C ). We found significant phase concentrations (Rayleigh tests, all P FWER &lt; 0.05), during the baseline epoch that remained stable during the choice epoch. Phase concentrations did not differ significantly between epochs for all frequency ranges</quote>
       </span>
-      <span xml:id="t119" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t122" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
         <label>choice information varied with beta and gamma phase but not with theta phase</label>
         <quote>Choice-MI varied significantly with LFP phases in the beta- and gamma-frequency ranges (permutation tests, P FWER &lt; 0.05) ( Fig. 3 A ) but not with theta phases. Repeating the analysis based on modulation entropy, which makes fewer distributional assumptions, yielded similar results ( SI Materials and Methods and Fig. S3 B ). The information that PPC units carried in their firing rates varied along phases in beta and gamma frequencies.</quote>
       </span>
-      <span xml:id="t120" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t123" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
         <label>and the same conclusion followed from a modulation entropy that makes fewer distributional assumptions</label>
         <quote>Repeating the analysis based on modulation entropy, which makes fewer distributional assumptions, yielded similar results</quote>
       </span>
-      <span xml:id="t121" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t124" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">
         <label>beta spike counts were symmetric about the preferred phase, with a peak-to-trough modulation of 13.6 percent</label>
         <quote>In the beta-frequency band, the peak-to-trough modulation of spike counts was 13.6%, corresponding to a modulation in firing rate by about 6.6 spikes/s ( Fig. 3 B ). Spiking was distributed symmetrically about the spike-preferred beta-phase with no significant differences in the amount of spiking between the bins before and after the spike-preferred beta-phase (permutation test, P = 0.99). Measuring the spike counts for evenly spaced beta-activity phase bins allowed us to study the temporal concentration (trigonometric moment) of spiking in great detail (see radial black lines in Fig. 3 B – F ). The moment of the beta spike-count histogram was indistinguishable from the average spike-preferred beta phase during the analysis epoch, further indicating the symmetry of the distribution of spikes with beta-frequency phase.</quote>
       </span>
-      <span xml:id="t122" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t125" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">
         <label>THE DISSOCIATION: beta choice information was asymmetric, peaked on the downswing, and its moment differed significantly from the spike count&#x27;s</label>
         <quote>Choice-MI showed a peak-to-trough modulation by the beta activity of 15.3%. Unlike the spike counts, the choice-MI was asymmetric around the spike-preferred beta phase. The moment of the choice-MI histogram differed significantly from the moment of the beta spike-count histogram (permutation test, P &lt; 10 −4 ) with MI peaking during the downswing of the spiking cycle ( Fig. 3 C ). In other words, spike count and choice-MI peaked at different times during the beta activity.</quote>
       </span>
-      <span xml:id="t123" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">
+      <span xml:id="t126" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">
         <label>removing the spike count&#x27;s prediction left the beta information histogram still significantly modulated, so beta relates to firing and to encoding independently</label>
         <quote>To assess directly whether the beta activity varied with the spike counts and encoding properties of PPC neurons independently, we repeated the analysis after estimating an orthogonal-MI. To estimate the orthogonal-MI, we removed the spike-count histogram’s prediction about the shape of the choice-MI histogram for each unit through regression ( Fig. 3 D and Fig. S4 ). The orthogonal-MI histogram was significantly modulated (permutation test, P &lt; 10 −4 ). Thus, beta activity independently correlated with the spike counts and choice encoding of PPC units.</quote>
       </span>
-      <span xml:id="t124" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">
+      <span xml:id="t127" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">
         <label>in gamma the information and the spike count shared the same concentration, with no difference between their moments</label>
         <quote>Peak-to-trough modulation of choice-MI by gamma activity was 12.3%. Choice-MI shared the same temporal concentration along gamma phases ( Fig. 3 F ). We found no difference between the moments of choice-MI and spike count in the gamma activity (permutation test, P = 0.59).</quote>
       </span>
-      <span xml:id="t125" type="content_tags" ana="#content_tags.findings[20]" resp="#tagger" cert="1.0">
+      <span xml:id="t128" type="content_tags" ana="#content_tags.findings[20]" resp="#tagger" cert="1.0">
         <label>AND THE SAME SUBTRACTION GIVES A NULL IN GAMMA: the orthogonal information was uniform across phase bins, so gamma&#x27;s two correlations are not independent</label>
         <quote>We then estimated the orthogonal-MI for gamma frequency activity ( Fig. 3 G ). The orthogonal-MI for gamma activity was distributed uniformly across phase bins (permutation test, P = 0.30). No phase bin exhibited differences from the average orthogonal-MI across gamma-phase bins (permutation tests, all P &gt; 0.05). Thus, correlations between gamma activity, choice-MI, and spike counts were not independent.</quote>
       </span>
-      <span xml:id="t126" type="content_tags" ana="#content_tags.findings[21]" resp="#tagger" cert="1.0">
+      <span xml:id="t129" type="content_tags" ana="#content_tags.findings[21]" resp="#tagger" cert="1.0">
         <label>the moment of gamma choice information differed significantly from the moment of beta choice information</label>
         <quote>The moment of choice-MI for gamma activity was significantly different from the moment of choice-MI for beta activity (permutation test, P = 10 −4 ).</quote>
       </span>
-      <span xml:id="t127" type="content_tags" ana="#content_tags.findings[22]" resp="#tagger" cert="1.0">
+      <span xml:id="t130" type="content_tags" ana="#content_tags.findings[22]" resp="#tagger" cert="1.0">
         <label>THE ESTIMATOR&#x27;S OWN BIAS WOULD HAVE MADE THIS RESULT: information runs high at small samples and spike counts differ by phase bin, and the pattern survived equalising the spike counts</label>
         <quote>MI estimation may have been biased by the differing spike counts at different phases of activity. MI is positively biased for smaller samples and is spuriously high for phase bins with few spikes. We reestimated MI while stratifying spike counts to be equal across phase bins ( SI Materials and Methods ). The pattern of modulated choice-MI by beta and gamma activity persisted</quote>
       </span>
-      <span xml:id="t128" type="content_tags" ana="#content_tags.findings[23]" resp="#tagger" cert="1.0">
+      <span xml:id="t131" type="content_tags" ana="#content_tags.findings[23]" resp="#tagger" cert="1.0">
         <label>the equalisation deletes spikes at random down to the smallest bin and repeats the estimate a thousand times</label>
         <quote>To control for confounding associations between the amount of spiking and MI, we also performed the above analysis while stratifying the number of spikes at each phase bin. To do so, we randomly deleted spikes in excess of the minimum observed spike count across phase bins and then computed the MI at a given phase bin. We repeated this procedure 1,000 times and averaged the observed MI at each phase bin.</quote>
       </span>
-      <span xml:id="t129" type="content_tags" ana="#content_tags.findings[24]" resp="#tagger" cert="1.0">
+      <span xml:id="t132" type="content_tags" ana="#content_tags.findings[24]" resp="#tagger" cert="1.0">
         <label>and each bin&#x27;s probabilities are estimated over the lowest sample count across bins, with bootstrapped resampling to that size</label>
         <quote>To achieve even sampling across all phase bins, the estimation of the probabilities for each phase bin was restricted to occur over the lowest number of samples across all phase bins ( n min ). We then used a bootstrapping procedure to estimate the average amount of MI for each phase bin. We randomly drew n min samples from all samples at a given phase bin 1,000 times to create MI resamples and averaged across all resamples to obtain the average MI at a phase bin.</quote>
       </span>
-      <span xml:id="t130" type="content_tags" ana="#content_tags.findings[25]" resp="#tagger" cert="1.0">
+      <span xml:id="t133" type="content_tags" ana="#content_tags.findings[25]" resp="#tagger" cert="1.0">
         <label>THE PRIMARY STATISTIC IS SAID TO BE BLIND TO SOMETHING: the resultant length assumes a single concentration across bins and cannot detect multimodal modulation</label>
         <quote>Because the mean resultant length R assumes a unimodal concentration of quantities across phase bins, it is insensitive to more complex forms of modulation such as multimodal modulations. Thus we repeated the analysis of modulation strength across frequencies using permutation statistics based on the entropy (nonuniformity) H of the phase-dependent histogram</quote>
       </span>
-      <span xml:id="t131" type="content_tags" ana="#content_tags.findings[26]" resp="#tagger" cert="1.0">
+      <span xml:id="t134" type="content_tags" ana="#content_tags.findings[26]" resp="#tagger" cert="1.0">
         <label>the pattern held for each animal separately and for units split by coherence band, firing rate, sulcal bank and electrode separation</label>
         <quote>All results were consistent when the analyses were performed separately for each animal ( Figs. S6 and S7 ). The pattern remained when selecting units based solely on beta or gamma coherence, low or high firing rates, the lateral and medial banks of the IPS, or near and far electrode pairs</quote>
       </span>
-      <span xml:id="t132" type="content_tags" ana="#content_tags.findings[27]" resp="#tagger" cert="1.0">
+      <span xml:id="t135" type="content_tags" ana="#content_tags.findings[27]" resp="#tagger" cert="1.0">
         <label>and it was absent in the baseline epoch and in coherent units without choice information</label>
         <quote>The pulsed choice-MI was specific to the choice period as well as to units that encoded upcoming choices. It was absent during the baseline epoch and for coherent units without choice-MI</quote>
       </span>
-      <span xml:id="t133" type="content_tags" ana="#content_tags.findings[28]" resp="#tagger" cert="1.0">
+      <span xml:id="t136" type="content_tags" ana="#content_tags.findings[28]" resp="#tagger" cert="1.0">
         <label>theta phase showed no relationship to choice information even among units selected for significant theta coherence</label>
         <quote>We found no significant relationship between theta LFP phases and choice-MI when repeating the analysis in Fig. 3 A for units with significant theta-frequency SFC ( Fig. S9 A , permutation tests, P FWER &gt; 0.05). Beta and gamma effects remained significant (permutation tests, P FWER &lt; 0.05).</quote>
       </span>
-      <span xml:id="t134" type="content_tags" ana="#content_tags.findings[29]" resp="#tagger" cert="1.0">
+      <span xml:id="t137" type="content_tags" ana="#content_tags.findings[29]" resp="#tagger" cert="1.0">
         <label>coherence above 20 Hz was stronger between closer electrode tips, which is read as gamma being more local than theta or beta</label>
         <quote>However, the distance between the electrode tips of the recording pairs influenced the SFC. Electrodes usually were separated from each other by about 2 mm during the recordings. However, when comparing the SFC for the half of the recordings with electrode tips near each other (median separation of 1.07 mm) and the half of the recordings with far electrode tips farther apart (median separation of 2.86 mm), we found that higher-frequency SFC (&gt;20 Hz), particularly including the gamma activity, was stronger for electrode tips that were closer to each other ( P FDR &lt; 0.05) ( Fig. S2 E and F ). Thus, gamma activity appeared to be more local than either theta or beta activity.</quote>
       </span>
-      <span xml:id="t135" type="content_tags" ana="#content_tags.findings[30]" resp="#tagger" cert="1.0">
+      <span xml:id="t138" type="content_tags" ana="#content_tags.findings[30]" resp="#tagger" cert="1.0">
         <label>the medial and lateral banks of the sulcus showed no difference in temporal structure</label>
         <quote>We also examined whether the observed temporal structure differed between the lateral and medial banks of the intraparietal sulcus (IPS). We found no significant difference</quote>
       </span>
-      <span xml:id="t136" type="content_tags" ana="#content_tags.findings[31]" resp="#tagger" cert="1.0">
+      <span xml:id="t139" type="content_tags" ana="#content_tags.findings[31]" resp="#tagger" cert="1.0">
         <label>theta phase predicted beta and gamma amplitude, with the theta to beta coupling strongest</label>
         <quote>We found significant PAC between theta phases and beta amplitudes (permutation test, P &lt; 10 −4 ) ( Fig. 4 A ). PAC for theta phases and gamma amplitudes (permutation test, P = 0.031) and beta phases and gamma amplitudes (permutation test, P &lt; 10 −4 ) also was significant, albeit weaker (permutation tests, theta–beta vs. theta–gamma, P = 0.007; theta–beta vs. beta–gamma, P = 0.01; theta–gamma vs. beta–gamma, P = 0.48). In addition we found significant phase concentrations for the preferred PAC phases for the theta–beta and theta–gamma frequency combinations across the electrode pairs (Rayleigh tests: theta–beta, P &lt; 10 −5 ; theta–gamma, P = 0.007) ( Fig. 4 A ). We found no significant concentration of the preferred PAC phase for the beta–gamma coupling (Rayleigh test, P = 0.22). Thus, the different time scales of PPC activity were nested with each other, with slower phases predicting faster amplitudes.</quote>
       </span>
-      <span xml:id="t137" type="content_tags" ana="#content_tags.findings[32]" resp="#tagger" cert="1.0">
+      <span xml:id="t140" type="content_tags" ana="#content_tags.findings[32]" resp="#tagger" cert="1.0">
         <label>phase-phase coupling was strongest between beta and gamma with beta leading, while theta and gamma phases were not coupled</label>
         <quote>Again we found pronounced cross-frequency interaction involving the beta activity ( Fig. 4 C ). The strongest phase–phase coupling was between the beta and gamma phases (permutation test, P &lt; 10 −4 ) followed by significant but weaker coupling between theta and beta phases (permutation test, P &lt; 10 −4 ; beta–gamma vs. theta–beta, P &lt; 10 −4 ; beta–gamma vs. theta–gamma, P &lt; 10 −4 ; theta–beta vs. theta–gamma, P = 0.038). Theta phases were not significantly coupled with gamma phases (permutation test, P = 0.27).</quote>
       </span>
-      <span xml:id="t138" type="content_tags" ana="#content_tags.findings[33]" resp="#tagger" cert="1.0">
+      <span xml:id="t141" type="content_tags" ana="#content_tags.findings[33]" resp="#tagger" cert="1.0">
         <label>THEY TEST THEIR OWN EXPLANATION AND IT FAILS: the beta to gamma phase difference did not correlate with the beta information moment</label>
         <quote>The beta–gamma phase difference seemed to match roughly the dissociation of the moment of the choice-MI from spiking for beta activity. Beta–gamma phase–phase coupling could contribute to the temporal localization of the choice-MI with respect to the beta activity. However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level</quote>
       </span>
-      <span xml:id="t139" type="content_tags" ana="#content_tags.findings[34]" resp="#tagger" cert="1.0">
+      <span xml:id="t142" type="content_tags" ana="#content_tags.findings[34]" resp="#tagger" cert="1.0">
         <label>beta activity took a central role among three interrelated temporal modes, most prominently coupled to slower theta through PAC and to faster gamma through phase-phase coupling</label>
         <quote>Overall, we identified three interrelated temporal modes of neuronal activity in the PPC. Beta activity took a central role and was most prominently coupled to slower theta activity through PAC and to faster gamma activity through phase–phase coupling.</quote>
       </span>
-      <span xml:id="t140" type="content_tags" ana="#content_tags.findings[35]" resp="#tagger" cert="1.0">
+      <span xml:id="t143" type="content_tags" ana="#content_tags.findings[35]" resp="#tagger" cert="1.0">
         <label>A MIXED UNIT OF ANALYSIS: 149 units of which 45 are single units and 104 multiunits, with 186 field recordings alongside</label>
         <quote>We analyzed the activity of 149 units [97 units (31 single units and 66 multiunits) for monkey C and 52 units (14 single units and 38 multiunits) for monkey R] and 186 simultaneously recorded local field potentials (LFP) (116 LFPs in monkey C and 70 LFPs in monkey R, one or two LFP electrodes per unit) from nearby (within ∼2 mm) electrodes.</quote>
       </span>
-      <span xml:id="t141" type="content_tags" ana="#content_tags.findings[36]" resp="#tagger" cert="1.0">
+      <span xml:id="t144" type="content_tags" ana="#content_tags.findings[36]" resp="#tagger" cert="1.0">
         <label>single-unit status required the cluster to stay clear of the multiunit cloud across a whole 100 second window</label>
         <quote>To isolate single-unit activity, we projected spike waveforms into a 3D principal component feature space on a moving 100-s time window. We used the unsupervised clustering algorithm k -means to over-cluster the spike waveforms. We then manually merged clusters that displayed clear separation from the multiunit cloud. Only time periods during the recording in which the single-unit cluster was clearly isolated from the multiunit cloud over the entire 100-s time window were accepted as single units.</quote>
       </span>
-      <span xml:id="t142" type="content_tags" ana="#content_tags.findings[37]" resp="#tagger" cert="1.0">
+      <span xml:id="t145" type="content_tags" ana="#content_tags.findings[37]" resp="#tagger" cert="1.0">
         <label>spikes and field phases were always taken from different electrodes</label>
         <quote>For all analyses spikes and phases of the LFP were obtained from separate electrodes within the same area.</quote>
       </span>
-      <span xml:id="t143" type="content_tags" ana="#content_tags.findings[38]" resp="#tagger" cert="1.0">
+      <span xml:id="t146" type="content_tags" ana="#content_tags.findings[38]" resp="#tagger" cert="1.0">
         <label>trial-locked evoked potentials were regressed out of every trial before analysis</label>
         <quote>We removed the influence of trial-locked evoked potentials through regression from each trial before further analysis.</quote>
       </span>
-      <span xml:id="t144" type="content_tags" ana="#content_tags.findings[39]" resp="#tagger" cert="1.0">
+      <span xml:id="t147" type="content_tags" ana="#content_tags.findings[39]" resp="#tagger" cert="1.0">
         <label>the family-wise correction was built against a named failure mode - a few large-effect frequencies dominating the maximum resample distribution and cutting its degrees of freedom</label>
         <quote>This procedure ensures that the maximum resample distribution is not biased by largely different distributions across frequencies. For example, if particular frequencies exhibited very large effects compared with others, these frequencies would dominate the maximum resample distribution because they would be selected as maximum resamples more often, effectively lowering the degrees of freedom of the resample distribution.</quote>
       </span>
-      <span xml:id="t145" type="content_tags" ana="#content_tags.findings[40]" resp="#tagger" cert="1.0">
+      <span xml:id="t148" type="content_tags" ana="#content_tags.findings[40]" resp="#tagger" cert="1.0">
         <label>a unit counted as coherent if any one of the tested frequency bins passed</label>
         <quote>Based on these tests, we labeled a unit as coherent if at least one frequency bin exhibited significant SFC. Where we recorded LFP activity on multiple electrodes, we chose the LFP recording with the maximum number of significant SFC frequency bins for further analyses.</quote>
       </span>
-      <span xml:id="t146" type="content_tags" ana="#content_tags.findings[41]" resp="#tagger" cert="1.0">
+      <span xml:id="t149" type="content_tags" ana="#content_tags.findings[41]" resp="#tagger" cert="1.0">
         <label>16,123 trials from one monkey and 11,440 from the other entered the analysis</label>
         <quote>The data analyzed here encompassed 16,123 trials (monkey C) and 11,440 trials (monkey R) that the animals performed on the choice task.</quote>
       </span>
-      <span xml:id="t147" type="content_tags" ana="#content_tags.findings[42]" resp="#tagger" cert="1.0">
+      <span xml:id="t150" type="content_tags" ana="#content_tags.findings[42]" resp="#tagger" cert="1.0">
         <label>reward magnitudes for each shape held for 50 to 60 trials and then changed without warning</label>
         <quote>The mean reward magnitudes for each shape remained constant for 50–60 trials and then transitioned to a new mean magnitude in an unsignaled fashion</quote>
       </span>
-      <span xml:id="t148" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t151" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>coherent unit</label>
         <term>coherent unit</term>
         <quote>Based on these tests, we labeled a unit as coherent if at least one frequency bin exhibited significant SFC.</quote>
       </span>
-      <span xml:id="t149" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t152" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>orthogonal-MI</label>
         <term>orthogonal-MI</term>
         <quote>To estimate the orthogonal-MI, we removed the spike-count histogram’s prediction about the shape of the choice-MI histogram for each unit through regression ( Fig. 3 D and Fig. S4 ).</quote>
       </span>
-      <span xml:id="t150" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t153" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>n:m phase-phase coupling</label>
         <term>n:m phase-phase coupling</term>
         <quote>Two oscillations at the different frequencies f 1 and f 2 where n*f 1 = m*f 2 for integers n and m are phase coupled if the distribution of their generalized phase differences n*θ 1 – m*θ 2 is nonuniform.</quote>
       </span>
-      <span xml:id="t151" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t154" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>modulation entropy</label>
         <term>modulation entropy</term>
         <quote>We subsequently normalized H f by the maximum entropy to obtain the modulation entropy</quote>
       </span>
-      <span xml:id="t152" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t155" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="1.0">
         <label>mutual information</label>
         <term>mutual information</term>
         <quote>We studied the encoding properties of neurons’ firing rates by quantifying the MI between the spiking of a neuron S and the movement condition C (in or out of response field) M I ( C , S ) = ∑ s , c P ( c ) P ( s | c ) l o g 2 ( P ( s | c ) P ( s ) ) . To derive the marginal and conditional probabilities of spiking and movement condition, we created two binary matrices that represented the presence of a spike and the movement condition, respectively, for each time point and trial at 1-kHz sampling.</quote>
       </span>
-      <span xml:id="t153" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t156" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
         <label>orthogonal-MI</label>
         <term>orthogonal-MI</term>
         <quote>To assess directly whether the beta activity varied with the spike counts and encoding properties of PPC neurons independently, we repeated the analysis after estimating an orthogonal-MI. To estimate the orthogonal-MI, we removed the spike-count histogram’s prediction about the shape of the choice-MI histogram for each unit through regression ( Fig. 3 D and Fig. S4 ). The orthogonal-MI histogram was significantly modulated (permutation test, P &lt; 10 −4 ). Thus, beta activity independently correlated with the spike counts and choice encoding of PPC units.</quote>
       </span>
-      <span xml:id="t154" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t157" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="1.0">
         <label>coherent</label>
         <term>coherent</term>
         <quote>Based on these tests, we labeled a unit as coherent if at least one frequency bin exhibited significant SFC. Where we recorded LFP activity on multiple electrodes, we chose the LFP recording with the maximum number of significant SFC frequency bins for further analyses.</quote>
       </span>
-      <span xml:id="t155" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t158" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
         <label>stratifying</label>
         <term>stratifying</term>
         <quote>To control for confounding associations between the amount of spiking and MI, we also performed the above analysis while stratifying the number of spikes at each phase bin. To do so, we randomly deleted spikes in excess of the minimum observed spike count across phase bins and then computed the MI at a given phase bin. We repeated this procedure 1,000 times and averaged the observed MI at each phase bin.</quote>
       </span>
-      <span xml:id="t156" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t159" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
         <label>single units</label>
         <term>single units</term>
         <quote>To isolate single-unit activity, we projected spike waveforms into a 3D principal component feature space on a moving 100-s time window. We used the unsupervised clustering algorithm k -means to over-cluster the spike waveforms. We then manually merged clusters that displayed clear separation from the multiunit cloud. Only time periods during the recording in which the single-unit cluster was clearly isolated from the multiunit cloud over the entire 100-s time window were accepted as single units.</quote>
       </span>
-      <span xml:id="t157" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t160" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>LFP phase bin (eight evenly spaced bins)</label>
         <term>LFP phase bin (eight evenly spaced bins)</term>
         <quote>We defined eight different LFP phase bins and calculated how much choice-MI varies across the different bins ( Fig. 3 A ).</quote>
       </span>
-      <span xml:id="t158" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t161" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>movement choice (target in or out of the neuron&#x27;s response field)</label>
         <term>movement choice (target in or out of the neuron&#x27;s response field)</term>
         <quote>We studied the encoding properties of neurons’ firing rates by quantifying the MI between the spiking of a neuron S and the movement condition C (in or out of response field)</quote>
       </span>
-      <span xml:id="t159" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t162" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>reward magnitude associated with each target shape</label>
         <term>reward magnitude associated with each target shape</term>
         <quote>The mean reward magnitudes for each shape remained constant for 50–60 trials and then transitioned to a new mean magnitude in an unsignaled fashion ( Fig. S1 ).</quote>
       </span>
-      <span xml:id="t160" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t163" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>choice mutual information carried by a unit&#x27;s firing</label>
         <term>choice mutual information carried by a unit&#x27;s firing</term>
         <quote>We quantified the information about upcoming movements in the firing rate by estimating the mutual information (MI) between the movement choice and the firing rate ( Fig. 1 D ).</quote>
       </span>
-      <span xml:id="t161" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+      <span xml:id="t164" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
         <label>spike-field coherence</label>
         <term>spike-field coherence</term>
         <quote>We next assessed the temporal structure of PPC activity by estimating the spike-field coherence (SFC) and LFP power spectra.</quote>
       </span>
-      <span xml:id="t162" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
+      <span xml:id="t165" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
         <label>spike count per phase bin (stratified to equality)</label>
         <term>spike count per phase bin (stratified to equality)</term>
         <quote>We reestimated MI while stratifying spike counts to be equal across phase bins ( SI Materials and Methods ).</quote>
       </span>
-      <span xml:id="t163" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger">
+      <span xml:id="t166" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger">
         <label>trial-locked evoked potentials</label>
         <term>trial-locked evoked potentials</term>
         <quote>We removed the influence of trial-locked evoked potentials through regression from each trial before further analysis.</quote>
       </span>
-      <span xml:id="t164" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t167" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="1.0">
         <label>choice-MI</label>
         <term>choice-MI</term>
         <quote>Choice-MI varied significantly with LFP phases in the beta- and gamma-frequency ranges (permutation tests, P FWER &lt; 0.05) ( Fig. 3 A ) but not with theta phases. Repeating the analysis based on modulation entropy, which makes fewer distributional assumptions, yielded similar results ( SI Materials and Methods and Fig. S3 B ). The information that PPC units carried in their firing rates varied along phases in beta and gamma frequencies.</quote>
       </span>
-      <span xml:id="t165" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t168" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
         <label>spike count</label>
         <term>spike count</term>
         <quote>In the beta-frequency band, the peak-to-trough modulation of spike counts was 13.6%, corresponding to a modulation in firing rate by about 6.6 spikes/s ( Fig. 3 B ). Spiking was distributed symmetrically about the spike-preferred beta-phase with no significant differences in the amount of spiking between the bins before and after the spike-preferred beta-phase (permutation test, P = 0.99). Measuring the spike counts for evenly spaced beta-activity phase bins allowed us to study the temporal concentration (trigonometric moment) of spiking in great detail (see radial black lines in Fig. 3 B – F ). The moment of the beta spike-count histogram was indistinguishable from the average spike-preferred beta phase during the analysis epoch, further indicating the symmetry of the distribution of spikes with beta-frequency phase.</quote>
       </span>
-      <span xml:id="t166" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t169" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
         <label>SFC</label>
         <term>SFC</term>
         <quote>Beta activity varied with task epoch. SFC and power ( Fig. 2 A , Inset ) decreased significantly during the choice epoch compared with the baseline epoch</quote>
       </span>
-      <span xml:id="t167" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t170" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
         <label>phase</label>
         <term>phase</term>
         <quote>We defined eight different LFP phase bins and calculated how much choice-MI varies across the different bins ( Fig. 3 A ). We analyzed the choice epoch 200–1,000 ms after choice target onset and included all units that exhibited significant SFC and significant choice-MI during the choice epoch [79 units (53%); 54 units for monkey C and 25 units for monkey R). The period of 200–1,000 ms covered the choice epoch, avoiding visual onset transients present in the first 200 ms of PPC activity.</quote>
       </span>
-      <span xml:id="t168" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t171" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="1.0">
         <label>trigonometric moment</label>
         <term>trigonometric moment</term>
         <quote>In the beta-frequency band, the peak-to-trough modulation of spike counts was 13.6%, corresponding to a modulation in firing rate by about 6.6 spikes/s ( Fig. 3 B ). Spiking was distributed symmetrically about the spike-preferred beta-phase with no significant differences in the amount of spiking between the bins before and after the spike-preferred beta-phase (permutation test, P = 0.99). Measuring the spike counts for evenly spaced beta-activity phase bins allowed us to study the temporal concentration (trigonometric moment) of spiking in great detail (see radial black lines in Fig. 3 B – F ). The moment of the beta spike-count histogram was indistinguishable from the average spike-preferred beta phase during the analysis epoch, further indicating the symmetry of the distribution of spikes with beta-frequency phase.</quote>
       </span>
-      <span xml:id="t169" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t172" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>149 units — total number of recorded parietal units analyzed across the two monkeys</label>
         <quote>We analyzed the activity of 149 units [97 units (31 single units and 66 multiunits) for monkey C and 52 units (14 single units and 38 multiunits) for monkey R] and 186 simultaneously recorded local field potentials (LFP) (116 LFPs in monkey C and 70 LFPs in monkey R, one or two LFP electrodes per unit) from nearby (within ∼2 mm) electrodes.</quote>
       </span>
-      <span xml:id="t170" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t173" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>101 units (68%) — number and share of units with significant choice mutual information during the choice epoch</label>
         <quote>A total of 101 units (68%; 68 units for monkey C and 33 units for monkey R) exhibited significant choice-MI in the choice epoch (200–1,000 ms after choice target onset) (permutation tests, P &lt; 0.05).</quote>
       </span>
-      <span xml:id="t171" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t174" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>13.6% / 6.6 spikes/s — peak-to-trough modulation of spike count by beta phase, and the equivalent firing-rate swing</label>
         <quote>In the beta-frequency band, the peak-to-trough modulation of spike counts was 13.6%, corresponding to a modulation in firing rate by about 6.6 spikes/s ( Fig. 3 B ).</quote>
       </span>
-      <span xml:id="t172" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+      <span xml:id="t175" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>15.3% — peak-to-trough modulation of choice mutual information by beta phase</label>
         <quote>Choice-MI showed a peak-to-trough modulation by the beta activity of 15.3%.</quote>
       </span>
-      <span xml:id="t173" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+      <span xml:id="t176" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>6.2% — peak-to-trough modulation of spiking by gamma phase (about three spikes/s)</label>
         <quote>The peak-to-trough modulation of spiking along the gamma phases was 6.2%, corresponding to a firing rate modulation of approximately three spikes/s.</quote>
       </span>
-      <span xml:id="t174" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
+      <span xml:id="t177" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
         <label>12.3% — peak-to-trough modulation of choice mutual information by gamma phase</label>
         <quote>Peak-to-trough modulation of choice-MI by gamma activity was 12.3%.</quote>
       </span>
-      <span xml:id="t175" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
+      <span xml:id="t178" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
         <label>16,123 trials (monkey C) and 11,440 trials (monkey R) — number of choice-task trials contributed by each animal</label>
         <quote>The data analyzed here encompassed 16,123 trials (monkey C) and 11,440 trials (monkey R) that the animals performed on the choice task.</quote>
       </span>
-      <span xml:id="t176" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger">
+      <span xml:id="t179" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger">
         <label>1.07 mm vs. 2.86 mm — median electrode-tip separation of the near and far halves of recording pairs, used to test locality of the rhythms</label>
         <quote>However, when comparing the SFC for the half of the recordings with electrode tips near each other (median separation of 1.07 mm) and the half of the recordings with far electrode tips farther apart (median separation of 2.86 mm), we found that higher-frequency SFC (&gt;20 Hz), particularly including the gamma activity, was stronger for electrode tips that were closer to each other ( P FDR &lt; 0.05) ( Fig. S2 E and F ).</quote>
       </span>
-      <span xml:id="t177" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger">
+      <span xml:id="t180" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger">
         <label>r = −0.063, P = 0.55 — circular correlation between beta-gamma phase difference and the moment of the beta choice-MI histogram (no relationship)</label>
         <quote>However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level (circular correlation, same electrode pairs from Fig. 3 ; n = 79, r = −0.063, P = 0.55).</quote>
       </span>
-      <span xml:id="t178" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t181" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">
         <label>13.6% — peak-to-trough modulation of the spike count by beta phase, about 6.6 spikes per second</label>
         <quote>In the beta-frequency band, the peak-to-trough modulation of spike counts was 13.6%, corresponding to a modulation in firing rate by about 6.6 spikes/s ( Fig. 3 B ). Spiking was distributed symmetrically about the spike-preferred beta-phase with no significant differences in the amount of spiking between the bins before and after the spike-preferred beta-phase (permutation test, P = 0.99). Measuring the spike counts for evenly spaced beta-activity phase bins allowed us to study the temporal concentration (trigonometric moment) of spiking in great detail (see radial black lines in Fig. 3 B – F ). The moment of the beta spike-count histogram was indistinguishable from the average spike-preferred beta phase during the analysis epoch, further indicating the symmetry of the distribution of spikes with beta-frequency phase.</quote>
       </span>
-      <span xml:id="t179" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t182" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
         <label>15.3% — peak-to-trough modulation of choice information by beta phase - a similar size to the spike modulation but at a different phase</label>
         <quote>Choice-MI showed a peak-to-trough modulation by the beta activity of 15.3%. Unlike the spike counts, the choice-MI was asymmetric around the spike-preferred beta phase. The moment of the choice-MI histogram differed significantly from the moment of the beta spike-count histogram (permutation test, P &lt; 10 −4 ) with MI peaking during the downswing of the spiking cycle ( Fig. 3 C ). In other words, spike count and choice-MI peaked at different times during the beta activity.</quote>
       </span>
-      <span xml:id="t180" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t183" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="1.0">
         <label>12.3% — peak-to-trough modulation of choice information by gamma phase, against 6.2 percent for the spike count</label>
         <quote>Peak-to-trough modulation of choice-MI by gamma activity was 12.3%. Choice-MI shared the same temporal concentration along gamma phases ( Fig. 3 F ). We found no difference between the moments of choice-MI and spike count in the gamma activity (permutation test, P = 0.59).</quote>
       </span>
-      <span xml:id="t181" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t184" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">
         <label>P = 0.30 — the gamma orthogonal-information null - the result that says gamma&#x27;s two effects are not separable</label>
         <quote>We then estimated the orthogonal-MI for gamma frequency activity ( Fig. 3 G ). The orthogonal-MI for gamma activity was distributed uniformly across phase bins (permutation test, P = 0.30). No phase bin exhibited differences from the average orthogonal-MI across gamma-phase bins (permutation tests, all P &gt; 0.05). Thus, correlations between gamma activity, choice-MI, and spike counts were not independent.</quote>
       </span>
-      <span xml:id="t182" type="content_tags" ana="#content_tags.quantities[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t185" type="content_tags" ana="#content_tags.quantities[13]" resp="#tagger" cert="1.0">
         <label>r = −0.063 — the correlation between the beta-gamma phase difference and the moment of the beta choice-MI phase histogram, testing whether that coupling could contribute to the temporal localization of the choice-MI</label>
         <quote>The beta–gamma phase difference seemed to match roughly the dissociation of the moment of the choice-MI from spiking for beta activity. Beta–gamma phase–phase coupling could contribute to the temporal localization of the choice-MI with respect to the beta activity. However, we observed no correlation between the beta–gamma phase difference and the moment of the beta choice-MI phase histogram on a single-spike LFP level</quote>
       </span>
-      <span xml:id="t183" type="content_tags" ana="#content_tags.quantities[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t186" type="content_tags" ana="#content_tags.quantities[14]" resp="#tagger" cert="1.0">
         <label>149 units — 45 single units and 104 multiunits from two monkeys, with 186 simultaneous field recordings</label>
         <quote>We analyzed the activity of 149 units [97 units (31 single units and 66 multiunits) for monkey C and 52 units (14 single units and 38 multiunits) for monkey R] and 186 simultaneously recorded local field potentials (LFP) (116 LFPs in monkey C and 70 LFPs in monkey R, one or two LFP electrodes per unit) from nearby (within ∼2 mm) electrodes.</quote>
       </span>
-      <span xml:id="t184" type="content_tags" ana="#content_tags.quantities[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t187" type="content_tags" ana="#content_tags.quantities[15]" resp="#tagger" cert="1.0">
         <label>101 units (68%) — units with significant choice information in the firing rate</label>
         <quote>As expected, the firing rate of PPC neurons robustly encoded the upcoming movement choice. After choice target onset, units exhibited a strong transient increase in the firing rate regardless of the upcoming movement choice ( Fig. 1 C ). Firing rates separated depending on the movement choice. We quantified the information about upcoming movements in the firing rate by estimating the mutual information (MI) between the movement choice and the firing rate ( Fig. 1 D ). A total of 101 units (68%; 68 units for monkey C and 33 units for monkey R) exhibited significant choice-MI in the choice epoch (200–1,000 ms after choice target onset) (permutation tests, P &lt; 0.05).</quote>
       </span>
-      <span xml:id="t185" type="content_tags" ana="#content_tags.quantities[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t188" type="content_tags" ana="#content_tags.quantities[16]" resp="#tagger" cert="1.0">
         <label>16,123 trials — trials from monkey C, against 11,440 from monkey R</label>
         <quote>The data analyzed here encompassed 16,123 trials (monkey C) and 11,440 trials (monkey R) that the animals performed on the choice task.</quote>
       </span>

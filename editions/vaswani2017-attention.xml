@@ -67,34 +67,42 @@
       </span>
       <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Reducing long-range dependencies to a constant number of operations costs effective resolution, which the authors only partly offset with multi-head attention.</label>
+        <note>what this limits: the long-range dependency claim: the constant number of operations comes AT THE COST OF REDUCED EFFECTIVE RESOLUTION DUE TO AVERAGING ATTENTION-WEIGHTED POSITIONS</note>
         <quote>In the Transformer this is reduced to a constant number of operations, albeit at the cost of reduced effective resolution due to averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as described in section 3.2.</quote>
       </span>
       <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>On the constituency-parsing generalisation test the Transformer is still beaten by one prior model.</label>
+        <note>what this limits: the constituency-parsing result: it yields BETTER RESULTS THAN ALL PREVIOUSLY REPORTED MODELS WITH THE EXCE[ption of one]</note>
         <quote>Our results in Table 4 show that despite the lack of task-specific tuning our model performs surprisingly well, yielding better results than all previously reported models with the exception of the Recurrent Neural Network Grammar [8].</quote>
       </span>
       <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Label smoothing, which they use, degrades perplexity even as it helps BLEU.</label>
+        <note>what this limits: the perplexity figures specifically: label smoothing HURTS PERPLEXITY, AS THE MODEL LEARNS TO BE MORE UNSURE, BUT IMPROVES ACCURACY AND BLEU SCORE</note>
         <quote>This hurts perplexity, as the model learns to be more unsure, but improves accuracy and BLEU score.</quote>
       </span>
       <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>Hyperparameters for the parsing experiments were barely tuned.</label>
+        <note>what this limits: the parsing results: WE PERFORMED ONLY A SMALL NUMBER OF EXPERIMENTS TO SELECT THE DROPOUT ... LEARNING RATES AND BEAM SIZE</note>
         <quote>We performed only a small number of experiments to select the dropout, both attention and residual (section 5.4), learning rates and beam size on the Section 22 development set, all other parameters remained unchanged from the English-to-German base translation model.</quote>
       </span>
       <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The scaling factor every later implementation copies is justified by a suspicion.</label>
+        <note>what this limits: the scaled dot-product attention used here and since: the authors state they suspect that for large key dimensions the dot products grow large and push the softmax into regions of extremely small gradients, and scale to counteract that</note>
         <quote>We suspect that for large values of dk, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients</quote>
       </span>
       <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The two candidate position encodings performed the same, and the one adopted was chosen on a conjecture about behaviour never tested here.</label>
+        <note>what this limits: the sinusoidal positional encoding as a design decision: the authors found the learned and sinusoidal versions produced nearly identical results and chose the sinusoidal one because it may allow extrapolation to longer sequences than those seen in training</note>
         <quote>We also experimented with using learned positional embeddings [9] instead, and found that the two versions produced nearly identical results (see Table 3 row (E)). We chose the sinusoidal version because it may allow the model to extrapolate to sequence lengths longer than the ones encountered during training</quote>
       </span>
       <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>The interpretability claim is hedged in both of its clauses.</label>
+        <note>what this limits: attention distributions from this architecture used as explanations: the paper says self-attention could yield more interpretable models and that heads appear to exhibit behaviour related to syntactic and semantic structure</note>
         <quote>As side benefit, self-attention could yield more interpretable models. We inspect attention distributions from our models and present and discuss examples in the appendix. Not only do individual attention heads clearly learn to perform different tasks, many appear to exhibit behavior related to the syntactic and semantic structure of the sentences</quote>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The attention mechanism adopted is the one that loses in a stated regime, and it was chosen for implementation speed.</label>
+        <note>what this limits: the choice of dot-product over additive attention: the authors state additive attention outperforms unscaled dot-product attention for larger key dimensions, and adopt dot-product because it can be implemented with highly optimized matrix multiplication code</note>
         <quote>While for small values of dk the two mechanisms perform similarly, additive attention outperforms dot product attention without scaling for larger values of dk</quote>
       </span>
       <span xml:id="t12" type="concepts" ana="#concepts[1]" resp="#paper">

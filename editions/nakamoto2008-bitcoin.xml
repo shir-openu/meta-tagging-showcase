@@ -60,38 +60,47 @@
       </span>
       <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>security holds only while honest nodes control the majority of CPU power (the 51% assumption)</label>
+        <note>what this limits: every security claim in the paper: THE SYSTEM IS SECURE AS LONG AS HONEST NODES COLLECTIVELY CONTROL MORE CPU POWER THAN ANY COOPERATING GROUP OF ATTACKER NODES</note>
         <quote>The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</quote>
       </span>
       <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Security holds only under the assumption that honest nodes control the majority of CPU power.</label>
+        <note>what this limits: the same scope as item 0 - the majority-honest assumption</note>
         <quote>The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</quote>
       </span>
       <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Simplified payment verification can be deceived while an attacker overpowers the network.</label>
+        <note>what this limits: simplified payment verification specifically: THE VERIFICATION IS RELIABLE AS LONG AS HONEST NODES CONTROL THE NETWORK, BUT IS MORE VULNERABLE IF THE NETWORK IS OVERPOWERED</note>
         <quote>As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker.</quote>
       </span>
       <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>The privacy scheme cannot prevent all linkage between transactions of one owner.</label>
+        <note>what this limits: the privacy claim: SOME LINKING IS STILL UNAVOIDABLE WITH MULTI-INPUT TRANSACTIONS, WHICH NECESSARILY REVEAL THAT THEIR INPUTS WERE OWNED BY THE SAME OWNER</note>
         <quote>Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner.</quote>
       </span>
       <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The security claim is conditional on a distributional fact about who owns computing power, which no participant can check.</label>
+        <note>what this limits: the claim that this system removes the need for trust: it is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes, a condition about the distribution of hardware rather than a property of the cryptography</note>
         <quote>The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes</quote>
       </span>
       <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The deterrent is economic rather than cryptographic: it assumes an attacker who prefers the more profitable option.</label>
+        <note>what this limits: the claim that an attack is infeasible: an attacker with a CPU majority is argued to be deterred by preferring to generate new coins over defrauding people, which is an assumption about the attacker&#x27;s motives and not about what the attacker can do</note>
         <quote>If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins</quote>
       </span>
       <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Privacy is pseudonymity, and the paper names the exact way it fails.</label>
+        <note>what this limits: any description of this system as anonymous: privacy is maintained by keeping public keys anonymous, and the paper states that if the owner of a key is revealed, linking could reveal the other transactions belonging to that owner</note>
         <quote>The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner</quote>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The lightweight verification method is defeasible for as long as an attack lasts.</label>
+        <note>what this limits: a payment accepted through simplified verification: the paper states the simplified method can be fooled by an attacker&#x27;s fabricated transactions for as long as the attacker can continue to overpower the network</note>
         <quote>While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker&#x27;s fabricated transactions for as long as the attacker can continue to overpower the network</quote>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
         <label>The feasibility argument for storage rests on a hardware extrapolation made in 2008.</label>
+        <note>what this limits: the claim that block headers can be kept in memory: it rests on 2008 machines shipping with 2GB of RAM and on Moore&#x27;s Law predicting growth of 1.2GB per year</note>
         <quote>With computer systems typically selling with 2GB of RAM as of 2008, and Moore&#x27;s Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory</quote>
       </span>
       <span xml:id="t13" type="transfers" ana="#transfers[0]" resp="#tagger">

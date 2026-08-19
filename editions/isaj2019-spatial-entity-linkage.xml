@@ -113,18 +113,22 @@
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The attributes that define a correct match are the ones excluded from the scoring, so identity is fixed by whichever fields were reserved.</label>
+        <note>what this limits: any accuracy figure reported here: the attributes used to construct the ground truth are deliberately excluded from the similarity computation, so what counts as the same entity is defined by one set of attributes and predicted from a different set</note>
         <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>String similarity is stated to be inapplicable to the attribute that looks most like a key, with a worked counterexample.</label>
+        <note>what this limits: any use of string-similarity metrics on addresses: the paper states they cannot be used, giving two addresses with a Levenshtein similarity of 0.963 that are 650 meters apart</note>
         <quote>The similarity between two addresses cannot be measured with Levenshtein, Jaccard, Cosine, etc. since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Coordinates fail as an identifier in both directions at once.</label>
+        <note>what this limits: any linkage of these sources on coordinates: different spatial entities may share coordinates, as with shops in a shopping mall, and one entity may appear at coordinates 82 meters apart in two sources</note>
         <quote>Different spatial entities might co-exist in the same coordinates (shops in a shopping mall), or the same entity might be located in different but nearby coordinates across different sources (e.g., ”Chicago Roasthouse” appears in Yelp and Google Places with coordinates 82 meters apart</quote>
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The methods this work builds on were fitted to a different kind of entity, and the authors say the resemblance cannot be assumed.</label>
+        <note>what this limits: carrying an entity-resolution method over to spatial entities: the authors state such solutions are learned on human entity datasets and that the resemblance of behaviours between the two cannot merely be assumed</note>
         <quote>The proposed solutions for entity resolution in individuals, either supervised or based on an experimental threshold, are learned on human entity datasets. One can not merely assume the resemblance of behaviors in a human entity dataset to a spatial entity one</quote>
       </span>
       <span xml:id="t19" type="concepts" ana="#concepts[1]" resp="#paper">

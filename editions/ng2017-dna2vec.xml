@@ -60,14 +60,17 @@
       </span>
       <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger" cert="1.0">
         <label>The standard encoding asserts that every pair of sequences is equally unlike every other, which is false of the sequences themselves.</label>
+        <note>what this limits: any similarity computed over one-hot k-mer encodings: the distance between any arbitrary pair is equidistant, even though ATGGC should be closer to ATGGG than CACGA</note>
         <quote>Worse yet, the distance between any arbitrary pair of one-hot vectors is equidistant, even though ATGGC should be closer to ATGGG than CACGA</quote>
       </span>
       <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger" cert="1.0">
         <label>Every similarity result in the paper is measured against one stipulated alignment scoring, including a gap penalty of zero.</label>
+        <note>what this limits: the reported correlation between dna2vec cosine similarity and sequence similarity: the Needleman-Wunsch scores use a match score of 1, mismatch of 0 and gap penalty of 0, so the correlation is with that scoring and not with alignment in general</note>
         <quote>All of the Needleman-Wunsch similarity score in this paper were computed using Biopython’s align.globalxx function, which used a match score of 1, mismatch of 0 and gap penalty of 0</quote>
       </span>
       <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
         <label>The method&#x27;s justification is a hypothesis about words, carried over to nucleotides, and the paper marks the inspiration as loose.</label>
+        <note>what this limits: the claim that dna2vec vectors carry biological meaning: the training objective is warranted by the distributional hypothesis about words appearing in the same context, which the paper says it is loosely inspired by</note>
         <quote>This reconstruction of context of words is loosely inspired by the linguistic concept of distributional hypothesis, which states that words that appear in the same context have similar meaning</quote>
       </span>
       <span xml:id="t7" type="transfers" ana="#transfers[0]" resp="#tagger">

@@ -93,34 +93,42 @@
       </span>
       <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>the paper identifies three limitations of its radiologist comparison</label>
+        <note>what this limits: the radiologist comparison, which the authors themselves qualify: WE IDENTIFY THREE LIMITATIONS OF THIS COMPARISON</note>
         <quote>We identify three limitations of this comparison.</quote>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>The paper announces three limitations of the radiologist comparison but enumerates only two (a &#x27;First&#x27; and a &#x27;Third&#x27;); the second is missing from the text.</label>
+        <note>what this limits: the completeness of that qualification: the paper announces three limitations and prints a FIRST and a THIRD with no SECOND. Verified in the version of record, arXiv 1711.05225v3 (25 Dec 2017), not only in our staged copy - so this is the paper&#x27;s own text and not a lost sentence in extraction</note>
         <quote>We identify three limitations of this comparison.</quote>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Only frontal radiographs were shown to both model and radiologists, although a share of accurate diagnoses requires the lateral view.</label>
+        <note>what this limits: the diagnostic setup for both model and radiologists: ONLY FRONTAL RADIOGRAPHS WERE PRESENTED ... BUT IT HAS BEEN SHOWN THAT UP TO 15% OF ACCURATE DIAGNOSES REQUIRE THE LATERAL VIEW</note>
         <quote>First, only frontal radiographs were presented to the radiologists and model during diagnosis, but it has been shown that up to 15% of accurate diagnoses require the lateral view (Raoof et al., 2012); we thus expect that this setup provides a conservative estimate of performance.</quote>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>Neither model nor radiologists could use patient history, which is known to change radiologist diagnostic performance.</label>
+        <note>what this limits: the comparison against clinical practice: NEITHER THE MODEL NOR THE RADIOLOGISTS WERE ... PERMITTED TO USE PATIENT HISTORY, WHICH HAS BEEN SHOWN TO DECREASE RADIOLOGIST DIAGNOSTIC PERFORMANCE</note>
         <quote>Third, neither the model nor the radiologists were not permitted to use patient history, which has been shown to decrease radiologist diagnostic performance in interpreting chest radiographs (Berbaum et al., 1985; Potchen et al., 1979);</quote>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The standard the model is measured against is the other radiologists&#x27; labels, not the presence of disease.</label>
+        <note>what this limits: the claim that this model exceeds practicing radiologists: the F1 score for each radiologist and for the model is computed against each of the other four radiologists&#x27; labels as ground truth, so the comparison is agreement with those four rather than detection of disease</note>
         <quote>We compute the F1 score for each individual radiologist and for CheXNet against each of the other 4 labels as ground truth</quote>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The training labels were produced by text extraction from reports rather than by anyone looking at the images.</label>
+        <note>what this limits: the labels this model was trained on: they were assigned by automatic extraction methods applied to radiology reports, so a label records what a report said rather than what an image shows</note>
         <quote>annotate each image with up to 14 different thoracic pathology labels using automatic extraction methods on radiology reports</quote>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Every image the extractor did not mark becomes a negative example.</label>
+        <note>what this limits: the negative class in this task: images are negative when pneumonia is not among the annotated pathologies, so absence of a label is used in place of absence of the condition</note>
         <quote>We label images that have pneumonia as one of the annotated pathologies as positive examples and label all other images as negative examples</quote>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The model reports fourteen findings while the headline number describes one of them.</label>
+        <note>what this limits: the performance figure quoted for this model: the network outputs a vector of binary labels over fourteen pathology classes, while the radiologist comparison concerns the pneumonia task alone</note>
         <quote>instead of outputting one binary label, ChexNet outputs a vector t of binary labels indicating the absence or presence of each of the following 14 pathology classes</quote>
       </span>
       <span xml:id="t18" type="transfers" ana="#transfers[0]" resp="#tagger">

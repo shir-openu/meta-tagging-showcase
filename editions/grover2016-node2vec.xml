@@ -61,26 +61,32 @@
       </span>
       <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Reusing walk samples across source nodes trades statistical purity for efficiency and can bias the procedure.</label>
+        <note>what this limits: every sampled walk and the estimates built on it: SAMPLE REUSE CAN INTRODUCE SOME BIAS IN THE OVERALL PROCEDURE</note>
         <quote>Note that sample reuse can introduce some bias in the overall procedure.</quote>
       </span>
       <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>When the search phase does not matter for a given network, node2vec collapses to the DeepWalk baseline and offers no gain.</label>
+        <note>what this limits: the claim that the search strategy contributes: IN THE WORST CASE, THE SEARCH PHASE HAS LITTLE BEARING ON LEARNED REPRESENTATIONS IN WHICH CASE NODE2VEC IS EQUIVALENT TO DEEPWALK</note>
         <quote>In the worst case, the search phase has little bearing on learned representations in which case node2vec is equivalent to DeepWalk.</quote>
       </span>
       <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The paper does not explain why the Hadamard edge operator works best, nor give equivalence notions for edges.</label>
+        <note>what this limits: the recommendation of the Hadamard operator: WE WOULD LIKE TO EXPLORE THE REASONS BEHIND THE SUCCESS OF HADAMARD OPERATOR OVER OTHERS - it performs best and the paper cannot say why</note>
         <quote>As a future work, we would like to explore the reasons behind the success of Hadamard operator over others, as well as establish interpretable equivalence notions for edges based on the search parameters.</quote>
       </span>
       <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>The likelihood is factorised by assuming each neighbourhood node is observed independently of the others given the source, and the paper gives tractability as the reason.</label>
+        <note>what this limits: the learned embeddings as a model of a network neighbourhood: the likelihood is factorised by assuming each neighbourhood node is observed independently of every other one given the source, and the paper adopts this to make the optimisation tractable</note>
         <quote>In order to make the optimization problem tractable, we make two standard assumptions: • Conditional independence. We factorize the likelihood by assuming that the likelihood of observing a neighborhood node is independent of observing any other neighborhood node given the feature representation of the source</quote>
       </span>
       <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The construct borrowed from language does not carry over, and the paper says why: text is linear and networks are not, so the neighbourhood had to be redefined.</label>
+        <note>what this limits: node2vec read as word2vec applied to graphs: the neighbourhood in language is a sliding window over consecutive words, which the paper states does not transfer because networks are not linear, so the neighbourhood is redefined as a sampled set</note>
         <quote>Feature learning methods based on the Skip-gram architecture have been originally developed in the context of natural language [21]. Given the linear nature of text, the notion of a neighborhood can be naturally defined using a sliding window over consecutive words. Networks, however, are not linear, and thus a richer notion of a neighborhood is needed</quote>
       </span>
       <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>Prior methods are criticised for assuming a particular relationship between network structure and the prediction task, with spectral clustering named as an example.</label>
+        <note>what this limits: a comparison against spectral clustering or similar baselines: those methods assume a specific relationship between network structure and the task - graph cuts being useful for classification - which the paper calls reasonable in many scenarios but unsatisfactory for generalising across diverse networks</note>
         <quote>For instance, spectral clustering makes a strong homophily assumption that graph cuts will be useful for classification [29]. Such assumptions are reasonable in many scenarios, but unsatisfactory in effectively generalizing across diverse networks</quote>
       </span>
       <span xml:id="t10" type="transfers" ana="#transfers[0]" resp="#tagger">

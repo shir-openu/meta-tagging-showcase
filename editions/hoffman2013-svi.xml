@@ -98,30 +98,37 @@
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>The general algorithm is derived only for conjugate exponential-family models and does not cover nonconjugate models such as correlated or dynamic topic models.</label>
+        <note>what this limits: the reach of the derivation: WE DEVELOPED OUR ALGORITHM WITH CONJUGATE EXPONENTIAL FAMILY MODELS, so nonconjugate models are outside it</note>
         <quote>We developed our algorithm with conjugate exponential family models.</quote>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Convergence is only to a local optimum, and very small minibatches can lead to a poor one.</label>
+        <note>what this limits: any solution the algorithm returns: IT IS GUARANTEED TO CONVERGE TO A LOCAL OPTIMUM BUT TAKING LARGE STEPS ON THE BASIS OF VERY FEW DATA POINTS MAY LEAD TO A POOR ONE</note>
         <quote>Stochastic variational inference is guaranteed to converge to a local optimum but taking large steps on the basis of very few data points may lead to a poor one.</quote>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The quality of the solution and speed of convergence depend on how the forgetting rate, delay and minibatch size are set.</label>
+        <note>what this limits: the reported convergence behaviour: THE QUALITY OF THIS STATIONARY POINT AND THE SPEED OF CONVERGENCE MAY DEPEND ON HOW THESE PARAMETERS ARE SET</note>
         <quote>Although stochastic variational inference algorithm converges to a stationary point for any valid κ, τ , and S, the quality of this stationary point and the speed of convergence may depend on how these parameters are set.</quote>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>What is optimised is a bound standing in for a quantity the method cannot compute.</label>
+        <note>what this limits: any model comparison made on this objective: the marginal probability cannot be computed exactly, so what is maximised is a fitted variational lower bound on it</note>
         <quote>Since we cannot compute p(x | α) exactly, an approximate approach is to maximize the fitted variational lower bound</quote>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>A prior is made exchangeable for simplicity, and the paper notes the conditional then is not.</label>
+        <note>what this limits: results depending on the Dirichlet prior here: the parameters are all set to the same value for simplicity, and the paper notes that conditioning makes the resulting conditional non-exchangeable</note>
         <quote>but for simplicity we assume exchangeable Dirichlet priors; that is, we require that all of these parameters are set to the same value</quote>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The evaluation is built from a split of each test document&#x27;s words, constructed to be disjoint.</label>
+        <note>what this limits: the held-out probability figures reported here: each test document&#x27;s words are divided into observed and held-out sets, with the sets of unique words kept disjoint</note>
         <quote>we divide each test document’s words w into a set of observed words wobs and held-out words who, keeping the sets of unique words in wobs and who disjoint</quote>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>How many topics a collection needs is answered by the model&#x27;s own posterior.</label>
+        <note>what this limits: the number of topics reported for a collection: it is determined by the posterior distribution of the hidden structure under this model, not by anything independent of it</note>
         <quote>Given a collection of documents, the posterior distribution of the hidden structure determines how many topics are needed to describe them</quote>
       </span>
       <span xml:id="t18" type="concepts" ana="#concepts[5]" resp="#paper">

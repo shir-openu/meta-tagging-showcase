@@ -87,22 +87,27 @@
       </span>
       <span xml:id="t9" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Because convolutions are unpadded, border pixels are lost at every layer and feature maps must be cropped before concatenation.</label>
+        <note>what this limits: every output map&#x27;s extent relative to its input: THE CROPPING IS NECESSARY DUE TO THE LOSS OF BORDER PIXELS IN EVERY CONVOLUTION</note>
         <quote>The cropping is necessary due to the loss of border pixels in every convolution.</quote>
       </span>
       <span xml:id="t10" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Without the overlap-tile strategy the resolution the network can handle is bounded by GPU memory.</label>
+        <note>what this limits: application to large images: THIS TILING STRATEGY IS IMPORTANT ... SINCE OTHERWISE THE RESOLUTION WOULD BE LIMITED BY THE GPU MEMORY</note>
         <quote>This tiling strategy is important to apply the network to large images, since otherwise the resolution would be limited by the GPU memory.</quote>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
         <label>Part of what the network is trained to detect is inserted by the authors: the separation borders between touching cells are synthesised, not annotated.</label>
+        <note>what this limits: a comparison of this network&#x27;s boundary accuracy against a method trained on unmodified ground truth: the separation borders between touching cells are introduced by the authors and computed with morphological operations, so the two are trained on different targets</note>
         <quote>and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>How heavily those borders count is set by two chosen constants in the loss.</label>
+        <note>what this limits: the segmentation scores reported here: the pixel-wise loss weight that forces border learning is controlled by two values the authors chose, w0 = 10 and a sigma of about 5 pixels</note>
         <quote>In our experiments we set w0 = 10 and σ ≈ 5 pixels</quote>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The invariances the network has are the ones the augmentation supplied, and the paper says the corpus never contained them.</label>
+        <note>what this limits: a claim that this network is robust to deformation: the invariance was taught by applying elastic deformations during training, and the paper states the annotated corpus did not need to contain those transformations at all</note>
         <quote>This allows the network to learn invariance to such deformations, without the need to see these transformations in the annotated image corpus</quote>
       </span>
       <span xml:id="t14" type="transfers" ana="#transfers[0]" resp="#tagger">
