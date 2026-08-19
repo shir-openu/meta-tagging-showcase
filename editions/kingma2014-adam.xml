@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Adam: A Method for Stochastic Optimization</title>
+        <author>Diederik P. Kingma</author>
+        <author>Jimmy Ba</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Adam: A Method for Stochastic Optimization</title>
+          <date>2014</date>
+          <publisher>ICLR / arXiv</publisher>
+          
+          <idno type="arXiv">1412.6980</idno>
+          <idno type="record">kingma2014-adam</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\kingma2014-adam.txt</note>
+          <note type="text-sha1">685c8f034ec860c572d0d9d8b467427c5617ea28</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-19"
+              who="build_paper_edition.py">41 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>stochastic gradient-based optimization</label>
+        <quote>Stochastic gradient-based optimization is of core practical importance in many fields of science and engineering.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>computational-experiment</label>
+        <term>computational-experiment</term>
+        <quote>To empirically evaluate the proposed method, we investigated different popular machine learning models, including logistic regression, multilayer fully connected neural networks and deep convolutional neural networks.</quote>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">
+        <label>The moment estimates start at zero, so early estimates are biased toward zero; the correction divides by one minus the decay rate raised to the timestep.</label>
+        <term>initialisation bias from zero-initialised moving averages</term>
+        <quote>these moving averages are initialized as (vectors of) 0’s, leading to moment estimates that are biased towards zero, especially during the initial timesteps</quote>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.85">
+        <label>As an optimum is approached the ratio falls, so the effective step shrinks with no schedule imposed.</label>
+        <term>automatic annealing via the signal-to-noise ratio</term>
+        <quote>the SNR value typically becomes closer to 0 towards an optimum, leading to smaller effective steps in parameter space: a form of automatic annealing</quote>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">
+        <label>Rescaling the gradient by c scales the first moment by c and the second by c squared, and the two cancel in the ratio.</label>
+        <term>invariance of the update to gradient rescaling</term>
+        <quote>The effective stepsize ∆t is also invariant to the scale of the gradients; rescaling the gradientsg with factorc will scaleˆmt with a factorc andˆvt with a factorc2, which cancel out</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>The convergence analysis covers only convex objectives, not the non-convex problems on which Adam is mostly used.</label>
+        <note>what this limits: the convergence guarantee, which does not cover the setting the method is used in: ALTHOUGH OUR CONVERGENCE ANALYSIS DOES NOT APPLY TO NON-CONVEX PROBLEMS, WE EMPIRICALLY FOUND THAT ADAM OFTEN OUTPERFORMS OTHER METHODS IN SUCH CASES</note>
+        <quote>Although our convergence analysis does not apply to non-convex problems, we empirically found that Adam often outperforms other methods in such cases.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The Lp-norm generalisation of the update rule is numerically unstable except in the infinity-norm limit.</label>
+        <note>what this limits: the Lp-norm generalisation of the update rule: SUCH VARIANTS BECOME NUMERICALLY UNSTABLE FOR LARGE p, leaving the infinity-norm limit as the usable case</note>
+        <quote>Such variants become numerically unstable for large p.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>In convolutional nets the second moment estimate vanishes and poorly approximates the cost surface.</label>
+        <note>what this limits: convolutional networks specifically: THE SECOND MOMENT ESTIMATE IS THEREFORE A POOR APPROXIMATION TO THE GEOMETRY OF THE COST FUNCTION IN CNNs</note>
+        <quote>The second moment estimate is therefore a poor approximation to the geometry of the cost function in CNNs comparing to fully connected network from Section 6.2.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>On the CNN experiment the gain over SGD with momentum is only marginal.</label>
+        <note>what this limits: the size of the advantage on the CNN experiment: THOUGH ADAM SHOWS MARGINAL IMPROVEMENT OVER SGD WITH MOMENTUM, IT ADAPTS LEARNING RATE SCALE FOR DIFFERENT LAYERS</note>
+        <quote>Though Adam shows marginal improvement over SGD with momentum, it adapts learning rate scale for different layers instead of hand picking manually as in SGD.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.9">
+        <label>The convergence guarantee is proved only for convex objectives, and the paper says so in the same sentence in which it reports the non-convex results.</label>
+        <quote>Although our convergence analysis does not apply to non-convex problems, we empirically found that Adam often outperforms other methods in such cases</quote>
+      </span>
+      <span xml:id="t11" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.9">
+        <label>AdaGrad</label>
+        <term>AdaGrad</term>
+        <quote>AdaGrad: An algorithm that works well for sparse gradients is AdaGrad</quote>
+      </span>
+      <span xml:id="t12" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.9">
+        <label>RMSProp</label>
+        <term>RMSProp</term>
+        <quote>RMSProp: An optimization method closely related to Adam is RMSProp</quote>
+      </span>
+      <span xml:id="t13" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.9">
+        <label>Sum-of-Functions Optimizer (SFO)</label>
+        <term>Sum-of-Functions Optimizer (SFO)</term>
+        <quote>The Sum-of-Functions Optimizer (SFO) (Sohl-Dickstein et al., 2014) is a quasi-Newton method based on minibatches, but (unlike Adam) has memory requirements linear in the number of minibatch partitions of a dataset, which is often infeasible on memory-constrained systems such as a GPU</quote>
+      </span>
+      <span xml:id="t14" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.9">
+        <label>signal-to-noise ratio</label>
+        <term>signal-to-noise ratio</term>
+        <quote>With a slight abuse of terminology, we will call the ratio ˆmt/√ˆvt the signal-to-noise ratio (SNR )</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.9">
+        <label>trust region</label>
+        <term>trust region</term>
+        <quote>This can be understood as establishing a trust region around the current parameter value, beyond which the current gradient estimate does not provide sufficient information</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.9">
+        <label>regret</label>
+        <term>regret</term>
+        <quote>we evaluate our algorithm using the regret, that is the sum of all the previous difference between the online prediction ft(θt) and the best fixed point parameterft(θ∗) from a feasible setX for all the previous steps</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.9">
+        <label>second raw moment</label>
+        <term>second raw moment</term>
+        <quote>The moving averages themselves are estimates of the 1 st moment (the mean) and the 2nd raw moment (the uncentered variance) of the gradient</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.9">
+        <label>diagonal of the Fisher information matrix</label>
+        <term>diagonal of the Fisher information matrix</term>
+        <quote>Like natural gradient descent (NGD) (Amari, 1998), Adam employs a preconditioner that adapts to the geometry of the data, since ˆvt is an approximation to the diagonal of the Fisher information matrix (Pascanu &amp; Bengio, 2013)</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.9">
+        <label>adaptive moment estimation</label>
+        <term>adaptive moment estimation</term>
+        <quote>the name Adam is derived from adaptive moment estimation</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.9">
+        <label>effective stepsize</label>
+        <term>effective stepsize</term>
+        <quote>The effective stepsize ∆t is also invariant to the scale of the gradients; rescaling the gradientsg with factorc will scaleˆmt with a factorc andˆvt with a factorc2, which cancel out</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.9">
+        <label>initialization bias correction</label>
+        <term>initialization bias correction</term>
+        <quote>these moving averages are initialized as (vectors of) 0’s, leading to moment estimates that are biased towards zero, especially during the initial timesteps</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[0]" resp="#tagger" cert="0.9">
+        <label>signal-to-noise ratio - here the ratio of the two bias-corrected moment estimates, used as confidence in the gradient DIRECTION, not a power ratio</label>
+        <quote>With a slight abuse of terminology, we will call the ratio ˆmt/√ˆvt the signal-to-noise ratio (SNR )</quote>
+      </span>
+      <span xml:id="t23" type="senses" ana="#senses[1]" resp="#tagger" cert="0.9">
+        <label>regret - the summed gap between the online prediction and the best fixed parameter in hindsight, over the whole sequence</label>
+        <quote>the regret, that is the sum of all the previous difference between the online prediction ft(θt) and the best fixed point parameterft(θ∗) from a feasible setX for all the previous steps</quote>
+      </span>
+      <span xml:id="t24" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>second raw moment - the UNCENTERED variance of the gradient, not the variance</label>
+        <quote>The moving averages themselves are estimates of the 1 st moment (the mean) and the 2nd raw moment (the uncentered variance) of the gradient</quote>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[3]" resp="#tagger" cert="0.8">
+        <label>trust region - the region within which the current gradient estimate is taken to carry enough information, bounded here by the stepsize hyper-parameter</label>
+        <quote>This can be understood as establishing a trust region around the current parameter value, beyond which the current gradient estimate does not provide sufficient information</quote>
+      </span>
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → AdaGrad (Duchi et al., 2011) and RMSProp (Tieleman &amp; Hinton, 2012)</label>
+        <quote>Our method is designed to combine the advantages of two recently popular methods: AdaGrad (Duchi et al., 2011), which works well with sparse gradients, and RMSProp (Tieleman &amp; Hinton, 2012), which works well in on-line and non-stationary settings; important connections to these and other stochastic optimization methods are clarified in section 5.</quote>
+      </span>
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → RMSProp (Tieleman &amp; Hinton, 2012)</label>
+        <quote>RMSProp also lacks a bias-correction term; this matters most in case of a value of β2 close to 1 (required in case of sparse gradients), since in that case not correcting the bias leads to very large stepsizes and often divergence, as we also empirically demonstrate in section 6.4.</quote>
+      </span>
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the online learning framework of (Zinkevich, 2003)</label>
+        <quote>We analyze the convergence of Adam using the online learning framework proposed in (Zinkevich, 2003).</quote>
+      </span>
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.9">
+        <label>effective stepsize —renamed-across-fields→ signal-to-noise ratio</label>
+        <term>effective stepsize</term>
+        <term>signal-to-noise ratio</term>
+        <note>strength of the relation: 0.8 — THE PAPER MARKS ITS OWN IMPORT: &#x27;with a slight abuse of terminology&#x27;. Taken from signal processing, and the authors decline to claim it applies exactly.</note>
+        <quote>With a slight abuse of terminology, we will call the ratio ˆmt/√ˆvt the signal-to-noise ratio (SNR ). With a smaller SNR the effective stepsize ∆t will be closer to zero</quote>
+      </span>
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.85">
+        <label>AdaGrad —is-a→ Adam optimizer</label>
+        <term>AdaGrad</term>
+        <term>Adam optimizer</term>
+        <note>strength of the relation: 0.7 — A LIMITING-CASE MEMBERSHIP, typed `is-a` not `same-as` because the span says &#x27;corresponds to a version of&#x27;, not that the two are the same thing. The paper scopes it itself one sentence later: the correspondence &#x27;does not hold when removing the bias-correction terms&#x27;. Schema 0.3 has nowhere to put that scope - `holds_for` in NOTES/SCHEMA_04_PROPOSAL.md. Filing it in `differs_in` would mis-state a scope as an axis.</note>
+        <quote>AdaGrad corresponds to a version of Adam withβ1 = 0, infinitesimal (1−β2) and a replacement ofα by an annealed version</quote>
+      </span>
+      <span xml:id="t31" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.85">
+        <label>second raw moment —operationalised-as→ diagonal of the Fisher information matrix</label>
+        <term>second raw moment</term>
+        <term>diagonal of the Fisher information matrix</term>
+        <note>strength of the relation: 0.7 — Hedged by the paper as an APPROXIMATION and qualified in the same sentence: Adam&#x27;s preconditioner is &#x27;more conservative in its adaption than vanilla NGD&#x27;.</note>
+        <quote>Like natural gradient descent (NGD) (Amari, 1998), Adam employs a preconditioner that adapts to the geometry of the data, since ˆvt is an approximation to the diagonal of the Fisher information matrix (Pascanu &amp; Bengio, 2013)</quote>
+      </span>
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.7">
+        <label>effective stepsize —is-a→ trust region</label>
+        <term>effective stepsize</term>
+        <term>trust region</term>
+        <note>strength of the relation: 0.6 — the record marks this weak — Typed `is-a`, not `renamed-across-fields`: `trust region` is optimisation vocabulary in an optimisation paper, so nothing crosses a field boundary. The paper hedges - &#x27;CAN BE UNDERSTOOD AS establishing a trust region&#x27; - hence 0.7.</note>
+        <quote>This can be understood as establishing a trust region around the current parameter value, beyond which the current gradient estimate does not provide sufficient information</quote>
+      </span>
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.9">
+        <label>Adam optimizer —contrasted-with→ RMSProp</label>
+        <term>Adam optimizer</term>
+        <term>RMSProp</term>
+        <note>differs in: whether a bias-correction term is present, and the paper names the regime in which it decides the outcome: beta2 close to 1, which is what sparse gradients require · strength of the relation: 0.8</note>
+        <quote>RMSProp also lacks a bias-correction term; this matters most in case of a value of β2 close to 1 (required in case of sparse gradients), since in that case not correcting the bias leads to very large stepsizes and often divergence</quote>
+      </span>
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.9">
+        <label>Adam optimizer —contrasted-with→ Sum-of-Functions Optimizer (SFO)</label>
+        <term>Adam optimizer</term>
+        <term>Sum-of-Functions Optimizer (SFO)</term>
+        <note>differs in: memory scaling: SFO&#x27;s requirement is linear in the number of minibatch partitions · strength of the relation: 0.8</note>
+        <quote>The Sum-of-Functions Optimizer (SFO) (Sohl-Dickstein et al., 2014) is a quasi-Newton method based on minibatches, but (unlike Adam) has memory requirements linear in the number of minibatch partitions of a dataset, which is often infeasible on memory-constrained systems such as a GPU</quote>
+      </span>
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">
+        <label>Adam optimizer —same-as→ adaptive moment estimation</label>
+        <term>Adam optimizer</term>
+        <term>adaptive moment estimation</term>
+        <note>strength of the relation: 0.5 — the record marks this weak — An acronym and its expansion, so `same-as`. NOT `derived_from_name`: in this corpus that field marks compound names whose head noun is the parent concept (&#x27;radical reductionism is-a reductionism&#x27;, 11 of 18 uses).</note>
+        <quote>the name Adam is derived from adaptive moment estimation</quote>
+      </span>
+      <span xml:id="t36" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.85">
+        <label>initialization bias correction —part-of→ second raw moment</label>
+        <term>initialization bias correction</term>
+        <term>second raw moment</term>
+        <note>strength of the relation: 0.7</note>
+        <quote>these moving averages are initialized as (vectors of) 0’s, leading to moment estimates that are biased towards zero, especially during the initial timesteps</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Bayesian</label>
+        <term>Bayesian</term>
+        <quote>are with high probability within some set region in parameter space; it is not uncommon, for example, to have a prior distribution over the parameters.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <quote>Let g be the gradient of the stochastic objective f, and we wish to estimate its second raw moment (uncentered variance) using an exponential moving average of the squared gradient, with decay rate β2.</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <quote>6 E XPERIMENTS To empirically evaluate the proposed method, we investigated different popular machine learning models, including logistic regression, multilayer fully connected neural networks and deep convolutional neural networks.</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>variance</label>
+        <term>variance</term>
+        <quote>The moving averages themselves are estimates of the 1 st moment (the mean) and the 2nd raw moment (the uncentered variance) of the gradient.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://arxiv.org/abs/1412.6980.</note></p>
+    </body>
+  </text>
+</TEI>

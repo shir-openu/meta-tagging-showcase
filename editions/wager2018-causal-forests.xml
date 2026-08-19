@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Estimation and Inference of Heterogeneous Treatment Effects using Random Forests</title>
+        <author>Stefan Wager</author>
+        <author>Susan Athey</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Estimation and Inference of Heterogeneous Treatment Effects using Random Forests</title>
+          <date>2018</date>
+          <publisher>JASA / arXiv</publisher>
+          <idno type="DOI">10.1080/01621459.2017.1319839</idno>
+          <idno type="arXiv">1510.04342</idno>
+          <idno type="record">wager2018-causal-forests</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\wager2018-causal-forests.txt</note>
+          <note type="text-sha1">d22749e890173ebfd0508e529278eed5b397475f</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>statistics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-19"
+              who="build_paper_edition.py">52 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>In this paper, we develop a non-parametric causal forest for estimating heterogeneous treatment effects that extends Breiman’s widely used random forest algorithm.</quote>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>heterogeneous treatment effect estimation</label>
+        <quote>Many scientific and engineering challenges—ranging from personalized medicine to customized marketing recommendations—require an understanding of treatment effect heterogeneity.</quote>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>mathematical-proof</label>
+        <term>mathematical-proof</term>
+        <quote>From a technical point of view, the main contribution of this paper is an asymptotic normality theory enabling us to do statistical inference using random forest predictions.</quote>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>treating a random forest as an adaptive nearest-neighbor estimator yields consistent, asymptotically Gaussian treatment-effect estimates, enabling confidence intervals</term>
+        <quote>causal forests are pointwise consistent for the true treatment effect, and have an asymptotically Gaussian and centered sampling distribution</quote>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>results require the unconfoundedness assumption</label>
+        <note>what this limits: every causal estimate: the results require the POTENTIAL OUTCOMES FRAMEWORK WITH UNCONFOUNDEDNESS</note>
+        <quote>potential outcomes framework with unconfoundedness</quote>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The choice between double-sample forests and propensity forests was made by hand for each simulation setting rather than automatically.</label>
+        <note>what this limits: the simulation comparison specifically: WE MANUALLY CHOSE WHETHER TO USE DOUBLE-SAMPLE FORESTS OR PROPENSITY FORESTS, DEPENDING ON WHICH PROCEDURE SEEMED MORE APPROPRIATE</note>
+        <quote>A limitation of the present simulation study is that we manually chose whether to use double-sample forests or propensity forests, depending on which procedure seemed more appropriate in each problem setting.</quote>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The asymptotic normality proof does not cover classification forests built by voting.</label>
+        <note>what this limits: the asymptotic normality result: EXTENDING OUR RESULTS TO VOTING TREES IS LEFT AS FURTHER WORK</note>
+        <quote>Extending our results to voting trees is left as further work.</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The theory is not established for high-dimensional settings where variable selection matters.</label>
+        <note>what this limits: the asymptotic theory in the regime most applications live in: WE LEAVE A STUDY OF ASYMPTOTIC NORMALITY OF RANDOM FORESTS IN HIGH DIMENSIONS TO FUTURE WORK</note>
+        <quote>We leave a study of asymptotic normality of random forests in high dimensions to future work.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>Residual bias degrades confidence-interval coverage, which the authors flag as the immediate open problem.</label>
+        <note>what this limits: the confidence intervals as reported: AN IMMEDIATE CHALLENGE IS TO CONTROL THE BIAS OF CAUSAL FORESTS TO ACHIEVE BETTER COVERAGE</note>
+        <quote>An immediate challenge is to control the bias of causal forests to achieve better coverage.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger">
+        <label>Empirically, nominal coverage of the intervals holds only up to moderate dimension.</label>
+        <note>what this limits: any use of the intervals above ten covariates: OUR METHOD ACHIEVES NOMINAL COVERAGE UP TO d = 10, AFTER WHICH THE PERFORMANCE OF THE CONFIDENCE INTERVALS STARTS TO DECAY</note>
+        <quote>Meanwhile, in terms of uncertainty quantification, our method achieves nominal coverage up to d = 10, after which the performance of the confidence intervals starts to decay.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.9">
+        <label>Two asymptotic-normality results for random forests can look qualitatively the same and differ on whether the subsample grows fast enough for the squared bias to vanish faster than the variance. When it does not, the Gaussian limit is real and the confidence intervals built from it do not cover. A reader taking &#x27;asymptotically normal&#x27; as the licence for an interval has no way to see this from the claim alone.</label>
+        <quote>A quick calculation shows that the bias of the random forest decays as 1/√sn, while its variance decays assn/n. If sn/√n→ 0, the squared bias decays slower than the variance, and so confidence intervals built using the resulting Gaussian limit distribution will not cover µ(x). Thus, although the result of Mentch and Hooker [2016] may appear qualitatively similar to ours, it cannot be used for valid asymptotic statistical inference about</quote>
+      </span>
+      <span xml:id="t11" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>extending Breiman random forests to estimate heterogeneous treatment effects with valid statistical inference</label>
+        <quote>we explore the use of ideas from the machine learning literature to improve the performance of these classical methods with many covariates</quote>
+      </span>
+      <span xml:id="t12" type="concepts" ana="#concepts[1]" resp="#paper">
+        <label>treatment effect</label>
+        <term>treatment effect</term>
+        <quote>In general, we cannot estimate τ(x) simply from the observed data (Xi, Yi, Wi) without further restrictions on the data generating distribution.</quote>
+      </span>
+      <span xml:id="t13" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>unconfoundedness</label>
+        <term>unconfoundedness</term>
+        <quote>The motivation behind unconfoundedness is that, given continuity assumptions, it effectively implies that we can treat nearby observations in x-space as having come from a randomized experiment</quote>
+      </span>
+      <span xml:id="t14" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>honesty</label>
+        <term>honesty</term>
+        <quote>it relies on deeply grown trees that satisfy a condition we call “honesty” to reduce bias. An example of an honest tree is one where the tree is grown using one subsample, while the predictions at the leaves of the tree are estimated using a different</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>causal forest</label>
+        <term>causal forest</term>
+        <quote>we develop a non-parametric causal forest for estimating heterogeneous treatment effects that extends Breiman</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>double-sample trees</label>
+        <term>double-sample trees</term>
+        <quote>Double-sample trees, as defined in Procedure 1, can always be used to build honest trees with respect to theI-sample. In the context of causal trees for observational studies, propensity trees (Procedure 2) provide a simple recipe for building honest trees without sample splitting.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.9">
+        <label>subsample size</label>
+        <term>subsample size</term>
+        <quote>A quick calculation shows that the bias of the random forest decays as 1/√sn, while its variance decays assn/n. If sn/√n→ 0, the squared bias decays slower than the variance, and so confidence intervals built using the resulting Gaussian limit distribution will not cover µ(x). Thus, although the result of Mentch and Hooker [2016] may appear qualitatively similar to ours, it cannot be used for valid asymptotic statistical inference about</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>confidence intervals</label>
+        <term>confidence intervals</term>
+        <quote>A quick calculation shows that the bias of the random forest decays as 1/√sn, while its variance decays assn/n. If sn/√n→ 0, the squared bias decays slower than the variance, and so confidence intervals built using the resulting Gaussian limit distribution will not cover µ(x). Thus, although the result of Mentch and Hooker [2016] may appear qualitatively similar to ours, it cannot be used for valid asymptotic statistical inference about</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>test set</label>
+        <term>test set</term>
+        <quote>Only one of these potential outcomes can ever be observed in practice, and so direct test-set evaluation is in general impossible. 1 Thus, when evaluating estimators of causal effects, asymptotic theory plays a much more important role than in the standard prediction context.</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>unconfoundedness - the assumption that makes nearby observations behave as if they came from a randomized experiment, which is what licenses matching</label>
+        <quote>The motivation behind unconfoundedness is that, given continuity assumptions, it effectively implies that we can treat nearby observations in x-space as having come from a randomized experiment</quote>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>honesty - a condition the authors name and impose: the tree is grown on one subsample and its leaf predictions are estimated on a different one</label>
+        <quote>it relies on deeply grown trees that satisfy a condition we call “honesty” to reduce bias. An example of an honest tree is one where the tree is grown using one subsample, while the predictions at the leaves of the tree are estimated using a different</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>treatment effect - a quantity not estimable from the observed data at all without further restrictions on the data generating distribution</label>
+        <quote>In general, we cannot estimate τ(x) simply from the observed data (Xi, Yi, Wi) without further restrictions on the data generating distribution.</quote>
+      </span>
+      <span xml:id="t23" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>evaluation - FOR A CAUSAL ESTIMAND THE STANDARD MACHINE-LEARNING SENSE IS UNAVAILABLE: only one potential outcome per unit is ever observed, so &#x27;direct test-set evaluation is in general impossible&#x27; and asymptotic theory does the work that held-out prediction error does elsewhere</label>
+        <quote>Only one of these potential outcomes can ever be observed in practice, and so direct test-set evaluation is in general impossible. 1 Thus, when evaluating estimators of causal effects, asymptotic theory plays a much more important role than in the standard prediction context.</quote>
+      </span>
+      <span xml:id="t24" type="senses" ana="#senses[4]" resp="#tagger" cert="0.9">
+        <label>sample splitting - AS COSTED HERE: the usual objection is that it wastes half the training data, and the answer is that the waste is per TREE and recovered across the ENSEMBLE, since the I/J split is re-randomised over each subsample so every point serves both roles in some tree</label>
+        <quote>We note that sample splitting procedures are sometimes criticized as inefficient because they “waste” half of the training data at each step of the estimation procedure. However, in our case, the forest subampling mechanism enables us to achieve honesty without wasting any data in this sense, because we re-randomize theI/J -data splits over each subsample. Thus, although no data point can be used for split selection and leaf estimation in a single tree, each data point will participate in both I andJ</quote>
+      </span>
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → random forests (Breiman) for statistical inference</label>
+        <quote>the first set of results that allows any type of random forest</quote>
+      </span>
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → Breiman&#x27;s random forest algorithm [Breiman, 2001a]</label>
+        <quote>In this paper, we develop a non-parametric causal forest for estimating heterogeneous treatment effects that extends Breiman’s widely used random forest algorithm.</quote>
+      </span>
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the honest causal trees of Athey and Imbens [2016]</label>
+        <quote>Following Athey and Imbens [2016], our proposed forest is composed of causal trees that estimate the effect of the treatment at the leaves of the trees; we thus refer to our algorithm as a causal forest.</quote>
+      </span>
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → the asymptotic normality result of Mentch and Hooker [2016]</label>
+        <quote>Thus, although the result of Mentch and Hooker [2016] may appear qualitatively similar to ours, it cannot be used for valid asymptotic statistical inference about µ(x).</quote>
+      </span>
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+        <label>builds-on → the infinitesimal jackknife for random forests of Efron [2014] and Wager et al. [2014]</label>
+        <quote>We also show that the heuristically motivated infinitesimal jackknife for random forests developed by Efron [2014] and Wager et al. [2014] is consistent for the asymptotic variance of random forests in this setting.</quote>
+      </span>
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>honesty —operationalised-as→ double-sample trees</label>
+        <term>honesty</term>
+        <term>double-sample trees</term>
+        <note>strength of the relation: 0.9 — The condition is named first and realised second: &#x27;Double-sample trees, as defined in Procedure 1, CAN ALWAYS BE USED TO BUILD HONEST TREES&#x27;, and propensity trees give &#x27;a simple recipe for building honest trees WITHOUT SAMPLE SPLITTING&#x27; - so one condition has two constructions, only one of which splits the sample.</note>
+        <quote>Double-sample trees, as defined in Procedure 1, can always be used to build honest trees with respect to theI-sample. In the context of causal trees for observational studies, propensity trees (Procedure 2) provide a simple recipe for building honest trees without sample splitting.</quote>
+      </span>
+      <span xml:id="t31" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>subsample size —causes→ confidence intervals</label>
+        <term>subsample size</term>
+        <term>confidence intervals</term>
+        <note>differs in: THE RATE AT WHICH THE SUBSAMPLE GROWS. &#x27;the bias of the random forest decays as 1/sqrt(s_n), while its variance decays as s_n/n. IF s_n/sqrt(n) -&gt; 0, the squared bias decays SLOWER than the variance, and so confidence intervals built using the resulting Gaussian limit distribution WILL NOT COVER&#x27; the target. Two asymptotic-normality results for random forests differ on this one exponent and on nothing a reader would notice from the statement of either theorem · strength of the relation: 0.9 — THE PAPER NAMES THE PARAMETER ITS DISAGREEMENT TURNS ON AND SAYS WHAT GOES WRONG: &#x27;although the result of Mentch and Hooker [2016] MAY APPEAR QUALITATIVELY SIMILAR TO OURS, IT CANNOT BE USED FOR VALID ASYMPTOTIC STATISTICAL INFERENCE&#x27;. A Gaussian limit is not by itself a licence to build an interval - the bias has to vanish faster than the standard error, which is a condition on a tuning parameter, not on the theorem.</note>
+        <quote>A quick calculation shows that the bias of the random forest decays as 1/√sn, while its variance decays assn/n. If sn/√n→ 0, the squared bias decays slower than the variance, and so confidence intervals built using the resulting Gaussian limit distribution will not cover µ(x). Thus, although the result of Mentch and Hooker [2016] may appear qualitatively similar to ours, it cannot be used for valid asymptotic statistical inference about</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>2 — a treatment effect is a difference between two of them</label>
+        <quote>difference between two potential outcomes</quote>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>1 — survival threshold in a prediction example</label>
+        <quote>survive for more than, say, one year</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>causal forests are pointwise consistent and asymptotically Gaussian</label>
+        <quote>causal forests are pointwise consistent for the true treatment effect, and have an</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>first results letting any random forest be used for valid statistical inference</label>
+        <quote>this is the first set of results that allows any type of random forest, including</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>causal forests are more powerful than nearest-neighbor matching</label>
+        <quote>we find causal forests to be substantially more powerful than classical</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+        <label>the causal forest&#x27;s advantage over kNN grows with the number of covariates</label>
+        <quote>terms of both bias and variance in a variety of settings, and that its advantage increases</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>treatment effect</label>
+        <term>treatment effect</term>
+        <quote>the expected benefit from the treatment is less than the treatment cost</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>number of covariates</label>
+        <term>number of covariates</term>
+        <quote>quickly break down as the number of covariates</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>confidence intervals</label>
+        <term>confidence intervals</term>
+        <quote>constructing asymptotic confidence intervals for the true treatment</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>honest trees</label>
+        <term>honest trees</term>
+        <quote>An example of an honest tree is one where the tree is grown using</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>causal forest</label>
+        <term>causal forest</term>
+        <quote>our proposed forest is composed of causal trees that</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>potential outcomes framework with unconfoundedness</label>
+        <term>potential outcomes framework with unconfoundedness</term>
+        <quote>the potential outcomes framework with unconfoundedness</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>honesty</label>
+        <term>honesty</term>
+        <quote>the predictions at the leaves of the tree are estimated using a different</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>heterogeneous treatment effects</label>
+        <term>heterogeneous treatment effects</term>
+        <quote>estimating heterogeneous treatment effects in the potential outcomes framework</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>ANOVA</label>
+        <term>ANOVA</term>
+        <quote>model for random forests introduced by Lin and Jeon [2006]; the key technical device used in Section 3.3.2 is the ANOVA decomposition of Efron and Stein [1981].</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>Bayesian</label>
+        <term>Bayesian</term>
+        <quote>These papers use the Bayesian Additive Regression Tree (BART) method of Chipman et al.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>bootstrap</label>
+        <term>bootstrap</term>
+        <quote>Instead of using subsampling, Breiman originally described random forests in terms of bootstrap sampling, or bagging [Breiman, 1996].</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>confidence-interval</label>
+        <term>confidence-interval</term>
+        <quote>We also discuss a practical method for constructing asymptotic confidence intervals for the true treatment effect that are centered at the causal forest estimates.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <quote>Random forests are related to kernels and nearest-neighbor methods in that they make predictions using a weighted average of “nearby” observations; however, random forests differ in that they have a data-driven way to determine which</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <quote>nd classical analysis tools going back to Hoeffding [1948] and H´ ajek [1968], we show that—provided the subsample size s scales appropriately with n—the predictions made by a causal forest are asymptotically Gaussian and unbiase</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1080/01621459.2017.1319839.</note></p>
+    </body>
+  </text>
+</TEI>

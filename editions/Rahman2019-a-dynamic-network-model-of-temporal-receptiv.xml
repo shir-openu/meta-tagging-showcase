@@ -43,570 +43,307 @@
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
-        <label>why cortical auditory responses appear to depend on hundreds of milliseconds of sound history when the delays available to the circuit are far shorter</label>
-        <quote>Auditory neurons encode stimulus history, which is often modelled using a span of time-delays in a spectro-temporal receptive field (STRF). We propose an alternative model for the encoding of stimulus history, which we apply to extracellular recordings of neurons in the primary auditory cortex of anaesthetized ferrets. For a linear-non-linear STRF model (LN model) to achieve a high level of performance in predicting single unit neural responses to natural sounds in the primary auditory cortex, we found that it is necessary to include time delays going back at least 200 ms in the past. This is an unrealistic time span for biological delay lines.</quote>
-      </span>
-      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
-        <label>how much of the long temporal receptive field can be produced by neurons&#x27; own decaying memory rather than by long delay lines</label>
-        <quote>We constructed a neural-network model whose output is the weighted sum of units whose responses are determined by a dynamic firing-rate equation. The dynamic aspect performs low-pass filtering on each unit’s response, providing an exponentially decaying memory whose time constant is individual to each unit.</quote>
-      </span>
-      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
-        <label>shows a network whose units each carry their own exponential decay matches a 200 ms delay-line model using only 25 ms of delay, which is within the biologically available range</label>
-        <quote>We find that this dynamic network (DNet) model, when fitted to the neural data using STRFs of only 25 ms duration, can achieve prediction performance on a held-out dataset comparable to the best performing LN model with STRFs of 200 ms duration.</quote>
-      </span>
-      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
-        <label>method</label>
-        <quote>We propose an alternative model for the encoding of stimulus history, which we apply to extracellular recordings of neurons in the primary auditory cortex of anaesthetized ferrets.</quote>
-      </span>
-      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
-        <label>temporal receptive fields in primary auditory cortex</label>
-        <quote>Auditory neurons encode stimulus history, which is often modelled using a span of time-delays in a spectro-temporal receptive field (STRF).</quote>
-      </span>
-      <span xml:id="t5" type="method" ana="#method" resp="#paper">
-        <label>simulation</label>
-        <term>simulation</term>
-        <quote>We constructed a neural-network model whose output is the weighted sum of units whose responses are determined by a dynamic firing-rate equation.</quote>
-      </span>
-      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
-        <label>mechanisms</label>
-        <term>membrane capacitance and resistance make firing rate a low-pass-filtered version of synaptic current, so each unit&#x27;s output is convolved with an exponentially decaying impulse response that stores recent input</term>
-        <quote>Due to the capacitance and resistance of the neural cell membrane, the membrane potential and hence the firing rate is approximately a low-pass filtered version of the synaptic current.</quote>
-      </span>
-      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">
-        <label>mechanisms</label>
-        <term>integration by membrane time constants (or other exponentially decaying memory processes) rather than long delay lines produces the apparent long temporal receptive fields of cortical neurons</term>
-        <quote>These findings suggest that integration due to the membrane time constants or other exponentially-decaying memory processes may underlie linear temporal receptive fields of neurons beyond 25 ms.</quote>
-      </span>
-      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">
-        <label>mechanisms</label>
-        <term>the long narrowband inhibitory fields seen in fitted STRFs are the signature of short inhibitory inputs passed through slowly decaying memory, not of genuinely delayed inhibition</term>
-        <quote>This suggests that these temporally extended inhibitory fields in STRFs may reflect neural mechanisms that can be approximated by exponentially-decaying memory processes.</quote>
-      </span>
-      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="1.0">
-        <label>membrane capacitance and resistance make firing rate a low-pass filtered version of synaptic current, which is the decay the model implements</label>
-        <quote>Due to the capacitance and resistance of the neural cell membrane, the membrane potential and hence the firing rate is approximately a low-pass filtered version of the synaptic current. A common simple dynamic model of neurons that captures this phenomenon is the differential equation ( Eq 7 ) known as the firing-rate equation</quote>
-      </span>
-      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="1.0">
-        <label>both parts are needed: a single dynamic unit does worse than a plain LN model, so the effect requires decay AND a network</label>
-        <quote>A single-unit dynamic model was also developed to examine the effect of a time constant in an LN-like single STRF model. Prediction performance of this model was found to be worse than the LN model ( Fig 6B ). This indicates that both long time constants and a network architecture are needed for the 25-ms DNet model to achieve prediction performance similar to that of standard models.</quote>
-      </span>
-      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="1.0">
-        <label>all the dynamic processes listed could be captured by the same exponentially-decaying memory, and the paper says they are not exclusive of one another</label>
-        <quote>We note, however, that although the DNet model was developed with membrane dynamics in mind, aspects of all the above listed dynamic processes could be captured by the same exponentially-decaying memory in the DNet. These different processes are not exclusive of each other, and combinations of them may contribute to the effects we find.</quote>
-      </span>
-      <span xml:id="t12" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="1.0">
-        <label>a time constant before the nonlinearity explains much of the variance, and moving it after the nonlinearity improves prediction further</label>
-        <quote>The sDNet model achieves best performance in predicting neural responses when the duration of the STRFs is 200 ms (CC norm = 0.71) ( Fig 8A ). Although the sDNet with 25-ms STRFs predicts neural responses better (CC norm = 0.67) than the 25-ms LN model (CC norm = 0.51) and the 25-ms NRF model (CC norm = 0.51), it is worse than the 25-ms DNet model (CC norm = 0.71). This suggests that a large percentage of the variance of neural responses can be explained by a time constant before non-linearity, but that having a time constant after the non-linearity further improves prediction.</quote>
-      </span>
-      <span xml:id="t13" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="1.0">
-        <label>the units that carry the long time constants are almost all inhibitory, which was not built in</label>
-        <quote>We found that almost all units having large time constants are inhibitory in nature</quote>
-      </span>
-      <span xml:id="t14" type="limitations" ana="#limitations[0]" resp="#tagger">
-        <label>The DNet sometimes fails to reach fits it should in principle attain, suggesting optimisation failure or overfitting</label>
-        <quote>The fact that this is not the case suggests that, at least in some cases, the very best fits are not being found for the DNet model, perhaps as a consequence of some overfitting.</quote>
-      </span>
-      <span xml:id="t15" type="limitations" ana="#limitations[1]" resp="#tagger">
-        <label>Long-latency thalamic inputs cannot be ruled out as a partial explanation</label>
-        <quote>Hence, we cannot rule out the possibility that long-latency inputs at least partially explain the dependence of auditory cortical neurons on stimulus history–indeed it is likely that they do to some extent.</quote>
-      </span>
-      <span xml:id="t16" type="limitations" ana="#limitations[2]" resp="#tagger">
-        <label>History dependence out to seconds is captured by neither standard models nor the DNet</label>
-        <quote>This indicates that there are some nonlinear dynamic processes that provide history dependence which cannot be captured either by a linear or LN models, nor by the DNet model.</quote>
-      </span>
-      <span xml:id="t17" type="limitations" ana="#limitations[3]" resp="#tagger">
-        <label>The model can only express exponential temporal dynamics</label>
-        <quote>Perhaps this is because the DNet model has limited capacity to capture temporal dynamics that are not exponential in nature.</quote>
-      </span>
-      <span xml:id="t18" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
-        <label>long-latency thalamic inputs cannot be ruled out and probably do contribute to some degree</label>
-        <quote>Hence, we cannot rule out the possibility that long-latency inputs at least partially explain the dependence of auditory cortical neurons on stimulus history–indeed it is likely that they do to some extent.</quote>
-      </span>
-      <span xml:id="t19" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
-        <label>A1 responses depend on history out to about 4 seconds, which neither linear models nor this one can capture</label>
-        <quote>The firing rate of A1 neurons has been demonstrated to depend on stimulus history up to ~4 s in the past [ 17 ]. This dependence cannot be fully captured by linear models such as STRFs (17). This indicates that there are some nonlinear dynamic processes that provide history dependence which cannot be captured either by a linear or LN models, nor by the DNet model. Perhaps this is because the DNet model has limited capacity to capture temporal dynamics that are not exponential in nature.</quote>
-      </span>
-      <span xml:id="t20" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
-        <label>where the DNet underperforms, the paper reads it as the best fits not being found rather than as a property of the model class</label>
-        <quote>The fact that this is not the case suggests that, at least in some cases, the very best fits are not being found for the DNet model, perhaps as a consequence of some overfitting. That the DNet model performs worse for large latency spans, where there are more variables, is again probably due to challenges in fitting the DNet model, likely due to some overfitting to the training set.</quote>
-      </span>
-      <span xml:id="t21" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
-        <label>only 2 to 8 of 20 hidden units survive regularisation, so the fitted architecture is much smaller than the one specified</label>
-        <quote>Although the DNet model had 20 hidden units, the L1 regularization eliminated unnecessary units. Hence there were fewer effective HUs, and for the 25-ms DNet model this number was found to be between 2 and 8</quote>
-      </span>
-      <span xml:id="t22" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
-        <label>the data are reused from a previous study rather than collected here</label>
-        <quote>The electrophysiological data used in this study were taken from a series of experiments used in a previous study by Harper et al. [ 23 ]. Briefly, recordings were made from the primary auditory cortical areas, A1 and the anterior auditory field (AAF) of 6 adult pigmented ferrets (5 females and 1 male) under ketamine (5 mg/kg/h) and medetomidine (0.022 mg/kg/h) anaesthesia for 20 repeats of the 20 natural sound clips played in random order.</quote>
-      </span>
-      <span xml:id="t23" type="transfers" ana="#transfers[0]" resp="#tagger" cert="1.0">
-        <label>the firing-rate equation, used to give each network unit a membrane-like time constant</label>
-        <quote>Due to the capacitance and resistance of the neural cell membrane, the membrane potential and hence the firing rate is approximately a low-pass filtered version of the synaptic current. A common simple dynamic model of neurons that captures this phenomenon is the differential equation ( Eq 7 ) known as the firing-rate equation</quote>
-      </span>
-      <span xml:id="t24" type="transfers" ana="#transfers[1]" resp="#tagger" cert="1.0">
-        <label>L1 regularisation, which here does structural work by pruning the network to 2-8 effective units</label>
-        <quote>To overcome overfitting, the weights were regularized using an L1-norm (LASSO regularization).</quote>
-      </span>
-      <span xml:id="t25" type="transfers" ana="#transfers[2]" resp="#tagger" cert="1.0">
-        <label>the cochleagram as a standard front end, so that all compared models see the same transformed input</label>
-        <quote>The models receive the input as a cochleagram, a spectrogram-like transformation of the sound waveform. The cochleagram approximates the spectral filtering performed by the auditory periphery</quote>
-      </span>
-      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
-        <label>temporal receptive field here is a MODEL OBJECT - the span of delays a fitted model needs - and the paper&#x27;s whole argument is that this span need not correspond to delays in the circuit</label>
-        <quote>The most direct biological interpretation of the STRF model would involve auditory cortical neurons receiving inputs at a range of simple delays spanning out to 200 ms; however, this is biologically unrealistic.</quote>
-      </span>
-      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
-        <label>time constant in the DNet sits after the nonlinearity and is meant as membrane integration; in the sDNet variant it sits before, and means synaptic integration. Same word, different position, different biology</label>
-        <quote>An alternative network model places the integration just before the nonlinearity, which is more consistent with the time constant being synaptic in nature</quote>
-      </span>
-      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
-        <label>effective hidden unit is defined by a variance threshold on its weighted output, so the reported unit counts are post-regularisation and not the specified architecture</label>
-        <quote>Although the DNet model had 20 hidden units, the L1 regularization eliminated unnecessary units. Hence there were fewer effective HUs, and for the 25-ms DNet model this number was found to be between 2 and 8</quote>
-      </span>
-      <span xml:id="t29" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
-        <label>the 73 analysed neurons are single units surviving a noise-ratio cut of 40, from 549 recorded units of which 284 were single</label>
-        <quote>The noise ratio was calculated as a measure of how much the response of each unit is dependent on the stimuli [ 9 , 24 ]. The noise ratio was measured over all 20 stimuli and 20 repeats. Any unit with a noise ratio &gt; 40 were excluded from the study. Also, only putative single units were used. This resulted in 73 neurons for the study.</quote>
-      </span>
-      <span xml:id="t30" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
-        <label>cochleagram is a modelled auditory periphery, not a measurement - the input every model sees is already a transformation with chosen parameters</label>
-        <quote>The models receive the input as a cochleagram, a spectrogram-like transformation of the sound waveform. The cochleagram approximates the spectral filtering performed by the auditory periphery</quote>
-      </span>
-      <span xml:id="t31" type="alternatives" ana="#alternatives.claim_type" resp="#tagger">
-        <label>claim_type: method</label>
-        <note>a second reading reaching the same value. Recorded: method — a second reading reaching the same value from a different sentence. Not applied - a person decides.</note>
-        <quote>Our results suggest that, beyond 25ms, the temporal receptive field can be modelled more succinctly by exponentially-decaying memory processes than by delay lines.</quote>
-      </span>
-      <span xml:id="t32" type="alternatives" ana="#alternatives.method" resp="#tagger">
-        <label>method: fitting linear-nonlinear, network and dynamic-network models to 73 ferret A1 units and comparing held-out prediction across delay spans</label>
-        <note>a second reading DIFFERING from the recorded value. Recorded: simulation — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note>
-        <quote>The NRF model is an artificial neural network with a single hidden layer of 20 hidden units (HU) which converge onto an output unit (OU). Each unit of the model is similar to a single LN model.</quote>
-      </span>
-      <span xml:id="t33" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger">
-        <label>phenomenon: the temporal receptive field: dependence of a cortical response on preceding sound</label>
-        <note>a second reading DIFFERING from the recorded value. Recorded: temporal receptive fields in primary auditory cortex — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note>
-        <quote>The responses of neurons in the primary auditory cortex depend on the recent history of sounds over seconds or less. Typically, this dependence on the past has been modelled by applying a wide span of time delays to the input, although this is likely to be biologically unrealistic. Real neurons integrate the history of their activity due to the dynamical properties of their cell membranes and other components. We show that a network with a realistically narrow span of delays and with units having dynamic characteristics like those found in neurons, succinctly models neural responses recorded from ferret primary auditory cortex.</quote>
-      </span>
-      <span xml:id="t34" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
-        <label>extends → Harper et al. [23] network receptive field (NRF) model</label>
-        <quote>This model is the same as a previously published version [ 23 ], except that it uses sigmoid nonlinearities instead of scaled tanh non-linearities.</quote>
-      </span>
-      <span xml:id="t35" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
-        <label>replicates → Harper et al. [23] (NRF outperforming the LN model)</label>
-        <quote>The NRF model predicts the neural responses equal to or better than the LN model over all durations examined, although by a more modest amount than seen in an earlier study [ 23 ].</quote>
-      </span>
-      <span xml:id="t36" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
-        <label>builds-on → the LNFDSNF network model of the salamander retina [45]</label>
-        <quote>The LNFDSNF model is particularly relevant to our study because it is a network model whose units have some memory of their past activity, though the form of this memory differs from that of the DNet model.</quote>
-      </span>
-      <span xml:id="t37" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">
-        <label>critiques → the delay-line reading of spectro-temporal receptive fields extending to 200 ms</label>
-        <quote>The most direct biological interpretation of the STRF model would involve auditory cortical neurons receiving inputs at a range of simple delays spanning out to 200 ms; however, this is biologically unrealistic.</quote>
-      </span>
-      <span xml:id="t38" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">
-        <label>reinterprets → the long inhibitory fields seen in conventional STRFs, as a signature of decaying memory rather than of delayed input</label>
-        <quote>When auditory neurons are fitted using a standard LN model, the resulting STRFs often contain narrowband inhibitory fields that decay over approximately 200 ms. In contrast, we find that the STRFs of the DNet model have short inhibitory fields with long time constants. This suggests that these temporally extended inhibitory fields in STRFs may reflect neural mechanisms that can be approximated by exponentially-decaying memory processes.</quote>
-      </span>
-      <span xml:id="t39" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="0.8">
-        <label>extends → earlier work capturing history dependence with synaptic depression</label>
-        <quote>There are many biological mechanisms which may underlie exponentially-decaying memory processes. Neurons have various intrinsic dynamic integrative and adaptive characteristics originating from basic membrane dynamics, channel-based adaptation, post-synaptic potentials and short-term synaptic plasticity [ 22 ]. Recurrent network effects could also underlie such memory processes.</quote>
-      </span>
-      <span xml:id="t40" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">
-        <label>builds-on → Harper et al. 2016, whose ferret recordings are refitted here</label>
-        <quote>The electrophysiological data used in this study were taken from a series of experiments used in a previous study by Harper et al. [ 23 ]. Briefly, recordings were made from the primary auditory cortical areas, A1 and the anterior auditory field (AAF) of 6 adult pigmented ferrets (5 females and 1 male) under ketamine (5 mg/kg/h) and medetomidine (0.022 mg/kg/h) anaesthesia for 20 repeats of the 20 natural sound clips played in random order.</quote>
-      </span>
-      <span xml:id="t41" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="1.0">
-        <label>qualifies → its own conclusion, by conceding that long-latency inputs likely contribute as well</label>
-        <note>status: the paper&#x27;s own words: we cannot rule out</note>
-        <quote>Hence, we cannot rule out the possibility that long-latency inputs at least partially explain the dependence of auditory cortical neurons on stimulus history–indeed it is likely that they do to some extent.</quote>
-      </span>
-      <span xml:id="t42" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">
-        <label>STRF —operationalised-as→ delay lines</label>
-        <term>STRF</term>
-        <term>delay lines</term>
-        <note>strength of the relation: 0.6 — the record marks this weak — the mapping this paper disputes: a fitted delay span is a description, and reading it as circuitry is the step it calls biologically unrealistic</note>
-        <quote>The most direct biological interpretation of the STRF model would involve auditory cortical neurons receiving inputs at a range of simple delays spanning out to 200 ms; however, this is biologically unrealistic.</quote>
-      </span>
-      <span xml:id="t43" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
-        <label>onset latencies —operationalised-as→ delay lines</label>
-        <term>onset latencies</term>
-        <term>delay lines</term>
-        <note>strength of the relation: 0.9 — CRITERION: thalamic onset latencies bound what delays can exist - about 14 ms in ferret, 20 in cat, 10 in mouse, 40 in marmoset</note>
-        <quote>The onset latencies of neurons in the ventral division of the medial geniculate body (vMGB), which provides the primary ascending input to primary auditory cortex (A1), are typically less than ~14 ms in the ferret [ 18 ], the animal species that provided the data that were modelled in this study. In the cat vMGB response latencies are typically less than ~20 ms [ 19 ], in the mouse less than ~10 ms [ 20 ], and in the marmoset less than ~40 ms</quote>
-      </span>
-      <span xml:id="t44" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
-        <label>RETRACTED (DIRECTION REVERSED, and the span states the correct direction explicitly) · DNet —is-a→ NRF model</label>
-        <term>DNet</term>
-        <term>NRF model</term>
-        <note>RETRACTED: DIRECTION REVERSED, and the span states the correct direction explicitly. `is-a` asserts the subject is subsumed by the object, so `DNet --is-a--&gt; NRF model` claims DNet is a kind of NRF model. The span says the opposite in as many words: &#x27;all possible NRF models are a SUBSET of all possible DNet models&#x27; - NRF is inside DNet, DNet is the more general class. The equivalence in the first half of the same span is also SCOPED, not general: the two are equivalent only &#x27;when the discretized time constant for every DNet model unit is at the smallest possible value ( t = 1, d = 0)&#x27;. So the edge fails twice over - wrong direction for the subsumption, and unscoped for the equivalence. WHAT THE SPAN DOES SAY (Q-309), now recorded as two edges that split the two claims apart: `NRF model --is-a--&gt; DNet` for the general subsumption, and `DNet --same-as--&gt; NRF model` carrying `holds_when` for the equivalence that holds at one point of the parameter space. Raised by meta-claude as a load-bearing-scope case; reading the span showed the scope was the second fault, not the first. — strength of the relation: 1 — the NRF is the DNet with every time constant at minimum, which is why the DNet losing to it is a fitting artefact and not a finding</note>
-        <quote>Note that the DNet model is equivalent to the NRF model when the discretized time constant for every DNet model unit is at the smallest possible value ( τ = 1, d = 0). Hence, because all possible NRF models are a subset of all possible DNet models, the DNet should in theory always equal or outperform the NRF model.</quote>
-      </span>
-      <span xml:id="t45" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">
-        <label>time constant —operationalised-as→ membrane time constant</label>
-        <term>time constant</term>
-        <term>membrane time constant</term>
-        <note>strength of the relation: 0.7 — intended as membrane integration but explicitly not exclusive of channel adaptation, synaptic depression or recurrence</note>
-        <quote>We note, however, that although the DNet model was developed with membrane dynamics in mind, aspects of all the above listed dynamic processes could be captured by the same exponentially-decaying memory in the DNet. These different processes are not exclusive of each other, and combinations of them may contribute to the effects we find.</quote>
-      </span>
-      <span xml:id="t46" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">
-        <label>DNet —contrasted-with→ sDNet</label>
-        <term>DNet</term>
-        <term>sDNet</term>
-        <note>strength of the relation: 1 — CRITERION: decay after the nonlinearity beats decay before it, which is the membrane versus synaptic distinction made testable</note>
-        <quote>The sDNet model achieves best performance in predicting neural responses when the duration of the STRFs is 200 ms (CC norm = 0.71) ( Fig 8A ). Although the sDNet with 25-ms STRFs predicts neural responses better (CC norm = 0.67) than the 25-ms LN model (CC norm = 0.51) and the 25-ms NRF model (CC norm = 0.51), it is worse than the 25-ms DNet model (CC norm = 0.71). This suggests that a large percentage of the variance of neural responses can be explained by a time constant before non-linearity, but that having a time constant after the non-linearity further improves prediction.</quote>
-      </span>
-      <span xml:id="t47" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.9">
-        <label>time constant —causes→ IE score</label>
-        <term>time constant</term>
-        <term>IE score</term>
-        <note>strength of the relation: 0.7 — not built in: the units that end up with long memories are almost all inhibitory</note>
-        <quote>We found that almost all units having large time constants are inhibitory in nature</quote>
-      </span>
-      <span xml:id="t48" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">
-        <label>LASSO regularization —causes→ hidden units</label>
-        <term>LASSO regularization</term>
-        <term>hidden units</term>
-        <note>strength of the relation: 1 — SIGN: prunes. 20 specified units become 2-8 effective ones, so the fitted model is not the stated architecture</note>
-        <quote>Although the DNet model had 20 hidden units, the L1 regularization eliminated unnecessary units. Hence there were fewer effective HUs, and for the 25-ms DNet model this number was found to be between 2 and 8</quote>
-      </span>
-      <span xml:id="t49" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">
-        <label>noise ratio —operationalised-as→ A1</label>
-        <term>noise ratio</term>
-        <term>A1</term>
-        <note>strength of the relation: 0.7 — the inclusion rule that turns 549 recorded units into the 73 the paper is about</note>
-        <quote>The noise ratio was calculated as a measure of how much the response of each unit is dependent on the stimuli [ 9 , 24 ]. The noise ratio was measured over all 20 stimuli and 20 repeats. Any unit with a noise ratio &gt; 40 were excluded from the study. Also, only putative single units were used. This resulted in 73 neurons for the study.</quote>
-      </span>
-      <span xml:id="t50" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">
-        <label>cochleagram —part-of→ STRF</label>
-        <term>cochleagram</term>
-        <term>STRF</term>
-        <note>strength of the relation: 0.9 — every model shares this front end, so all comparisons are conditional on the same modelled periphery</note>
-        <quote>The models receive the input as a cochleagram, a spectrogram-like transformation of the sound waveform. The cochleagram approximates the spectral filtering performed by the auditory periphery</quote>
-      </span>
-      <span xml:id="t51" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">
-        <label>stimulus history —operationalised-as→ time constant</label>
-        <term>stimulus history</term>
-        <term>time constant</term>
-        <note>strength of the relation: 0.9 — the paper&#x27;s central substitution: history dependence rendered as decaying memory rather than as stored delays</note>
-        <quote>These findings suggest that integration due to the membrane time constants or other exponentially-decaying memory processes may underlie linear temporal receptive fields of neurons beyond 25 ms.</quote>
-      </span>
-      <span xml:id="t52" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.9">
-        <label>short term synaptic plasticity —same-as→ time constant</label>
-        <term>short term synaptic plasticity</term>
-        <term>time constant</term>
-        <note>strength of the relation: 0.4 — the record marks this weak — one of several processes the same fitted decay could be; weight low because the paper declines to distinguish them</note>
-        <quote>We note, however, that although the DNet model was developed with membrane dynamics in mind, aspects of all the above listed dynamic processes could be captured by the same exponentially-decaying memory in the DNet. These different processes are not exclusive of each other, and combinations of them may contribute to the effects we find.</quote>
-      </span>
-      <span xml:id="t53" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.9">
-        <label>NRF model —is-a→ DNet</label>
-        <term>NRF model</term>
-        <term>DNet</term>
-        <note>strength of the relation: 0.9</note>
-        <quote>because all possible NRF models are a subset of all possible DNet models, the DNet should in theory always equal or outperform the NRF model.</quote>
-      </span>
-      <span xml:id="t54" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="0.85">
-        <label>DNet —same-as→ NRF model</label>
-        <term>DNet</term>
-        <term>NRF model</term>
-        <note>holds when: only at the smallest possible discretized time constant, t = 1 and d = 0 · strength of the relation: 0.8</note>
-        <quote>Note that the DNet model is equivalent to the NRF model when the discretized time constant for every DNet model unit is at the smallest possible value ( τ = 1, d = 0).</quote>
-      </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
-        <label>correlation coefficient</label>
-        <term>correlation coefficient</term>
-        <quote>For each of the fitted models, neural responses were then predicted for the validation set, and the correlation coefficient between the actual neural responses and the prediction was measured.</quote>
-      </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
-        <label>Pearson correlation</label>
-        <term>Pearson correlation</term>
-        <quote>The means of non-normalized Pearson correlation coefficients (CC) are 0.40, 0.50, 0.54, 0.55, and 0.55 respectively.</quote>
-      </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
-        <label>k-fold cross-validation</label>
-        <term>k-fold cross-validation</term>
-        <quote>The cross-validation set (the remaining 16 stimuli) was used to fit the models using k -fold cross validation, where k = 8.</quote>
-      </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
-        <label>standard error of the mean</label>
-        <term>standard error of the mean</term>
-        <quote>Each black dot represents a neuron, the curve indicates the mean over 73 neurons and error bars indicate standard error of the mean.</quote>
-      </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
-        <label>regularized regression (LASSO / L1)</label>
-        <term>regularized regression (LASSO / L1)</term>
-        <quote>To overcome overfitting, the weights were regularized using an L1-norm (LASSO regularization).</quote>
-      </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
-        <label>linear regression</label>
-        <term>linear regression</term>
-        <quote>Both w and b are free parameters of the model and were estimated by regressing neural response y(t) against input x ( t ) using glmnet</quote>
-      </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
-        <label>held-out test set</label>
-        <term>held-out test set</term>
-        <quote>From the data for the 20 sound stimuli, 4 were chosen as a test set which was not used during training and cross-validation.</quote>
-      </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger" cert="1.0">
-        <label>LASSO regularization</label>
-        <term>LASSO regularization</term>
-        <quote>To overcome overfitting, the weights were regularized using an L1-norm (LASSO regularization).</quote>
-      </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger" cert="0.6">
-        <label>cross-validation</label>
-        <term>cross-validation</term>
-        <quote>To overcome overfitting, the weights were regularized using an L1-norm (LASSO regularization).</quote>
-      </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger" cert="0.9">
-        <label>CC norm</label>
-        <term>CC norm</term>
-        <quote>The 25-ms DNet model out performs the DNet with longer (200 ms and 400 ms) STRFs, as measured by prediction of neural responses on a held-out test set averaged over all 73 neurons ( Fig 5A ). It also achieves performance similar to the best performing LN model, but performs a little worse than the best performing NRF model</quote>
-      </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
-        <label>A linear-nonlinear STRF model needs delay lines reaching at least 200 ms into the past to predict A1 responses well, a span the authors argue is biologically unrealistic.</label>
-        <quote>For a linear-non-linear STRF model (LN model) to achieve a high level of performance in predicting single unit neural responses to natural sounds in the primary auditory cortex, we found that it is necessary to include time delays going back at least 200 ms in the past.</quote>
-      </span>
-      <span xml:id="t66" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
-        <label>A dynamic network whose units carry exponentially decaying memory reaches the same held-out prediction performance with only 25 ms of STRF as the best 200 ms LN model.</label>
-        <quote>We find that this dynamic network (DNet) model, when fitted to the neural data using STRFs of only 25 ms duration, can achieve prediction performance on a held-out dataset comparable to the best performing LN model with STRFs of 200 ms duration.</quote>
-      </span>
-      <span xml:id="t67" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
-        <label>Lengthening the DNet&#x27;s STRFs does not help and slightly hurts: the 25 ms version beats the 200 ms and 400 ms versions on held-out data.</label>
-        <quote>The 25-ms DNet model out performs the DNet with longer (200 ms and 400 ms) STRFs, as measured by prediction of neural responses on a held-out test set averaged over all 73 neurons</quote>
-      </span>
-      <span xml:id="t68" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
-        <label>Silencing the hidden units whose time constants exceed the STRF duration damages the 25 ms DNet more than any other version, showing that the long time constants are what carry its stimulus-history dependence.</label>
-        <quote>We found that the 25-ms DNet model is the DNet whose CC norm is most reduced by this alteration</quote>
-      </span>
-      <span xml:id="t69" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
-        <label>A single dynamic unit with one STRF predicts worse than the LN model, so long time constants only work when embedded in a multi-unit network.</label>
-        <quote>This indicates that both long time constants and a network architecture are needed for the 25-ms DNet model to achieve prediction performance similar to that of standard models.</quote>
-      </span>
-      <span xml:id="t70" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
-        <label>Hidden units carrying long time constants are almost all inhibitory in their effect on the output unit.</label>
-        <quote>We found that almost all units having large time constants are inhibitory in nature</quote>
-      </span>
-      <span xml:id="t71" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
-        <label>Placing the exponential integration before the nonlinearity (the synaptic-style sDNet) is better than static 25 ms models but worse than integrating after the nonlinearity as the DNet does.</label>
-        <quote>Although the sDNet with 25-ms STRFs predicts neural responses better (CC norm = 0.67) than the 25-ms LN model (CC norm = 0.51) and the 25-ms NRF model (CC norm = 0.51), it is worse than the 25-ms DNet model (CC norm = 0.71).</quote>
-      </span>
-      <span xml:id="t72" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
-        <label>L1 regularization left only between 2 and 8 hidden units effective per neuron in the 25 ms DNet, so the succinct fit uses very few components.</label>
-        <quote>Hence there were fewer effective HUs, and for the 25-ms DNet model this number was found to be between 2 and 8</quote>
-      </span>
-      <span xml:id="t73" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger">
-        <label>The fitted time constants of effective hidden units spanned 5 to 475 ms, far exceeding the 25 ms STRF window they accompany.</label>
-        <quote>In the 25-ms DNet model, the time constants of the effective HUs ranged between 5 and 475 ms, often far greater than the duration of the STRFs</quote>
-      </span>
-      <span xml:id="t74" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
-        <label>a 25 ms DNet matched the best 200 ms LN model on held-out prediction</label>
-        <quote>We find that this dynamic network (DNet) model, when fitted to the neural data using STRFs of only 25 ms duration, can achieve prediction performance on a held-out dataset comparable to the best performing LN model with STRFs of 200 ms duration.</quote>
-      </span>
-      <span xml:id="t75" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
-        <label>the 25 ms DNet beat 25 ms LN and NRF models by a large margin, and beat DNets with longer delay spans</label>
-        <quote>Also, the 25-ms LN and NRF models are outperformed by a large margin by the 25-ms DNet model ( Fig 5A ). A neuron by neuron comparison shows that this result is also consistent for almost all neurons</quote>
-      </span>
-      <span xml:id="t76" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
-        <label>it performed slightly worse than the best NRF model, which the paper attributes to fitting rather than to the model class</label>
-        <quote>The 25-ms DNet model out performs the DNet with longer (200 ms and 400 ms) STRFs, as measured by prediction of neural responses on a held-out test set averaged over all 73 neurons ( Fig 5A ). It also achieves performance similar to the best performing LN model, but performs a little worse than the best performing NRF model</quote>
-      </span>
-      <span xml:id="t77" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
-        <label>NESTED-MODEL VIOLATION DIAGNOSED: the DNet contains the NRF as a special case, so losing to it must be an optimisation failure</label>
-        <quote>The fact that this is not the case suggests that, at least in some cases, the very best fits are not being found for the DNet model, perhaps as a consequence of some overfitting. That the DNet model performs worse for large latency spans, where there are more variables, is again probably due to challenges in fitting the DNet model, likely due to some overfitting to the training set.</quote>
-      </span>
-      <span xml:id="t78" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
-        <label>removing units whose time constants exceed their delay span hurt the 25 ms DNet most, showing the long memories carry the work</label>
-        <quote>To understand how much of an effect HUs of the DNet model with long time constants have on the model’s predictions, the fitted model was modified by ‘knocking out’ (see Methods ) HUs with time constants longer than the duration of their STRFs. This was achieved by setting the output weights of those units to zero, while keeping all other parameters intact. We found that the 25-ms DNet model is the DNet whose CC norm is most reduced by this alteration</quote>
-      </span>
-      <span xml:id="t79" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
-        <label>a single dynamic unit performed worse than a plain LN model, so decay alone is not enough without a network</label>
-        <quote>A single-unit dynamic model was also developed to examine the effect of a time constant in an LN-like single STRF model. Prediction performance of this model was found to be worse than the LN model ( Fig 6B ). This indicates that both long time constants and a network architecture are needed for the 25-ms DNet model to achieve prediction performance similar to that of standard models.</quote>
-      </span>
-      <span xml:id="t80" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
-        <label>fitted time constants ran from 5 to 475 ms, far exceeding the 25 ms delay span</label>
-        <quote>In the 25-ms DNet model, the time constants of the effective HUs ranged between 5 and 475 ms, often far greater than the duration of the STRFs</quote>
-      </span>
-      <span xml:id="t81" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">
-        <label>almost all units with long time constants turned out inhibitory</label>
-        <quote>We found that almost all units having large time constants are inhibitory in nature</quote>
-      </span>
-      <span xml:id="t82" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">
-        <label>more effective hidden units tended to have longer time constants</label>
-        <quote>This showed that high-ranked HUs tend to have long time constants</quote>
-      </span>
-      <span xml:id="t83" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">
-        <label>putting the decay before the nonlinearity was worse than after, favouring a membrane over a synaptic reading</label>
-        <quote>The sDNet model achieves best performance in predicting neural responses when the duration of the STRFs is 200 ms (CC norm = 0.71) ( Fig 8A ). Although the sDNet with 25-ms STRFs predicts neural responses better (CC norm = 0.67) than the 25-ms LN model (CC norm = 0.51) and the 25-ms NRF model (CC norm = 0.51), it is worse than the 25-ms DNet model (CC norm = 0.71). This suggests that a large percentage of the variance of neural responses can be explained by a time constant before non-linearity, but that having a time constant after the non-linearity further improves prediction.</quote>
-      </span>
-      <span xml:id="t84" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">
-        <label>REINTERPRETATION: the long inhibitory fields in conventional STRFs may be decaying memory rather than delayed inhibition</label>
-        <quote>When auditory neurons are fitted using a standard LN model, the resulting STRFs often contain narrowband inhibitory fields that decay over approximately 200 ms. In contrast, we find that the STRFs of the DNet model have short inhibitory fields with long time constants. This suggests that these temporally extended inhibitory fields in STRFs may reflect neural mechanisms that can be approximated by exponentially-decaying memory processes.</quote>
-      </span>
-      <span xml:id="t85" type="content_tags" ana="#content_tags.findings[20]" resp="#tagger" cert="1.0">
-        <label>CONCEDED: long-latency thalamic inputs cannot be excluded and probably contribute</label>
-        <quote>Hence, we cannot rule out the possibility that long-latency inputs at least partially explain the dependence of auditory cortical neurons on stimulus history–indeed it is likely that they do to some extent.</quote>
-      </span>
-      <span xml:id="t86" type="content_tags" ana="#content_tags.findings[21]" resp="#tagger" cert="1.0">
-        <label>STATED SCOPE LIMIT: dependence out to about 4 seconds is beyond this model because its memory is exponential</label>
-        <quote>The firing rate of A1 neurons has been demonstrated to depend on stimulus history up to ~4 s in the past [ 17 ]. This dependence cannot be fully captured by linear models such as STRFs (17). This indicates that there are some nonlinear dynamic processes that provide history dependence which cannot be captured either by a linear or LN models, nor by the DNet model. Perhaps this is because the DNet model has limited capacity to capture temporal dynamics that are not exponential in nature.</quote>
-      </span>
-      <span xml:id="t87" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
-        <label>spectro-temporal receptive field (STRF) model</label>
-        <term>spectro-temporal receptive field (STRF) model</term>
-        <quote>The tuning properties of auditory neurons are commonly described by a spectro-temporal receptive field (STRF) model, which characterizes the linear dependence of the neural response on the sound spectrum at a range of latencies</quote>
-      </span>
-      <span xml:id="t88" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
-        <label>dynamic network (DNet) model</label>
-        <term>dynamic network (DNet) model</term>
-        <quote>We constructed a neural-network model whose output is the weighted sum of units whose responses are determined by a dynamic firing-rate equation.</quote>
-      </span>
-      <span xml:id="t89" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
-        <label>network receptive field (NRF) model</label>
-        <term>network receptive field (NRF) model</term>
-        <quote>The NRF model is an artificial neural network with a single hidden layer of 20 hidden units (HU) which converge onto an output unit (OU).</quote>
-      </span>
-      <span xml:id="t90" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
-        <label>sDNet (synaptic dynamic network) model</label>
-        <term>sDNet (synaptic dynamic network) model</term>
-        <quote>Hence, in the sDNet model, the activation of each HU, rather than the output of the nonlinearity, is convolved with an exponential decay impulse response.</quote>
-      </span>
-      <span xml:id="t91" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
-        <label>cochleagram</label>
-        <term>cochleagram</term>
-        <quote>The models receive the input as a cochleagram, a spectrogram-like transformation of the sound waveform.</quote>
-      </span>
-      <span xml:id="t92" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger">
-        <label>noise ratio</label>
-        <term>noise ratio</term>
-        <quote>The noise ratio was calculated as a measure of how much the response of each unit is dependent on the stimuli</quote>
-      </span>
-      <span xml:id="t93" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger">
-        <label>effective hidden unit</label>
-        <term>effective hidden unit</term>
-        <quote>Any HU with variance greater than 5% of the sum of the variances of all 20 HUs is considered effective.</quote>
-      </span>
-      <span xml:id="t94" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger">
-        <label>firing-rate equation</label>
-        <term>firing-rate equation</term>
-        <quote>A common simple dynamic model of neurons that captures this phenomenon is the differential equation ( Eq 7 ) known as the firing-rate equation [ 22 ].</quote>
-      </span>
-      <span xml:id="t95" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
-        <label>LN model</label>
-        <term>LN model</term>
-        <quote>The two stage LN model consists of a linear model followed by a sigmoid output nonlinearity.</quote>
-      </span>
-      <span xml:id="t96" type="content_tags" ana="#content_tags.definitions[9]" resp="#tagger" cert="1.0">
-        <label>NRF model</label>
-        <term>NRF model</term>
-        <quote>The NRF model is an artificial neural network with a single hidden layer of 20 hidden units (HU) which converge onto an output unit (OU). Each unit of the model is similar to a single LN model.</quote>
-      </span>
-      <span xml:id="t97" type="content_tags" ana="#content_tags.definitions[10]" resp="#tagger" cert="1.0">
-        <label>cochleagram</label>
-        <term>cochleagram</term>
-        <quote>The models receive the input as a cochleagram, a spectrogram-like transformation of the sound waveform. The cochleagram approximates the spectral filtering performed by the auditory periphery</quote>
-      </span>
-      <span xml:id="t98" type="content_tags" ana="#content_tags.definitions[11]" resp="#tagger" cert="1.0">
-        <label>noise ratio</label>
-        <term>noise ratio</term>
-        <quote>The noise ratio was calculated as a measure of how much the response of each unit is dependent on the stimuli [ 9 , 24 ]. The noise ratio was measured over all 20 stimuli and 20 repeats. Any unit with a noise ratio &gt; 40 were excluded from the study. Also, only putative single units were used. This resulted in 73 neurons for the study.</quote>
-      </span>
-      <span xml:id="t99" type="content_tags" ana="#content_tags.definitions[12]" resp="#tagger" cert="0.9">
-        <label>time constant</label>
-        <term>time constant</term>
-        <quote>Due to the capacitance and resistance of the neural cell membrane, the membrane potential and hence the firing rate is approximately a low-pass filtered version of the synaptic current. A common simple dynamic model of neurons that captures this phenomenon is the differential equation ( Eq 7 ) known as the firing-rate equation</quote>
-      </span>
-      <span xml:id="t100" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
-        <label>span of latencies (duration) of the model STRF</label>
-        <term>span of latencies (duration) of the model STRF</term>
-        <quote>The effect of different spans of latencies (lengths) of the STRF was investigated.</quote>
-      </span>
-      <span xml:id="t101" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
-        <label>knocking out hidden units whose time constants exceed the STRF duration</label>
-        <term>knocking out hidden units whose time constants exceed the STRF duration</term>
-        <quote>This was achieved by setting the output weights of those units to zero, while keeping all other parameters intact.</quote>
-      </span>
-      <span xml:id="t102" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
-        <label>prediction performance on held-out neural responses (CC norm)</label>
-        <term>prediction performance on held-out neural responses (CC norm)</term>
-        <quote>For each of the fitted models, neural responses were then predicted for the validation set, and the correlation coefficient between the actual neural responses and the prediction was measured.</quote>
-      </span>
-      <span xml:id="t103" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
-        <label>amount of training data (duration of neural response) given to each model</label>
-        <term>amount of training data (duration of neural response) given to each model</term>
-        <quote>To ensure that all models receive the same amount of training data, models with different latency spans of STRFs are provided with exactly the same durations of neural response.</quote>
-      </span>
-      <span xml:id="t104" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger" cert="1.0">
-        <label>time constant</label>
-        <term>time constant</term>
-        <quote>In the 25-ms DNet model, the time constants of the effective HUs ranged between 5 and 475 ms, often far greater than the duration of the STRFs</quote>
-      </span>
-      <span xml:id="t105" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger" cert="1.0">
-        <label>STRF</label>
-        <term>STRF</term>
-        <quote>We find that this dynamic network (DNet) model, when fitted to the neural data using STRFs of only 25 ms duration, can achieve prediction performance on a held-out dataset comparable to the best performing LN model with STRFs of 200 ms duration.</quote>
-      </span>
-      <span xml:id="t106" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="1.0">
-        <label>IE score</label>
-        <term>IE score</term>
-        <quote>We found that almost all units having large time constants are inhibitory in nature</quote>
-      </span>
-      <span xml:id="t107" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
-        <label>0.51, 0.64, 0.69, 0.71, and 0.71 — mean normalized correlation coefficient of the LN model on held-out data for STRF lengths of 25, 50, 100, 200 and 400 ms — performance saturates only at 200 ms</label>
-        <quote>the mean normalized correlation coefficient, mean CC norm [ 30 , 31 ], between the actual neural responses and the prediction of LN models with 25, 50, 100, 200, and 400 ms long STRFs are respectively 0.51, 0.64, 0.69, 0.71, and 0.71</quote>
-      </span>
-      <span xml:id="t108" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
-        <label>0.71, 0.71, 0.70, 0.68 and 0.68 — mean normalized correlation coefficient of the DNet model for the same STRF lengths — already maximal at 25 ms</label>
-        <quote>We found that the mean CC norm between the actual neural responses and the predictions of the DNet model with 25, 50, 100, 200 and 400 ms STRFs are respectively 0.71, 0.71, 0.70, 0.68 and 0.68</quote>
-      </span>
-      <span xml:id="t109" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
-        <label>0.40, 0.50, 0.54, 0.55, and 0.55 — mean raw (non-normalized) Pearson correlation coefficients for the LN model across the five STRF lengths</label>
-        <quote>The means of non-normalized Pearson correlation coefficients (CC) are 0.40, 0.50, 0.54, 0.55, and 0.55 respectively.</quote>
-      </span>
-      <span xml:id="t110" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
-        <label>73 — single units that passed the noise-ratio criterion and were modelled</label>
-        <quote>This resulted in 73 neurons for the study.</quote>
-      </span>
-      <span xml:id="t111" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
-        <label>549 / 284 — single and multi-units recorded in 56 penetrations, of which 284 were single units</label>
-        <quote>In total, 56 penetrations resulted in 549 single and multi-units, of which 284 were single units.</quote>
-      </span>
-      <span xml:id="t112" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
-        <label>CC norm = 0.71 — best sDNet performance, reached only with 200 ms STRFs, versus the DNet reaching the same value at 25 ms</label>
-        <quote>The sDNet model achieves best performance in predicting neural responses when the duration of the STRFs is 200 ms (CC norm = 0.71)</quote>
-      </span>
-      <span xml:id="t113" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
-        <label>~30% — share of the normalized correlation coefficient still unexplained by the DNet model</label>
-        <quote>provides a basis from which to develop further models to account for the ~30% of the CC norm that remains to be explained</quote>
-      </span>
-      <span xml:id="t114" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">
-        <label>25 ms against 200 ms — delay span the DNet needs against the span the LN model needs for the same prediction</label>
-        <quote>We find that this dynamic network (DNet) model, when fitted to the neural data using STRFs of only 25 ms duration, can achieve prediction performance on a held-out dataset comparable to the best performing LN model with STRFs of 200 ms duration.</quote>
-      </span>
-      <span xml:id="t115" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
-        <label>~14 ms — typical thalamic onset latency in ferret, the species modelled - the bound that makes 200 ms delays implausible</label>
-        <quote>The onset latencies of neurons in the ventral division of the medial geniculate body (vMGB), which provides the primary ascending input to primary auditory cortex (A1), are typically less than ~14 ms in the ferret [ 18 ], the animal species that provided the data that were modelled in this study. In the cat vMGB response latencies are typically less than ~20 ms [ 19 ], in the mouse less than ~10 ms [ 20 ], and in the marmoset less than ~40 ms</quote>
-      </span>
-      <span xml:id="t116" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">
-        <label>5 to 475 ms — range of fitted time constants among effective hidden units</label>
-        <quote>In the 25-ms DNet model, the time constants of the effective HUs ranged between 5 and 475 ms, often far greater than the duration of the STRFs</quote>
-      </span>
-      <span xml:id="t117" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
-        <label>2 to 8 of 20 — hidden units surviving regularisation per neuron</label>
-        <quote>Although the DNet model had 20 hidden units, the L1 regularization eliminated unnecessary units. Hence there were fewer effective HUs, and for the 25-ms DNet model this number was found to be between 2 and 8</quote>
-      </span>
-      <span xml:id="t118" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="0.9">
-        <label>73 of 549 — units analysed after the single-unit and noise-ratio criteria</label>
-        <quote>The noise ratio was calculated as a measure of how much the response of each unit is dependent on the stimuli [ 9 , 24 ]. The noise ratio was measured over all 20 stimuli and 20 repeats. Any unit with a noise ratio &gt; 40 were excluded from the study. Also, only putative single units were used. This resulted in 73 neurons for the study.</quote>
-      </span>
-      <span xml:id="t119" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">
-        <label>~4 s — how far back A1 responses are known to depend on history, beyond this model&#x27;s reach</label>
-        <quote>The firing rate of A1 neurons has been demonstrated to depend on stimulus history up to ~4 s in the past [ 17 ]. This dependence cannot be fully captured by linear models such as STRFs (17). This indicates that there are some nonlinear dynamic processes that provide history dependence which cannot be captured either by a linear or LN models, nor by the DNet model. Perhaps this is because the DNet model has limited capacity to capture temporal dynamics that are not exponential in nature.</quote>
-      </span>
+      <span xml:id="t0" from="#a1" to="#a7" type="object_of_study" ana="#object_of_study" resp="#paper">why cortical auditory responses appear to depend on hundreds of milliseconds of sound history when the delays available to the circuit are far shorter</span>
+      <span xml:id="t1" from="#a8" to="#a10" type="research_question" ana="#research_question" resp="#paper">how much of the long temporal receptive field can be produced by neurons&#x27; own decaying memory rather than by long delay lines</span>
+      <span xml:id="t2" from="#a11" to="#a12" type="contribution" ana="#contribution" resp="#paper">shows a network whose units each carry their own exponential decay matches a 200 ms delay-line model using only 25 ms of delay, which is within the biologically available range</span>
+      <span xml:id="t3" from="#a3" to="#a4" type="claim_type" ana="#claim_type" resp="#paper">method</span>
+      <span xml:id="t4" from="#a1" to="#a2" type="phenomenon" ana="#phenomenon" resp="#paper">temporal receptive fields in primary auditory cortex</span>
+      <span xml:id="t5" from="#a8" to="#a9" type="method" ana="#method" resp="#paper">simulation<term>simulation</term></span>
+      <span xml:id="t6" from="#a43" to="#a44" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">mechanisms<term>membrane capacitance and resistance make firing rate a low-pass-filtered version of synaptic current, so each unit&#x27;s output is convolved with an exponentially decaying impulse response that stores recent input</term></span>
+      <span xml:id="t7" from="#a13" to="#a14" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">mechanisms<term>integration by membrane time constants (or other exponentially decaying memory processes) rather than long delay lines produces the apparent long temporal receptive fields of cortical neurons</term></span>
+      <span xml:id="t8" from="#a113" to="#a114" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">mechanisms<term>the long narrowband inhibitory fields seen in fitted STRFs are the signature of short inhibitory inputs passed through slowly decaying memory, not of genuinely delayed inhibition</term></span>
+      <span xml:id="t9" from="#a43" to="#a46" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="1.0">membrane capacitance and resistance make firing rate a low-pass filtered version of synaptic current, which is the decay the model implements</span>
+      <span xml:id="t10" from="#a91" to="#a93" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="1.0">both parts are needed: a single dynamic unit does worse than a plain LN model, so the effect requires decay AND a network</span>
+      <span xml:id="t11" from="#a119" to="#a120" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="1.0">all the dynamic processes listed could be captured by the same exponentially-decaying memory, and the paper says they are not exclusive of one another</span>
+      <span xml:id="t12" from="#a105" to="#a109" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="1.0">a time constant before the nonlinearity explains much of the variance, and moving it after the nonlinearity improves prediction further</span>
+      <span xml:id="t13" from="#a101" to="#a102" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="1.0">the units that carry the long time constants are almost all inhibitory, which was not built in</span>
+      <span xml:id="t14" from="#a83" to="#a84" type="limitations" ana="#limitations[0]" resp="#tagger">The DNet sometimes fails to reach fits it should in principle attain, suggesting optimisation failure or overfitting</span>
+      <span xml:id="t15" from="#a115" to="#a116" type="limitations" ana="#limitations[1]" resp="#tagger">Long-latency thalamic inputs cannot be ruled out as a partial explanation</span>
+      <span xml:id="t16" from="#a122" to="#a123" type="limitations" ana="#limitations[2]" resp="#tagger">History dependence out to seconds is captured by neither standard models nor the DNet</span>
+      <span xml:id="t17" from="#a124" to="#a125" type="limitations" ana="#limitations[3]" resp="#tagger">The model can only express exponential temporal dynamics</span>
+      <span xml:id="t18" from="#a115" to="#a116" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">long-latency thalamic inputs cannot be ruled out and probably do contribute to some degree</span>
+      <span xml:id="t19" from="#a121" to="#a125" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">A1 responses depend on history out to about 4 seconds, which neither linear models nor this one can capture</span>
+      <span xml:id="t20" from="#a83" to="#a85" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">where the DNet underperforms, the paper reads it as the best fits not being found rather than as a property of the model class</span>
+      <span xml:id="t21" from="#a94" to="#a96" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">only 2 to 8 of 20 hidden units survive regularisation, so the fitted architecture is much smaller than the one specified</span>
+      <span xml:id="t22" from="#a23" to="#a24" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">the data are reused from a previous study rather than collected here</span>
+      <span xml:id="t23" from="#a43" to="#a46" type="transfers" ana="#transfers[0]" resp="#tagger" cert="1.0">the firing-rate equation, used to give each network unit a membrane-like time constant</span>
+      <span xml:id="t24" from="#a38" to="#a39" type="transfers" ana="#transfers[1]" resp="#tagger" cert="1.0">L1 regularisation, which here does structural work by pruning the network to 2-8 effective units</span>
+      <span xml:id="t25" from="#a31" to="#a33" type="transfers" ana="#transfers[2]" resp="#tagger" cert="1.0">the cochleagram as a standard front end, so that all compared models see the same transformed input</span>
+      <span xml:id="t26" from="#a19" to="#a20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">temporal receptive field here is a MODEL OBJECT - the span of delays a fitted model needs - and the paper&#x27;s whole argument is that this span need not correspond to delays in the circuit</span>
+      <span xml:id="t27" from="#a103" to="#a104" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">time constant in the DNet sits after the nonlinearity and is meant as membrane integration; in the sDNet variant it sits before, and means synaptic integration. Same word, different position, different biology</span>
+      <span xml:id="t28" from="#a94" to="#a96" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">effective hidden unit is defined by a variance threshold on its weighted output, so the reported unit counts are post-regularisation and not the specified architecture</span>
+      <span xml:id="t29" from="#a27" to="#a30" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">the 73 analysed neurons are single units surviving a noise-ratio cut of 40, from 549 recorded units of which 284 were single</span>
+      <span xml:id="t30" from="#a31" to="#a33" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">cochleagram is a modelled auditory periphery, not a measurement - the input every model sees is already a transformation with chosen parameters</span>
+      <span xml:id="t31" from="#a110" to="#a111" type="alternatives" ana="#alternatives.claim_type" resp="#tagger">claim_type: method<note>a second reading reaching the same value. Recorded: method — a second reading reaching the same value from a different sentence. Not applied - a person decides.</note></span>
+      <span xml:id="t32" from="#a40" to="#a42" type="alternatives" ana="#alternatives.method" resp="#tagger">method: fitting linear-nonlinear, network and dynamic-network models to 73 ferret A1 units and comparing held-out prediction across delay spans<note>a second reading DIFFERING from the recorded value. Recorded: simulation — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note></span>
+      <span xml:id="t33" from="#a15" to="#a16" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger">phenomenon: the temporal receptive field: dependence of a cortical response on preceding sound<note>a second reading DIFFERING from the recorded value. Recorded: temporal receptive fields in primary auditory cortex — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note></span>
+      <span xml:id="t34" from="#a68" to="#a69" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">extends → Harper et al. [23] network receptive field (NRF) model</span>
+      <span xml:id="t35" from="#a70" to="#a71" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">replicates → Harper et al. [23] (NRF outperforming the LN model)</span>
+      <span xml:id="t36" from="#a126" to="#a127" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">builds-on → the LNFDSNF network model of the salamander retina [45]</span>
+      <span xml:id="t37" from="#a19" to="#a20" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="1.0">critiques → the delay-line reading of spectro-temporal receptive fields extending to 200 ms</span>
+      <span xml:id="t38" from="#a112" to="#a114" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="1.0">reinterprets → the long inhibitory fields seen in conventional STRFs, as a signature of decaying memory rather than of delayed input</span>
+      <span xml:id="t39" from="#a117" to="#a118" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="0.8">extends → earlier work capturing history dependence with synaptic depression</span>
+      <span xml:id="t40" from="#a23" to="#a24" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="1.0">builds-on → Harper et al. 2016, whose ferret recordings are refitted here</span>
+      <span xml:id="t41" from="#a115" to="#a116" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="1.0">qualifies → its own conclusion, by conceding that long-latency inputs likely contribute as well<note>status: the paper&#x27;s own words: we cannot rule out</note></span>
+      <span xml:id="t42" from="#a19" to="#a20" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="1.0">STRF —operationalised-as→ delay lines<note>strength of the relation: 0.6 — the record marks this weak — the mapping this paper disputes: a fitted delay span is a description, and reading it as circuitry is the step it calls biologically unrealistic</note><term>STRF</term><term>delay lines</term></span>
+      <span xml:id="t43" from="#a21" to="#a22" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">onset latencies —operationalised-as→ delay lines<note>strength of the relation: 0.9 — CRITERION: thalamic onset latencies bound what delays can exist - about 14 ms in ferret, 20 in cat, 10 in mouse, 40 in marmoset</note><term>onset latencies</term><term>delay lines</term></span>
+      <span xml:id="t44" from="#a79" to="#a82" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">RETRACTED (DIRECTION REVERSED, and the span states the correct direction explicitly) · DNet —is-a→ NRF model<note>RETRACTED: DIRECTION REVERSED, and the span states the correct direction explicitly. `is-a` asserts the subject is subsumed by the object, so `DNet --is-a--&gt; NRF model` claims DNet is a kind of NRF model. The span says the opposite in as many words: &#x27;all possible NRF models are a SUBSET of all possible DNet models&#x27; - NRF is inside DNet, DNet is the more general class. The equivalence in the first half of the same span is also SCOPED, not general: the two are equivalent only &#x27;when the discretized time constant for every DNet model unit is at the smallest possible value ( t = 1, d = 0)&#x27;. So the edge fails twice over - wrong direction for the subsumption, and unscoped for the equivalence. WHAT THE SPAN DOES SAY (Q-309), now recorded as two edges that split the two claims apart: `NRF model --is-a--&gt; DNet` for the general subsumption, and `DNet --same-as--&gt; NRF model` carrying `holds_when` for the equivalence that holds at one point of the parameter space. Raised by meta-claude as a load-bearing-scope case; reading the span showed the scope was the second fault, not the first. — strength of the relation: 1 — the NRF is the DNet with every time constant at minimum, which is why the DNet losing to it is a fitting artefact and not a finding</note><term>DNet</term><term>NRF model</term></span>
+      <span xml:id="t45" from="#a119" to="#a120" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="1.0">time constant —operationalised-as→ membrane time constant<note>strength of the relation: 0.7 — intended as membrane integration but explicitly not exclusive of channel adaptation, synaptic depression or recurrence</note><term>time constant</term><term>membrane time constant</term></span>
+      <span xml:id="t46" from="#a105" to="#a109" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="1.0">DNet —contrasted-with→ sDNet<note>strength of the relation: 1 — CRITERION: decay after the nonlinearity beats decay before it, which is the membrane versus synaptic distinction made testable</note><term>DNet</term><term>sDNet</term></span>
+      <span xml:id="t47" from="#a101" to="#a102" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.9">time constant —causes→ IE score<note>strength of the relation: 0.7 — not built in: the units that end up with long memories are almost all inhibitory</note><term>time constant</term><term>IE score</term></span>
+      <span xml:id="t48" from="#a94" to="#a96" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="1.0">LASSO regularization —causes→ hidden units<note>strength of the relation: 1 — SIGN: prunes. 20 specified units become 2-8 effective ones, so the fitted model is not the stated architecture</note><term>LASSO regularization</term><term>hidden units</term></span>
+      <span xml:id="t49" from="#a27" to="#a30" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="1.0">noise ratio —operationalised-as→ A1<note>strength of the relation: 0.7 — the inclusion rule that turns 549 recorded units into the 73 the paper is about</note><term>noise ratio</term><term>A1</term></span>
+      <span xml:id="t50" from="#a31" to="#a33" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="1.0">cochleagram —part-of→ STRF<note>strength of the relation: 0.9 — every model shares this front end, so all comparisons are conditional on the same modelled periphery</note><term>cochleagram</term><term>STRF</term></span>
+      <span xml:id="t51" from="#a13" to="#a14" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="1.0">stimulus history —operationalised-as→ time constant<note>strength of the relation: 0.9 — the paper&#x27;s central substitution: history dependence rendered as decaying memory rather than as stored delays</note><term>stimulus history</term><term>time constant</term></span>
+      <span xml:id="t52" from="#a119" to="#a120" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.9">short term synaptic plasticity —same-as→ time constant<note>strength of the relation: 0.4 — the record marks this weak — one of several processes the same fitted decay could be; weight low because the paper declines to distinguish them</note><term>short term synaptic plasticity</term><term>time constant</term></span>
+      <span xml:id="t53" from="#a81" to="#a82" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.9">NRF model —is-a→ DNet<note>strength of the relation: 0.9</note><term>NRF model</term><term>DNet</term></span>
+      <span xml:id="t54" from="#a79" to="#a80" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="0.85">DNet —same-as→ NRF model<note>holds when: only at the smallest possible discretized time constant, t = 1 and d = 0 · strength of the relation: 0.8</note><term>DNet</term><term>NRF model</term></span>
+      <span xml:id="t55" from="#a54" to="#a55" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">correlation coefficient<term>correlation coefficient</term></span>
+      <span xml:id="t56" from="#a64" to="#a65" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">Pearson correlation<term>Pearson correlation</term></span>
+      <span xml:id="t57" from="#a52" to="#a53" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">k-fold cross-validation<term>k-fold cross-validation</term></span>
+      <span xml:id="t58" from="#a66" to="#a67" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">standard error of the mean<term>standard error of the mean</term></span>
+      <span xml:id="t59" from="#a38" to="#a39" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">regularized regression (LASSO / L1)<term>regularized regression (LASSO / L1)</term></span>
+      <span xml:id="t60" from="#a36" to="#a37" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">linear regression<term>linear regression</term></span>
+      <span xml:id="t61" from="#a50" to="#a51" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">held-out test set<term>held-out test set</term></span>
+      <span xml:id="t62" from="#a38" to="#a39" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger" cert="1.0">LASSO regularization<term>LASSO regularization</term></span>
+      <span xml:id="t63" from="#a38" to="#a39" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger" cert="0.6">cross-validation<term>cross-validation</term></span>
+      <span xml:id="t64" from="#a74" to="#a76" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger" cert="0.9">CC norm<term>CC norm</term></span>
+      <span xml:id="t65" from="#a5" to="#a6" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">A linear-nonlinear STRF model needs delay lines reaching at least 200 ms into the past to predict A1 responses well, a span the authors argue is biologically unrealistic.</span>
+      <span xml:id="t66" from="#a11" to="#a12" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">A dynamic network whose units carry exponentially decaying memory reaches the same held-out prediction performance with only 25 ms of STRF as the best 200 ms LN model.</span>
+      <span xml:id="t67" from="#a74" to="#a75" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">Lengthening the DNet&#x27;s STRFs does not help and slightly hurts: the 25 ms version beats the 200 ms and 400 ms versions on held-out data.</span>
+      <span xml:id="t68" from="#a89" to="#a90" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">Silencing the hidden units whose time constants exceed the STRF duration damages the 25 ms DNet more than any other version, showing that the long time constants are what carry its stimulus-history dependence.</span>
+      <span xml:id="t69" from="#a92" to="#a93" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">A single dynamic unit with one STRF predicts worse than the LN model, so long time constants only work when embedded in a multi-unit network.</span>
+      <span xml:id="t70" from="#a101" to="#a102" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">Hidden units carrying long time constants are almost all inhibitory in their effect on the output unit.</span>
+      <span xml:id="t71" from="#a107" to="#a108" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">Placing the exponential integration before the nonlinearity (the synaptic-style sDNet) is better than static 25 ms models but worse than integrating after the nonlinearity as the DNet does.</span>
+      <span xml:id="t72" from="#a95" to="#a96" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">L1 regularization left only between 2 and 8 hidden units effective per neuron in the 25 ms DNet, so the succinct fit uses very few components.</span>
+      <span xml:id="t73" from="#a97" to="#a98" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger">The fitted time constants of effective hidden units spanned 5 to 475 ms, far exceeding the 25 ms STRF window they accompany.</span>
+      <span xml:id="t74" from="#a11" to="#a12" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">a 25 ms DNet matched the best 200 ms LN model on held-out prediction</span>
+      <span xml:id="t75" from="#a77" to="#a78" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">the 25 ms DNet beat 25 ms LN and NRF models by a large margin, and beat DNets with longer delay spans</span>
+      <span xml:id="t76" from="#a74" to="#a76" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">it performed slightly worse than the best NRF model, which the paper attributes to fitting rather than to the model class</span>
+      <span xml:id="t77" from="#a83" to="#a85" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">NESTED-MODEL VIOLATION DIAGNOSED: the DNet contains the NRF as a special case, so losing to it must be an optimisation failure</span>
+      <span xml:id="t78" from="#a86" to="#a90" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">removing units whose time constants exceed their delay span hurt the 25 ms DNet most, showing the long memories carry the work</span>
+      <span xml:id="t79" from="#a91" to="#a93" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">a single dynamic unit performed worse than a plain LN model, so decay alone is not enough without a network</span>
+      <span xml:id="t80" from="#a97" to="#a98" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">fitted time constants ran from 5 to 475 ms, far exceeding the 25 ms delay span</span>
+      <span xml:id="t81" from="#a101" to="#a102" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">almost all units with long time constants turned out inhibitory</span>
+      <span xml:id="t82" from="#a99" to="#a100" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">more effective hidden units tended to have longer time constants</span>
+      <span xml:id="t83" from="#a105" to="#a109" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">putting the decay before the nonlinearity was worse than after, favouring a membrane over a synaptic reading</span>
+      <span xml:id="t84" from="#a112" to="#a114" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">REINTERPRETATION: the long inhibitory fields in conventional STRFs may be decaying memory rather than delayed inhibition</span>
+      <span xml:id="t85" from="#a115" to="#a116" type="content_tags" ana="#content_tags.findings[20]" resp="#tagger" cert="1.0">CONCEDED: long-latency thalamic inputs cannot be excluded and probably contribute</span>
+      <span xml:id="t86" from="#a121" to="#a125" type="content_tags" ana="#content_tags.findings[21]" resp="#tagger" cert="1.0">STATED SCOPE LIMIT: dependence out to about 4 seconds is beyond this model because its memory is exponential</span>
+      <span xml:id="t87" from="#a17" to="#a18" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">spectro-temporal receptive field (STRF) model<term>spectro-temporal receptive field (STRF) model</term></span>
+      <span xml:id="t88" from="#a8" to="#a9" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">dynamic network (DNet) model<term>dynamic network (DNet) model</term></span>
+      <span xml:id="t89" from="#a40" to="#a41" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">network receptive field (NRF) model<term>network receptive field (NRF) model</term></span>
+      <span xml:id="t90" from="#a48" to="#a49" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">sDNet (synaptic dynamic network) model<term>sDNet (synaptic dynamic network) model</term></span>
+      <span xml:id="t91" from="#a31" to="#a32" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">cochleagram<term>cochleagram</term></span>
+      <span xml:id="t92" from="#a27" to="#a28" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger">noise ratio<term>noise ratio</term></span>
+      <span xml:id="t93" from="#a58" to="#a59" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger">effective hidden unit<term>effective hidden unit</term></span>
+      <span xml:id="t94" from="#a45" to="#a47" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger">firing-rate equation<term>firing-rate equation</term></span>
+      <span xml:id="t95" from="#a34" to="#a35" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">LN model<term>LN model</term></span>
+      <span xml:id="t96" from="#a40" to="#a42" type="content_tags" ana="#content_tags.definitions[9]" resp="#tagger" cert="1.0">NRF model<term>NRF model</term></span>
+      <span xml:id="t97" from="#a31" to="#a33" type="content_tags" ana="#content_tags.definitions[10]" resp="#tagger" cert="1.0">cochleagram<term>cochleagram</term></span>
+      <span xml:id="t98" from="#a27" to="#a30" type="content_tags" ana="#content_tags.definitions[11]" resp="#tagger" cert="1.0">noise ratio<term>noise ratio</term></span>
+      <span xml:id="t99" from="#a43" to="#a46" type="content_tags" ana="#content_tags.definitions[12]" resp="#tagger" cert="0.9">time constant<term>time constant</term></span>
+      <span xml:id="t100" from="#a60" to="#a61" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">span of latencies (duration) of the model STRF<term>span of latencies (duration) of the model STRF</term></span>
+      <span xml:id="t101" from="#a87" to="#a88" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">knocking out hidden units whose time constants exceed the STRF duration<term>knocking out hidden units whose time constants exceed the STRF duration</term></span>
+      <span xml:id="t102" from="#a54" to="#a55" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">prediction performance on held-out neural responses (CC norm)<term>prediction performance on held-out neural responses (CC norm)</term></span>
+      <span xml:id="t103" from="#a56" to="#a57" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">amount of training data (duration of neural response) given to each model<term>amount of training data (duration of neural response) given to each model</term></span>
+      <span xml:id="t104" from="#a97" to="#a98" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger" cert="1.0">time constant<term>time constant</term></span>
+      <span xml:id="t105" from="#a11" to="#a12" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger" cert="1.0">STRF<term>STRF</term></span>
+      <span xml:id="t106" from="#a101" to="#a102" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="1.0">IE score<term>IE score</term></span>
+      <span xml:id="t107" from="#a62" to="#a63" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">0.51, 0.64, 0.69, 0.71, and 0.71 — mean normalized correlation coefficient of the LN model on held-out data for STRF lengths of 25, 50, 100, 200 and 400 ms — performance saturates only at 200 ms</span>
+      <span xml:id="t108" from="#a72" to="#a73" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">0.71, 0.71, 0.70, 0.68 and 0.68 — mean normalized correlation coefficient of the DNet model for the same STRF lengths — already maximal at 25 ms</span>
+      <span xml:id="t109" from="#a64" to="#a65" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">0.40, 0.50, 0.54, 0.55, and 0.55 — mean raw (non-normalized) Pearson correlation coefficients for the LN model across the five STRF lengths</span>
+      <span xml:id="t110" from="#a29" to="#a30" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">73 — single units that passed the noise-ratio criterion and were modelled</span>
+      <span xml:id="t111" from="#a25" to="#a26" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">549 / 284 — single and multi-units recorded in 56 penetrations, of which 284 were single units</span>
+      <span xml:id="t112" from="#a105" to="#a106" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">CC norm = 0.71 — best sDNet performance, reached only with 200 ms STRFs, versus the DNet reaching the same value at 25 ms</span>
+      <span xml:id="t113" from="#a128" to="#a129" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">~30% — share of the normalized correlation coefficient still unexplained by the DNet model</span>
+      <span xml:id="t114" from="#a11" to="#a12" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">25 ms against 200 ms — delay span the DNet needs against the span the LN model needs for the same prediction</span>
+      <span xml:id="t115" from="#a21" to="#a22" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">~14 ms — typical thalamic onset latency in ferret, the species modelled - the bound that makes 200 ms delays implausible</span>
+      <span xml:id="t116" from="#a97" to="#a98" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">5 to 475 ms — range of fitted time constants among effective hidden units</span>
+      <span xml:id="t117" from="#a94" to="#a96" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">2 to 8 of 20 — hidden units surviving regularisation per neuron</span>
+      <span xml:id="t118" from="#a27" to="#a30" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="0.9">73 of 549 — units analysed after the single-unit and noise-ratio criteria</span>
+      <span xml:id="t119" from="#a121" to="#a125" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">~4 s — how far back A1 responses are known to depend on history, beyond this model&#x27;s reach</span>
     </spanGrp>
   </standOff>
   <text>
     <body>
-      <p><note type="rights">The full text of this article is not redistributable, so it is
-      not included here. Every tag above carries the exact sentence it was made from, quoted
-      under fair quotation. The article itself is at https://doi.org/10.1371/journal.pcbi.1006618.</note></p>
+        <p><anchor xml:id="a0"/> A dynamic network model of temporal receptive fields in primary auditory cortex | PLOS Computational Biology</p>
+        <p>Article</p>
+        <p>Authors</p>
+        <p>Metrics</p>
+        <p>Comments</p>
+        <p>Media Coverage</p>
+        <p>Reader Comments</p>
+        <p>Figures</p>
+        <p>Figures</p>
+        <p>Abstract</p>
+        <p><anchor xml:id="a1"/>Auditory neurons encode stimulus history, which is often modelled using a span of time-delays in a spectro-temporal receptive field (STRF).<anchor xml:id="a2"/> <anchor xml:id="a3"/>We propose an alternative model for the encoding of stimulus history, which we apply to extracellular recordings of neurons in the primary auditory cortex of anaesthetized ferrets.<anchor xml:id="a4"/> <anchor xml:id="a5"/>For a linear-non-linear STRF model (LN model) to achieve a high level of performance in predicting single unit neural responses to natural sounds in the primary auditory cortex, we found that it is necessary to include time delays going back at least 200 ms in the past.<anchor xml:id="a6"/> This is an unrealistic time span for biological delay lines.<anchor xml:id="a7"/> We therefore asked how much of this dependence on stimulus history can instead be explained by dynamical aspects of neurons. <anchor xml:id="a8"/>We constructed a neural-network model whose output is the weighted sum of units whose responses are determined by a dynamic firing-rate equation.<anchor xml:id="a9"/> The dynamic aspect performs low-pass filtering on each unit’s response, providing an exponentially decaying memory whose time constant is individual to each unit.<anchor xml:id="a10"/> <anchor xml:id="a11"/>We find that this dynamic network (DNet) model, when fitted to the neural data using STRFs of only 25 ms duration, can achieve prediction performance on a held-out dataset comparable to the best performing LN model with STRFs of 200 ms duration.<anchor xml:id="a12"/> <anchor xml:id="a13"/>These findings suggest that integration due to the membrane time constants or other exponentially-decaying memory processes may underlie linear temporal receptive fields of neurons beyond 25 ms.<anchor xml:id="a14"/></p>
+        <p>Author summary</p>
+        <p><anchor xml:id="a15"/>The responses of neurons in the primary auditory cortex depend on the recent history of sounds over seconds or less. Typically, this dependence on the past has been modelled by applying a wide span of time delays to the input, although this is likely to be biologically unrealistic. Real neurons integrate the history of their activity due to the dynamical properties of their cell membranes and other components. We show that a network with a realistically narrow span of delays and with units having dynamic characteristics like those found in neurons, succinctly models neural responses recorded from ferret primary auditory cortex.<anchor xml:id="a16"/> Because these integrative properties are widespread, our dynamic network provides a basis for modelling responses in other neural systems.</p>
+        <p>Citation: Rahman M, Willmore BDB, King AJ, Harper NS (2019) A dynamic network model of temporal receptive fields in primary auditory cortex. PLoS Comput Biol 15(5):  e1006618.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618</p>
+        <p>Editor: Frédéric E. Theunissen, University of California at Berkeley, UNITED STATES</p>
+        <p>Received: November 4, 2018; Accepted: April 13, 2019; Published: May 6, 2019</p>
+        <p>Copyright: © 2019 Rahman et al. This is an open access article distributed under the terms of the Creative Commons Attribution License , which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</p>
+        <p>Data Availability: The experimental data underlying the results presented in the study were previously published by Harper et al. (2016) and are available from https://osf.io/ayw2p/ . All codes are available from https://github.com/monzilur/DNet .</p>
+        <p>Funding: BDBW, NSH, and AJK were supported by Wellcome Trust funding (WT108369/Z/2015/Z). MR was supported by the Clarendon Fund Scholarship. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+        <p>Competing interests: The authors have declared that no competing interests exist.</p>
+        <p>Introduction</p>
+        <p><anchor xml:id="a17"/>The tuning properties of auditory neurons are commonly described by a spectro-temporal receptive field (STRF) model, which characterizes the linear dependence of the neural response on the sound spectrum at a range of latencies<anchor xml:id="a18"/> [ 1 – 14 ]. A static non-linearity is often applied to the output from the linear STRF—this linear non-linear (LN) model estimates the responses of neurons significantly better than the linear estimate [ 15 , 16 ]. While STRF models are somewhat successful in explaining the dependence of neural responses on the past few hundred milliseconds of stimulus history [ 17 ], these models do not show how this temporal aspect of receptive fields might be implemented biologically. <anchor xml:id="a19"/>The most direct biological interpretation of the STRF model would involve auditory cortical neurons receiving inputs at a range of simple delays spanning out to 200 ms; however, this is biologically unrealistic.<anchor xml:id="a20"/> <anchor xml:id="a21"/>The onset latencies of neurons in the ventral division of the medial geniculate body (vMGB), which provides the primary ascending input to primary auditory cortex (A1), are typically less than ~14 ms in the ferret [ 18 ], the animal species that provided the data that were modelled in this study. In the cat vMGB response latencies are typically less than ~20 ms [ 19 ], in the mouse less than ~10 ms [ 20 ], and in the marmoset less than ~40 ms<anchor xml:id="a22"/> [ 21 ]. These values are far less than the duration of stimulus history which influences the responses of A1 neurons. Although a few vMGB units do show onset latencies beyond this range (in cat up to 70 ms [ 19 ], in mouse up to 60 ms [ 20 ], and in marmoset up to 300 ms [ 21 ]), this small fraction is unlikely to be the main determinant of the dependence of the neural response in primary auditory cortex on stimulus history beyond a few tens of milliseconds. This is because there are other plausible mechanisms, such as the dynamic temporally-integrative properties intrinsic to neurons.</p>
+        <p>In this study, using recordings from anesthetised ferrets, we asked how much of the dependence on recent stimulus history—the temporal receptive fields, of primary auditory cortical neurons can instead be explained by certain of these simple dynamical aspects of neurons–an approach more consistent with the known biology. To model a neuron’s response, we constructed a neural network model whose output is the weighted sum of the responses of multiple units, each of which resembles an LN model. However, the response of each unit of the network was modified in accordance with a dynamic firing-rate equation. This low-pass filters the unit’s response (by convolving with an exponential decay impulse response), providing a simple exponentially decaying memory. This integrative characteristic can be related to the capacitance and resistance of nerve cell membranes, and the individual time constant of each unit can be related to the membrane time constant of real neurons [ 22 ]. The dynamic aspect of our network can alternatively be interpreted in terms of other neurobiological dynamical phenomena, such as channel-based neural adaptation, short term synaptic plasticity, or recurrent network properties. We found that our biologically-motivated dynamical model can accurately capture the temporal receptive fields of neurons without the need for a wide span of latencies of input.</p>
+        <p>Materials and methods</p>
+        <p>Ethics statement</p>
+        <p>In vivo electrophysiological recordings in ferrets were performed under ketamine (5 mg/kg/h) and medetomidine (0.022 mg/kg/h) anaesthesia. All animal procedures were performed under license from the UK Home Office and were approved by the University of Oxford Committee on Animal Care and Ethical Review.</p>
+        <p>Stimuli</p>
+        <p>Models were fitted to single-unit neural responses of anesthetized ferrets to natural sound stimuli. Altogether, 20 sound clips were presented containing human speech in different languages, other animal vocalizations (e.g. ferret) and environmental sounds (e.g. wind and water). All clips were 5 s long with a sampling rate of 48,828.125 Hz and with root mean square intensity ranging from 75 to 82 dB SPL.</p>
+        <p>Experimental setup and neural responses</p>
+        <p><anchor xml:id="a23"/>The electrophysiological data used in this study were taken from a series of experiments used in a previous study by Harper et al. [ 23 ]. Briefly, recordings were made from the primary auditory cortical areas, A1 and the anterior auditory field (AAF) of 6 adult pigmented ferrets (5 females and 1 male) under ketamine (5 mg/kg/h) and medetomidine (0.022 mg/kg/h) anaesthesia for 20 repeats of the 20 natural sound clips played in random order.<anchor xml:id="a24"/> All animal procedures were performed under license from the United Kingdom Home Office and were approved by the local ethical review committee. <anchor xml:id="a25"/>In total, 56 penetrations resulted in 549 single and multi-units, of which 284 were single units.<anchor xml:id="a26"/> A single unit was taken for analysis only if its activity was driven by the stimulus according to the noise ratio (see below). For each unit, the number of spikes was counted in each 5 ms time bin and averaged over repeats, to provide a response profile y n ( t ), where t is time, and n is the clip number. The total number of time bins in a clip is T . For simpler notation, we will drop the subscript n , unless we note otherwise.</p>
+        <p>Noise ratio</p>
+        <p><anchor xml:id="a27"/>The noise ratio was calculated as a measure of how much the response of each unit is dependent on the stimuli<anchor xml:id="a28"/> [ 9 , 24 ]. The noise ratio was measured over all 20 stimuli and 20 repeats. Any unit with a noise ratio &gt; 40 were excluded from the study. Also, only putative single units were used. <anchor xml:id="a29"/>This resulted in 73 neurons for the study.<anchor xml:id="a30"/></p>
+        <p>Cochleagrams</p>
+        <p><anchor xml:id="a31"/>The models receive the input as a cochleagram, a spectrogram-like transformation of the sound waveform.<anchor xml:id="a32"/> The cochleagram approximates the spectral filtering performed by the auditory periphery<anchor xml:id="a33"/> and was calculated as follows [ 23 , 25 ]. For each sound clip, the amplitude spectrum was measured using 10-ms Hanning windows, overlapping by 5ms. The number of frequency channels was then reduced by weighted summation using overlapping triangular windows to provide 34 log-spaced channels (500 Hz to 22,627 Hz center frequencies, adapted from melbank.m ( http://www.ee.ic.ac.uk/hp/staff/dmb/voicebox/voicebox.html )). Next, a log function was applied to the value in each time-frequency bin, and any values below a low threshold was set to the threshold. The cochleagram was normalized to zero mean and unit variance over the training set (see Cross-validation and model testing). The input x fq ( t ) at time t was the chunk of cochleagram preceding t , given by x fq ( t ) = K f ( t − q +1), where f is the frequency channel and q is the latency and K f ( t ) is the cochleagram.</p>
+        <p>The LN model</p>
+        <p><anchor xml:id="a34"/>The two stage LN model consists of a linear model followed by a sigmoid output nonlinearity.<anchor xml:id="a35"/></p>
+        <p>Linear stage :  (1)  where a(t) is the model neuron&#x27;s activation, w fq is the input weight and b is the baseline activation. <anchor xml:id="a36"/>Both w and b are free parameters of the model and were estimated by regressing neural response y(t) against input x ( t ) using glmnet<anchor xml:id="a37"/> [ 26 ]. <anchor xml:id="a38"/>To overcome overfitting, the weights were regularized using an L1-norm (LASSO regularization).<anchor xml:id="a39"/> Thus a(t) can be seen as the best linear estimate of y ( t ) from x ( t ). The regularization hyperparameter λ controlled the strength of the regularization. To select λ , the model was subjected to k-fold cross-validation (see Cross-validation and model testing).</p>
+        <p>Nonlinear stage : The nonlinear stage of the model was a parameterized sigmoid nonlinearity:  (2)</p>
+        <p>The four parameters ρ i of the function were fitted by minimizing the squared error between v(t) and y(t) .</p>
+        <p>The network receptive field (NRF) model</p>
+        <p><anchor xml:id="a40"/>The NRF model is an artificial neural network with a single hidden layer of 20 hidden units (HU) which converge onto an output unit (OU).<anchor xml:id="a41"/> Each unit of the model is similar to a single LN model.<anchor xml:id="a42"/> The activation of the j -th HU, a j ( t ) is,  (3)</p>
+        <p>The output of the j -th HU, v j ( t ) is,  (4)  where g( a j ( t )) is a sigmoid non-linear activation function, 1/(1+exp(− a j ( t ))). The HUs feed these outputs to the OU. The activation function of the OU a o ( t ) is,  (5)</p>
+        <p>The output v o ( t ) of the OU is,  (6)  which is the model’s estimate of the neuron’s response at time t .</p>
+        <p>The dynamic network (DNet) model</p>
+        <p>A neuron’s response depends on the activity of its presynaptic neurons through the total synaptic current they evoke. However, a neuron’s membrane potential, and consequently its firing rate, is not an instantaneous function of this current. <anchor xml:id="a43"/>Due to the capacitance and resistance of the neural cell membrane, the membrane potential and hence the firing rate is approximately a low-pass filtered version of the synaptic current.<anchor xml:id="a44"/> <anchor xml:id="a45"/>A common simple dynamic model of neurons that captures this phenomenon is the differential equation ( Eq 7 ) known as the firing-rate equation<anchor xml:id="a46"/> [ 22 ].<anchor xml:id="a47"/></p>
+        <p>(7) Here, τ cont is the membrane time constant, v is post-synaptic firing rate, I ( t cont ) is the synaptic current at time t cont ,F() is a nonlinear function that relates synaptic current to the post-synaptic firing rate, and t cont is time. Here we use t cont and τ cont with the superscript ‘cont’ to denote that for this equation these variables operate in continuous time rather than discrete time. τ cont determines how rapidly firing rate approaches steady state for a constant synaptic current, and can be related to the membrane time constant [ 22 ]. Although the relationship is not strict, we shall call τ cont the membrane time constant. This is equivalent to convolving the instantaneous output of function F() with an exponential decay impulse response.</p>
+        <p>Eq 7 can be discretized by the Euler method, where c = 1 time-bin = 5 ms. We redefine v and I to depend on time-bin number, t , rather than continuous time ( t = t cont / c , where t is an integer). Hence, the discretized form of the firing rate equation is:  (8)</p>
+        <p>The dynamic network model incorporates units that behave like Eq 8 . In recognition that the characteristics of units in our model may not exactly correspond to biophysical properties of neurons described by the firing rate equation, and to be consistent with the NRF model, we replace F() with g() and the current I ( t −1) with activation a ( t ).</p>
+        <p>As a result, activation a j ( t ) of the j -th HU of the DNet model is the same as the NRF model,  (9)</p>
+        <p>However, the output v j ( t ) is different from that of the NRF model, incorporating the discretized firing-rate equation.</p>
+        <p>(10) Similarly, the activation a o ( t ) of the OU is,  (11)  and the output v o ( t ) of the OU is,  (12)</p>
+        <p>Here, τ j and τ o are the membrane time constants of j -th hidden unit and output unit respectively.</p>
+        <p>The sDNet model</p>
+        <p>The firing-rate equation ( Eq 7 ) assumes that the time constant that governs the relationship between the current and the firing rate is substantially larger than the time constant that governs the decay of post-synaptic potentials. However, if we assume the reverse, i.e., that the synaptic time constant is substantially larger, a different simple model of the relationship between the firing rate and the current becomes appropriate [ 22 ]. This model is given by:  (13)   (14)</p>
+        <p>Here, I is synaptic current and v is post-synaptic firing rate, z ( t cont ) is the immediate influence of the presynaptic spikes on the synaptic current, F() is the nonlinear function of synaptic current to post-synaptic firing rate, is synaptic time constant, and t cont is time.</p>
+        <p>Similar discretization, like that used for the DNet model (see above), can be used for Eq 13 to use this for the units of a neural network model. Again, replacing the synaptic current, I , with the activation a, the activation of hidden units of the sDNet model can be modelled as the following:  (15)</p>
+        <p>And the hidden unit output, replacing F() with g(), is given by:  (16)</p>
+        <p><anchor xml:id="a48"/>Hence, in the sDNet model, the activation of each HU, rather than the output of the nonlinearity, is convolved with an exponential decay impulse response.<anchor xml:id="a49"/></p>
+        <p>Similarly, for the output units,  (17)</p>
+        <p>And the output,  (18)</p>
+        <p>Here, τ sj and τ so are the synaptic time constants of j -th hidden unit and output unit respectively.</p>
+        <p>Objective function of the NRF and DNet models</p>
+        <p>The free parameters w jfq , w j , b j , and b o (also τ j and τ o for the DNet and τ sj and τ so for the sDNet) were optimized by minimizing the squared error between v o ( t ) and y(t) subject to L1-regularization of the weights. Thus, the objective function is given by,  (19)</p>
+        <p>Here, n is included to indicate clip number, but was left out of other equations for simplicity. N is the number of clips used in training.</p>
+        <p>Parameter estimation</p>
+        <p>All models except for the LN model are fitted by minimizing the objective function with respect to the free parameters using the sum-of-function optimizer algorithm [ 27 ]. In using this algorithm, we take one clip to be one minibatch. The optimization algorithm requires calculation of the error gradients in respect to each of the parameters. For the NRF model, error gradients are calculated using standard chain rule (backpropagation). For the dynamic models, the process is similar (see below).</p>
+        <p>For the network models, before training, the weights were initialized by modified Glorot initialization from a uniform distribution ranging from— to + , where fq is the number of input weights to a HU and l = 1 is the number of output weights from a HU. The biases were initialized similarly [ 28 ].</p>
+        <p>For the DNet model, to prevent the term running into mathematical error (when τ = 0), we substitute with . Parameters, d j and d o (for hidden and output units) were each independently initialized with the square root of a random variable from an exponential distribution with a mean of 1. Similar, substitution is used for the sDNet model.</p>
+        <p>Error-gradient calculation for the DNet model</p>
+        <p>To estimate the parameters, the gradients of the error with respect to various parameters are calculated using a method similar to the one used for real time recurrent learning [ 29 ].</p>
+        <p>Substituting , the dynamic equations for HUs ( Eq 10 ) and OU ( Eq 12 ) of the DNet model become respectively:  (20)   (21)</p>
+        <p>Using the chain rule, the gradient of the error term, E( t ) at time t in respect to the weights of the output layer, w j ,  (22)   (23)</p>
+        <p>The prime denotes the derivative of the function. Similarly, the gradient of the error term, E( t ) in respect to the bias of the output layer, b o ,  (24)   (25)</p>
+        <p>Finally, the gradient of the error term, E( t ) with respect to the parameter, d o ,  (26)   (27)</p>
+        <p>Hence, the gradient is passed forward from the current time step to the next time step to be used in calculation of the gradient at that new time step. At t = 1, the values of and are undetermined. So, at time t = 1, the values of these terms are set to zero.</p>
+        <p>The gradients of the error term, E( t ), with respect to the rest of the parameters of the DNet model and the sDNet model are obtained similarly.</p>
+        <p>Cross-validation and model testing</p>
+        <p><anchor xml:id="a50"/>From the data for the 20 sound stimuli, 4 were chosen as a test set which was not used during training and cross-validation.<anchor xml:id="a51"/> <anchor xml:id="a52"/>The cross-validation set (the remaining 16 stimuli) was used to fit the models using k -fold cross validation, where k = 8.<anchor xml:id="a53"/> The cross-validation set was randomly divided into a training set of 14 stimuli and a validation set of 2 stimuli. The model was trained on the training set for 18 different values of the hyperparameter λ. A log spaced range of lambda values was used, but with a somewhat lower density at the extremes. For the LN model, the exact values of λ used were: 1.00 x 10 −1 , 2.00 x 10 −2 , 1.17 x 10 −2 , 6.84 x 10 −3 , 4.00 x 10 −3 , 2.34 x 10 −3 , 1.37 x 10 −3 , 8.00 x 10 −4 , 4.68 x 10 −4 , 2.74 x 10 −4 , 1.60 x 10 −4 , 9.36 x 10 −5 , 5.41 x 10 −5 , 3.20 x 10 −5 , 6.40 x 10 −6 , 1.28 x 10 −6 , 2.56 x 10 −7 , and 5.12 x 10 −8 . For the rest of the models, the values of λ used were: 1.00 x 10 −3 , 2.00 x 10 −4 , 1.17 x 10 −4 , 6.84 x 10 −5 , 4.00 x 10 −5 , 2.34 x 10 −5 , 1.37 x 10 −5 , 8.00 x 10 −6 , 4.68 x 10 −6 , 2.74 x 10 −6 , 1.60 x 10 −6 , 9.36 x 10 −7 , 5.41 x 10 −7 , 3.20 x 10 −7 , 6.40 x 10 −8 , 1.28 x 10 −8 , 2.56 x 10 −9 , and 5.12 x 10 −10 . <anchor xml:id="a54"/>For each of the fitted models, neural responses were then predicted for the validation set, and the correlation coefficient between the actual neural responses and the prediction was measured.<anchor xml:id="a55"/> This process was repeated 8 times for different non-overlapping validation sets. The model was then retrained with the whole cross-validation set using the λ value that provided the highest mean correlation coefficient over all 8 folds. Next, the retrained network was used to predict the neural responses to the test set. All the correlation coefficients and normalized correlation coefficients shown are for this held out test set, and all the model parameters shown are for the retrained network.</p>
+        <p><anchor xml:id="a56"/>To ensure that all models receive the same amount of training data, models with different latency spans of STRFs are provided with exactly the same durations of neural response.<anchor xml:id="a57"/> This was done by clipping the necessary number of time points from the beginning of the neural response data.</p>
+        <p>Effective hidden units</p>
+        <p>The hidden layer of each of the networks contained 20 HUs, but because their weights were L1-regularized, they tended to develop substantive weights only if they explained aspects of the neural response that were not explained by any other units. As a result, many HUs developed weights close to zero, and thus the network models tended to have only a small number of effective HUs. The ‘effectiveness’ of each unit j was calculated [ 23 ] as the variance over time of the unit’s weighted output w o v j ( t ). <anchor xml:id="a58"/>Any HU with variance greater than 5% of the sum of the variances of all 20 HUs is considered effective.<anchor xml:id="a59"/></p>
+        <p>IE score</p>
+        <p>The IE score [ 23 ] measures whether the degree to which a HU is excitatory or inhibitory, on a scale between -1 and 1. Most inhibitory is IE = -1, when all of the input weights are negative or zero, and the output weight is positive, or when all of the input weights are positive or zero and the output weight is negative. Most excitatory is IE = 1, when all of the input weights are positive or zero, and the output weight is positive, or when all of the input weights are negative or zero and the output weight is negative.</p>
+        <p>(28)</p>
+        <p>Membrane time constant</p>
+        <p>Because the membrane time constant is modelled as 1+ d 2 and the duration of each time step is 5 ms, the value of membrane time constant in ms is 5 (1+ d 2 ).</p>
+        <p>Knocking out large time constants of the DNet model</p>
+        <p>After fitting a network model, HUs with time constant greater than the length of the STRF are selected. The output weights connecting these units to the output unit are then set to zero. As a result, HUs with large time constants become inactive during the test process. Everything else in the model remained unchanged.</p>
+        <p>Results</p>
+        <p>The neural response dataset used in this study was recorded from the primary auditory cortical areas, A1 and AAF, of anesthetized ferrets in response to a diverse selection of natural sounds (20 stimuli of 5 s duration), including speech, animal vocalizations and environmental sounds [ 23 , 25 ]. In total, 73 single-unit neural recordings showed sensitivity to the sound stimuli (see Methods ), as measured by their noise ratios, and these were analysed in this study.</p>
+        <p>To probe the computations underlying stimulus encoding, models were fitted to estimate the neural firing rate (averaged over stimulus repeats) of each neuron as a function of the preceding sound stimulation ( Fig 1 ). First, for all models, the sound stimuli were pre-processed to generate a spectrogram-like representation (a cochleagram) that approximates the processing that occurs in the cochlea and auditory nerve. Second, using responses to 16 of the natural stimuli, a parameterized model was trained to estimate the firing rate as a function of the preceding cochleagram. After parameters of the models were fitted to the data, their fit quality was tested on a held-out test set composed of the responses to the remaining 4 natural stimuli.</p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 1. The models have two-stages.</p>
+        <p>A. The first stage involves pre-processing that mimics the auditory periphery, where the sound waveform is converted into a time-frequency representation (cochleagram). B. The output of the first stage is then used as input to a model that is fitted to the neural responses of auditory cortical neurons. C. After parameter estimation, the model was used to predict neural responses to arbitrary stimuli.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g001</p>
+        <p>Using standard models, access to 200 ms of recent stimulus history is needed to achieve best prediction</p>
+        <p>For each neuron, an LN model was fitted to estimate its firing rate as a function of the preceding cochleagram. The LN model consists of an STRF, followed by a sigmoid nonlinearity ( Fig 2A ). As mentioned in the Methods, the STRF is the weighted sum of the cochleagram over frequency components at a span of latencies. <anchor xml:id="a60"/>The effect of different spans of latencies (lengths) of the STRF was investigated.<anchor xml:id="a61"/> For the held-out test set, and averaged over the 73 neurons, <anchor xml:id="a62"/>the mean normalized correlation coefficient, mean CC norm [ 30 , 31 ], between the actual neural responses and the prediction of LN models with 25, 50, 100, 200, and 400 ms long STRFs are respectively 0.51, 0.64, 0.69, 0.71, and 0.71<anchor xml:id="a63"/> ( Fig 2B ), where 1.0 is the maximum achievable prediction given the estimated neuronal noise and 0.0 indicates that there is no correlation between actual and predicted neural responses. <anchor xml:id="a64"/>The means of non-normalized Pearson correlation coefficients (CC) are 0.40, 0.50, 0.54, 0.55, and 0.55 respectively.<anchor xml:id="a65"/> Fig 2C shows STRFs of some example neurons estimated by the LN model.</p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 2. Prediction of neural responses by the linear non-linear (LN) model.</p>
+        <p>A. The LN model, which consists of a spectrotemporal receptive field (STRF) followed by a sigmoid nonlinearity. B. Normalized correlation coefficients (CC norm ) between neural responses and the prediction of the LN model with different latency spans. <anchor xml:id="a66"/>Each black dot represents a neuron, the curve indicates the mean over 73 neurons and error bars indicate standard error of the mean.<anchor xml:id="a67"/> C. STRFs of some example neurons, for LN models with different latency spans. Red, excitatory fields, blue, inhibitory. Excitatory and inhibitory fields extend up to 100 ms in most cases and up to 200 ms in some cases.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g002</p>
+        <p>A network receptive field model (the NRF model) was also developed and fitted to each neuron. This model consisted of the weighted sum of multiple LN-like units. <anchor xml:id="a68"/>This model is the same as a previously published version [ 23 ], except that it uses sigmoid nonlinearities instead of scaled tanh non-linearities.<anchor xml:id="a69"/> A sigmoid non-linearity was used to be consistent with the dynamic network model that we will come to, which requires non-negative outputs and hence also uses sigmoid non-linearities. The NRF model we use here is essentially an artificial neural network with a single hidden layer, using a sigmoid non-linearity in its hidden units and its single output unit ( Fig 3A ). The NRF model makes use of multiple component STRFs, which allows modelling of neuronal sensitivity to non-linear interactions of multiple features [ 23 ]. STRFs of at least 400 ms are needed for best performance in predicting neural responses ( Fig 3B ). For the test set, the mean CC norm between neural responses and the model predictions made by NRF models with 25, 50, 100, 200 and 400 ms long component STRFs are 0.51, 0.64, 0.70, 0.72 and 0.73, respectively (mean CC 0.40, 0.50, 0.54, 0.55 and 0.56, respectively). <anchor xml:id="a70"/>The NRF model predicts the neural responses equal to or better than the LN model over all durations examined, although by a more modest amount than seen in an earlier study [ 23 ].<anchor xml:id="a71"/> This may be because the NRF model in this study uses a sigmoid rather than tanh nonlinearity, or because the earlier study [ 23 ] used a different way of selecting the test set. Fig 3C shows the input weights (analogous to STRFs) for the ‘effective’ HUs (see Methods ) of the model-fit for one example neuron, obtained using the NRF model. Fig 3D and Fig 3E show the ‘effectiveness’ (see Methods ) and IE score (see Methods ) of the units shown in Fig 3C .</p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 3. Prediction of neural responses by the network receptive field (NRF) model.</p>
+        <p>A. The NRF model, which involves a weighted sum of multiple LN-model like units, each with an STRF. B. Normalized correlation coefficients (CC norm ) between neural responses and the prediction of the NRF model with different latency spans. Each black dot represents a neuron, the curve indicates the mean over 73 neurons and error bars indicate standard error of the mean. C. Component STRFs of an example neuron (Neuron #1). Each column represents an NRF model with different latency spans. D. ‘Effectiveness’ (see Methods ) and E. IE score (see Methods ) of the components STRFs shown in panel C.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g003</p>
+        <p>The DNet model can characterize neural responses using very short duration STRFs</p>
+        <p>Although both the LN and NRF models can capture dependence on stimulus history using a span of input latencies extending up to at least 200 ms, there is little biological evidence for such a wide span of latencies in the auditory thalamic neurons that feed to auditory cortex (see Introduction ). With the aim of better understanding the biological underpinnings of stimulus history dependence in auditory cortical responses, a model with a dynamic aspect was developed that integrates the output of its component units over time in a manner similar to those of real neurons (see Methods ). Each unit in the DNet model includes exponentially-decaying response integration, motivated by the integrative properties of real neuronal membranes ( Fig 4A ). This model is in essence the NRF model but with dynamic units, each modelled by the dynamic firing-rate differential equation ( Eq 7 ) [ 22 ]. That is, each unit of the model applies an exponentially decaying impulse response to the output of their non-linear activation function. Each unit’s decay rate is governed by its individually fitted time constant, τ (see Methods ).</p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 4. Prediction of neural responses using a dynamic network (DNet) model.</p>
+        <p>A. The DNet model. The cochleagram is passed through a set of linear-nonlinear filters, whose response is then integrated over time using an exponentially-decaying impulse response to produce the hidden units’ outputs. A weighted sum of these outputs is passed through a similar output unit to make a prediction of the neural response. B. CC norm for the DNet model with different latency spans. Each black dot is a neuron, the curve indicates the mean over 73 neurons and error bars are standard error of the mean. C. The input weights (STRFs) for the ‘effective’ hidden units (see Methods ) of 8 example neurons (each column is a different neuron) for the DNet model. D. ‘Effectiveness’ (see Methods ) and E. IE score (see Methods ) of the hidden units shown in panel C.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g004</p>
+        <p><anchor xml:id="a72"/>We found that the mean CC norm between the actual neural responses and the predictions of the DNet model with 25, 50, 100, 200 and 400 ms STRFs are respectively 0.71, 0.71, 0.70, 0.68 and 0.68<anchor xml:id="a73"/> ( Fig 4B ) (mean CC 0.55, 0.55, 0.54, 0.52 and 0.52, respectively). Because the 25-ms model performs the best and the biological range of latencies are typically less than 30 ms[ 32 ], we focused on the 25-ms DNet model for further analysis. Fig 4C shows the input weights (analogous to STRFs) for the ‘effective’ hidden units (see Methods ) of the model fits for 8 example neurons, using a DNet model with 25-ms long STRFs. Fig 4D and 4E show the ‘effectiveness’ (see Methods ) and IE score (see Methods ) of the units shown in Fig 4C .</p>
+        <p><anchor xml:id="a74"/>The 25-ms DNet model out performs the DNet with longer (200 ms and 400 ms) STRFs, as measured by prediction of neural responses on a held-out test set averaged over all 73 neurons<anchor xml:id="a75"/> ( Fig 5A ). It also achieves performance similar to the best performing LN model, but performs a little worse than the best performing NRF model<anchor xml:id="a76"/> ( Fig 5A ). This can be seen qualitatively in the time course of the prediction for an example neuron and stimulus in Fig 5B . A neuron by neuron comparison shows that this result is consistent for most neurons ( Fig 5C and 5D ). <anchor xml:id="a77"/>Also, the 25-ms LN and NRF models are outperformed by a large margin by the 25-ms DNet model ( Fig 5A ). A neuron by neuron comparison shows that this result is also consistent for almost all neurons<anchor xml:id="a78"/> ( Fig 5E and 5F ).</p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 5. Comparison of the performance of the DNet model with other models.</p>
+        <p>A. Mean CC norm of linear-nonlinear (LN), network receptive field (NRF) and dynamic network (DNet) models. B. Time course of predictions by best performing versions of each of the LN, NRF and DNet models, compared with real neural responses for an example neuron and stimulus. C. Neuron by neuron comparison of CC norm values between the 25-ms DNet model and 200-ms LN model. Each red dot is a neuron. D. Neuron by neuron comparison of CC norm values between the 25-ms DNet model and 400-ms NRF model. E. Neuron by neuron comparison of CC norm values between the 25-ms DNet model and 25-ms LN model. F. Neuron by neuron comparison of CC norm values between the 25-ms DNet model and 25-ms NRF model.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g005</p>
+        <p><anchor xml:id="a79"/>Note that the DNet model is equivalent to the NRF model when the discretized time constant for every DNet model unit is at the smallest possible value ( τ = 1, d = 0).<anchor xml:id="a80"/> Hence, <anchor xml:id="a81"/>because all possible NRF models are a subset of all possible DNet models, the DNet should in theory always equal or outperform the NRF model.<anchor xml:id="a82"/> <anchor xml:id="a83"/>The fact that this is not the case suggests that, at least in some cases, the very best fits are not being found for the DNet model, perhaps as a consequence of some overfitting.<anchor xml:id="a84"/> That the DNet model performs worse for large latency spans, where there are more variables, is again probably due to challenges in fitting the DNet model, likely due to some overfitting to the training set.<anchor xml:id="a85"/></p>
+        <p>Network structure and response integration are both required for an effective DNet</p>
+        <p><anchor xml:id="a86"/>To understand how much of an effect HUs of the DNet model with long time constants have on the model’s predictions, the fitted model was modified by ‘knocking out’ (see Methods ) HUs with time constants longer than the duration of their STRFs. <anchor xml:id="a87"/>This was achieved by setting the output weights of those units to zero, while keeping all other parameters intact.<anchor xml:id="a88"/> <anchor xml:id="a89"/>We found that the 25-ms DNet model is the DNet whose CC norm is most reduced by this alteration<anchor xml:id="a90"/> ( Fig 6A ).</p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 6. Multiple time constants in a network architecture are required to capture the dependence of neural response on stimulus history.</p>
+        <p>A. DNet model performance when large time constants are knocked out. B. Performance of the single-unit dynamic model. C. Number of effective hidden units (HUs) used to model each of the 73 neurons using the DNet model. D. Distribution of time constants of HUs of the DNet model. E. Distribution of time constants of the output units (OUs) of the DNet model. F. Relationship between time constant and HU effectiveness for the DNet model.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g006</p>
+        <p><anchor xml:id="a91"/>A single-unit dynamic model was also developed to examine the effect of a time constant in an LN-like single STRF model. Prediction performance of this model was found to be worse than the LN model ( Fig 6B ). <anchor xml:id="a92"/>This indicates that both long time constants and a network architecture are needed for the 25-ms DNet model to achieve prediction performance similar to that of standard models.<anchor xml:id="a93"/></p>
+        <p><anchor xml:id="a94"/>Although the DNet model had 20 hidden units, the L1 regularization eliminated unnecessary units. <anchor xml:id="a95"/>Hence there were fewer effective HUs, and for the 25-ms DNet model this number was found to be between 2 and 8<anchor xml:id="a96"/> ( Fig 6C ). We defined an effective HU as one whose effectiveness (variance of weighted output, see Methods ) exceeded a certain threshold.</p>
+        <p><anchor xml:id="a97"/>In the 25-ms DNet model, the time constants of the effective HUs ranged between 5 and 475 ms, often far greater than the duration of the STRFs<anchor xml:id="a98"/> ( Fig 6D ). The time constants of the OUs of the DNet model ranged from 5 to 130 ms ( Fig 6E ). To investigate whether long time constants are associated with effective HUs, for each neuron HUs were ranked in order of effectiveness and the mean of the time constants of all HUs in the same rank (over all neurons) were calculated. <anchor xml:id="a99"/>This showed that high-ranked HUs tend to have long time constants<anchor xml:id="a100"/> ( Fig 6F ).</p>
+        <p>Hidden units with long time constants tend to be more inhibitory</p>
+        <p>To test whether a relationship exists between the time constant and unit’s inhibitory/excitatory nature, we classified the effective HUs of the 25-ms DNet model into excitatory or inhibitory using an IE score (see Methods ). If the output weight is positive, an IE score of 1 means a unit with entirely excitatory influence and an IE score of -1 means a unit with entirely inhibitory influence. <anchor xml:id="a101"/>We found that almost all units having large time constants are inhibitory in nature<anchor xml:id="a102"/> ( Fig 7 ).</p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 7. Relationship between inhibitory/excitatory (IE) score and time constant.</p>
+        <p>Almost all the HUs of the DNet model with time constants greater than the duration of the STRFs (units right of the vertical dotted line, the duration of the 25 ms STRFs) are inhibitory in nature. IE score = inhibitory/excitatory score.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g007</p>
+        <p>Membrane time constant versus synaptic time constant</p>
+        <p>In the DNet model, the integration governed by the time constant occurs after each unit’s nonlinearity. Although the time constant is conceived and implemented in a manner consistent with a membrane constant, within the network it may capture other dynamic neural phenomena such as synaptic time constants, forms of a channel-based or synaptic adaptation, or certain forms of network recurrency. <anchor xml:id="a103"/>An alternative network model places the integration just before the nonlinearity, which is more consistent with the time constant being synaptic in nature<anchor xml:id="a104"/> [ 22 ]. To investigate how much of the neural activity can be explained by such a model, we modified the DNet model to form the sDNet model (synaptic DNet model), with each unit governed by Eqs 13 and 14 [ 22 ].</p>
+        <p><anchor xml:id="a105"/>The sDNet model achieves best performance in predicting neural responses when the duration of the STRFs is 200 ms (CC norm = 0.71)<anchor xml:id="a106"/> ( Fig 8A ). <anchor xml:id="a107"/>Although the sDNet with 25-ms STRFs predicts neural responses better (CC norm = 0.67) than the 25-ms LN model (CC norm = 0.51) and the 25-ms NRF model (CC norm = 0.51), it is worse than the 25-ms DNet model (CC norm = 0.71).<anchor xml:id="a108"/> This suggests that a large percentage of the variance of neural responses can be explained by a time constant before non-linearity, but that having a time constant after the non-linearity further improves prediction.<anchor xml:id="a109"/></p>
+        <p>Download:  PNG</p>
+        <p>larger image</p>
+        <p>TIFF</p>
+        <p>original image</p>
+        <p>Fig 8. A modified DNet model with synaptic time constants (sDNet model).</p>
+        <p>A. Performance of the sDNet model. B. Distribution of the values of time constants of hidden units (HUs) in the sDNet and DNet model C. Distribution of the values of time constants of the output units (OUs) of the sDNet and DNet model. D. Relationship between a HU’s time constant and its effectiveness for the sDNet model. E. Relationship between a HU’s inhibitory/excitatory (IE) score and its time constant for the sDNet model. Most of the HUs with time constants greater than the duration of the STRFs (units right of the vertical dotted line) are inhibitory in nature.</p>
+        <p>https://doi.org/10.1371/journal.pcbi.1006618.g008</p>
+        <p>While the largest time constants of the effective HUs of the sDNet model can be as large as ~470 ms ( Fig 8B ), the distribution of time constants of output units have smaller values compared to the DNet model ( Fig 8C ). As with the DNet model the more effective HUs of the sDNet model tend to have longer time constants ( Fig 8D ) and units with long time constants tend to be inhibitory in nature ( Fig 8E ).</p>
+        <p>Discussion</p>
+        <p>We find that a model of primary auditory cortical neurons which incorporates exponentially-decaying memory processes–the DNet model–can capture some of the temporal aspects of the receptive field using very short (25 ms) component STRFs in a network. Standard models such as the LN model (and the NRF model) represent temporal receptive fields of neurons using delay lines whose latencies extend up to a few hundred milliseconds. <anchor xml:id="a110"/>Our results suggest that, beyond 25ms, the temporal receptive field can be modelled more succinctly by exponentially-decaying memory processes than by delay lines.<anchor xml:id="a111"/></p>
+        <p><anchor xml:id="a112"/>When auditory neurons are fitted using a standard LN model, the resulting STRFs often contain narrowband inhibitory fields that decay over approximately 200 ms. In contrast, we find that the STRFs of the DNet model have short inhibitory fields with long time constants. <anchor xml:id="a113"/>This suggests that these temporally extended inhibitory fields in STRFs may reflect neural mechanisms that can be approximated by exponentially-decaying memory processes.<anchor xml:id="a114"/></p>
+        <p>Although they have not been described in the ferret, a few vMGB units do show onset latencies beyond a few tens of milliseconds: in cat latencies up to 70 ms have been described [ 19 ], in mouse up to 60 ms [ 20 ], and in marmoset up to 300 ms [ 21 ]. Areas other than vMGB that project to cortex may also include long latency responses. <anchor xml:id="a115"/>Hence, we cannot rule out the possibility that long-latency inputs at least partially explain the dependence of auditory cortical neurons on stimulus history–indeed it is likely that they do to some extent.<anchor xml:id="a116"/> However, these long-latency responses are relatively rare and we show that it is possible to explain a lot of the dependence of the neural response in primary auditory cortex by exponentially-decaying memory properties consistent with those properties intrinsic to neurons, such as membrane dynamics.</p>
+        <p><anchor xml:id="a117"/>There are many biological mechanisms which may underlie exponentially-decaying memory processes. Neurons have various intrinsic dynamic integrative and adaptive characteristics originating from basic membrane dynamics, channel-based adaptation, post-synaptic potentials and short-term synaptic plasticity [ 22 ]. Recurrent network effects could also underlie such memory processes.<anchor xml:id="a118"/> In a previous study, a model with synaptic depression has been shown to partially capture the integration of stimulus history in A1 [ 33 ]. Here, we found that a better prediction of neural responses can be achieved by a model based on the integrative properties of neural membranes (the DNet model) than by the one based on the dynamics of synaptic potentials (the sDNet model). <anchor xml:id="a119"/>We note, however, that although the DNet model was developed with membrane dynamics in mind, aspects of all the above listed dynamic processes could be captured by the same exponentially-decaying memory in the DNet. These different processes are not exclusive of each other, and combinations of them may contribute to the effects we find.<anchor xml:id="a120"/></p>
+        <p><anchor xml:id="a121"/>The firing rate of A1 neurons has been demonstrated to depend on stimulus history up to ~4 s in the past [ 17 ]. This dependence cannot be fully captured by linear models such as STRFs (17). <anchor xml:id="a122"/>This indicates that there are some nonlinear dynamic processes that provide history dependence which cannot be captured either by a linear or LN models, nor by the DNet model.<anchor xml:id="a123"/> <anchor xml:id="a124"/>Perhaps this is because the DNet model has limited capacity to capture temporal dynamics that are not exponential in nature.<anchor xml:id="a125"/></p>
+        <p>Much of the relationship between stimulus and neural responses results from neurons being embedded in a network structure and from the nonlinear properties of the units in this network. From the auditory periphery to the A1, there are numerous feedforward, feedback and lateral connections. Many previous models of auditory cortical neurons have not explicitly represented this network character. However, some recent models have incorporated non-linear contextual effects [ 14 , 25 , 34 – 36 ]. Furthermore, a few models do explicitly incorporate multiple receptive fields [ 37 – 43 ] or more extensive network structure [ 23 ], which perform better in predicting neural responses of A1/AAF neurons than STRF models [ 23 , 37 ].</p>
+        <p>When modelling the dependence of neural responses on stimulus history, one approach is to include the history of a neuron’s spikes and those of its recorded neighbours in a generalized linear model (GLM) model [ 35 , 44 ]. However, unlike the DNet model, this approach does not model multi-layer network structure with hidden units that are inferred but not recorded. Modelling hidden network structure has been applied to the salamander retina, where in vitro responses to simple artificial stimuli are well predicted by a network model (LNFDSNF) with various non-linearities and response delays mimicking the retinal pathway [ 45 ]. <anchor xml:id="a126"/>The LNFDSNF model is particularly relevant to our study because it is a network model whose units have some memory of their past activity, though the form of this memory differs from that of the DNet model.<anchor xml:id="a127"/> The LNFDSNF model units have a feedback kernel that acts before the nonlinearity—in contrast, the DNet model units integrate their activity after the nonlinearity using an infinite impulse response that decays exponentially.</p>
+        <p>The succinct and biologically-motivated description of neural responses provided by the DNet model <anchor xml:id="a128"/>provides a basis from which to develop further models to account for the ~30% of the CC norm that remains to be explained<anchor xml:id="a129"/>. One variant of the model that can be developed involves a network with multiple hidden layers where the units each have just a single latency (i.e. each unit in the first hidden layer uses just a spectral receptive field at a single delay). This approach provides an opportunity to build deeper neural-network-like models with fewer parameters, potentially overcoming overfitting problems for deep network models of neural responses [ 46 ]. This network can provide a basis for new network models that incorporate a greater range of intrinsic dynamic processes more explicitly, for example modelling in each unit its basic membrane dynamics, synaptic depression and channel-based adaptation together, with different appropriate time constants in each case. Such models may show more predictive power.</p>
+        <p>Neurons are intrinsically dynamic systems, each with memory of past events. Furthermore, neurons are embedded in networks. We show that models incorporating both these characteristics can be valuable for explaining moment to moment in vivo responses of neurons in the auditory cortex. This is an arguably more biologically plausible way of capturing the history dependence of neural responses than a set of delay lines. In artificial neural networks, memory is usually implemented through recurrent connections between units. However, real biological neurons also have intrinsic memory processes with particular characteristics. Including such single-unit memory has potential advantages for explaining the in vivo responses of biological neurons and may also be useful in artificial neural networks. In summary, the dynamic network model we present here provides a biologically-plausible alternative encoding model to the classic LN model, as well as a basis for further development of encoding models with hidden units with diverse intrinsic dynamic processes.<anchor xml:id="a130"/></p>
     </body>
   </text>
 </TEI>
