@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">68 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">72 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -88,6 +88,7 @@
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>the number of synthetic data sets is fixed by the precision wanted in the p-value rather than by convention, derived from the test&#x27;s expected worst-case performance</term>
+        <note>about this quote: Q-607, 2026-08-16: THIS QUOTE IS TRUNCATED BECAUSE THE FORMULA IT LEADS TO IS UNREADABLE IN THE STAGED TEXT. The pdftext extraction flattens the expression for the required number of synthetic data sets out of order - the staged body reads &#x27;at least 1 2 synthetic data sets&#x27; with &#x27;4 e-&#x27; appearing separately - so the rule the sentence states cannot be quoted verbatim without quoting nonsense. The span stops at the last readable words. The paper&#x27;s own worked example (accuracy to two decimal digits requiring about 2500 sets) is likewise in the damaged region and is deliberately NOT reproduced here, because I would be typing it rather than cutting it.</note>
         <quote>We also need to decide how many synthetic data sets to generate. Based on an analysis of the expected worst-case performance of the test, a good rule of thumb turns out to be the following: if we wish our p-values to be accurate to within about</quote>
       </span>
       <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
@@ -155,218 +156,239 @@
         <note>what this limits: a power-law fit on a small sample in either direction: the paper states both false acceptance and failure to discriminate occur there</note>
         <quote>it is difficult to rule out alternative fits to such data, even when they are truly power-law distributed, and conversely the power-law form may appear to be a good fit even when the data are drawn from a non-power-law distribution.</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[0]" resp="#paper">
+      <span xml:id="t23" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.9">
+        <label>the fitting procedure is deliberately applied across twenty-four data sets from unrelated branches of enquiry, so that the method rather than any one field&#x27;s data is what is tested</label>
+        <quote>The twenty-four data sets we study are drawn from a broad variety of different branches of human endeavor, including physics, earth sciences, biology, ecology, paleontology, computer and information sciences, engineering, and the social sciences.</quote>
+      </span>
+      <span xml:id="t24" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a goodness-of-fit p-value computed for the power law AND for each plausible competing distribution, and the two compared</label>
+        <note>eliminates: that the power law fits because heavy-tailed data fits almost any heavy-tailed form - a log-normal or a stretched exponential may fit as well or better, and only comparing them shows which</note>
+        <quote>We can eliminate this possibility by using a goodness-of-fit test again—we can simply calculate a p-value for a fit to the competing distribution and compare it to the p-value for the power law.</quote>
+      </span>
+      <span xml:id="t25" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>an explicit rejection rule fixed in advance: p greater than 0.1 keeps the power-law hypothesis, otherwise it is rejected</label>
+        <note>eliminates: that the decision to accept a power law is made after seeing how good the fit looks</note>
+        <quote>If the resulting p-value is greater than 0.1 the power law is a plausible hypothesis for the data, otherwise it is rejected.</quote>
+      </span>
+      <span xml:id="t26" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>the whole procedure was run on SYNTHETIC data drawn from known distributions</label>
+        <note>eliminates: that the method itself is wrong - synthetic data has a known answer, so the procedure can be checked against ground truth before it is trusted on real data</note>
+        <quote>We evaluate the effectiveness of the approach with tests on synthetic data and give critical comparisons to previous approaches.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[0]" resp="#paper">
         <label>power law</label>
         <term>power law</term>
         <quote>we address a recurring issue in the scientific literature, the question of how to recognize a power law when we see one</quote>
       </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[1]" resp="#paper">
+      <span xml:id="t28" type="concepts" ana="#concepts[1]" resp="#paper">
         <label>maximum likelihood</label>
         <term>maximum likelihood</term>
         <quote>Our approach combines maximum-likelihood fitting methods with goodness-of-fit tests based on the Kolmogorov-Smirnov statistic and likelihood ratios.</quote>
       </span>
-      <span xml:id="t25" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t29" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>scaling parameter</label>
         <term>scaling parameter</term>
         <quote>where α is a constant parameter of the distribution known as the exponent or scaling parameter.</quote>
       </span>
-      <span xml:id="t26" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>xmin</label>
         <term>xmin</term>
         <quote>More often the power law applies only for values greater than some minimum xmin.</quote>
       </span>
-      <span xml:id="t27" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>likelihood ratio test</label>
         <term>likelihood ratio test</term>
         <quote>Compare the power law with alternative hypotheses via a likelihood ratio test</quote>
       </span>
-      <span xml:id="t28" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>log-normal</label>
         <term>log-normal</term>
         <quote>using its value to perform a more nuanced classification as power-law, log-normal, or undecided</quote>
       </span>
-      <span xml:id="t29" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t33" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>power law - a hypothesis one can only fail to reject; the paper says an observed quantity can rarely if ever be certified as power-law distributed</label>
         <quote>In practice, we can rarely, if ever, be certain that an observed quantity is drawn from a power-law distribution. The most we can say is that our observations are consistent with the hypothesis that x is drawn from a distribution of the form</quote>
       </span>
-      <span xml:id="t30" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t34" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>power law - a property of the tail only, holding above a chosen minimum rather than across the whole range</label>
         <quote>In practice, few empirical phenomena obey power laws for all values of x. More often the power law applies only for values greater than some minimum xmin. In such cases we say that the tail of the distribution follows a power law.</quote>
       </span>
-      <span xml:id="t31" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t35" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>scaling parameter - a quantity whose published values for one data set disagree, because they depend on the estimator used</label>
         <quote>the citation distribution data of [48] have been reported to have a scaling parameter of either 2.9 [62] or 2.5 [33], neither of which are compatible with our maximum likelihood figure of 3.16</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>contradicts → previously claimed power laws in the literature</label>
         <quote>In some cases we find these conjectures to be consistent with the data while in others the power law is ruled out.</quote>
       </span>
-      <span xml:id="t33" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → previously reported scaling parameters for the citation distribution of [48], namely 2.9 in [62] and 2.5 in [33]</label>
         <quote>Similarly, the citation distribution data of [48] have been reported to have a scaling parameter of either 2.9 [62] or 2.5 [33], neither of which are compatible with our maximum likelihood figure of 3.16 0.06.</quote>
       </span>
-      <span xml:id="t34" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → Ijiri and Simon [28] and Mitzenmacher [42] on the limits of characterising empirical distributions</label>
         <quote>In closing, we echo comments made by Ijiri and Simon [28] more than thirty years ago and similar thoughts expressed more recently by Mitzenmacher [42].</quote>
       </span>
-      <span xml:id="t35" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t39" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>power law —contrasted-with→ log-normal</label>
         <term>power law</term>
         <term>log-normal</term>
         <note>strength of the relation: 1</note>
         <quote>using its value to perform a more nuanced classification as power-law, log-normal, or undecided</quote>
       </span>
-      <span xml:id="t36" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t40" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>scaling parameter —operationalised-as→ maximum likelihood</label>
         <term>scaling parameter</term>
         <term>maximum likelihood</term>
         <note>strength of the relation: 1</note>
         <quote>the citation distribution data of [48] have been reported to have a scaling parameter of either 2.9 [62] or 2.5 [33], neither of which are compatible with our maximum likelihood figure of 3.16</quote>
       </span>
-      <span xml:id="t37" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+      <span xml:id="t41" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
         <label>xmin —part-of→ power law</label>
         <term>xmin</term>
         <term>power law</term>
         <note>strength of the relation: 1</note>
         <quote>More often the power law applies only for values greater than some minimum xmin.</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>24 — real-world data sets tested for power-law fit</label>
         <quote>We also apply the proposed methods to twenty-four real-world</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>2 &lt; α &lt; 3 — typical range of the scaling parameter</label>
-        <quote>The scaling parameter typically lies in the range</quote>
+        <quote>The scaling parameter typically lies in the range 2 &lt; α &lt; 3</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>8226 — average US city/town/village population (2000 Census)</label>
         <quote>village in the United States is 8226</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>180 — typical adult male American height (near-Gaussian example)</label>
         <quote>an adult male American is about 180cm</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>2 — largest deviations in a well-behaved distribution</label>
         <quote>only about a factor of two from the mean</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>least-squares fitting yields substantially inaccurate power-law parameters</label>
         <quote>such as least-squares fitting, can produce substantially</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>their framework combines maximum likelihood with KS goodness-of-fit</label>
-        <quote>Our approach combines maximum-likelihood</quote>
+        <quote>Our approach combines maximum-likelihood fitting methods with goodness-of-fit tests based on the Kolmogorov-Smirnov statistic and likelihood ratios.</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>some conjectured power laws are ruled out by the data</label>
         <quote>others the power law is ruled out</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>power laws usually hold only above a minimum value xmin</label>
         <quote>the power law applies only for values greater than some minimum xmin</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>scaling parameter / exponent α</label>
         <term>scaling parameter / exponent α</term>
         <quote>a constant parameter of the distribution known as the exponent or scaling</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>lower bound xmin</label>
         <term>lower bound xmin</term>
         <quote>few empirical phenomena obey power laws for all values of x</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t53" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>goodness-of-fit statistic</label>
         <term>goodness-of-fit statistic</term>
         <quote>goodness-of-fit tests based on the Kolmogorov-Smirnov statistic</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t54" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>quantity x</label>
         <term>quantity x</term>
         <quote>a quantity x obeys a power law if it is drawn from a probability</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t55" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>power law</label>
         <term>power law</term>
         <quote>Mathematically, a quantity x obeys a power law if it is drawn from a probability</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>scaling parameter (exponent)</label>
         <term>scaling parameter (exponent)</term>
         <quote>known as the exponent or scaling</quote>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t57" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>tail of the distribution</label>
         <term>tail of the distribution</term>
         <quote>we say that the tail of the distribution follows a power law</quote>
       </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t58" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>heavy-tailed / rare large events</label>
         <term>heavy-tailed / rare large events</term>
         <quote>the part of the distribution representing large but rare events</quote>
       </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>any of several other established and statistically principled approaches for model comparison, such as a fully Bayesian approach [32], a cross-validation approach [59], or a minimum description length approach [20], although none</quote>
       </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>confidence-interval</label>
         <term>confidence-interval</term>
         <quote>black line shows the rate of misclassification (over 1000 repetitions) of power law samples as log-normals (95% confidence interval shown in grey), while the blue (dashed) line shows the rate of misclassification of log-normals as power laws</quote>
       </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>correlation</label>
         <term>correlation</term>
         <quote>Furthermore, the assumption of independence now fails, because P (x) = P (x + 1) + p(x) and hence adjacent values of the CDF are strongly correlated.</quote>
       </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>hypothesis-testing</label>
         <term>hypothesis-testing</term>
         <quote>In the terminology of statistical theory, the value of r2 has very little power as a hypothesis test because the probability of successfully detecting a violation of the power-law assumption is low.</quote>
       </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>Mean of the maximum likelihood estimate for the scaling parameter for 5000 samples drawn from the test distribution, Eq.</quote>
       </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>null-hypothesis</label>
         <term>null-hypothesis</term>
         <quote>Normally one then considers low values of p to be good, since they indicate that the null hypothesis is unlikely to be correct.</quote>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>p-value</label>
         <term>p-value</term>
         <quote>If the resulting p-value is greater than 0.1 the power law is a plausible hypothesis for the data, otherwise it is rejected.</quote>
       </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t66" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
         <quote>Typically this slope is extracted by performing a least-squares linear regression on the logarithm of the histogram.</quote>
       </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
         <label>sample-size</label>
         <term>sample-size</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The method of choice for fitting parametrized models such as power-law distributions to observed data is the method of maximum likelihood, which provably gives accurate parameter estimates in the limit of large sample size [64, 8].</quote>
       </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+      <span xml:id="t68" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
         <quote>Even the largest deviations, which are exceptionally rare, are still only about a factor of two from the mean in either direction and hence the distribution can be well-characterized by quoting just its mean and standard deviation.</quote>
       </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
+      <span xml:id="t69" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
         <label>standard-error</label>
         <term>standard-error</term>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The standard error on ˆα, which is derived from the width of the likelihood maximum, is → σ = ˆα 1 − √n + O(1/n) , (3.2) where the higher-order correction is positive; see Appendix B of this paper or any of Refs</quote>
       </span>
-      <span xml:id="t66" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger">
+      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger">
         <label>statistical-significance</label>
         <term>statistical-significance</term>
         <quote>This method gives a p-value that tells us whether the observed sign of is statistically significant.</quote>
       </span>
-      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger">
+      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <quote>perform this kind of fitting, provide estimates and standard errors for the slope, and calculate the fraction r2 of variance accounted for by the fitted line, which is taken as an indicator of the quality of the fit.</quote>

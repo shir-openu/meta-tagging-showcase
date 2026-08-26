@@ -34,8 +34,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">32 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">34 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -65,7 +65,7 @@
       </span>
       <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Security holds only under the assumption that honest nodes control the majority of CPU power.</label>
-        <note>what this limits: the same scope as item 0 - the majority-honest assumption</note>
+        <note>duplicate of: limitations[0] · what this limits: the same scope as item 0 - the majority-honest assumption</note>
         <quote>The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</quote>
       </span>
       <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
@@ -107,89 +107,100 @@
         <label>using cryptographic proof (hashes, digital signatures, proof-of-work) to build a currency and payment system with no trusted third party</label>
         <quote>What is needed is an electronic payment system based on cryptographic proof instead of trust</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[1]" resp="#paper">
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.75">
+        <label>an adversarial calculation of the probability that an attacker generating an alternate chain overtakes the honest chain</label>
+        <note>eliminates: that a slower attacker could rewrite the transaction history by catching up with the honest chain · outcome: held</note>
+        <quote>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain.</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[1]" resp="#paper">
         <label>proof-of-work</label>
         <term>proof-of-work</term>
         <quote>The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work</quote>
       </span>
-      <span xml:id="t15" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>electronic coin</label>
         <term>electronic coin</term>
         <quote>Transactions We define an electronic coin as a chain of digital signatures</quote>
       </span>
-      <span xml:id="t16" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>chain of digital signatures</label>
         <term>chain of digital signatures</term>
         <quote>We define an electronic coin as a chain of digital signatures</quote>
       </span>
-      <span xml:id="t17" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>longest chain</label>
         <term>longest chain</term>
         <quote>The majority decision is represented by the longest chain</quote>
       </span>
-      <span xml:id="t18" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>timestamp server</label>
         <term>timestamp server</term>
         <quote>The solution we propose begins with a timestamp server</quote>
       </span>
-      <span xml:id="t19" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the chain - NEVER &#x27;blockchain&#x27;: the paper&#x27;s own names for its central object are a chain of digital signatures and a chain of ownership, and the compound the entire field later settled on appears nowhere in the document that introduced the thing</label>
         <quote>Transactions We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin. A payee can verify the signatures to verify the chain of ownership</quote>
       </span>
-      <span xml:id="t20" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>majority - AS CPU POWER, NOT AS HEADS: the paper rules out one-vote-per-participant explicitly, so &#x27;majority decision&#x27; and &#x27;consensus&#x27; here mean the greatest expenditure of computation and not what those words mean in any deliberative sense</label>
         <quote>If the majority were based on one-IP-address-one-vote, it could be subverted by anyone able to allocate many IPs. Proof-of-work is essentially one-CPU-one-vote</quote>
       </span>
-      <span xml:id="t21" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>privacy - AS A BREAK IN THE FLOW OF INFORMATION, NOT AS SECRECY: everything is announced publicly and privacy is obtained only by keeping the keys unattributed, which the paper likens to a stock exchange tape that prints every trade without the parties</label>
         <quote>The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>contradicts → the trusted-third-party (financial-institution) model</label>
         <quote>the main benefits are lost if a trusted third party is still required to prevent double-spending</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Adam Back&#x27;s Hashcash [6]</label>
         <quote>To implement a distributed timestamp server on a peer-to-peer basis, we will need to use a proofof-work system similar to Adam Back&#x27;s Hashcash [6], rather than newspaper or Usenet posts.</quote>
       </span>
-      <span xml:id="t24" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t25" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>electronic coin —operationalised-as→ chain of digital signatures</label>
         <term>electronic coin</term>
         <term>chain of digital signatures</term>
-        <note>strength of the relation: 1</note>
+        <note>the relation itself is separately evidenced · strength of the relation: 1</note>
         <quote>Transactions We define an electronic coin as a chain of digital signatures</quote>
       </span>
-      <span xml:id="t25" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t26" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>longest chain —operationalised-as→ proof-of-work</label>
         <term>longest chain</term>
         <term>proof-of-work</term>
         <note>strength of the relation: 1</note>
         <quote>The majority decision is represented by the longest chain, which has the greatest proof-of-work effort invested in it. If a majority of CPU power is controlled by honest nodes, the honest chain will grow the fastest and outpace any competing chains</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Bitcoin solves double-spending without a trusted third party: a peer-to-peer network timestamps transactions into an ongoing hash-based proof-of-work chain that cannot be altered without redoing the work.</label>
         <quote>We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work.</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>The system is secure as long as honest nodes collectively control a majority of CPU power; the longest chain encodes the majority decision.</label>
         <quote>The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>share of CPU power held by honest nodes</label>
         <term>share of CPU power held by honest nodes</term>
         <quote>As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>integrity of the transaction ledger</label>
+        <term>integrity of the transaction ledger</term>
+        <note>retracted: RE-GROUNDED. The published string was in NEITHER copy of the paper. Ours read `THEY WILL generate the longest chain`; the paper writes `THEY&#x27;LL`. A contraction expanded by hand. The condition the sentence depends on - a majority of CPU power held by nodes not cooperating to attack - was outside the old span and is inside this one.</note>
+        <quote>As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they&#x27;ll generate the longest chain and outpace attackers.</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>proof-of-work</label>
         <term>proof-of-work</term>
         <quote>implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block&#x27;s hash the required zero bits</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>Merkle Tree (transaction hashing)</label>
         <term>Merkle Tree (transaction hashing)</term>
         <quote>transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block&#x27;s hash</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>p-value</label>
         <term>p-value</term>
         <quote>q=0.1 z=0 P=1.0000000 z=1 P=0.2045873 z=2 P=0.0509779 z=3 P=0.0131722 z=4 P=0.0034552 z=5 P=0.0009137 z=6 P=0.0002428 z=7 P=0.0000647 z=8 P=0.0000173 z=9 P=0.0000046 z=10 P=0.0000012 q=0.3 z=</quote>

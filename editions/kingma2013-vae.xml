@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">32 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">33 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -57,7 +57,7 @@
       <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
         <label>mechanisms</label>
         <term>the reparameterization trick: rewrite latent-variable sampling as a deterministic function of noise so the variational lower bound (ELBO) becomes differentiable and trainable by stochastic gradient descent</term>
-        <quote>a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using</quote>
+        <quote>a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods</quote>
       </span>
       <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>The derivation assumes a fixed dataset for simplicity rather than the online or non-stationary case.</label>
@@ -88,108 +88,117 @@
         <label>variational Bayes / approximate posterior inference combined with neural networks (a recognition/encoder model) to learn deep generative models</label>
         <quote>fitting an approximate inference model</quote>
       </span>
-      <span xml:id="t10" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t10" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>comparison against the wake-sleep algorithm using the same encoder and the same parameters</label>
+        <note>eliminates: that AEVB&#x27;s advantage over wake-sleep comes from the network architecture or parameter count rather than from the learning method · outcome: held</note>
+        <quote>We employed the same encoder (also called recognition model) for the wake-sleep algorithm and the variational autoencoder.</quote>
+      </span>
+      <span xml:id="t11" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>AEVB</label>
         <term>AEVB</term>
         <quote>we propose the Auto- Encoding VB (AEVB) algorithm</quote>
       </span>
-      <span xml:id="t11" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t12" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>recognition model</label>
         <term>recognition model</term>
         <quote>let us introduce a recognition model qφ(z|x): an approximation to the intractable true posterior</quote>
       </span>
-      <span xml:id="t12" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t13" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>approximate inference model</label>
         <term>approximate inference model</term>
         <quote>by fitting an approximate inference model (also called a recognition model)</quote>
       </span>
-      <span xml:id="t13" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t14" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>reparameterization</label>
         <term>reparameterization</term>
         <quote>we show that a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t15" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>lower bound estimator</label>
         <term>lower bound estimator</term>
         <quote>yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t16" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the algorithm&#x27;s name - AEVB IN THE PAPER, VAE IN THE FIELD: the authors name their algorithm Auto-Encoding VB and use that name throughout; the term the field kept appears once, as what you arrive at when the recognition model happens to be a neural network</label>
         <quote>we propose the Auto- Encoding VB (AEVB) algorithm</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>the variational auto-encoder - AS A SPECIAL CASE, NOT THE SUBJECT: it is what AEVB becomes when a neural network is used for the recognition model, stated in a single consequence clause</label>
         <quote>When a neural network is used for the recognition model, we arrive at the variational auto-encoder</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the recognition model - TWO NAMES IN ONE PARENTHESIS: an approximate inference model, also called a recognition model, fitted to a posterior that cannot be computed</label>
         <quote>posterior inference can be made especially efficient by fitting an approximate inference model (also called a recognition model) to the intractable posterior using the proposed lower bound estimator</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t19" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → variational inference (variational Bayes)</label>
         <quote>a stochastic variational inference and learning algorithm that scales to large datasets</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t20" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → predictive sparse decomposition (PSD) [KRL08]</label>
         <quote>Related are also encoder-decoder architectures such as the predictive sparse decomposition (PSD) [KRL08], from which we drew some inspiration.</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → the wake-sleep algorithm [HDFN95]</label>
         <quote>The wake-sleep algorithm [HDFN95] is, to the best of our knowledge, the only other on-line learning method in the literature that is applicable to the same general class of continuous latent variable models.</quote>
       </span>
-      <span xml:id="t21" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t22" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>approximate inference model —same-as→ recognition model</label>
         <term>approximate inference model</term>
         <term>recognition model</term>
         <note>strength of the relation: 1</note>
         <quote>by fitting an approximate inference model (also called a recognition model)</quote>
       </span>
-      <span xml:id="t22" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t23" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>reparameterization —causes→ lower bound estimator</label>
         <term>reparameterization</term>
         <term>lower bound estimator</term>
-        <note>strength of the relation: 1</note>
+        <note>the relation itself is separately evidenced · strength of the relation: 1</note>
         <quote>we show that a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods</quote>
       </span>
-      <span xml:id="t23" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t24" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>A reparameterization of the variational lower bound gives an estimator (SGVB) optimizable by standard stochastic gradient methods, enabling efficient inference/learning in directed models with continuous latent variables and intractable posteriors.</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods</quote>
       </span>
-      <span xml:id="t24" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t25" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>For i.i.d. datasets, posterior inference is made efficient by fitting an approximate recognition model to the intractable posterior — yielding the variational auto-encoder.</label>
-        <quote>posterior inference can be made especially efficient by fitting an approximate inference model (also called a recognition model) to the intractable posterior</quote>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
+        <quote>posterior inference can be made especially efficient by fitting an approximate inference model (also called a recognition model) to the intractable posterior using the proposed lower bound estimator</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t26" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>continuous latent variables z</label>
         <term>continuous latent variables z</term>
         <quote>continuous latent variables with intractable posterior distributions</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t27" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>variational lower bound (objective)</label>
         <term>variational lower bound (objective)</term>
-        <quote>a reparameterization of the variational lower bound yields a lower bound estimator</quote>
+        <quote>a reparameterization of the variational lower bound yields a lower bound estimator that can be straightforwardly optimized using standard stochastic gradient methods</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>SGVB (Stochastic Gradient Variational Bayes) estimator</label>
         <term>SGVB (Stochastic Gradient Variational Bayes) estimator</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>this SGVB (Stochastic Gradient Variational Bayes) estimator can be used for efficient approximate posterior inference</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>recognition model</label>
         <term>recognition model</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>an approximate inference model (also called a recognition model) to the intractable posterior</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>whose continuous latent variables and/or parameters have intractable posterior distributions? The variational Bayesian (VB) approach involves the optimization of an approximation to the intractable posterior.</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>chi-square</label>
         <term>chi-square</term>
         <quote>Examples: Log-Normal (exponentiation of normally distributed variable), Gamma (a sum over exponentially distributed variables), Dirichlet (weighted sum of Gamma variates), Beta, Chi-Squared, and F distributions.</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <quote>This gradient estimator exhibits exhibits very high variance (see e.g.</quote>

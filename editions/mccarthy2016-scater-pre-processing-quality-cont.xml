@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Scater: pre-processing, quality control, normalization and visualization of single-cell RNA-seq data in R</title>
+        <author>Davis J. McCarthy</author>
+        <author>Kieran R. Campbell</author>
+        <author>Aaron T. L. Lun</author>
+        <author>Quin F. Wills</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Scater: pre-processing, quality control, normalization and visualization of single-cell RNA-seq data in R</title>
+          <date>2016</date>
+          <publisher>Bioinformatics</publisher>
+          <idno type="DOI">10.1093/bioinformatics/btw777</idno>
+          
+          <idno type="record">mccarthy2016-scater-pre-processing-quality-cont</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\mccarthy2016-scater-pre-processing-quality-cont.txt</note>
+          <note type="text-sha1">86a6e1e99b349119acfe148e89d09359300ebb31</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>bioinformatics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">51 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the step that decides WHICH CELLS ARE REAL CELLS before any biology is done - and a tool built around the fact that no universal criterion for it exists</label>
+        <quote>This issue is exacerbated by the diversity of scRNA-seq datasets with respect to the experimental protocol and the biological context of the study, meaning that a single processing pipeline with fixed parameters is unlikely to be universally applicable. Rather, software tools are required that support an interactive approach to analysis. This allows parameters to be fine-tuned for the study at hand in response to any issues diagnosed during data exploration.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to make scRNA-seq quality control, normalisation and visualisation rigorous and reproducible when the right parameters differ per study</label>
+        <quote>All of these metrics are used by scater to construct QC plots to diagnose potential issues with data quality. This facilitates quality control which—despite attempts at automation ( Ilicic et al. , 2016 )—still requires manual intervention to account for aspects of the data specific to each study.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>an R/Bioconductor package with a single-cell data structure, automated QC metrics, outlier detection, filtering and a large plotting suite</label>
+        <quote>Quality control is a vital preliminary step for scRNA-seq and can be a time-consuming manual task. We present a tool for automated computation of QC metrics, novel plotting methods for QC and convenient subsetting and filtering methods to substantially simplify the process of filtering out unwanted or problematic cells and genes.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>Quality control is a vital preliminary step for scRNA-seq and can be a time-consuming manual task. We present a tool for automated computation of QC metrics, novel plotting methods for QC and convenient subsetting and filtering methods to substantially simplify the process of filtering out unwanted or problematic cells and genes.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>technical noise, dropouts and failed captures that make some rows of a single-cell matrix not cells at all</label>
+        <quote>These metrics are useful for identifying low-quality cells—for example, a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, suggesting protocol failure or death of the cell in processing that renders it unsuitable for downstream analyses.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>software: QC metrics per cell and per gene, PCA-based multivariate outlier detection on those metrics, threshold filters, and plots for manual diagnosis; demonstrated on an unpublished 73-cell dataset</label>
+        <term>software: QC metrics per cell and per gene, PCA-based multivariate outlier detection on those metrics, threshold filters, and plots for manual diagnosis; demonstrated on an unpublished 73-cell dataset</term>
+        <quote>The plotPCA function implements an approach to automatic outlier detection using multivariate normal methods applied to the cell-level QC metrics ( Ilicic et al. , 2016 ). It produces a PCA plot computed from QC metrics, where cells corresponding to detected outliers are marked ( Fig. 2b ). Briefly, semi-robust principal components are computed from robustly sphered QC metrics data, using the pcout function from the mvoutlier R package ( Filzmoser et al. , 2008 ). These components are used to calculate distances for each cell, which are then used to compute weights for outlier detection</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>THE DETECTOR IS OPAQUE ABOUT ITS OWN CLASS, IN THE AUTHORS&#x27; WORDS: `Detected outliers correspond to LOW-QUALITY CELLS with abnormal library characteristics ... THIS AUTOMATED APPROACH IS POWERFUL BUT ALSO SOMEWHAT OPAQUE WITH RESPECT TO HOW OUTLIERS ARE DEFINED, and so complements simpler filtering approaches that apply thresholds to particular QC metrics`. The class `low-quality cell` is whatever the detector marks, and the remedy offered is not a definition but A SECOND, CRUDER METHOD RUN BESIDE IT</label>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>AND THE TOOL EXISTS BECAUSE NO UNIVERSAL THRESHOLD DOES: `a single processing pipeline WITH FIXED PARAMETERS IS UNLIKELY TO BE UNIVERSALLY APPLICABLE. Rather, software tools are required that support an INTERACTIVE approach ... allows PARAMETERS TO BE FINE-TUNED FOR THE STUDY AT HAND`. That is the design rationale, stated in the introduction</label>
+        <quote>This issue is exacerbated by the diversity of scRNA-seq datasets with respect to the experimental protocol and the biological context of the study, meaning that a single processing pipeline with fixed parameters is unlikely to be universally applicable. Rather, software tools are required that support an interactive approach to analysis. This allows parameters to be fine-tuned for the study at hand in response to any issues diagnosed during data exploration.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>and the manual step is irreducible: quality control `WHICH - DESPITE ATTEMPTS AT AUTOMATION - STILL REQUIRES MANUAL INTERVENTION to account for aspects of the data specific to each study`. A person looking at a plot decides which rows of the matrix are cells</label>
+        <quote>All of these metrics are used by scater to construct QC plots to diagnose potential issues with data quality. This facilitates quality control which—despite attempts at automation ( Ilicic et al. , 2016 )—still requires manual intervention to account for aspects of the data specific to each study.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>AND THE METRIC CARRIES A PHYSICAL STORY THAT THE NUMBER DOES NOT CONTAIN: `a high percentage of counts mapping to spike-ins TYPICALLY INDICATES that a small amount of RNA was captured for the cell, SUGGESTING PROTOCOL FAILURE OR DEATH OF THE CELL in processing that renders it UNSUITABLE for downstream analyses`. The ratio is measured, the death is inferred, and the exclusion follows from the inference</label>
+        <quote>These metrics are useful for identifying low-quality cells—for example, a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, suggesting protocol failure or death of the cell in processing that renders it unsuitable for downstream analyses.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE PAPER&#x27;S CENTRAL TOOL IS DESCRIBED BY ITS OWN AUTHORS AS NOT DISCLOSING ITS CRITERION - `SOMEWHAT OPAQUE WITH RESPECT TO HOW OUTLIERS ARE DEFINED`. Every downstream analysis in every paper that uses scater rests on a class boundary the tool declines to state</label>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>and everything downstream ASSUMES THE STEP IS ALREADY DONE: `Numerous statistical methods and software tools have been published for scRNA-seq data ... HOWEVER, ALL OF THESE ASSUME THAT QUALITY CONTROL AND NORMALIZATION HAVE ALREADY BEEN APPLIED. FEWER METHODS ARE AVAILABLE in the literature to perform these basic steps`</label>
+        <quote>Numerous statistical methods and software tools have been published for scRNA-seq data ( Angerer et al. , 2015 ; Finak et al. , 2015 ; Guo et al. , 2015 ; Juliá et al. , 2015 ; Kharchenko et al. , 2014 ; Trapnell et al. , 2014 ). However, all of these assume that quality control and normalization have already been applied. Fewer methods are available in the literature to perform these basic steps in scRNA-seq data processing</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the demonstration data is UNPUBLISHED and small: `an UNPUBLISHED single-cell RNA-seq dataset consisting of 73 CELLS from two lymphoblast cell lines of two unrelated individuals`. A tool for hundreds or thousands of cells, shown on 73</label>
+        <quote>The results presented in the main paper and supplementary case study use an unpublished single-cell RNA-seq dataset consisting of 73 cells from two lymphoblast cell lines of two unrelated individuals.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>and the gene-level filter has the same shape as the cell-level one: metrics `can be used to identify low-abundance genes or genes with high dropout rates THAT SHOULD BE FILTERED OUT prior to downstream analyses` - with no threshold given, because there is not one</label>
+        <quote>For each gene, QC metrics such as the average expression level and the proportion of cells in which the gene is expressed are computed. This can be used to identify low-abundance genes or genes with high dropout rates that should be filtered out prior to downstream analyses.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>spike-in transcripts and mitochondrial genes as control features, whose share of counts is used to flag failed captures</label>
+        <note>eliminates: cells whose library is dominated by controls - `a small amount of RNA was captured for the cell, suggesting PROTOCOL FAILURE OR DEATH OF THE CELL` · outcome: held</note>
+        <quote>These metrics are useful for identifying low-quality cells—for example, a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, suggesting protocol failure or death of the cell in processing that renders it unsuitable for downstream analyses.</quote>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>a second, cruder filter run beside the automatic outlier detector</label>
+        <note>eliminates: the opacity of the automatic method - it `COMPLEMENTS SIMPLER FILTERING APPROACHES THAT APPLY THRESHOLDS to particular QC metrics`. TWO METHODS BECAUSE ONE WILL NOT SAY WHAT IT IS DOING · outcome: partial</note>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t16" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether a fixed parameter set would work across studies</label>
+        <note>eliminates: nothing, and the paper rules it out in advance: `a single processing pipeline WITH FIXED PARAMETERS IS UNLIKELY TO BE UNIVERSALLY APPLICABLE` · outcome: failed</note>
+        <quote>This issue is exacerbated by the diversity of scRNA-seq datasets with respect to the experimental protocol and the biological context of the study, meaning that a single processing pipeline with fixed parameters is unlikely to be universally applicable. Rather, software tools are required that support an interactive approach to analysis. This allows parameters to be fine-tuned for the study at hand in response to any issues diagnosed during data exploration.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>Quality control</label>
+        <term>Quality control</term>
+        <quote>Quality control is a vital preliminary step for scRNA-seq and can be a time-consuming manual task. We present a tool for automated computation of QC metrics, novel plotting methods for QC and convenient subsetting and filtering methods to substantially simplify the process of filtering out unwanted or problematic cells and genes.</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>vital preliminary step</label>
+        <term>vital preliminary step</term>
+        <quote>Quality control is a vital preliminary step for scRNA-seq and can be a time-consuming manual task. We present a tool for automated computation of QC metrics, novel plotting methods for QC and convenient subsetting and filtering methods to substantially simplify the process of filtering out unwanted or problematic cells and genes.</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>low-quality cells</label>
+        <term>low-quality cells</term>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>outlier detection</label>
+        <term>outlier detection</term>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>automation</label>
+        <term>automation</term>
+        <quote>All of these metrics are used by scater to construct QC plots to diagnose potential issues with data quality. This facilitates quality control which—despite attempts at automation ( Ilicic et al. , 2016 )—still requires manual intervention to account for aspects of the data specific to each study.</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>manual intervention</label>
+        <term>manual intervention</term>
+        <quote>All of these metrics are used by scater to construct QC plots to diagnose potential issues with data quality. This facilitates quality control which—despite attempts at automation ( Ilicic et al. , 2016 )—still requires manual intervention to account for aspects of the data specific to each study.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>spike-ins</label>
+        <term>spike-ins</term>
+        <quote>These metrics are useful for identifying low-quality cells—for example, a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, suggesting protocol failure or death of the cell in processing that renders it unsuitable for downstream analyses.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>scRNA-seq</label>
+        <term>scRNA-seq</term>
+        <quote>Single-cell RNA sequencing (scRNA-seq) describes a broad class of techniques which profile the transcriptomes of individual cells.</quote>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>`low-quality cell` - OPERATIONALLY, WHATEVER THE OUTLIER DETECTOR MARKS. The paper gives examples (`low total counts and few expressed genes`) and then says the method is `SOMEWHAT OPAQUE WITH RESPECT TO HOW OUTLIERS ARE DEFINED`. A class defined by its detector, with the detector declining to say what it detects</label>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>`low-quality cell` IN THE OTHER SENSE THE SAME PAPER USES - A CELL THAT DIED OR WHOSE PROTOCOL FAILED: `a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, SUGGESTING PROTOCOL FAILURE OR DEATH OF THE CELL`. The first sense is statistical, the second is biological, and the exclusion is justified by the second while performed by the first</label>
+        <quote>These metrics are useful for identifying low-quality cells—for example, a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, suggesting protocol failure or death of the cell in processing that renders it unsuitable for downstream analyses.</quote>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>`quality control` HERE - NOT A FIXED PROCEDURE BUT AN INTERACTIVE ONE: `a single processing pipeline WITH FIXED PARAMETERS IS UNLIKELY TO BE UNIVERSALLY APPLICABLE ... allows PARAMETERS TO BE FINE-TUNED FOR THE STUDY AT HAND`</label>
+        <quote>This issue is exacerbated by the diversity of scRNA-seq datasets with respect to the experimental protocol and the biological context of the study, meaning that a single processing pipeline with fixed parameters is unlikely to be universally applicable. Rather, software tools are required that support an interactive approach to analysis. This allows parameters to be fine-tuned for the study at hand in response to any issues diagnosed during data exploration.</quote>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>`scRNA-seq` - `A BROAD CLASS OF TECHNIQUES which profile the transcriptomes of individual cells`. Defined by what it profiles and at what resolution, not by any one protocol - which is why the QC parameters cannot be fixed</label>
+        <quote>Single-cell RNA sequencing (scRNA-seq) describes a broad class of techniques which profile the transcriptomes of individual cells.</quote>
+      </span>
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>extends → the Bioconductor infrastructure for bulk RNA-seq, whose `existing data structures (like the ExpressionSet class) ARE NOT SUFFICIENT for scRNA-seq data`</label>
+        <quote>While Bioconductor packages have been widely used for bulk RNA-seq data, the existing data structures (like the ExpressionSet class) are not sufficient for scRNA-seq data. This is because they do not support data types that are specific to single-cell studies, e.g. cell–cell distance matrices for clustering. For larger studies, this also includes data beyond expression profiles such as intensity values from fluorescence-activated cell sorting, cell imaging data and information from epigenetic and targeted genotyping assays.</quote>
+      </span>
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>extends → Ilicic et al.&#x27;s automated low-quality-cell detection, wrapped here and paired with simpler threshold filters because it is opaque about its own criterion</label>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>contradicts → the assumption behind the scRNA-seq analysis literature that QC and normalisation are already done - `ALL OF THESE ASSUME THAT QUALITY CONTROL AND NORMALIZATION HAVE ALREADY BEEN APPLIED`</label>
+        <quote>Numerous statistical methods and software tools have been published for scRNA-seq data ( Angerer et al. , 2015 ; Finak et al. , 2015 ; Guo et al. , 2015 ; Juliá et al. , 2015 ; Kharchenko et al. , 2014 ; Trapnell et al. , 2014 ). However, all of these assume that quality control and normalization have already been applied. Fewer methods are available in the literature to perform these basic steps in scRNA-seq data processing</quote>
+      </span>
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>manual intervention —contrasted-with→ automation</label>
+        <term>manual intervention</term>
+        <term>automation</term>
+        <note>strength of the relation: 0.95 — `quality control WHICH - DESPITE ATTEMPTS AT AUTOMATION - STILL REQUIRES MANUAL INTERVENTION to account for aspects of the data specific to each study`. The contrast is not preference but sufficiency: the automated part runs and a person still has to look</note>
+        <quote>All of these metrics are used by scater to construct QC plots to diagnose potential issues with data quality. This facilitates quality control which—despite attempts at automation ( Ilicic et al. , 2016 )—still requires manual intervention to account for aspects of the data specific to each study.</quote>
+      </span>
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>Quality control —is-a→ vital preliminary step</label>
+        <term>Quality control</term>
+        <term>vital preliminary step</term>
+        <note>strength of the relation: 0.95</note>
+        <quote>Quality control is a vital preliminary step for scRNA-seq and can be a time-consuming manual task. We present a tool for automated computation of QC metrics, novel plotting methods for QC and convenient subsetting and filtering methods to substantially simplify the process of filtering out unwanted or problematic cells and genes.</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>THE DETECTOR IS OPAQUE ABOUT ITS OWN CLASS, IN THE AUTHORS&#x27; WORDS: `THIS AUTOMATED APPROACH IS POWERFUL BUT ALSO SOMEWHAT OPAQUE WITH RESPECT TO HOW OUTLIERS ARE DEFINED, and so complements simpler filtering approaches that apply thresholds to particular QC metrics`</label>
+        <term>THE DETECTOR IS OPAQUE ABOUT ITS OWN CLASS, IN THE AUTHORS&#x27; WORDS: `THIS AUTOMATED APPROACH IS POWERFUL BUT ALSO SOMEWHAT OPAQUE WITH RESPECT TO HOW OUTLIERS ARE DEFINED, and so complements simpler filtering approaches that apply thresholds to particular QC metrics`</term>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>AND THE REMEDY IS NOT A DEFINITION BUT A SECOND METHOD - a cruder threshold filter run beside the opaque one. TWO INSTRUMENTS BECAUSE ONE WILL NOT SAY WHAT IT IS DOING</label>
+        <term>AND THE REMEDY IS NOT A DEFINITION BUT A SECOND METHOD - a cruder threshold filter run beside the opaque one. TWO INSTRUMENTS BECAUSE ONE WILL NOT SAY WHAT IT IS DOING</term>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>THE TOOL EXISTS BECAUSE NO UNIVERSAL THRESHOLD DOES: `a single processing pipeline WITH FIXED PARAMETERS IS UNLIKELY TO BE UNIVERSALLY APPLICABLE. Rather, software tools are required that support an INTERACTIVE approach ... allows PARAMETERS TO BE FINE-TUNED FOR THE STUDY AT HAND`</label>
+        <term>THE TOOL EXISTS BECAUSE NO UNIVERSAL THRESHOLD DOES: `a single processing pipeline WITH FIXED PARAMETERS IS UNLIKELY TO BE UNIVERSALLY APPLICABLE. Rather, software tools are required that support an INTERACTIVE approach ... allows PARAMETERS TO BE FINE-TUNED FOR THE STUDY AT HAND`</term>
+        <quote>This issue is exacerbated by the diversity of scRNA-seq datasets with respect to the experimental protocol and the biological context of the study, meaning that a single processing pipeline with fixed parameters is unlikely to be universally applicable. Rather, software tools are required that support an interactive approach to analysis. This allows parameters to be fine-tuned for the study at hand in response to any issues diagnosed during data exploration.</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>AND THE MANUAL STEP IS IRREDUCIBLE: quality control `WHICH - DESPITE ATTEMPTS AT AUTOMATION - STILL REQUIRES MANUAL INTERVENTION to account for aspects of the data specific to each study`</label>
+        <term>AND THE MANUAL STEP IS IRREDUCIBLE: quality control `WHICH - DESPITE ATTEMPTS AT AUTOMATION - STILL REQUIRES MANUAL INTERVENTION to account for aspects of the data specific to each study`</term>
+        <quote>All of these metrics are used by scater to construct QC plots to diagnose potential issues with data quality. This facilitates quality control which—despite attempts at automation ( Ilicic et al. , 2016 )—still requires manual intervention to account for aspects of the data specific to each study.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>THE METRIC CARRIES A PHYSICAL STORY THE NUMBER DOES NOT CONTAIN: `a high percentage of counts mapping to spike-ins TYPICALLY INDICATES that a small amount of RNA was captured for the cell, SUGGESTING PROTOCOL FAILURE OR DEATH OF THE CELL`. Measured ratio, inferred death, and the exclusion follows the inference</label>
+        <term>THE METRIC CARRIES A PHYSICAL STORY THE NUMBER DOES NOT CONTAIN: `a high percentage of counts mapping to spike-ins TYPICALLY INDICATES that a small amount of RNA was captured for the cell, SUGGESTING PROTOCOL FAILURE OR DEATH OF THE CELL`. Measured ratio, inferred death, and the exclusion follows the inference</term>
+        <quote>These metrics are useful for identifying low-quality cells—for example, a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, suggesting protocol failure or death of the cell in processing that renders it unsuitable for downstream analyses.</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>EVERYTHING DOWNSTREAM ASSUMES THE STEP IS DONE: `Numerous statistical methods and software tools have been published for scRNA-seq data ... HOWEVER, ALL OF THESE ASSUME THAT QUALITY CONTROL AND NORMALIZATION HAVE ALREADY BEEN APPLIED. FEWER METHODS ARE AVAILABLE in the literature to perform these basic steps`</label>
+        <term>EVERYTHING DOWNSTREAM ASSUMES THE STEP IS DONE: `Numerous statistical methods and software tools have been published for scRNA-seq data ... HOWEVER, ALL OF THESE ASSUME THAT QUALITY CONTROL AND NORMALIZATION HAVE ALREADY BEEN APPLIED. FEWER METHODS ARE AVAILABLE in the literature to perform these basic steps`</term>
+        <quote>Numerous statistical methods and software tools have been published for scRNA-seq data ( Angerer et al. , 2015 ; Finak et al. , 2015 ; Guo et al. , 2015 ; Juliá et al. , 2015 ; Kharchenko et al. , 2014 ; Trapnell et al. , 2014 ). However, all of these assume that quality control and normalization have already been applied. Fewer methods are available in the literature to perform these basic steps in scRNA-seq data processing</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>the same shape at gene level: metrics `can be used to identify low-abundance genes or genes with high dropout rates THAT SHOULD BE FILTERED OUT` - and no threshold is given, because there is not one</label>
+        <term>the same shape at gene level: metrics `can be used to identify low-abundance genes or genes with high dropout rates THAT SHOULD BE FILTERED OUT` - and no threshold is given, because there is not one</term>
+        <quote>For each gene, QC metrics such as the average expression level and the proportion of cells in which the gene is expressed are computed. This can be used to identify low-abundance genes or genes with high dropout rates that should be filtered out prior to downstream analyses.</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>RESOLUTION IS BOUGHT WITH NOISE: `this improvement in resolution comes at the cost of INCREASED TECHNICAL NOISE AND BIASES. This means that pre-processing, quality control and normalization are CRITICAL to a rigorous analysis`</label>
+        <term>RESOLUTION IS BOUGHT WITH NOISE: `this improvement in resolution comes at the cost of INCREASED TECHNICAL NOISE AND BIASES. This means that pre-processing, quality control and normalization are CRITICAL to a rigorous analysis`</term>
+        <quote>With scRNA-seq data, the contributions of different cell types to the expression profile of a heterogeneous population can be explicitly determined. Rare cell types can be interrogated and new cell subpopulations can be discovered. Graduated processes such as development and differentiation can also be studied in greater detail. However, this improvement in resolution comes at the cost of increased technical noise and biases. This means that pre-processing, quality control and normalization are critical to a rigorous analysis of scRNA-seq data.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="0.95">
+        <label>the existing infrastructure did not fit and the paper says why: `the existing data structures (like the ExpressionSet class) ARE NOT SUFFICIENT for scRNA-seq data ... they do not support data types that are specific to single-cell studies`</label>
+        <term>the existing infrastructure did not fit and the paper says why: `the existing data structures (like the ExpressionSet class) ARE NOT SUFFICIENT for scRNA-seq data ... they do not support data types that are specific to single-cell studies`</term>
+        <quote>While Bioconductor packages have been widely used for bulk RNA-seq data, the existing data structures (like the ExpressionSet class) are not sufficient for scRNA-seq data. This is because they do not support data types that are specific to single-cell studies, e.g. cell–cell distance matrices for clustering. For larger studies, this also includes data beyond expression profiles such as intensity values from fluorescence-activated cell sorting, cell imaging data and information from epigenetic and targeted genotyping assays.</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="0.95">
+        <label>THE DEMONSTRATION DATA IS UNPUBLISHED AND HOLDS 73 CELLS: `an UNPUBLISHED single-cell RNA-seq dataset consisting of 73 cells from two lymphoblast cell lines of two unrelated individuals` - for a tool built for hundreds or thousands</label>
+        <term>THE DEMONSTRATION DATA IS UNPUBLISHED AND HOLDS 73 CELLS: `an UNPUBLISHED single-cell RNA-seq dataset consisting of 73 cells from two lymphoblast cell lines of two unrelated individuals` - for a tool built for hundreds or thousands</term>
+        <quote>The results presented in the main paper and supplementary case study use an unpublished single-cell RNA-seq dataset consisting of 73 cells from two lymphoblast cell lines of two unrelated individuals.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="0.95">
+        <label>and the data&#x27;s characteristic problem is named: scRNA-seq data are `characterized by a high frequency of DROPOUTS`</label>
+        <term>and the data&#x27;s characteristic problem is named: scRNA-seq data are `characterized by a high frequency of DROPOUTS`</term>
+        <quote>The plotQC function generates many types of plots useful for quality control, such as a plot to visualize the frequency of expression of features against their average expression level ( Fig. 2c ). Such plots are useful because scRNA-seq data are characterized by a high frequency of</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>`a BROAD CLASS OF TECHNIQUES which profile the transcriptomes of individual cells` - defined by resolution and target, not by protocol</label>
+        <term>scRNA-seq</term>
+        <quote>Single-cell RNA sequencing (scRNA-seq) describes a broad class of techniques which profile the transcriptomes of individual cells.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>`cells with abnormal library characteristics (e.g. low total counts and few expressed genes)` as marked by an outlier detector that is `SOMEWHAT OPAQUE WITH RESPECT TO HOW OUTLIERS ARE DEFINED`</label>
+        <term>low-quality cells</term>
+        <quote>The user can specify QC metrics or other cell metadata variables to use for outlier detection with the ‘selected_variables’ argument to plotPCA. Detected outliers correspond to low-quality cells with abnormal library characteristics (e.g. low total counts and few expressed genes) that should be removed prior to downstream analysis. This automated approach is powerful but also somewhat opaque with respect to how outliers are defined, and so complements simpler filtering approaches that apply thresholds to particular QC metrics.</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>`a VITAL PRELIMINARY STEP for scRNA-seq` that `can be a TIME-CONSUMING MANUAL TASK`</label>
+        <term>Quality control</term>
+        <quote>Quality control is a vital preliminary step for scRNA-seq and can be a time-consuming manual task. We present a tool for automated computation of QC metrics, novel plotting methods for QC and convenient subsetting and filtering methods to substantially simplify the process of filtering out unwanted or problematic cells and genes.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>cells in the unpublished dataset the whole paper is demonstrated on</label>
+        <term>73</term>
+        <quote>The results presented in the main paper and supplementary case study use an unpublished single-cell RNA-seq dataset consisting of 73 cells from two lymphoblast cell lines of two unrelated individuals.</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.85">
+        <label>multivariate normal methods</label>
+        <term>multivariate normal methods</term>
+        <quote>The plotPCA function implements an approach to automatic outlier detection using multivariate normal methods applied to the cell-level QC metrics ( Ilicic et al. , 2016 ). It produces a PCA plot computed from QC metrics, where cells corresponding to detected outliers are marked ( Fig. 2b ). Briefly, semi-robust principal components are computed from robustly sphered QC metrics data, using the pcout function from the mvoutlier R package ( Filzmoser et al. , 2008 ). These components are used to calculate distances for each cell, which are then used to compute weights for outlier detection</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>the control transcripts whose share of counts stands in for whether the cell was alive</label>
+        <term>spike-ins</term>
+        <quote>These metrics are useful for identifying low-quality cells—for example, a high percentage of counts mapping to spike-ins typically indicates that a small amount of RNA was captured for the cell, suggesting protocol failure or death of the cell in processing that renders it unsuitable for downstream analyses.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1093/bioinformatics/btw777.</note></p>
+    </body>
+  </text>
+</TEI>

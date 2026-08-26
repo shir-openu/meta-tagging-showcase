@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>xCell: digitally portraying the tissue cellular heterogeneity landscape</title>
+        <author>Dvir Aran</author>
+        <author>Zicheng Hu</author>
+        <author>Atul J. Butte</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>xCell: digitally portraying the tissue cellular heterogeneity landscape</title>
+          <date>2017</date>
+          <publisher>Genome biology</publisher>
+          <idno type="DOI">10.1186/s13059-017-1349-1</idno>
+          
+          <idno type="record">aran2017-xcell-digitally-portraying-the-tis</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\aran2017-xcell-digitally-portraying-the-tis.txt</note>
+          <note type="text-sha1">6bf7a0f2984e3e44e3d6725310cdcd03bada5313</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>biology</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">57 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>inferring which cell types are present in a tissue from its bulk gene expression - and how far such an inference can be trusted</label>
+        <quote>At least seven major issues raise concerns that the in silico methods could be prone to errors and cannot reliably portray the cellular heterogeneity of the tumor microenvironment. First, current techniques depend on the expression profiles of purified cell types to identify reference genes and therefore rely heavily on the data source from which the references are inferred and could this be inclined to overfit these data.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether enrichment scores can be made comparable across cell types and freed of the correlation between closely related ones, which is what signature methods could not previously do</label>
+        <quote>However, because of this independence, it is many times hard to differentiate between closely related cell types. In addition, gene signature-based methods only provide enrichment scores and thus do not allow comparison across cell types and cannot provide insights into the abundance of cell types in the mixture.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>xCell - 489 signatures for 64 cell types chosen on held-out data, a power-law calibration onto a common scale, a spillover compensation borrowed from flow cytometry, and a null distribution for absence</label>
+        <quote>The simulations also revealed another limitation of the raw scores: closely related cell types tend to have correlating scores (Additional file 2: Figure S5). That is, scores may show enrichment for a cell type due to a “spillover effect” between closely related cell types. This problem mimics the spillover problem in flow cytometry, in which fluorescent signals correlate with each other due to spectrum overlaps.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>The procedure was performed for each data source where the corresponding cell type was available, except the data source from which the signature was learned. Thus, a signature was only chosen if it is reliable in a data source it was not trained upon.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>a measurement that returns a non-zero score for cell types that are not in the sample, and scores that look like proportions without being them</label>
+        <quote>Finally, many of the cell types we estimate are not expected to be in a given mixture; however, the pipeline we described will often produce non-zero scores. In the 18 test simulated mixtures, 56.4% of the scores for cell types that are not part of the mixture were non-negligible (&gt; 0.001).</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>signatures generated per cell type per data source and selected on a source they were not trained on, scored by ssGSEA, calibrated by a fitted power function, then compensated against a spillover matrix built from simulated mixtures</label>
+        <term>signatures generated per cell type per data source and selected on a source they were not trained on, scored by ssGSEA, calibrated by a fitted power function, then compensated against a spillover matrix built from simulated mixtures</term>
+        <quote>We then fit a power function to the scores corresponding to abundances of 0.8 to 25.6%. We used this range because we are mostly interested in identifying cell types with low abundance, and above that the function exponential increase may interfere with precise fitting.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>closely related cell types share marker genes, so a signature for one is partly satisfied by the other - formally the same problem as fluorophores whose emission spectra overlap, and correctable by the same device, a compensation matrix estimated from mixtures where the true answer is known</label>
+        <term>spectral overlap as a statistical analogy</term>
+        <quote>The simulations also revealed another limitation of the raw scores: closely related cell types tend to have correlating scores (Additional file 2: Figure S5). That is, scores may show enrichment for a cell type due to a “spillover effect” between closely related cell types. This problem mimics the spillover problem in flow cytometry, in which fluorescent signals correlate with each other due to spectrum overlaps.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>before compensation each cell type&#x27;s score is computed alone, so one wrong inference cannot contaminate the rest; the correction couples them, which is exactly the property that makes deconvolution fragile - the paper accepts a limited amount of it and says how limited</label>
+        <term>compensation trading independence for separability</term>
+        <quote>It is important to note that, until this step, the cell type scores are independent of each other, and a false inference of one cell type will not harm all other cell types. However, the spillover correction adjustment removes this strict independence between cell type inferences, as in deconvolution methods. Yet, the compensation is very limited, and between most cell types there is no compensation at all; thus, most of the inferences are still independent.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>a signature returns a score for any input, so a cell type absent from the mixture still receives one; only a null distribution built from mixtures that exclude it can say whether the score means presence</label>
+        <term>unbounded scores for absent cell types</term>
+        <quote>Finally, many of the cell types we estimate are not expected to be in a given mixture; however, the pipeline we described will often produce non-zero scores. In the 18 test simulated mixtures, 56.4% of the scores for cell types that are not part of the mixture were non-negligible (&gt; 0.001).</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>signatures are learned from cells isolated and profiled alone, and applied to cells sitting in tissue; if marker expression differs between those two states the method is calibrated on a population it never meets</label>
+        <term>purified profiles differing from the same cells in a mixture</term>
+        <quote>However, other explanations for the lower success when inferring abundances in real samples are possible—it may well be possible that the expression patterns of marker genes in mixtures are different to those in purified cells. Recent technologies such as single-cell RNA-sequencing may be able to clarify how much this may perturb the analyses.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the outputs are enrichment scores and cannot be interpreted as proportions, although they are calibrated to resemble them</label>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>every method, this one included, performs significantly better on simulated mixtures than on real ones, and the real-data correlations are called far from perfect</label>
+        <quote>It is important to note that xCell, as all other methods, performed significantly better in simulated mixtures than in real mixtures. Several technical reasons account for this discrepancy. First, the cytometry analyses were performed on PBMCs, while the gene expression profiles were generated from whole blood. Second, not all genes required by xCell were present; in fact, in SDY420 only 54.5% of the genes required by xCell were available.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>56.4% of scores for cell types absent from a test mixture were non-negligible; the significance test brings that to 28.8% and costs 13.5 points of the true positives</label>
+        <quote>Applying this procedure to the test simulated mixtures enabled detection of about half of the non-expected non-negligible scores as non-significant (46.9% change—from 56.4% non-negligible scores to 28.8% with p value &gt; 0.2), while detecting as non-significant only 15.3% of non-negligible scores for cell types used for generating the mixture (from 88.6% non-negligible scores to 75.1%) (Additional file 4).</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the spillover correction removes the independence between cell type inferences that was the signature approach&#x27;s main protection - limited, and the authors say so</label>
+        <quote>It is important to note that, until this step, the cell type scores are independent of each other, and a false inference of one cell type will not harm all other cell types. However, the spillover correction adjustment removes this strict independence between cell type inferences, as in deconvolution methods. Yet, the compensation is very limited, and between most cell types there is no compensation at all; thus, most of the inferences are still independent.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>on CD8+ T cells the method is beaten by using CD8A expression alone, with the caveat that the single gene may not be reliable in cancer</label>
+        <quote>In CD8+ T cells xCell was outperformed by methods depending solely on CD8A expression, which may not serve as a reliable biomarker in cancer settings (Additional file 2: Figure S9).</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.85">
+        <label>for five cell types the null distribution degenerated to zero and was replaced by a hand-set constant of 0.001</label>
+        <quote>In five of the cell types the scores from the random mixtures consistently produced 0; thus, we define those distributions as constant 0.001 (Additional file 2: Figure S7).</quote>
+      </span>
+      <span xml:id="t16" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>spillover compensation, carried from flow cytometry - where fluorophore emission spectra overlap - into gene signature scoring, where marker genes overlap</label>
+        <quote>The simulations also revealed another limitation of the raw scores: closely related cell types tend to have correlating scores (Additional file 2: Figure S5). That is, scores may show enrichment for a cell type due to a “spillover effect” between closely related cell types. This problem mimics the spillover problem in flow cytometry, in which fluorescent signals correlate with each other due to spectrum overlaps.</quote>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
+        <label>null-distribution fitting for a presence test, carried from statistical hypothesis testing to ask whether a cell type is in a mixture at all</label>
+        <quote>In five of the cell types the scores from the random mixtures consistently produced 0; thus, we define those distributions as constant 0.001 (Additional file 2: Figure S7).</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>signatures selected only if they hold up in a data source they were NOT trained on</label>
+        <note>eliminates: overfitting to the source a signature was learned from as the explanation of its performance - the reliance on reference data that the paper names as the first of the field&#x27;s seven problems · outcome: held</note>
+        <quote>The procedure was performed for each data source where the corresponding cell type was available, except the data source from which the signature was learned. Thus, a signature was only chosen if it is reliable in a data source it was not trained upon.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>simulated mixtures built from an independent data source never used in development (GSE60424), scored before and after spillover compensation</label>
+        <note>eliminates: the development data as the source of the improvement - a correction tuned on the training sources could otherwise be measuring itself · outcome: held</note>
+        <quote>Unexpectedly, following the spillover compensation we observed slightly improved associations on the diagonal between the scores and the underlying abundances (1.4% average improvement).</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>comparison against 53 previously published signatures and against CIBERSORT, a deconvolution method, on the same mixtures</label>
+        <note>eliminates: the possibility that any signature set would score as well - the comparison is to named alternatives on identical inputs rather than to nothing · outcome: held</note>
+        <quote>In general, previous methods were able to recover signal only from major cell types, including B cells, CD4+ and CD8+ T cells, and monocytes, suggesting that their performance was not reliable in more specialized cell subsets.</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>validation against cytometry immunophenotyping in 165 individuals across two independent studies, rather than against simulations alone</label>
+        <note>eliminates: in-silico mixing as the reason the method works - arithmetic admixtures cannot test whether marker expression survives being in real tissue · outcome: partial</note>
+        <quote>We utilized independent publicly available studies in which a total of 165 individuals were studied for both gene expression from whole blood and FACS across 18 cell subsets from peripheral blood mononuclear cells (PBMCs; available from ImmPort, studies SDY311 and SDY420).</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>a null distribution per cell type, learned from random mixtures that EXCLUDE that cell type and its relatives, to test whether a score means presence at all</label>
+        <note>eliminates: a non-zero score as evidence of presence - without this the method reports something for every cell type in every sample · outcome: partial</note>
+        <quote>Finally, many of the cell types we estimate are not expected to be in a given mixture; however, the pipeline we described will often produce non-zero scores. In the 18 test simulated mixtures, 56.4% of the scores for cell types that are not part of the mixture were non-negligible (&gt; 0.001).</quote>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>the significance threshold set at 20% and the trade-off stated, rather than chosen silently</label>
+        <note>eliminates: a threshold tuned to flatter the result - the cost in true-positive power is reported alongside the gain in false-positive suppression · outcome: held</note>
+        <quote>In the testing samples we used a threshold of 20% to define a non-significant score. We used this threshold to have a trade-off between detecting the non-negligible scores of cell types not in the mixture and not detecting scores of cell type in the mixture, thus affecting the power of estimating the underlying cell type fractions (Additional file 4).</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>enrichment scores</label>
+        <term>enrichment scores</term>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>proportions</label>
+        <term>proportions</term>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>spillover effect</label>
+        <term>spillover effect</term>
+        <quote>The simulations also revealed another limitation of the raw scores: closely related cell types tend to have correlating scores (Additional file 2: Figure S5). That is, scores may show enrichment for a cell type due to a “spillover effect” between closely related cell types. This problem mimics the spillover problem in flow cytometry, in which fluorescent signals correlate with each other due to spectrum overlaps.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>deconvolution</label>
+        <term>deconvolution</term>
+        <quote>A fifth challenge is that deconvolution approaches are prone to many different biases because of the strict dependencies among all cell types that are inferred. This could highly affect reliability when analyzing tumor samples, which are prone to form non-conventional expression profiles. A sixth problem comes with inferring an increasing number of closely related cell types. Finally, deconvolution analysis heavily relies on the structure of the reference matrix, which limits its application to the resource used to develop the matrix.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>gene signatures</label>
+        <term>gene signatures</term>
+        <quote>The main disadvantage of gene signatures is that they do not discriminate between closely related cell types well, though it is not clear how well other methods distinguish between such cell types.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>simulated mixtures</label>
+        <term>simulated mixtures</term>
+        <quote>It is important to note that xCell, as all other methods, performed significantly better in simulated mixtures than in real mixtures. Several technical reasons account for this discrepancy. First, the cytometry analyses were performed on PBMCs, while the gene expression profiles were generated from whole blood. Second, not all genes required by xCell were present; in fact, in SDY420 only 54.5% of the genes required by xCell were available.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>real mixtures</label>
+        <term>real mixtures</term>
+        <quote>It is important to note that xCell, as all other methods, performed significantly better in simulated mixtures than in real mixtures. Several technical reasons account for this discrepancy. First, the cytometry analyses were performed on PBMCs, while the gene expression profiles were generated from whole blood. Second, not all genes required by xCell were present; in fact, in SDY420 only 54.5% of the genes required by xCell were available.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>tumor microenvironment</label>
+        <term>tumor microenvironment</term>
+        <quote>Second, current methods focus on only a very narrow range of the tumor microenvironment, usually a subset of immune cell types, and thus do not account for the further richness of cell types in the microenvironment, including blood vessels and other different forms of cell subsets.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>CD8A</label>
+        <term>CD8A</term>
+        <quote>In CD8+ T cells xCell was outperformed by methods depending solely on CD8A expression, which may not serve as a reliable biomarker in cancer settings (Additional file 2: Figure S9).</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>ssGSEA</label>
+        <term>ssGSEA</term>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t34" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>xCell&#x27;s performance - IN SIMULATED MIXTURES: outperforms every compared method in the large majority of cell types, across data sources and platforms</label>
+        <quote>It is important to note that xCell, as all other methods, performed significantly better in simulated mixtures than in real mixtures. Several technical reasons account for this discrepancy. First, the cytometry analyses were performed on PBMCs, while the gene expression profiles were generated from whole blood. Second, not all genes required by xCell were present; in fact, in SDY420 only 54.5% of the genes required by xCell were available.</quote>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>xCell&#x27;s performance - IN REAL MIXTURES: significantly better than the alternatives and still, in the authors&#x27; words, far from perfect - and beaten outright on CD8+ T cells by using one gene</label>
+        <quote>While our signatures outperformed previous methods, it is important to note that our correlations with direct measurements were still far from perfect. More expression data from pure cell types, especially cell types with limited samples, and more expression data coupled with cytometry counts from various tissue types will allow more precise definition of signatures and, in turn, better reliability. Meanwhile, it is necessary to refer to inferences made by our method or other methods with caution. Discoveries made using digital dissection methods must be rigorously validated using other technologies to avoid hasty conclusions.</quote>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>an xCell score - AS COMPUTED: a single-sample gene-set enrichment score, interpretable only against other samples</label>
+        <quote>However, because of this independence, it is many times hard to differentiate between closely related cell types. In addition, gene signature-based methods only provide enrichment scores and thus do not allow comparison across cell types and cannot provide insights into the abundance of cell types in the mixture.</quote>
+      </span>
+      <span xml:id="t37" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>an xCell score - AS CALIBRATED: deliberately transformed to resemble a proportion so cell types can be compared, and explicitly not usable as a proportion</label>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → in-silico cell-type dissection methods generally, on seven named grounds including reliance on the reference source, narrow cell-type coverage, and validation on few cell types in few samples</label>
+        <quote>At least seven major issues raise concerns that the in silico methods could be prone to errors and cannot reliably portray the cellular heterogeneity of the tumor microenvironment. First, current techniques depend on the expression profiles of purified cell types to identify reference genes and therefore rely heavily on the data source from which the references are inferred and could this be inclined to overfit these data.</quote>
+      </span>
+      <span xml:id="t39" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>qualifies → CIBERSORT and other deconvolution approaches, whose strict inter-cell-type dependencies make them fragile on tumour expression profiles and tied to their reference matrix</label>
+        <quote>A fifth challenge is that deconvolution approaches are prone to many different biases because of the strict dependencies among all cell types that are inferred. This could highly affect reliability when analyzing tumor samples, which are prone to form non-conventional expression profiles. A sixth problem comes with inferring an increasing number of closely related cell types. Finally, deconvolution analysis heavily relies on the structure of the reference matrix, which limits its application to the resource used to develop the matrix.</quote>
+      </span>
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>extends → gene set enrichment analysis, by calibrating its scores onto a common scale and compensating the correlation between related signatures</label>
+        <quote>However, because of this independence, it is many times hard to differentiate between closely related cell types. In addition, gene signature-based methods only provide enrichment scores and thus do not allow comparison across cell types and cannot provide insights into the abundance of cell types in the mixture.</quote>
+      </span>
+      <span xml:id="t41" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+        <label>qualifies → its own results and every comparable method&#x27;s - digital dissection findings must be validated by other technologies before they are believed</label>
+        <quote>While our signatures outperformed previous methods, it is important to note that our correlations with direct measurements were still far from perfect. More expression data from pure cell types, especially cell types with limited samples, and more expression data coupled with cytometry counts from various tissue types will allow more precise definition of signatures and, in turn, better reliability. Meanwhile, it is necessary to refer to inferences made by our method or other methods with caution. Discoveries made using digital dissection methods must be rigorously validated using other technologies to avoid hasty conclusions.</quote>
+      </span>
+      <span xml:id="t42" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>enrichment scores —distinct-from→ proportions</label>
+        <term>enrichment scores</term>
+        <term>proportions</term>
+        <note>differs in: whether the value can be read as a share of the mixture · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t43" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>simulated mixtures —contrasted-with→ real mixtures</label>
+        <term>simulated mixtures</term>
+        <term>real mixtures</term>
+        <note>differs in: whether the cells were mixed by arithmetic or by biology · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>It is important to note that xCell, as all other methods, performed significantly better in simulated mixtures than in real mixtures. Several technical reasons account for this discrepancy. First, the cytometry analyses were performed on PBMCs, while the gene expression profiles were generated from whole blood. Second, not all genes required by xCell were present; in fact, in SDY420 only 54.5% of the genes required by xCell were available.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>every method, including this one, performs significantly better on simulated mixtures than on real ones</label>
+        <term>every method, including this one, performs significantly better on simulated mixtures than on real ones</term>
+        <quote>It is important to note that xCell, as all other methods, performed significantly better in simulated mixtures than in real mixtures. Several technical reasons account for this discrepancy. First, the cytometry analyses were performed on PBMCs, while the gene expression profiles were generated from whole blood. Second, not all genes required by xCell were present; in fact, in SDY420 only 54.5% of the genes required by xCell were available.</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>the scores are calibrated to resemble proportions and cannot be used as proportions</label>
+        <term>the scores are calibrated to resemble proportions and cannot be used as proportions</term>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>56.4% of scores for cell types absent from a mixture were non-negligible before the significance test, and 28.8% after</label>
+        <term>56.4% of scores for cell types absent from a mixture were non-negligible before the significance test, and 28.8% after</term>
+        <quote>Applying this procedure to the test simulated mixtures enabled detection of about half of the non-expected non-negligible scores as non-significant (46.9% change—from 56.4% non-negligible scores to 28.8% with p value &gt; 0.2), while detecting as non-significant only 15.3% of non-negligible scores for cell types used for generating the mixture (from 88.6% non-negligible scores to 75.1%) (Additional file 4).</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>spillover compensation removes the independence between cell-type inferences that the signature approach relied on, in exchange for separating related types</label>
+        <term>spillover compensation removes the independence between cell-type inferences that the signature approach relied on, in exchange for separating related types</term>
+        <quote>It is important to note that, until this step, the cell type scores are independent of each other, and a false inference of one cell type will not harm all other cell types. However, the spillover correction adjustment removes this strict independence between cell type inferences, as in deconvolution methods. Yet, the compensation is very limited, and between most cell types there is no compensation at all; thus, most of the inferences are still independent.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>on CD8+ T cells a single gene outperforms the whole method, with the caveat that the gene may be unreliable in cancer</label>
+        <term>on CD8+ T cells a single gene outperforms the whole method, with the caveat that the gene may be unreliable in cancer</term>
+        <quote>In CD8+ T cells xCell was outperformed by methods depending solely on CD8A expression, which may not serve as a reliable biomarker in cancer settings (Additional file 2: Figure S9).</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>a cell type&#x27;s score showing enrichment because a closely related cell type is present - the same shape as spectral overlap between fluorophores in flow cytometry</label>
+        <term>spillover effect</term>
+        <quote>The simulations also revealed another limitation of the raw scores: closely related cell types tend to have correlating scores (Additional file 2: Figure S5). That is, scores may show enrichment for a cell type due to a “spillover effect” between closely related cell types. This problem mimics the spillover problem in flow cytometry, in which fluorescent signals correlate with each other due to spectrum overlaps.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the inferences this method produces - strictly scores, calibrated to resemble proportions and explicitly not interpretable as them</label>
+        <term>enrichment scores</term>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>scores for cell types absent from the mixture that were nonetheless non-negligible</label>
+        <term>56.4%</term>
+        <quote>Finally, many of the cell types we estimate are not expected to be in a given mixture; however, the pipeline we described will often produce non-zero scores. In the 18 test simulated mixtures, 56.4% of the scores for cell types that are not part of the mixture were non-negligible (&gt; 0.001).</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the share of genes xCell requires that were actually present in one validation study</label>
+        <term>54.5%</term>
+        <quote>It is important to note that xCell, as all other methods, performed significantly better in simulated mixtures than in real mixtures. Several technical reasons account for this discrepancy. First, the cytometry analyses were performed on PBMCs, while the gene expression profiles were generated from whole blood. Second, not all genes required by xCell were present; in fact, in SDY420 only 54.5% of the genes required by xCell were available.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>the significance threshold, chosen as a stated trade-off</label>
+        <term>20%</term>
+        <quote>In the testing samples we used a threshold of 20% to define a non-significant score. We used this threshold to have a trade-off between detecting the non-negligible scores of cell types not in the mixture and not detecting scores of cell type in the mixture, thus affecting the power of estimating the underlying cell type fractions (Additional file 4).</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>ssGSEA</label>
+        <term>ssGSEA</term>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>p value</label>
+        <term>p value</term>
+        <quote>Applying this procedure to the test simulated mixtures enabled detection of about half of the non-expected non-negligible scores as non-significant (46.9% change—from 56.4% non-negligible scores to 28.8% with p value &gt; 0.2), while detecting as non-significant only 15.3% of non-negligible scores for cell types used for generating the mixture (from 88.6% non-negligible scores to 75.1%) (Additional file 4).</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>enrichment scores</label>
+        <term>enrichment scores</term>
+        <quote>Another limitation of our method is that the inferences are strictly enrichment scores, and cannot be interpreted as proportions. This is due to the inability to translate the minimum and maximum scores produced by ssGSEA to clear proportions. Thus, while our method attempts to calibrate the scores to resemble proportions, these cannot be reliably used as such.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/s13059-017-1349-1.</note></p>
+    </body>
+  </text>
+</TEI>

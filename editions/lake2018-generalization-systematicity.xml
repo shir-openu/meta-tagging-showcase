@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">42 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">44 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -72,11 +72,13 @@
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>A DELIBERATELY UNREALISTIC MANIPULATION IS ADDED AS A DIAGNOSTIC, WITH BOTH OUTCOMES NAMED IN ADVANCE: an oracle supplies the correct output length, and the authors state before running it that a large improvement would mean the decoder was merely terminating early while a small one would mean the failure is deeper. The control is designed to be uninformative about performance and informative about cause</term>
+        <note>about this quote: The span contains a LOST-HYPHEN FUSION - `overallbest` for `overall-best`. A line-break hyphen was dropped by the extraction and the two halves fused. The quote is an exact substring and anchors correctly; the damage is in what a reader of the tag sees. None of the four shapes test_damaged_quote_is_annotated.py looks for covers this, so it is annotated by hand. Seven such fusions are in this file.</note>
         <quote>If this difficulty is a relatively straightforward issue of the decoder terminating too early, then this should provide an (unrealistic) fix. If this difficulty is symptomatic of deeper problems with generalization, then this change will have only a small effect. With the oracle, the overallbest network performance improved from 13.8% to 23.6% correct, which was notable but insufficient to master the long sequences.</quote>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>A RIVAL EXPLANATION OF THE FAILURE IS ELIMINATED BY A SEPARATE MEASUREMENT: the network preferred its own output to the target by log-likelihood, so the errors are not search failures in the decoder - the model is not failing to FIND the right answer, it does not prefer it</term>
+        <note>about this quote: The span contains a LOST-HYPHEN FUSION - `selfgenerated` for `self-generated`. A line-break hyphen was dropped by the extraction and the two halves fused. The quote is an exact substring and anchors correctly; the damage is in what a reader of the tag sees. None of the four shapes test_damaged_quote_is_annotated.py looks for covers this, so it is annotated by hand. Seven such fusions are in this file.</note>
         <quote>First, we examined the greedy decoder for search-related errors. We confirmed that, for almost every error, the network preferred its selfgenerated output sequence to the target output sequence (as measured by log-likelihood).</quote>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
@@ -141,100 +143,115 @@
         <note>what this limits: the description of these failures as catastrophic: the differences are said to be of the sort that would be trivial for an agent equipped with an algebraic mind</note>
         <quote>However, the models are catastrophically affected by systematic differences between training and test sentences, of the sort that would be trivial for an agent equipped with an “algebraic mind</quote>
       </span>
-      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t21" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.9">
+        <label>the systematicity failure is reframed using machine learning&#x27;s own assumption that training and test data come from the same distribution</label>
+        <quote>This can be seen as a trivial confirmation of the basic principle of statistical machine learning that your training and test data should come from the same distribution.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the network re-trained with varying numbers of DISTINCT examples while the number of training presentations was held constant at 100K</label>
+        <note>eliminates: diversity being confounded with volume - more distinct examples otherwise means more gradient steps, and the two cannot be separated</note>
+        <quote>We next re-trained the best-overall network with varying numbers of distinct examples (the actual number of training presentations was kept constant at 100K).</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>SCAN</label>
         <term>SCAN</term>
         <quote>We call our data set SCAN because it is a Simplified version of the CommAI Navigation tasks</quote>
       </span>
-      <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t24" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>CommAI Navigation tasks</label>
         <term>CommAI Navigation tasks</term>
         <quote>We call our data set SCAN because it is a Simplified version of the CommAI Navigation tasks</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t25" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>systematic compositionality</label>
         <term>systematic compositionality</term>
         <quote>In a set of influential and controversial papers, Jerry Fodor and other researchers have argued that neural networks are not plausible models of the mind because they are associative devices that cannot capture systematic compositionality</quote>
       </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t26" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>algebraic mind</label>
         <term>algebraic mind</term>
         <quote>However, the models are catastrophically affected by systematic differences between training and test sentences, of the sort that would be trivial for an agent equipped with an “algebraic mind</quote>
       </span>
-      <span xml:id="t25" type="concepts" ana="#concepts[9]" resp="#paper">
+      <span xml:id="t27" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>mix-and-match</label>
         <term>mix-and-match</term>
         <quote>when the differences between training and test commands are small, so that they can apply “mix-and-match” strategies to solve the task</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>SCAN - AN ACRONYM THAT ADMITS ITS OWN REDUCTION: the S is for Simplified, because the data set is a simplified version of the CommAI Navigation tasks; the expansion carries the scope limitation and the four letters that get cited do not</label>
         <quote>We call our data set SCAN because it is a Simplified version of the CommAI Navigation tasks</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>systematic compositionality - A CONTESTED PHILOSOPHICAL CRITERION USED AS A BENCHMARK: it comes from papers the authors themselves call influential and controversial, in which neural networks are argued to be associative devices that cannot capture it, so a SCAN score inherits an argument it cannot display</label>
         <quote>In a set of influential and controversial papers, Jerry Fodor and other researchers have argued that neural networks are not plausible models of the mind because they are associative devices that cannot capture systematic compositionality</quote>
       </span>
-      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>a catastrophic failure - RELATIVE TO AN ALGEBRAIC MIND: the models&#x27; errors are called catastrophic because the differences involved would be trivial for an agent equipped with an algebraic mind, which is a construct rather than a measured comparison group</label>
         <quote>However, the models are catastrophically affected by systematic differences between training and test sentences, of the sort that would be trivial for an agent equipped with an “algebraic mind</quote>
       </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → sequence-to-sequence learning methods</label>
         <quote>This problem is naturally framed as a sequence-to-sequence task, and, due to its simplicity, it is ideal to study systematic generalization to novel examples in a controlled setup.</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → the CommAI Navigation tasks (Mikolov et al., 2016)</label>
         <quote>We call our data set SCAN because it is a Simplified version of the CommAI Navigation tasks (Mikolov et al., 2016).</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the attentional sequence-to-sequence model of Bahdanau et al. (2015)</label>
         <quote>Recurrent networks with attention have become increasingly popular in the last few years, and thus we also tested each network with and without an attentional mechanism, using the model from Bahdanau et al. (2015) (see Supplementary for more details).</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → three decades of prior tests of compositional generalization in neural networks in the systematicity debate</label>
         <quote>However, to the best of our knowledge, ours is the first study testing systematicity in modern seq2seq models, and our results confirm the mixed picture.</quote>
       </span>
-      <span xml:id="t33" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>SCAN —contrasted-with→ CommAI Navigation tasks</label>
         <term>SCAN</term>
         <term>CommAI Navigation tasks</term>
         <note>differs in: SCAN is a simplified version of the original tasks · strength of the relation: 1</note>
         <quote>We call our data set SCAN because it is a Simplified version of the CommAI Navigation tasks</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>On the SCAN navigation-command dataset, seq2seq RNNs generalize well (zero-shot) when train/test differ only slightly (mix-and-match), but FAIL spectacularly when generalization requires systematic compositionality (e.g. applying a newly-learned verb dax in novel combinations).</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>We find that RNNs can make successful zero-shot generalizations when the differences between training and test commands are small, so that they can apply “mix-and-match” strategies to solve the task. However, when generalization requires systematic compositional skills (as in the “dax” example above), RNNs fail spectacularly.</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>A proof-of-concept in neural machine translation suggests lack of systematicity partly explains data-hungriness.</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>We conclude with a proof-of-concept experiment in neural machine translation, suggesting that lack of systematicity might be partially responsible for</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>train/test distribution gap (mix-and-match vs systematic-compositional)</label>
         <term>train/test distribution gap (mix-and-match vs systematic-compositional)</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>the differences between training and test commands are small, so that they can apply “mix-and-match” strategies</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>zero-shot generalization accuracy</label>
         <term>zero-shot generalization accuracy</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>test the zero-shot generalization capabilities of a variety of recurrent neural networks (RNNs)</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>SCAN domain</label>
         <term>SCAN domain</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>the SCAN domain, consisting of a set of simple compositional navigation commands paired with the corresponding action sequences</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>systematic compositionality</label>
         <term>systematic compositionality</term>
-        <quote>produce a potentially infinite number of novel combinations from known components (Chomsky, 1957; Montague, 1970)</quote>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
+        <quote>Human language and thought are characterized by systematic compositionality, the algebraic capacity to understand and produce a potentially infinite number of novel combinations from known components (Chomsky, 1957; Montague, 1970)</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>conjunction-less test command that does not also occur in the training split, and the frequency of occurrence of such commands in the training set is at a non-negligible average value of 4 times.</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>standard-error</label>
         <term>standard-error</term>
         <quote>Each bar shows the mean over 5 training runs with corresponding ±1 SEM.</quote>

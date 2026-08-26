@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>The ENCODE Blacklist: Identification of Problematic Regions of the Genome</title>
+        <author>Haley M. Amemiya</author>
+        <author>Anshul Kundaje</author>
+        <author>Alan P. Boyle</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>The ENCODE Blacklist: Identification of Problematic Regions of the Genome</title>
+          <date>2019</date>
+          <publisher>Scientific Reports</publisher>
+          <idno type="DOI">10.1038/s41598-019-45839-z</idno>
+          
+          <idno type="record">amemiya2019-the-encode-blacklist-identificatio</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\amemiya2019-the-encode-blacklist-identificatio.txt</note>
+          <note type="text-sha1">60ce8b03bce1289110e323a1ce1c2c8ba477b038</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>genomics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">47 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>A PUBLISHED LIST OF WHAT DOES NOT COUNT - genomic regions excluded from every ENCODE analysis by convention, and now from many pipelines outside it</label>
+        <quote>Here, we define the ENCODE blacklist- a comprehensive set of regions in the human, mouse, worm, and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments independent of cell line or experiment. The removal of the ENCODE blacklist is an essential quality measure when analyzing functional genomics data.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>which regions of a genome produce signal that is an artefact of the assembly rather than of the sample, and how to identify them without hand curation</label>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>an automated, threshold-based blacklist for human, mouse, worm and fly, replacing a hand-curated list - and a demonstration that applying it changes published correlations</label>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>Here, we define the ENCODE blacklist- a comprehensive set of regions in the human, mouse, worm, and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments independent of cell line or experiment. The removal of the ENCODE blacklist is an essential quality measure when analyzing functional genomics data.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>regions where the reference assembly is wrong or incomplete, which collect reads at up to 6,400x background and are then read as biology</label>
+        <quote>The signal at blacklist regions are extremely high even though they account for a small fraction of the mappable chromosome (Fig. 1b ). For example, this represented 582 million of 2.5 billion uniquely aligning reads mapping to blacklisted regions in the human ENCODE ChIP-seq data in hg19.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>score every 1 kb window of input ChIP-seq data across many cell types for read depth and multi-mapping rate, quantile normalise, take the median, and flag the top 1%</label>
+        <term>score every 1 kb window of input ChIP-seq data across many cell types for read depth and multi-mapping rate, quantile normalise, take the median, and flag the top 1%</term>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>THE ARTEFACT IS A PROPERTY OF THE REFERENCE, NOT OF THE SAMPLE: `the major differences between blacklists are due to underlying changes in THE SEQUENCE ASSEMBLIES ... THE DRIVING FACTOR BEHIND ARTIFACT REGIONS IN THE GENOME ARE DUE TO ISSUES IN THE ASSEMBLY RATHER THAN OTHER FACTORS`. Change the reference and the exclusion list changes</label>
+        <quote>Overall, these differences lead to the conclusion that the major differences between blacklists are due to underlying changes in the sequence assemblies. Consequently, this lends to the hypothesis that the driving factor behind artifact regions in the genome are due to issues in the assembly rather than other factors.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>and the failure mode is an ILLUSION OF STRUCTURE: `blacklist regions sequester a large portion of ChIP-seq reads, LEADING TO AN ILLUSION OF HIGH CORRELATION of these regions with others. After blacklist filtering, the correlation structure is more distinct`. The artefact does not add noise, it adds AGREEMENT</label>
+        <quote>In the unfiltered set of peaks, blacklist regions sequester a large portion of ChIP-seq reads, leading to an illusion of high correlation of these regions with others. After blacklist filtering, the correlation structure is more distinct.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE LIST REMOVES ~3% OF HUMAN PROTEIN CODING GENES FROM ANALYSIS, AND THE PAPER SAYS SO: `those studying genes in unmappable regions of the genome WILL FIND THEIR DATA FILTERED BY THE BLACKLIST`. A researcher whose gene is on the list cannot study it with these pipelines</label>
+        <quote>Finally, those studying genes in unmappable regions of the genome will find their data filtered by the blacklist. These regions account for ~3% of human protein coding genes that have previously been shown to be unmappable using short-read technologies</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>IT IS BOUND TO ONE REFERENCE VERSION: `the blacklists are SPECIFIC TO EACH GENOME ASSEMBLY and A LIFT OVER FROM AN OLD ASSEMBLY IS NOT MEANINGFUL OR VALID`. The list is not a fact about the genome; it is a fact about a build of the genome</label>
+        <quote>We also caution that the blacklists are specific to each genome assembly and a lift over from an old assembly is not meaningful or valid.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>and it is ASSAY-SPECIFIC, declared against the paper&#x27;s own generality: `WE DO NOT PROPOSE A SINGLE BLACKLIST that can encapsulate error defined across all NGS based assays ... THE SAME CRITERIA CANNOT BE APPLIED for whole genome sequencing filtering and RNA-seq filtering`</label>
+        <quote>It is important to note that we do not propose a single blacklist that can encapsulate error defined across all NGS based assays. The presented blacklist shows high concordance between chromatin-based filtering (DNase/ATAC-DAC blacklist) and ChIP-seq input based filtering. This is not surprising given that the input DNA for ChIP-seq has been shown to be a proxy for lightly digested open chromatin assays 8 . However, the same criteria cannot be applied for whole genome sequencing (WGS) filtering and RNA-seq filtering.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the threshold is A CHOICE STATED AS ONE: regions in `THE TOP 1%` of read depth or multi-mapping rate `are considered LIKELY artifacts`. Nothing in the paper derives 1%; it is where the line was put</label>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>and the list it replaces MISSED AN ENTIRE CRITERION: nuclear mitochondrial DNA segments were `A CRITERION THAT WAS OVERLOOKED IN THE INITIAL MANUAL BLACKLISTS`. The hand-curated version had been in production use for years</label>
+        <quote>Almost all of the flagged regions also included nuclear mitochondrial DNA segments (NUMTs, Supplemental Fig. 2c ), a criterion that was overlooked in the initial manual blacklists.</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the blacklist was built from INPUT samples - randomly sheared, non-immunoprecipitated chromatin - across many cell types, quantile normalised, median taken</label>
+        <note>eliminates: cell-line-specific signal (copy number variants) and processing differences as sources of the flagged regions; the paper says the multiple cell types are there for exactly that · outcome: held</note>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>whether applying the list changes conclusions, tested on a named case</label>
+        <note>eliminates: the objection that filtering is cosmetic - REST, a known repressor, auto-correlates with activating factors UNTIL the blacklist is applied, and the spurious correlation `HAS ESSENTIALLY DISAPPEARED as would be expected given the known biology` · outcome: held</note>
+        <quote>As a specific example, the correlation of REST (a known repressor) auto correlates with other TFs (most of them activating) without the filtering of the blacklist. The removal of the blacklist regions removes spurious correlations seen with REST has essentially disappeared as would be expected given the known biology.</quote>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether the 1% threshold is derived</label>
+        <note>eliminates: nothing - regions in `the top 1%` are `considered LIKELY artifacts`, and no derivation, sensitivity analysis or alternative cut is offered · outcome: failed</note>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>ENCODE blacklist</label>
+        <term>ENCODE blacklist</term>
+        <quote>Here, we define the ENCODE blacklist- a comprehensive set of regions in the human, mouse, worm, and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments independent of cell line or experiment. The removal of the ENCODE blacklist is an essential quality measure when analyzing functional genomics data.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>Duke Excluded Regions</label>
+        <term>Duke Excluded Regions</term>
+        <quote>The original ENCODE blacklist, termed the Duke Excluded Regions (DER), was manually curated on the Homo sapiens (human) genome assembly GRCh37 (hereafter referred to as hg19) to cover a large number of repeat elements in the genome, particularly rRNA, alpha satellites, and other simple repeats. This list was further updated, now referred to as ENCODE Data Analysis Center (DAC) blacklisted regions, to include regions of high signal that presumably represent unannotated repeats in the genome.</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>ENCODE Data Analysis Center (DAC) blacklisted regions</label>
+        <term>ENCODE Data Analysis Center (DAC) blacklisted regions</term>
+        <quote>The original ENCODE blacklist, termed the Duke Excluded Regions (DER), was manually curated on the Homo sapiens (human) genome assembly GRCh37 (hereafter referred to as hg19) to cover a large number of repeat elements in the genome, particularly rRNA, alpha satellites, and other simple repeats. This list was further updated, now referred to as ENCODE Data Analysis Center (DAC) blacklisted regions, to include regions of high signal that presumably represent unannotated repeats in the genome.</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>artifacts</label>
+        <term>artifacts</term>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>quality control metric</label>
+        <term>quality control metric</term>
+        <quote>In fact, ENCODE uses this as a quality control metric with some experiments having up to 87% of reads falling into blacklisted regions</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>REST</label>
+        <term>REST</term>
+        <quote>As a specific example, the correlation of REST (a known repressor) auto correlates with other TFs (most of them activating) without the filtering of the blacklist. The removal of the blacklist regions removes spurious correlations seen with REST has essentially disappeared as would be expected given the known biology.</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>`blacklist` - A PUBLISHED CONTROLLED LIST OF WHAT DOES NOT COUNT, and removing it is `AN ESSENTIAL QUALITY MEASURE`. Not a recommendation: ENCODE filters every ChIP-seq dataset with it and uses the proportion of reads it catches as A QUALITY CONTROL METRIC FOR THE EXPERIMENT</label>
+        <quote>Here, we define the ENCODE blacklist- a comprehensive set of regions in the human, mouse, worm, and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments independent of cell line or experiment. The removal of the ENCODE blacklist is an essential quality measure when analyzing functional genomics data.</quote>
+      </span>
+      <span xml:id="t23" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>`artifact region` - OPERATIONALLY, A 1 kb WINDOW IN THE TOP 1% of input read depth or multi-mapping rate, after quantile normalisation, across many cell types. The class is defined by a percentile, and the percentile is not derived from anything</label>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t24" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>`Duke Excluded Regions` -&gt; `ENCODE Data Analysis Center blacklisted regions` - THE SAME OBJECT UNDER TWO NAMES, three sentences apart, with both naming verbs present: `TERMED the Duke Excluded Regions (DER)` and `NOW REFERRED TO AS ENCODE Data Analysis Center (DAC) blacklisted regions`</label>
+        <quote>The original ENCODE blacklist, termed the Duke Excluded Regions (DER), was manually curated on the Homo sapiens (human) genome assembly GRCh37 (hereafter referred to as hg19) to cover a large number of repeat elements in the genome, particularly rRNA, alpha satellites, and other simple repeats. This list was further updated, now referred to as ENCODE Data Analysis Center (DAC) blacklisted regions, to include regions of high signal that presumably represent unannotated repeats in the genome.</quote>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>what changed about the field: these regions `HAVE GENERALLY BEEN IGNORED AND UNFILTERED BECAUSE THEY HAVE NOT BEEN FOUND TO AFFECT the signal in the final analyses` - and the paper&#x27;s case is that in ChIP-seq they `CAN DRAMATICALLY BIAS THE RESULTS`. The same regions, a different assay, an opposite verdict</label>
+        <quote>Problematic regions such as these have generally been ignored and unfiltered because they have not been found to affect the signal in the final analyses. However, in functional genomics assays such as chromatin immunoprecipitation followed by genome sequencing (ChIP-seq), accuracy in peak calling and downstream analyses is essential. Alignments in these problematic regions should be identified and filtered before application of any threshold, normalization, or peak calling as they can dramatically bias the results</quote>
+      </span>
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>extends → the hand-curated Duke Excluded Regions and DAC blacklists used throughout the ENCODE production phase - automated here, and extended to mouse, worm and fly</label>
+        <quote>The original ENCODE blacklist, termed the Duke Excluded Regions (DER), was manually curated on the Homo sapiens (human) genome assembly GRCh37 (hereafter referred to as hg19) to cover a large number of repeat elements in the genome, particularly rRNA, alpha satellites, and other simple repeats. This list was further updated, now referred to as ENCODE Data Analysis Center (DAC) blacklisted regions, to include regions of high signal that presumably represent unannotated repeats in the genome.</quote>
+      </span>
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>contradicts → the prior practice of leaving these regions unfiltered, which rested on their `not having been found to affect the signal in the final analyses`</label>
+        <quote>Problematic regions such as these have generally been ignored and unfiltered because they have not been found to affect the signal in the final analyses. However, in functional genomics assays such as chromatin immunoprecipitation followed by genome sequencing (ChIP-seq), accuracy in peak calling and downstream analyses is essential. Alignments in these problematic regions should be identified and filtered before application of any threshold, normalization, or peak calling as they can dramatically bias the results</quote>
+      </span>
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>Duke Excluded Regions —renamed-across-fields→ ENCODE Data Analysis Center (DAC) blacklisted regions</label>
+        <term>Duke Excluded Regions</term>
+        <term>ENCODE Data Analysis Center (DAC) blacklisted regions</term>
+        <quote>The original ENCODE blacklist, termed the Duke Excluded Regions (DER), was manually curated on the Homo sapiens (human) genome assembly GRCh37 (hereafter referred to as hg19) to cover a large number of repeat elements in the genome, particularly rRNA, alpha satellites, and other simple repeats. This list was further updated, now referred to as ENCODE Data Analysis Center (DAC) blacklisted regions, to include regions of high signal that presumably represent unannotated repeats in the genome.</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>A PUBLISHED LIST OF WHAT DOES NOT COUNT, AND APPLYING IT IS MANDATORY: `the removal of the ENCODE blacklist is AN ESSENTIAL QUALITY MEASURE when analyzing functional genomics data`</label>
+        <term>A PUBLISHED LIST OF WHAT DOES NOT COUNT, AND APPLYING IT IS MANDATORY: `the removal of the ENCODE blacklist is AN ESSENTIAL QUALITY MEASURE when analyzing functional genomics data`</term>
+        <quote>Here, we define the ENCODE blacklist- a comprehensive set of regions in the human, mouse, worm, and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments independent of cell line or experiment. The removal of the ENCODE blacklist is an essential quality measure when analyzing functional genomics data.</quote>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>582 MILLION OF 2.5 BILLION uniquely aligning reads in the human ENCODE ChIP-seq data fall into blacklisted regions - about 23% of the data, from a small fraction of the mappable genome</label>
+        <term>582 MILLION OF 2.5 BILLION uniquely aligning reads in the human ENCODE ChIP-seq data fall into blacklisted regions - about 23% of the data, from a small fraction of the mappable genome</term>
+        <quote>The signal at blacklist regions are extremely high even though they account for a small fraction of the mappable chromosome (Fig. 1b ). For example, this represented 582 million of 2.5 billion uniquely aligning reads mapping to blacklisted regions in the human ENCODE ChIP-seq data in hg19.</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>AND THE PROPORTION IS ITSELF A QUALITY METRIC: `ENCODE uses this as a quality control metric with some experiments having UP TO 87% OF READS FALLING INTO BLACKLISTED REGIONS`. The list defines what a bad experiment is</label>
+        <term>AND THE PROPORTION IS ITSELF A QUALITY METRIC: `ENCODE uses this as a quality control metric with some experiments having UP TO 87% OF READS FALLING INTO BLACKLISTED REGIONS`. The list defines what a bad experiment is</term>
+        <quote>In fact, ENCODE uses this as a quality control metric with some experiments having up to 87% of reads falling into blacklisted regions</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the class is a PERCENTILE: regions in `the top 1%` of read depth or multi-mapping rate `are considered likely artifacts`</label>
+        <term>the class is a PERCENTILE: regions in `the top 1%` of read depth or multi-mapping rate `are considered likely artifacts`</term>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>APPLYING THE FILTER REVERSES A NAMED BIOLOGICAL CONCLUSION: REST, a known repressor, auto-correlates with activating transcription factors until the blacklist is applied, after which the correlation `HAS ESSENTIALLY DISAPPEARED as would be expected given the known biology`</label>
+        <term>APPLYING THE FILTER REVERSES A NAMED BIOLOGICAL CONCLUSION: REST, a known repressor, auto-correlates with activating transcription factors until the blacklist is applied, after which the correlation `HAS ESSENTIALLY DISAPPEARED as would be expected given the known biology`</term>
+        <quote>As a specific example, the correlation of REST (a known repressor) auto correlates with other TFs (most of them activating) without the filtering of the blacklist. The removal of the blacklist regions removes spurious correlations seen with REST has essentially disappeared as would be expected given the known biology.</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>and the failure mode is an ILLUSION OF AGREEMENT, not noise: blacklist regions `sequester a large portion of ChIP-seq reads, leading to AN ILLUSION OF HIGH CORRELATION`</label>
+        <term>and the failure mode is an ILLUSION OF AGREEMENT, not noise: blacklist regions `sequester a large portion of ChIP-seq reads, leading to AN ILLUSION OF HIGH CORRELATION`</term>
+        <quote>In the unfiltered set of peaks, blacklist regions sequester a large portion of ChIP-seq reads, leading to an illusion of high correlation of these regions with others. After blacklist filtering, the correlation structure is more distinct.</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>THE LIST REMOVES ~3% OF HUMAN PROTEIN CODING GENES FROM ANALYSIS: `those studying genes in unmappable regions of the genome will find their data filtered by the blacklist`</label>
+        <term>THE LIST REMOVES ~3% OF HUMAN PROTEIN CODING GENES FROM ANALYSIS: `those studying genes in unmappable regions of the genome will find their data filtered by the blacklist`</term>
+        <quote>Finally, those studying genes in unmappable regions of the genome will find their data filtered by the blacklist. These regions account for ~3% of human protein coding genes that have previously been shown to be unmappable using short-read technologies</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>the artefact is a property of the REFERENCE: `the driving factor behind artifact regions in the genome are due to ISSUES IN THE ASSEMBLY rather than other factors`</label>
+        <term>the artefact is a property of the REFERENCE: `the driving factor behind artifact regions in the genome are due to ISSUES IN THE ASSEMBLY rather than other factors`</term>
+        <quote>Overall, these differences lead to the conclusion that the major differences between blacklists are due to underlying changes in the sequence assemblies. Consequently, this lends to the hypothesis that the driving factor behind artifact regions in the genome are due to issues in the assembly rather than other factors.</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="0.95">
+        <label>and the list is bound to one build: `the blacklists are SPECIFIC TO EACH GENOME ASSEMBLY and a LIFT OVER from an old assembly IS NOT MEANINGFUL OR VALID`</label>
+        <term>and the list is bound to one build: `the blacklists are SPECIFIC TO EACH GENOME ASSEMBLY and a LIFT OVER from an old assembly IS NOT MEANINGFUL OR VALID`</term>
+        <quote>We also caution that the blacklists are specific to each genome assembly and a lift over from an old assembly is not meaningful or valid.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="0.95">
+        <label>THE RENAMING IS IN THE PAPER: the original list `TERMED the Duke Excluded Regions (DER)`, `NOW REFERRED TO AS ENCODE Data Analysis Center (DAC) blacklisted regions`</label>
+        <term>THE RENAMING IS IN THE PAPER: the original list `TERMED the Duke Excluded Regions (DER)`, `NOW REFERRED TO AS ENCODE Data Analysis Center (DAC) blacklisted regions`</term>
+        <quote>The original ENCODE blacklist, termed the Duke Excluded Regions (DER), was manually curated on the Homo sapiens (human) genome assembly GRCh37 (hereafter referred to as hg19) to cover a large number of repeat elements in the genome, particularly rRNA, alpha satellites, and other simple repeats. This list was further updated, now referred to as ENCODE Data Analysis Center (DAC) blacklisted regions, to include regions of high signal that presumably represent unannotated repeats in the genome.</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="0.95">
+        <label>and the hand-curated version MISSED AN ENTIRE CRITERION - nuclear mitochondrial DNA segments were `a criterion that was OVERLOOKED IN THE INITIAL MANUAL BLACKLISTS`</label>
+        <term>and the hand-curated version MISSED AN ENTIRE CRITERION - nuclear mitochondrial DNA segments were `a criterion that was OVERLOOKED IN THE INITIAL MANUAL BLACKLISTS`</term>
+        <quote>Almost all of the flagged regions also included nuclear mitochondrial DNA segments (NUMTs, Supplemental Fig. 2c ), a criterion that was overlooked in the initial manual blacklists.</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="0.95">
+        <label>these regions `have generally been IGNORED AND UNFILTERED because they have NOT BEEN FOUND TO AFFECT the signal in the final analyses` - the same regions, a different assay, an opposite verdict</label>
+        <term>these regions `have generally been IGNORED AND UNFILTERED because they have NOT BEEN FOUND TO AFFECT the signal in the final analyses` - the same regions, a different assay, an opposite verdict</term>
+        <quote>Problematic regions such as these have generally been ignored and unfiltered because they have not been found to affect the signal in the final analyses. However, in functional genomics assays such as chromatin immunoprecipitation followed by genome sequencing (ChIP-seq), accuracy in peak calling and downstream analyses is essential. Alignments in these problematic regions should be identified and filtered before application of any threshold, normalization, or peak calling as they can dramatically bias the results</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>a comprehensive set of regions in the human, mouse, worm and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments INDEPENDENT OF CELL LINE OR EXPERIMENT</label>
+        <term>ENCODE blacklist</term>
+        <quote>Here, we define the ENCODE blacklist- a comprehensive set of regions in the human, mouse, worm, and fly genomes that have anomalous, unstructured, or high signal in next-generation sequencing experiments independent of cell line or experiment. The removal of the ENCODE blacklist is an essential quality measure when analyzing functional genomics data.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>a 1 kb window whose input read depth or multi-mapping read rate is in the TOP 1%, after quantile normalisation across many cell types</label>
+        <term>artifact region</term>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>per cent - the top of the read-depth and multi-mapping distributions, which is where `artifact` begins</label>
+        <term>1</term>
+        <quote>Regions with read depths or multi-mapping read rates in the top 1% are considered likely artifacts (Supplemental Fig. 1 ). In all cases, the mitochondrial DNA and any reads mapping to these sequences are pre-filtered from analysis and are considered part of the blacklist.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>per cent of reads falling in blacklisted regions in the worst ENCODE experiments</label>
+        <term>87</term>
+        <quote>In fact, ENCODE uses this as a quality control metric with some experiments having up to 87% of reads falling into blacklisted regions</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>per cent of human protein coding genes that are unmappable and therefore filtered out by the list</label>
+        <term>3</term>
+        <quote>Finally, those studying genes in unmappable regions of the genome will find their data filtered by the blacklist. These regions account for ~3% of human protein coding genes that have previously been shown to be unmappable using short-read technologies</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>quality control metric</label>
+        <term>quality control metric</term>
+        <quote>In fact, ENCODE uses this as a quality control metric with some experiments having up to 87% of reads falling into blacklisted regions</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1038/s41598-019-45839-z.</note></p>
+    </body>
+  </text>
+</TEI>

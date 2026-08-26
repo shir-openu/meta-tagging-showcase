@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences</title>
+        <author>Anqi Zhu</author>
+        <author>Joseph G. Ibrahim</author>
+        <author>Michael I. Love</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences</title>
+          <date>2018</date>
+          <publisher>Bioinformatics</publisher>
+          <idno type="DOI">10.1093/bioinformatics/bty895</idno>
+          
+          <idno type="record">zhu2018-heavy-tailed-prior-distributions-f</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\zhu2018-heavy-tailed-prior-distributions-f.txt</note>
+          <note type="text-sha1">a367122991886500fbe7bb1eb93e3fe9189ecf2a</note>
+          <note type="rights">cc-by-nc</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>statistics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">53 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the logarithmic fold change between conditions in RNA-seq, and what to do when the estimate of it is dominated by noise</label>
+        <quote>The difference is usually defined in terms of the logarithmic fold change (LFC) between average expression levels of different conditions.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to shrink unreliable effect-size estimates without losing the genes whose large effects are real</label>
+        <quote>However, in our analysis, we found that filtering or application of Normal priors each can have drawbacks, either leading to loss of genes with sufficient signal, or overly aggressive shrinkage of true, large LFCs.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a heavy-tailed Cauchy prior that removes the need for filter thresholds and pseudocounts, with lower bias than earlier shrinkage estimators</label>
+        <quote>Here, we propose the use of a heavy-tailed Cauchy prior distribution for effect sizes, which avoids the use of filter thresholds or pseudocounts.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>The proposed method, Approximate Posterior Estimation for generalized linear model, apeglm , has lower bias than previously proposed shrinkage estimators, while still reducing variance for those genes with little information for statistical inference.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>maximum-likelihood effect sizes that blow up when counts are low, producing large estimates that are not differences</label>
+        <quote>When the read counts are low or highly variable, the maximum likelihood estimates for the LFCs has high variance, leading to large estimates not representative of true differences, and poor ranking of genes by effect size.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>empirical Bayes with an adaptive Cauchy prior, fitted by approximate posterior estimation, evaluated against filtering, Normal priors and other shrinkage estimators</label>
+        <term>empirical Bayes with an adaptive Cauchy prior, fitted by approximate posterior estimation, evaluated against filtering, Normal priors and other shrinkage estimators</term>
+        <quote>Here, we propose the use of a heavy-tailed Cauchy prior distribution for effect sizes, which avoids the use of filter thresholds or pseudocounts.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>the estimate is unreliable exactly where the counts are small, so the maximum likelihood LFC has high variance and produces `LARGE ESTIMATES NOT REPRESENTATIVE OF TRUE DIFFERENCES` - the noise appears as a big effect, not as a small one</label>
+        <quote>When the read counts are low or highly variable, the maximum likelihood estimates for the LFCs has high variance, leading to large estimates not representative of true differences, and poor ranking of genes by effect size.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>a heavy tail on the prior is what lets shrinkage be aggressive near zero and gentle far from it: the Cauchy pulls in the noise-driven estimates while leaving genuinely large fold changes where they are</label>
+        <quote>Here, we propose the use of a heavy-tailed Cauchy prior distribution for effect sizes, which avoids the use of filter thresholds or pseudocounts.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>swapping a Normal prior for a Cauchy gives heavy tails, so small effects are still shrunk while genuinely large ones survive - shrinkage without flattening</label>
+        <quote>We extend the basic framework of DESeq2 , a Negative Binomial (NB) generalized linear model (GLM) ( McCullagh and Nelder, 1989 ) with moderated dispersion parameter, by exchanging the Normal distribution as a prior on LFCs with a heavy-tailed Cauchy distribution (a t distribution with 1 degree of freedom).</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>the prior&#x27;s scale is fitted by subtracting each estimate&#x27;s own error variance from its squared value, so the prior learns how much of the observed spread is real</label>
+        <quote>This equation is motivated by assuming that the MLE β ^ g k follows a Normal distribution around the true value β gk with variance e g k 2 , and that the β gk themselves follow a Normal distribution with mean zero.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>the scale is set from a Normal assumption even though the prior itself is Cauchy - the two roles come apart and the authors say the mismatch works in practice</label>
+        <quote>Although we use a Cauchy prior in apeglm in order to accommodate large effect sizes from potentially only a few genes, we found that setting the scale of the prior by assuming the β gk follow a zero-centered Normal distribution performed well in practice.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>EVERY STANDARD CORRECTION TRADES ONE ERROR FOR THE OPPOSITE ONE: `filtering or application of Normal priors EACH CAN HAVE DRAWBACKS, either leading to LOSS OF GENES WITH SUFFICIENT SIGNAL, or OVERLY AGGRESSIVE SHRINKAGE OF TRUE, LARGE LFCs`</label>
+        <quote>However, in our analysis, we found that filtering or application of Normal priors each can have drawbacks, either leading to loss of genes with sufficient signal, or overly aggressive shrinkage of true, large LFCs.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>and the second-order cost is stated: filtering loses genes with real differences, and `PSEUDOCOUNTS PROVIDE A LIMITED SOLUTION THAT MUST BE ADAPTED PER DATASET` - a correction re-tuned per dataset is a free parameter wearing a method&#x27;s name</label>
+        <quote>One approach is to introduce filtering thresholds and pseudocounts to exclude or moderate estimated LFCs. Filtering may result in a loss of genes from the analysis with true differences in expression, while pseudocounts provide a limited solution that must be adapted per dataset.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>choosing the filter is named as an act of judgement rather than a setting: `SETTING THE THRESHOLD REQUIRES CAREFUL CONSIDERATION OF WHICH GENES MAY BE LOST`</label>
+        <quote>Setting the threshold requires careful consideration of which genes may be lost.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>if most genes move in the same direction the global normalisation breaks down - and the paper says this defeats EVERY method under comparison, not only theirs</label>
+        <quote>However, if most of the genes are differentially expressed in the same direction, the global normalization method used by all methods discussed here would break down, thus affecting any effect size estimation.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>that failure is detectable, and the paper names the diagnostics rather than leaving it as a caveat</label>
+        <quote>This situation can be detected by histogram, MA-plot or more rigorously with quantro ( Hicks and Irizarry, 2015 ).</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.9">
+        <label>where the maximum likelihood estimates are not supplied the prior scale falls back to a fixed value rather than being fitted</label>
+        <quote>If the MLEs of the coefficients are not supplied, we use a scale S = 1 for all non-intercept coefficients.</quote>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the method is compared against BOTH failure modes rather than against one baseline - filtering, which loses genes, and Normal priors, which over-shrink</label>
+        <note>eliminates: a new estimator that beats the over-shrinking baseline by under-shrinking, or the reverse; the two-sided comparison is what makes `lower bias while still reducing variance` a claim rather than a trade · outcome: held</note>
+        <quote>However, in our analysis, we found that filtering or application of Normal priors each can have drawbacks, either leading to loss of genes with sufficient signal, or overly aggressive shrinkage of true, large LFCs.</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>whether the correction needs a per-dataset parameter</label>
+        <note>eliminates: a method whose performance is really the analyst&#x27;s tuning - the proposed prior `avoids the use of filter thresholds or pseudocounts` entirely · outcome: held</note>
+        <quote>One approach is to introduce filtering thresholds and pseudocounts to exclude or moderate estimated LFCs. Filtering may result in a loss of genes from the analysis with true differences in expression, while pseudocounts provide a limited solution that must be adapted per dataset.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether the approach is tied to the negative-binomial likelihood it was developed on</label>
+        <note>eliminates: a method that works because of one distributional assumption - apeglm `accepts ARBITRARY LIKELIHOODS, as long as additional parameters are pre-specified` · outcome: held</note>
+        <quote>The apeglm method accepts arbitrary likelihoods, as long as additional parameters are pre-specified, such as the dispersion. apeglm can therefore also be extended for use on other types of data, as long as it can be modeled by a GLM.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>testing robustness when the assumption of a unimodal symmetric distribution of effects is violated</label>
+        <note>eliminates: the possibility that the method only works when its own prior assumption happens to hold · outcome: held</note>
+        <quote>The proposed prior distribution assumes that the distribution of LFCs across genes is unimodal and symmetric.</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>quantifying the effect of substituting estimated standard errors where the derivation requires known ones, specifically at very low counts</label>
+        <note>eliminates: the possibility that the borrowed estimator breaks exactly where the data are weakest · outcome: held</note>
+        <quote>Although the method above for estimating A proposed by Efron and Morris (1975) requires that the e gk be known, here we have instead substituted an estimated quantity, the standard errors.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>trying an alternative posterior approximation by integrating over a fine grid instead of the Laplace method</label>
+        <note>eliminates: the possibility that the chosen approximation was adopted without a competitor · outcome: failed</note>
+        <quote>We also attempted an alternate method for approximating the posterior by integrating the un-normalized posterior over a fine grid, but we found the Laplace approximation was consistently more accurate.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>logarithmic fold change</label>
+        <term>logarithmic fold change</term>
+        <quote>The difference is usually defined in terms of the logarithmic fold change (LFC) between average expression levels of different conditions.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>pseudocounts</label>
+        <term>pseudocounts</term>
+        <quote>One approach is to introduce filtering thresholds and pseudocounts to exclude or moderate estimated LFCs. Filtering may result in a loss of genes from the analysis with true differences in expression, while pseudocounts provide a limited solution that must be adapted per dataset.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>shrinkage estimator</label>
+        <term>shrinkage estimator</term>
+        <quote>DESeq2 applies an adaptive Normally distributed prior, to produce a shrinkage estimator for the LFC for each gene.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>Cauchy prior</label>
+        <term>Cauchy prior</term>
+        <quote>Here, we propose the use of a heavy-tailed Cauchy prior distribution for effect sizes, which avoids the use of filter thresholds or pseudocounts.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>local false sign rate</label>
+        <term>local false sign rate</term>
+        <quote>Following Stephens (2017) , the local FSR is defined as the posterior probability that the posterior mode (MAP) is of the false sign, that is for gene g , lfsr g = { p ( β g k &lt; 0 ) MAP of β g k ≥ 0 p ( β g k ≥ 0 ) MAP of β g k &lt; 0.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>Laplace approximation</label>
+        <term>Laplace approximation</term>
+        <quote>We derive the posterior distribution for β gk using the Laplace approximation: we estimate the covariance of the posterior distribution as the negative inverse of the Hessian matrix obtained from numeric optimization of the log posterior.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>empirical Bayes</label>
+        <term>empirical Bayes</term>
+        <quote>A is an empirical Bayes estimate of the variance of the generating Normal distribution, and S = A gives the scale.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.9">
+        <label>maximum a posteriori</label>
+        <term>maximum a posteriori</term>
+        <quote>We use the posterior mode, or maximum a posteriori (MAP), as the shrinkage estimator for the coefficient.</quote>
+      </span>
+      <span xml:id="t31" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>logarithmic fold change - AS ESTIMATED, NOT AS DEFINED. The definition is a ratio of average expression between conditions; the estimate at low counts is `large ... not representative of true differences`. THE SAME SYMBOL NAMES A QUANTITY AND A NUMBER THAT DOES NOT MEASURE IT</label>
+        <quote>When the read counts are low or highly variable, the maximum likelihood estimates for the LFCs has high variance, leading to large estimates not representative of true differences, and poor ranking of genes by effect size.</quote>
+      </span>
+      <span xml:id="t32" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>shrinkage - the family of corrections, and this paper&#x27;s point is that the family members fail in OPPOSITE directions: a filter loses true signal, a Normal prior flattens true large effects. WHICH ERROR YOU GET IS A CHOICE, AND USUALLY AN UNEXAMINED ONE</label>
+        <quote>However, in our analysis, we found that filtering or application of Normal priors each can have drawbacks, either leading to loss of genes with sufficient signal, or overly aggressive shrinkage of true, large LFCs.</quote>
+      </span>
+      <span xml:id="t33" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>pseudocount - a correction that `must be ADAPTED PER DATASET`. The paper&#x27;s remedy is to remove the parameter rather than to tune it, which is the same move a field makes when it replaces an inferred name with a measured one</label>
+        <quote>One approach is to introduce filtering thresholds and pseudocounts to exclude or moderate estimated LFCs. Filtering may result in a loss of genes from the analysis with true differences in expression, while pseudocounts provide a limited solution that must be adapted per dataset.</quote>
+      </span>
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → count filtering as practised in edgeR and limma-voom, which removes genes before analysis and can lose those with sufficient signal</label>
+        <quote>The authors of edgeR ( McCarthy et al. , 2012 ) and limma-voom ( Law et al. , 2014 ) suggest using a filtering rule that removes genes with low scaled counts before statistical analysis</quote>
+      </span>
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → DESeq2&#x27;s adaptive Normal prior, which shrinks true large fold changes too aggressively</label>
+        <quote>DESeq2 applies an adaptive Normally distributed prior, to produce a shrinkage estimator for the LFC for each gene.</quote>
+      </span>
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>extends → the empirical Bayes shrinkage tradition itself - the method is offered as a replacement for the prior, not for the framework</label>
+        <quote>The proposed method, Approximate Posterior Estimation for generalized linear model, apeglm , has lower bias than previously proposed shrinkage estimators, while still reducing variance for those genes with little information for statistical inference.</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>EVERY STANDARD CORRECTION TRADES ONE ERROR FOR THE OPPOSITE ONE: filtering loses genes with sufficient signal, Normal priors over-shrink true large fold changes</label>
+        <term>EVERY STANDARD CORRECTION TRADES ONE ERROR FOR THE OPPOSITE ONE: filtering loses genes with sufficient signal, Normal priors over-shrink true large fold changes</term>
+        <quote>However, in our analysis, we found that filtering or application of Normal priors each can have drawbacks, either leading to loss of genes with sufficient signal, or overly aggressive shrinkage of true, large LFCs.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>PSEUDOCOUNTS PROVIDE A LIMITED SOLUTION THAT MUST BE ADAPTED PER DATASET - a correction re-tuned per dataset is a free parameter wearing a method&#x27;s name</label>
+        <term>PSEUDOCOUNTS PROVIDE A LIMITED SOLUTION THAT MUST BE ADAPTED PER DATASET - a correction re-tuned per dataset is a free parameter wearing a method&#x27;s name</term>
+        <quote>One approach is to introduce filtering thresholds and pseudocounts to exclude or moderate estimated LFCs. Filtering may result in a loss of genes from the analysis with true differences in expression, while pseudocounts provide a limited solution that must be adapted per dataset.</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>SETTING THE THRESHOLD REQUIRES CAREFUL CONSIDERATION OF WHICH GENES MAY BE LOST - the filter is named as a judgement about what to discard, not a setting</label>
+        <term>SETTING THE THRESHOLD REQUIRES CAREFUL CONSIDERATION OF WHICH GENES MAY BE LOST - the filter is named as a judgement about what to discard, not a setting</term>
+        <quote>Setting the threshold requires careful consideration of which genes may be lost.</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>at low or highly variable counts the maximum likelihood LFC has high variance and produces LARGE ESTIMATES NOT REPRESENTATIVE OF TRUE DIFFERENCES - the noise arrives looking like a big effect</label>
+        <term>at low or highly variable counts the maximum likelihood LFC has high variance and produces LARGE ESTIMATES NOT REPRESENTATIVE OF TRUE DIFFERENCES - the noise arrives looking like a big effect</term>
+        <quote>When the read counts are low or highly variable, the maximum likelihood estimates for the LFCs has high variance, leading to large estimates not representative of true differences, and poor ranking of genes by effect size.</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>the proposed heavy-tailed Cauchy prior AVOIDS THE USE OF FILTER THRESHOLDS OR PSEUDOCOUNTS - removing the parameter rather than tuning it</label>
+        <term>the proposed heavy-tailed Cauchy prior AVOIDS THE USE OF FILTER THRESHOLDS OR PSEUDOCOUNTS - removing the parameter rather than tuning it</term>
+        <quote>Here, we propose the use of a heavy-tailed Cauchy prior distribution for effect sizes, which avoids the use of filter thresholds or pseudocounts.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>the Laplace approximation was consistently more accurate than numerical integration over a grid</label>
+        <quote>We also attempted an alternate method for approximating the posterior by integrating the un-normalized posterior over a fine grid, but we found the Laplace approximation was consistently more accurate.</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>substituting estimated standard errors for known ones leaves the scale estimate only slightly biased even at very low counts</label>
+        <quote>We found that the resulting estimate of A is only slightly biased, even when counts are very low ( Supplementary Fig. S1 ).</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>shrinkage improves the ranking of genes by effect size relative to methods that do not shrink at all</label>
+        <quote>We also show that apeglm shrunken estimates improve gene rankings by LFCs, relative to methods which do not apply Bayesian shrinkage on the LFCs. apeglm is available as an open-source R package on Bioconductor, and can be easily called from within the DESeq2 software. 2 Materials and methods 2.1 NB model for RNA-seq counts We start with summarized measures of gene expression for the experiment, represented by a matrix of read or fragment counts.</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the difference between conditions, defined as the log ratio of average expression levels</label>
+        <term>logarithmic fold change</term>
+        <quote>The difference is usually defined in terms of the logarithmic fold change (LFC) between average expression levels of different conditions.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the local false sign rate given as a two-case posterior probability keyed on the sign of the MAP estimate</label>
+        <quote>Following Stephens (2017) , the local FSR is defined as the posterior probability that the posterior mode (MAP) is of the false sign, that is for gene g , lfsr g = { p ( β g k &lt; 0 ) MAP of β g k ≥ 0 p ( β g k ≥ 0 ) MAP of β g k &lt; 0.</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.9">
+        <label>the negative binomial model with its mean decomposed into a scaling factor and an expression quantity</label>
+        <quote>The mean μ gi is a product of a scaling factor s gi and a quantity q gi that is proportional to the expression level of the gene g .</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>maximum likelihood</label>
+        <term>maximum likelihood</term>
+        <quote>When the read counts are low or highly variable, the maximum likelihood estimates for the LFCs has high variance, leading to large estimates not representative of true differences, and poor ranking of genes by effect size.</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>variance</label>
+        <term>variance</term>
+        <quote>When the read counts are low or highly variable, the maximum likelihood estimates for the LFCs has high variance, leading to large estimates not representative of true differences, and poor ranking of genes by effect size.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.85">
+        <label>posterior SD</label>
+        <term>posterior SD</term>
+        <quote>Providing low variance posterior mode effect sizes and their posterior SD allows for various downstream uses, for example, plotting LFC estimates from two experiments against each other in a scatter plot, without having to make arbitrary filtering</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>library size</label>
+        <term>library size</term>
+        <quote>The expression level of a gene in an RNA-Seq experiment is proportional across samples to a scaled count, representing the number of observed single- or paired-end reads that could be assigned to a given gene at a given library size.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>runtimes for the pipeline on a ten-thousand-gene simulation - dispersion and MLE fitting, Normal-prior shrinkage, Cauchy-prior shrinkage, and MAP-only</label>
+        <quote>Running apeglm is efficient: for the simulation dataset modeled on the Pickrell data (10 000 genes and 5 versus 5 samples), running DESeq2 to obtain dispersion estimates and MLE coefficients takes 4.7 s on a laptop with one core, running LFC shrinkage with the DESeq2 Normal prior takes 2.9 s, and running LFC shrinkage with the apeglm Cauchy prior takes 4.1 s.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1093/bioinformatics/bty895.</note></p>
+    </body>
+  </text>
+</TEI>

@@ -37,15 +37,15 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">70 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">71 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
       <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
         <label>mechanism</label>
-        <quote>Here we show that distinct neocortical areas maintain short-term memory depending on behavioral strategy.</quote>
+        <quote>in mammalian neocortex remains elusive. Here we show that distinct neocortical areas maintain short-term memory depending on behavioral strategy. Using wide-field and single-cell calcium imaging,</quote>
       </span>
       <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
         <label>short-term memory localisation in mouse neocortex</label>
@@ -106,22 +106,27 @@
       </span>
       <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.9">
         <label>a set of control experiments on the imaging signal itself</label>
+        <note>eliminates: autofluorescence and non-calcium-related intrinsic signals as the source of the measured activity</note>
         <quote>In control experiments we excluded confounding effects of autofluorescence or non-calcium-related intrinsic signals (STAR Methods and Figure S3).</quote>
       </span>
       <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.9">
         <label>control imaging targeted at the near-midline M2 area, which lies close to the superior sagittal sinus</label>
+        <note>eliminates: hemodynamic signal as the source of the activity patterns, in the one location where a blood vessel makes it most likely</note>
         <quote>In control experiments, we verified that these activity patterns were not confounded by hemodynamic signals, especially for the near-midline M2 area, which is close to the superior sagittal sinus (Figures S3 and S8).</quote>
       </span>
       <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
         <label>training two wild-type mice - carrying no GCaMP - on the same task and imaging them awake and performing</label>
+        <note>eliminates: autofluorescence, by running the whole experiment in animals that cannot produce the signal of interest</note>
         <quote>2) To control for autofluorescence signals we trained 2 wild-type mice on the task and obtained wide-field imaging in awake performing animals (Figure S3A-D).</quote>
       </span>
       <span xml:id="t16" type="controls" ana="#controls[3]" resp="#tagger" cert="0.8">
         <label>cellular-resolution imaging run alongside the wide-field measurement</label>
+        <note>eliminates: the possibility that the bulk population signal is not driven by the layer 2/3 cell bodies it is interpreted as reflecting</note>
         <quote>In summary, the results from all the above control experiments indicate no major influence of non-calcium-related intrinsic signals on the GCaMP6f signals that would confound our signal interpretations.</quote>
       </span>
       <span xml:id="t17" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
         <label>four experiments on the light delivery, including shining light on cortex not expressing ArchT in the same mice - one record for the set, quoting the sentence that reports the outcome</label>
+        <note>eliminates: light disturbance itself as the cause of the behavioural effect, and establishes that the effect requires the right population at the right time</note>
         <quote>In summary, these control experiments demonstrate that light delivered above the wide-field preparation alone does not affect the performance of the mice but that it needs to reach the relevant neuronal populations at the right time to become effective.</quote>
       </span>
       <span xml:id="t18" type="concepts" ana="#concepts[0]" resp="#paper">
@@ -175,192 +180,196 @@
         <label>delay period - AS ANALYSED, NOT AS RUN: restricted to `quiet trials` in which the mouse did not move for at least the first second, with traces truncated at the first movement thereafter. THIS IS A CONTROL, NOT A CONFOUND - the classes are defined by movement during the SENSATION period, and the delay analysis is made movement-free on purpose so that the persistent activity cannot be motor activity</label>
         <quote>To analyze the delay period, we focused only on quiet trials where the mouse did not move for at least the first second in the delay (starting 0.2 s after beginning of texture retraction; Figure 3A). Trials where the mouse moved during the first second of the delay period where defined as noisy and discarded from the analysis (Figure 1D; bottom trace). For the remaining trials, we detected the first frame where the mouse moved after 1 s into the delay and truncated the F/F traces after this point (Figure S6A, B). Therefore, the data analysis for the delay period excluded any movement-related activity and reflects the population dynamics when the mouse is sitting quietly and maintaining information</quote>
       </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t29" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>delay period - AS ANALYSED, NOT AS RUN: restricted to `quiet trials` in which the mouse did not move for at least the first second, with traces truncated at the first movement thereafter. THIS IS A CONTROL, NOT A CONFOUND - the classes are defined by movement during the SENSATION period, and the delay analysis is made movement-free on purpose so that the persistent activity cannot be motor activity</label>
+        <quote>To analyze the delay period, we focused only on quiet trials where the mouse did not move for at least the first second in the delay (starting 0.2 s after beginning of texture retraction; Figure 3A). Trials where the mouse moved during the first second of the delay period where defined as noisy and discarded from the analysis (Figure 1D; bottom trace). For the remaining trials, we detected the first frame where the mouse moved after 1 s into the delay and truncated the F/F traces after this point (Figure S6A, B). Therefore, the data analysis for the delay period excluded any movement-related activity and reflects the population dynamics when the mouse is sitting quietly and maintaining information</quote>
+      </span>
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>replicates → Chen et al., 2016; Yang et al., 2015 (choice encoding in posterior sensory areas)</label>
         <quote>Thus, consistent with previous reports (Chen et al., 2016; Yang et al., 2015), sensory-related posterior areas S1BC, S2 and RL encode choice shortly after touch for both behavioral strategies.</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>replicates → Chen et al., 2013, 2016 (timing of hit/CR discrimination)</label>
         <quote>Discrimination between hit and CR trials occurred within a few hundred milliseconds, in line with previous studies (Chen et al., 2013, 2016).</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → Guo et al., 2014; Li et al., 2015 (frontal areas including ALM as the site of short-term memory)</label>
         <quote>In passive trials, M2 as well as other frontal areas (including ALM; Guo et al., 2014; Li et al., 2015) were not activated and could not discriminate trial types (Figure 4), suggesting that they are less important for maintaining information for this type of behavior, at least before any preparatory movements.</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → Leavitt et al., 2017 (sustained activity encoding working memory is not fully distributed)</label>
         <quote>Maintenance of information in short-term memory is not necessarily tied to one cortical area but is flexibly localized according to behavioral strategy (Leavitt et al., 2017).</quote>
       </span>
-      <span xml:id="t33" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.9">
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.85">
         <label>M2 —causes→ behavioral strategy</label>
         <term>M2</term>
         <term>behavioral strategy</term>
         <note>strength of the relation: 0.85 — THE PAPER&#x27;S GROUPING VARIABLE IS NOT EXOGENOUS, AND THE PAPER IS THE ONE THAT SHOWS IT. The title says strategy DETERMINES where memory is held; silencing the area that holds it makes the animal CHANGE STRATEGY - &#x27;some mice ... apparently flexibly SWITCH TO THE ALTERNATIVE UNPERTURBED STRATEGY&#x27;, and those switches were &#x27;consistent across days, present also in trials without perturbation and were clearly reflected in corresponding switches between M2- and P-dominated delay maps.&#x27; So the arrow runs both ways: strategy selects the site, and removing the site reselects the strategy. Recorded as `causes` in the direction the manipulation establishes, since that is the one an experiment tested.</note>
-        <quote>Here, we find that some mice manage to maintain relatively high performance despite perturbation of one area (M2 or P) whereas other mice show significantly reduced performance. The former mice apparently flexibly switch to the alternative unperturbed strategy whereas the latter mice maintain their strategy. Strategy switches were consistent across days, present also in trials without perturbation and were clearly reflected in corresponding switches between M2- and P-dominated delay maps.</quote>
+        <quote>During the delay period we find a clear divergence of activity patterns to either M2 or P depending on behavioral strategy.</quote>
       </span>
-      <span xml:id="t34" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.9">
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.9">
         <label>behavioral strategy —operationalised-as→ z-axis drop in focus</label>
         <term>behavioral strategy</term>
         <term>z-axis drop in focus</term>
         <note>strength of the relation: 0.5 — the record marks this weak — IN A SUBSET OF SESSIONS THE VARIABLE THE WHOLE RESULT IS CONDITIONED ON WAS READ OFF AN IMAGING ARTEFACT: where the body camera failed, movement was predicted from &#x27;the z-axis drop in focus (using a 10% drop from baseline in 3 in-focus single cells as criterion; 75% ACCURACY in labeling trials by validating with move vector from the body camera)&#x27;. The accuracy is stated, which is what makes it auditable - but a quarter of those trials carry the wrong class. Low weight for that reason.</note>
         <quote>For a small subset of sessions where the body camera gave low quality images or was missing, we predicted the mouse’s movement based on the z-axis drop in focus (using a 10% drop from baseline in 3 in-focus single cells as criterion; 75% accuracy in labeling trials by validating with move vector from the body camera).</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Wilcoxon signed-rank test and Mann-Whitney U-test</label>
         <term>Wilcoxon signed-rank test and Mann-Whitney U-test</term>
         <quote>In general, non-parametric two-tailed statistical tests were used, Mann-Whitney U-test to compare between two medians from two populations or the Wilcoxon signed rank test to compare a population&#x27;s median to zero (or between two paired populations).</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>ANOVA</label>
         <term>ANOVA</term>
         <quote>An ANOVA and multiple group correction were used when comparing between more than two groups (Figure 4D-F and Figure S6D).</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>F statistic with 95% confidence interval</label>
         <term>F statistic with 95% confidence interval</term>
         <quote>for active strategy P &lt; 0.001; F10,33 = 5.17, 95% confidence interval (CI) [0.04 0.095] for M2</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>Kolmogorov-Smirnov test</label>
         <term>Kolmogorov-Smirnov test</term>
         <quote>In cases were ANOVA was applied, data was not significantly different from normal distribution (P &gt; 0.05; Kolmogorov-Smirnov test on residuals).</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>support vector machine with cross-validation</label>
         <term>support vector machine with cross-validation</term>
         <quote>SVM classification was done with 20 cross-validations and trial label shuffling (see relevant section above).</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>label-shuffling permutation test</label>
         <term>label-shuffling permutation test</term>
         <quote>To test for significance, we shuffled between hit and CR labels (while maintaining active and passive labels) and performed the same SVM, resulting in an accuracy of 48.5 ± 4.2 and 50.4 ± 3.8 (mean ± s.e.m), i.e. chance level, for active and passive trials, respectively.</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>principal component analysis</label>
         <term>principal component analysis</term>
         <quote>To reduce noise, we initially performed a principal component analysis (PCA) analysis on the delay maps and each pixel (feature) was represented by the top 25 PCs</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>ROC analysis / area under the curve</label>
         <term>ROC analysis / area under the curve</term>
         <quote>We calculated a receiver operating characteristics (ROC) curve for each pixel in a given area and calculated its area under the curve (AUC).</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
         <label>correlation coefficient</label>
         <term>correlation coefficient</term>
         <quote>In addition, d’ performance positively correlated with activeness (Figure 1H; r = 0.6; P &lt; 0.001)</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
         <label>Bonferroni correction</label>
         <term>Bonferroni correction</term>
         <quote>Interestingly, for passive trials, SVM accuracy was at chance level when we applied the SVM only to pixels in the frontal cortex (Figure 4F; P &gt; 0.05; signed-rank test compared to 50%; Bonferroni corrected; n = 39 imaging sessions from 5 passive mice).</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Which cortical area held the delay-period memory depended on the mouse&#x27;s behavioural strategy: persistent activity sat medio-frontally (M2) on active trials but in a lateral posterior area on passive trials.</label>
         <quote>During the delay, in contrast, persistent cortical activity was located medio-frontally in active trials but in a lateral posterior area in passive trials.</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>The posterior whisker areas encoded the animal&#x27;s choice soon after touch under both strategies, so the strategy difference appeared only later, during the delay.</label>
-        <quote>Independent of strategy, whisker-related posterior areas encoded choice early after touch.</quote>
+        <quote>texture-or passively awaited the touch. Independent of strategy, whisker-related posterior areas encoded choice early after touch. During the delay, in contrast,</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>Optogenetically silencing M2 or area P lowered task performance only in trials run with the strategy that area supports, and left the other strategy unaffected.</label>
         <quote>In summary, perturbation of one area (M2 or P) decreased performance exclusively when the mouse used the associated strategy (Figure 7D; P &lt; 0.05; signed-rank test).</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>Silencing M2 and area P together dropped all four VGAT-ChR2 mice to performance indistinguishable from the non-expert threshold, which single-area silencing had not done.</label>
         <quote>All four mice significantly reduced their performance upon ChR2 activation (P &lt; 0.001; signed-rank test), down to levels not significantly different from the expert threshold (Figure 7F; P &gt; 0.05; signed-rank test).</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
         <label>Some mice escaped a perturbation by switching behavioural strategy rather than losing performance, one passive mouse turning active during the perturbation sessions.</label>
         <quote>Notably, however, this mouse very efficiently switched its strategy from passive to active in the perturbation sessions (Figure 6Fii, iii; P &lt; 0.001; Mann-Whitney U-test).</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
         <label>The two memory sites hold different content: the motor-sensory index was positive in M2 (activity grouped by the upcoming action) and negative in area P (activity grouped by the past texture).</label>
         <quote>MSI was significantly positive in M2 and significantly negative in P (Figure 8D; P &lt; 0.05; Wilcoxon signed-rank test), implying that each area encodes a different type of short-term memory</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
         <label>On passive trials a classifier restricted to frontal-cortex pixels could not tell hit from correct-rejection trials at all, showing short-term memory need not reside in frontal cortex.</label>
         <quote>Interestingly, for passive trials, SVM accuracy was at chance level when we applied the SVM only to pixels in the frontal cortex (Figure 4F; P &gt; 0.05; signed-rank test compared to 50%; Bonferroni corrected; n = 39 imaging sessions from 5 passive mice).</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
         <label>The more a mouse used the active strategy the better it discriminated textures, and passive mice needed roughly twice as many sessions to reach expert level.</label>
         <quote>In addition, d’ performance positively correlated with activeness (Figure 1H; r = 0.6; P &lt; 0.001)</quote>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t54" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>activeness</label>
         <term>activeness</term>
         <quote>‘Activeness’ was defined as the percentage of active hit trials and derived for each imaging session</quote>
       </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t55" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>active versus passive trial</label>
         <term>active versus passive trial</term>
         <quote>A trial was labeled (unrelated to hit or CR) as ‘active’ if the mouse was moving for at least 0.5 seconds during the sensation period (-1 s to 2 s relative to texture stop) and ‘passive’ otherwise.</quote>
       </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>motor-sensory index (MSI)</label>
         <term>motor-sensory index (MSI)</term>
         <quote>MSI ranges from -1 to 1 where positive values indicate greater encoding of motor-related information (similar activity for similar future action) whereas negative values indicate greater encoding of sensory-related information (similar activity for similar past stimuli).</quote>
       </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t57" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>posterior area P</label>
         <term>posterior area P</term>
         <quote>we refer to this region as ‘posterior area P’ (or brief ‘P’; see Discussion; see also additional retinotopic alignment in Figure S7B)</quote>
       </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t58" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>optogenetic silencing light delivered during the delay period</label>
         <term>optogenetic silencing light delivered during the delay period</term>
         <quote>Light was randomly delivered in 50% of the trials during the delay period</quote>
       </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t59" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>texture identity (P100 rough &#x27;go&#x27; versus P1200 smooth &#x27;no-go&#x27; sandpaper)</label>
         <term>texture identity (P100 rough &#x27;go&#x27; versus P1200 smooth &#x27;no-go&#x27; sandpaper)</term>
         <quote>Each trial started with an auditory cue (2 beeps at 2 kHz, 100-ms duration with 50-ms interval), signaling the approach of either two types of sandpapers (grit size P100: rough texture; P1200: smooth texture) to the mouse’s whiskers as ‘go’ or ‘no-go’ textures (pseudo-randomly presented with no more than 3 repetitions).</quote>
       </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t60" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>layer 2/3 neuronal calcium activity</label>
         <term>layer 2/3 neuronal calcium activity</term>
         <quote>Using wide-field and single-cell calcium imaging we measured layer 2/3 neuronal activity in mice performing a whisker-based texture discrimination task with delayed response.</quote>
       </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t61" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>discrimination performance (d-prime)</label>
         <term>discrimination performance (d-prime)</term>
         <quote>Performance was quantified as d-prime (Chen et al., 2013)</quote>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+      <span xml:id="t62" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
         <label>body movement during the delay period (held at zero by excluding moving epochs)</label>
         <term>body movement during the delay period (held at zero by excluding moving epochs)</term>
         <quote>Therefore, the data analysis for the delay period excluded any movement-related activity and reflects the population dynamics when the mouse is sitting quietly and maintaining information to guide its future action.</quote>
       </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t63" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>16 and 82% — range of activeness (percentage of hit trials with body movement at texture touch) across the eight imaged mice</label>
         <quote>‘Activeness’, quantified as the percentage of hit trials with body movements prior and during the texture touch, varied across mice between 16 and 82%</quote>
       </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t64" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>60-88% — accuracy of the classifier separating hit from correct-rejection delay maps, across mice and both strategies</label>
         <quote>accuracy ranged from 60-88% in all mice for active and passive trials (Figure 4B).</quote>
       </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t65" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>48.5 ± 4.2 and 50.4 ± 3.8 — classifier accuracy after shuffling trial labels, i.e. the chance baseline for active and passive trials</label>
         <quote>To test for significance, we shuffled between hit and CR labels (while maintaining active and passive labels) and performed the same SVM, resulting in an accuracy of 48.5 ± 4.2 and 50.4 ± 3.8 (mean ± s.e.m), i.e. chance level, for active and passive trials, respectively.</quote>
       </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+      <span xml:id="t66" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>r = 0.6 — correlation between a session&#x27;s activeness and the mouse&#x27;s d-prime discrimination performance</label>
         <quote>In addition, d’ performance positively correlated with activeness (Figure 1H; r = 0.6; P &lt; 0.001)</quote>
       </span>
-      <span xml:id="t66" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+      <span xml:id="t67" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>6.9 ± 0.3 weeks — training time needed before imaging, across the eight mice</label>
         <quote>During training, an increasing delay was gradually introduced over weeks (Figure 1B; training time 6.9 ± 0.3 weeks; mean ± s.e.m.; n = 8 mice).</quote>
       </span>
-      <span xml:id="t67" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
+      <span xml:id="t68" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
         <label>1.2-4.5 s — range of enforced delay durations mice could withhold licking for</label>
         <quote>Mice learned to withhold licking for up to several seconds (range of 1.2-4.5 s).</quote>
       </span>
-      <span xml:id="t68" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
+      <span xml:id="t69" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
         <label>2.89° ± 0.36° vs. 0.95° ± 0.14° — whisking envelope around texture arrival on active versus passive trials</label>
         <quote>mean whisking envelope from -1 to +1 seconds relative to texture stop: 2.89° ± 0.36° vs. 0.95° ± 0.14°; P &lt; 0.05</quote>
       </span>
-      <span xml:id="t69" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger">
+      <span xml:id="t70" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger">
         <label>30 — total adult male mice used across imaging, control and optogenetic experiments</label>
         <quote>A total of 30 adult male mice (1-9 months old) were used in this study.</quote>
       </span>

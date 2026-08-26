@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>A survey of transfer learning</title>
+        <author>Karl R. Weiss</author>
+        <author>Taghi M. Khoshgoftaar</author>
+        <author>Dingding Wang</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>A survey of transfer learning</title>
+          <date>2016</date>
+          <publisher>Journal Of Big Data</publisher>
+          <idno type="DOI">10.1186/s40537-016-0043-6</idno>
+          
+          <idno type="record">weiss2016-a-survey-of-transfer-learning</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\weiss2016-a-survey-of-transfer-learning.txt</note>
+          <note type="text-sha1">d694ed6df017b78b36fa823211262f024c135317</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>machine-learning</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">67 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the transfer learning literature - solutions, applications, and the terminology used to describe them</label>
+        <quote>This survey paper formally defines transfer learning, presents information on current solutions, and reviews applications applied to transfer learning.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what to do when the assumption that training and test data share a domain and a distribution does not hold</label>
+        <quote>An assumption of traditional machine learning methodologies is the training data and testing data are taken from the same domain, such that the input feature space and data distribution characteristics are the same.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a formal definition of transfer learning and an explicit account of where the literature&#x27;s own terms conflict</label>
+        <quote>This survey paper formally defines transfer learning, presents information on current solutions, and reviews applications applied to transfer learning.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <quote>Throughout the literature on transfer learning, there are a number of terminology inconsistencies. Phrases such as transfer learning and domain adaptation are used to refer to similar processes. The following definitions will be used in this paper.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>improving a target learner using information from a different but related source domain</label>
+        <quote>Therefore, there is a need to create high-performance learners trained with more easily obtained data from different domains. This methodology is referred to as transfer learning.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>a survey organised by whether the source and target share a feature space, and by what is transferred</label>
+        <term>a survey organised by whether the source and target share a feature space, and by what is transferred</term>
+        <quote>The majority of the homogeneous transfer learning solutions employ one of three general strategies which include trying to correct for the marginal distribution difference in the source, trying to correct for the conditional distribution difference in the source, or trying to correct both the marginal and conditional distribution differences in the source.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>WHY TRANSFER LEARNING EXISTS AT ALL: ordinary machine learning assumes train and test come from one domain with one distribution, and the method is what you do when that assumption is false and the target data is expensive to collect</term>
+        <quote>An assumption of traditional machine learning methodologies is the training data and testing data are taken from the same domain, such that the input feature space and data distribution characteristics are the same.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>NEGATIVE TRANSFER IS DEFINED BY COMPARISON, NOT BY DAMAGE: a learner trained on the target alone is compared against one trained with the source added, and transfer is negative when the plain learner wins</term>
+        <quote>negative transfer occurs when the performance of fT1(·) is greater than the performance of fT2(·). The topic of negative transfer addresses the need to quantify the amount of relatedness between the source domain and the target domain and whether an attempt to transfer knowledge from the source domain should be made.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>PSEUDO LABELS CORRECT A DISTRIBUTION USING GUESSES AT THE THING BEING CORRECTED FOR: with no labeled target data, labels are estimated and then used to fix the conditional distribution - which the paper itself calls problematic</term>
+        <quote>To address the lack of labeled target data, some solutions estimate the labels for the target data (called pseudo labels), which are then used to correct the conditional distribution differences. This method is problematic because the conditional distribution corrections are being made with the aid of pseudo labels.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>instance transfer reweights source examples to correct MARGINAL distribution differences, and works best precisely when the CONDITIONAL distribution is already the same</label>
+        <quote>A common method used in this case is for instances from the source domain to be reweighted in an attempt to correct for marginal distribution differences.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>the two feature approaches differ in direction: one bends the source onto the target, the other maps both into a shared latent space</label>
+        <quote>Feature-based transfer learning approaches are categorized in two ways.</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
+        <label>parameter transfer shares model parameters or combines multiple reweighted source learners into an ensemble for the target</label>
+        <quote>The third transfer category is to transfer knowledge through shared parameters of source and target domain learner models or by creating multiple source learner models and optimally combining the reweighted learners (ensemble learners) to form an improved target learner (examples in Gao [37], Bonilla [8], and Evgeniou [33]).</quote>
+      </span>
+      <span xml:id="t12" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>source classifiers are weighted by how close their conditional distribution is to the target, summed, and used to manufacture pseudo labels for unlabelled target data</label>
+        <quote>This is accomplished by first building a classifier for each separate source domain.</quote>
+      </span>
+      <span xml:id="t13" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.95">
+        <label>THE FIELD IS DECLARED TERMINOLOGICALLY INCONSISTENT AND THE PAPER SAYS SO IN ITS OWN VOICE: `Throughout the literature on transfer learning, there are A NUMBER OF TERMINOLOGY INCONSISTENCIES. Phrases such as TRANSFER LEARNING and DOMAIN ADAPTATION ARE USED TO REFER TO SIMILAR PROCESSES. THE FOLLOWING DEFINITIONS WILL BE USED IN THIS PAPER.` A survey opening by stipulating the vocabulary because the literature has none.</label>
+        <quote>Throughout the literature on transfer learning, there are a number of terminology inconsistencies. Phrases such as transfer learning and domain adaptation are used to refer to similar processes. The following definitions will be used in this paper</quote>
+      </span>
+      <span xml:id="t14" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.95">
+        <label>THE SAME CONFIGURATION, RENAMED IN THE NEXT SENTENCE: `In Gong [42] and Blitzer [5], SEMI-SUPERVISED transfer learning is the case of having ABUNDANT LABELED SOURCE DATA AND LIMITED LABELED TARGET DATA.` The sentence immediately before it - quoted separately on this record - gives that exact configuration to Daume and Chattopadhyay as SUPERVISED. The full four-scheme enumeration spans several sentences with a journal running header splicing one of them, so it is carried across four tags on this record rather than asserted from one span.</label>
+        <quote>In Gong [42] and Blitzer [5], semi-supervised transfer learning is the case of having abundant labeled source data and limited labeled target data</quote>
+      </span>
+      <span xml:id="t15" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.95">
+        <label>AND THE PAPER&#x27;S REPAIR IS TO REFUSE THE VOCABULARY ALTOGETHER: `This paper will EXPLICITLY STATE WHEN LABELED AND UNLABELED DATA ARE BEING USED in the source and target domains.` It does not pick a winner and does not coin a fifth term - it describes the configuration and drops the names. THE SAME MOVE CONSORT MADE IN 2010, replacing `intention to treat` with `a more explicit request for information` (schulz2010).</label>
+        <quote>This paper will explicitly state when labeled and unlabeled data are being used in the source and target domains</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE LITERATURE&#x27;S VOCABULARY IS INCONSISTENT AND THE PAPER SAYS SO: transfer learning and domain adaptation are used for similar processes, and the supervised / semi-supervised / unsupervised labels mean different things to different authors</label>
+        <quote>Throughout the literature on transfer learning, there are a number of terminology inconsistencies. Phrases such as transfer learning and domain adaptation are used to refer to similar processes. The following definitions will be used in this paper.</quote>
+      </span>
+      <span xml:id="t17" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>Some surveyed solutions are tied to their application and are stated not to generalise to others</label>
+        <quote>In some cases, the proposed transfer learning solutions are very specific to the underlying application and cannot be generically used for other applications.</quote>
+      </span>
+      <span xml:id="t18" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>Correcting the conditional distribution rests on pseudo labels, which the paper names as problematic because the correction uses estimates of the very labels it lacks</label>
+        <quote>To address the lack of labeled target data, some solutions estimate the labels for the target data (called pseudo labels), which are then used to correct the conditional distribution differences. This method is problematic because the conditional distribution corrections are being made with the aid of pseudo labels.</quote>
+      </span>
+      <span xml:id="t19" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>No single repository exists for the surveyed solutions, so the software behind the literature is scattered - the paper asks for one</label>
+        <quote>A single open-source software repository for published transfer learning solutions would be a great asset to the research community.</quote>
+      </span>
+      <span xml:id="t20" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>heterogeneous solutions mostly assume the domain distributions are the SAME, and need further adaptation steps when they are not</label>
+        <quote>The majority of the heterogeneous transfer learning solutions are focused on aligning the input spaces of the source and target domains with the assumption that the domain distributions are the same.</quote>
+      </span>
+      <span xml:id="t21" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.9">
+        <label>transferring on a defined relationship between domains is named as the least used of the four categories</label>
+        <quote>The last transfer category (and the least used approach) is to transfer knowledge based on some defined relationship between the source and target domains (examples in Mihalkova [74] and Li [62]).</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>transfer learning</label>
+        <term>transfer learning</term>
+        <quote>Therefore, there is a need to create high-performance learners trained with more easily obtained data from different domains. This methodology is referred to as transfer learning.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>domain adaptation</label>
+        <term>domain adaptation</term>
+        <quote>Domain adaptation, as it pertains to transfer learning, is the process of adapting one or more source domains for the means of transferring information to improve the performance of a target learner.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>negative transfer</label>
+        <term>negative transfer</term>
+        <quote>negative transfer occurs when the performance of fT1(·) is greater than the performance of fT2(·). The topic of negative transfer addresses the need to quantify the amount of relatedness between the source domain and the target domain and whether an attempt to transfer knowledge from the source domain should be made.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>positive transfer</label>
+        <term>positive transfer</term>
+        <quote>Extending the definition above, positive transfer occurs when the performance of fT2(·) is greater than the performance of fT1(·).</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>feature space</label>
+        <term>feature space</term>
+        <quote>A domain D is defined by two parts, a feature space X and a marginal probability distribution P(X)</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>domain D</label>
+        <term>domain D</term>
+        <quote>A domain D is defined by two parts, a feature space X and a marginal probability distribution P(X)</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.85">
+        <label>task T</label>
+        <term>task T</term>
+        <quote>For a given domain D, a task T is defined by two parts, a label space Y, and a predictive function f(·), which is learned from the feature vector and label pairs</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.85">
+        <label>label space</label>
+        <term>label space</term>
+        <quote>For a given domain D, a task T is defined by two parts, a label space Y, and a predictive function f(·), which is learned from the feature vector and label pairs</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.85">
+        <label>predictive function</label>
+        <term>predictive function</term>
+        <quote>For a given domain D, a task T is defined by two parts, a label space Y, and a predictive function f(·), which is learned from the feature vector and label pairs</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>supervised transfer learning</label>
+        <term>supervised transfer learning</term>
+        <quote>For example, Daumé [22] and Chattopadhyay [14] define supervised transfer learning as the case of having abundant labeled source data and limited labeled target data, and semi-supervised transfer learning as the case of abundant labeled source data and no labeled target data.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>semi-supervised transfer learning</label>
+        <term>semi-supervised transfer learning</term>
+        <quote>For example, Daumé [22] and Chattopadhyay [14] define supervised transfer learning as the case of having abundant labeled source data and limited labeled target data, and semi-supervised transfer learning as the case of abundant labeled source data and no labeled target data.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>inductive transfer learning</label>
+        <term>inductive transfer learning</term>
+        <quote>Pan [84] refers to inductive transfer learning as the case of having available labeled target domain data, transductive transfer learning as the case of having labeled source and no labeled target domain data, and unsupervised transfer learning as the case of having no labeled source and no labeled target domain data.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>transductive transfer learning</label>
+        <term>transductive transfer learning</term>
+        <quote>Pan [84] refers to inductive transfer learning as the case of having available labeled target domain data, transductive transfer learning as the case of having labeled source and no labeled target domain data, and unsupervised transfer learning as the case of having no labeled source and no labeled target domain data.</quote>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>unsupervised transfer learning</label>
+        <term>unsupervised transfer learning</term>
+        <quote>Pan [84] refers to inductive transfer learning as the case of having available labeled target domain data, transductive transfer learning as the case of having labeled source and no labeled target domain data, and unsupervised transfer learning as the case of having no labeled source and no labeled target domain data.</quote>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>terminology inconsistencies</label>
+        <term>terminology inconsistencies</term>
+        <quote>Throughout the literature on transfer learning, there are a number of terminology inconsistencies. Phrases such as transfer learning and domain adaptation are used to refer to similar processes. The following definitions will be used in this paper.</quote>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>pseudo labels</label>
+        <term>pseudo labels</term>
+        <quote>To address the lack of labeled target data, some solutions estimate the labels for the target data (called pseudo labels), which are then used to correct the conditional distribution differences. This method is problematic because the conditional distribution corrections are being made with the aid of pseudo labels.</quote>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>marginal distribution</label>
+        <term>marginal distribution</term>
+        <quote>The majority of the homogeneous transfer learning solutions employ one of three general strategies which include trying to correct for the marginal distribution difference in the source, trying to correct for the conditional distribution difference in the source, or trying to correct both the marginal and conditional distribution differences in the source.</quote>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>conditional distribution</label>
+        <term>conditional distribution</term>
+        <quote>The majority of the homogeneous transfer learning solutions employ one of three general strategies which include trying to correct for the marginal distribution difference in the source, trying to correct for the conditional distribution difference in the source, or trying to correct both the marginal and conditional distribution differences in the source.</quote>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>source domain</label>
+        <term>source domain</term>
+        <quote>negative transfer occurs when the performance of fT1(·) is greater than the performance of fT2(·). The topic of negative transfer addresses the need to quantify the amount of relatedness between the source domain and the target domain and whether an attempt to transfer knowledge from the source domain should be made.</quote>
+      </span>
+      <span xml:id="t41" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>target domain</label>
+        <term>target domain</term>
+        <quote>Domain adaptation, as it pertains to transfer learning, is the process of adapting one or more source domains for the means of transferring information to improve the performance of a target learner.</quote>
+      </span>
+      <span xml:id="t42" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">
+        <label>context feature bias</label>
+        <term>context feature bias</term>
+        <quote>In a transfer learning environment, there are scenarios where a feature in the source domain may have a different meaning in the target domain.</quote>
+      </span>
+      <span xml:id="t43" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">
+        <label>Transfer Categories</label>
+        <term>Transfer Categories</term>
+        <quote>The form of information transfer is categorized into four general Transfer Categories [84].</quote>
+      </span>
+      <span xml:id="t44" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">
+        <label>asymmetric feature transformation</label>
+        <term>asymmetric feature transformation</term>
+        <quote>The first approach transforms the features of the source through reweighting to more closely match the target domain (e.g. Pan [82]).</quote>
+      </span>
+      <span xml:id="t45" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">
+        <label>symmetric feature transformation</label>
+        <term>symmetric feature transformation</term>
+        <quote>The second approach discovers underlying meaningful structures between the domains to find a common latent feature space that has predictive qualities while reducing the marginal distribution between the domains (e.g. Blitzer [5]).</quote>
+      </span>
+      <span xml:id="t46" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.9">
+        <label>feature augmentation method</label>
+        <term>feature augmentation method</term>
+        <quote>To resolve context feature bias, a method to augment the source and target feature space with three duplicate copies of the original feature set is proposed.</quote>
+      </span>
+      <span xml:id="t47" type="concepts" ana="#concepts[25]" resp="#paper" cert="0.95">
+        <label>informed supervised transfer learning</label>
+        <term>informed supervised transfer learning</term>
+        <quote>Cook [19] and Feuz [36] provide a different variation where the definition of supervised or unsupervised refers to the presence or absence of labeled data in the source domain and informed or uninformed refers to the presence or absence of labeled data in the target domain. With this definition, a labeled source and limited labeled target domain is referred to as informed supervised transfer learning</quote>
+      </span>
+      <span xml:id="t48" type="concepts" ana="#concepts[26]" resp="#paper" cert="0.95">
+        <label>transductive transfer learning</label>
+        <term>transductive transfer learning</term>
+        <quote>Pan [84] refers to inductive transfer learning as the case of having available labeled target domain data, transductive transfer learning as the case of having labeled source and no labeled target domain data, and unsupervised transfer learning as the case of having no labeled source and no labeled target domain data</quote>
+      </span>
+      <span xml:id="t49" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>supervised transfer learning - DAUME AND CHATTOPADHYAY&#x27;S SENSE: abundant labeled source data and LIMITED labeled target data</label>
+        <quote>For example, Daumé [22] and Chattopadhyay [14] define supervised transfer learning as the case of having abundant labeled source data and limited labeled target data, and semi-supervised transfer learning as the case of abundant labeled source data and no labeled target data.</quote>
+      </span>
+      <span xml:id="t50" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>semi-supervised transfer learning - DAUME AND CHATTOPADHYAY&#x27;S SENSE: abundant labeled source and NO labeled target. Gong and Blitzer use this same phrase for what Daume calls SUPERVISED - the two labels are swapped between literatures</label>
+        <quote>For example, Daumé [22] and Chattopadhyay [14] define supervised transfer learning as the case of having abundant labeled source data and limited labeled target data, and semi-supervised transfer learning as the case of abundant labeled source data and no labeled target data.</quote>
+      </span>
+      <span xml:id="t51" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>unsupervised transfer learning - PAN&#x27;S SENSE: NO labeled source and NO labeled target, where the same phrase elsewhere in the literature means abundant labeled source and no labeled target. THREE GROUPS, ONE VOCABULARY, THREE MAPPINGS</label>
+        <quote>Pan [84] refers to inductive transfer learning as the case of having available labeled target domain data, transductive transfer learning as the case of having labeled source and no labeled target domain data, and unsupervised transfer learning as the case of having no labeled source and no labeled target domain data.</quote>
+      </span>
+      <span xml:id="t52" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>transfer learning - the paper&#x27;s response to its own finding: it refuses the contested labels entirely and states the data conditions each time instead of naming them</label>
+        <quote>This paper will explicitly state when labeled and unlabeled data are being used in the source and target domains.</quote>
+      </span>
+      <span xml:id="t53" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>`supervised transfer learning` - DAUME AND CHATTOPADHYAY&#x27;S SENSE: `abundant labeled source data and LIMITED labeled target data`. Gong and Blitzer give that same configuration to SEMI-SUPERVISED, and Cook and Feuz call it INFORMED SUPERVISED.</label>
+        <quote>For example, Daumé [22] and Chattopadhyay [14] define supervised transfer learning as the case of having abundant labeled source data and limited labeled target data, and semi-supervised transfer learning as the case of abundant labeled source data and no labeled target data</quote>
+      </span>
+      <span xml:id="t54" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>`semi-supervised transfer learning` - GONG AND BLITZER&#x27;S SENSE: `abundant labeled source data and LIMITED labeled target data`. THAT IS THE CONFIGURATION Daume and Chattopadhyay CALL SUPERVISED - see senses[4] and the `daume` mechanism on this record, which quote their sentence. One name over two configurations and one configuration under two names, in consecutive sentences.</label>
+        <quote>In Gong [42] and Blitzer [5], semi-supervised transfer learning is the case of having abundant labeled source data and limited labeled target data</quote>
+      </span>
+      <span xml:id="t55" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>`supervised` / `unsupervised` - COOK AND FEUZ MOVE THE AXIS: the pair refers to `the presence or absence of labeled data IN THE SOURCE domain` and a SECOND pair, `informed` / `uninformed`, carries the target. Two orthogonal axes where the other schemes have one.</label>
+        <quote>Cook [19] and Feuz [36] provide a different variation where the definition of supervised or unsupervised refers to the presence or absence of labeled data in the source domain and informed or uninformed refers to the presence or absence of labeled data in the target domain. With this definition, a labeled source and limited labeled target domain is referred to as informed supervised transfer learning</quote>
+      </span>
+      <span xml:id="t56" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>`domain adaptation` - AS STIPULATED HERE, because the field does not agree: `the process of ADAPTING ONE OR MORE SOURCE DOMAINS for the means of transferring information to improve the performance of a target learner`, by bringing the source&#x27;s distribution closer to the target&#x27;s.</label>
+        <quote>Domain adaptation, as it pertains to transfer learning, is the process of adapting one or more source domains for the means of transferring information to improve the performance of a target learner. The domain adaptation process attempts to alter a source domain in an attempt to bring the distribution of the source closer to that of the target</quote>
+      </span>
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>domain adaptation —part-of→ transfer learning</label>
+        <term>domain adaptation</term>
+        <term>transfer learning</term>
+        <note>strength of the relation: 0.9</note>
+        <quote>Domain adaptation, as it pertains to transfer learning, is the process of adapting one or more source domains for the means of transferring information to improve the performance of a target learner.</quote>
+      </span>
+      <span xml:id="t58" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>negative transfer —distinct-from→ positive transfer</label>
+        <term>negative transfer</term>
+        <term>positive transfer</term>
+        <note>strength of the relation: 1</note>
+        <quote>Extending the definition above, positive transfer occurs when the performance of fT2(·) is greater than the performance of fT1(·).</quote>
+      </span>
+      <span xml:id="t59" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>feature space —part-of→ domain D</label>
+        <term>feature space</term>
+        <term>domain D</term>
+        <note>strength of the relation: 1</note>
+        <quote>A domain D is defined by two parts, a feature space X and a marginal probability distribution P(X)</quote>
+      </span>
+      <span xml:id="t60" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+        <label>label space —part-of→ task T</label>
+        <term>label space</term>
+        <term>task T</term>
+        <note>strength of the relation: 1</note>
+        <quote>For a given domain D, a task T is defined by two parts, a label space Y, and a predictive function f(·), which is learned from the feature vector and label pairs</quote>
+      </span>
+      <span xml:id="t61" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
+        <label>predictive function —part-of→ task T</label>
+        <term>predictive function</term>
+        <term>task T</term>
+        <note>strength of the relation: 1</note>
+        <quote>For a given domain D, a task T is defined by two parts, a label space Y, and a predictive function f(·), which is learned from the feature vector and label pairs</quote>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>in the muscle-fatigue test EVERY transfer learning approach beat the non-transfer baseline, with the two proposed methods ranking first and second</label>
+        <quote>The order of performance from best to worst is 2SW-MDA, CP-MDA, Duan [29], Zhong [143], Gao [37], Pan [87], Huang [51], and the baseline approach.</quote>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.9">
+        <label>an often-cited domain adaptation method is reported as requiring only ten lines of Perl - the simplicity is the claim</label>
+        <quote>In an early and often cited work, Daumé [22] proposes a simple domain adaptation algorithm, referred to as the feature augmentation method (FAM), requiring only ten lines of Perl script that uses labeled source data and limited labeled target data.</quote>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>homogeneous transfer learning is presented as directly applicable to big data because it lets an existing related dataset stand in for costly new collection</label>
+        <quote>The methodology of homogeneous transfer learning is directly applicable to a big data environment.</quote>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the four transfer categories enumerated by what is carried across</label>
+        <quote>The form of information transfer is categorized into four general Transfer Categories [84].</quote>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>context feature bias defined by its consequence - it makes the conditional distributions differ</label>
+        <quote>The issue is referred to as context feature bias, which causes the conditional distributions between the source and target domains to be different.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/s40537-016-0043-6.</note></p>
+    </body>
+  </text>
+</TEI>

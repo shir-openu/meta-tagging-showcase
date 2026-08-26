@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Deep Learning for Generic Object Detection: A Survey</title>
+        <author>Li Liu</author>
+        <author>Wanli Ouyang</author>
+        <author>Xiaogang Wang</author>
+        <author>Paul Fieguth</author>
+        <author>Jie Chen</author>
+        <author>Xinwang Liu</author>
+        <author>Matti Pietikäinen</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Deep Learning for Generic Object Detection: A Survey</title>
+          <date>2019</date>
+          <publisher>International Journal of Computer Vision</publisher>
+          <idno type="DOI">10.1007/s11263-019-01247-4</idno>
+          
+          <idno type="record">liu2019-deep-learning-for-generic-object-d</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\liu2019-deep-learning-for-generic-object-d.txt</note>
+          <note type="text-sha1">34a58b226d9839d380369ebba7e7ed7b9b347068</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>computer-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">67 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>generic object detection with deep learning - what the problem is, how it is scored, and what more than 300 papers have done to it</label>
+        <quote>The goal of object detection is to determine whether there are any instances of objects from given categories (such as humans, cars, bicycles, dogs or cats) in an image and, if present, to return the spatial location and extent of each object instance</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what the field has achieved since deep learning arrived, organised by detection framework, feature representation, proposal generation, context modelling, training strategy and evaluation metric</label>
+        <quote>More than 300 research contributions are included in this survey, covering many aspects of generic object detection: detection frameworks, object feature representation, object proposal generation, context modeling, training strategies, and evaluation metrics. We finish the survey by identifying promising directions for future research.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a survey of more than 300 contributions with an explicit account of how detection is evaluated - including that a detection counts as correct only above a chosen overlap threshold, and that the threshold changed</label>
+        <quote>More than 300 research contributions are included in this survey, covering many aspects of generic object detection: detection frameworks, object feature representation, object proposal generation, context modeling, training strategies, and evaluation metrics. We finish the survey by identifying promising directions for future research.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>a field whose measure of success is a threshold and whose object vocabulary is a benchmark&#x27;s class list - 20, 200 or 91 depending which benchmark</label>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>a structured literature survey organised by component of the detection pipeline, with a table reconciling the evaluation metrics used by PASCAL VOC, ILSVRC, MS COCO and Open Images</label>
+        <term>a structured literature survey organised by component of the detection pipeline, with a table reconciling the evaluation metrics used by PASCAL VOC, ILSVRC, MS COCO and Open Images</term>
+        <quote>More than 300 research contributions are included in this survey, covering many aspects of generic object detection: detection frameworks, object feature representation, object proposal generation, context modeling, training strategies, and evaluation metrics. We finish the survey by identifying promising directions for future research.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>a detection counts as a true positive when its category matches AND its overlap with the ground-truth box is not smaller than a predefined threshold. Every precision, recall and AP number in the field is downstream of that number - and the number is a convention, not a derivation</label>
+        <term>correct is a threshold</term>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>PASCAL VOC&#x27;s mAP is computed at a single IoU of 0.5; MS COCO&#x27;s is averaged across 0.5 to 0.95 in steps of 0.05. Both are called mAP. A survey of the field has to print a table of which benchmark means which, and any comparison across that boundary is comparing two definitions</label>
+        <term>the same metric name, two quantities</term>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>41% of MS COCO objects are small and 24% are large, so size-stratified metrics were introduced. THE AGGREGATE WAS MISLEADING BECAUSE OF WHAT THE DATASET CONTAINED, and the response was to change the measure rather than the data</label>
+        <term>a metric subdivided because the dataset was skewed</term>
+        <quote>Because 41% of the objects in MS COCO are small and 24% are large, metrics A P small coco are also introduced.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>20 classes in PASCAL VOC, 200 in ILSVRC, 91 in MS COCO. `Object detection` means detection of whichever of those lists the paper trained against, and the survey says plainly that all of them are much smaller than what a human recognises</label>
+        <term>the object vocabulary is a benchmark&#x27;s class list</term>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>one figure panel shows a single class spanning wildly different images; another shows four near-identical images from four different classes. So a detector cannot be evaluated on visual similarity, and the annotation is the only ground truth there is</label>
+        <term>appearance does not determine the label, in either direction</term>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
+        <label>THE LONGEST TERM LIST IN THE CORPUS, AND IT IS NOT A LIST OF SYNONYMS - IT IS A LIST OF TERMS WHOSE BOUNDARIES DISAGREE BETWEEN PAPERS, AND IT SITS IN A FOOTNOTE: `To the best of our knowledge, THERE IS NO UNIVERSAL AGREEMENT IN THE LITERATURE ON THE DEFINITIONS OF VARIOUS VISION SUBTASKS. Terms such as detection, localization, recognition, classification, categorization, verification, identification, annotation, labeling, and understanding ARE OFTEN DIFFERENTLY DEFINED (Andreopoulos and Tsotsos 2013)`. Ten terms, attributed, declared unagreed, in a footnote - and the survey then has to pick.</label>
+        <quote>To the best of our knowledge, there is no universal agreement in the literature on the definitions of various vision subtasks. Terms such as detection, localization, recognition, classification, categorization, verification, identification, annotation, labeling, and understanding are often differently defined (Andreopoulos and Tsotsos 2013)</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>whether a detection is correct depends on a predefined overlap threshold rather than on any property of the image</label>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>mAP means different things under PASCAL VOC and MS COCO, so numbers are not comparable across that boundary</label>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the number of object categories in existing benchmark datasets is much smaller than can be recognized by humans - 20, 200 and 91 against a real-world order of 10^4-10^5</label>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the challenge winner is decided by the number of object categories won, with mAP used as a team measure justified by the two rankings having always agreed</label>
+        <quote>In object detection challenges, such as PASCAL VOC and ILSVRC, the winning entry of each object category is that with the highest AP score, and the winner of the challenge is the team that wins on the most object categories. The mAP is also used as the measure of a team’s Footnote 3 continued performance, and is justified since the ranking of teams by mAP was always the same as the ranking by the number of object categories won (Russakovsky et al. 2015).</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>high accuracy and high efficiency are competing goals, so any single reported figure is a position on a trade-off rather than a level of performance</label>
+        <quote>The ideal of generic object detection is to develop a generalpurpose algorithm that achieves two competing goals of high quality/accuracy and high efficiency (Fig. 5). As illustrated in Fig. 6, high quality detection must accurately localize and recognize objects in images or video frames, such that the large variety of object categories in the real world can be distinguished (i.e., high distinctiveness), and that object instances from the same category, subject to intraclass appearance variations, can be localized and recognized (i.e., high robustness). High efficiency requires that the entire detection task runs in real time with acceptable memory and storage demands.</quote>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>precision and recall from information retrieval, carried into vision as the basis of average precision and then of the field&#x27;s single headline number</label>
+        <quote>The most commonly used metric is Average Precision (AP), derived from precision and recall. AP is usually evaluated in a category specific manner, i.e., computed for each object category separately. To compare performance over all object categories, the mean AP (mAP) averaged over all object categories is adopted as the final measure of performance</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>MS COCO&#x27;s average over ten IoU thresholds instead of a single 0.5</label>
+        <note>eliminates: a detector tuned to clear one overlap value - averaging across 0.5 to 0.95 prices localisation accuracy into the score · outcome: held</note>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>size-stratified metrics introduced alongside the aggregate, after the object size distribution of the dataset was measured</label>
+        <note>eliminates: a headline number dominated by the size class that happens to be most common - 41% of MS COCO objects are small · outcome: held</note>
+        <quote>Because 41% of the objects in MS COCO are small and 24% are large, metrics A P small coco are also introduced.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>the challenge&#x27;s two rankings compared - by mAP and by number of object categories won - before adopting mAP as the team measure</label>
+        <note>eliminates: an aggregate standing in for per-category performance without evidence; the justification is that the two rankings were always the same · outcome: held</note>
+        <quote>In object detection challenges, such as PASCAL VOC and ILSVRC, the winning entry of each object category is that with the highest AP score, and the winner of the challenge is the team that wins on the most object categories. The mAP is also used as the measure of a team’s Footnote 3 continued performance, and is justified since the ranking of teams by mAP was always the same as the ranking by the number of object categories won (Russakovsky et al. 2015).</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>AP evaluated in a category-specific manner and only then averaged, rather than pooled across categories</label>
+        <note>eliminates: a common category&#x27;s performance swamping a rare one in the aggregate · outcome: held</note>
+        <quote>The most commonly used metric is Average Precision (AP), derived from precision and recall. AP is usually evaluated in a category specific manner, i.e., computed for each object category separately. To compare performance over all object categories, the mean AP (mAP) averaged over all object categories is adopted as the final measure of performance</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>figure panels showing one class across wildly different appearances and four classes across near-identical appearances</label>
+        <note>outcome: absent-declared-unreported</note>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>IOU</label>
+        <term>IOU</term>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>True Positive</label>
+        <term>True Positive</term>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>mAP</label>
+        <term>mAP</term>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>MS COCO</label>
+        <term>MS COCO</term>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>object categories</label>
+        <term>object categories</term>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>appearance</label>
+        <term>appearance</term>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>object class</label>
+        <term>object class</term>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>intraclass variations</label>
+        <term>intraclass variations</term>
+        <quote>In addition to intraclass variations, the large number of object categories, on the order of 104–105, demands great discrimination power from the detector to distinguish between subtly different interclass variations, as illustrated in Fig. 6j.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>accuracy</label>
+        <term>accuracy</term>
+        <quote>The ideal of generic object detection is to develop a generalpurpose algorithm that achieves two competing goals of high quality/accuracy and high efficiency (Fig. 5). As illustrated in Fig. 6, high quality detection must accurately localize and recognize objects in images or video frames, such that the large variety of object categories in the real world can be distinguished (i.e., high distinctiveness), and that object instances from the same category, subject to intraclass appearance variations, can be localized and recognized (i.e., high robustness). High efficiency requires that the entire detection task runs in real time with acceptable memory and storage demands.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>efficiency</label>
+        <term>efficiency</term>
+        <quote>The ideal of generic object detection is to develop a generalpurpose algorithm that achieves two competing goals of high quality/accuracy and high efficiency (Fig. 5). As illustrated in Fig. 6, high quality detection must accurately localize and recognize objects in images or video frames, such that the large variety of object categories in the real world can be distinguished (i.e., high distinctiveness), and that object instances from the same category, subject to intraclass appearance variations, can be localized and recognized (i.e., high robustness). High efficiency requires that the entire detection task runs in real time with acceptable memory and storage demands.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>specific instances</label>
+        <term>specific instances</term>
+        <quote>As illustrated in Fig. 2, object detection can be grouped into one of two types (Grauman and Leibe 2011; Zhang et al. 2013): detection of specific instances versus the detection of broad categories. The first type aims to detect instances of a particular object (such as Donald Trump’s face, the Eiffel Tower, or a neighbor’s dog), essentially a matching problem.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>broad categories</label>
+        <term>broad categories</term>
+        <quote>As illustrated in Fig. 2, object detection can be grouped into one of two types (Grauman and Leibe 2011; Zhang et al. 2013): detection of specific instances versus the detection of broad categories. The first type aims to detect instances of a particular object (such as Donald Trump’s face, the Eiffel Tower, or a neighbor’s dog), essentially a matching problem.</quote>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>a correct detection - AS DEFINED: the predicted category equals the ground truth label AND the intersection-over-union with the ground-truth box is not smaller than a predefined threshold</label>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>mAP - UNDER PASCAL VOC: computed at a single IoU of 0.5</label>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t37" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>mAP - UNDER MS COCO: averaged across IoU values from 0.5 to 0.95 in steps of 0.05, plus separate metrics for small, medium and large objects</label>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t38" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>object detection - OF SPECIFIC INSTANCES: matching a particular object, such as one face or one tower</label>
+        <quote>As illustrated in Fig. 2, object detection can be grouped into one of two types (Grauman and Leibe 2011; Zhang et al. 2013): detection of specific instances versus the detection of broad categories. The first type aims to detect instances of a particular object (such as Donald Trump’s face, the Eiffel Tower, or a neighbor’s dog), essentially a matching problem.</quote>
+      </span>
+      <span xml:id="t39" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>object detection - OF BROAD CATEGORIES: the generic problem this survey is about, whose category list is whatever the benchmark defines</label>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t40" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>an object class - AS A VISUAL GROUPING: what the four similar-looking images in Fig. 6j would suggest, and which the caption says is wrong</label>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>an object class - AS A LABEL: a benchmark&#x27;s annotation, which can hold an astonishing variation in appearance and can separate images that look alike</label>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>TEN NAMES FOR OVERLAPPING TASKS, AND THE FIELD IS DECLARED TO HAVE NO AGREEMENT ABOUT ANY OF THEM: `THERE IS NO UNIVERSAL AGREEMENT IN THE LITERATURE ON THE DEFINITIONS OF VARIOUS VISION SUBTASKS. Terms such as DETECTION, LOCALIZATION, RECOGNITION, CLASSIFICATION, CATEGORIZATION, VERIFICATION, IDENTIFICATION, ANNOTATION, LABELING, AND UNDERSTANDING ARE OFTEN DIFFERENTLY DEFINED`. A survey cannot proceed without saying which it means, and the field supplies ten words and no map.</label>
+        <quote>To the best of our knowledge, there is no universal agreement in the literature on the definitions of various vision subtasks. Terms such as detection, localization, recognition, classification, categorization, verification, identification, annotation, labeling, and understanding are often differently defined (Andreopoulos and Tsotsos 2013)</quote>
+      </span>
+      <span xml:id="t43" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → the benchmark class lists themselves - 20, 200 and 91 categories against a real world of 10^4 to 10^5</label>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>qualifies → mAP as a comparable number, by showing that PASCAL VOC and MS COCO compute it at different IoU regimes</label>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>builds-on → more than 300 research contributions, organised by component of the detection pipeline</label>
+        <quote>More than 300 research contributions are included in this survey, covering many aspects of generic object detection: detection frameworks, object feature representation, object proposal generation, context modeling, training strategies, and evaluation metrics. We finish the survey by identifying promising directions for future research.</quote>
+      </span>
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+        <label>distinguishes-from → detection of specific instances, which the survey separates out as essentially a matching problem</label>
+        <quote>As illustrated in Fig. 2, object detection can be grouped into one of two types (Grauman and Leibe 2011; Zhang et al. 2013): detection of specific instances versus the detection of broad categories. The first type aims to detect instances of a particular object (such as Donald Trump’s face, the Eiffel Tower, or a neighbor’s dog), essentially a matching problem.</quote>
+      </span>
+      <span xml:id="t47" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>mAP —distinct-from→ MS COCO</label>
+        <term>mAP</term>
+        <term>MS COCO</term>
+        <note>differs in: how many overlap thresholds the score is averaged over · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>appearance —distinct-from→ object class</label>
+        <term>appearance</term>
+        <term>object class</term>
+        <note>differs in: whether two images look alike or carry the same label · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>intraclass variations —distinct-from→ object categories</label>
+        <term>intraclass variations</term>
+        <term>object categories</term>
+        <note>differs in: whether the difficulty is within one label or between labels · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>In addition to intraclass variations, the large number of object categories, on the order of 104–105, demands great discrimination power from the detector to distinguish between subtly different interclass variations, as illustrated in Fig. 6j.</quote>
+      </span>
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>specific instances —distinct-from→ broad categories</label>
+        <term>specific instances</term>
+        <term>broad categories</term>
+        <note>differs in: whether the target is one object or a class of them · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>As illustrated in Fig. 2, object detection can be grouped into one of two types (Grauman and Leibe 2011; Zhang et al. 2013): detection of specific instances versus the detection of broad categories. The first type aims to detect instances of a particular object (such as Donald Trump’s face, the Eiffel Tower, or a neighbor’s dog), essentially a matching problem.</quote>
+      </span>
+      <span xml:id="t51" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">
+        <label>accuracy —distinct-from→ efficiency</label>
+        <term>accuracy</term>
+        <term>efficiency</term>
+        <note>differs in: whether the constraint comes from the vision problem or from the deployment device · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>The ideal of generic object detection is to develop a generalpurpose algorithm that achieves two competing goals of high quality/accuracy and high efficiency (Fig. 5). As illustrated in Fig. 6, high quality detection must accurately localize and recognize objects in images or video frames, such that the large variety of object categories in the real world can be distinguished (i.e., high distinctiveness), and that object instances from the same category, subject to intraclass appearance variations, can be localized and recognized (i.e., high robustness). High efficiency requires that the entire detection task runs in real time with acceptable memory and storage demands.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>a detection counts as correct only if its overlap with the ground truth is not smaller than a predefined threshold</label>
+        <term>a detection counts as correct only if its overlap with the ground truth is not smaller than a predefined threshold</term>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>MS COCO replaced the single IoU of 0.5 with an average across 0.5 to 0.95 in steps of 0.05, so mAP names two different quantities</label>
+        <term>MS COCO replaced the single IoU of 0.5 with an average across 0.5 to 0.95 in steps of 0.05, so mAP names two different quantities</term>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the benchmark class lists are 20, 200 and 91 categories, much smaller than what humans recognise</label>
+        <term>the benchmark class lists are 20, 200 and 91 categories, much smaller than what humans recognise</term>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>one object class can span an astonishing variation in appearance while four near-identical images belong to four different classes</label>
+        <term>one object class can span an astonishing variation in appearance while four near-identical images belong to four different classes</term>
+        <quote>Changes in appearance of the same class with variations in imaging conditions (a–h). There is an astonishing variation in what is meant to be a single object class (i). In contrast, the four images in j appear very similar, but in fact are from four different object classes.</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>size-stratified metrics were introduced because 41% of MS COCO objects are small and 24% are large</label>
+        <term>size-stratified metrics were introduced because 41% of MS COCO objects are small and 24% are large</term>
+        <quote>Because 41% of the objects in MS COCO are small and 24% are large, metrics A P small coco are also introduced.</quote>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>the challenge winner is the team that wins the most object categories, with mAP justified as a team measure by the two rankings always agreeing</label>
+        <term>the challenge winner is the team that wins the most object categories, with mAP justified as a team measure by the two rankings always agreeing</term>
+        <quote>In object detection challenges, such as PASCAL VOC and ILSVRC, the winning entry of each object category is that with the highest AP score, and the winner of the challenge is the team that wins on the most object categories. The mAP is also used as the measure of a team’s Footnote 3 continued performance, and is justified since the ranking of teams by mAP was always the same as the ranking by the number of object categories won (Russakovsky et al. 2015).</quote>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>high accuracy and high efficiency are named as competing goals of the same ideal algorithm</label>
+        <term>high accuracy and high efficiency are named as competing goals of the same ideal algorithm</term>
+        <quote>The ideal of generic object detection is to develop a generalpurpose algorithm that achieves two competing goals of high quality/accuracy and high efficiency (Fig. 5). As illustrated in Fig. 6, high quality detection must accurately localize and recognize objects in images or video frames, such that the large variety of object categories in the real world can be distinguished (i.e., high distinctiveness), and that object instances from the same category, subject to intraclass appearance variations, can be localized and recognized (i.e., high robustness). High efficiency requires that the entire detection task runs in real time with acceptable memory and storage demands.</quote>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>a predicted detection whose category equals the ground-truth label and whose intersection-over-union with the ground-truth box is not smaller than a predefined threshold</label>
+        <term>True Positive</term>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>average precision computed per category and then averaged over all object categories, adopted as the final measure of performance</label>
+        <term>mAP</term>
+        <quote>The most commonly used metric is Average Precision (AP), derived from precision and recall. AP is usually evaluated in a category specific manner, i.e., computed for each object category separately. To compare performance over all object categories, the mean AP (mAP) averaged over all object categories is adopted as the final measure of performance</quote>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>of the objects in MS COCO are small and 24% are large - the reason size-stratified metrics exist</label>
+        <term>41%</term>
+        <quote>Because 41% of the objects in MS COCO are small and 24% are large, metrics A P small coco are also introduced.</quote>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>more than this many research contributions are included in the survey</label>
+        <term>300</term>
+        <quote>More than 300 research contributions are included in this survey, covering many aspects of generic object detection: detection frameworks, object feature representation, object proposal generation, context modeling, training strategies, and evaluation metrics. We finish the survey by identifying promising directions for future research.</quote>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>mAP</label>
+        <term>mAP</term>
+        <quote>Since the introduction of MS COCO, more attention has been placed on the accuracy of the bounding box location. Instead of using a fixed IOU threshold, MS COCO introduces a few metrics (summarized in Table 5) for characterizing the performance of an object detector. For instance, in contrast to the traditional mAP computed at a single IoU of 0.5, A Pcoco is averaged across all object categories and multiple IOU values from 0.5 to 0.95 in steps of 0.05.</quote>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>IOU</label>
+        <term>IOU</term>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>object categories</label>
+        <term>object categories</term>
+        <quote>In practice, current detectors focus mainly on structured object categories, such as the 20, 200 and 91 object classes in PASCAL VOC (Everingham et al. 2010), ILSVRC (Russakovsky et al. 2015) and MS COCO (Lin et al. 2014) respectively. Clearly, the number of object categories under consideration in existing benchmark datasets is much smaller than can be recognized by humans.</quote>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>IOU</label>
+        <term>IOU</term>
+        <quote>A predicted detection (b, c, p) is regarded as a True Positive (TP) if • The predicted category c equals the ground truth label cg. • The overlap ratio IOU (Intersection Over Union) (Everingham et al. 2010; Russakovsky et al. 2015) IOU(b, bg) = area (b ∩ bg) area (b ∪ bg) , (4) between the predicted BB b and the ground truth bg is not smaller than a predefined threshold</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1007/s11263-019-01247-4.</note></p>
+    </body>
+  </text>
+</TEI>

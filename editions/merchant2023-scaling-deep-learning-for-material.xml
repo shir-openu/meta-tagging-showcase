@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Scaling deep learning for materials discovery</title>
+        <author>Amil Merchant</author>
+        <author>Simon Batzner</author>
+        <author>Samuel S. Schoenholz</author>
+        <author>Muratahan Aykol</author>
+        <author>Gowoon Cheon</author>
+        <author>Ekin D. Cubuk</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Scaling deep learning for materials discovery</title>
+          <date>2023</date>
+          <publisher>Nature</publisher>
+          <idno type="DOI">10.1038/s41586-023-06735-9</idno>
+          
+          <idno type="record">merchant2023-scaling-deep-learning-for-material</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\merchant2023-scaling-deep-learning-for-material.txt</note>
+          <note type="text-sha1">e406ead7f08e8bb9543f1d540668f0df52bc0f80</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>materials-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">60 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>inorganic crystal structures and whether a graph neural network can predict which are thermodynamically stable</label>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether machine learning can estimate stability against the convex hull accurately enough to guide discovery, which prior methods could not</label>
+        <quote>Although data-driven methods that aid in further materials discovery have been pursued, thus far, machine-learning techniques have been ineffective in estimating stability (decomposition energy) with respect to the convex hull of energies from competing phases.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>2.2 million structures stable with respect to the Materials Project, of which 381,000 sit on the updated convex hull, plus learned interatomic potentials from the resulting dataset</label>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>existence</label>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>emergent out-of-distribution generalisation in a graph network trained at scale</label>
+        <quote>Moreover, these networks develop emergent out-of-distribution generalization. For example, GNoME enables accurate predictions of structures with 5+ unique elements (despite omission from training), providing one of the first strategies to efficiently explore this chemical space.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>rounds of active learning: generate candidates, filter with graph networks, verify the survivors with DFT, retrain on the result</label>
+        <term>rounds of active learning: generate candidates, filter with graph networks, verify the survivors with DFT, retrain on the result</term>
+        <quote>The energy of the filtered candidates is computed using DFT, both verifying model predictions and serving as a data flywheel to train more robust models on larger datasets in the next round of active learning.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>DFT verifies the model&#x27;s filtered candidates and the verified results become the next round&#x27;s training data, so the same computation both audits the model and improves it</label>
+        <term>the data flywheel</term>
+        <quote>The energy of the filtered candidates is computed using DFT, both verifying model predictions and serving as a data flywheel to train more robust models on larger datasets in the next round of active learning.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>prediction quality improves as a power law in the amount of data, matching what has been observed in language and vision rather than being specific to materials</label>
+        <term>power-law scaling of prediction error</term>
+        <quote>Consistent with observations in other domains of machine learning, we observe that our neural networks predictions improve as a power law with the amount of data.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the discovered materials can themselves be bumped off the convex hull by future work - stability is a claim about a catalogue at a moment</label>
+        <quote>Consistent with other literature on structure prediction, the GNoME materials could be bumped off the convex hull by future discoveries, similar to how GNoME displaces at least 5,000 ‘stable’ materials from the Materials Project and the OQMD.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the experimental-match count is a lower bound, because the compositional match is enforced strictly</label>
+        <quote>Given that we are enforcing a strict compositional match, our matching process is still relatively conservative and is likely to yield a lower bound.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the matching answer moves by about 100 structures depending on parser and matcher tolerance settings</label>
+        <quote>For both modules, we tried using the default settings as well as more tolerant settings that improve structure parsing and matching (higher occupancy tolerance in CIF parsing to fix cases with &gt;1.0 total occupancy and allowing supercell and subset comparison in matching). The latter resulted in a slight increase (about 100) in the number of matched structures with respect to the default settings.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the discovery functional was chosen for a speed-accuracy trade-off rather than accuracy, and 84% rather than 100% survive the more accurate one</label>
+        <quote>Standard projector augmented wave (PAW)-Perdew–Burke–Ernzerhof (PBE) potentials provided a speed–accuracy trade-off suited for large-scale discovery, but the r2SCAN functional provides a more accurate meta-generalized gradient approximation.</quote>
+      </span>
+      <span xml:id="t12" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>neural scaling laws, carried from language and vision into materials-stability prediction</label>
+        <quote>Consistent with observations in other domains of machine learning, we observe that our neural networks predictions improve as a power law with the amount of data.</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>recomputation under the more accurate r2SCAN functional, to test whether discovery overfitted the cheaper PBE one</label>
+        <note>eliminates: a discovery set that exists only under the cheap functional it was searched with · outcome: partial</note>
+        <quote>84% of the discovered binaries and ternary materials also present negative phase-separation energies (as visualized in Fig. 2d, comparable with a 90% ratio in the Materials Project but operating at a larger scale). 86.8% of tested quaternaries also remain stable on the r2SCAN convex hull.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>an explicit check that model-based exploration did not overfit the simulation parameters</label>
+        <note>eliminates: model-based exploration finding materials that are artefacts of the simulation parameters it was trained against · outcome: held</note>
+        <quote>We also validate predictions to ensure that model-based exploration did not overfit simulation parameters. We focus on the choice of functional.</quote>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>matching against crystals experimentally realised by other groups after the training snapshot</label>
+        <note>eliminates: a match rate inflated by structures the model could have seen, since these were realised experimentally after the training snapshot · outcome: held</note>
+        <quote>Of the experimental structures aggregated in the ICSD, 736 match structures that were independently obtained through GNoME.</quote>
+      </span>
+      <span xml:id="t16" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>comparison against compositions added to the Materials Project after the March 2021 snapshot</label>
+        <note>eliminates: a match rate computed only against the database the model was trained on · outcome: held</note>
+        <quote>Similarly, of the 3,182 compositions added to the Materials Project since the snapshot, 2,202 are available in the GNoME database and 91% match on structure.</quote>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>a sensitivity check on the parser and matcher tolerances used to count experimental matches</label>
+        <note>eliminates: an experimental match count that exists only at one parser and matcher tolerance setting · outcome: partial</note>
+        <quote>For both modules, we tried using the default settings as well as more tolerant settings that improve structure parsing and matching (higher occupancy tolerance in CIF parsing to fix cases with &gt;1.0 total occupancy and allowing supercell and subset comparison in matching). The latter resulted in a slight increase (about 100) in the number of matched structures with respect to the default settings.</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>convex hull</label>
+        <term>convex hull</term>
+        <quote>Although data-driven methods that aid in further materials discovery have been pursued, thus far, machine-learning techniques have been ineffective in estimating stability (decomposition energy) with respect to the convex hull of energies from competing phases.</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>decomposition energy</label>
+        <term>decomposition energy</term>
+        <quote>Although data-driven methods that aid in further materials discovery have been pursued, thus far, machine-learning techniques have been ineffective in estimating stability (decomposition energy) with respect to the convex hull of energies from competing phases.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>hit rate</label>
+        <term>hit rate</term>
+        <quote>Final GNoME models accurately predict energies to 11 meV atom−1 and improve the precision of stable predictions (hit rate) to above 80% with structure and 33% per 100 trials with composition only, compared with 1% in previous work.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>active learning</label>
+        <term>active learning</term>
+        <quote>The energy of the filtered candidates is computed using DFT, both verifying model predictions and serving as a data flywheel to train more robust models on larger datasets in the next round of active learning.</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>GNoME</label>
+        <term>GNoME</term>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>Materials Project</label>
+        <term>Materials Project</term>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>r2SCAN</label>
+        <term>r2SCAN</term>
+        <quote>84% of the discovered binaries and ternary materials also present negative phase-separation energies (as visualized in Fig. 2d, comparable with a 90% ratio in the Materials Project but operating at a larger scale). 86.8% of tested quaternaries also remain stable on the r2SCAN convex hull.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>experimental match</label>
+        <term>experimental match</term>
+        <quote>By rounding to nearest integer formulas, we found 4,235 composition matches with materials discovered by GNoME. Of these, 4,180 are successfully parsed for structure.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>prototypes</label>
+        <term>prototypes</term>
+        <quote>Clustering by means of prototype analysis supports the diversity of discovered crystals with GNoME, leading to more than 45,500 novel prototypes in Fig. 2c (a 5.6 times increase from 8,000 of the Materials Project), which could not have arisen from full substitutions or prototype enumeration.</quote>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>&#x27;stable&#x27; sense 1 = below the convex hull OF A PRIOR CATALOGUE - 2.2 million structures</label>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>&#x27;stable&#x27; sense 2 = ON the UPDATED convex hull after this work - 381,000 entries, six times fewer</label>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t29" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>stability is REVOCABLE: these materials can be bumped off the hull by future discoveries, exactly as this work bumps off 5,000 others</label>
+        <quote>Consistent with other literature on structure prediction, the GNoME materials could be bumped off the convex hull by future discoveries, similar to how GNoME displaces at least 5,000 ‘stable’ materials from the Materials Project and the OQMD.</quote>
+      </span>
+      <span xml:id="t30" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>&#x27;meaningfully stable&#x27; = distributed like known stable phases, not merely filling gaps in the hull</label>
+        <quote>The similarities in distribution suggest that the found materials are meaningfully stable with respect to competing phases and not just ‘filling in the convex hull.’</quote>
+      </span>
+      <span xml:id="t31" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>&#x27;experimental match&#x27; = integer-rounded composition match AND a pymatgen structure match, declared a lower bound</label>
+        <quote>Given that we are enforcing a strict compositional match, our matching process is still relatively conservative and is likely to yield a lower bound.</quote>
+      </span>
+      <span xml:id="t32" type="alternatives" ana="#alternatives.claim_type" resp="#tagger" cert="0.7">
+        <label>claim_type: method</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: existence — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>A protocol using large-scale training of graph networks enables high-throughput discovery of novel stable structures and led to the identification of 2.2 million crystal structures, of which 381,000 are newly discovered stable materials. ## Main The discovery of energetically favourable inorganic crystals is of fundamental scientific and technological interest in solid-state chemistry.</quote>
+      </span>
+      <span xml:id="t33" type="alternatives" ana="#alternatives.method" resp="#tagger" cert="0.8">
+        <label>method: system-or-tool-building</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: rounds of active learning: generate candidates, filter with graph networks, verify the survivors with DFT, retrain on th — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>Instead, computational approaches championed by the Materials Project (MP), the Open Quantum Materials Database (OQMD), AFLOWLIB and NOMAD have used first-principles calculations based on density functional theory (DFT) as approximations of physical energies.</quote>
+      </span>
+      <span xml:id="t34" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger" cert="0.85">
+        <label>phenomenon: discovery of energetically stable inorganic crystal structures at a scale experiment cannot reach</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: emergent out-of-distribution generalisation in a graph network trained at scale — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>The discovery of energetically favourable inorganic crystals is of fundamental scientific and technological interest in solid-state chemistry.</quote>
+      </span>
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>contradicts → the prior position that machine learning cannot estimate stability against the convex hull</label>
+        <note>the paper states that position as the state of the art it overturns, and the hit-rate figures are what it offers against it</note>
+        <quote>Although data-driven methods that aid in further materials discovery have been pursued, thus far, machine-learning techniques have been ineffective in estimating stability (decomposition energy) with respect to the convex hull of energies from competing phases.</quote>
+      </span>
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → the Materials Project, OQMD, AFLOWLIB and NOMAD catalogues of computationally stable structures</label>
+        <note>extends by an order of magnitude AND revises downward - at least 5,000 of their entries are displaced</note>
+        <quote>Combining ab initio calculations with simple substitutions has allowed researchers to improve to 48,000 computationally stable materials according to our own recalculations (see Methods).</quote>
+      </span>
+      <span xml:id="t37" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>GNoME —contrasted-with→ Materials Project</label>
+        <term>GNoME</term>
+        <term>Materials Project</term>
+        <note>differs in: scale, and the direction of revision - GNoME removes at least 5,000 entries the Materials Project called stable · strength of the relation: 0.95</note>
+        <quote>Consistent with other literature on structure prediction, the GNoME materials could be bumped off the convex hull by future discoveries, similar to how GNoME displaces at least 5,000 ‘stable’ materials from the Materials Project and the OQMD.</quote>
+      </span>
+      <span xml:id="t38" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>active learning —causes→ hit rate</label>
+        <term>active learning</term>
+        <term>hit rate</term>
+        <note>direction on the measure: increases · strength of the relation: 0.85</note>
+        <quote>Whereas the hit rate for both structural and compositional frameworks start at less than 6% and 3%, respectively, performance improves steadily through six rounds of active learning.</quote>
+      </span>
+      <span xml:id="t39" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>r2SCAN —operationalised-as→ convex hull</label>
+        <term>r2SCAN</term>
+        <term>convex hull</term>
+        <note>strength of the relation: 0.85 — the hull is recomputed under a second functional as the check that the first did not decide the answer</note>
+        <quote>84% of the discovered binaries and ternary materials also present negative phase-separation energies (as visualized in Fig. 2d, comparable with a 90% ratio in the Materials Project but operating at a larger scale). 86.8% of tested quaternaries also remain stable on the r2SCAN convex hull.</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>the same word &#x27;stable&#x27; carries two counts six times apart in one paragraph, depending on which catalogue&#x27;s hull is meant</label>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>this work removes at least 5,000 entries that two prior catalogues had called stable</label>
+        <quote>Consistent with other literature on structure prediction, the GNoME materials could be bumped off the convex hull by future discoveries, similar to how GNoME displaces at least 5,000 ‘stable’ materials from the Materials Project and the OQMD.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the networks generalise to structures with 5+ unique elements although such structures were omitted from training</label>
+        <quote>Moreover, these networks develop emergent out-of-distribution generalization. For example, GNoME enables accurate predictions of structures with 5+ unique elements (despite omission from training), providing one of the first strategies to efficiently explore this chemical space.</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the discovered materials are distributed like known stable phases rather than merely filling gaps in the hull</label>
+        <quote>The similarities in distribution suggest that the found materials are meaningfully stable with respect to competing phases and not just ‘filling in the convex hull.’</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>convex hull</label>
+        <term>convex hull</term>
+        <quote>Although data-driven methods that aid in further materials discovery have been pursued, thus far, machine-learning techniques have been ineffective in estimating stability (decomposition energy) with respect to the convex hull of energies from competing phases.</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>hit rate</label>
+        <term>hit rate</term>
+        <quote>Final GNoME models accurately predict energies to 11 meV atom−1 and improve the precision of stable predictions (hit rate) to above 80% with structure and 33% per 100 trials with composition only, compared with 1% in previous work.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>experimental match</label>
+        <term>experimental match</term>
+        <quote>By rounding to nearest integer formulas, we found 4,235 composition matches with materials discovered by GNoME. Of these, 4,180 are successfully parsed for structure.</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>2.2 million structures stable with respect to the Materials Project; 381,000 on the updated hull — None</label>
+        <quote>In particular, GNoME models found 2.2 million crystal structures stable with respect to the Materials Project. Of these, 381,000 entries live on the updated convex hull as newly discovered materials.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>at least 5,000 previously &#x27;stable&#x27; materials displaced from the Materials Project and OQMD — None</label>
+        <quote>Consistent with other literature on structure prediction, the GNoME materials could be bumped off the convex hull by future discoveries, similar to how GNoME displaces at least 5,000 ‘stable’ materials from the Materials Project and the OQMD.</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>energies predicted to 11 meV per atom; hit rate above 80% with structure, 33% per 100 trials with composition, against 1% before — None</label>
+        <quote>Final GNoME models accurately predict energies to 11 meV atom−1 and improve the precision of stable predictions (hit rate) to above 80% with structure and 33% per 100 trials with composition only, compared with 1% in previous work.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
+        <label>736 of the ICSD&#x27;s experimental structures match GNoME discoveries; 184 are novel since the project began — None</label>
+        <quote>Overall, we found 736 matches, providing experimental confirmation for the GNoME structures. 184 of these structures correspond to novel discoveries since the start of the project.</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">
+        <label>4,235 composition matches narrowed to 4,180 parsed and then to 736 — None</label>
+        <quote>By rounding to nearest integer formulas, we found 4,235 composition matches with materials discovered by GNoME. Of these, 4,180 are successfully parsed for structure.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="0.95">
+        <label>84% of binaries and ternaries and 86.8% of quaternaries survive r2SCAN — None</label>
+        <quote>84% of the discovered binaries and ternary materials also present negative phase-separation energies (as visualized in Fig. 2d, comparable with a 90% ratio in the Materials Project but operating at a larger scale). 86.8% of tested quaternaries also remain stable on the r2SCAN convex hull.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="0.95">
+        <label>45,500 novel prototypes, a 5.6 times increase on the Materials Project&#x27;s 8,000 — None</label>
+        <quote>Clustering by means of prototype analysis supports the diversity of discovered crystals with GNoME, leading to more than 45,500 novel prototypes in Fig. 2c (a 5.6 times increase from 8,000 of the Materials Project), which could not have arisen from full substitutions or prototype enumeration.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="0.95">
+        <label>layered materials rise from about 1,000 to about 52,000 — None</label>
+        <quote>First, layered materials are promising systems for electronics and energy storage. Methods from previous studies suggest that approximately 1,000 layered materials are stable compared with the Materials Project, whereas this number increases to about 52,000 with GNoME-based discoveries.</quote>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="0.95">
+        <label>the ICSD holds 20,000 computationally stable structures out of 200,000 entries — None</label>
+        <quote>Experimental approaches over the decades have catalogued 20,000 computationally stable structures (out of a total of 200,000 entries) in the Inorganic Crystal Structure Database (ICSD). However, this strategy is impractical to scale owing to costs, throughput and synthesis complications.</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>power-law improvement of test loss with data</label>
+        <term>power-law improvement of test loss with data</term>
+        <quote>Consistent with observations in other domains of machine learning, we observe that our neural networks predictions improve as a power law with the amount of data.</quote>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>precision of stable predictions, reported as a hit rate</label>
+        <term>precision of stable predictions, reported as a hit rate</term>
+        <quote>Final GNoME models accurately predict energies to 11 meV atom−1 and improve the precision of stable predictions (hit rate) to above 80% with structure and 33% per 100 trials with composition only, compared with 1% in previous work.</quote>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>decomposition energy</label>
+        <term>decomposition energy</term>
+        <quote>Although data-driven methods that aid in further materials discovery have been pursued, thus far, machine-learning techniques have been ineffective in estimating stability (decomposition energy) with respect to the convex hull of energies from competing phases.</quote>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>hit rate</label>
+        <term>hit rate</term>
+        <quote>Final GNoME models accurately predict energies to 11 meV atom−1 and improve the precision of stable predictions (hit rate) to above 80% with structure and 33% per 100 trials with composition only, compared with 1% in previous work.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1038/s41586-023-06735-9.</note></p>
+    </body>
+  </text>
+</TEI>

@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">45 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">48 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -135,123 +135,144 @@
         <note>what this limits: any reading of this model&#x27;s &#x27;style&#x27; as a manner of depiction: copying the coarse-resolution styles transfers pose, general hair style, face shape and eyeglasses, which are properties of the subject rather than of the manner</note>
         <quote>Copying the styles corresponding to coarse spatial resolutions (42 – 82) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B</quote>
       </span>
-      <span xml:id="t19" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t19" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>the style-transfer idea of separating content from style, taken from that literature and built into the generator architecture so that style is injected at each convolution layer - the network is named after it</label>
+        <quote>Motivated by style transfer literature [27], we re-design the generator architecture in a way that exposes novel ways to control the image synthesis process.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>an ablation table beginning from a Progressive GAN baseline, with each row adding one change to the row above</label>
+        <note>eliminates: attributing the improvement to the architecture as a whole - a table where every row differs from the previous one by a single change is what makes any single change attributable</note>
+        <quote>A Baseline Progressive GAN [30] B + Tuning (incl.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>style</label>
         <term>style</term>
         <quote>We choose to reuse the word “style” for y because similar network architectures are already used for feedforward style transfer [27], unsupervised image-toimage translation [28], and domain mixtures</quote>
       </span>
-      <span xml:id="t20" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t22" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>spatially invariant statistics</label>
         <term>spatially invariant statistics</term>
         <quote>where it has been established that spatially invariant statistics (Gram matrix, channel-wise mean, variance, etc.) reliably encode the style of an image</quote>
       </span>
-      <span xml:id="t21" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t23" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>disentanglement</label>
         <term>disentanglement</term>
         <quote>There are various definitions for disentanglement</quote>
       </span>
-      <span xml:id="t22" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t24" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>perceptual path length</label>
         <term>perceptual path length</term>
         <quote>we propose two new automated metrics — perceptual path length and linear separability — for quantifying these aspects of the generator</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t25" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>linear separability</label>
         <term>linear separability</term>
         <quote>perceptual path length and linear separability</quote>
       </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[9]" resp="#paper">
+      <span xml:id="t26" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>coarse spatial resolutions</label>
         <term>coarse spatial resolutions</term>
         <quote>Copying the styles corresponding to coarse spatial resolutions (42 – 82) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B</quote>
       </span>
-      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t27" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>&#x27;style&#x27; - REUSED BY THE AUTHORS&#x27; OWN DECISION, FOR ARCHITECTURAL RESEMBLANCE: they say plainly that they choose to reuse the word for the vector y because similar network architectures are already used in feedforward style transfer and image-to-image translation, so the word marks a family of architectures rather than a property of a picture</label>
         <quote>We choose to reuse the word “style” for y because similar network architectures are already used for feedforward style transfer [27], unsupervised image-toimage translation [28], and domain mixtures</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>style, once more removed - AS SPATIALLY INVARIANT STATISTICS: the paper&#x27;s warrant is the style transfer literature&#x27;s finding that spatially invariant statistics encode style while spatially varying features encode the instance, which is the same move gatys2015 made with a Gram matrix</label>
         <quote>This observation is in line with style transfer literature, where it has been established that spatially invariant statistics (Gram matrix, channel-wise mean, variance, etc.) reliably encode the style of an image [20, 39] while spatially varying features encode a specific instance</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>disentanglement - A GOAL STANDING IN FOR A DEFINITION: the paper records that the literature holds various definitions and adopts the shared aim of a latent space of linear subspaces, then measures that aim with two metrics of its own devising</label>
         <quote>There are various definitions for disentanglement [54, 50, 2, 7, 19], but a common goal is a latent space that consists of linear subspaces, each of which controls one factor of variation</quote>
       </span>
-      <span xml:id="t28" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>style AT COARSE RESOLUTION - POSE, FACE SHAPE AND EYEGLASSES: the styles copied from the coarse spatial resolutions carry high-level aspects of the subject itself, so at this level the word ranges over what the picture is OF and not only how it looks</label>
         <quote>Copying the styles corresponding to coarse spatial resolutions (42 – 82) brings high-level aspects such as pose, general hair style, face shape, and eyeglasses from source B</quote>
       </span>
-      <span xml:id="t29" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t31" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
         <label>style ON NON-FACE DATASETS - CAMERA VIEWPOINT AND CHOICE OF FURNITURE: in bedrooms the coarse styles control where the camera is and the middle styles select which furniture appears, which an art historian would call composition and subject matter rather than style</label>
         <quote>the coarse styles basically control the viewpoint of the camera, middle styles select the particular furniture, and fine styles deal with colors and smaller details of materials</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → style transfer literature</label>
         <quote>Motivated by style transfer literature [27], we re-design the generator architecture in a way that exposes novel ways to control the image synthesis process.</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Progressive GAN (Karras et al.)</label>
         <quote>Our baseline configuration (A) is the Progressive GAN setup of Karras et al.</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the Progressive GAN setup of Karras et al. [30]</label>
         <quote>Our baseline configuration (A) is the Progressive GAN setup of Karras et al. [30], from which we inherit the networks and all hyperparameters except where stated otherwise.</quote>
       </span>
-      <span xml:id="t33" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → the parallel self-modulation work of Chen et al. [6]</label>
         <quote>In parallel work, Chen et al. [6] “self modulate” the generator using AdaINs, similarly to our work, but do not consider an intermediate latent space or noise inputs.</quote>
       </span>
-      <span xml:id="t34" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t36" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>style —operationalised-as→ spatially invariant statistics</label>
         <term>style</term>
         <term>spatially invariant statistics</term>
         <note>strength of the relation: 1</note>
         <quote>This observation is in line with style transfer literature, where it has been established that spatially invariant statistics (Gram matrix, channel-wise mean, variance, etc.) reliably encode the style of an image [20, 39] while spatially varying features encode a specific instance</quote>
       </span>
-      <span xml:id="t35" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t37" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>perceptual path length —distinct-from→ linear separability</label>
         <term>perceptual path length</term>
         <term>linear separability</term>
         <note>strength of the relation: 1</note>
         <quote>we propose two new automated metrics — perceptual path length and linear separability — for quantifying these aspects of the generator</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>50,000 — images used to compute the FID metric</label>
         <quote>we calculate the FIDs using 50,000 images drawn randomly</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>1024×1024 — output resolution (progressive from 4x4 to 1024x1024)</label>
         <quote>two for each resolution (42 − 10242)</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>A style-based generator (borrowing from style-transfer) drives synthesis via a mapping network + AdaIN per layer, giving automatic unsupervised separation of high-level attributes (pose/identity) from stochastic detail (freckles/hair) and scale-specific control.</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>an automatically learned, unsupervised separation of high-level attributes (e.g., pose and identity when trained on human faces) and stochastic variation in the generated images (e.g., freckles, hair), and it enables intuitive, scale-specific control of the synthesis</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>It improves state-of-the-art distribution quality (FID), yields better interpolation and better disentangles latent factors; two new automated metrics quantify interpolation/disentanglement, plus a new FFHQ face dataset.</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The new generator improves the state-of-the-art in terms of traditional distribution quality metrics, leads to demonstrably better interpolation properties, and also better disentangles the latent factors of variation.</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>style (latent w) applied via AdaIN per layer</label>
         <term>style (latent w) applied via AdaIN per layer</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>which then controls the generator through adaptive instance normalization (AdaIN) at each convolution layer</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>image quality (FID) / disentanglement</label>
         <term>image quality (FID) / disentanglement</term>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>Fr´echet inception distance (FID) for various generator designs (lower is better</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>adaptive instance normalization (AdaIN)</label>
         <term>adaptive instance normalization (AdaIN)</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>controls the generator through adaptive instance normalization (AdaIN) at each convolution layer</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>FFHQ (Flickr-Faces-HQ) dataset</label>
+        <term>FFHQ (Flickr-Faces-HQ) dataset</term>
+        <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `a new, highly varied and high-quality dataset of human faces (Flickr-Faces-HQ, FFHQ)` - which welds the abstract&#x27;s phrasing 2,456 characters earlier to the introduction&#x27;s parenthetical. The introduction states both in one sentence and that is what is quoted now.</note>
+        <quote>Finally, we present a new dataset of human faces (Flickr-Faces-HQ, FFHQ) that offers much higher quality and covers considerably wider variation than existing high-resolution datasets</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>In particular, we use the same discriminator architecture, resolutiondependent minibatch sizes, Adam [33] hyperparameters, and exponential moving average of the generator.</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
         <quote>(a) Generated image (b) Stochastic variation (c) Standard deviation (a) Two generated Figure 4.</quote>

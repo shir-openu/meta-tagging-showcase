@@ -41,7 +41,7 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
+      <change when="2026-08-26"
               who="build_paper_edition.py">180 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
@@ -114,8 +114,8 @@
         <quote>The underlying mechanisms are unclear.</quote>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[3]" resp="#tagger">
-        <label>The seizure frequency obtained is low relative to most patients with temporal lobe epilepsy.</label>
-        <note>what this limits: the model&#x27;s relevance to patients: THE FREQUENCY OF SRSs IS MODEST (APPROXIMATELY ONE TO TWO PER WEEK) BUT STILL BEYOND THE RANGE OF SEIZURE FREQUENCY IN MOST TLE PATIENTS</note>
+        <label>The seizure frequency the model produces is modest in absolute terms - roughly one to two per week - but still ABOVE the range most patients with temporal lobe epilepsy experience.</label>
+        <note>what this limits: the model&#x27;s relevance to patients: THE FREQUENCY OF SRSs IS MODEST (APPROXIMATELY ONE TO TWO PER WEEK) BUT STILL BEYOND THE RANGE OF SEIZURE FREQUENCY IN MOST TLE PATIENTS · note: claim corrected 2026-08-20 by terminal-a. The previous text read &#x27;The seizure frequency obtained is low relative to most patients with temporal lobe epilepsy.&#x27;, which REVERSES its own quote: the paper says the rate is modest &#x27;BUT STILL BEYOND the range of seizure frequency in most TLE patients&#x27;. limitations[6], grounded on the same sentence, already read it correctly, and the disagreement between the two is what exposed it. The quote, the anchor and the scope are unchanged.</note>
         <quote>The frequency of SRSs is modest (approximately one to two per week) but still beyond the range of seizure frequency in most TLE patients.</quote>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
@@ -130,7 +130,7 @@
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>the seizure frequency the model produces is above what most patients with this epilepsy experience</label>
-        <note>what this limits: the same scope as item 3 - the seizure rate is above the clinical range</note>
+        <note>duplicate of: limitations[3] · what this limits: the same scope as item 3 - the seizure rate is above the clinical range</note>
         <quote>The frequency of SRSs is modest (approximately one to two per week) but still beyond the range of seizure frequency in most TLE patients.</quote>
       </span>
       <span xml:id="t19" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
@@ -156,27 +156,32 @@
       </span>
       <span xml:id="t24" type="controls" ana="#controls[0]" resp="#tagger" cert="1.0">
         <label>a matched GFP vector injected the same way, monitored for the same 6 to 8 weeks</label>
-        <note>outcome: held</note>
+        <note>eliminates: the injection of a vector as the cause - none of the AAV-GFP-injected mice exhibited C-SWDs or SRSs during the 6-8 week recording period · outcome: held</note>
         <quote>We then performed telemetric EEG recordings for up to 57 d in freely moving mice injected with AAV-TeLC ( n = 25) or AAV-GFP ( n = 9) into the subiculum ( Fig. 3 ). At day 16, 22 of the 25 mice (88%) exhibited unprovoked C-SWDs ( Figs. 3 B , D ). On average, these C-SWDs consisted of 42.1 ± 3.14 SWDs ( Fig. 3 G ) and probably reflect a preictal state or subthreshold epileptic activity ( Table 1 ). Among these mice, 16 (representing 64% of all AAV-TeLC-injected mice or 72.7% of mice with C-SWDs) developed SRSs (range, 1–19; median, 5.5 SRSs/30 d; Fig. 3 E , F , H ). SRSs developed in parallel with C-SWDs, although six mice did not present with SRSs by day 42 after AAV -TeLC injection despite showing C-SWDs ( Fig. 3 B ). As summarized in Table 2 , these SRS were mostly (89.5% of 102 total SRSs recorded) preceded by preictal C-SWDs ( Fig. 3 E ), had a mean duration of 24.6 ± 0.62 s, and were followed by postictal depression of the EEG ( Fig. 3 F , H ). None of the AAV -GFP -injected mice exhibited C-SWDs or SRSs during the 6–8 week recording period</quote>
       </span>
       <span xml:id="t25" type="controls" ana="#controls[1]" resp="#tagger" cert="1.0">
         <label>the transient-silencing drug given together with a threshold dose of the convulsant, in a separate group</label>
+        <note>eliminates: the reading that the transient manipulation simply failed to reduce GABA release - the null is a null about DURATION, not about whether anything happened</note>
         <quote>To verify that GABA release was indeed transiently inhibited after injecting CNO into the transgenic mice expressing hM4Di , we injected another group of mice 15 d after AAV -hM4Di injection with CNO ( n = 6) or with saline ( n = 6) and 45 min later with a threshold dose of PTZ (30 mg/kg), and recorded their EEGs for an additional 24 h. Now, all six mice injected with CNO and PTZ presented C-SWDs (4.2 ± 1.14/24 h) and two of six mice showed acute convulsions after PTZ injection ( Fig. 7 G ). In contrast, none of the AAV -hM4Di mice injected with saline (instead of CNO) revealed C-SWDs or seizures upon PTZ injection. This experiment documented that CNO indeed had transiently impaired GABA release. Thus, the inhibition of PV neurons in the ventral subiculum/CA1 by CNO may transiently lower seizure threshold but is per se not sufficient to induce acute convulsions.</quote>
       </span>
       <span xml:id="t26" type="controls" ana="#controls[2]" resp="#tagger" cert="1.0">
         <label>the same threshold-dose challenge given 10 days after injection, to mice with only a few discharges and no seizures</label>
+        <note>eliminates: kindling by repeated discharges as the source of the lowered threshold, since the threshold is already down before the discharges accumulate</note>
         <quote>From these experiments, the question arose of whether the decrease in seizure threshold was a consequence of silencing PV-containing interneurons or was induced (as in kindling) by repeated C-SWDs experienced over a prolonged period of time. We therefore challenged another group of six mice (still seizure free and only 2.3 ± 0.84 C-SWD/mouse/10 d) with the threshold dose of PTZ already 10 d after TeLC vector injection (at this interval, the vector had already resulted in full expression of TeLC). All mice responded with acute and thereafter with recurrent seizures (mean 9.0 ± 3.55/30 d, n = 6; Fig. 6 D ). This demonstrates that the inhibition of GABA release from PV-containing interneurons of the subiculum/CA1 per se is sufficient to lower the seizure threshold and also induces a preictal state in mice that exposed (only a few) C-SWDs.</quote>
       </span>
       <span xml:id="t27" type="controls" ana="#controls[3]" resp="#tagger" cert="1.0">
         <label>a cannabinoid agonist applied to suppress release from the OTHER basket cell population before measuring</label>
+        <note>eliminates: the apparent absence of any synaptic effect - the manipulation is invisible until the competing inhibitory source is removed</note>
         <quote>However, when we applied the CB1 receptor agonist WIN 55,212–2 to suppress GABA release from non-PV, cholecystokinin (CCK)-containing basket cells we observed, consistent with a previous report on CA1 neurons ( Murray et al., 2011 ), that the amplitude of the WIN 55,212–2-insensitive component of the eIPSC (representing inhibition mediated by PV-containing basket cells) was significantly reduced in the subiculum of AAV- TeLC -injected mice compared with AAV- GFP -injected controls</quote>
       </span>
       <span xml:id="t28" type="controls" ana="#controls[4]" resp="#tagger" cert="1.0">
         <label>double labeling of 2724 transduced neurons against GABA, parvalbumin and somatostatin in 25 mice</label>
+        <note>eliminates: silencing of the wrong cell class as the explanation - though it also shows the classes overlap</note>
         <quote>Double immunofluorescence labeling for GFP (the tag for TeLC) was evaluated in 25 mice (total number of GFP-positive neurons, 2724) and revealed 95.7 ± 0.68%, 83.2 ± 1.27%, and 23.7 ± 1.61% colabeling with GABA ( Fig. 1 D–F ), PV ( Fig. 1 G–L ), or somatostatin (data not shown), respectively ( Fig. 1 M ), indicating a high specificity of transfection/viral transduction for the PV-containing subpopulations of GABAergic basket and axo-axonic cells.</quote>
       </span>
       <span xml:id="t29" type="controls" ana="#controls[5]" resp="#tagger" cert="0.9">
         <label>an activity marker counted across the hippocampal formation and neighbouring cortices</label>
+        <note>eliminates: the possibility that the recorded events were local EEG artefacts rather than propagating seizures</note>
         <quote>Whereas ΔFosB was only barely expressed in controls and in mice that exhibited only C-SWDs ( Fig. 5 A , D ), it prominently labeled neurons in the hippocampus, subiculum, and entorhinal and perirhinal cortices after frequent SRSs ( Fig. 5 B , C , E–J ), corroborating a role for these temporal lobe areas in seizure propagation.</quote>
       </span>
       <span xml:id="t30" type="concepts" ana="#concepts[3]" resp="#paper">
@@ -533,21 +538,21 @@
         <label>frequency —operationalised-as→ seizure</label>
         <term>frequency</term>
         <term>seizure</term>
-        <note>strength of the relation: 1 — THE EFFECT FADES AND NOBODY KNOWS WHY - THE UNDERLYING MECHANISMS ARE UNCLEAR, with five candidates listed and none tested</note>
+        <note>strength of the relation: 1 — THE EFFECT FADES AND NOBODY KNOWS WHY - THE UNDERLYING MECHANISMS ARE UNCLEAR, with five candidates listed and none tested 2026-08-20 terminal-a re-read (Q-878 worst chars/edge queue): SPLIT-PHRASE - `seizure frequency` is ONE noun phrase and this edge relates its two halves to each other. The passage says the frequency of SRSs declined; it says nothing that relates `frequency` to `seizure`.</note>
         <quote>It was striking, however, that the frequency of SRSs appeared to decline after several weeks. The underlying mechanisms are unclear. One may consider a variety of mechanisms responsible for this, such as the fading of seizure frequency reflecting readaptation of the disturbed neuronal circuitry. One such mechanism may include the sprouting of inhibitory neurons. Thus, the sprouting of somatostatin terminals (presumably O-LM cells) terminating in the outer molecular layers of the dentate gyrus and of the subiculum has been observed in the kainic acid model of TLE ( Drexel et al., 2012 ; Peng et al., 2013 ), in kindling ( Botterill et al., 2017 ), and in TLE patients ( Mathern et al., 1995 ; Furtinger et al., 2001 ). Other mechanisms may include a reduction of cannabinoid signaling affecting GABA release from CCK basket cells or a compensatory increase in the activity of PV neurons not affected by the AAV -TeLC injection (e.g., contralateral to the injection site). We observed such a compensatory activation of PV neurons (as indicated by the increased expression of PV mRNA) in surviving PV interneurons of the subiculum of kainic acid-treated rats ( Drexel et al., 2011 ). SRSs could also cause a rapid increase in the expression of neuroprotective neuropeptides mostly inhibiting glutamate release as observed in human TLE and in respective models recently ( Mathern et al., 1995 ; Patrylo et al., 1999 ; Furtinger et al., 2001 ; Pirker et al., 2001 ; Vezzani and Sperk, 2004 ; Drexel et al., 2012 ). Thus, Ledri et al. (2014) recently used selective optogenetic activation of somatostatin- and PV-containing interneurons to investigate their effect on epileptiform activity in hippocampal slices. They demonstrated that the activation of either dendritic (mediated by somatostatin neurons) or perisomatic inhibition (mediated by PV-containing basket cells) suppressed epileptiform activity, although global activation of all GABA neurons was even more effective, indicating important roles for both mechanisms in maintaining physiological transmission ( Ledri et al., 2014 ). We are currently investigating such mechanisms that may be involved in the late reduction in the frequency of SRSs.</quote>
       </span>
       <span xml:id="t94" type="concept_edges" ana="#concept_edges[30]" resp="#tagger" cert="0.9">
         <label>dendritic —operationalised-as→ somatostatin</label>
         <term>dendritic</term>
         <term>somatostatin</term>
-        <note>strength of the relation: 0.9</note>
+        <note>strength of the relation: 0.9 — 2026-08-20 terminal-a re-read (Q-878 worst chars/edge queue): WRONG-TYPE - the sentence reads `dendritic (mediated by somatostatin neurons)` - somatostatin neurons MEDIATE dendritic inhibition. That is not an operationalisation, and `dendritic` alone is an adjective lifted out of `dendritic inhibition`.</note>
         <quote>It was striking, however, that the frequency of SRSs appeared to decline after several weeks. The underlying mechanisms are unclear. One may consider a variety of mechanisms responsible for this, such as the fading of seizure frequency reflecting readaptation of the disturbed neuronal circuitry. One such mechanism may include the sprouting of inhibitory neurons. Thus, the sprouting of somatostatin terminals (presumably O-LM cells) terminating in the outer molecular layers of the dentate gyrus and of the subiculum has been observed in the kainic acid model of TLE ( Drexel et al., 2012 ; Peng et al., 2013 ), in kindling ( Botterill et al., 2017 ), and in TLE patients ( Mathern et al., 1995 ; Furtinger et al., 2001 ). Other mechanisms may include a reduction of cannabinoid signaling affecting GABA release from CCK basket cells or a compensatory increase in the activity of PV neurons not affected by the AAV -TeLC injection (e.g., contralateral to the injection site). We observed such a compensatory activation of PV neurons (as indicated by the increased expression of PV mRNA) in surviving PV interneurons of the subiculum of kainic acid-treated rats ( Drexel et al., 2011 ). SRSs could also cause a rapid increase in the expression of neuroprotective neuropeptides mostly inhibiting glutamate release as observed in human TLE and in respective models recently ( Mathern et al., 1995 ; Patrylo et al., 1999 ; Furtinger et al., 2001 ; Pirker et al., 2001 ; Vezzani and Sperk, 2004 ; Drexel et al., 2012 ). Thus, Ledri et al. (2014) recently used selective optogenetic activation of somatostatin- and PV-containing interneurons to investigate their effect on epileptiform activity in hippocampal slices. They demonstrated that the activation of either dendritic (mediated by somatostatin neurons) or perisomatic inhibition (mediated by PV-containing basket cells) suppressed epileptiform activity, although global activation of all GABA neurons was even more effective, indicating important roles for both mechanisms in maintaining physiological transmission ( Ledri et al., 2014 ). We are currently investigating such mechanisms that may be involved in the late reduction in the frequency of SRSs.</quote>
       </span>
       <span xml:id="t95" type="concept_edges" ana="#concept_edges[31]" resp="#tagger" cert="0.8">
         <label>inhibition —causes→ frequency</label>
         <term>inhibition</term>
         <term>frequency</term>
-        <note>strength of the relation: 0.8</note>
+        <note>strength of the relation: 0.8 — 2026-08-20 terminal-a re-read (Q-878 worst chars/edge queue): VAGUE-ENDPOINTS - the relation is real - activation of dendritic or perisomatic inhibition SUPPRESSED epileptiform activity - but `inhibition` and `frequency` are both too general to be wrong. Re-ground on `dendritic inhibition` and `epileptiform activity`. Note also that the whole passage is hedged (`One may consider`, `may include`), so any edge from it needs an evidential_status.</note>
         <quote>It was striking, however, that the frequency of SRSs appeared to decline after several weeks. The underlying mechanisms are unclear. One may consider a variety of mechanisms responsible for this, such as the fading of seizure frequency reflecting readaptation of the disturbed neuronal circuitry. One such mechanism may include the sprouting of inhibitory neurons. Thus, the sprouting of somatostatin terminals (presumably O-LM cells) terminating in the outer molecular layers of the dentate gyrus and of the subiculum has been observed in the kainic acid model of TLE ( Drexel et al., 2012 ; Peng et al., 2013 ), in kindling ( Botterill et al., 2017 ), and in TLE patients ( Mathern et al., 1995 ; Furtinger et al., 2001 ). Other mechanisms may include a reduction of cannabinoid signaling affecting GABA release from CCK basket cells or a compensatory increase in the activity of PV neurons not affected by the AAV -TeLC injection (e.g., contralateral to the injection site). We observed such a compensatory activation of PV neurons (as indicated by the increased expression of PV mRNA) in surviving PV interneurons of the subiculum of kainic acid-treated rats ( Drexel et al., 2011 ). SRSs could also cause a rapid increase in the expression of neuroprotective neuropeptides mostly inhibiting glutamate release as observed in human TLE and in respective models recently ( Mathern et al., 1995 ; Patrylo et al., 1999 ; Furtinger et al., 2001 ; Pirker et al., 2001 ; Vezzani and Sperk, 2004 ; Drexel et al., 2012 ). Thus, Ledri et al. (2014) recently used selective optogenetic activation of somatostatin- and PV-containing interneurons to investigate their effect on epileptiform activity in hippocampal slices. They demonstrated that the activation of either dendritic (mediated by somatostatin neurons) or perisomatic inhibition (mediated by PV-containing basket cells) suppressed epileptiform activity, although global activation of all GABA neurons was even more effective, indicating important roles for both mechanisms in maintaining physiological transmission ( Ledri et al., 2014 ). We are currently investigating such mechanisms that may be involved in the late reduction in the frequency of SRSs.</quote>
       </span>
       <span xml:id="t96" type="concept_edges" ana="#concept_edges[32]" resp="#tagger" cert="1.0">
@@ -596,7 +601,7 @@
         <label>feedforward —causes→ seizure</label>
         <term>feedforward</term>
         <term>seizure</term>
-        <note>strength of the relation: 1</note>
+        <note>status: attributed to other work: presumably · strength of the relation: 1</note>
         <quote>For instance, Cossart et al. (2001) proposed that a deficit in dendritic feedback inhibition, presumably due to a loss in oriens-lacunosum moleculare (O-LM) neurons, reduces the seizure threshold, whereas augmented somatic feedforward inhibition limits epileptiform activity</quote>
       </span>
       <span xml:id="t103" type="concept_edges" ana="#concept_edges[39]" resp="#tagger" cert="1.0">
@@ -783,6 +788,7 @@
       </span>
       <span xml:id="t142" type="content_tags" ana="#content_tags.findings[25]" resp="#tagger" cert="1.0">
         <label>with the competing account quoted in full - a deficit in DENDRITIC feedback inhibition lowers the threshold while augmented SOMATIC feedforward inhibition limits epileptiform activity</label>
+        <note>WHOSE RESULT THIS IS: Cossart et al. (2001) proposed - THE EVIDENCE FOR THIS ROW ATTRIBUTES THE WORK TO SOMEBODY ELSE. The cited name is the subject of a result verb and the sentence carries no first-person marker, so the finding, quantity or definition is the CITED author&#x27;s rather than this record&#x27;s. The claim is true and the quote is verbatim - what is wrong is whose result the corpus says it is. Nothing edited, nothing withdrawn: the row is marked so a page can name the source. Where the record is a commentary or review, its `claim_relations` layer usually already names the paper being discussed - the record knows at one layer and forgets at another.</note>
         <quote>For instance, Cossart et al. (2001) proposed that a deficit in dendritic feedback inhibition, presumably due to a loss in oriens-lacunosum moleculare (O-LM) neurons, reduces the seizure threshold, whereas augmented somatic feedforward inhibition limits epileptiform activity</quote>
       </span>
       <span xml:id="t143" type="content_tags" ana="#content_tags.findings[26]" resp="#tagger" cert="1.0">

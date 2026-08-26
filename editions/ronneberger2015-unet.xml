@@ -36,7 +36,7 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
+      <change when="2026-08-26"
               who="build_paper_edition.py">39 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
@@ -114,87 +114,85 @@
         <label>convolutional networks applied to biomedical image segmentation</label>
         <quote>outperforms the prior best method (a sliding-window convolutional network) on the ISBI challenge for segmentation of</quote>
       </span>
-      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t15" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>evaluation on a public challenge test set whose segmentation maps are kept secret by the organisers</label>
+        <note>eliminates: tuning against the test labels - the authors could not have done it even had they wanted to, which is a stronger guarantee than any promise a paper makes about itself</note>
+        <quote>The test set is publicly available, but its segmentation maps are kept secret.</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>data augmentation</label>
         <term>data augmentation</term>
         <quote>Data augmentation is essential to teach the network the desired invariance and robustness properties, when only few training samples are available</quote>
       </span>
-      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t17" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>elastic deformations</label>
         <term>elastic deformations</term>
         <quote>we use excessive data augmentation by applying elastic deformations to the available training images</quote>
       </span>
-      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t18" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>invariance</label>
         <term>invariance</term>
         <quote>This allows the network to learn invariance to such deformations</quote>
       </span>
-      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t19" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>weight map</label>
         <term>weight map</term>
         <quote>is a weight map that we introduced to give some pixels more importance in the training</quote>
       </span>
-      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t20" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>separation border</label>
         <term>separation border</term>
         <quote>The separation border is computed using morphological operations</quote>
       </span>
-      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the ground truth - PARTLY SYNTHESISED: the annotation is augmented with separation borders computed by morphological operations so that touching instances can be pulled apart, so the target is the annotation plus an artefact of the method</label>
         <quote>We pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels from a certain class in the training data set, and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
       </span>
-      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>very few images - AS THIRTY, AND THEN AS PATCHES: the electron-microscopy training set is 30 images, and the paper notes that in patches the training data is much larger than the image count suggests</label>
         <quote>The training data is a set of 30 images (512x512 pixels) from serial section transmission electron microscopy of the Drosophila first instar larva ventral nerve cord</quote>
       </span>
-      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>invariance - AS A PROPERTY OF THE AUGMENTATION: what the network is invariant to is what was applied to the training images, not what was observed in the microscopy</label>
         <quote>As for our tasks there is very little training data available, we use excessive data augmentation by applying elastic deformations to the available training images</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → sliding-window convolutional networks</label>
         <quote>outperforms the prior best method (a sliding-window convolutional network)</quote>
       </span>
-      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → the assumption that deep networks need thousands of annotated samples</label>
         <quote>requires many thousand annotated training samples</quote>
       </span>
-      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the fully convolutional network of Long et al. [9]</label>
         <quote>In this paper, we build upon a more elegant architecture, the so-called “fully convolutional network” [9].</quote>
       </span>
-      <span xml:id="t26" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → the fully convolutional network of Long et al. [9]</label>
         <quote>We modify and extend this architecture such that it works with very few training images and yields more precise segmentations; see Figure 1.</quote>
       </span>
-      <span xml:id="t27" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>contradicts → the sliding-window patch strategy of Ciresan et al. [1]</label>
         <quote>Obviously, the strategy in Ciresan et al. [1] has two drawbacks.</quote>
       </span>
-      <span xml:id="t28" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>elastic deformations —causes→ invariance</label>
         <term>elastic deformations</term>
         <term>invariance</term>
         <note>strength of the relation: 1</note>
         <quote>This allows the network to learn invariance to such deformations, without the need to see these transformations in the annotated image corpus</quote>
       </span>
-      <span xml:id="t29" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>RETRACTED (RE-GROUNDED) · weight map —causes→ separation border</label>
         <term>weight map</term>
         <term>separation border</term>
         <note>RETRACTED: RE-GROUNDED. The old span named only `separation border`. This sentence names both and states the mechanism: the weight map is pre-computed IN ORDER TO force the network to learn the separation borders. — strength of the relation: 1</note>
-        <quote>and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d). The separation border is computed using morphological operations</quote>
-      </span>
-      <span xml:id="t30" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
-        <label>weight map —causes→ separation border</label>
-        <term>weight map</term>
-        <term>separation border</term>
-        <note>strength of the relation: 1 — RE-GROUNDS ronneberger2015-unet[1]: the old span named ONE endpoint.</note>
         <quote>We pre-compute the weight map for each ground truth segmentation to compensate the different frequency of pixels from a certain class in the training data set, and to force the network to learn the small separation borders that we introduce between touching cells (See Figure 3c and d).</quote>
       </span>
       <span xml:id="t31" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>30 — training set size for the ISBI EM segmentation task</label>
-        <quote>The training data is a set of 30 images (512x512 pixels) from serial section transmission electron microscopy</quote>
+        <quote>The training data is a set of 30 images (512x512 pixels) from serial section transmission electron microscopy of the Drosophila first instar larva ventral nerve cord</quote>
       </span>
       <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>7 — test-time averaging over rotated inputs</label>
@@ -202,10 +200,12 @@
       </span>
       <span xml:id="t33" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>A U-shaped fully-convolutional network — a contracting path for context plus a symmetric expanding path for precise localization — trains end-to-end from very few images using heavy data augmentation.</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization.</quote>
       </span>
       <span xml:id="t34" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>U-Net won the ISBI 2015 cell-tracking challenge (phase-contrast and DIC microscopy) by a large margin and beat the prior sliding-window best on ISBI neuronal-structure segmentation.</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>we won the ISBI cell tracking challenge 2015 in these categories by a large margin</quote>
       </span>
       <span xml:id="t35" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
@@ -221,11 +221,13 @@
       <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>contracting path / expanding path (U-shaped architecture)</label>
         <term>contracting path / expanding path (U-shaped architecture)</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>a contracting path to capture context and a symmetric expanding path that enables precise localization</quote>
       </span>
       <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>data augmentation (elastic deformations)</label>
         <term>data augmentation (elastic deformations)</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>excessive data augmentation by applying elastic deformations to the available training images</quote>
       </span>
     </spanGrp>

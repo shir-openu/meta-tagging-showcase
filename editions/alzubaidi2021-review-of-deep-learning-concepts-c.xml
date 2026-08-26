@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Review of deep learning: concepts, CNN architectures, challenges, applications, future directions</title>
+        <author>Laith Alzubaidi</author>
+        <author>Jinglan Zhang</author>
+        <author>Amjad J. Humaidi</author>
+        <author>Ayad Q. Al-Dujaili</author>
+        <author>Ye Duan</author>
+        <author>Omran Al-Shamma</author>
+        <author>José Santamaría</author>
+        <author>Mohammed A. Fadhel</author>
+        <author>Muthana Al‐Amidie</author>
+        <author>Laith Farhan</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Review of deep learning: concepts, CNN architectures, challenges, applications, future directions</title>
+          <date>2021</date>
+          <publisher>Journal Of Big Data</publisher>
+          <idno type="DOI">10.1186/s40537-021-00444-8</idno>
+          
+          <idno type="record">alzubaidi2021-review-of-deep-learning-concepts-c</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\alzubaidi2021-review-of-deep-learning-concepts-c.txt</note>
+          <note type="text-sha1">2a4a57bf85032245e99477483cce9077e78503e2</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">73 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>deep learning as a field - its concepts, network types, CNN architectures, named challenges, applications and computational substrate</label>
+        <quote>We review current challenges (limitations) of Deep Learning including lack of training data, Imbalanced Data, Interpretability of data, Uncertainty scaling, Catastrophic forgetting, Model compression, Overfitting, Vanishing gradient problem, Exploding Gradient Problem, and Underspecification.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether one review can supply a full understanding of DL, against a review literature in which each paper covers a single aspect</label>
+        <quote>Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a holistic survey of DL with twelve named challenges and their proposed solutions, a CNN-architecture lineage from AlexNet to HRNet, and a declared search methodology</label>
+        <quote>We review current challenges (limitations) of Deep Learning including lack of training data, Imbalanced Data, Interpretability of data, Uncertainty scaling, Catastrophic forgetting, Model compression, Overfitting, Vanishing gradient problem, Exploding Gradient Problem, and Underspecification.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <quote>Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>a field whose knowledge is fragmented across partial reviews, so that assembling a working understanding requires reading past the reviews</label>
+        <quote>Several published DL review papers have been presented in the last few years. However, all of them have only been addressed one side focusing on one application or topic such as the review of CNN architectures, DL for classification of plant diseases, DL for object detection, DL applications in medical image analysis, and etc. Although these reviews present good topics, they do not provide a full understanding of DL topics such as concepts, detailed research gaps, computational tools, and DL applications.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>a literature survey with a declared search framework - named keyword strings, named publishers, and a stated year distribution over 300+ papers</label>
+        <term>a literature survey with a declared search framework - named keyword strings, named publishers, and a stated year distribution over 300+ papers</term>
+        <quote>We have reviewed more than 300 papers on various DL topics. There are 108 papers from the year 2020, 76 papers from the year 2019, and 48 papers from the year 2018. This indicates that this review focused on the latest publications in the field of DL.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>back-propagation multiplies each layer&#x27;s derivative down the network, so with a squashing activation like the sigmoid, N small derivatives multiplied together make the gradient decline exponentially - and the first layers, which recognise the essential elements of the input, are the ones that stop updating</label>
+        <term>vanishing gradient through repeated multiplication</term>
+        <quote>However, this weight updating may not occur in some cases due to a vanishingly small gradient, which in the worst case means that no extra training is possible and the neural network will stop completely.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>incorporating new information into a trained model interferes with what it already learned; fine-tuning on only the new class leaves performance on the old classes unsuccessful, so continually renewed data forces retraining from scratch</label>
+        <term>catastrophic forgetting by fine-tuning</term>
+        <quote>This is defined as incorporating new information into a plain DL model, made possible by interfering with the learned information. For instance, consider a case where there are 1000 types of flowers and a model is trained to classify these flowers, after which a new type of flower is introduced; if the model is fine-tuned only with this new class, its performance will become unsuccessful with the older classes.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>pre-training transfers representations learned from the source distribution; where the source is natural images and the target is raw medical images the learned representation does not apply, so the transferred model performs no better than one trained from scratch</label>
+        <term>domain mismatch defeating transfer</term>
+        <quote>Nevertheless, although TL enhances the accuracy of several tasks in the fields of pattern recognition and computer vision, there is an essential issue related to the source data type used by the TL as compared to the target dataset. For instance, enhancing the medical image classification performance of CNN models is achieved by training the models using the ImageNet dataset, which contains natural images. However, such natural images are completely dissimilar from the raw medical images, meaning that the model performance is not enhanced.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>many parameter settings satisfy the training objective equally well, so the pipeline does not determine which one is chosen; small modifications force the model toward a completely different solution and hence different predictions in deployment</label>
+        <term>underspecification selecting among equivalent solutions</term>
+        <quote>It has been shown that small modifications can force a model towards a completely different solution as well as lead to different predictions in deployment domains.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the paper recommends transfer learning for scarce data and then reports that cross-domain TL does not significantly affect medical imaging performance - its own central recommendation carries a negative result three paragraphs later</label>
+        <quote>It has further been proven that TL from different domains does not significantly affect performance on medical imaging tasks, as lightweight models trained from scratch perform nearly as well as standard ImageNet-transferred models. Therefore, there exists scenarios in which using pre-trained models do not become an affordable solution.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>`RL` is defined as representation learning in the introduction and used for reinforcement learning in the classification section; a reader carrying the first definition forward misreads the second</label>
+        <quote>DL techniques are classified into three major categories: unsupervised, partially supervised (semi-supervised) and supervised. Furthermore, deep reinforcement learning (DRL), also known as RL, is another type of learning technique, which is mostly considered to fall into the category of partially supervised (and occasionally unsupervised) learning techniques.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>underspecification puts major constraints on the credibility of ML predictions and the proposed remedy - stress tests - requires already knowing how the model can fail</label>
+        <quote>One of them is to design “stress tests” to examine how good a model works on real-world data and to find out the possible issues. Nevertheless, this demands a reliable understanding of the process the model can work inaccurately.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>CNN performance is greatly influenced by hyper-parameter selection, so any small change affects the result - which limits how much a reported architecture comparison can be attributed to architecture</label>
+        <quote>The CNN performance is greatly influenced by hyper-parameter selection. Any small change in the hyper-parameter values will affect the general CNN performance. Therefore, careful parameter selection is an extremely significant issue that should be considered during optimization scheme development.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>labelling remains the binding constraint: crowdsourced workers cannot annotate medical or biological images, expert labelling is costly and slow, so producing the volume of labels deep networks need is called unfeasible</label>
+        <quote>It is difficult to acquire sufficient training data for DL models. For example, in medical imaging and environmental science, gathering labelled datasets is very costly. Moreover, the majority of the crowdsourcing workers are unable to make accurate notes on medical or biological images due to their lack of medical or biological knowledge. Thus, ML researchers often rely on field experts to label such images; however, this process is costly and time consuming. Therefore, producing the large volume of labels required to develop flourishing deep networks turns out to be unfeasible.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>despite the stated transition toward semi-supervised and unsupervised learning, most current deep-learning models still use supervised learning - so the data constraint above is not being relieved</label>
+        <quote>Although ML slowly transitions to semi-supervised and unsupervised learning to manage practical data without the need for manual human labeling, many of the current deep-learning models utilize supervised learning.</quote>
+      </span>
+      <span xml:id="t16" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>the architecture of the mammalian visual cortex, carried into network design - the CNN&#x27;s local receptive fields are presented as a simulation of cells that sense only small regions of a scene</label>
+        <quote>DL, a subset of ML (Fig. 2), is inspired by the information processing patterns found in the human brain. DL does not require any human-designed rules to operate; rather, it uses a large amount of data to map the given input to specific labels.</quote>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
+        <label>pre-trained representations carried from natural-image datasets into medical imaging, and the paper&#x27;s own report that this particular transfer does not work</label>
+        <quote>Nevertheless, although TL enhances the accuracy of several tasks in the fields of pattern recognition and computer vision, there is an essential issue related to the source data type used by the TL as compared to the target dataset. For instance, enhancing the medical image classification performance of CNN models is achieved by training the models using the ImageNet dataset, which contains natural images. However, such natural images are completely dissimilar from the raw medical images, meaning that the model performance is not enhanced.</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a declared corpus for the review - a stated floor on papers read and their distribution by year - so that &#x27;we focused on recent work&#x27; is a number rather than a claim</label>
+        <note>eliminates: a review&#x27;s coverage claim resting on the reviewers&#x27; sense of having read enough · outcome: held</note>
+        <quote>We have reviewed more than 300 papers on various DL topics. There are 108 papers from the year 2020, 76 papers from the year 2019, and 48 papers from the year 2018. This indicates that this review focused on the latest publications in the field of DL.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.85">
+        <label>declared review objectives - list and define approaches, list architectures, present challenges, assess applications and computational approaches - fixed in advance of the reading</label>
+        <note>eliminates: a review whose scope is settled after the reading, by fixing the five objectives in advance</note>
+        <quote>The selected papers were analyzed and reviewed to (1) list and define the DL approaches and network types, (2) list and explain CNN architectures, (3) present the challenges of DL and suggest the alternate solutions, (4) assess the applications of DL, (5) assess computational approaches.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>cross-domain transfer learning checked against models trained from scratch - the control that decides whether transfer contributed anything, run by others and reported here</label>
+        <note>eliminates: that the reported performance is owed to the pre-trained source domain rather than to the architecture and the target data - models trained from scratch are the comparison that decides it · outcome: absent-stated-about-other</note>
+        <quote>It has further been proven that TL from different domains does not significantly affect performance on medical imaging tasks, as lightweight models trained from scratch perform nearly as well as standard ImageNet-transferred models. Therefore, there exists scenarios in which using pre-trained models do not become an affordable solution.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>representation learning</label>
+        <term>representation learning</term>
+        <quote>Among the different ML algorithms, deep learning (DL) is very commonly employed in these applications. Another name for DL is representation learning (RL).</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>RL</label>
+        <term>RL</term>
+        <quote>Among the different ML algorithms, deep learning (DL) is very commonly employed in these applications. Another name for DL is representation learning (RL).</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>deep reinforcement learning</label>
+        <term>deep reinforcement learning</term>
+        <quote>DL techniques are classified into three major categories: unsupervised, partially supervised (semi-supervised) and supervised. Furthermore, deep reinforcement learning (DRL), also known as RL, is another type of learning technique, which is mostly considered to fall into the category of partially supervised (and occasionally unsupervised) learning techniques.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>DL</label>
+        <term>DL</term>
+        <quote>DL, a subset of ML (Fig. 2), is inspired by the information processing patterns found in the human brain. DL does not require any human-designed rules to operate; rather, it uses a large amount of data to map the given input to specific labels.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>ML</label>
+        <term>ML</term>
+        <quote>DL, a subset of ML (Fig. 2), is inspired by the information processing patterns found in the human brain. DL does not require any human-designed rules to operate; rather, it uses a large amount of data to map the given input to specific labels.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>TL</label>
+        <term>TL</term>
+        <quote>Nevertheless, although TL enhances the accuracy of several tasks in the fields of pattern recognition and computer vision, there is an essential issue related to the source data type used by the TL as compared to the target dataset. For instance, enhancing the medical image classification performance of CNN models is achieved by training the models using the ImageNet dataset, which contains natural images. However, such natural images are completely dissimilar from the raw medical images, meaning that the model performance is not enhanced.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>Same-domain TL</label>
+        <term>Same-domain TL</term>
+        <quote>Same-domain TL is an approach of using images that look similar to the target dataset for training. For example, using X-ray images of different chest diseases to train the model, then fine-tuning and training it on chest X-ray images for COVID-19 diagnosis.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>underspecification</label>
+        <term>underspecification</term>
+        <quote>In 2020, a team of computer scientists at Google has identified a new challenge called underspecification. ML models including DL models often show surprisingly poor behavior when they are tested in real-world applications such as computer vision, medical imaging, natural language processing, and medical genomics. The reason behind the weak performance is due to underspecification.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>stress tests</label>
+        <term>stress tests</term>
+        <quote>One of them is to design “stress tests” to examine how good a model works on real-world data and to find out the possible issues. Nevertheless, this demands a reliable understanding of the process the model can work inaccurately.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>Sparse Connectivity</label>
+        <term>Sparse Connectivity</term>
+        <quote>Sparse Connectivity: Each neuron of a layer in FC neural networks links with all neurons in the following layer. By contrast, in CNNs, only a few weights are available between two adjacent layers. Thus, the number of required weights or connections is small, while the memory required to store these weights is also small; hence, this approach is memory-effective.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>Weight Sharing</label>
+        <term>Weight Sharing</term>
+        <quote>Weight Sharing: There are no allocated weights between any two neurons of neighboring layers in CNN, as the whole weights operate with one and all pixels of the input matrix. Learning a single group of weights for the whole input will significantly decrease the required training time and various costs, as it is not necessary to learn additional weights for each neuron.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>Dropout</label>
+        <term>Dropout</term>
+        <quote>Dropout: This is a widely utilized technique for generalization. During each training epoch, neurons are randomly dropped. In doing this, the feature selection power is distributed equally across the whole group of neurons, as well as forcing the model to learn different independent features.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>Dying ReLU</label>
+        <term>Dying ReLU</term>
+        <quote>Occasionally, a few significant issues may occur during the use of ReLU. For instance, consider an error back-propagation algorithm with a larger gradient flowing through it. Passing this gradient within the ReLU function will update the weights in a way that makes the neuron certainly not activated once more. This issue is referred to as “Dying ReLU”.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.85">
+        <label>catastrophic forgetting</label>
+        <term>catastrophic forgetting</term>
+        <quote>### Catastrophic forgetting This is defined as incorporating new information into a plain DL model, made possible by interfering with the learned information. For instance, consider a case where there are 1000 types of flowers and a model is trained to classify these flowers, after which a new type of flower is introduced; if the model is fine-tuned only with this new class, its performance will become unsuccessful with the older classes.</quote>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>vanishing gradient problem</label>
+        <term>vanishing gradient problem</term>
+        <quote>However, this weight updating may not occur in some cases due to a vanishingly small gradient, which in the worst case means that no extra training is possible and the neural network will stop completely.</quote>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>overfitting</label>
+        <term>overfitting</term>
+        <quote>DL models have excessively high possibilities of resulting in data overfitting at the training stage due to the vast number of parameters involved, which are correlated in a complex manner. Such situations reduce the model’s ability to achieve good performance on the tested data.</quote>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>black box</label>
+        <term>black box</term>
+        <quote>Occasionally, DL techniques are analyzed to act as a black box. In fact, they are interpretable. The need for a method of interpreting DL, which is used to obtain the valuable motifs and patterns recognized by the network, is common in many fields, such as bioinformatics.</quote>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>imbalanced</label>
+        <term>imbalanced</term>
+        <quote>Commonly, biological data tend to be imbalanced, as negative samples are much more numerous than positive ones. For example, compared to COVID-19-positive X-ray images, the volume of normal X-ray images is very large. It should be noted that undesirable results may be produced when training a DL model using imbalanced data.</quote>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>hyper-parameter selection</label>
+        <term>hyper-parameter selection</term>
+        <quote>The CNN performance is greatly influenced by hyper-parameter selection. Any small change in the hyper-parameter values will affect the general CNN performance. Therefore, careful parameter selection is an extremely significant issue that should be considered during optimization scheme development.</quote>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>lightweight models trained from scratch</label>
+        <term>lightweight models trained from scratch</term>
+        <quote>It has further been proven that TL from different domains does not significantly affect performance on medical imaging tasks, as lightweight models trained from scratch perform nearly as well as standard ImageNet-transferred models. Therefore, there exists scenarios in which using pre-trained models do not become an affordable solution.</quote>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>RL - REPRESENTATION LEARNING. Given in the introduction as another name for deep learning itself</label>
+        <quote>Among the different ML algorithms, deep learning (DL) is very commonly employed in these applications. Another name for DL is representation learning (RL).</quote>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>RL - REINFORCEMENT LEARNING. Given 16,670 characters later as another name for deep reinforcement learning, a distinct technique the same paper classifies separately. Neither definition acknowledges the other</label>
+        <quote>DL techniques are classified into three major categories: unsupervised, partially supervised (semi-supervised) and supervised. Furthermore, deep reinforcement learning (DRL), also known as RL, is another type of learning technique, which is mostly considered to fall into the category of partially supervised (and occasionally unsupervised) learning techniques.</quote>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>transfer learning - AS RECOMMENDED: enhances accuracy across pattern recognition and computer vision, and is the paper&#x27;s answer to insufficient training data</label>
+        <quote>Nevertheless, although TL enhances the accuracy of several tasks in the fields of pattern recognition and computer vision, there is an essential issue related to the source data type used by the TL as compared to the target dataset. For instance, enhancing the medical image classification performance of CNN models is achieved by training the models using the ImageNet dataset, which contains natural images. However, such natural images are completely dissimilar from the raw medical images, meaning that the model performance is not enhanced.</quote>
+      </span>
+      <span xml:id="t44" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>transfer learning - AS MEASURED ACROSS DISSIMILAR DOMAINS: does not significantly affect performance, with models trained from scratch performing nearly as well. Same technique, opposite verdict, and the disambiguator is source-target similarity</label>
+        <quote>It has further been proven that TL from different domains does not significantly affect performance on medical imaging tasks, as lightweight models trained from scratch perform nearly as well as standard ImageNet-transferred models. Therefore, there exists scenarios in which using pre-trained models do not become an affordable solution.</quote>
+      </span>
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → existing DL review papers, each of which addresses a single application or topic and so leaves an overall lack of knowledge about the field</label>
+        <quote>Despite it has been contributed several works reviewing the State-of-the-Art on DL, all of them only tackled one aspect of the DL, which leads to an overall lack of knowledge about it.</quote>
+      </span>
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>builds-on → the 2020 Google identification of underspecification as a distinct failure mode of ML pipelines</label>
+        <quote>In 2020, a team of computer scientists at Google has identified a new challenge called underspecification. ML models including DL models often show surprisingly poor behavior when they are tested in real-world applications such as computer vision, medical imaging, natural language processing, and medical genomics. The reason behind the weak performance is due to underspecification.</quote>
+      </span>
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>qualifies → transfer learning from ImageNet as the standard remedy for insufficient training data in medical imaging</label>
+        <quote>It has further been proven that TL from different domains does not significantly affect performance on medical imaging tasks, as lightweight models trained from scratch perform nearly as well as standard ImageNet-transferred models. Therefore, there exists scenarios in which using pre-trained models do not become an affordable solution.</quote>
+      </span>
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>DL —part-of→ ML</label>
+        <term>DL</term>
+        <term>ML</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>DL, a subset of ML (Fig. 2), is inspired by the information processing patterns found in the human brain. DL does not require any human-designed rules to operate; rather, it uses a large amount of data to map the given input to specific labels.</quote>
+      </span>
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>representation learning —same-as→ RL</label>
+        <term>representation learning</term>
+        <term>RL</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9</note>
+        <quote>Among the different ML algorithms, deep learning (DL) is very commonly employed in these applications. Another name for DL is representation learning (RL).</quote>
+      </span>
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>deep reinforcement learning —same-as→ RL</label>
+        <term>deep reinforcement learning</term>
+        <term>RL</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9</note>
+        <quote>DL techniques are classified into three major categories: unsupervised, partially supervised (semi-supervised) and supervised. Furthermore, deep reinforcement learning (DRL), also known as RL, is another type of learning technique, which is mostly considered to fall into the category of partially supervised (and occasionally unsupervised) learning techniques.</quote>
+      </span>
+      <span xml:id="t51" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>TL —contrasted-with→ lightweight models trained from scratch</label>
+        <term>TL</term>
+        <term>lightweight models trained from scratch</term>
+        <note>differs in: performance on medical imaging tasks when source and target domains differ · the relation itself is separately evidenced · strength of the relation: 0.9</note>
+        <quote>It has further been proven that TL from different domains does not significantly affect performance on medical imaging tasks, as lightweight models trained from scratch perform nearly as well as standard ImageNet-transferred models. Therefore, there exists scenarios in which using pre-trained models do not become an affordable solution.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>`RL` is defined twice in this paper as two unrelated concepts - representation learning and reinforcement learning - and neither definition acknowledges the other</label>
+        <term>`RL` is defined twice in this paper as two unrelated concepts - representation learning and reinforcement learning - and neither definition acknowledges the other</term>
+        <quote>DL techniques are classified into three major categories: unsupervised, partially supervised (semi-supervised) and supervised. Furthermore, deep reinforcement learning (DRL), also known as RL, is another type of learning technique, which is mostly considered to fall into the category of partially supervised (and occasionally unsupervised) learning techniques.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>transfer learning from a dissimilar domain does not significantly affect medical imaging performance; models trained from scratch do nearly as well</label>
+        <term>transfer learning from a dissimilar domain does not significantly affect medical imaging performance; models trained from scratch do nearly as well</term>
+        <quote>It has further been proven that TL from different domains does not significantly affect performance on medical imaging tasks, as lightweight models trained from scratch perform nearly as well as standard ImageNet-transferred models. Therefore, there exists scenarios in which using pre-trained models do not become an affordable solution.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>underspecification means small modifications force a model toward a completely different solution and different deployment predictions</label>
+        <term>underspecification means small modifications force a model toward a completely different solution and different deployment predictions</term>
+        <quote>It has been shown that small modifications can force a model towards a completely different solution as well as lead to different predictions in deployment domains.</quote>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the remedy proposed for underspecification requires already understanding how the model can fail</label>
+        <term>the remedy proposed for underspecification requires already understanding how the model can fail</term>
+        <quote>One of them is to design “stress tests” to examine how good a model works on real-world data and to find out the possible issues. Nevertheless, this demands a reliable understanding of the process the model can work inaccurately.</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>CNN performance is dominated by hyper-parameter selection - any small change affects the general result</label>
+        <term>CNN performance is dominated by hyper-parameter selection - any small change affects the general result</term>
+        <quote>The CNN performance is greatly influenced by hyper-parameter selection. Any small change in the hyper-parameter values will affect the general CNN performance. Therefore, careful parameter selection is an extremely significant issue that should be considered during optimization scheme development.</quote>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>most current deep-learning models still use supervised learning despite the stated transition toward semi- and unsupervised methods</label>
+        <term>most current deep-learning models still use supervised learning despite the stated transition toward semi- and unsupervised methods</term>
+        <quote>Although ML slowly transitions to semi-supervised and unsupervised learning to manage practical data without the need for manual human labeling, many of the current deep-learning models utilize supervised learning.</quote>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>a ranking-type metric that, in contrast to probability and threshold metrics, exposes the entire classifier ranking performance</label>
+        <term>AUC</term>
+        <quote>Area Under the ROC Curve: AUC is a common ranking type metric. It is utilized to conduct comparisons between learning algorithms, as well as to construct an optimal learning model. In contrast to probability and threshold metrics, the AUC value exposes the entire classifier ranking performance.</quote>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>a subset of ML, inspired by the information processing patterns of the human brain, which requires no human-designed rules and maps input to labels from data</label>
+        <term>DL</term>
+        <quote>DL, a subset of ML (Fig. 2), is inspired by the information processing patterns found in the human brain. DL does not require any human-designed rules to operate; rather, it uses a large amount of data to map the given input to specific labels.</quote>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>only a few weights between two adjacent layers, against fully connected networks where every neuron links to every neuron in the next layer</label>
+        <term>Sparse Connectivity</term>
+        <quote>Sparse Connectivity: Each neuron of a layer in FC neural networks links with all neurons in the following layer. By contrast, in CNNs, only a few weights are available between two adjacent layers. Thus, the number of required weights or connections is small, while the memory required to store these weights is also small; hence, this approach is memory-effective.</quote>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">
+        <label>no weights allocated between any two neurons of neighbouring layers; one set of weights operates over every pixel of the input matrix</label>
+        <term>Weight Sharing</term>
+        <quote>Weight Sharing: There are no allocated weights between any two neurons of neighboring layers in CNN, as the whole weights operate with one and all pixels of the input matrix. Learning a single group of weights for the whole input will significantly decrease the required training time and various costs, as it is not necessary to learn additional weights for each neuron.</quote>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">
+        <label>neurons randomly dropped during each training epoch, distributing feature-selection power across the whole group and forcing independent features</label>
+        <term>Dropout</term>
+        <quote>Dropout: This is a widely utilized technique for generalization. During each training epoch, neurons are randomly dropped. In doing this, the feature selection power is distributed equally across the whole group of neurons, as well as forcing the model to learn different independent features.</quote>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.85">
+        <label>incorporating new information into a plain DL model by interfering with the learned information - fine-tuning on a new class breaks the old ones</label>
+        <term>catastrophic forgetting</term>
+        <quote>### Catastrophic forgetting This is defined as incorporating new information into a plain DL model, made possible by interfering with the learned information. For instance, consider a case where there are 1000 types of flowers and a model is trained to classify these flowers, after which a new type of flower is introduced; if the model is fine-tuned only with this new class, its performance will become unsuccessful with the older classes.</quote>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.95">
+        <label>the reason ML models show surprisingly poor behaviour when tested in real-world applications despite passing their own validation</label>
+        <term>underspecification</term>
+        <quote>In 2020, a team of computer scientists at Google has identified a new challenge called underspecification. ML models including DL models often show surprisingly poor behavior when they are tested in real-world applications such as computer vision, medical imaging, natural language processing, and medical genomics. The reason behind the weak performance is due to underspecification.</quote>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="0.95">
+        <label>using images that look similar to the target dataset for training - e.g. X-rays of other chest diseases before fine-tuning on COVID-19 chest X-rays</label>
+        <term>Same-domain TL</term>
+        <quote>Same-domain TL is an approach of using images that look similar to the target dataset for training. For example, using X-ray images of different chest diseases to train the model, then fine-tuning and training it on chest X-ray images for COVID-19 diagnosis.</quote>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>papers reviewed from 2020, of more than 300 total</label>
+        <term>108</term>
+        <quote>We have reviewed more than 300 papers on various DL topics. There are 108 papers from the year 2020, 76 papers from the year 2019, and 48 papers from the year 2018. This indicates that this review focused on the latest publications in the field of DL.</quote>
+      </span>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the floor on the number of papers reviewed</label>
+        <term>300</term>
+        <quote>We have reviewed more than 300 papers on various DL topics. There are 108 papers from the year 2020, 76 papers from the year 2019, and 48 papers from the year 2018. This indicates that this review focused on the latest publications in the field of DL.</quote>
+      </span>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>AUC</label>
+        <term>AUC</term>
+        <quote>Area Under the ROC Curve: AUC is a common ranking type metric. It is utilized to conduct comparisons between learning algorithms, as well as to construct an optimal learning model. In contrast to probability and threshold metrics, the AUC value exposes the entire classifier ranking performance.</quote>
+      </span>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>Sensitivity or Recall</label>
+        <term>Sensitivity or Recall</term>
+        <quote>Sensitivity or Recall: Utilized to calculate the fraction of positive patterns that are correctly classified (Eq. 21). Specificity: Utilized to calculate the fraction of negative patterns that are correctly classified (Eq. 22).</quote>
+      </span>
+      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
+        <label>Specificity</label>
+        <term>Specificity</term>
+        <quote>Sensitivity or Recall: Utilized to calculate the fraction of positive patterns that are correctly classified (Eq. 21). Specificity: Utilized to calculate the fraction of negative patterns that are correctly classified (Eq. 22).</quote>
+      </span>
+      <span xml:id="t71" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>hyper-parameter selection</label>
+        <term>hyper-parameter selection</term>
+        <quote>The CNN performance is greatly influenced by hyper-parameter selection. Any small change in the hyper-parameter values will affect the general CNN performance. Therefore, careful parameter selection is an extremely significant issue that should be considered during optimization scheme development.</quote>
+      </span>
+      <span xml:id="t72" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>amount of data</label>
+        <term>amount of data</term>
+        <quote>DL is extremely data-hungry considering it also involves representation learning. DL demands an extensively large amount of data to achieve a well-behaved performance model, i.e. as the data increases, an extra well-behaved performance model can be achieved (Fig. 27).</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/s40537-021-00444-8.</note></p>
+    </body>
+  </text>
+</TEI>

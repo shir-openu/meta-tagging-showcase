@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials</title>
+        <author>Simon Batzner</author>
+        <author>Albert Musaelian</author>
+        <author>Lixin Sun</author>
+        <author>Mario Geiger</author>
+        <author>Jonathan P. Mailoa</author>
+        <author>Mordechai Kornbluth</author>
+        <author>Nicola Molinari</author>
+        <author>Tess Smidt</author>
+        <author>Boris Kozinsky</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials</title>
+          <date>2022</date>
+          <publisher>Nature Communications</publisher>
+          <idno type="DOI">10.1038/s41467-022-29939-5</idno>
+          
+          <idno type="record">batzner2022-e-3-equivariant-graph-neural-netwo</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\batzner2022-e-3-equivariant-graph-neural-netwo.txt</note>
+          <note type="text-sha1">6bb97e4f1133194690da304ee0c796688ba1296c</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">75 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>learning the interatomic potential energy and forces of molecules and materials from first-principles calculations, at a training-set size small enough that the reference calculations are affordable</label>
+        <quote>One of the limiting factors of neural network interatomic potentials (NN-IPs) is that they typically require large training sets of ab-initio calculations, often including thousands or even millions of reference structures. This computationally expensive process of training data collection has severely limited the adoption of NN-IPs, as it quickly becomes a bottleneck in the development of force-fields for complex systems.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether making a network&#x27;s internal features equivariant rather than invariant changes how much data it needs, and not merely how accurate it is at a fixed data budget</label>
+        <quote>In contrast, the method outlined in this work uses relative position vectors rather than simply distances (scalars) together with features comprised of not only scalars, but also higher-order geometric tensors. This makes internal features instead equivariant to rotation and allows for angular information to be used by rotationally equivariant filters.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>NequIP - E(3)-equivariant convolutions over geometric tensors giving state-of-the-art accuracy on molecules and materials with up to three orders of magnitude less training data, plus an ablation isolating equivariance as the cause and a learning-curve slope that no other method has</label>
+        <quote>The contribution of the present work is the introduction of a deep learning energy-conserving interatomic potential for both molecules and materials built on E(3)-equivariant convolutions over geometric tensors that yields state-of-the-art accuracy, outstanding data-efficiency, and can with high fidelity reproduce structural and kinetic properties from molecular dynamics simulations.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>While most contemporary symmetry-aware models use invariant convolutions and only act on scalars, NequIP employs E(3)-equivariant convolutions for interactions of geometric tensors, resulting in a more information-rich and faithful representation of atomic environments. The method achieves state-of-the-art accuracy on a challenging and diverse set of molecules and materials while exhibiting remarkable data efficiency. NequIP outperforms existing models with up to three orders of magnitude fewer training data, challenging the widely held belief that deep neural networks require massive training sets.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>sample efficiency in learned interatomic potentials - and the fact that a symmetry built into the representation changes the exponent of the learning curve rather than only its offset</label>
+        <quote>To our surprise, we observe that the equivariant NequIP networks break this pattern. Instead they follow a log-log slope with larger magnitude, meaning that they learn faster as new data become available. An invariant l = 0 NequIP network, however, displays a similar log-log slope to other methods, suggesting that it is indeed the equivariant nature of NequIP that allows for the change in learning behavior.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>graph neural network over atomic neighbourhoods within a cutoff, with features that are geometric tensors up to rotation order l, convolutions built from radial functions and spherical harmonics, and forces taken as gradients of the predicted energy so that energy conservation holds by construction</label>
+        <term>graph neural network over atomic neighbourhoods within a cutoff, with features that are geometric tensors up to rotation order l, convolutions built from radial functions and spherical harmonics, and forces taken as gradients of the predicted energy so that energy conservation holds by construction</term>
+        <quote>We run a convergence scan on the rotation order l ∈ {0, 1, 2, 3} and find that increasing the tensor rank beyond l = 1 gives a consistent improvement. The significant improvement from l = 0 to l = 1 highlights the crucial role of equivariance in obtaining improved accuracy on this task.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>learning curves normally follow a power law whose exponent belongs to the data set - methods move the curve up or down and leave its slope alone. Building rotation equivariance into the features changes the slope itself, so the advantage grows with every additional training structure rather than staying constant</label>
+        <term>a symmetry that changes the exponent, not the offset</term>
+        <quote>To our surprise, we observe that the equivariant NequIP networks break this pattern. Instead they follow a log-log slope with larger magnitude, meaning that they learn faster as new data become available. An invariant l = 0 NequIP network, however, displays a similar log-log slope to other methods, suggesting that it is indeed the equivariant nature of NequIP that allows for the change in learning behavior.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>predicting force vectors directly leaves nothing enforcing that they are the gradient of any energy, so long molecular dynamics runs can drift; taking the forces as the gradient of the predicted potential makes energy conservation a property of the construction rather than something the training has to discover</label>
+        <term>conservation by differentiation</term>
+        <quote>Townshend et al. use the framework of Tensor-Field Networks to directly predict atomic force vectors. The predicted forces are not guaranteed by construction to conserve energy since they are not obtained as gradients of the total potential energy. This may lead to problems in simulations of molecular dynamics over long times. None of these three works demonstrates capability to perform molecular dynamics simulations.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>a reported error is the sum of the model&#x27;s error and the reference calculation&#x27;s; running one model on two recomputations of the same molecules separates them, and here the energies move while the forces do not, which says the original benchmark&#x27;s energy noise was the larger term</label>
+        <term>an instrument reading its own reference</term>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>each configuration carries one energy and 3N force components, so M structures are M(3N + 1) labels; a data-efficiency claim counted in structures is counted in a unit that hides how much supervision each one supplies, and the authors raise this before making the claim</label>
+        <term>labels per structure as the hidden denominator</term>
+        <quote>First, it is important to note that each training configuration contains multiple labels: in particular, for a training set of M first-principles calculations with structures consisting of N atoms, the energies and force components together give a total of M(3N + 1) labels.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the data-efficiency claim is counted in structures, and each structure carries 3N + 1 labels - the authors state the alternative denominator themselves</label>
+        <quote>First, it is important to note that each training configuration contains multiple labels: in particular, for a training set of M first-principles calculations with structures consisting of N atoms, the energies and force components together give a total of M(3N + 1) labels.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the energy comparison against DeepMD is confounded by there being 3N force targets and one energy target per frame, which the authors expect to favour the larger training set on energies</label>
+        <quote>We note that there are 3N force components for each training frame but only one energy target. Consequently, one would except that on energies the much larger training set used for DeepMD would results in an even stronger difference.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the DeepMD version compared against is not the smooth one, and the smooth version does not report results on water and ice, so the comparison could not be made</label>
+        <quote>We note that the version of DeepMD published in is not smooth, and a smooth version has since been proposed. However, does not report results on the water/ice systems. It would be of interest to investigate the performance of the smooth DeepMD version as a function of training set size.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>how the many-body character of interactions arises in message-passing potentials has no clear theoretical understanding</label>
+        <quote>The findings lead to a series of interesting questions to consider: of particular interest is the sample efficiency of the equivariant NequIP network when compared to the more widely used invariant representations. In addition to questions around the effect of equivariance on accuracy and learning dynamics, a clear theoretical understanding of how the many-body character of interactions arises in message passing interatomic potentials remains elusive.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>long-range interactions are not explicitly included, and how much of them message passing captures is unmeasured</label>
+        <quote>Further, a promising direction for future work is to investigate the potential benefits of explicitly including long-range interactions and to measure to what extent - if any - these might be captured by the message passing mechanism.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>interpretability is an open challenge - classical potentials assign energy to named interaction types and this model does not</label>
+        <quote>Finally, while we find that NequIP displays excellent predictive accuracy, generalization to unseen phases, and remarkably high sample efficiency, an open challenge that remains is the interpretability of deep learning interatomic potentials. Energy contributions in classical interatomic potentials can be explicitly assigned to individual types of interactions, such as pair-wise bonded terms or Coulomb or van der Waals non-bonded interactions.</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.95">
+        <label>the tension is structural: the simple functional form that makes classical force fields interpretable is the same thing that limits their accuracy</label>
+        <quote>The potential benefits and optimal ways of including such physical knowledge explicitly into the complex functional forms underlying deep learning interatomic potentials still need to be systematically explored. On the other hand, the simplicity of the functional form of classical force-fields that allows for this level of interpretability severely limits their accuracy, presenting an interesting tension between the two approaches.</quote>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>group representation theory - E(3), tensor rank, parity and spherical harmonics - carried from physics into the design of a network&#x27;s internal feature space</label>
+        <quote>In contrast, the method outlined in this work uses relative position vectors rather than simply distances (scalars) together with features comprised of not only scalars, but also higher-order geometric tensors. This makes internal features instead equivariant to rotation and allows for angular information to be used by rotationally equivariant filters.</quote>
+      </span>
+      <span xml:id="t18" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
+        <label>power-law learning curves and their exponents, carried from statistical learning theory into a claim about what a symmetry does to sample complexity</label>
+        <quote>The exponent of this power-law (or equivalently the slope in log-log space) determines how fast a learning algorithm learns as new data become available. Empirical results have shown that this exponent typically remains fixed across different learning algorithms for a given data set, and different methods only shift the learning curve, leaving the log-log slope unaffected.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a convergence scan over rotation order l in {0, 1, 2, 3}, where l = 0 is the same network with equivariance switched off</label>
+        <note>eliminates: every other part of the architecture as the source of the accuracy - depth, cutoff, radial basis and training setup are identical across the scan, so only the tensor rank differs · outcome: held</note>
+        <quote>We run a convergence scan on the rotation order l ∈ {0, 1, 2, 3} and find that increasing the tensor rank beyond l = 1 gives a consistent improvement. The significant improvement from l = 0 to l = 1 highlights the crucial role of equivariance in obtaining improved accuracy on this task.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>interactions above l = 0 explicitly turned off to make the network a conventional invariant GNN-IP in a SchNet-style fashion, then run across training-set sizes from 10 to 1000 with identical hyperparameters</label>
+        <note>eliminates: training budget, capacity or hyperparameter tuning as the explanation of the sample efficiency - the comparison is the same network at every data size · outcome: held</note>
+        <quote>We train a series of networks with identical hyperparameters, but vary the training set sizes between 10 and 1000 structures. As shown in Fig. 5, we find that the equivariant networks with l ∈ 1, 2, 3 significantly outperform the invariant networks with l = 0 for all data set sizes as measured by the MAE of force components. This suggests that it is indeed the use of tensor features and equivariant convolutions that enables the high sample efficiency of NequIP.</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>weight- and feature-controlled versions of the same comparison, reported in the supplementary information</label>
+        <note>eliminates: parameter count as the explanation - a higher-l network has more weights, and without this the ablation would be measuring size rather than symmetry · outcome: held</note>
+        <quote>To control for the different number of weights and features of networks of different rotation order l, we report weight- and feature-controlled data in the SI. Both show qualitatively the same effect.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>separate models trained and tested on BOTH the original and the revised MD-17 data sets, with energy and force errors reported for each</label>
+        <note>eliminates: the benchmark&#x27;s own numerical noise being read as model error - the forces stay put while the energies move, which can only be a property of the reference data · outcome: held</note>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>comparison against kernel methods - sGDML and FCHL19/GPR - and not only against other neural networks</label>
+        <note>eliminates: the small-data claim being tested only against models with the same weakness; kernels are the methods that usually win on small training sets · outcome: held</note>
+        <quote>Remarkably, we find that NequIP outperforms all other methods. The consistent improvements in accuracy compared to sGDML and FCHL19/GPR are particularly surprising, as these are based on kernel methods, which typically obtain better performance than deep neural networks on small training sets.</quote>
+      </span>
+      <span xml:id="t24" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>the trained potential used to run molecular dynamics, with the radial and two angular distribution functions compared against the ab-initio trajectory at the same temperature</label>
+        <note>eliminates: a low force error being mistaken for correct dynamics - a potential can score well pointwise and still produce the wrong structure when integrated · outcome: held</note>
+        <quote>Fig. 3 shows that NequIP can accurately reproduce the RDF and the two ADFs, in comparison with AIMD, after training on only 1000 structures. This demonstrates that the model generates the glass state and recovers its dynamics and structure almost perfectly, despite having seen only the high-temperature molten training data.</quote>
+      </span>
+      <span xml:id="t25" type="controls" ana="#controls[6]" resp="#tagger" cert="0.95">
+        <label>training exclusively on the 3000 K molten trajectory and evaluating on the 600 K quenched glass</label>
+        <note>eliminates: memorisation of the training phase - the test structures are a different phase of the same material, which the model never saw · outcome: held</note>
+        <quote>Fig. 3 shows that NequIP can accurately reproduce the RDF and the two ADFs, in comparison with AIMD, after training on only 1000 structures. This demonstrates that the model generates the glass state and recovers its dynamics and structure almost perfectly, despite having seen only the high-temperature molten training data.</quote>
+      </span>
+      <span xml:id="t26" type="controls" ana="#controls[7]" resp="#tagger" cert="0.95">
+        <label>Li diffusivity measured from NequIP-driven MD started from ten different initial velocity draws and compared against the ab-initio value</label>
+        <note>eliminates: one lucky trajectory - diffusivity from a single run of a superionic conductor is a sample from a distribution, not a number · outcome: held</note>
+        <quote>We find a mean diffusivity of 1.25 × 10−5cm2/s, in excellent agreement with the diffusivity of 1.37 × 10−5cm2/s computed from AIMD, thus achieving a relative error of as little as 9%.</quote>
+      </span>
+      <span xml:id="t27" type="controls" ana="#controls[8]" resp="#tagger" cert="0.95">
+        <label>a published Behler-Parrinello network&#x27;s force RMSE on the same system quoted against NequIP models trained on 100 and 250 structures</label>
+        <note>eliminates: the data-efficiency comparison resting only on this paper&#x27;s own baselines · outcome: held</note>
+        <quote>We further note, that in, a Behler-Parrinello Neural Network (BPNN) was trained on 1303 structures, yielding a RMSE of ≈120 meV/Å in forces when evaluated on the remaining 290 structures. We find that NequIP l = 2 models trained with as little as 100 and 250 data points obtain RMSEs of 123.3 meV/Å and 98.3 meV/Å respectively (note that Fig. 5 shows the MAE). This provides further evidence that NequIP exhibits significantly improved data efficiency in comparison with existing methods.</quote>
+      </span>
+      <span xml:id="t28" type="controls" ana="#controls[9]" resp="#tagger" cert="0.95">
+        <label>three different weightings of the energy and force terms in the loss function, reported side by side on the water and ice system</label>
+        <note>eliminates: that the reported accuracy is an artefact of one chosen energy/force weighting in the loss · outcome: held</note>
+        <quote>Finally, we report results using three different weightings of energies and forces in the loss function and see that increasing the energy weighting results in significantly improved energy errors at the cost of a small increase in force error.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>equivariant</label>
+        <term>equivariant</term>
+        <quote>In contrast, the method outlined in this work uses relative position vectors rather than simply distances (scalars) together with features comprised of not only scalars, but also higher-order geometric tensors. This makes internal features instead equivariant to rotation and allows for angular information to be used by rotationally equivariant filters.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>invariant</label>
+        <term>invariant</term>
+        <quote>While most contemporary symmetry-aware models use invariant convolutions and only act on scalars, NequIP employs E(3)-equivariant convolutions for interactions of geometric tensors, resulting in a more information-rich and faithful representation of atomic environments. The method achieves state-of-the-art accuracy on a challenging and diverse set of molecules and materials while exhibiting remarkable data efficiency. NequIP outperforms existing models with up to three orders of magnitude fewer training data, challenging the widely held belief that deep neural networks require massive training sets.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>rotation order</label>
+        <term>rotation order</term>
+        <quote>We run a convergence scan on the rotation order l ∈ {0, 1, 2, 3} and find that increasing the tensor rank beyond l = 1 gives a consistent improvement. The significant improvement from l = 0 to l = 1 highlights the crucial role of equivariance in obtaining improved accuracy on this task.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>NequIP</label>
+        <term>NequIP</term>
+        <quote>While most contemporary symmetry-aware models use invariant convolutions and only act on scalars, NequIP employs E(3)-equivariant convolutions for interactions of geometric tensors, resulting in a more information-rich and faithful representation of atomic environments. The method achieves state-of-the-art accuracy on a challenging and diverse set of molecules and materials while exhibiting remarkable data efficiency. NequIP outperforms existing models with up to three orders of magnitude fewer training data, challenging the widely held belief that deep neural networks require massive training sets.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>interatomic potentials</label>
+        <term>interatomic potentials</term>
+        <quote>One of the limiting factors of neural network interatomic potentials (NN-IPs) is that they typically require large training sets of ab-initio calculations, often including thousands or even millions of reference structures. This computationally expensive process of training data collection has severely limited the adoption of NN-IPs, as it quickly becomes a bottleneck in the development of force-fields for complex systems.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>log-log slope</label>
+        <term>log-log slope</term>
+        <quote>The exponent of this power-law (or equivalently the slope in log-log space) determines how fast a learning algorithm learns as new data become available. Empirical results have shown that this exponent typically remains fixed across different learning algorithms for a given data set, and different methods only shift the learning curve, leaving the log-log slope unaffected.</quote>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>learning curve</label>
+        <term>learning curve</term>
+        <quote>The exponent of this power-law (or equivalently the slope in log-log space) determines how fast a learning algorithm learns as new data become available. Empirical results have shown that this exponent typically remains fixed across different learning algorithms for a given data set, and different methods only shift the learning curve, leaving the log-log slope unaffected.</quote>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>noise floor</label>
+        <term>noise floor</term>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>MD-17</label>
+        <term>MD-17</term>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>DeepMD</label>
+        <term>DeepMD</term>
+        <quote>A DeepMD NN-IP model was previously trained for water and ice using a joint training set containing 133,500 reference calculations of these four systems. To assess data efficiency of the NequIP architecture, we similarly train a model jointly on all four parts of the data set, but using only 133 structures for training, i.e. 1000x fewer data.</quote>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>DimeNet</label>
+        <term>DimeNet</term>
+        <quote>DimeNet expands on using pairwise interactions in a single convolution to include angular, three-body terms, but individual features are still comprised of scalars (distances and three-body angles are invariant to rotation), as opposed to vectors used in this work.</quote>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>diffusivity</label>
+        <term>diffusivity</term>
+        <quote>We find a mean diffusivity of 1.25 × 10−5cm2/s, in excellent agreement with the diffusivity of 1.37 × 10−5cm2/s computed from AIMD, thus achieving a relative error of as little as 9%.</quote>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>NequIP&#x27;s MD-17 energy error - ON THE ORIGINAL DATA SET: significantly higher, and the paper attributes the difference to that data set&#x27;s noise floor rather than to the model</label>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>NequIP&#x27;s MD-17 energy error - ON THE REVISED DATA SET: significantly lower, and the only version the authors say should be used for comparing methods</label>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>what raising the rotation order does - CROSSING l = 0 TO l = 1: changes the log-log slope of the learning curve, so the model learns faster from new data</label>
+        <quote>To our surprise, we observe that the equivariant NequIP networks break this pattern. Instead they follow a log-log slope with larger magnitude, meaning that they learn faster as new data become available. An invariant l = 0 NequIP network, however, displays a similar log-log slope to other methods, suggesting that it is indeed the equivariant nature of NequIP that allows for the change in learning behavior.</quote>
+      </span>
+      <span xml:id="t44" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>what raising the rotation order does - BEYOND l = 1: shifts the curve down without changing its slope, the same thing every other method does to it</label>
+        <quote>Further increasing the rotation order l beyond l = 1 again only shifts the learning curve and does not results in an additional change in log-log slope.</quote>
+      </span>
+      <span xml:id="t45" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>a training set of M structures - COUNTED AS CONFIGURATIONS: M, which is the number the data-efficiency claim is made in</label>
+        <quote>First, it is important to note that each training configuration contains multiple labels: in particular, for a training set of M first-principles calculations with structures consisting of N atoms, the energies and force components together give a total of M(3N + 1) labels.</quote>
+      </span>
+      <span xml:id="t46" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>a training set of M structures - COUNTED AS LABELS: M(3N + 1), because each structure carries one energy and 3N force components - the authors raise this themselves before claiming efficiency</label>
+        <quote>First, it is important to note that each training configuration contains multiple labels: in particular, for a training set of M first-principles calculations with structures consisting of N atoms, the energies and force components together give a total of M(3N + 1) labels.</quote>
+      </span>
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → the belief that deep neural networks require massive training sets - contradicted here by matching or beating existing models with up to three orders of magnitude fewer reference calculations</label>
+        <quote>While most contemporary symmetry-aware models use invariant convolutions and only act on scalars, NequIP employs E(3)-equivariant convolutions for interactions of geometric tensors, resulting in a more information-rich and faithful representation of atomic environments. The method achieves state-of-the-art accuracy on a challenging and diverse set of molecules and materials while exhibiting remarkable data efficiency. NequIP outperforms existing models with up to three orders of magnitude fewer training data, challenging the widely held belief that deep neural networks require massive training sets.</quote>
+      </span>
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → invariant graph neural network interatomic potentials, whose features are scalars and which therefore discard the directional information equivariant filters can use</label>
+        <quote>In contrast, the method outlined in this work uses relative position vectors rather than simply distances (scalars) together with features comprised of not only scalars, but also higher-order geometric tensors. This makes internal features instead equivariant to rotation and allows for angular information to be used by rotationally equivariant filters.</quote>
+      </span>
+      <span xml:id="t49" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>critiques → direct prediction of atomic force vectors, which is not guaranteed to conserve energy because the forces are not gradients of a potential</label>
+        <quote>Townshend et al. use the framework of Tensor-Field Networks to directly predict atomic force vectors. The predicted forces are not guaranteed by construction to conserve energy since they are not obtained as gradients of the total potential energy. This may lead to problems in simulations of molecular dynamics over long times. None of these three works demonstrates capability to perform molecular dynamics simulations.</quote>
+      </span>
+      <span xml:id="t50" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+        <label>critiques → the original MD-17 benchmark, whose energy noise floor the authors say is too high for comparing methods - only the revised recomputation should be used</label>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t51" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">
+        <label>qualifies → the empirical rule that learning-curve exponents belong to the data set and methods only shift the curve - broken here by equivariance, and only by crossing l = 0 to 1</label>
+        <quote>To our surprise, we observe that the equivariant NequIP networks break this pattern. Instead they follow a log-log slope with larger magnitude, meaning that they learn faster as new data become available. An invariant l = 0 NequIP network, however, displays a similar log-log slope to other methods, suggesting that it is indeed the equivariant nature of NequIP that allows for the change in learning behavior.</quote>
+      </span>
+      <span xml:id="t52" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="0.95">
+        <label>qualifies → its own DeepMD comparison, which used the non-smooth published version because the smooth one reports no results on water and ice</label>
+        <quote>We note that the version of DeepMD published in is not smooth, and a smooth version has since been proposed. However, does not report results on the water/ice systems. It would be of interest to investigate the performance of the smooth DeepMD version as a function of training set size.</quote>
+      </span>
+      <span xml:id="t53" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>equivariant —distinct-from→ invariant</label>
+        <term>equivariant</term>
+        <term>invariant</term>
+        <note>differs in: whether the internal features have a direction that rotates with the molecule · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>In contrast, the method outlined in this work uses relative position vectors rather than simply distances (scalars) together with features comprised of not only scalars, but also higher-order geometric tensors. This makes internal features instead equivariant to rotation and allows for angular information to be used by rotationally equivariant filters.</quote>
+      </span>
+      <span xml:id="t54" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>log-log slope —distinct-from→ learning curve</label>
+        <term>log-log slope</term>
+        <term>learning curve</term>
+        <note>differs in: whether the quantity moves when the rotation order is raised beyond 1 · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>Further increasing the rotation order l beyond l = 1 again only shifts the learning curve and does not results in an additional change in log-log slope.</quote>
+      </span>
+      <span xml:id="t55" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>MD-17 —distinct-from→ noise floor</label>
+        <term>MD-17</term>
+        <term>noise floor</term>
+        <note>differs in: which quantity moves when only the reference calculation is changed · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t56" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>DimeNet —distinct-from→ rotation order</label>
+        <term>DimeNet</term>
+        <term>rotation order</term>
+        <note>differs in: whether the extra physics enters as an invariant number or as a tensor feature · the relation itself is separately evidenced · strength of the relation: 0.9</note>
+        <quote>DimeNet expands on using pairwise interactions in a single convolution to include angular, three-body terms, but individual features are still comprised of scalars (distances and three-body angles are invariant to rotation), as opposed to vectors used in this work.</quote>
+      </span>
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">
+        <label>interatomic potentials —distinct-from→ NequIP</label>
+        <term>interatomic potentials</term>
+        <term>NequIP</term>
+        <note>differs in: whether the forces are predicted or differentiated · the relation itself is separately evidenced · strength of the relation: 0.9</note>
+        <quote>Townshend et al. use the framework of Tensor-Field Networks to directly predict atomic force vectors. The predicted forces are not guaranteed by construction to conserve energy since they are not obtained as gradients of the total potential energy. This may lead to problems in simulations of molecular dynamics over long times. None of these three works demonstrates capability to perform molecular dynamics simulations.</quote>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>equivariant networks with l &gt;= 1 outperform the identical network at l = 0 at every training-set size from 10 to 1000</label>
+        <term>equivariant networks with l &gt;= 1 outperform the identical network at l = 0 at every training-set size from 10 to 1000</term>
+        <quote>We train a series of networks with identical hyperparameters, but vary the training set sizes between 10 and 1000 structures. As shown in Fig. 5, we find that the equivariant networks with l ∈ 1, 2, 3 significantly outperform the invariant networks with l = 0 for all data set sizes as measured by the MAE of force components. This suggests that it is indeed the use of tensor features and equivariant convolutions that enables the high sample efficiency of NequIP.</quote>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>crossing l = 0 to 1 changes the log-log slope of the learning curve; raising l beyond 1 only shifts it</label>
+        <term>crossing l = 0 to 1 changes the log-log slope of the learning curve; raising l beyond 1 only shifts it</term>
+        <quote>Further increasing the rotation order l beyond l = 1 again only shifts the learning curve and does not results in an additional change in log-log slope.</quote>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>identical models give lower energy error on revised MD-17 and similar force error, locating the difference in the benchmark&#x27;s noise floor rather than the method</label>
+        <term>identical models give lower energy error on revised MD-17 and similar force error, locating the difference in the benchmark&#x27;s noise floor rather than the method</term>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>NequIP trained on 133 water and ice structures beats DeepMD trained on 133,500 on force error in all four parts of the data set</label>
+        <term>NequIP trained on 133 water and ice structures beats DeepMD trained on 133,500 on force error in all four parts of the data set</term>
+        <quote>We find that with 1000x fewer training data NequIP significantly outperforms DeepMD on all four parts of the data set in the error on the force components. We note that there are 3N force components for each training frame but only one energy target. Consequently, one would except that on energies the much larger training set used for DeepMD would results in an even stronger difference. We find that while this is indeed the case, the NequIP results on the liquid phase are surprisingly competitive.</quote>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>a model trained only on a 3000 K melt reproduces the radial and angular distribution functions of the 600 K quenched glass</label>
+        <term>a model trained only on a 3000 K melt reproduces the radial and angular distribution functions of the 600 K quenched glass</term>
+        <quote>Fig. 3 shows that NequIP can accurately reproduce the RDF and the two ADFs, in comparison with AIMD, after training on only 1000 structures. This demonstrates that the model generates the glass state and recovers its dynamics and structure almost perfectly, despite having seen only the high-temperature molten training data.</quote>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>Li diffusivity from NequIP-driven MD is 1.25e-5 cm2/s against 1.37e-5 from ab-initio MD, a 9% relative error</label>
+        <term>Li diffusivity from NequIP-driven MD is 1.25e-5 cm2/s against 1.37e-5 from ab-initio MD, a 9% relative error</term>
+        <quote>We find a mean diffusivity of 1.25 × 10−5cm2/s, in excellent agreement with the diffusivity of 1.37 × 10−5cm2/s computed from AIMD, thus achieving a relative error of as little as 9%.</quote>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>the method beats kernel approaches such as sGDML and FCHL19/GPR, which normally win on small training sets</label>
+        <term>the method beats kernel approaches such as sGDML and FCHL19/GPR, which normally win on small training sets</term>
+        <quote>Remarkably, we find that NequIP outperforms all other methods. The consistent improvements in accuracy compared to sGDML and FCHL19/GPR are particularly surprising, as these are based on kernel methods, which typically obtain better performance than deep neural networks on small training sets.</quote>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>each training configuration supplies 3N + 1 labels, so a data-efficiency claim counted in structures hides how much supervision each one carries</label>
+        <term>each training configuration supplies 3N + 1 labels, so a data-efficiency claim counted in structures hides how much supervision each one carries</term>
+        <quote>First, it is important to note that each training configuration contains multiple labels: in particular, for a training set of M first-principles calculations with structures consisting of N atoms, the energies and force components together give a total of M(3N + 1) labels.</quote>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the exponent of the learning-curve power law - how fast a learning algorithm improves as new data become available, normally fixed across methods for a given data set</label>
+        <term>log-log slope</term>
+        <quote>The exponent of this power-law (or equivalently the slope in log-log space) determines how fast a learning algorithm learns as new data become available. Empirical results have shown that this exponent typically remains fixed across different learning algorithms for a given data set, and different methods only shift the learning curve, leaving the log-log slope unaffected.</quote>
+      </span>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the reference data set&#x27;s own numerical error, identified here by training identical models on two recomputations of the same molecules and seeing which error moves</label>
+        <term>noise floor</term>
+        <quote>Importantly, we train and test separate NequIP models on both the original and the revised MD-17 data set, and find that NequIP obtains significantly lower energy errors on the revised data set, while the force accuracy is similar on the two data sets. In line with previous work, this suggests that the noise floor on the original MD-17 data is higher on the energies and that only the results on the revised MD-17 data set should be used for comparing different methods.</quote>
+      </span>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>fewer training structures than the DeepMD comparison on water and ice - 133 against 133,500</label>
+        <term>1000x</term>
+        <quote>A DeepMD NN-IP model was previously trained for water and ice using a joint training set containing 133,500 reference calculations of these four systems. To assess data efficiency of the NequIP architecture, we similarly train a model jointly on all four parts of the data set, but using only 133 structures for training, i.e. 1000x fewer data.</quote>
+      </span>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the relative error of the NequIP Li diffusivity against ab-initio MD</label>
+        <term>9%</term>
+        <quote>We find a mean diffusivity of 1.25 × 10−5cm2/s, in excellent agreement with the diffusivity of 1.37 × 10−5cm2/s computed from AIMD, thus achieving a relative error of as little as 9%.</quote>
+      </span>
+      <span xml:id="t70" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>structures the Behler-Parrinello baseline needed for an RMSE that NequIP matches with 100</label>
+        <term>1303</term>
+        <quote>We further note, that in, a Behler-Parrinello Neural Network (BPNN) was trained on 1303 structures, yielding a RMSE of ≈120 meV/Å in forces when evaluated on the remaining 290 structures. We find that NequIP l = 2 models trained with as little as 100 and 250 data points obtain RMSEs of 123.3 meV/Å and 98.3 meV/Å respectively (note that Fig. 5 shows the MAE). This provides further evidence that NequIP exhibits significantly improved data efficiency in comparison with existing methods.</quote>
+      </span>
+      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>MAE</label>
+        <term>MAE</term>
+        <quote>We train a series of networks with identical hyperparameters, but vary the training set sizes between 10 and 1000 structures. As shown in Fig. 5, we find that the equivariant networks with l ∈ 1, 2, 3 significantly outperform the invariant networks with l = 0 for all data set sizes as measured by the MAE of force components. This suggests that it is indeed the use of tensor features and equivariant convolutions that enables the high sample efficiency of NequIP.</quote>
+      </span>
+      <span xml:id="t72" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>RMSE</label>
+        <term>RMSE</term>
+        <quote>We further note, that in, a Behler-Parrinello Neural Network (BPNN) was trained on 1303 structures, yielding a RMSE of ≈120 meV/Å in forces when evaluated on the remaining 290 structures. We find that NequIP l = 2 models trained with as little as 100 and 250 data points obtain RMSEs of 123.3 meV/Å and 98.3 meV/Å respectively (note that Fig. 5 shows the MAE). This provides further evidence that NequIP exhibits significantly improved data efficiency in comparison with existing methods.</quote>
+      </span>
+      <span xml:id="t73" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>rotation order</label>
+        <term>rotation order</term>
+        <quote>We run a convergence scan on the rotation order l ∈ {0, 1, 2, 3} and find that increasing the tensor rank beyond l = 1 gives a consistent improvement. The significant improvement from l = 0 to l = 1 highlights the crucial role of equivariance in obtaining improved accuracy on this task.</quote>
+      </span>
+      <span xml:id="t74" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>log-log slope</label>
+        <term>log-log slope</term>
+        <quote>The exponent of this power-law (or equivalently the slope in log-log space) determines how fast a learning algorithm learns as new data become available. Empirical results have shown that this exponent typically remains fixed across different learning algorithms for a given data set, and different methods only shift the learning curve, leaving the log-log slope unaffected.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1038/s41467-022-29939-5.</note></p>
+    </body>
+  </text>
+</TEI>

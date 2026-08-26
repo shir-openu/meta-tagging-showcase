@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>A Comprehensive Review of YOLO Architectures in Computer Vision: From YOLOv1 to YOLOv8 and YOLO-NAS</title>
+        <author>Juan Terven</author>
+        <author>Diana‐Margarita Córdova‐Esparza</author>
+        <author>Julio-Alejandro Romero-González</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>A Comprehensive Review of YOLO Architectures in Computer Vision: From YOLOv1 to YOLOv8 and YOLO-NAS</title>
+          <date>2023</date>
+          <publisher>Machine Learning and Knowledge Extraction</publisher>
+          <idno type="DOI">10.3390/make5040083</idno>
+          
+          <idno type="record">terven2023-a-comprehensive-review-of-yolo-arc</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\terven2023-a-comprehensive-review-of-yolo-arc.txt</note>
+          <note type="text-sha1">a1a45a86bfc4d708ba2ac7d9b6a458be62900bbf</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">38 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the YOLO family of real-time object detectors from v1 to v8, and the single number the whole family is ranked by</label>
+        <quote>We present a comprehensive analysis of YOLO’s evolution, examining the innovations and contributions in each iteration from the original YOLO up to YOLOv8, YOLO-NAS, and YOLO with transformers.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what changed architecturally at each YOLO iteration, and on what measure the improvements are quoted</label>
+        <quote>We present a comprehensive analysis of YOLO’s evolution, examining the innovations and contributions in each iteration from the original YOLO up to YOLOv8, YOLO-NAS, and YOLO with transformers.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a version-by-version account of the architecture changes, prefaced by an explanation of the evaluation metric that shows it is not one metric</label>
+        <quote>The AP is computed differently in the VOC and in the COCO datasets.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>The AP metric is based on precision–recall metrics, handling multiple object categories, and defining a positive prediction using Intersection over Union (IoU).</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>real-time object detection, whose published progress is stated almost entirely in points of AP</label>
+        <quote>Among the different object detection algorithms, the YOLO (You Only Look Once) framework has stood out for its remarkable balance of speed and accuracy, enabling the rapid and reliable identification of objects in images.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>narrative review of each YOLO release, with a metrics section deriving AP for both the PASCAL VOC and the Microsoft COCO conventions</label>
+        <term>narrative review of each YOLO release, with a metrics section deriving AP for both the PASCAL VOC and the Microsoft COCO conventions</term>
+        <quote>The AP metric is based on precision–recall metrics, handling multiple object categories, and defining a positive prediction using Intersection over Union (IoU).</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>AP is built on the precision-recall curve, and precision and recall trade against each other - detecting more objects raises recall and produces more false positives - so the single number is an area under a curve, not a count</label>
+        <quote>There is often a tradeoff between precision and recall; for example, increasing the number of detected objects (higher recall) can result in more false positives (lower precision).</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>what counts as a correct detection at all is set by an IoU threshold, and COCO averages over a RANGE of thresholds from 0.5 to 0.95 - so the definition of `correct` is itself a parameter being averaged over</label>
+        <quote>It measures the overlap between the ground truth and predicted bounding boxes. The COCO benchmark considers multiple IoU thresholds to evaluate the model’s performance at different levels of localization accuracy.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>TWO NAMES FOR ONE THING: `average precision (AP), TRADITIONALLY CALLED mean average precision (mAP)`, and `THE COCO DATASET MAKES NO DISTINCTION BETWEEN AP AND mAP`. The review has to declare which word it will use before it can use it</label>
+        <quote>The average precision (AP), traditionally called mean average precision (mAP), is the commonly used metric for evaluating the performance of object detection models. It measures the average precision across all categories, providing a single value to compare different models. The COCO dataset makes no distinction between AP and mAP. In the rest of this paper, we will refer to this metric as AP.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>AND ONE NAME FOR TWO COMPUTATIONS: `The AP is computed differently in the VOC and in the COCO datasets` - 11-point interpolation over 20 categories at one IoU threshold, against 101-point interpolation over 80 categories averaged over ten IoU thresholds</label>
+        <quote>The AP is computed differently in the VOC and in the COCO datasets.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>THE CONSEQUENCE IS STATED PLAINLY AND IT IS ABOUT COMPARABILITY: `the differences in AP calculation MAKE IT HARD TO DIRECTLY COMPARE the performance of object detection models across the two datasets`</label>
+        <quote>The differences in AP calculation make it hard to directly compare the performance of object detection models across the two datasets.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the improvements the field reports are quoted in that same word - 2.3 points from simOTA, 2.4 from stronger augmentation - so the increments inherit whatever the number means on the day</label>
+        <quote>YOLOX, inspired by this work, proposed a simplified version called simOTA. This change increased AP by 2.3 points.</quote>
+      </span>
+      <span xml:id="t12" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the review derives AP separately for each dataset convention before reporting any model&#x27;s score, rather than treating the metric as given</label>
+        <note>eliminates: a reader lining up a YOLOv2 number against a YOLOv5 number - the first is VOC AP and the second is COCO AP, and they are different quantities · outcome: held</note>
+        <quote>The AP is computed differently in the VOC and in the COCO datasets.</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>the naming collision is settled explicitly - `in the rest of this paper, we will refer to this metric as AP` - instead of the two words being used interchangeably</label>
+        <note>eliminates: a review whose own text is ambiguous about which of two names it means, in a document whose whole purpose is to compare numbers · outcome: held</note>
+        <quote>The average precision (AP), traditionally called mean average precision (mAP), is the commonly used metric for evaluating the performance of object detection models. It measures the average precision across all categories, providing a single value to compare different models. The COCO dataset makes no distinction between AP and mAP. In the rest of this paper, we will refer to this metric as AP.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[2]" resp="#tagger" cert="0.85">
+        <label>whether the reported per-version gains are comparable to one another</label>
+        <note>eliminates: nothing - the gains are quoted in AP points and the review has just shown AP is two computations, so a 2.3-point gain and a 2.4-point gain are only comparable if both were measured under the same convention, which the review does not state per gain · outcome: absent-not-in-staged-text</note>
+        <quote>YOLOX, inspired by this work, proposed a simplified version called simOTA. This change increased AP by 2.3 points.</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>average precision</label>
+        <term>average precision</term>
+        <quote>The average precision (AP), traditionally called mean average precision (mAP), is the commonly used metric for evaluating the performance of object detection models. It measures the average precision across all categories, providing a single value to compare different models. The COCO dataset makes no distinction between AP and mAP. In the rest of this paper, we will refer to this metric as AP.</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>Intersection over Union</label>
+        <term>Intersection over Union</term>
+        <quote>The AP metric is based on precision–recall metrics, handling multiple object categories, and defining a positive prediction using Intersection over Union (IoU).</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>precision</label>
+        <term>precision</term>
+        <quote>There is often a tradeoff between precision and recall; for example, increasing the number of detected objects (higher recall) can result in more false positives (lower precision).</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>recall</label>
+        <term>recall</term>
+        <quote>There is often a tradeoff between precision and recall; for example, increasing the number of detected objects (higher recall) can result in more false positives (lower precision).</quote>
+      </span>
+      <span xml:id="t19" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>AP / mAP - THE SAME QUANTITY UNDER TWO NAMES, and the review says so in its own first metrics sentence. `Traditionally called mean average precision`; COCO makes no distinction; the paper picks `AP` by fiat. A FIELD&#x27;S CENTRAL METRIC WITH AN UNSETTLED NAME</label>
+        <quote>The average precision (AP), traditionally called mean average precision (mAP), is the commonly used metric for evaluating the performance of object detection models. It measures the average precision across all categories, providing a single value to compare different models. The COCO dataset makes no distinction between AP and mAP. In the rest of this paper, we will refer to this metric as AP.</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>AP, VOC SENSE - 11-point interpolation of the precision-recall curve, averaged over 20 categories, at a single IoU threshold</label>
+        <quote>This dataset includes 20 object categories. To compute the AP in VOC, we follow the next steps: - For each category, calculate the precision–recall curve by varying the confidence threshold of the model’s predictions. - Calculate each category’s average precision (AP) using an interpolated 11-point sampling of the precision–recall curve. - Compute the final average precision (AP) by taking the mean of the APs across all 20 categories.</quote>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>AP, COCO SENSE - 101-point interpolation, 80 categories, averaged over IoU thresholds from 0.5 to 0.95 in steps of 0.05. THE SAME SYMBOL AS THE VOC SENSE AND A DIFFERENT QUANTITY, which is why numbers from the two eras of YOLO cannot be lined up</label>
+        <quote>This dataset includes 80 object categories and uses a more complex method for calculating AP. Instead of using an 11-point interpolation, it uses a 101-point interpolation, i.e., it computes the precision for 101 recall thresholds from 0 to 1 in increments of 0.01. Also, the AP is obtained by averaging over multiple IoU values instead of just one, except for a common AP metric called AP50, which is the AP for a single IoU threshold of 0.5.</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>AP50 - the one COCO figure that is a single-threshold measurement, named separately BECAUSE it is the exception. The existence of a special name for the simple case is the clearest sign that the unqualified word is not simple</label>
+        <quote>This dataset includes 80 object categories and uses a more complex method for calculating AP. Instead of using an 11-point interpolation, it uses a 101-point interpolation, i.e., it computes the precision for 101 recall thresholds from 0 to 1 in increments of 0.01. Also, the AP is obtained by averaging over multiple IoU values instead of just one, except for a common AP metric called AP50, which is the AP for a single IoU threshold of 0.5.</quote>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → cross-dataset comparison of object detection performance, since AP means a different computation on VOC and on COCO</label>
+        <quote>The differences in AP calculation make it hard to directly compare the performance of object detection models across the two datasets.</quote>
+      </span>
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>supports → the COCO AP as the current standard, on the ground that it evaluates localisation at a range of IoU thresholds rather than one</label>
+        <quote>This dataset includes 80 object categories and uses a more complex method for calculating AP. Instead of using an 11-point interpolation, it uses a 101-point interpolation, i.e., it computes the precision for 101 recall thresholds from 0 to 1 in increments of 0.01. Also, the AP is obtained by averaging over multiple IoU values instead of just one, except for a common AP metric called AP50, which is the AP for a single IoU threshold of 0.5.</quote>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>TWO NAMES FOR ONE THING: AP is `traditionally called mean average precision (mAP)`, and the COCO dataset makes no distinction between them - so the review declares which word it will use before using it</label>
+        <term>TWO NAMES FOR ONE THING: AP is `traditionally called mean average precision (mAP)`, and the COCO dataset makes no distinction between them - so the review declares which word it will use before using it</term>
+        <quote>The average precision (AP), traditionally called mean average precision (mAP), is the commonly used metric for evaluating the performance of object detection models. It measures the average precision across all categories, providing a single value to compare different models. The COCO dataset makes no distinction between AP and mAP. In the rest of this paper, we will refer to this metric as AP.</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>AND ONE NAME FOR TWO COMPUTATIONS: THE AP IS COMPUTED DIFFERENTLY IN THE VOC AND IN THE COCO DATASETS</label>
+        <term>AND ONE NAME FOR TWO COMPUTATIONS: THE AP IS COMPUTED DIFFERENTLY IN THE VOC AND IN THE COCO DATASETS</term>
+        <quote>The AP is computed differently in the VOC and in the COCO datasets.</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>VOC: 11-point interpolation, 20 categories, one IoU threshold. COCO: 101-point interpolation, 80 categories, averaged over IoU from 0.5 to 0.95 in steps of 0.05</label>
+        <term>VOC: 11-point interpolation, 20 categories, one IoU threshold. COCO: 101-point interpolation, 80 categories, averaged over IoU from 0.5 to 0.95 in steps of 0.05</term>
+        <quote>This dataset includes 80 object categories and uses a more complex method for calculating AP. Instead of using an 11-point interpolation, it uses a 101-point interpolation, i.e., it computes the precision for 101 recall thresholds from 0 to 1 in increments of 0.01. Also, the AP is obtained by averaging over multiple IoU values instead of just one, except for a common AP metric called AP50, which is the AP for a single IoU threshold of 0.5.</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>THE DIFFERENCES IN AP CALCULATION MAKE IT HARD TO DIRECTLY COMPARE the performance of object detection models across the two datasets - the field&#x27;s own review saying its numbers do not line up</label>
+        <term>THE DIFFERENCES IN AP CALCULATION MAKE IT HARD TO DIRECTLY COMPARE the performance of object detection models across the two datasets - the field&#x27;s own review saying its numbers do not line up</term>
+        <quote>The differences in AP calculation make it hard to directly compare the performance of object detection models across the two datasets.</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>the reported architecture gains are quoted in that same unqualified word - simOTA 2.3 points of AP, stronger augmentation 2.4 points</label>
+        <term>the reported architecture gains are quoted in that same unqualified word - simOTA 2.3 points of AP, stronger augmentation 2.4 points</term>
+        <quote>YOLOX, inspired by this work, proposed a simplified version called simOTA. This change increased AP by 2.3 points.</quote>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the commonly used metric for evaluating object detection, measuring average precision across all categories - traditionally called mean average precision, and COCO makes no distinction between the two</label>
+        <term>average precision</term>
+        <quote>The average precision (AP), traditionally called mean average precision (mAP), is the commonly used metric for evaluating the performance of object detection models. It measures the average precision across all categories, providing a single value to compare different models. The COCO dataset makes no distinction between AP and mAP. In the rest of this paper, we will refer to this metric as AP.</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the overlap between the ground truth and predicted bounding boxes, thresholded to decide whether a prediction is a true positive</label>
+        <term>Intersection over Union</term>
+        <quote>The AP metric is based on precision–recall metrics, handling multiple object categories, and defining a positive prediction using Intersection over Union (IoU).</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>recall thresholds in the COCO interpolation, against 11 in VOC - and 80 categories against 20</label>
+        <term>101</term>
+        <quote>This dataset includes 80 object categories and uses a more complex method for calculating AP. Instead of using an 11-point interpolation, it uses a 101-point interpolation, i.e., it computes the precision for 101 recall thresholds from 0 to 1 in increments of 0.01. Also, the AP is obtained by averaging over multiple IoU values instead of just one, except for a common AP metric called AP50, which is the AP for a single IoU threshold of 0.5.</quote>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the single IoU threshold behind AP50, the one COCO figure that is not averaged over a range</label>
+        <term>0.5</term>
+        <quote>This dataset includes 80 object categories and uses a more complex method for calculating AP. Instead of using an 11-point interpolation, it uses a 101-point interpolation, i.e., it computes the precision for 101 recall thresholds from 0 to 1 in increments of 0.01. Also, the AP is obtained by averaging over multiple IoU values instead of just one, except for a common AP metric called AP50, which is the AP for a single IoU threshold of 0.5.</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>average precision</label>
+        <term>average precision</term>
+        <quote>The average precision (AP), traditionally called mean average precision (mAP), is the commonly used metric for evaluating the performance of object detection models. It measures the average precision across all categories, providing a single value to compare different models. The COCO dataset makes no distinction between AP and mAP. In the rest of this paper, we will refer to this metric as AP.</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>precision</label>
+        <term>precision</term>
+        <quote>There is often a tradeoff between precision and recall; for example, increasing the number of detected objects (higher recall) can result in more false positives (lower precision).</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
+        <label>recall</label>
+        <term>recall</term>
+        <quote>There is often a tradeoff between precision and recall; for example, increasing the number of detected objects (higher recall) can result in more false positives (lower precision).</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>confidence threshold</label>
+        <term>confidence threshold</term>
+        <quote>This dataset includes 20 object categories. To compute the AP in VOC, we follow the next steps: - For each category, calculate the precision–recall curve by varying the confidence threshold of the model’s predictions. - Calculate each category’s average precision (AP) using an interpolated 11-point sampling of the precision–recall curve. - Compute the final average precision (AP) by taking the mean of the APs across all 20 categories.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.3390/make5040083.</note></p>
+    </body>
+  </text>
+</TEI>

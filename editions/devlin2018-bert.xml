@@ -23,7 +23,7 @@
           <idno type="arXiv">1810.04805</idno>
           <idno type="record">devlin2018-bert</idno>
           <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\devlin2018-bert.txt</note>
-          <note type="text-sha1">473795af124dc9662e27dcbdcb181d7b69737e87</note>
+          <note type="text-sha1">004b468db1da98e6f682985fbb328911fa1e8b60</note>
           <note type="rights">arxiv-open</note>
         </bibl>
       </sourceDesc>
@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">42 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">46 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -91,148 +91,166 @@
         <note>what this limits: any comparison of bidirectional models: the authors distinguish their deep bidirectional pre-training from a shallow concatenation of independently trained left-to-right and right-to-left language models, so the word alone does not separate the architectures</note>
         <quote>BERT uses masked language models to enable pretrained deep bidirectional representations. This is also in contrast to Peters et al. (2018a), which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs</quote>
       </span>
-      <span xml:id="t10" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t10" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.9">
+        <label>the Cloze task of Taylor 1953 - delete a word from a passage and ask a reader to supply it - made the pre-training objective of a transformer language model as the masked language model</label>
+        <quote>BERT alleviates the previously mentioned unidirectionality constraint by using a “masked language model” (MLM) pre-training objective, inspired by the Cloze task (Taylor, 1953).</quote>
+      </span>
+      <span xml:id="t11" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the two pre-training approaches compared by applying them to the same CoNLL-2003 named entity recognition task</label>
+        <note>eliminates: a difference between the approaches that is really a difference in the task each was tried on</note>
+        <quote>In this section, we compare the two approaches by applying BERT to the CoNLL-2003 Named Entity Recognition (NER) task (Tjong Kim Sang and De Meulder, 2003).</quote>
+      </span>
+      <span xml:id="t12" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>masked LM</label>
         <term>masked LM</term>
         <quote>We refer to this procedure as a “masked LM” (MLM), although it is often referred to as a Cloze task in the literature</quote>
       </span>
-      <span xml:id="t11" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t13" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>Cloze task</label>
         <term>Cloze task</term>
         <quote>although it is often referred to as a Cloze task in the literature</quote>
       </span>
-      <span xml:id="t12" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t14" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>deep bidirectional</label>
         <term>deep bidirectional</term>
         <quote>BERT uses masked language models to enable pretrained deep bidirectional representations</quote>
       </span>
-      <span xml:id="t13" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t15" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>shallow concatenation</label>
         <term>shallow concatenation</term>
         <quote>which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t16" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>GLUE</label>
         <term>GLUE</term>
         <quote>column is slightly different than the official GLUE score, since we exclude the problematic WNLI set</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>bidirectional - TWO ARCHITECTURES UNDER ONE WORD, SEPARATED BY THE AUTHORS: for ELMo it is the concatenation of two independently trained one-directional models, which this paper calls a shallow concatenation and elsewhere &#x27;not deeply bidirectional&#x27;; for BERT it is a single model conditioned on both sides at once - so the adjective names a property of the training objective in one case and of the output vector in the other</label>
         <quote>BERT uses masked language models to enable pretrained deep bidirectional representations. This is also in contrast to Peters et al. (2018a), which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>masked LM - THE PAPER&#x27;S NAME FOR A TASK THE LITERATURE ALREADY NAMED: the authors say outright that the procedure is often referred to as a Cloze task, citing Taylor 1953, so the 2018 name and the 1953 name denote one procedure and the field kept the newer one</label>
         <quote>We refer to this procedure as a “masked LM” (MLM), although it is often referred to as a Cloze task in the literature</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the GLUE Average - NOT THE OFFICIAL GLUE SCORE: the column excludes the WNLI set, which the caption states, so a number that carries the benchmark&#x27;s name is computed over a different set of tasks than the benchmark&#x27;s own average</label>
         <quote>column is slightly different than the official GLUE score, since we exclude the problematic WNLI set</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t20" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.85">
         <label>builds-on → the Transformer architecture</label>
-        <quote>Bidirectional Encoder Representations from Transformers</quote>
+        <quote>We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers.</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → unidirectional pre-trained language models (e.g. GPT)</label>
         <quote>the BERT Transformer uses bidirectional self-attention</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → Peters et al., 2018a and Radford et al., 2018</label>
         <quote>Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pretrain deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → Radford et al. (2018)</label>
         <quote>Unlike Radford et al. (2018), which uses unidirectional language models for pre-training, BERT uses masked language models to enable pretrained deep bidirectional representations.</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>builds-on → Vaswani et al. (2017)</label>
         <quote>BERT’s model architecture is a multi-layer bidirectional Transformer encoder based on the original implementation described in Vaswani et al. (2017) and released in the tensor2tensor library.</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
         <label>builds-on → the Cloze task (Taylor, 1953)</label>
         <quote>BERT alleviates the previously mentioned unidirectionality constraint by using a “masked language model” (MLM) pre-training objective, inspired by the Cloze task (Taylor, 1953).</quote>
       </span>
-      <span xml:id="t24" type="claim_relations" ana="#claim_relations[6]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[6]" resp="#tagger">
         <label>builds-on → Jernite et al. (2017) and Logeswaran and Lee (2018)</label>
         <quote>The NSP task is closely related to representationlearning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018).</quote>
       </span>
-      <span xml:id="t25" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>masked LM —renamed-across-fields→ Cloze task</label>
         <term>masked LM</term>
         <term>Cloze task</term>
         <note>strength of the relation: 1</note>
         <quote>We refer to this procedure as a “masked LM” (MLM), although it is often referred to as a Cloze task in the literature</quote>
       </span>
-      <span xml:id="t26" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>deep bidirectional —contrasted-with→ shallow concatenation</label>
         <term>deep bidirectional</term>
         <term>shallow concatenation</term>
         <note>strength of the relation: 1</note>
         <quote>BERT uses masked language models to enable pretrained deep bidirectional representations. This is also in contrast to Peters et al. (2018a), which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>80.5 — new GLUE score, +7.7 points absolute</label>
-        <quote>pushing the GLUE score to</quote>
+        <quote>pushing the GLUE score to 80.5</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>86.7 — MultiNLI accuracy, +4.6 points absolute</label>
-        <quote>MultiNLI accuracy to 86.7% (4.6% absolute</quote>
+        <quote>MultiNLI accuracy to 86.7% (4.6% absolute improvement)</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>93.2 — SQuAD v1.1 Test F1, +1.5 points</label>
+        <quote>answering Test F1 to 93.2 (1.5 point absolute improvement</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>83.1 — SQuAD v2.0 Test F1, +5.1 points</label>
         <quote>SQuAD v2.0 Test F1 to 83.1</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>11 — tasks on which BERT set state of the art</label>
         <quote>results on eleven natural language processing</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>bidirectional pre-training is important for language representations</label>
         <quote>We demonstrate the importance of bidirectional</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>pre-trained representations reduce the need for task-specific architectures</label>
         <quote>pre-trained representations reduce</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>a pre-trained BERT is fine-tuned with just one added output layer</label>
         <quote>finetuned with just one additional output layer</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>the major limitation of prior models is unidirectionality</label>
         <quote>major limitation is that standard language models are</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>masked tokens</label>
         <term>masked tokens</term>
         <quote>the tokens from the input, and the objective is to</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>left and right context</label>
         <term>left and right context</term>
-        <quote>jointly conditioning on both</quote>
+        <quote>jointly conditioning on both left and right context in all layers</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>feature-based vs fine-tuning strategy</label>
+        <term>feature-based vs fine-tuning strategy</term>
+        <quote>There are two existing strategies for applying</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>BERT (Bidirectional Encoder Representations from Transformers)</label>
         <term>BERT (Bidirectional Encoder Representations from Transformers)</term>
         <quote>BERT, which stands for</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>masked language model</label>
         <term>masked language model</term>
         <quote>masked language model randomly masks some of</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>feature-based approach</label>
         <term>feature-based approach</term>
         <quote>feature-based approach, such as ELMo</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>Cloze task</label>
         <term>Cloze task</term>
         <quote>the Cloze task (Taylor, 1953)</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>correlation</label>
         <term>correlation</term>
         <quote>F1 scores are reported for QQP and MRPC, Spearman correlations are reported for STS-B, and accuracy scores are reported for the other tasks.</quote>

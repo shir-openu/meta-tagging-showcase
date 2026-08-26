@@ -37,17 +37,17 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">48 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">49 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" from="#a6" to="#a7" type="claim_type" ana="#claim_type" resp="#paper">method</span>
+      <span xml:id="t0" from="#a5" to="#a6" type="claim_type" ana="#claim_type" resp="#paper">method</span>
       <span xml:id="t1" from="#a23" to="#a24" type="phenomenon" ana="#phenomenon" resp="#paper">data-driven medium-range weather forecasting</span>
       <span xml:id="t2" from="#a29" to="#a30" type="method" ana="#method" resp="#paper">system-or-tool-building<term>system-or-tool-building</term></span>
       <span xml:id="t3" from="#a62" to="#a67" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">Hourly sampling over 40 years gives about 350,000 samples, but consecutive hours are not independent; assuming one new weather situation per day leaves about 15,000, which is the count that bears on overfitting.<term>temporal correlation shrinks the usable training set</term></span>
-      <span xml:id="t4" from="#a13" to="#a15" type="limitations" ana="#limitations[0]" resp="#tagger">current numerical weather prediction models still fall short for many applications<note>what this limits: the motivation for the benchmark: NUMERICAL WEATHER PREDICTION (NWP) MODELS STILL HAVE SHORTCOMING FOR MANY IMPORTANT APPLICATIONS</note></span>
+      <span xml:id="t4" from="#a14" to="#a15" type="limitations" ana="#limitations[0]" resp="#tagger">current numerical weather prediction models still fall short for many applications<note>what this limits: the motivation for the benchmark: NUMERICAL WEATHER PREDICTION (NWP) MODELS STILL HAVE SHORTCOMING FOR MANY IMPORTANT APPLICATIONS</note></span>
       <span xml:id="t5" from="#a72" to="#a73" type="limitations" ana="#limitations[1]" resp="#tagger">The benchmark does not cover probabilistic forecasting, only deterministic scores.<note>what this limits: any probabilistic use of the benchmark: ONE IMPORTANT ASPECT THAT IS NOT CURRENTLY ADDRESSED BY THIS BENCHMARK IS PROBABILISTIC FORECASTING</note></span>
       <span xml:id="t6" from="#a78" to="#a79" type="limitations" ana="#limitations[2]" resp="#tagger">Climate-timescale prediction is outside the benchmark&#x27;s scope.<note>what this limits: any climate-timescale use: ANOTHER ASPECT THAT IS UNTOUCHED BY THE BENCHMARK CHALLENGE PROPOSED HERE IS CLIMATE PREDICTION</note></span>
       <span xml:id="t7" from="#a76" to="#a77" type="limitations" ana="#limitations[3]" resp="#tagger">Extreme weather events are deliberately excluded from the evaluation, with no standard metric offered for them.<note>what this limits: every score computed on this benchmark, which is a score on non-extremes: WE DECIDED TO OMIT EXTREMES FOR NOW BUT USERS ARE ENCOURAGED TO CHOSE THEIR OWN VERIFICATION OF EXTREMES</note></span>
@@ -55,42 +55,43 @@
       <span xml:id="t9" from="#a53" to="#a55" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">The benchmark&#x27;s primary metric was chosen for ease of computation and for matching the usual machine-learning loss, not for being the right measure of forecast quality.<note>what this limits: a ranking on this benchmark as a ranking of forecast quality: the primary metric was chosen because it is easy to compute and mirrors the loss used for most ML applications</note></span>
       <span xml:id="t10" from="#a65" to="#a69" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">The usable amount of training data is far smaller than the raw count, by the authors&#x27; own assumption, and whether it suffices is stated to be unknown.<note>what this limits: the training-set size for this benchmark: 40 years of hourly data is around 350,000 samples, which the authors reduce to about 15,000 independent ones under a stated assumption, with sufficiency unknown without empirical evidence</note></span>
       <span xml:id="t11" from="#a70" to="#a71" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">Scaling the approach to the resolutions likely required runs into hardware, which the authors name as the binding constraint.<note>what this limits: the feasibility of a competitive data-driven weather model: the authors state high resolutions would be needed and that GPU RAM quickly becomes a limitation</note></span>
-      <span xml:id="t12" from="#a1" to="#a3" type="transfers" ana="#transfers[0]" resp="#tagger">deep learning / data-driven methods (developed for image recognition and NLP) applied to weather forecasting</span>
-      <span xml:id="t13" from="#a12" to="#a16" type="concepts" ana="#concepts[4]" resp="#paper">numerical weather prediction<term>numerical weather prediction</term></span>
-      <span xml:id="t14" from="#a53" to="#a55" type="concepts" ana="#concepts[5]" resp="#paper">root mean squared error<term>root mean squared error</term></span>
-      <span xml:id="t15" from="#a62" to="#a63" type="concepts" ana="#concepts[6]" resp="#paper">training data<term>training data</term></span>
-      <span xml:id="t16" from="#a62" to="#a64" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">training samples - AS RAW COUNT: around 350,000, being 40 years of hourly data</span>
-      <span xml:id="t17" from="#a66" to="#a68" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">training samples - AS EFFECTIVE COUNT: around 15,000, once temporal correlation is taken into account under the assumption of one new weather situation per day</span>
-      <span xml:id="t18" from="#a82" to="#a83" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">success on this benchmark - defined by a SINGLE metric over two fields, which the paper presents as a virtue of the design</span>
-      <span xml:id="t19" from="#a53" to="#a54" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">primary metric - chosen for computational convenience and for matching the ML community&#x27;s loss function, not for meteorological importance; the paper states both reasons</span>
-      <span xml:id="t20" from="#a1" to="#a2" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">builds-on → deep learning (data-driven prediction)</span>
-      <span xml:id="t21" from="#a58" to="#a59" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">replicates → Scher and Messori (2019a)</span>
-      <span xml:id="t22" from="#a39" to="#a40" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">builds-on → Hersbach et al. (2020), the ERA5 reanalysis dataset</span>
-      <span xml:id="t23" from="#a80" to="#a81" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">builds-on → Ebert-Uphoff et al. (2017), criteria for benchmark datasets</span>
-      <span xml:id="t24" from="#a8" to="#a9" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">deep learning —is-a→ machine learning<note>strength of the relation: 0.9 — Defined in the paper&#x27;s first sentence of body text, and the definition carries the mechanism with it - multi-layered artificial neural networks.</note><term>deep learning</term><term>machine learning</term></span>
-      <span xml:id="t25" from="#a53" to="#a54" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">root mean squared error —operationalised-as→ benchmark<note>strength of the relation: 0.9 — THE CHOICE IS MADE ON GROUNDS THAT ARE NOT ABOUT WEATHER: the metric was picked &#x27;because it is easy to compute and mirrors the loss used for most ML applications&#x27;. Convenience and alignment with the modelling community decide what counts as success on this benchmark - and the paper says so outright. The record already carries a sense noting success here is a SINGLE metric over two fields.</note><term>root mean squared error</term><term>benchmark</term></span>
-      <span xml:id="t26" from="#a10" to="#a11" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">machine learning —contrasted-with→ numerical weather prediction<note>differs in: whether the governing equations are solved on a grid or the mapping is learned from data - and the paper grants the physical approach the win first, calling it very successful, before naming where it falls short · strength of the relation: 0.9</note><term>machine learning</term><term>numerical weather prediction</term></span>
-      <span xml:id="t27" from="#a62" to="#a67" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.85">training data —part-of→ weather forecasting<note>differs in: RAW COUNT AGAINST EFFECTIVE COUNT: 350,000 hourly samples over 40 years become about 15,000 once the authors assume one new weather situation per day. A twenty-three-fold reduction, applied by the authors to their own resource, and the number that matters for overfitting is the smaller one · strength of the relation: 0.7</note><term>training data</term><term>weather forecasting</term></span>
-      <span xml:id="t28" from="#a43" to="#a44" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">40 — time span of hourly ERA5 raw data</span>
-      <span xml:id="t29" from="#a45" to="#a46" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">721x1440 — native 0.25-degree ERA5 grid with 37 levels</span>
-      <span xml:id="t30" from="#a47" to="#a48" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">700 — size of a single vertical level over the full period</span>
-      <span xml:id="t31" from="#a25" to="#a26" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">3 and 5 — medium-range forecast lead times targeted</span>
-      <span xml:id="t32" from="#a17" to="#a18" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">50 — typical cap on probabilistic NWP forecasts</span>
-      <span xml:id="t33" from="#a51" to="#a52" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">191 — size of the full 5.625-degree benchmark dataset</span>
-      <span xml:id="t34" from="#a27" to="#a28" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">benchmark datasets make algorithms quantitatively inter-comparable</span>
-      <span xml:id="t35" from="#a4" to="#a5" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">absence of a common dataset made prior studies hard to compare</span>
-      <span xml:id="t36" from="#a33" to="#a34" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">a geopotential CNN performed best yet could not beat the physical baseline</span>
-      <span xml:id="t37" from="#a35" to="#a36" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">directly-trained networks outperformed iterative forecasts</span>
-      <span xml:id="t38" from="#a31" to="#a32" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">500 hPa geopotential (Z500)<term>500 hPa geopotential (Z500)</term></span>
-      <span xml:id="t39" from="#a25" to="#a26" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">forecast lead time<term>forecast lead time</term></span>
-      <span xml:id="t40" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">spatial grid resolution<term>spatial grid resolution</term></span>
-      <span xml:id="t41" from="#a37" to="#a38" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">RMSE and anomaly correlation<term>RMSE and anomaly correlation</term></span>
-      <span xml:id="t42" from="#a13" to="#a14" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">numerical weather prediction (NWP)<term>numerical weather prediction (NWP)</term></span>
-      <span xml:id="t43" from="#a19" to="#a20" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">nowcasting<term>nowcasting</term></span>
-      <span xml:id="t44" from="#a21" to="#a22" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">hybrid modeling<term>hybrid modeling</term></span>
-      <span xml:id="t45" from="#a41" to="#a42" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">reanalysis<term>reanalysis</term></span>
-      <span xml:id="t46" from="#a56" to="#a57" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">regression<term>regression</term></span>
-      <span xml:id="t47" from="#a74" to="#a75" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">standard-deviation<term>standard-deviation</term></span>
+      <span xml:id="t12" from="#a1" to="#a2" type="transfers" ana="#transfers[0]" resp="#tagger">deep learning / data-driven methods (developed for image recognition and NLP) applied to weather forecasting</span>
+      <span xml:id="t13" from="#a7" to="#a8" type="controls" ana="#controls[0]" resp="#tagger" cert="0.8">baseline scores from linear regression, deep learning and purely physical forecasting models, published with the benchmark<note>eliminates: that a data-driven forecast&#x27;s apparent skill exceeds what simple statistical or existing physical models already achieve · outcome: held</note></span>
+      <span xml:id="t14" from="#a13" to="#a16" type="concepts" ana="#concepts[4]" resp="#paper">numerical weather prediction<term>numerical weather prediction</term></span>
+      <span xml:id="t15" from="#a53" to="#a55" type="concepts" ana="#concepts[5]" resp="#paper">root mean squared error<term>root mean squared error</term></span>
+      <span xml:id="t16" from="#a62" to="#a63" type="concepts" ana="#concepts[6]" resp="#paper">training data<term>training data</term></span>
+      <span xml:id="t17" from="#a62" to="#a64" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">training samples - AS RAW COUNT: around 350,000, being 40 years of hourly data</span>
+      <span xml:id="t18" from="#a66" to="#a68" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">training samples - AS EFFECTIVE COUNT: around 15,000, once temporal correlation is taken into account under the assumption of one new weather situation per day</span>
+      <span xml:id="t19" from="#a82" to="#a83" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">success on this benchmark - defined by a SINGLE metric over two fields, which the paper presents as a virtue of the design</span>
+      <span xml:id="t20" from="#a53" to="#a54" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">primary metric - chosen for computational convenience and for matching the ML community&#x27;s loss function, not for meteorological importance; the paper states both reasons</span>
+      <span xml:id="t21" from="#a1" to="#a2" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">builds-on → deep learning (data-driven prediction)</span>
+      <span xml:id="t22" from="#a58" to="#a59" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">replicates → Scher and Messori (2019a)</span>
+      <span xml:id="t23" from="#a39" to="#a40" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">builds-on → Hersbach et al. (2020), the ERA5 reanalysis dataset</span>
+      <span xml:id="t24" from="#a80" to="#a81" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">builds-on → Ebert-Uphoff et al. (2017), criteria for benchmark datasets</span>
+      <span xml:id="t25" from="#a9" to="#a10" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">deep learning —is-a→ machine learning<note>strength of the relation: 0.9 — Defined in the paper&#x27;s first sentence of body text, and the definition carries the mechanism with it - multi-layered artificial neural networks.</note><term>deep learning</term><term>machine learning</term></span>
+      <span xml:id="t26" from="#a53" to="#a54" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">root mean squared error —operationalised-as→ benchmark<note>strength of the relation: 0.9 — THE CHOICE IS MADE ON GROUNDS THAT ARE NOT ABOUT WEATHER: the metric was picked &#x27;because it is easy to compute and mirrors the loss used for most ML applications&#x27;. Convenience and alignment with the modelling community decide what counts as success on this benchmark - and the paper says so outright. The record already carries a sense noting success here is a SINGLE metric over two fields.</note><term>root mean squared error</term><term>benchmark</term></span>
+      <span xml:id="t27" from="#a11" to="#a12" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">machine learning —contrasted-with→ numerical weather prediction<note>differs in: whether the governing equations are solved on a grid or the mapping is learned from data - and the paper grants the physical approach the win first, calling it very successful, before naming where it falls short · strength of the relation: 0.9</note><term>machine learning</term><term>numerical weather prediction</term></span>
+      <span xml:id="t28" from="#a62" to="#a67" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.85">training data —part-of→ weather forecasting<note>differs in: RAW COUNT AGAINST EFFECTIVE COUNT: 350,000 hourly samples over 40 years become about 15,000 once the authors assume one new weather situation per day. A twenty-three-fold reduction, applied by the authors to their own resource, and the number that matters for overfitting is the smaller one · strength of the relation: 0.7</note><term>training data</term><term>weather forecasting</term></span>
+      <span xml:id="t29" from="#a44" to="#a45" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">40 — time span of hourly ERA5 raw data</span>
+      <span xml:id="t30" from="#a43" to="#a46" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">721x1440 — native 0.25-degree ERA5 grid with 37 levels</span>
+      <span xml:id="t31" from="#a47" to="#a48" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">700 — size of a single vertical level over the full period</span>
+      <span xml:id="t32" from="#a25" to="#a26" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">3 and 5 — medium-range forecast lead times targeted</span>
+      <span xml:id="t33" from="#a17" to="#a18" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">50 — typical cap on probabilistic NWP forecasts</span>
+      <span xml:id="t34" from="#a51" to="#a52" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">191 — size of the full 5.625-degree benchmark dataset</span>
+      <span xml:id="t35" from="#a27" to="#a28" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">benchmark datasets make algorithms quantitatively inter-comparable</span>
+      <span xml:id="t36" from="#a3" to="#a4" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">absence of a common dataset made prior studies hard to compare<note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note></span>
+      <span xml:id="t37" from="#a33" to="#a34" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">a geopotential CNN performed best yet could not beat the physical baseline</span>
+      <span xml:id="t38" from="#a35" to="#a36" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">directly-trained networks outperformed iterative forecasts</span>
+      <span xml:id="t39" from="#a31" to="#a32" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">500 hPa geopotential (Z500)<term>500 hPa geopotential (Z500)</term></span>
+      <span xml:id="t40" from="#a25" to="#a26" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">forecast lead time<term>forecast lead time</term></span>
+      <span xml:id="t41" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">spatial grid resolution<term>spatial grid resolution</term></span>
+      <span xml:id="t42" from="#a37" to="#a38" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">RMSE and anomaly correlation<term>RMSE and anomaly correlation</term></span>
+      <span xml:id="t43" from="#a14" to="#a15" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">numerical weather prediction (NWP)<term>numerical weather prediction (NWP)</term></span>
+      <span xml:id="t44" from="#a19" to="#a20" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">nowcasting<term>nowcasting</term></span>
+      <span xml:id="t45" from="#a21" to="#a22" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">hybrid modeling<note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note><term>hybrid modeling</term></span>
+      <span xml:id="t46" from="#a41" to="#a42" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">reanalysis<term>reanalysis</term></span>
+      <span xml:id="t47" from="#a56" to="#a57" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">regression<term>regression</term></span>
+      <span xml:id="t48" from="#a74" to="#a75" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">standard-deviation<term>standard-deviation</term></span>
     </spanGrp>
   </standOff>
   <text>
@@ -98,27 +99,26 @@
         <p><anchor xml:id="a0"/> 0 2 0 2</p>
         <p>n u J</p>
         <p>1 1</p>
-        <p>] h p - o a . s c i s y h p [</p>
-        <p>3 v 9 6 4 0 0 . 2 0 0 2 : v i X r a</p>
+        <p>] h p -[ Passage withheld — in our stored copy of this paper these characters are set one per token and run backwards, which is what a PDF extractor returns for a table or a caption printed sideways. It is not what the page of the article looks like, so we do not reproduce it. The tags cut from this paper are unaffected. ]</p>
         <p>WeatherBench: A benchmark dataset for data-driven weather forecasting</p>
         <p>Stephan Rasp1, Peter D. Dueben2, Sebastian Scher3, Jonathan A. Weyn4, Soukayna Mouatadid5, and Nils Thuerey1 1Technical University of Munich, Germany 2European Centre for Medium-range Weather Forecasts, Reading, UK 3Department of Meteorology and Bolin Centre for Climate Research, Stockholm University, Sweden 4Department of Atmospheric Sciences, University of Washington, Seattle, USA 5Department of Computer Science, University of Toronto, Canada</p>
         <p>Correspondence: Stephan Rasp (stephan.rasp@tum.de)</p>
-        <p>Abstract. <anchor xml:id="a1"/>Data-driven approaches, most prominently deep learning, have become powerful tools for prediction<anchor xml:id="a2"/> in many<anchor xml:id="a3"/> domains. A natural question to ask is whether data-driven methods could also be used to predict global weather patterns days</p>
-        <p>in advance. First studies show promise but <anchor xml:id="a4"/>the lack of a common dataset and evaluation metrics make inter-comparison between<anchor xml:id="a5"/> studies difficult. <anchor xml:id="a6"/>Here we present a benchmark dataset for data-driven medium-range weather forecasting, a topic of</p>
-        <p>high scientific interest for atmospheric and computer scientists alike.<anchor xml:id="a7"/> We provide data derived from the ERA5 archive that</p>
+        <p>Abstract. <anchor xml:id="a1"/>Data-driven approaches, most prominently deep learning, have become powerful tools for prediction in many<anchor xml:id="a2"/> domains. A natural question to ask is whether data-driven methods could also be used to predict global weather patterns days</p>
+        <p>in advance. First studies show promise but <anchor xml:id="a3"/>the lack of a common dataset and evaluation metrics make inter-comparison between<anchor xml:id="a4"/> studies difficult. <anchor xml:id="a5"/>Here we present a benchmark dataset for data-driven medium-range weather forecasting, a topic of</p>
+        <p>high scientific interest for atmospheric and computer scientists alike.<anchor xml:id="a6"/> We provide data derived from the ERA5 archive that</p>
         <p>has been processed to facilitate the use in machine learning models. We propose simple and clear evaluation metrics which</p>
-        <p>will enable a direct comparison between different methods. Further, we provide baseline scores from simple linear regression techniques, deep learning models, as well as purely physical forecasting models. The dataset is publicly available at</p>
+        <p>will enable a direct comparison between different methods. <anchor xml:id="a7"/>Further, we provide baseline scores from simple linear regression techniques, deep learning models, as well as purely physical forecasting models.<anchor xml:id="a8"/> The dataset is publicly available at</p>
         <p>https://github.com/pangeo-data/WeatherBench and the companion code is reproducible with tutorials for getting started. We</p>
         <p>hope that this dataset will accelerate research in data-driven weather forecasting.</p>
         <p>1</p>
         <p>Introduction</p>
-        <p><anchor xml:id="a8"/>Deep learning, a branch of machine learning based on multi-layered artificial neural networks, has proven to be a powerful tool</p>
-        <p>for a wide range of tasks, most notably image recognition and natural language processing<anchor xml:id="a9"/> (LeCun et al., 2015). More recently,</p>
+        <p><anchor xml:id="a9"/>Deep learning, a branch of machine learning based on multi-layered artificial neural networks, has proven to be a powerful tool</p>
+        <p>for a wide range of tasks, most notably image recognition and natural language processing<anchor xml:id="a10"/> (LeCun et al., 2015). More recently,</p>
         <p>deep learning has also been used in many fields of natural science. Much of the success of deep learning is based on the ability</p>
         <p>of neural networks to recognize patterns in high-dimensional spaces. A natural question to ask then is whether deep learning</p>
         <p>can also be used to predict future weather patterns.</p>
-        <p><anchor xml:id="a10"/>Currently, weather (and climate) predictions are based on purely physical computer models, in which the governing equations, or our best approximation thereof, of the atmosphere and ocean are solved on a discrete numerical grid (Bauer et al.,</p>
-        <p>2015). Overall, this approach has been very successful<anchor xml:id="a11"/>. <anchor xml:id="a12"/>However, today’s <anchor xml:id="a13"/>numerical weather prediction (NWP) models still<anchor xml:id="a14"/></p>
+        <p><anchor xml:id="a11"/>Currently, weather (and climate) predictions are based on purely physical computer models, in which the governing equations, or our best approximation thereof, of the atmosphere and ocean are solved on a discrete numerical grid (Bauer et al.,</p>
+        <p>2015). Overall, this approach has been very successful<anchor xml:id="a12"/>. <anchor xml:id="a13"/>However, today’s <anchor xml:id="a14"/>numerical weather prediction (NWP) models still</p>
         <p>have shortcoming for many important applications<anchor xml:id="a15"/>, for example forecasting mesoscale convective systems over Africa<anchor xml:id="a16"/> (Vogel</p>
         <p>et al., 2018). Furthermore, huge amounts of computing power are required, especially for creating probabilistic forecasts which</p>
         <p>1</p>
@@ -223,9 +223,9 @@
         <p>These three approaches outline promising first steps towards data-driven forecasting. The differences of the proposed methods already highlight the importance of a common benchmark case to compare prediction skill.</p>
         <p>3 Dataset</p>
         <p><anchor xml:id="a39"/>For the proposed benchmark, we use the ERA5 reanalysis dataset (Hersbach et al., 2020) for training and testing.<anchor xml:id="a40"/> <anchor xml:id="a41"/>Reanalysis</p>
-        <p>datasets provide the best guess of the atmospheric state at any point in time<anchor xml:id="a42"/> by combining a forecast model with the available</p>
-        <p>observations. The raw data is <anchor xml:id="a43"/>available hourly for 40 years from 1979 to 2018<anchor xml:id="a44"/> on a 0.25°latitude-longitude grid (721×1440</p>
-        <p><anchor xml:id="a45"/>grid points) with 37 vertical levels<anchor xml:id="a46"/>.</p>
+        <p>datasets provide the best guess of the atmospheric state at any point in time by combining a forecast model with the available</p>
+        <p>observations<anchor xml:id="a42"/>. <anchor xml:id="a43"/>The raw data is <anchor xml:id="a44"/>available hourly for 40 years from 1979 to 2018<anchor xml:id="a45"/> on a 0.25°latitude-longitude grid (721×1440</p>
+        <p>grid points) with 37 vertical levels.<anchor xml:id="a46"/></p>
         <p>Since this raw dataset is very large (<anchor xml:id="a47"/>a single vertical level for the entire time period amounts to almost 700GB of data<anchor xml:id="a48"/>), we</p>
         <p>regrid the data to lower resolutions. This is also a more realistic use case, since very high resolutions are still hard to handle for</p>
         <p>deep learning models because of GPU memory constraints and I/O speed. In particular, <anchor xml:id="a49"/>we chose 5.625° (32×64 grid points)<anchor xml:id="a50"/>,</p>
@@ -242,8 +242,8 @@
         <p>regridded historical climate run is also available from the data repository with a template workflow for downloading further</p>
         <p>CMIP data on the Github repository.</p>
         <p>The processed data (see Table 1) are available at https://mediatum.ub.tum.de/1524895 (Rasp et al., 2020). The data are split</p>
-        <p>into yearly NetCDF files for each variable and resolution, packed in a zip file. <anchor xml:id="a51"/>The entire dataset at 5.625° resolution has a size<anchor xml:id="a52"/></p>
-        <p>of 191GB. Individual variables amount to around 25GB three-dimensional and 2GB for two-dimensional fields. File sizes for</p>
+        <p>into yearly NetCDF files for each variable and resolution, packed in a zip file. <anchor xml:id="a51"/>The entire dataset at 5.625° resolution has a size</p>
+        <p>of 191GB<anchor xml:id="a52"/>. Individual variables amount to around 25GB three-dimensional and 2GB for two-dimensional fields. File sizes for</p>
         <p>2.8125° and 1.40525° resolutions are a factor 4 and 16 times larger. Data processing was organized using Snakemake (Koster and Rahmann, 2012). For further instructions on data downloading visit the Github page1. The available variables were chosen</p>
         <p>based on meteorological consideration. Geopotential, temperature, humidity and wind are prognostic state variables in most physical NWP and climate models. Geopotential at a certain pressure level p, typically denoted as Φ with units of m2s−2,</p>
         <p>defined as</p>

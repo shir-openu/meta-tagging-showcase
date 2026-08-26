@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">52 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">53 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -69,6 +69,7 @@
       <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>TWO GOOD METHODS COMPOSED NAIVELY ARE SHOWN TO FAIL, AND THE WORD `NAIVELY` IS THE PAPER&#x27;S: both regularization bias and overfitting in estimating the nuisance parameter cause **A HEAVY BIAS** in estimators of the target that are obtained **BY NAIVELY PLUGGING** ML estimators into the estimating equations. Each piece is sound; the composition is not, and the paper names the fault in the composing rather than in either part</term>
+        <note>about this quote: The sentence that follows the span states the consequence - the naive estimator failing to be N-to-the-minus-one-half consistent - but it is written with inline rate notation that this record&#x27;s slicing guard refuses, so the clause is described here and not quoted.</note>
         <quote>However, both regularization bias and overfitting in estimating η0 cause a heavy bias in estimators of θ0 that are obtained by naively plugging ML estimators of η0 into estimating equations for θ0.</quote>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
@@ -94,11 +95,13 @@
       <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>A CONDITION IS DECLARED NONPRIMITIVE AND ITS OWN CONDITIONS ARE DECLINED AS CASE-SPECIFIC: **THE ONLY NONPRIMITIVE CONDITION HERE** is the assumption on the rate of estimating the nuisance parameters - those rates are available for most used methods and are **CASE-SPECIFIC, SO WE DO NOT RESTATE** the conditions needed to reach them. The assumption is labelled as resting on assumptions that are not given</term>
+        <note>about this quote: The paper makes this disclaimer TWICE, word for word, in Remark 4.1 and Remark 5.1, spelling the term “nonprimitive” in the first and “non-primitive” in the second. The span is the Remark 4.1 instance; the repetition is a property of the file, not of this quote, which is why it is recorded here.</note>
         <quote>The only nonprimitive condition here is the assumption on the rate of estimating the nuisance parameters. These rates of convergence are available for most often used ML methods and are case-specific, so we do not restate conditions that are needed to reach these rates.</quote>
       </span>
       <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>A BOUND THE AUTHORS THEMSELVES IMPOSE IS NAMED **THE CRUDE BOUND**, AND FINER CONDITIONS ARE OFFERED IN ITS PLACE: a structural feature of the examples allows us to require **MUCH FINER CONDITIONS** on the quality of the nuisance parameter estimators **THAN THE CRUDE BOUND** (3.8). The paper&#x27;s own requirement carries a pejorative as its standing name, and the numbered equation is what the pejorative attaches to</term>
+        <note>about this quote: The parenthesis I wanted, “imposes the (crude) rate requirement”, is embedded in display mathematics and cannot be sliced clean. The span is the same paper calling the same bound “the crude bound” in prose, three occurrences later.</note>
         <quote>This feature allows us to require much finer conditions on the quality of the nuisance parameter estimators than the crude bound (3.8).</quote>
       </span>
       <span xml:id="t12" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.95">
@@ -146,150 +149,158 @@
         <note>what this limits: the claim that this method is robust to the choice of nuisance estimator: the moment conditions are described as locally insensitive to the nuisance value, permitting noisy plug-in estimates without strongly violating the moment condition</note>
         <quote>Intuitively, the Neyman orthogonality condition means that the moment conditions used to identify θ0 are locally insensitive to the value of the nuisance parameter which allows one to plug-in noisy estimates of these parameters without strongly violating the moment condition</quote>
       </span>
-      <span xml:id="t21" type="controls" ana="#controls[0]" resp="#tagger" cert="0.7">
+      <span xml:id="t21" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>flexible machine-learning estimators used for the nuisance functions of a causal parameter, with Neyman-orthogonal scores and cross-fitting added so their regularization bias does not carry into the estimate</label>
+        <quote>the impact of regularization bias and overfitting on estimation of the parameter of interest θ0 can be removed by using two simple, yet critical, ingredients: (1) using Neyman-orthogonal moments/scores that have reduced sensitivity with respect to nuisance parameters to estimate θ0, and (2) making use of cross-fitting which provides an efficient form of data-splitting.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[0]" resp="#tagger" cert="0.7">
         <label>flexibly controlling for a rich set of variables in the 401(k) example, where assignment is observational - and the elimination holds only under the paper&#x27;s own identifying assumptions, which the sentence states as an aim rather than a demonstrated result</label>
+        <note>eliminates: bias from the lack of random assignment of the treatment variable</note>
         <quote>In this example, the treatment variable is not randomly assigned and we aim to eliminate the potential biases due to the lack of random assignment by flexibly controlling for a rich set of variables.</quote>
       </span>
-      <span xml:id="t22" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t23" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>cross-fitting</label>
         <term>cross-fitting</term>
         <quote>We call this sample splitting procedure where we swap the roles of main and auxiliary samples to obtain multiple estimates and then average the results cross-fitting</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t24" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>Neyman orthogonality</label>
         <term>Neyman orthogonality</term>
         <quote>Intuitively, the Neyman orthogonality condition means that the moment conditions used to identify θ0 are locally insensitive to the value of the nuisance parameter which allows one to plug-in noisy estimates of these parameters without strongly violating the moment condition</quote>
       </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t25" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>sample splitting</label>
         <term>sample splitting</term>
         <quote>We call this sample splitting procedure where we swap the roles of main and auxiliary samples to obtain multiple estimates and then average the results cross-fitting</quote>
       </span>
-      <span xml:id="t25" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t26" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>rate requirement</label>
         <term>rate requirement</term>
         <quote>If only (3.7) holds, Assumption 3.2, particularly λ′ N = o(N −1/2), imposes the (crude) rate requirement</quote>
       </span>
-      <span xml:id="t26" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t27" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>identification condition</label>
         <term>identification condition</term>
         <quote>The identification condition holds; namely, the singular values of the matrix are between c0 and c1. J0 := EP [ψa(W ; η0)] Assumption 3.1 requires scores to be Neyman orthogonal or near-orthogonal and imposes mild smoothness requirements as well as the canonical identification condition</quote>
       </span>
-      <span xml:id="t27" type="concepts" ana="#concepts[9]" resp="#paper">
+      <span xml:id="t28" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>regularization bias</label>
         <term>regularization bias</term>
-        <quote>However, both regularization bias and overfitting in estimating η0 cause a heavy bias in estimators of θ0 that are obtained by naively plugging ML estimators</quote>
+        <quote>However, both regularization bias and overfitting in estimating η0 cause a heavy bias in estimators of θ0 that are obtained by naively plugging ML estimators of η0 into estimating equations for θ0.</quote>
       </span>
-      <span xml:id="t28" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
+      <span xml:id="t29" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
         <label>Neyman-orthogonal moments/scores → regularization bias</label>
         <note>the method REMOVES the impact of a bias that the naive estimator suffers - the paper&#x27;s own central result, stated as a repair rather than a relation between two objects of study</note>
         <quote>We show that the impact of regularization bias and overfitting on estimation of the parameter of interest θ0 can be removed by using two simple, yet critical, ingredients: (1) using Neyman-orthogonal moments/scores that have reduced sensitivity with respect to nuisance parameters</quote>
       </span>
-      <span xml:id="t29" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the o(N^-1/4) rate - A WORST CASE, NOT THE REQUIREMENT: the paper calls it the crude requirement that smooth problems translate to, and says in the same breath that the conditions can be refined, so the number that travels out of this paper is the loosest form of a condition the paper itself tightens</label>
         <quote>In smooth problems, these conditions translate to the crude requirement that nuisance parameters are estimated at the o(N −1/4) rate as discussed previously in the case with linear scores. However, these conditions can be refined</quote>
       </span>
-      <span xml:id="t30" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t31" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>Neyman orthogonality - A DERIVATIVE AT A POINT, GLOSSED AS LOCAL INSENSITIVITY: the moment condition is locally insensitive to the nuisance value, which is what licenses plugging in noisy estimates without strongly violating it; the property is evaluated at the truth and both hedges - locally, and without strongly violating - are in the sentence that explains it</label>
         <quote>Intuitively, the Neyman orthogonality condition means that the moment conditions used to identify θ0 are locally insensitive to the value of the nuisance parameter which allows one to plug-in noisy estimates of these parameters without strongly violating the moment condition</quote>
       </span>
-      <span xml:id="t31" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t32" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>cross-fitting - COINED IN THIS SENTENCE, WITH ITS DEFINITION ATTACHED: the name is introduced for the procedure of swapping the roles of main and auxiliary samples and averaging the resulting estimates, so unlike the eponyms in our absent-names table this word cannot come apart from its referent - the paper that named it also defined it</label>
         <quote>We call this sample splitting procedure where we swap the roles of main and auxiliary samples to obtain multiple estimates and then average the results cross-fitting</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → Neyman orthogonality (statistics)</label>
-        <quote>using Neyman-orthogonal moments/scores that have reduced sensitivity with respect to nuisance parameters</quote>
+        <quote>using Neyman-orthogonal moments/scores that have reduced sensitivity with respect to nuisance parameters to estimate θ0, and (2) making use of cross-fitting which provides an efficient form of data-splitting. We call the resulting set of methods double or debiased ML (DML)</quote>
       </span>
-      <span xml:id="t33" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → the naive plug-in of ML estimators into estimating equations</label>
         <quote>obtained by naively plugging ML estimators of η0 into estimating equations for θ0.</quote>
       </span>
-      <span xml:id="t34" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → Neyman (1959) and Neyman (1979)</label>
         <quote>We refer to property (1.8) as “Neyman orthogonality” and to ψ as the Neyman orthogonal score function due to the fundamental contributions in Neyman (1959) and Neyman (1979), where this notion was introduced.</quote>
       </span>
-      <span xml:id="t35" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → Belloni et al. (2010) and Belloni et al. (2012)</label>
         <quote>Our treatment builds upon the sample-splitting ideas employed in Belloni et al. (2010) and Belloni et al. (2012) who considered sample-splitting in a high-dimensional sparse optimal IV model to weaken the sparsity condition mentioned in the previous paragraph to s ≪ n.</quote>
       </span>
-      <span xml:id="t36" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>extends → the classical literature on semiparametric estimation</label>
         <quote>A major point of departure of the present work from the classical literature on semiparametric estimation is its explicit focus on high-complexity/entropy cases.</quote>
       </span>
-      <span xml:id="t37" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t38" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>cross-fitting —is-a→ sample splitting</label>
         <term>cross-fitting</term>
         <term>sample splitting</term>
         <note>strength of the relation: 1</note>
         <quote>We call this sample splitting procedure where we swap the roles of main and auxiliary samples to obtain multiple estimates and then average the results cross-fitting</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Double/Debiased ML (DML) gives root-N consistent, valid inference on a low-dimensional (causal/treatment) parameter despite high-dimensional nuisance parameters estimated by ML — via Neyman-ORTHOGONAL scores (low sensitivity to nuisance error) and CROSS-FITTING (efficient sample splitting).</label>
         <quote>using Neyman-orthogonal moments/scores that have reduced sensitivity with respect to nuisance parameters to estimate θ0, and (2) making use of cross-fitting which provides an efficient form of data-splitting. We call the resulting set of methods double or debiased ML (DML)</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Naively plugging ML nuisance estimates into estimating equations induces heavy regularization/overfitting bias in the target parameter; sample-splitting removes the overfitting bias.</label>
         <quote>both regularization bias and overfitting in estimating η0 cause a heavy bias in estimators of θ0 that are obtained by naively plugging ML estimators of η0 into estimating equations</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>nuisance-parameter estimation (ML) + orthogonalization/cross-fitting</label>
         <term>nuisance-parameter estimation (ML) + orthogonalization/cross-fitting</term>
         <quote>the nuisance parameter will be estimated using machine</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>bias and validity of the causal parameter estimate</label>
         <term>bias and validity of the causal parameter estimate</term>
         <quote>heavy bias in estimators of θ0 that are obtained by naively plugging ML estimators</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>double/debiased ML (DML)</label>
         <term>double/debiased ML (DML)</term>
         <quote>We call the resulting set of methods double or debiased ML (DML)</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>Neyman-orthogonal score</label>
         <term>Neyman-orthogonal score</term>
-        <quote>using Neyman-orthogonal moments/scores that have reduced sensitivity with respect to nuisance parameters</quote>
+        <quote>using Neyman-orthogonal moments/scores that have reduced sensitivity with respect to nuisance parameters to estimate θ0, and (2) making use of cross-fitting which provides an efficient form of data-splitting. We call the resulting set of methods double or debiased ML (DML)</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>cross-fitting</label>
         <term>cross-fitting</term>
         <quote>making use of cross-fitting which provides an efficient form of data-splitting</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>We are now solving an auxiliary prediction problem to estimate the conditional mean of D given X, so we are doing “double prediction” or “double machine learning”.</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>median</label>
         <term>median</term>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>Incorporating the Impact of Sample Splitting using Mean and Median Methods) For point estimation, we define ˜θmean 0 = 1 S S (cid:88) s=1 ˜θs 0 or ˜θmedian 0 = median{ ˜θs 0}S s=1, where the median operation is applied coordinatewise</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
         <quote>applying it to provide theoretical properties of DML applied to learn the main regression parameter in a partially linear regression model, DML applied to learn the coefficient on an endogenous variable in a partially linear instrumental variables</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>sample-size</label>
         <term>sample-size</term>
         <quote>This bias results in the naive estimator failing to be N −1/2 consistent, where N is the sample size.</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>standard-error</label>
         <term>standard-error</term>
-        <quote>For comparison, we report two different standard errors.</quote>
+        <quote>the sample splits using the median method. For comparison, we report two different standard errors. In brackets, we report the median standard</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>statistical-significance</label>
         <term>statistical-significance</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>Looking at the results, we see that the estimated causal effect of 401(k) participation on net financial assets is uniformly positive and statistically significant across all of the considered methods.</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
+        <note>about this quote: 2026-08-25 terminal-a. DAMAGED GLYPHS IN THIS QUOTE: (cid:98). These are raw PDF font glyph indices that leaked out in place of the characters they stand for - usually a mathematical operator. The quote is verbatim to the staged text and its anchor is sound; the STAGED TEXT is what is damaged. NOT repaired: the cid-to-character mapping is defined by the font embedded in that particular PDF, so guessing it would produce a clean and unverifiable quote. Repair needs the source PDF and is a re-staging job.</note>
         <quote>The regularization in these estimators keeps the variance of the estimator from exploding but also necessarily induces substantive biases in the estimator (cid:98)g0 of g0.</quote>
       </span>
     </spanGrp>

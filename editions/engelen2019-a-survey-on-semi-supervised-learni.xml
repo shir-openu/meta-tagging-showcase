@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>A survey on semi-supervised learning</title>
+        <author>Jesper E. van Engelen</author>
+        <author>Holger H. Hoos</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>A survey on semi-supervised learning</title>
+          <date>2019</date>
+          <publisher>Machine Learning</publisher>
+          <idno type="DOI">10.1007/s10994-019-05855-6</idno>
+          
+          <idno type="record">engelen2019-a-survey-on-semi-supervised-learni</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\engelen2019-a-survey-on-semi-supervised-learni.txt</note>
+          <note type="text-sha1">4d1e90293a2c88dc14f2fe75d881c61f8307aff9</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">54 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>semi-supervised classification - using unlabelled data to beat a learner trained on the labelled data alone - and the assumptions that have to hold for it to be possible at all</label>
+        <quote>Semi-supervised classification methods attempt to utilize unlabelled data points to construct a learner whose performance exceeds the performance of learners obtained when using only the labelled data.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what the field&#x27;s methods assume, how those assumptions relate to one another, and when unlabelled data actually helps</label>
+        <quote>Not only is it difficult to precisely define the conditions under which any particular semi-supervised learning algorithm may work, it is also rarely straightforward to evaluate to what extent these conditions are satisfied.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a taxonomy of semi-supervised classifiers, and the argument that the field&#x27;s three named assumptions are one assumption under three definitions of `similar`</label>
+        <quote>From our perspective, the smoothness, low-density, and manifold assumptions boil down to different definitions of the similarity between points: the smoothness assumption states that points that are close to each other in input space are similar; the low-density assumption states that points in the same high-density area are similar; and the manifold assumption states that points that lie on the same low-dimensional manifold are similar.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <quote>What is more, it is impossible to guarantee that the introduction of unlabelled data will not degrade performance.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>unlabelled data carrying information about the label distribution - when it does, and the fact that nobody can tell in advance whether it does</label>
+        <quote>As mentioned earlier, unlabelled data is only useful if it carries information useful for label prediction that is not contained in the labelled data alone or cannot be easily extracted from it.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>survey of two decades of semi-supervised classification, organised by a new taxonomy and closed by a comparison of the published empirical evaluations</label>
+        <term>survey of two decades of semi-supervised classification, organised by a new taxonomy and closed by a comparison of the published empirical evaluations</term>
+        <quote>the authors found that no algorithm uniformly outperformed the others. Substantial performance improvements over the baselines were observed on some data sets, while performance was found to be degraded on others. Relative performance also varied with the amount of unlabelled data.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>THE CATEGORY IS DECIDED BY A CHOICE THE PRACTITIONER USUALLY DOES NOT KNOW THEY ARE MAKING: `the concept of similarity we choose, OFTEN IMPLICITLY, dictates what constitutes a cluster`</label>
+        <quote>The concept of similarity we choose, often implicitly, dictates what constitutes a cluster.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>and the field&#x27;s three named assumptions differ only in what they mean by `close` - smoothness says near in input space, low-density says in the same dense region, manifold says on the same low-dimensional surface</label>
+        <quote>From our perspective, the smoothness, low-density, and manifold assumptions boil down to different definitions of the similarity between points: the smoothness assumption states that points that are close to each other in input space are similar; the low-density assumption states that points in the same high-density area are similar; and the manifold assumption states that points that lie on the same low-dimensional manifold are similar.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>so all three are instances of the cluster assumption, which is itself the necessary condition for the whole enterprise: that p(x) carries information about p(y|x)</label>
+        <quote>Consequently, the semi-supervised learning assumptions can be seen as more specific instances of the cluster assumption: that similar points tend to belong to the same group.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>A TAXONOMY PAPER THAT DIAGNOSES WHAT IS WRONG WITH TAXONOMIES: `Existing categorizations ... are typically RELATIVELY FLAT, thereby FAILING TO CAPTURE SIMILARITIES between different groups of methods. Furthermore, the categorizations are often FINE-TUNED TOWARDS EXISTING WORK, making them LESS SUITED FOR THE INCLUSION OF NEW APPROACHES.` Two named failure modes - too shallow to show kinship, and overfitted to the papers that existed when it was drawn.</label>
+        <quote>Existing categorizations of semi-supervised learning methods generally use a subset of these properties and are typically relatively flat, thereby failing to capture similarities between different groups of methods. Furthermore, the categorizations are often fine-tuned towards existing work, making them less suited for the inclusion of new approaches</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>AND THE PROPOSED REPAIR IS STATED AS A DESIGN GOAL, NOT A RESULT: `we propose a new way to represent the spectrum ... we ATTEMPT to group them in a clear, FUTURE-PROOF way`. `attempt` and `future-proof` in one sentence - the second is a property no survey can demonstrate about itself at publication.</label>
+        <quote>In this survey, we propose a new way to represent the spectrum of semi-supervised classification algorithms. We attempt to group them in a clear, future-proof way, allowing researchers and practitioners alike to gain insight into the way semi-supervised learning methods relate to each other, to existing supervised learning methods, and to the semi-supervised learning assumptions</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
+        <label>THE FIELD&#x27;S OWN NAME FOR KNOWINGLY USING THE WRONG WORD: `IN A SLIGHT ABUSE OF NOTATION`, used twice in this paper for two different acts - once to call lists `sets`, once to reassign X and x to random variables. Mathematics has a standard phrase for declaring a deliberate terminological error and continuing, and this survey uses it in a footnote and in body text without further comment.</label>
+        <quote>We note that the collections of data points referred to here are technically lists. However, following common usage, in this survey, we refer to them as ‘sets’ and, in a slight abuse of notation, apply standard set-theoretic concepts to them</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE NECESSARY CONDITION CANNOT BE CHECKED. `If the data points ... CANNOT BE MEANINGFULLY CLUSTERED, IT IS IMPOSSIBLE for a semi-supervised learning method to improve on a supervised learning method` - and whether they can is exactly what cannot be established in advance</label>
+        <quote>In other words: if the data points (both unlabelled and labelled) cannot be meaningfully clustered, it is impossible for a semi-supervised learning method to improve on a supervised learning method.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>stated twice over, at both levels: it is difficult to DEFINE the conditions under which an algorithm works, and `RARELY STRAIGHTFORWARD TO EVALUATE TO WHAT EXTENT THESE CONDITIONS ARE SATISFIED`</label>
+        <quote>Not only is it difficult to precisely define the conditions under which any particular semi-supervised learning algorithm may work, it is also rarely straightforward to evaluate to what extent these conditions are satisfied.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>IT IS IMPOSSIBLE TO GUARANTEE THAT UNLABELLED DATA WILL NOT DEGRADE PERFORMANCE - the method can do worse than ignoring the extra data, and no test tells you beforehand</label>
+        <quote>What is more, it is impossible to guarantee that the introduction of unlabelled data will not degrade performance.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>and no method exists to choose the algorithm a priori, exactly as in supervised learning - so the practitioner picks the assumption and finds out afterwards</label>
+        <quote>As is the case for supervised learning algorithms, no method has yet been discovered to determine a priori what learning method is best-suited for any particular problem.</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.85">
+        <label>THE CENTRAL CLAIM ABOUT THE TAXONOMY IS UNFALSIFIABLE AT TIME OF WRITING: `allowing researchers and practitioners alike to gain insight into the way semi-supervised learning methods relate to each other`, built in a `future-proof way`. The paper&#x27;s stated advantage over prior categorizations is that new methods will fit it - a claim only later work can test, and the same claim the superseded categorizations could have made.</label>
+        <quote>In this survey, we propose a new way to represent the spectrum of semi-supervised classification algorithms. We attempt to group them in a clear, future-proof way, allowing researchers and practitioners alike to gain insight into the way semi-supervised learning methods relate to each other, to existing supervised learning methods, and to the semi-supervised learning assumptions</quote>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>the matching problem - find a subset of edges sharing no vertices - is taken from graph theory and used to pair unlabelled samples in a semi-supervised learner</label>
+        <quote>Their approach is inspired by _matching_, a concept from graph theory where one tries to find a subset of edges in a graph such that the edges do not share any vertices.</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the published empirical comparisons are surveyed rather than a single one cited - eight data sets in one study, several neural methods on two image problems in another</label>
+        <note>eliminates: a field-level claim resting on the studies that happened to work; the answer reported is that NO ALGORITHM UNIFORMLY OUTPERFORMED THE OTHERS and relative performance varied with the amount of unlabelled data · outcome: failed</note>
+        <quote>the authors found that no algorithm uniformly outperformed the others. Substantial performance improvements over the baselines were observed on some data sets, while performance was found to be degraded on others. Relative performance also varied with the amount of unlabelled data.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>where degradation was observed, the condition producing it is isolated - a mismatch between the classes in the labelled and the unlabelled data</label>
+        <note>eliminates: degradation being treated as unexplained noise; here it has a named cause that a practitioner can check for · outcome: held</note>
+        <quote>Performance degradations were observed only when there was a mismatch between the classes present in the labelled data and the classes present in the unlabelled data.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether the conditions for a given method to work can be evaluated on a given dataset</label>
+        <note>eliminates: nothing - it is `rarely straightforward to evaluate to what extent these conditions are satisfied`, which is why the necessary condition is not a test · outcome: failed</note>
+        <quote>Not only is it difficult to precisely define the conditions under which any particular semi-supervised learning algorithm may work, it is also rarely straightforward to evaluate to what extent these conditions are satisfied.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>cluster assumption</label>
+        <term>cluster assumption</term>
+        <quote>Consequently, the semi-supervised learning assumptions can be seen as more specific instances of the cluster assumption: that similar points tend to belong to the same group.</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>smoothness</label>
+        <term>smoothness</term>
+        <quote>From our perspective, the smoothness, low-density, and manifold assumptions boil down to different definitions of the similarity between points: the smoothness assumption states that points that are close to each other in input space are similar; the low-density assumption states that points in the same high-density area are similar; and the manifold assumption states that points that lie on the same low-dimensional manifold are similar.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>low-density</label>
+        <term>low-density</term>
+        <quote>From our perspective, the smoothness, low-density, and manifold assumptions boil down to different definitions of the similarity between points: the smoothness assumption states that points that are close to each other in input space are similar; the low-density assumption states that points in the same high-density area are similar; and the manifold assumption states that points that lie on the same low-dimensional manifold are similar.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>manifold</label>
+        <term>manifold</term>
+        <quote>From our perspective, the smoothness, low-density, and manifold assumptions boil down to different definitions of the similarity between points: the smoothness assumption states that points that are close to each other in input space are similar; the low-density assumption states that points in the same high-density area are similar; and the manifold assumption states that points that lie on the same low-dimensional manifold are similar.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>local similarity measure</label>
+        <term>local similarity measure</term>
+        <quote>Graph-based methods, for example, typically rely on a local similarity measure to construct a graph over all data points. To apply such methods successfully, it is important that a meaningful local similarity measure can be devised.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>taxonomy</label>
+        <term>taxonomy</term>
+        <quote>In this survey, we propose a new way to represent the spectrum of semi-supervised classification algorithms. We attempt to group them in a clear, future-proof way, allowing researchers and practitioners alike to gain insight into the way semi-supervised learning methods relate to each other, to existing supervised learning methods, and to the semi-supervised learning assumptions</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>inductive</label>
+        <term>inductive</term>
+        <quote>The former, like supervised learning methods, yield a classification model that can be used to predict the label of previously unseen data points. The latter do not yield such a model, but instead directly provide predictions</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>transductive</label>
+        <term>transductive</term>
+        <quote>The former, like supervised learning methods, yield a classification model that can be used to predict the label of previously unseen data points. The latter do not yield such a model, but instead directly provide predictions</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>self-training</label>
+        <term>self-training</term>
+        <quote>Self-training methods (sometimes also called “self-learning” methods) are the most basic of pseudo-labelling approaches</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.9">
+        <label>self-learning</label>
+        <term>self-learning</term>
+        <quote>Self-training methods (sometimes also called “self-learning” methods) are the most basic of pseudo-labelling approaches</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.9">
+        <label>sets</label>
+        <term>sets</term>
+        <quote>We note that the collections of data points referred to here are technically lists. However, following common usage, in this survey, we refer to them as ‘sets’ and, in a slight abuse of notation, apply standard set-theoretic concepts to them</quote>
+      </span>
+      <span xml:id="t32" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>`similar` - THE LOAD-BEARING WORD OF THE WHOLE FIELD AND IT IS A CHOICE. Smoothness, low-density and manifold are three definitions of it, and the survey&#x27;s contribution is showing they are the same assumption differently parameterised. WHICH ONE YOU PICKED IS USUALLY IMPLICIT</label>
+        <quote>The concept of similarity we choose, often implicitly, dictates what constitutes a cluster.</quote>
+      </span>
+      <span xml:id="t33" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>the cluster assumption - AS RE-READ HERE: not one assumption among several but the genus of which the other three are species, and equivalent to the necessary condition that p(x) carries information about p(y|x)</label>
+        <quote>Consequently, the semi-supervised learning assumptions can be seen as more specific instances of the cluster assumption: that similar points tend to belong to the same group.</quote>
+      </span>
+      <span xml:id="t34" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>`semi-supervised learning works` - AS THE SURVEY IS FORCED TO QUALIFY IT: it can help, it can do nothing, and it can DEGRADE performance, with no way to know which in advance. The literature&#x27;s record of the third case is described as UNDER-REPORTED</label>
+        <quote>What is more, it is impossible to guarantee that the introduction of unlabelled data will not degrade performance.</quote>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>`sets` - A DECLARED TYPE ERROR, KEPT ON PURPOSE: `the collections of data points referred to here are TECHNICALLY LISTS. However, FOLLOWING COMMON USAGE, in this survey, we refer to them as ‘sets’ and, IN A SLIGHT ABUSE OF NOTATION, apply standard set-theoretic concepts to them.` The authors know the word is wrong, say so in a footnote, and use it anyway because the field does.</label>
+        <quote>We note that the collections of data points referred to here are technically lists. However, following common usage, in this survey, we refer to them as ‘sets’ and, in a slight abuse of notation, apply standard set-theoretic concepts to them</quote>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>`abuse of notation` IS USED TWICE IN THIS PAPER FOR TWO DIFFERENT ACTS. The second is symbol reuse: `we use X and x to denote random variables and their realizations, respectively, RATHER THAN DATA POINTS` - the same symbols carry a new meaning from that point on.</label>
+        <quote>In the following, with a slight abuse of notation, we use _X_ and _x_ to denote random variables and their realizations, respectively, rather than data points</quote>
+      </span>
+      <span xml:id="t37" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>`inductive` / `transductive` - the split is defined by WHAT THE METHOD RETURNS, not by how it works: `the former attempt to find a CLASSIFICATION MODEL, whereas the latter are solely concerned with obtaining LABEL PREDICTIONS for the given unlabelled data points`.</label>
+        <quote>At the highest level, it distinguishes between _inductive_ and _transductive_ methods, which give rise to distinct optimization procedures: the former attempt to find a classification model, whereas the latter are solely concerned with obtaining label predictions for the given unlabelled data points</quote>
+      </span>
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → the presentation of smoothness, low-density and manifold as separate assumptions, when they are one assumption under three definitions of similarity</label>
+        <quote>From our perspective, the smoothness, low-density, and manifold assumptions boil down to different definitions of the similarity between points: the smoothness assumption states that points that are close to each other in input space are similar; the low-density assumption states that points in the same high-density area are similar; and the manifold assumption states that points that lie on the same low-dimensional manifold are similar.</quote>
+      </span>
+      <span xml:id="t39" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → the semi-supervised literature&#x27;s record of when its methods fail, whose prevalence is described as likely under-reported</label>
+        <quote>What is more, it is impossible to guarantee that the introduction of unlabelled data will not degrade performance.</quote>
+      </span>
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>supports → Oliver et al.&#x27;s finding that degradation appeared only under a class mismatch between the labelled and unlabelled sets</label>
+        <quote>Performance degradations were observed only when there was a mismatch between the classes present in the labelled data and the classes present in the unlabelled data.</quote>
+      </span>
+      <span xml:id="t41" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>smoothness —is-a→ cluster assumption</label>
+        <term>smoothness</term>
+        <term>cluster assumption</term>
+        <quote>Consequently, the semi-supervised learning assumptions can be seen as more specific instances of the cluster assumption: that similar points tend to belong to the same group.</quote>
+      </span>
+      <span xml:id="t42" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.85">
+        <label>manifold —is-a→ cluster assumption</label>
+        <term>manifold</term>
+        <term>cluster assumption</term>
+        <quote>Consequently, if we are able to determine which manifolds exist and which data points lie on which manifold, the class assignments of unlabelled data points can be inferred from the labelled data points on the same manifold. ### 2.2 Connection to clustering In semi-supervised learning research, an additional assumption that is often included is the _cluster assumption_, which states that data points belonging to the same cluster belong to the same class (Chapelle et al. 2006b.</quote>
+      </span>
+      <span xml:id="t43" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>self-training —same-as→ self-learning</label>
+        <term>self-training</term>
+        <term>self-learning</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 — Given parenthetically and without preference, in a sentence that cites a survey whose own title uses a THIRD name - `Self-labeled techniques for semi-supervised learning: Taxonomy, software and empirical study`. Three names for one method inside one sentence, and the paper treats the multiplicity as unremarkable.</note>
+        <quote>Self-training methods (sometimes also called “self-learning” methods) are the most basic of pseudo-labelling approaches</quote>
+      </span>
+      <span xml:id="t44" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>inductive —distinct-from→ transductive</label>
+        <term>inductive</term>
+        <term>transductive</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.95 — The top-level split of the taxonomy, and the differentiating property is the OUTPUT TYPE - a model versus a label vector.</note>
+        <quote>At the highest level, it distinguishes between _inductive_ and _transductive_ methods, which give rise to distinct optimization procedures: the former attempt to find a classification model, whereas the latter are solely concerned with obtaining label predictions for the given unlabelled data points</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>THE CONCEPT OF SIMILARITY WE CHOOSE, OFTEN IMPLICITLY, DICTATES WHAT CONSTITUTES A CLUSTER - the category is decided by a choice the practitioner usually does not know they are making</label>
+        <term>THE CONCEPT OF SIMILARITY WE CHOOSE, OFTEN IMPLICITLY, DICTATES WHAT CONSTITUTES A CLUSTER - the category is decided by a choice the practitioner usually does not know they are making</term>
+        <quote>The concept of similarity we choose, often implicitly, dictates what constitutes a cluster.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>THREE NAMES, ONE ASSUMPTION: smoothness, low-density and manifold boil down to different definitions of the similarity between points</label>
+        <term>THREE NAMES, ONE ASSUMPTION: smoothness, low-density and manifold boil down to different definitions of the similarity between points</term>
+        <quote>From our perspective, the smoothness, low-density, and manifold assumptions boil down to different definitions of the similarity between points: the smoothness assumption states that points that are close to each other in input space are similar; the low-density assumption states that points in the same high-density area are similar; and the manifold assumption states that points that lie on the same low-dimensional manifold are similar.</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>if the data cannot be meaningfully clustered it is IMPOSSIBLE for semi-supervised learning to improve on supervised learning - a necessary condition that is rarely straightforward to evaluate</label>
+        <term>if the data cannot be meaningfully clustered it is IMPOSSIBLE for semi-supervised learning to improve on supervised learning - a necessary condition that is rarely straightforward to evaluate</term>
+        <quote>In other words: if the data points (both unlabelled and labelled) cannot be meaningfully clustered, it is impossible for a semi-supervised learning method to improve on a supervised learning method.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>IT IS IMPOSSIBLE TO GUARANTEE THAT UNLABELLED DATA WILL NOT DEGRADE PERFORMANCE, and the prevalence of that degradation is described as LIKELY UNDER-REPORTED DUE TO PUBLICATION BIAS</label>
+        <term>IT IS IMPOSSIBLE TO GUARANTEE THAT UNLABELLED DATA WILL NOT DEGRADE PERFORMANCE, and the prevalence of that degradation is described as LIKELY UNDER-REPORTED DUE TO PUBLICATION BIAS</term>
+        <quote>What is more, it is impossible to guarantee that the introduction of unlabelled data will not degrade performance.</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>no algorithm uniformly outperformed the others across eight data sets, and relative performance varied with the amount of unlabelled data</label>
+        <term>no algorithm uniformly outperformed the others across eight data sets, and relative performance varied with the amount of unlabelled data</term>
+        <quote>the authors found that no algorithm uniformly outperformed the others. Substantial performance improvements over the baselines were observed on some data sets, while performance was found to be degraded on others. Relative performance also varied with the amount of unlabelled data.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>where degradation was observed it had a named condition - a mismatch between the classes present in the labelled data and those in the unlabelled data</label>
+        <term>where degradation was observed it had a named condition - a mismatch between the classes present in the labelled data and those in the unlabelled data</term>
+        <quote>Performance degradations were observed only when there was a mismatch between the classes present in the labelled data and the classes present in the unlabelled data.</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>that similar points tend to belong to the same group - and the survey argues the field&#x27;s other assumptions are more specific instances of it</label>
+        <term>cluster assumption</term>
+        <quote>Consequently, the semi-supervised learning assumptions can be seen as more specific instances of the cluster assumption: that similar points tend to belong to the same group.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>similarity</label>
+        <term>similarity</term>
+        <quote>The concept of similarity we choose, often implicitly, dictates what constitutes a cluster.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>unlabelled data</label>
+        <term>unlabelled data</term>
+        <quote>As mentioned earlier, unlabelled data is only useful if it carries information useful for label prediction that is not contained in the labelled data alone or cannot be easily extracted from it.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1007/s10994-019-05855-6.</note></p>
+    </body>
+  </text>
+</TEI>

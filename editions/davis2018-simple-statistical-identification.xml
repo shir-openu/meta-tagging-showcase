@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Simple statistical identification and removal of contaminant sequences in marker-gene and metagenomics data</title>
+        <author>Nicole M. Davis</author>
+        <author>Diana M. Proctor</author>
+        <author>Susan Holmes</author>
+        <author>David A. Relman</author>
+        <author>Benjamin J. Callahan</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Simple statistical identification and removal of contaminant sequences in marker-gene and metagenomics data</title>
+          <date>2018</date>
+          <publisher>Microbiome</publisher>
+          <idno type="DOI">10.1186/s40168-018-0605-2</idno>
+          
+          <idno type="record">davis2018-simple-statistical-identification</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\davis2018-simple-statistical-identification.txt</note>
+          <note type="text-sha1">442b9883d0d89ffc6786e9f80ea4eadb90a0e261</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>biology</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">69 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>contaminant DNA in marker-gene and metagenomic sequencing - sequences that are in the data and not in the sample - and how to identify them without knowing in advance what they are</label>
+        <quote>However, the accuracy of marker-gene and metagenomic sequencing (MGS) is limited in practice by several processes that introduce contaminants—DNA sequences not truly present in the sampled community.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether contaminant sequences can be separated from true community members de novo, using only statistical patterns already present in a standard sequencing run</label>
+        <quote>Decontam implements two simple de novo classification methods based on widely reproduced signatures of external contamination: (1) Sequences from contaminating taxa are likely to have frequencies that inversely correlate with sample DNA concentration and (2) sequences from contaminating taxa are likely to have higher prevalence in control samples than in true samples.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>decontam: two independent classifiers built on two reproduced signatures of contamination - inverse correlation with DNA concentration, and higher prevalence in negative controls - released as an R package</label>
+        <quote>Decontam implements two simple de novo classification methods based on widely reproduced signatures of external contamination: (1) Sequences from contaminating taxa are likely to have frequencies that inversely correlate with sample DNA concentration and (2) sequences from contaminating taxa are likely to have higher prevalence in control samples than in true samples.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>Decontam implements two simple de novo classification methods based on widely reproduced signatures of external contamination: (1) Sequences from contaminating taxa are likely to have frequencies that inversely correlate with sample DNA concentration and (2) sequences from contaminating taxa are likely to have higher prevalence in control samples than in true samples.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>contamination that survives good laboratory practice and is invisible to the quality control usually used to detect it, biasing hardest exactly where biomass is lowest and the claims are most contested</label>
+        <quote>Contamination is often assumed to be absent if control samples do not yield a band on an agarose gel. However, band-less samples can generate non-negligible numbers of sequencing reads, suggesting that gel-based quality control is insufficient.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>a two-component mixture model of contaminant and sample DNA, turned into two score statistics and a user-set classification threshold, validated on an oral dataset, a dilution series and two published low-biomass studies</label>
+        <term>a two-component mixture model of contaminant and sample DNA, turned into two score statistics and a user-set classification threshold, validated on an oral dataset, a dilution series and two published low-biomass studies</term>
+        <quote>Let total sample DNA (T) be a mixture of two components (T = C + S): contaminating DNA (C) present in uniform concentration across samples and true sample DNA (S) present in varying concentration across samples.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>contaminant DNA enters at roughly constant absolute concentration while sample DNA varies, so as a proportion of the total the contaminant&#x27;s frequency falls as sample concentration rises - a slope of -1 in log space against a slope of 0</label>
+        <term>inverse frequency signature</term>
+        <quote>Let total sample DNA (T) be a mixture of two components (T = C + S): contaminating DNA (C) present in uniform concentration across samples and true sample DNA (S) present in varying concentration across samples.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>with no competing sample DNA, a negative control&#x27;s sequencing capacity is available to whatever contaminant is present, so contaminants are detected in a larger fraction of controls than of true samples</label>
+        <term>prevalence signature in negative controls</term>
+        <quote>Decontam implements two simple de novo classification methods based on widely reproduced signatures of external contamination: (1) Sequences from contaminating taxa are likely to have frequencies that inversely correlate with sample DNA concentration and (2) sequences from contaminating taxa are likely to have higher prevalence in control samples than in true samples.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>because the frequency method reads low sample concentration as evidence of contamination, any real sequence that is genuinely commoner in low-biomass samples presents with the contaminant signature - so mixing environments manufactures false positives out of true biology</label>
+        <term>biomass-correlated confounding</term>
+        <quote>The assumptions of decontam, especially the frequency method, can be violated if bacterial biomass systematically differs between groups of samples. For example, if decontam were applied to a mixed set of stool (high biomass) and airway (low biomass) samples, real sequences in the airway samples could be classified as contaminants, because they have a higher frequency in the low-concentration samples.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>decontam is not designed for cross-contamination, which violates its founding assumption that contaminants and true members are distinct populations</label>
+        <quote>Decontam assumes that contaminants and true community members are distinct from one another. This basic assumption is violated by cross-contamination—contaminant sequences arising from other processed samples.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the frequency method&#x27;s approximations break down in exactly the low-biomass regime where contamination matters most - when contaminants are a large fraction of reads</label>
+        <quote>Frequency-based contaminant identification is not recommended for extremely low-biomass samples (C~S or C &gt; S) because the simple approximations we are making for the dependence of contaminant frequency on total DNA concentration break down when contaminants comprise a large fraction of sequencing reads.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>applying it across environments of systematically different biomass can classify real sequences as contaminants, because low concentration is the contaminant signature</label>
+        <quote>The assumptions of decontam, especially the frequency method, can be violated if bacterial biomass systematically differs between groups of samples. For example, if decontam were applied to a mixed set of stool (high biomass) and airway (low biomass) samples, real sequences in the airway samples could be classified as contaminants, because they have a higher frequency in the low-concentration samples.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>it depends on patterns across samples, so it has low sensitivity for contaminants present in very few samples - the tail it cannot see</label>
+        <quote>Decontam depends on patterns across samples to identify contaminants and therefore has low sensitivity for detecting contaminants that are found in very few samples.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>the default classification threshold is not recommended as-is: the authors direct users to read a threshold off their own score histogram instead</label>
+        <quote>The default classification threshold is P* = 0.1, but we highly recommend that users inspect the distribution of scores in their data and consider adjusting P* based on specific dataset characteristics</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>the method is less effective when groups of samples carry systematically different contaminant patterns, which is why batches must be declared by the user rather than detected</label>
+        <quote>Decontam uses patterns across samples to identify contaminants, but that approach can be less effective when groups of samples have systematically different contaminant patterns.</quote>
+      </span>
+      <span xml:id="t15" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>model comparison by ratio of sums-of-squared-residuals, carried from linear regression into a per-sequence classifier - and deliberately stripped of the inferential guarantee it carries in its home field</label>
+        <quote>The frequency-based score statistic is best thought of as a transformation that takes as input two values—the ratio of the sum-of-squared residuals, and the number of observations—and outputs a score that is a better classification statistic than the ratio of the sum-of-squared residuals alone.</quote>
+      </span>
+      <span xml:id="t16" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
+        <label>a two-component mixture model, carried from statistical modelling to represent total DNA as contaminant plus sample</label>
+        <quote>Let total sample DNA (T) be a mixture of two components (T = C + S): contaminating DNA (C) present in uniform concentration across samples and true sample DNA (S) present in varying concentration across samples.</quote>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the field&#x27;s standard check that a negative control shows no band on an agarose gel, taken as evidence that contamination is absent</label>
+        <note>eliminates: contamination in the sequencing library - and the paper&#x27;s own sentence says this check does NOT eliminate it, because band-less samples still generate non-negligible reads · outcome: absent-stated-about-other</note>
+        <quote>Contamination is often assumed to be absent if control samples do not yield a band on an agarose gel. However, band-less samples can generate non-negligible numbers of sequencing reads, suggesting that gel-based quality control is insufficient.</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>removing every sequence that appears in a negative control</label>
+        <note>eliminates: contaminant sequences - and it OVER-removes, because cross-contamination puts abundant TRUE sequences into the negative controls · outcome: absent-stated-about-other</note>
+        <quote>Another approach is the removal of sequences that appear in negative controls (e.g.,). However, cross-contamination between samples often causes abundant true sequences to be detected in negative controls.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>discarding sequences below an ad hoc relative abundance threshold</label>
+        <note>eliminates: abundant contaminants, which it fails to remove, while removing rare features that are truly present in the sample · outcome: absent-stated-about-other</note>
+        <quote>However, relative abundance thresholds remove rare features truly present in the sample and do not remove abundant contaminants that are the most likely to interfere with subsequent analysis.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>excluding taxa on a blacklist of previously reported contaminants</label>
+        <note>eliminates: previously reported contaminants - leaving study-specific contaminants in place and removing true sequences · outcome: absent-stated-about-other</note>
+        <quote>Finally, “blacklist” methods exclude sequences or taxa previously identified as contaminants, but do not identify study-specific contaminants and often remove true sequences.</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>cross-checking taxonomic assignments against a second controlled vocabulary, HOMD against SILVA, at the genus level</label>
+        <note>eliminates: a contaminant call that is an artefact of one reference vocabulary&#x27;s genus boundaries · outcome: partial</note>
+        <quote>We compared SILVA and HOMD classifications at the genus level, and we resolved assignments for the 80 sequences on which SILVA and HOMD disagreed by NCBI BLAST results.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>an explicit `ambiguous` class for genera that neither reference database resolves, instead of forcing every genus into contaminant or oral</label>
+        <note>eliminates: a genus with no evidence either way being forced into `contaminant` or `oral` and counted as if it had been decided · outcome: held</note>
+        <quote>Genera were categorized into three groups by comparison to the oral and contamination databases: contaminant, if present in the contamination database and not in the oral database; oral, if present in the oral database and not in the contamination database; and ambiguous otherwise.</quote>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[6]" resp="#tagger" cert="0.95">
+        <label>turning the method on a published low-biomass claim - the placenta microbiome - where the expected answer was already contested</label>
+        <note>eliminates: a decontamination method validated only on data where the right answer was chosen by the people validating it · outcome: held</note>
+        <quote>The application of decontam to 16S rRNA gene sequencing data generated from placenta biopsies corroborated the conclusion that the data did not support the existence of a placenta microbiome.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>contaminants</label>
+        <term>contaminants</term>
+        <quote>However, the accuracy of marker-gene and metagenomic sequencing (MGS) is limited in practice by several processes that introduce contaminants—DNA sequences not truly present in the sampled community.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>External contamination</label>
+        <term>External contamination</term>
+        <quote>There are two major types of contaminants in MGS experiments that arise from different sources. External contamination is contributed from outside the samples being measured, with potential sources that include research subjects’ or investigators’ bodies, laboratory surfaces and air, and, perhaps most importantly, sample collection instruments and laboratory reagents. Internal or cross-contamination arises when samples mix with each other during sample processing or sequencing.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>cross-contamination</label>
+        <term>cross-contamination</term>
+        <quote>Decontam is not intended to detect cross-contamination, which presents with qualitatively different statistical patterns in MGS data.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>score statistic</label>
+        <term>score statistic</term>
+        <quote>Although inspired by the general linear F test, the frequency-based score statistic is not a p value, i.e., it is not associated with any guarantees on the type 1 error rate.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>p value</label>
+        <term>p value</term>
+        <quote>Although inspired by the general linear F test, the frequency-based score statistic is not a p value, i.e., it is not associated with any guarantees on the type 1 error rate.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>classification threshold</label>
+        <term>classification threshold</term>
+        <quote>The default classification threshold is P* = 0.1, but we highly recommend that users inspect the distribution of scores in their data and consider adjusting P* based on specific dataset characteristics</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>negative controls</label>
+        <term>negative controls</term>
+        <quote>Another approach is the removal of sequences that appear in negative controls (e.g.,). However, cross-contamination between samples often causes abundant true sequences to be detected in negative controls.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>gel-based quality control</label>
+        <term>gel-based quality control</term>
+        <quote>Contamination is often assumed to be absent if control samples do not yield a band on an agarose gel. However, band-less samples can generate non-negligible numbers of sequencing reads, suggesting that gel-based quality control is insufficient.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>relative abundance thresholds</label>
+        <term>relative abundance thresholds</term>
+        <quote>However, relative abundance thresholds remove rare features truly present in the sample and do not remove abundant contaminants that are the most likely to interfere with subsequent analysis.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>true community members</label>
+        <term>true community members</term>
+        <quote>Decontam assumes that contaminants and true community members are distinct from one another. This basic assumption is violated by cross-contamination—contaminant sequences arising from other processed samples.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>low-biomass</label>
+        <term>low-biomass</term>
+        <quote>Frequency-based contaminant identification is not recommended for extremely low-biomass samples (C~S or C &gt; S) because the simple approximations we are making for the dependence of contaminant frequency on total DNA concentration break down when contaminants comprise a large fraction of sequencing reads.</quote>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>SILVA</label>
+        <term>SILVA</term>
+        <quote>We compared SILVA and HOMD classifications at the genus level, and we resolved assignments for the 80 sequences on which SILVA and HOMD disagreed by NCBI BLAST results.</quote>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>HOMD</label>
+        <term>HOMD</term>
+        <quote>We compared SILVA and HOMD classifications at the genus level, and we resolved assignments for the 80 sequences on which SILVA and HOMD disagreed by NCBI BLAST results.</quote>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>processing batches</label>
+        <term>processing batches</term>
+        <quote>Decontam allows the user to specify processing batches, in which case score statistics are generated from each batch independently and then combined in a user-selectable fashion for classification</quote>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>placenta microbiome</label>
+        <term>placenta microbiome</term>
+        <quote>The application of decontam to 16S rRNA gene sequencing data generated from placenta biopsies corroborated the conclusion that the data did not support the existence of a placenta microbiome.</quote>
+      </span>
+      <span xml:id="t39" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>score statistic P - AS COMPUTED: set equal to a p-value from the chi-square or Fisher&#x27;s exact test, and so arithmetically indistinguishable from one</label>
+        <quote>Although the prevalence-based score statistic is set equal to a p-value from the chi-square or Fisher’s exact tests, it is used by decontam only as a score that effectively distinguishes between the contaminant and non-contaminant mixture components.</quote>
+      </span>
+      <span xml:id="t40" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>score statistic P - AS LICENSED: a classification score only, explicitly carrying no guarantee on the type 1 error rate. The paper states the difference rather than leaving it to the reader</label>
+        <quote>Although inspired by the general linear F test, the frequency-based score statistic is not a p value, i.e., it is not associated with any guarantees on the type 1 error rate.</quote>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>accuracy of decontam - PER SEQUENCE FEATURE: specificity and sensitivity described as sometimes moderate</label>
+        <quote>The sensitivity of contaminant identification increased substantially with feature prevalence. As a result, while the specificity and sensitivity of decontam on a per-feature basis were sometimes moderate, accuracy evaluated on a per-read basis reached exceptional levels.</quote>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>accuracy of decontam - PER READ: described as reaching exceptional levels, on the same classifications of the same data. The unit of account decides which number is reported</label>
+        <quote>The sensitivity of contaminant identification increased substantially with feature prevalence. As a result, while the specificity and sensitivity of decontam on a per-feature basis were sometimes moderate, accuracy evaluated on a per-read basis reached exceptional levels.</quote>
+      </span>
+      <span xml:id="t43" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → gel-band quality control as evidence that a sequencing run is free of contamination</label>
+        <quote>Contamination is often assumed to be absent if control samples do not yield a band on an agarose gel. However, band-less samples can generate non-negligible numbers of sequencing reads, suggesting that gel-based quality control is insufficient.</quote>
+      </span>
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → ad hoc in silico decontamination - abundance thresholds, negative-control subtraction and contaminant blacklists</label>
+        <quote>However, relative abundance thresholds remove rare features truly present in the sample and do not remove abundant contaminants that are the most likely to interfere with subsequent analysis.</quote>
+      </span>
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>builds-on → prior reports of the two contaminant signatures: inverse correlation with DNA concentration, and presence in negative controls</label>
+        <quote>Decontam implements two simple de novo classification methods based on widely reproduced signatures of external contamination: (1) Sequences from contaminating taxa are likely to have frequencies that inversely correlate with sample DNA concentration and (2) sequences from contaminating taxa are likely to have higher prevalence in control samples than in true samples.</quote>
+      </span>
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+        <label>confirms → the conclusion that marker-gene data from placenta biopsies do not support an indigenous placenta microbiome</label>
+        <quote>The application of decontam to 16S rRNA gene sequencing data generated from placenta biopsies corroborated the conclusion that the data did not support the existence of a placenta microbiome.</quote>
+      </span>
+      <span xml:id="t47" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>score statistic —distinct-from→ p value</label>
+        <term>score statistic</term>
+        <term>p value</term>
+        <note>differs in: whether it licenses a claim about the type 1 error rate · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>Although inspired by the general linear F test, the frequency-based score statistic is not a p value, i.e., it is not associated with any guarantees on the type 1 error rate.</quote>
+      </span>
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>contaminants —distinct-from→ true community members</label>
+        <term>contaminants</term>
+        <term>true community members</term>
+        <note>differs in: whether the sequence originated in the sampled environment · the relation itself is separately evidenced · strength of the relation: 0.9</note>
+        <quote>Decontam assumes that contaminants and true community members are distinct from one another. This basic assumption is violated by cross-contamination—contaminant sequences arising from other processed samples.</quote>
+      </span>
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>cross-contamination —distinct-from→ External contamination</label>
+        <term>cross-contamination</term>
+        <term>External contamination</term>
+        <note>differs in: whether the contaminating DNA came from outside the study or from another sample in it · the relation itself is separately evidenced · strength of the relation: 0.9</note>
+        <quote>There are two major types of contaminants in MGS experiments that arise from different sources. External contamination is contributed from outside the samples being measured, with potential sources that include research subjects’ or investigators’ bodies, laboratory surfaces and air, and, perhaps most importantly, sample collection instruments and laboratory reagents. Internal or cross-contamination arises when samples mix with each other during sample processing or sequencing.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>the score decontam reports is computed as a tail probability and is explicitly not a p value - it carries no type 1 error guarantee</label>
+        <term>the score decontam reports is computed as a tail probability and is explicitly not a p value - it carries no type 1 error guarantee</term>
+        <quote>Although inspired by the general linear F test, the frequency-based score statistic is not a p value, i.e., it is not associated with any guarantees on the type 1 error rate.</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>the same classifications are &#x27;sometimes moderate&#x27; per sequence feature and &#x27;exceptional&#x27; per read - the unit of account decides the number</label>
+        <term>the same classifications are &#x27;sometimes moderate&#x27; per sequence feature and &#x27;exceptional&#x27; per read - the unit of account decides the number</term>
+        <quote>The sensitivity of contaminant identification increased substantially with feature prevalence. As a result, while the specificity and sensitivity of decontam on a per-feature basis were sometimes moderate, accuracy evaluated on a per-read basis reached exceptional levels.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the field&#x27;s usual contamination control - no band on a gel - does not work, because band-less samples still generate substantial reads</label>
+        <term>the field&#x27;s usual contamination control - no band on a gel - does not work, because band-less samples still generate substantial reads</term>
+        <quote>Contamination is often assumed to be absent if control samples do not yield a band on an agarose gel. However, band-less samples can generate non-negligible numbers of sequencing reads, suggesting that gel-based quality control is insufficient.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>two curated taxonomic databases disagreed on 80 sequences and the disagreement had to be settled by a third method</label>
+        <term>two curated taxonomic databases disagreed on 80 sequences and the disagreement had to be settled by a third method</term>
+        <quote>We compared SILVA and HOMD classifications at the genus level, and we resolved assignments for the 80 sequences on which SILVA and HOMD disagreed by NCBI BLAST results.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>contamination biases hardest in low-biomass environments, which is exactly where the frequency method&#x27;s assumptions break down</label>
+        <term>contamination biases hardest in low-biomass environments, which is exactly where the frequency method&#x27;s assumptions break down</term>
+        <quote>Frequency-based contaminant identification is not recommended for extremely low-biomass samples (C~S or C &gt; S) because the simple approximations we are making for the dependence of contaminant frequency on total DNA concentration break down when contaminants comprise a large fraction of sequencing reads.</quote>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>DNA sequences not truly present in the sampled community - a definition by provenance, so nothing in the sequence itself can settle it</label>
+        <term>contaminants</term>
+        <quote>However, the accuracy of marker-gene and metagenomic sequencing (MGS) is limited in practice by several processes that introduce contaminants—DNA sequences not truly present in the sampled community.</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>contributed from outside the samples being measured; distinguished from internal or cross-contamination, which arises when samples mix with each other</label>
+        <term>External contamination</term>
+        <quote>There are two major types of contaminants in MGS experiments that arise from different sources. External contamination is contributed from outside the samples being measured, with potential sources that include research subjects’ or investigators’ bodies, laboratory surfaces and air, and, perhaps most importantly, sample collection instruments and laboratory reagents. Internal or cross-contamination arises when samples mix with each other during sample processing or sequencing.</quote>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>a transformation taking the ratio of sums-of-squared residuals and the number of observations, and returning a better classification statistic than the ratio alone - explicitly not a p value</label>
+        <term>score statistic</term>
+        <quote>The frequency-based score statistic is best thought of as a transformation that takes as input two values—the ratio of the sum-of-squared residuals, and the number of observations—and outputs a score that is a better classification statistic than the ratio of the sum-of-squared residuals alone.</quote>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>the default classification threshold, which the authors recommend against using unexamined</label>
+        <term>P* = 0.1</term>
+        <quote>The default classification threshold is P* = 0.1, but we highly recommend that users inspect the distribution of scores in their data and consider adjusting P* based on specific dataset characteristics</quote>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the threshold at which classification reduces to &#x27;is the contaminant model the better fit&#x27;</label>
+        <term>P* = 0.5</term>
+        <quote>The threshold P* = 0.5 has a particularly simple interpretation: In the frequency approach, sequence features would be classified as contaminants if the contaminant model is a better fit than the non-contaminant model, and in the prevalence approach, sequence features would be classified as contaminants if present in a higher fraction of negative controls than true samples.</quote>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.85">
+        <label>sequences on which the two reference databases disagreed, resolved by BLAST</label>
+        <term>80</term>
+        <quote>We compared SILVA and HOMD classifications at the genus level, and we resolved assignments for the 80 sequences on which SILVA and HOMD disagreed by NCBI BLAST results.</quote>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>general linear F test</label>
+        <term>general linear F test</term>
+        <quote>Although inspired by the general linear F test, the frequency-based score statistic is not a p value, i.e., it is not associated with any guarantees on the type 1 error rate.</quote>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>type 1 error rate</label>
+        <term>type 1 error rate</term>
+        <quote>Although inspired by the general linear F test, the frequency-based score statistic is not a p value, i.e., it is not associated with any guarantees on the type 1 error rate.</quote>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
+        <label>chi-square</label>
+        <term>chi-square</term>
+        <quote>Although the prevalence-based score statistic is set equal to a p-value from the chi-square or Fisher’s exact tests, it is used by decontam only as a score that effectively distinguishes between the contaminant and non-contaminant mixture components.</quote>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger" cert="0.95">
+        <label>Fisher’s exact tests</label>
+        <term>Fisher’s exact tests</term>
+        <quote>Although the prevalence-based score statistic is set equal to a p-value from the chi-square or Fisher’s exact tests, it is used by decontam only as a score that effectively distinguishes between the contaminant and non-contaminant mixture components.</quote>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger" cert="0.95">
+        <label>specificity</label>
+        <term>specificity</term>
+        <quote>The sensitivity of contaminant identification increased substantially with feature prevalence. As a result, while the specificity and sensitivity of decontam on a per-feature basis were sometimes moderate, accuracy evaluated on a per-read basis reached exceptional levels.</quote>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger" cert="0.95">
+        <label>sensitivity</label>
+        <term>sensitivity</term>
+        <quote>The sensitivity of contaminant identification increased substantially with feature prevalence. As a result, while the specificity and sensitivity of decontam on a per-feature basis were sometimes moderate, accuracy evaluated on a per-read basis reached exceptional levels.</quote>
+      </span>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>sample DNA concentration</label>
+        <term>sample DNA concentration</term>
+        <quote>Decontam implements two simple de novo classification methods based on widely reproduced signatures of external contamination: (1) Sequences from contaminating taxa are likely to have frequencies that inversely correlate with sample DNA concentration and (2) sequences from contaminating taxa are likely to have higher prevalence in control samples than in true samples.</quote>
+      </span>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>prevalence</label>
+        <term>prevalence</term>
+        <quote>Decontam implements two simple de novo classification methods based on widely reproduced signatures of external contamination: (1) Sequences from contaminating taxa are likely to have frequencies that inversely correlate with sample DNA concentration and (2) sequences from contaminating taxa are likely to have higher prevalence in control samples than in true samples.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/s40168-018-0605-2.</note></p>
+    </body>
+  </text>
+</TEI>

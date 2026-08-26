@@ -39,8 +39,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">35 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">36 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -102,110 +102,117 @@
         <label>deep convolutional neural networks applied to model quantum interactions in molecules</label>
         <quote>Deep learning has the potential to revolutionize quantum chemistry</quote>
       </span>
-      <span xml:id="t12" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t12" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>comparison of force and energy prediction against a mean predictor as a baseline, on held-out MD trajectories</label>
+        <note>eliminates: that SchNet&#x27;s reported accuracy could be obtained by predicting the dataset mean, and that it comes from memorising conformations rather than generalising · outcome: held</note>
+        <quote>We predict forces and energies in both cases and compare to the mean predictor as a baseline.</quote>
+      </span>
+      <span xml:id="t13" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>continuous-filter convolution</label>
         <term>continuous-filter convolution</term>
         <quote>In contrast, SchNet does not use such features and yields a continuous potential energy surface by using continuous-filter convolutional layers</quote>
       </span>
-      <span xml:id="t13" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t14" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>potential energy surface</label>
         <term>potential energy surface</term>
-        <quote>In contrast, SchNet does not use such features and yields a continuous potential energy surface</quote>
+        <quote>In contrast, SchNet does not use such features and yields a continuous potential energy surface by using continuous-filter convolutional layers</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t15" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>interatomic forces</label>
         <term>interatomic forces</term>
         <quote>As described above, the interatomic forces are related to the molecular energy, so that we can obtain an energy-conserving force model by differentiating the energy model</quote>
       </span>
-      <span xml:id="t15" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t16" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>molecular energy</label>
         <term>molecular energy</term>
         <quote>In order to satisfy the requirements for modeling molecular energies, we restrict our filters for the cfconv layers to be rotationally invariant</quote>
       </span>
-      <span xml:id="t16" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t17" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>rotational invariance</label>
         <term>rotational invariance</term>
         <quote>we restrict our filters for the cfconv layers to be rotationally invariant</quote>
       </span>
-      <span xml:id="t17" type="concepts" ana="#concepts[9]" resp="#paper">
+      <span xml:id="t18" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>QM9</label>
         <term>QM9</term>
         <quote>QM9 is a widely used benchmark for the prediction of various molecular properties in equilibrium</quote>
       </span>
-      <span xml:id="t18" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>the invariances - BY CONSTRUCTION, not measured: rotational equivariance of the forces follows from rotational invariance of the energy plus the architecture, so it is a guarantee rather than an empirical result, and must not be compared with a model&#x27;s measured conservation</label>
         <quote>As SchNet yields rotationally invariant energy predictions, the force predictions are rotationally equivariant by construction</quote>
       </span>
-      <span xml:id="t19" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>QM9 - AS A BENCHMARK OF THE SPECIAL CASE: equilibrium molecules only, which is precisely where the forces vanish, so the benchmark omits the regime the architecture was built for</label>
         <quote>Models such as circular fingerprints [17], molecular graph convolutions or message-passing neural networks[21] for property prediction across chemical compound space are only concerned with equilibrium molecules, i.e., the special case where the forces are vanishing</quote>
       </span>
-      <span xml:id="t20" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the filter - CONTINUOUS RATHER THAN DISCRETE, because atom positions do not lie on a grid and their precise locations carry physical information that discretising destroys</label>
         <quote>Instead, their precise locations contain essential physical information, that would get lost if discretized</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → grid-based convolutional neural networks</label>
         <quote>the atoms in molecules are not restricted to a grid</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → dynamic filter networks [34]</label>
         <quote>While dynamic filter networks generate weights restricted to a grid structure, our approach generalizes this to arbitrary position and number of objects.</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → deep tensor neural networks (DTNN), Schütt et al. [20]</label>
         <quote>Even though the DTNN shares the invariances with our proposed architecture, its interaction layers lack the continuous-filter convolution interpretation.</quote>
       </span>
-      <span xml:id="t24" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → gradient-domain machine learning (GDML), Chmiela et al. [19]</label>
         <quote>Chmiela et al. [19] pointed out that this leads to an energy-conserving force-field by construction.</quote>
       </span>
-      <span xml:id="t25" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>builds-on → ResNet [36] residual connections</label>
         <quote>The blocks use a residual connection inspired by ResNet [36]:</quote>
       </span>
-      <span xml:id="t26" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>continuous-filter convolution —causes→ potential energy surface</label>
         <term>continuous-filter convolution</term>
         <term>potential energy surface</term>
-        <note>strength of the relation: 1</note>
+        <note>the relation itself is separately evidenced · strength of the relation: 1</note>
         <quote>In contrast, SchNet does not use such features and yields a continuous potential energy surface by using continuous-filter convolutional layers</quote>
       </span>
-      <span xml:id="t27" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>interatomic forces —operationalised-as→ molecular energy</label>
         <term>interatomic forces</term>
         <term>molecular energy</term>
         <note>strength of the relation: 1</note>
         <quote>As described above, the interatomic forces are related to the molecular energy, so that we can obtain an energy-conserving force model by differentiating the energy model</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>three — benchmark datasets used (QM9, MD17, ISO17)</label>
         <quote>three different quantum chemistry datasets: QM9, MD17 and ISO17</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>SchNet uses continuous-filter convolutional layers to model atoms at their precise off-grid positions, yielding a joint model of total energy and interatomic forces that respects quantum-chemical principles and reaches state-of-the-art accuracy.</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>We obtain a joint model for the total energy and interatomic forces that follows fundamental quantumchemical principles.</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>SchNet gives rotationally invariant energy predictions and rotationally equivariant force predictions on a smooth potential energy surface.</label>
         <quote>SchNet delivers both rotationally invariant energy prediction and rotationally equivariant force predictions.</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>atomic positions r_i (molecular geometry)</label>
         <term>atomic positions r_i (molecular geometry)</term>
         <quote>the atoms in molecules are not restricted to a grid. Instead, their precise locations contain essential physical information</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>predicted energy and interatomic forces</label>
         <term>predicted energy and interatomic forces</term>
         <quote>a joint model for the total energy and interatomic forces</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>continuous-filter convolutional layer</label>
         <term>continuous-filter convolutional layer</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>we propose to use continuousfilter convolutional layers to be able to model local correlations without requiring the data to lie on a grid</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>potential energy surface</label>
         <term>potential energy surface</term>
         <quote>local minima of the potential energy surface E(r1, . . . , rn) where ri is the position of atom i</quote>

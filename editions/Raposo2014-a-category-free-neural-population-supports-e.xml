@@ -36,7 +36,7 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
+      <change when="2026-08-26"
               who="build_paper_edition.py">192 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
@@ -122,7 +122,7 @@
       <span xml:id="t17" type="limitations" ana="#limitations[4]" resp="#tagger">
         <label>Residual visual performance means the inactivation may have been incomplete or other structures may contribute</label>
         <note>what this limits: the inactivation result: ANIMALS RETAINED SOME ABILITY TO MAKE VISUAL JUDGMENTS DESPITE THE INACTIVATION, SUGGESTING EITHER THAT INACTIVATION WAS INCOMPLETE, OR THAT STRUCTURES IN ADDITION TO PPC SUPPORT THE TASK</note>
-        <quote>Animals retained some ability to make visual judgments despite the inactivation, suggesting either that inactivation was incomplete, or that structures in addition to PPC support the task, consistent with other studies of parietal inactivation 6 , 23 .</quote>
+        <quote>Animals retained some ability to make visual judgments despite the inactivation, suggesting either that inactivation was incomplete, or that structures in addition to PPC support the task, consistent with other studies of parietal inactivation</quote>
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>neural categories defined by other properties, such as cell type or connectivity, might reveal specialization</label>
@@ -137,7 +137,7 @@
       <span xml:id="t20" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>animals retained some ability to make visual judgments despite the inactivation, suggesting either that inactivation was incomplete, or that structures in addition to PPC support the task</label>
         <note>what this limits: the same scope as item 4, with the effect size: SHALLOWER PSYCHOMETRIC FUNCTIONS ON INACTIVATION DAYS (sigma_saline = 2.64 +/- 0.39; sigma_muscimol = 4.67 +/- 0.67)</note>
-        <quote>We compared performance for inactivation versus control days and observed shallower psychometric functions (more errors) on inactivation days ( Fig. 1d , σ saline = 2.64 ± 0.39; σ mucimol = 4.67 ± 0.67; standard errors computed by bootstrapping, see Online Methods). This example was typical: PPC inactivation reliably impaired visual decisions ( Fig. 1e , middle , Supp. Fig. 2a,b ; Mann-Whitney U test; p &lt; 0.001, pooled across animals). Animals retained some ability to make visual judgments despite the inactivation, suggesting either that inactivation was incomplete, or that structures in addition to PPC support the task, consistent with other studies of parietal inactivation 6 , 23 .</quote>
+        <quote>We compared performance for inactivation versus control days and observed shallower psychometric functions (more errors) on inactivation days ( Fig. 1d , σ saline = 2.64 ± 0.39; σ mucimol = 4.67 ± 0.67; standard errors computed by bootstrapping, see Online Methods). This example was typical: PPC inactivation reliably impaired visual decisions ( Fig. 1e , middle , Supp. Fig. 2a,b ; Mann-Whitney U test; p &lt; 0.001, pooled across animals). Animals retained some ability to make visual judgments despite the inactivation, suggesting either that inactivation was incomplete, or that structures in addition to PPC support the task, consistent with other studies of parietal inactivation</quote>
       </span>
       <span xml:id="t21" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
         <label>relatively close neuron pairs were occasionally observed and differed from chance in 1 of 5 cases, so a small fraction of neurons do have pairs in feature space</label>
@@ -171,31 +171,37 @@
       </span>
       <span xml:id="t28" type="controls" ana="#controls[0]" resp="#tagger" cert="1.0">
         <label>synthetic categories introduced into the population, with noise derived from the real neural data</label>
+        <note>eliminates: the lack of categories being a failure of the analysis to see structure - with faux neurons carrying exactly the same amount of noise as their originals, a strikingly different PAIRS distribution was evident</note>
         <quote>The overall lack of categories was not simply because neural variability caused our analysis to miss structure: when we introduced synthetic categories into the population with noise derived from the real neural data, a strikingly different PAIRS distribution was evident ( Fig. 3e , dashed line; Online Methods).</quote>
       </span>
       <span xml:id="t29" type="controls" ana="#controls[1]" resp="#tagger" cert="1.0">
         <label>the distribution of decoder weights compared with random weightings</label>
+        <note>eliminates: the decode resting on rare neurons with pure selectivity - the weights were nonzero for all neurons and did not differ from what would be expected by chance</note>
         <quote>One concern might be that the choice decoder’s success resulted from heavily weighting rare neurons with pure selectivity for choice (e.g., Fig. 2a ). This was not the case. The neural weights were nonzero for all neurons, indicating that every member of the population contributed ( Fig. 4d , black bars). Importantly, the distribution of neural weights in the data did not differ from those that would be expected by chance if neurons reflected random weightings ( Fig. 4d , purple lines; for rats 1-5, p-values for kurtosis were 0.696, 0.470, 0.134, 0.198, 0.430; see Online Methods). This is an independent indicator that neurons mix information about task parameters with random weights.</quote>
       </span>
       <span xml:id="t30" type="controls" ana="#controls[2]" resp="#tagger" cert="1.0">
         <label>auditory decisions measured alongside the impaired visual ones</label>
+        <note>eliminates: reduced motivation or confusion about the stimulus-response contingency, since the sparing of auditory decisions rules both out</note>
         <quote>Impairment was specific to visual trials and had no consistent effect on auditory decisions ( Fig. 1e , left ; Supp. Fig. 2a,b ; p = 0.41, pooled across animals). The sparing of auditory decisions reveals that inactivation did not reduce the animal’s motivation, or introduce confusion about the stimulus-response contingency.</quote>
       </span>
       <span xml:id="t31" type="controls" ana="#controls[3]" resp="#tagger" cert="1.0">
         <label>a second inactivation method that permits visualization of the agent to determine its spread</label>
+        <note>eliminates: the impairment coming from spread into neighboring visual areas - and the rat with more expression posterior to PPC had WEAKER visual impairment</note>
         <quote>The more posterior expression was apparently not the source of the impairment because the rat with more expression posterior to PPC had weaker visual impairment compared to the other rat. We did not detect DREADD expression in other areas ( Supp. Fig. 3i ).</quote>
       </span>
       <span xml:id="t32" type="controls" ana="#controls[4]" resp="#tagger" cert="1.0">
         <label>the Variance Alignment analysis repeated on visual against multisensory trials within the decision epoch</label>
+        <note>eliminates: noise making two aligned state spaces look misaligned - this positive control gave strong alignment, which is the reassurance that the decision-movement misalignment is real</note>
         <quote>For comparison as a positive control, we repeated the Variance Alignment analysis on neural responses during decision formation, comparing two different stimulus conditions: visual and multisensory. This analysis, by contrast, revealed strong alignment ( Fig. 5i , index near 1 for rat 4; index = 0.840, p &lt; 10 −4 ),present in all rats tested (indices were 0.644, 0.883, and 0.812 for rats 1, 2, and 3, p &lt; 10 −4 in all cases). This strong alignment indicates that the inherent noisiness of neural responses does not cause neural states to falsely appear misaligned, and therefore provides reassurance that the misalignment of states during decision and movement indicates a real difference in neural covariance.</quote>
       </span>
       <span xml:id="t33" type="controls" ana="#controls[5]" resp="#tagger" cert="1.0">
         <label>modulation during the stimulus compared against modulation during movement, neuron by neuron</label>
+        <note>eliminates: the misalignment being two separate groups of active neurons - the two were strongly correlated, so it is a population-level phenomenon</note>
         <quote>Finally, we asked whether the misalignment of stimulus and movement activity might be due to simply having different neurons active during these two epochs. This hypothesis predicts that neurons that are strongly modulated during the stimulus should be less modulated during movement, and vice versa. This was not the case: instead, we observed a strong correlation between modulation during stimulus and modulation during movement ( Fig. 5j , correlations of log(stimulus) to log(movement) for Rats 1-5 were: r = 0.709, r = 0.655, r = 0.577, r = 0.666, r = 0.763; all p &lt; 10 −4 ). This implies that the misalignment of stimulus and movement activity is a population-level phenomenon, not due to having separate groups of neurons.</quote>
       </span>
       <span xml:id="t34" type="controls" ana="#controls[6]" resp="#tagger" cert="1.0">
         <label>the excess rate analysis over sliding windows of the stimulus</label>
-        <note>outcome: held</note>
+        <note>eliminates: snap judgments or evidence leak as the explanation for the impairment - the analysis indicates inactivation reduced the signal-to-noise of incoming evidence instead · outcome: held</note>
         <quote>To distinguish changes in stimulus reliability from changes in strategy, we performed an analysis of animals’ decisions that took advantage of the ongoing fluctuations in visual and auditory rates that occur throughout the 1s decision formation period (Online Methods) 20 , 21 , 27 . The analysis measures whether fluctuations at any given moment influence the eventual choice. The analysis generates a quantity termed “Excess rate” which measures how strongly each moment in the stimulus influences the animal’s eventual choice. This analysis revealed no evidence of snap judgments or evidence leak ( Fig. 1h , light blue line is stable over the entire trial). Instead, the analysis indicates that inactivation reduced the signal-to-noise of incoming evidence</quote>
       </span>
       <span xml:id="t35" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
@@ -520,7 +526,7 @@
         <term>inactivation</term>
         <term>visual</term>
         <note>strength of the relation: 1 — shallower psychometric functions on inactivation days - with animals retaining SOME ability, suggesting EITHER THAT INACTIVATION WAS INCOMPLETE, OR THAT STRUCTURES IN ADDITION TO PPC SUPPORT THE TASK</note>
-        <quote>We compared performance for inactivation versus control days and observed shallower psychometric functions (more errors) on inactivation days ( Fig. 1d , σ saline = 2.64 ± 0.39; σ mucimol = 4.67 ± 0.67; standard errors computed by bootstrapping, see Online Methods). This example was typical: PPC inactivation reliably impaired visual decisions ( Fig. 1e , middle , Supp. Fig. 2a,b ; Mann-Whitney U test; p &lt; 0.001, pooled across animals). Animals retained some ability to make visual judgments despite the inactivation, suggesting either that inactivation was incomplete, or that structures in addition to PPC support the task, consistent with other studies of parietal inactivation 6 , 23 .</quote>
+        <quote>We compared performance for inactivation versus control days and observed shallower psychometric functions (more errors) on inactivation days ( Fig. 1d , σ saline = 2.64 ± 0.39; σ mucimol = 4.67 ± 0.67; standard errors computed by bootstrapping, see Online Methods). This example was typical: PPC inactivation reliably impaired visual decisions ( Fig. 1e , middle , Supp. Fig. 2a,b ; Mann-Whitney U test; p &lt; 0.001, pooled across animals). Animals retained some ability to make visual judgments despite the inactivation, suggesting either that inactivation was incomplete, or that structures in addition to PPC support the task, consistent with other studies of parietal inactivation</quote>
       </span>
       <span xml:id="t98" type="concept_edges" ana="#concept_edges[22]" resp="#tagger" cert="1.0">
         <label>auditory —contrasted-with→ inactivation</label>
@@ -839,7 +845,7 @@
       <span xml:id="t163" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger">
         <label>decision formation (epoch)</label>
         <term>decision formation (epoch)</term>
-        <quote>We refer to this 1s period as “decision formation” because previous studies have demonstrated that stimuli presented throughout the 1 s period influence the animals’ decisions 20 , 21 .</quote>
+        <quote>We refer to this 1s period as “decision formation” because previous studies have demonstrated that stimuli presented throughout the 1 s period influence the animals’ decisions</quote>
       </span>
       <span xml:id="t164" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger">
         <label>DREADD (Designer Receptor Exclusively Activated by Designer Drug)</label>
@@ -849,7 +855,7 @@
       <span xml:id="t165" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger">
         <label>impairment ratio</label>
         <term>impairment ratio</term>
-        <quote>To assess the magnitude of inactivation effects, we took the ratio of σ values computed for pairs of inactivation vs. control days.</quote>
+        <quote>To assess the magnitude of inactivation effects, we took the ratio of σ values computed for pairs of inactivation vs. control days. This ratio is termed “Impairment ratio” ( Fig. 1e,g )</quote>
       </span>
       <span xml:id="t166" type="content_tags" ana="#content_tags.definitions[9]" resp="#tagger" cert="1.0">
         <label>PAIRS</label>

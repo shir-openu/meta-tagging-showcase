@@ -38,8 +38,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">54 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">56 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -107,187 +107,198 @@
         <note>what this limits: the bias findings only: THIS IS A PRELIMINARY ANALYSIS AND DOES NOT REFLECT ALL OF THE MODEL&#x27;S BIASES EVEN WITHIN THE STUDIED CATEGORIES</note>
         <quote>This is a preliminary analysis and does not reflect all of the model’s biases even within the studied categories.</quote>
       </span>
-      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t13" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>SAT analogy problems - 374 of them, an instrument built to test American secondary-school pupils - collected and used as a few-shot benchmark for a language model</label>
+        <quote>3.9.3 SAT Analogies To test GPT-3 on another task that is somewhat unusual relative to the typical distribution of text, we collected a set of 374 “SAT analogy” problems [TLBS03].</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
         <label>a parallel experiment in the same format using intentionally BAD model-generated articles</label>
+        <note>eliminates: inattentive or low-effort raters as the explanation of the headline result - if participants cannot detect deliberately bad output either, their failure to detect good output means nothing</note>
         <quote>However, we also ran an experiment to control for participant effort and attention that followed the same format but involved intentionally bad model generated articles.</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[1]" resp="#paper">
+      <span xml:id="t15" type="concepts" ana="#concepts[1]" resp="#paper">
         <label>in-context learning</label>
         <term>in-context learning</term>
         <quote>We use the term “in-context learning” to describe the inner loop of this process, which occurs within the forward-pass upon each sequence.</quote>
       </span>
-      <span xml:id="t15" type="concepts" ana="#concepts[2]" resp="#paper">
+      <span xml:id="t16" type="concepts" ana="#concepts[2]" resp="#paper">
         <label>few-shot learning</label>
         <term>few-shot learning</term>
         <quote>Few-Shot (FS) is the term we will use in this work to refer to the setting where the model is given a few demonstrations of the task at inference time as conditioning [RWC+19], but no weight updates are allowed.</quote>
       </span>
-      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t17" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>fine-tuning</label>
         <term>fine-tuning</term>
-        <quote>In this work we do not fine-tune GPT-3 because our focus is on task-agnostic performance, but GPT-3 can be fine-tuned in principle</quote>
+        <quote>In this work we do not fine-tune GPT-3 because our focus is on task-agnostic performance, but GPT-3 can be fine-tuned in principle and this is a promising direction for future work. • Few-Shot (FS) is the term we will use in this work to refer to the setting where the model is given a few demonstrations of the task at inference time as conditioning [RWC+19], but no weight updates are allowed.</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>few-shot - K demonstrations supplied at inference time as conditioning, with no weight updates; K typically 10 to 100</label>
         <quote>Few-Shot (FS) is the term we will use in this work to refer to the setting where the model is given a few demonstrations of the task at inference time as conditioning [RWC+19], but no weight updates are allowed.</quote>
       </span>
-      <span xml:id="t18" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>one-shot - exactly one demonstration, distinguished not on performance grounds but because it matches how tasks are communicated to people</label>
         <quote>One-Shot (1S) is the same as few-shot except that only one demonstration is allowed, in addition to a natural language description of the task, as shown in Figure 1. The reason to distinguish one-shot from few-shot and zero-shot (below) is that it most closely matches the way in which some tasks are communicated to humans.</quote>
       </span>
-      <span xml:id="t19" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>zero-shot - no demonstrations at all, only a natural language instruction; described as the most convenient and the most challenging setting</label>
         <quote>Zero-Shot (0S) is the same as one-shot except that no demonstrations are allowed, and the model is only given a natural language instruction describing the task. This method provides maximum convenience, potential for robustness, and avoidance of spurious correlations (unless they occur very broadly across the large corpus of pre-training data), but is also the most challenging setting.</quote>
       </span>
-      <span xml:id="t20" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>in-context learning - a term the authors introduce for the inner loop that occurs within a single forward pass, not for weight change</label>
         <quote>We use the term “in-context learning” to describe the inner loop of this process, which occurs within the forward-pass upon each sequence.</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>contradicts → the fine-tuning paradigm (task-specific fine-tuning)</label>
         <quote>GPT-3 is applied without any gradient updates or fine-tuning</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → GPT-2 [RWC+19] and the Sparse Transformer [CGRS19]</label>
         <quote>We use the same model and architecture as GPT-2 [RWC+19], including the modified initialization, pre-normalization, and reversible tokenization described therein, with the exception that we use alternating dense and locally banded sparse attention patterns in the layers of the transformer, similar to the Sparse Transformer [CGRS19].</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → the in-context learning of [RWC+19] (GPT-2)</label>
         <quote>Our use of in-context learning is also similar to [RWC+19], but in this work we systematically explore different settings for learning within the context.</quote>
       </span>
-      <span xml:id="t24" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>contradicts → [BHT+20]&#x27;s argument that continuing to expand hardware and data sizes is not the path forward</label>
         <quote>We find that path is still promising and in a zero-shot setting GPT-3 achieves 76% on LAMBADA, a gain of 8% over the previous state of the art.</quote>
       </span>
-      <span xml:id="t25" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>replicates → the power-law scaling of language-model loss reported by [KMH+20]</label>
         <quote>The power-law behavior observed in [KMH+20] continues for an additional two orders of magnitude with only small deviations from the predicted curve.</quote>
       </span>
-      <span xml:id="t26" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
         <label>extends → the closed-book QA result of [RRS20]</label>
         <quote>Their work suggests that even higher-capacity models could perform even better and we test this hypothesis with GPT-3.</quote>
       </span>
-      <span xml:id="t27" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>few-shot learning —distinct-from→ fine-tuning</label>
         <term>few-shot learning</term>
         <term>fine-tuning</term>
         <note>strength of the relation: 1</note>
         <quote>In this work we do not fine-tune GPT-3 because our focus is on task-agnostic performance, but GPT-3 can be fine-tuned in principle and this is a promising direction for future work. • Few-Shot (FS) is the term we will use in this work to refer to the setting where the model is given a few demonstrations of the task at inference time as conditioning [RWC+19], but no weight updates are allowed.</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>175 — size of the GPT-3 model</label>
         <quote>an autoregressive language model with 175 billion</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>300 — total training tokens for every model</label>
         <quote>All models were trained for a total of 300 billion tokens</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>2048 — context window shared by all models</label>
         <quote>context window of nctx = 2048 tokens</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>8 — models spanning three orders of magnitude</label>
         <quote>8 different sizes of model, ranging over three orders of magnitude from 125</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>570 — filtered Common Crawl text size (from 45TB raw)</label>
         <quote>45TB of compressed plaintext before filtering and 570GB after filtering</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
         <label>93 — share of training data that is English</label>
         <quote>primarily English (93% by word count), it also includes 7% of text in other languages</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>scaling language models greatly improves task-agnostic few-shot performance</label>
         <quote>scaling up language models greatly improves task-agnostic,</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>GPT-3 is evaluated with no gradient updates or fine-tuning</label>
         <quote>For all tasks, GPT-3 is applied without any gradient updates or fine-tuning</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>few-shot GPT-3 reaches closed-book state-of-the-art on TriviaQA</label>
         <quote>71.2% in the few-shot setting, the last of which is state-of-the-art</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>GPT-3 can produce news articles humans struggle to distinguish from real ones</label>
         <quote>generate samples of news articles which human evaluators have difficulty</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
         <label>measured data contamination has minimal effect on most benchmark results</label>
         <quote>we find that data contamination has a minimal effect on</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>model size</label>
         <term>model size</term>
         <quote>To study the dependence of ML performance on model size, we train 8 different sizes of model</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>K (number of demonstrations)</label>
         <term>K (number of demonstrations)</term>
         <quote>with the number of examples in the model’s context, K</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>cross-entropy validation loss</label>
         <term>cross-entropy validation loss</term>
         <quote>log loss, which correlates well with many downstream tasks, follows a</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>learning rate</label>
         <term>learning rate</term>
         <quote>larger models can typically use a larger batch size, but require a smaller learning</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>in-context learning</label>
         <term>in-context learning</term>
-        <quote>to describe the inner loop of this process</quote>
+        <quote>We use the term “in-context learning” to describe the inner loop of this process</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>few-shot</label>
         <term>few-shot</term>
         <quote>the model is given a few</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>zero-shot</label>
         <term>zero-shot</term>
-        <quote>no demonstrations are allowed, and the model is only given</quote>
+        <quote>• Zero-Shot (0S) is the same as one-shot except that no demonstrations are allowed, and the model is only given</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>meta-learning</label>
         <term>meta-learning</term>
-        <quote>the model develops a broad set of skills and pattern recognition abilities at training time</quote>
+        <quote>One potential route towards addressing these issues is meta-learning1 – which in the context of language models means the model develops a broad set of skills and pattern recognition abilities at training time</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
         <label>data contamination</label>
         <term>data contamination</term>
         <quote>having their test or development sets inadvertently seen during pre-training</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>effect-size</label>
         <term>effect-size</term>
         <quote>• German translation: We found 25% of the examples in the WMT16 German-English test set were marked as potentially contaminated, with an associated total effect size of 1-2 BLEU.</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>hypothesis-testing</label>
         <term>hypothesis-testing</term>
         <quote>In this paper, we test this hypothesis by training a 175 billion parameter autoregressive language model, which we call GPT-3, and measuring its in-context learning abilities.</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a unicode and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The 95% confidence intervals were estimated from the t-distribution of the sample mean.</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <quote>The classifier is trained using logistic regression classifier with features from Spark’s standard tokenizer and HashingTF 10.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
         <quote>Results are on the dev-set, which has only 1500 examples and therefore has high variance (we estimate a standard deviation of 1.2%).</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>t-test</label>
         <term>t-test</term>
         <quote>This table compares mean accuracy between five different models, and shows the results of a two-sample T-Test for the difference in mean accuracy between each model and the control model (an unconditional GPT-3 Small model</quote>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <quote>Results are on the dev-set, which has only 1500 examples and therefore has high variance (we estimate a standard deviation of 1.2%).</quote>

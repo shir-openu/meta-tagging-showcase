@@ -40,7 +40,7 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
+      <change when="2026-08-26"
               who="build_paper_edition.py">176 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
@@ -74,6 +74,7 @@
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
         <label>mechanisms</label>
         <term>Four converging circuit mechanisms recruit members of the same interneuron class: electrical coupling, absent or scarce within-population inhibition, disinhibition via inhibition of the reciprocally inhibitory class, and cholinergic self-excitation of VIPs.</term>
+        <note>duplicate of: mechanisms[4]</note>
         <quote>Our data suggest that VIPs and SOMs recruit their population members through four mechanisms: electrical coupling, complete lack (SOMs) or relative scarcity (VIPs) of within-population inhibition (see also ( Hu et al., 2011 , Ma et al., 2012 )), strong within-population disinhibition through inhibition of the reciprocally inhibitory population, and self-excitation of VIPs via ACh release.</quote>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">
@@ -128,12 +129,12 @@
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
         <label>the mechanisms are implied by correlation rather than shown directly, because the loss-of-function reagent that would be needed does not exist</label>
-        <note>what this limits: the same scope as item 0 - correlation, because the loss-of-function tool does not exist</note>
+        <note>duplicate of: limitations[0] · what this limits: the same scope as item 0 - correlation, because the loss-of-function tool does not exist</note>
         <quote>We note however that as suitable loss-of-function experiments to test the contribution of these mechanisms to IN population co-activity do not yet exist (synaptic blockers simultaneously specific to both pre- and postsynaptic populations would be necessary), our data mostly imply the involvement of these mechanisms by correlation rather than directly.</quote>
       </span>
       <span xml:id="t19" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>broad optogenetic activation also excites axon terminals, so those results may reflect complex network interactions</label>
-        <note>what this limits: the same scope as item 1 - axon terminals are excited too</note>
+        <note>duplicate of: limitations[1] · what this limits: the same scope as item 1 - axon terminals are excited too</note>
         <quote>This broad activation of the local microcircuit includes axon terminals expressing C1V1, therefore these results may be due to multiple complex network interactions among the excitatory and inhibitory cell types.</quote>
       </span>
       <span xml:id="t20" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
@@ -174,14 +175,17 @@
       </span>
       <span xml:id="t28" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
         <label>running the identical protocol on PV cells, where shared presynaptic partners ARE expected</label>
+        <note>eliminates: the protocol&#x27;s inability to detect shared presynaptic partners as the reason none were found between VIPs and SOMs - a positive control against a null result</note>
         <quote>Since these data suggest that VIPs and SOMs do not share presynaptic partners, as a positive control we ran the same protocol on PVs.</quote>
       </span>
       <span xml:id="t29" type="controls" ana="#controls[1]" resp="#tagger" cert="0.9">
         <label>comparing baseline firing rate between control and GABA receptor blockade - a manipulation check reported inside a parenthesis</label>
+        <note>eliminates: a shift in baseline firing rate as the explanation of the change in cooperativity: 1.9 +/- 0.2 Hz against 1.9 +/- 0.3 Hz, P = 0.68</note>
         <quote>In this dataset the firing rate of the recorded SOMs increased 58 ± 16 % when the other 3 SOMs were induced to fire in control conditions (while baseline firing rates were similar in control, 1.9 ± 0.2 Hz and during GABA receptor blockade, 1.9 ± 0.3 Hz, P = 0.68).</quote>
       </span>
       <span xml:id="t30" type="controls" ana="#controls[2]" resp="#tagger" cert="0.75">
         <label>inspecting active and passive electrophysiological properties of VIPs grouped by cooperativity and by their response to GABA blockade - the sentence states the check and not its result, so no outcome is recorded</label>
+        <note>eliminates: that the spread in VIP cooperativity is one population varying, when it may be two subclasses - the check groups cells by cooperativity and by their response to GABA blockade and asks whether the electrophysiology follows · would have ruled out, had it been run: distinct VIP subclasses as the explanation of the variation in cooperativity</note>
         <quote>As this variation could be characteristic of putative subclasses of VIP cells ( Rudy et al., 2011 ), we inspected the active and passive electrophysiological properties of VIPs categorized by their cooperativity in control conditions or their change in cooperativity in response to GABA receptor blockers ( Figure S5 ).</quote>
       </span>
       <span xml:id="t31" type="concepts" ana="#concepts[15]" resp="#paper">
@@ -372,7 +376,7 @@
         <label>intersomatic —causes→ correlation</label>
         <term>intersomatic</term>
         <term>correlation</term>
-        <note>strength of the relation: 1 — A THRESHOLD SET FROM THE DATA RATHER THAN CHOSEN: correlations approach zero beyond 150 micrometres, which is read as the range of shared input and then used as the cutoff</note>
+        <note>status: HEDGED AND INFERRED: `SUGGESTING that the correlation REFLECTS shared synaptic inputs from nearby cells`. `Suggesting` and `reflects` - the causal reading is the authors&#x27; interpretation of a distance-dependent correlation, offered as such. · strength of the relation: 1 — A THRESHOLD SET FROM THE DATA RATHER THAN CHOSEN: correlations approach zero beyond 150 micrometres, which is read as the range of shared input and then used as the cutoff</note>
         <quote>All zero-offset correlation coefficients approached 0 at intersomatic distances above 150 mm ( Fig 3D ), suggesting that the correlation reflects shared synaptic inputs from nearby cells.</quote>
       </span>
       <span xml:id="t67" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="1.0">
@@ -782,10 +786,10 @@
         <term>‘increased firing’ response category</term>
         <quote>Recorded cells were categorized as ‘increased firing’ if there were more APs during the train compared to the three seconds both before and after the train</quote>
       </span>
-      <span xml:id="t150" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t150" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.85">
         <label>L-EPSC</label>
         <term>L-EPSC</term>
-        <quote>To account for the baseline rate of spontaneous EPSCs, we also counted ‘shared’ and ‘not shared’ EPSCs during the 130 ms before each stimulus. For each neuron pair, total ‘not shared’ EPSC frequency increased from 18.7 ± 7.9 Hz before stimulus to 19.6 ± 7.9 Hz following stimulus (n = 6 cell pairs, paired T-test P = 0.008) indicating that the stimulation reliably recruited presynaptic excitatory neurons. However there was no significant change in shared EPSCs from before (0.34 ± 0.15 Hz) to after stimulation (0.35 ± 0.16 Hz, paired T-test P = 0.74). Within the categories ‘shared’ and ‘not shared’, we subtracted the spontaneous EPSC counts before stimuli from those following it to obtain a metric we call laser-EPSCs</quote>
+        <quote>To account for the baseline rate of spontaneous EPSCs, we also counted ‘shared’ and ‘not shared’ EPSCs during the 130 ms before each stimulus. For each neuron pair, total ‘not shared’ EPSC frequency increased from 18.7 ± 7.9 Hz before stimulus to 19.6 ± 7.9 Hz following stimulus (n = 6 cell pairs, paired T-test P = 0.008) indicating that the stimulation reliably recruited presynaptic excitatory neurons. However there was no significant change in shared EPSCs from before (0.34 ± 0.15 Hz) to after stimulation (0.35 ± 0.16 Hz, paired T-test P = 0.74). Within the categories ‘shared’ and ‘not shared’, we subtracted the spontaneous EPSC counts before stimuli from those following it to obtain a metric we call laser-EPSCs (L-EPSCs, Figure 3G ).</quote>
       </span>
       <span xml:id="t151" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.8">
         <label>co-activ</label>

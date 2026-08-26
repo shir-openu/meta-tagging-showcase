@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">33 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">35 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -101,101 +101,113 @@
         <note>what this limits: this accuracy as evidence that the vectors are useful: the authors state a belief that usefulness for certain applications should be positively correlated with the metric</note>
         <quote>However, we believe that usefulness of the word vectors for certain applications should be positively correlated with this accuracy metric</quote>
       </span>
-      <span xml:id="t12" type="concepts" ana="#concepts[2]" resp="#paper">
+      <span xml:id="t12" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>distributed vector representations of words, taken from neural language models into large-scale computational linguistics and simplified until they could be trained on billions of words</label>
+        <quote>Probably the most successful concept is to use distributed representations of words [10].</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the same data used to train a previously published recurrent neural network language model, kept as the comparison point</label>
+        <note>eliminates: a speed or quality gain that comes from a different or larger corpus rather than from the model - the RNNLM baseline saw the same data</note>
+        <quote>We used these data to provide a comparison to a previously trained recurrent neural network language model that took about 8 weeks to train on a single CPU.</quote>
+      </span>
+      <span xml:id="t14" type="concepts" ana="#concepts[2]" resp="#paper">
         <label>skip-gram</label>
         <term>skip-gram</term>
         <quote>The CBOW architecture predicts the current word based on the context, and the Skip-gram predicts surrounding words given the current word</quote>
       </span>
-      <span xml:id="t13" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>word vectors</label>
         <term>word vectors</term>
         <quote>The main goal of this paper is to introduce techniques that can be used for learning high-quality word vectors from huge data sets with billions of words</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>cosine distance</label>
         <term>cosine distance</term>
         <quote>Then, we search in the vector space for the word closest to X measured by cosine distance</quote>
       </span>
-      <span xml:id="t15" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>CBOW</label>
         <term>CBOW</term>
         <quote>We denote this model further as CBOW, as unlike standard bag-of-words model, it uses continuous distributed representation of the context</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>semantic - AS FIVE HAND-CHOSEN RELATION TYPES: the semantic half of the test set is five relations (common capital city, all capital cities, currency, city-in-state, Man-Woman), so &#x27;captures semantics&#x27; means &#x27;answers analogies of those five kinds&#x27;</label>
         <quote>To measure quality of the word vectors, we define a comprehensive test set that contains five types of semantic questions, and nine types of syntactic questions. Two examples from each category are shown in Table 1. Overall, there are 8869 semantic and 10675 syntactic questions</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>similarity - AS COSINE DISTANCE AFTER A VECTOR OFFSET, with the three input words removed from the search, so the answer is the nearest remaining word rather than the nearest word</label>
         <quote>Then, we search in the vector space for the word closest to X measured by cosine distance, and use it as the answer to the question (we discard the input question words during this search</quote>
       </span>
-      <span xml:id="t18" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the analogy relation - AS ARITHMETIC ON VECTORS: a relation between two words is the difference of their vectors, and it is applied to a third word by addition</label>
         <quote>we can simply compute vector X = vector(”biggest”) − vector(”big”) + vector(”small”). Then, we search in the vector space for the word closest to X measured by cosine distance, and use it as the answer to the question</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → neural-network language models</label>
         <quote>techniques based on different types of neural networks</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → the two-step NNLM architecture of [13, 14]</label>
         <quote>In this work, we directly extend this architecture, and focus just on the first step where the word vectors are learned using a simple model.</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the authors&#x27; earlier two-step word-vector training work [13, 14]</label>
         <quote>The new architectures directly follow those proposed in our earlier work [13, 14], where it was found that neural network language model can be successfully trained in two steps: first, continuous word vectors are learned using simple model, and then the N-gram NNLM is trained on top of these distributed representations of words.</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → the model-complexity comparison framework of [18]</label>
         <quote>Similar to [18], to compare different model architectures we define first the computational complexity of a model as the number of parameters that need to be accessed to fully train the model.</quote>
       </span>
-      <span xml:id="t23" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t25" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>CBOW —contrasted-with→ Skip-gram</label>
         <term>CBOW</term>
         <term>Skip-gram</term>
         <note>strength of the relation: 1</note>
         <quote>The CBOW architecture predicts the current word based on the context, and the Skip-gram predicts surrounding words given the current word</quote>
       </span>
-      <span xml:id="t24" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t26" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>word vectors —operationalised-as→ cosine distance</label>
         <term>word vectors</term>
         <term>cosine distance</term>
         <note>strength of the relation: 1</note>
         <quote>Then, we search in the vector space for the word closest to X measured by cosine distance, and use it as the answer to the question (we discard the input question words during this search</quote>
       </span>
-      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t27" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>1.6 billion — training corpus size; high-quality vectors learned in under a day</label>
         <quote>it takes less than a day to learn high quality word vectors from a 1.6 billion words data set</quote>
       </span>
-      <span xml:id="t26" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t28" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>&lt; 1 day — training time for high-quality word vectors</label>
-        <quote>it takes less than a day to learn high quality word vectors</quote>
+        <quote>it takes less than a day to learn high quality word vectors from a 1.6 billion words data set</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>The learned vectors capture linear regularities: vector(King) - vector(Man) + vector(Woman) is closest to vector(Queen).</label>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>vector(”King”) - vector(”Man”) + vector(”Woman”) results in a vector that is closest to the vector representation of the word Queen</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>model architecture (CBOW vs Skip-gram) and corpus size</label>
         <term>model architecture (CBOW vs Skip-gram) and corpus size</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>We propose two novel model architectures for computing continuous vector representations of words from very large data sets</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>word-similarity accuracy (syntactic &amp; semantic)</label>
         <term>word-similarity accuracy (syntactic &amp; semantic)</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>these vectors provide state-of-the-art performance on our test set for measuring syntactic and semantic word similarities</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>Continuous Bag-of-Words (CBOW)</label>
         <term>Continuous Bag-of-Words (CBOW)</term>
         <quote>We denote this model further as CBOW, as unlike standard bag-of-words model, it uses continuous distributed representation of the context</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>Continuous Skip-gram Model</label>
         <term>Continuous Skip-gram Model</term>
         <quote>3.2 Continuous Skip-gram Model The second architecture is similar to CBOW, but instead of predicting the current word based on the context</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>correlation</label>
         <term>correlation</term>
         <quote>The publicly available RNN vectors were used together with other techniques to achieve over 50% increase in Spearman’s rank correlation over the previous best result [31].</quote>

@@ -34,8 +34,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">37 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">40 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -56,6 +56,7 @@
       <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>THE DIFFICULTY IS ATTRIBUTED TO THE STRUCTURE OF THE OBJECT, NOT TO THE METHOD: analysing figurative RATHER THAN LITERAL language POSES CERTAIN DIFFICULTIES DUE TO THE VERY STRUCTURE OF FIGURATIVE EXPRESSIONS - so the obstacle is located in what is being measured before any tool is named</term>
+        <note>about this quote: The span contains the author&#x27;s typo &quot;in this articles&quot; for &quot;in this article&quot;. Not extraction damage - it is in the published DHQ text - and quoted verbatim.</note>
         <quote>The analysis of figurative language, rather than literal language, poses certain difficulties due to the very structure of figurative expressions. The suggested method in this articles offers a way to overcome these difficulties.</quote>
       </span>
       <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
@@ -96,6 +97,7 @@
       <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>THE RIGHT RELIABILITY MEASURE IS NAMED, ITS PURPOSE STATED, AND IT IS EXPLICITLY NOT DONE, WITH THE REASON: given the SAME set of topics and instances, TWO INTERPRETERS MIGHT STILL CHOOSE DIFFERENT TOPICS for a word - INTER-ANNOTATORS AGREEMENT is the method by which that agreement can be measured, PROVIDING A STATUS OF CONSENSUS, and the procedure REQUIRES CERTAIN RESOURCES AND HENCE WILL BE IMPLEMENTED later. **The measure that would qualify the result is named and deferred in the same breath**</term>
+        <note>about this quote: EXTENDED to the full stop, and the span contains the author&#x27;s typo &quot;Tthis procedure&quot; with a doubled T. Not extraction damage; it is in the published text. The extension matters because &quot;will be implemented in a future study&quot; is what dates the deferral - the reliability measure is named, its purpose stated, and its absence scheduled, all in one passage.</note>
         <quote>Another subjective aspect pertains to the classifying process itself. Given the same set of topics and figurative instances, two interpreters might still choose different topics for a word in certain cases. The inter-annotators agreement (IAA) is a method by which the agreement between interpreters can be measured, providing a status of consensus, in varying degrees, to the classifications. Tthis procedure requires certain resources and hence will be implemented in a future study.</quote>
       </span>
       <span xml:id="t12" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.95">
@@ -136,76 +138,94 @@
         <note>what this limits: any topic produced by the modelling step here: the authors note that discerning the titles is a manual task requiring subjective interpretation, and that a topic&#x27;s word list may include words human interpreters recognise as belonging to distinct topics, a problem named word intrusion</note>
         <quote>In topic modeling, however, discerning the titles of the groups of words remains a manual task that requires active and often subjective interpretation. A list of words considered as a topic by a topic modeling may include words that human interpreters recognize as belonging to distinct topics, a problem described by Chang et al. as “word intrusion</quote>
       </span>
-      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t21" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>the computational apparatus of natural language processing - tokenisation, distributional similarity, network construction - applied to figurative language in a corpus of liturgical poetry</label>
+        <quote>This article suggests a computational method for the analysis of figurative language as a network, using methods from natural language processing (NLP), particularly topic classification and network analysis.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>randomly splitting the dataset into a 66% training set and a 33% test set</label>
+        <note>eliminates: that the classifier&#x27;s apparent accuracy comes from memorising the data it was trained on · outcome: held</note>
+        <quote>In the process of training the algorithm, the dataset is randomly split into two sets, a training dataset (66%) and a test dataset (33%), so that the algorithm can compare between its own predictions and the original ones made by the creator of the dataset, and accordingly the accuracy is calculated.</quote>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[1]" resp="#tagger" cert="0.8">
+        <label>inter-annotator agreement (IAA) measured between interpreters on the same set of topics and figurative instances</label>
+        <note>eliminates: that the topic assignments reflect one interpreter&#x27;s reading rather than a reproducible judgement · outcome: held</note>
+        <quote>The inter-annotators agreement (IAA) is a method by which the agreement between interpreters can be measured, providing a status of consensus, in varying degrees, to the classifications.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>tenor</label>
         <term>tenor</term>
         <quote>The connection between the tenor and the vehicle of a metaphor (i.e., the underlying subject and the transported meaning</quote>
       </span>
-      <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t25" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>vehicle</label>
         <term>vehicle</term>
         <quote>The connection between the tenor and the vehicle of a metaphor (i.e., the underlying subject and the transported meaning</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t26" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>word intrusion</label>
         <term>word intrusion</term>
         <quote>a problem described by Chang et al. as “word intrusion</quote>
       </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t27" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>topic modeling</label>
         <term>topic modeling</term>
         <quote>In topic modeling, however, discerning the titles of the groups of words remains a manual task that requires active and often subjective interpretation. A list of words considered as a topic by a topic modeling may include words that human interpreters recognize as belonging to distinct topics, a problem described by Chang et al. as “word intrusion</quote>
       </span>
-      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>a topic title - SUPPLIED BY A READER, AND DEFENDED AS SUCH: the paper states that titling the groups of words is a manual task requiring active and often subjective interpretation, and then argues that this subjectivity does not undermine the method but shows that various classifications are possible depending on the researcher&#x27;s orientation - a position, not an oversight</label>
         <quote>Although determining the number of topics and their titles is partly subjective, the subjectivity of this process does not necessarily undermine the viability of topic classification. Rather, it shows that various classifications are possible depending on the researcher&#x27;s orientation</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>tenor and vehicle - GLOSSED IN ONE PARENTHESIS: the underlying subject and the transported meaning, taken from I. A. Richards; the paper states the connection between them is not a necessary one but rests on substitution, which is why the network it builds is undirected</label>
         <quote>The connection between the tenor and the vehicle of a metaphor (i.e., the underlying subject and the transported meaning</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>word intrusion - THE NAMED FAILURE MODE, ATTRIBUTED: a list of words the model calls one topic may contain words that human interpreters place in distinct topics, which the paper attributes to Chang et al. rather than presenting as its own discovery</label>
         <quote>In topic modeling, however, discerning the titles of the groups of words remains a manual task that requires active and often subjective interpretation. A list of words considered as a topic by a topic modeling may include words that human interpreters recognize as belonging to distinct topics, a problem described by Chang et al. as “word intrusion</quote>
       </span>
-      <span xml:id="t28" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → Moretti&#x27;s notion of &quot;operationalization&quot; (Moretti 2013), after Bridgman&#x27;s The Logic of Modern Physics</label>
         <quote>This process is described by Moretti as “operationalization”, applying to digital humanities the work of Bridgman in the philosophy of science, The Logic of Modern Physics.</quote>
       </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Lakoff and Johnson (2003), Metaphors We Live By — metaphorical entailment</label>
         <quote>That metaphors have the structure of a network is arguably most evident in Lakoff and Johnson&#x27;s notion of metaphorical entailment, according to which instances of a structural metaphor such as “time is money” (e.g. “time is a resource”, “time is a valuable commodity”), link between “all the instances of a single metaphorical structuring of a concept” [Lakoff and Johnson 2003, 96].</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>contradicts → Rhody (2012), topic modeling of figurative language</label>
         <note>differs in: BYPASSING AGAINST SOLVING. &#x27;Although Rhody SUGGESTS A WAY TO BENEFIT from topic modeling in the analysis of figurative texts, THIS MERELY BYPASSES THE DIFFICULTIES RATHER THAN SOLVING THEM.&#x27; The method is granted as usable; what is contested is whether it addresses the problem. Q-441.</note>
         <quote>Although Rhody suggests a way to benefit from topic modeling in the analysis of figurative texts, this merely bypasses the difficulties rather than solving them.</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>contradicts → Finkelstein (2020), &quot;Amicitia and beneficia in Timon of Athens&quot;</label>
         <quote>In the network of Timon of Athens, the topic of “politics” is relatively a minor one, ranking between #18-20 among the various centralities (see Table 2); hence, we may question the stress that Finklestein puts on the political aspects of the play.</quote>
       </span>
-      <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>tenor —distinct-from→ vehicle</label>
         <term>tenor</term>
         <term>vehicle</term>
         <note>differs in: which side of the metaphor each names: the underlying subject, or the transported meaning · strength of the relation: 1</note>
         <quote>The connection between the tenor and the vehicle of a metaphor (i.e., the underlying subject and the transported meaning</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Figurative language resists computational analysis because of how figurative expressions are structured, not because of the size of the text.</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The analysis of figurative language, rather than literal language, poses certain difficulties due to the very structure of figurative expressions</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>The method combines two techniques rather than one: topic classification to label the figures, network analysis to relate them.</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>In this article I suggest a computational approach for the analysis of figurative language, which employs two main methods: topic classification and network analysis</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>Figurative analysis is not confined to literary criticism; it matters wherever the object of study is text.</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The analysis of figurative language plays a major role in literary criticism and, to varying degrees, in other fields of the humanities and social sciences whose orientation is textual</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>The method is judged by whether it can support a close reading, not only by whether it runs.</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>the article examines the method&#x27;s ability to provide insights into the thematic concerns of a text, assess existing interpretations, and develop a close reading</quote>
       </span>
     </spanGrp>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Deep Neural Networks Based Recognition of Plant Diseases by Leaf Image Classification</title>
+        <author>Srdjan Sladojević</author>
+        <author>Marko Arsenović</author>
+        <author>Andraš Anderla</author>
+        <author>Dubravko Ćulibrk</author>
+        <author>Darko Stefanović</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Deep Neural Networks Based Recognition of Plant Diseases by Leaf Image Classification</title>
+          <date>2016</date>
+          <publisher>Computational Intelligence and Neuroscience</publisher>
+          <idno type="DOI">10.1155/2016/3289801</idno>
+          
+          <idno type="record">sladojevic2016-deep-neural-networks-based-recogni</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\sladojevic2016-deep-neural-networks-based-recogni.txt</note>
+          <note type="text-sha1">0074e9369e4586f1981477ad7dbfec23be082534</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>machine-learning</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">55 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>leaf images of 13 visually diagnosable plant diseases, plus healthy leaves and backgrounds, classified by a deep convolutional network</label>
+        <quote>The developed model is able to recognize 13 different types of plant diseases out of healthy leaves, with the ability to distinguish plant leaves from their surroundings.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether a deep convolutional network trained on internet-sourced leaf images can recognise plant diseases and separate leaves from their surroundings</label>
+        <quote>This paper is concerned with a new approach to the development of plant disease recognition model, based on leaf image classification, by the use of deep convolutional networks.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a CNN plant-disease classifier over a purpose-built 30,880-image augmented database, reaching 96.3% overall, with the whole pipeline described from image collection to fine-tuning</label>
+        <quote>New plant disease image database was created, containing more than 3,000 original images taken from the available Internet sources and extended to more than 30,000 using appropriate transformations.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>This paper is concerned with a new approach to the development of plant disease recognition model, based on leaf image classification, by the use of deep convolutional networks.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>plant disease spreading into regions with no local diagnostic expertise, while misapplied pesticide breeds resistance</label>
+        <quote>New diseases can occur in places where they were previously unidentified and, inherently, where there is no local expertise to combat them</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>images downloaded from the internet in five languages, deduplicated by metadata and expert-assessed, augmented by affine, perspective and rotation transforms, trained in Caffe, evaluated by 10-fold cross validation</label>
+        <term>images downloaded from the internet in five languages, deduplicated by metadata and expert-assessed, augmented by affine, perspective and rotation transforms, trained in Caffe, evaluated by 10-fold cross validation</term>
+        <quote>All the images collected for the dataset were downloaded from the Internet, searched by disease and plant name on various sources in different languages, such as Latin, English, German, Serbian, and Hungarian.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>AUGMENTATION SUBSTITUTES FOR DATA: more transformed copies increase the chance the network learns the distinguishing features, and the distortion itself is what reduces overfitting - so the transforms are doing two jobs, enlarging the set and regularising it</term>
+        <quote>The main purpose of applying augmentation is to increase the dataset and introduce slight distortion to the images which helps in reducing overfitting during the training stage.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE TRANSFORMS WERE CHOSEN TO MATCH THE DEPLOYMENT: affine, perspective and rotation, because a leaf photographed in a natural environment varies in visual perspective. The augmentation encodes an assumption about how the model will be used, not a generic regulariser</term>
+        <quote>The process of augmentation was chosen to fit the needs; the leaves in a natural environment could vary in visual perspective.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>A BACKGROUND CLASS TEACHES THE NETWORK WHAT IS NOT A LEAF, taken from the Stanford background dataset - which is why the model can separate leaves from their surroundings at all, and why its best class score (98.21%) is background</term>
+        <quote>An extra class in the dataset with background images was beneficial to get more accurate classification. Thus, deep neural network could be trained to differentiate the leaves from the surrounding.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>AUGMENTATION MATTERED MORE THAN FINE-TUNING: fine-tuning moved overall accuracy from 95.8% to 96.3% and is called insignificant by the authors, while augmentation is credited with the result</term>
+        <quote>Fine-tuning has not shown significant changes in the overall accuracy, but augmentation process had greater influence to achieve respectable results.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the no-augmentation baseline was deliberately not explored, so the effect the authors attribute to augmentation is asserted rather than measured</label>
+        <quote>As it is known that convolutional networks are able to learn features when trained on larger datasets, results achieved when trained with only original images will not be explored.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>no comparison with other work was possible: the image database was built for this study and the authors say no prior deep-learning work existed in the field</label>
+        <quote>Taking into account the fact that during this research our own image database was developed, no one has used it up to now. In addition, since no one has used deep learning to identify plant diseases in scientific literature, it is impossible to compare it with other examples.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the same point restated in the conclusions - there was no comparison with related results using the exact technique</label>
+        <quote>As the presented method has not been exploited, as far as we know, in the field of plant disease recognition, there was no comparison with related results, using the exact technique.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>accuracy was lower for the classes with fewest training images, which the authors name individually</label>
+        <quote>From the results displayed in Figure 8, it is notable that the trained model’s accuracy was slightly less for classes with lower number of images in the training dataset, more specifically classes peach, powdery mildew, apple, powdery mildew, and grapevine, wilt.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>the scope is bounded to diseases that can be visually diagnosed from a leaf, which is a property of the photograph rather than of the disease</label>
+        <quote>The developed model was able to detect leaf presence and distinguish between healthy leaves and 13 different diseases, which can be visually diagnosed.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.9">
+        <label>images were downloaded from unspecified internet sources in five languages, so provenance and imaging conditions are uncontrolled</label>
+        <quote>All the images collected for the dataset were downloaded from the Internet, searched by disease and plant name on various sources in different languages, such as Latin, English, German, Serbian, and Hungarian.</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.9">
+        <label>duplicate removal compared only file metadata - name, size and date - so two copies of one photograph stored differently would survive the automated pass</label>
+        <quote>In this stage, all duplicated images taken from different sources were removed by developed python script applying the comparing procedure. The script removed the duplicates by comparing the images’ metadata: name, size, and the date.</quote>
+      </span>
+      <span xml:id="t17" type="limitations" ana="#limitations[7]" resp="#tagger" cert="0.95">
+        <label>the authors describe the field itself as lacking, with no commercial solutions beyond species recognition</label>
+        <quote>There are many methods in automated or computer vision plant disease detection and classification process, but still, this research field is lacking.</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>duplicates were removed by script on image metadata (name, size, date) and the remaining images were then assessed by human experts over several iterations</label>
+        <note>eliminates: the same photograph appearing in both training and validation under different filenames - though only partly, since the automated pass compares file metadata rather than image content and the real guard is the expert review · outcome: partial</note>
+        <quote>In this stage, all duplicated images taken from different sources were removed by developed python script applying the comparing procedure. The script removed the duplicates by comparing the images’ metadata: name, size, and the date.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>10-fold cross validation, repeated after every thousand training iterations rather than once at the end</label>
+        <note>eliminates: a single fortunate train/test split as the explanation of the accuracy - 10-fold cross validation, repeated every thousand iterations rather than once at the end · outcome: held</note>
+        <quote>For the accuracy test, 10-fold cross validation technique was used to evaluate a predictive model. The cross validation procedure was repeated after every thousand training iteration.</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>a background class from the Stanford background dataset was added so the network must learn what is not a leaf</label>
+        <note>eliminates: the network scoring well by keying on background rather than on the leaf - a background class forces it to learn what is not a leaf, and the 98.21% on that class is what makes the leaf/surroundings separation checkable · outcome: held</note>
+        <quote>An extra class in the dataset with background images was beneficial to get more accurate classification. Thus, deep neural network could be trained to differentiate the leaves from the surrounding.</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>THE NO-AUGMENTATION BASELINE WAS NOT RUN. The authors state that results from training on original images only `will not be explored`, so the contribution they attribute to augmentation has no control condition</label>
+        <note>eliminates: the augmentation itself - training on the original images alone is the comparison that would say how much the augmentation contributed, and the paper states it `will not be explored` · outcome: absent-declared-unreported · would have ruled out, had it been run: nothing - THE CONTROL WAS NOT RUN. The authors state the original-images-only condition `will not be explored`, so the effect attributed to augmentation has no baseline to be measured against</note>
+        <quote>As it is known that convolutional networks are able to learn features when trained on larger datasets, results achieved when trained with only original images will not be explored.</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>convolutional networks</label>
+        <term>convolutional networks</term>
+        <quote>This paper is concerned with a new approach to the development of plant disease recognition model, based on leaf image classification, by the use of deep convolutional networks.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>augmentation</label>
+        <term>augmentation</term>
+        <quote>The main purpose of applying augmentation is to increase the dataset and introduce slight distortion to the images which helps in reducing overfitting during the training stage.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>overfitting</label>
+        <term>overfitting</term>
+        <quote>In machine learning, as well as in statistics, overfitting appears when a statistical model describes random noise or error rather than underlying relationship</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>affine transformation</label>
+        <term>affine transformation</term>
+        <quote>The image augmentation contained one of several transformation techniques including affine transformation, perspective transformation, and simple image rotations.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>perspective transformation</label>
+        <term>perspective transformation</term>
+        <quote>The image augmentation contained one of several transformation techniques including affine transformation, perspective transformation, and simple image rotations.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>cross validation</label>
+        <term>cross validation</term>
+        <quote>For the accuracy test, 10-fold cross validation technique was used to evaluate a predictive model. The cross validation procedure was repeated after every thousand training iteration.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>fine-tuning</label>
+        <term>fine-tuning</term>
+        <quote>After fine-tuning the parameters of the network, an overall accuracy of 96.3% was achieved, after the 100th training iteration (95.8% without fine-tuning).</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>precision agriculture</label>
+        <term>precision agriculture</term>
+        <quote>Timely and accurate diagnosis of plant diseases is one of the pillars of precision agriculture</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>Caffe</label>
+        <term>Caffe</term>
+        <quote>Caffe, a deep learning framework developed by Berkley Vision and Learning Centre, was used to perform the deep CNN training.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>background images</label>
+        <term>background images</term>
+        <quote>An extra class in the dataset with background images was beneficial to get more accurate classification. Thus, deep neural network could be trained to differentiate the leaves from the surrounding.</quote>
+      </span>
+      <span xml:id="t32" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
+        <label>the number of training images in a class → the model&#x27;s accuracy on that class</label>
+        <note>REPORTED AS AN OBSERVED PATTERN ACROSS CLASSES, not as a manipulated effect: accuracy `was slightly less for classes with lower number of images in the training dataset`. Nothing was varied deliberately, so `causes` would assert an experiment the paper did not run - see Q-879. It is also the most useful thing in the results for anyone reusing the model.</note>
+        <quote>From the results displayed in Figure 8, it is notable that the trained model’s accuracy was slightly less for classes with lower number of images in the training dataset, more specifically classes peach, powdery mildew, apple, powdery mildew, and grapevine, wilt.</quote>
+      </span>
+      <span xml:id="t33" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>the 30,880 images - NOT 30,880 PLANTS. Just over 3,000 ORIGINAL images were collected and extended to more than 30,000 by affine, perspective and rotation transforms. Every accuracy figure in the paper rests on a dataset that is roughly 90% transformed copies, and the paper says so plainly</label>
+        <quote>New plant disease image database was created, containing more than 3,000 original images taken from the available Internet sources and extended to more than 30,000 using appropriate transformations.</quote>
+      </span>
+      <span xml:id="t34" type="senses" ana="#senses[1]" resp="#tagger" cert="0.9">
+        <label>validation here is 2,589 ORIGINAL images against training on the full 30,880 - so the held-out set is untransformed while training is mostly augmented. THE PAPER DOES NOT STATE WHETHER AUGMENTED COPIES OF THE VALIDATION ORIGINALS WERE EXCLUDED FROM TRAINING, which is the question a reader of the 96.3% would want answered and it is an ABSENCE, not a stated flaw</label>
+        <quote>Different tests were performed with 2589 original images, when trained with 30880 images from database.</quote>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>`13 different types of plant diseases` - BOUNDED TO WHAT IS VISUALLY DIAGNOSABLE FROM A LEAF. The scope is set by what a photograph of a leaf can show, not by what matters agronomically, and the authors state that bound</label>
+        <quote>The developed model was able to detect leaf presence and distinguish between healthy leaves and 13 different diseases, which can be visually diagnosed.</quote>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[3]" resp="#tagger" cert="0.9">
+        <label>duplicate removal - BY METADATA ONLY: name, size and date, by script, then human assessment. Two copies of one photograph saved under different names and sizes would survive the automated pass, and the paper&#x27;s guard against that is the expert review rather than image comparison</label>
+        <quote>In this stage, all duplicated images taken from different sources were removed by developed python script applying the comparing procedure. The script removed the duplicates by comparing the images’ metadata: name, size, and the date.</quote>
+      </span>
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>distinguishes-from → Leafsnap, the existing commercial leaf-image system, which identifies tree SPECIES rather than diseases and was therefore not used as a comparison</label>
+        <quote>Presently, there is a commercial solution, Leafsnap \[57\], which uses visual recognition in order to identify tree species from their leaves’ images but as the network presented in this paper is classifying the plant diseases instead of types of plant, Leafsnap was not used for comparison of the achieved results.</quote>
+      </span>
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.9">
+        <label>extends → earlier non-deep-learning methods of detecting disease from leaf images, against which the authors say their results are better</label>
+        <quote>As the presented method has not been exploited, as far as we know, in the field of plant disease recognition, there was no comparison with related results, using the exact technique.</quote>
+      </span>
+      <span xml:id="t39" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>augmentation —causes→ overfitting</label>
+        <term>augmentation</term>
+        <term>overfitting</term>
+        <note>direction on the measure: reduces · strength of the relation: 0.9</note>
+        <quote>The main purpose of applying augmentation is to increase the dataset and introduce slight distortion to the images which helps in reducing overfitting during the training stage.</quote>
+      </span>
+      <span xml:id="t40" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>affine transformation —operationalised-as→ augmentation</label>
+        <term>affine transformation</term>
+        <term>augmentation</term>
+        <note>strength of the relation: 0.9</note>
+        <quote>The image augmentation contained one of several transformation techniques including affine transformation, perspective transformation, and simple image rotations.</quote>
+      </span>
+      <span xml:id="t41" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>background images —operationalised-as→ convolutional networks</label>
+        <term>background images</term>
+        <term>convolutional networks</term>
+        <note>strength of the relation: 0.8</note>
+        <quote>An extra class in the dataset with background images was beneficial to get more accurate classification. Thus, deep neural network could be trained to differentiate the leaves from the surrounding.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>overall accuracy 96.3% after fine-tuning, 95.8% without; top-5 success 99.99%</label>
+        <quote>After fine-tuning the parameters of the network, an overall accuracy of 96.3% was achieved, after the 100th training iteration (95.8% without fine-tuning).</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>per-class accuracy ranged from 91.11% (peach powdery mildew) to 98.21% (background images)</label>
+        <quote>Achieved accuracy was in range from 91.11% for peach, powdery mildew, up to 98.21% for background images.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>augmentation had a greater influence on the result than fine-tuning, which the authors call insignificant for overall accuracy</label>
+        <quote>Fine-tuning has not shown significant changes in the overall accuracy, but augmentation process had greater influence to achieve respectable results.</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>high accuracy on background images is what lets the model separate leaves from their surroundings</label>
+        <quote>High accuracy of model’s prediction of background images allows good separation of plants leaves and the surroundings.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>overfitting</label>
+        <term>overfitting</term>
+        <quote>In machine learning, as well as in statistics, overfitting appears when a statistical model describes random noise or error rather than underlying relationship</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>augmentation</label>
+        <term>augmentation</term>
+        <quote>The main purpose of applying augmentation is to increase the dataset and introduce slight distortion to the images which helps in reducing overfitting during the training stage.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>30,880 training images and 2,589 validation images — None</label>
+        <quote>Finally, a database containing 30880 images for training and 2589 images for validation has been created.</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>more than 3,000 original images extended to more than 30,000 by transformation — None</label>
+        <quote>New plant disease image database was created, containing more than 3,000 original images taken from the available Internet sources and extended to more than 30,000 using appropriate transformations.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>15 classes - 13 diseases, healthy leaves, and background — None</label>
+        <quote>Images in the dataset were grouped into fifteen different classes. Thirteen classes represented plant diseases which could be visually determined from leaves.</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
+        <label>top-1 96.3% and top-5 99.99% after 100,000 iterations — None</label>
+        <quote>Top-1 success was 96.3% and top-5 success was 99.99% after 100,000 iterations</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>10-fold cross validation repeated after every thousand training iterations</label>
+        <quote>For the accuracy test, 10-fold cross validation technique was used to evaluate a predictive model. The cross validation procedure was repeated after every thousand training iteration.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>number of original training images per class</label>
+        <term>number of original training images per class</term>
+        <quote>From the results displayed in Figure 8, it is notable that the trained model’s accuracy was slightly less for classes with lower number of images in the training dataset, more specifically classes peach, powdery mildew, apple, powdery mildew, and grapevine, wilt.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>transformation family applied in augmentation - affine, perspective, rotation</label>
+        <term>transformation family applied in augmentation - affine, perspective, rotation</term>
+        <quote>The image augmentation contained one of several transformation techniques including affine transformation, perspective transformation, and simple image rotations.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1155/2016/3289801.</note></p>
+    </body>
+  </text>
+</TEI>

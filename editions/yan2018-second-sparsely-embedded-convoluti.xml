@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SECOND: Sparsely Embedded Convolutional Detection</title>
+        <author>Yan Yan</author>
+        <author>Yuxing Mao</author>
+        <author>Bo Li</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>SECOND: Sparsely Embedded Convolutional Detection</title>
+          <date>2018</date>
+          <publisher>Sensors</publisher>
+          <idno type="DOI">10.3390/s18103337</idno>
+          
+          <idno type="record">yan2018-second-sparsely-embedded-convoluti</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\yan2018-second-sparsely-embedded-convoluti.txt</note>
+          <note type="text-sha1">bc495a0da9775361b2a517c868886856670604ff</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>computer-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">51 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>3D object detection from LiDAR point clouds, and the speed and orientation-accuracy limits of voxel-based convolutional detectors</label>
+        <quote>Voxel-based 3D convolutional networks have been used for some time to enhance the retention of information when processing point cloud LiDAR data. However, problems remain, including a slow inference speed and low orientation estimation performance.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to keep the information a 3D voxel representation preserves while removing the inference cost and the orientation error that come with it</label>
+        <quote>Voxel-based 3D convolutional networks have been used for some time to enhance the retention of information when processing point cloud LiDAR data. However, problems remain, including a slow inference speed and low orientation estimation performance.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>sparse convolution with a GPU rule-generation algorithm, a sine-error angle loss with a separate direction classifier, and ground-truth sampling augmentation</label>
+        <quote>In this paper, we present a novel approach called SECOND (Sparsely Embedded CONvolutional Detection), which addresses these challenges in 3D convolution-based detection by maximizing the use of the rich 3D information present in point cloud data. This method incorporates several improvements to the existing convolutional network architecture. Spatially sparse convolutional networks are introduced for LiDAR-based detection and are used to extract information from the z-axis before the 3D data are downsampled to something akin to 2D image data.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>In this paper, we present a novel approach called SECOND (Sparsely Embedded CONvolutional Detection), which addresses these challenges in 3D convolution-based detection by maximizing the use of the rich 3D information present in point cloud data. This method incorporates several improvements to the existing convolutional network architecture. Spatially sparse convolutional networks are introduced for LiDAR-based detection and are used to extract information from the z-axis before the 3D data are downsampled to something akin to 2D image data.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>an ill-posed regression target: two orientation values that describe the same box but generate maximal loss against each other</label>
+        <quote>Previous methods of angle regression, including corner encoding, direct encoding and vector encoding, usually exhibit poor performance. The corner prediction approach cannot determine the direction of an object and cannot be used for pedestrian detection, for which the BEV boxes are nearly square. The vector encoding approach retains redundant information and leads to difficulty detecting far-away objects based on LiDAR.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>training and evaluation on the KITTI 3D detection benchmark, with ablations on sparse convolution, angle encoding and ground-truth sampling</label>
+        <term>training and evaluation on the KITTI 3D detection benchmark, with ablations on sparse convolution, angle encoding and ground-truth sampling</term>
+        <quote>Our network usually generates ∼70k anchors within a KITTI point cloud. Unfortunately, there are usually only a few ground truths, each of which generates only 4–6 positives. This leads to an extreme imbalance between the foreground and background classes.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>objects and their enclosed points are collected once into a database, then pasted into other point clouds during training, which multiplies the labelled objects per scene and simulates each object in new surroundings</label>
+        <term>sampling ground truths from a database</term>
+        <quote>The major problem we encountered during training was the existence of too few ground truths, which significantly limited the convergence speed and final performance of the network. To solve this problem, we introduced a data augmentation approach. First, we generated a database containing the labels of all ground truths and their associated point cloud data (points inside the 3D bounding boxes of the ground truths) from the training dataset. Then, during training, we randomly selected several ground truths from this database and introduced them into the current training point cloud via concatenation. Using this approach, we could greatly increase the number of ground truths per point cloud and simulate objects existing in different environments.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>pasted objects are removed when they intersect existing ones, so the augmentation cannot produce a scene that could not physically exist</label>
+        <term>collision rejection after sampling</term>
+        <quote>To avoid physically impossible outcomes, we performed a collision test after sampling the ground truths and removed any sampled objects that collided with other objects.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>each ground truth and its points are transformed independently instead of the whole cloud being transformed together, so the augmentation varies objects relative to their scene</label>
+        <term>per-object rather than per-scene noise</term>
+        <quote>To consider noise, we followed the same approach used in VoxelNet, in which each ground truth and its point cloud are independently and randomly transformed, instead of transforming all point clouds with the same parameters.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>performance is lower for pedestrians and cyclists and for bird&#x27;s-eye-view detection, which the paper states in its own conclusion</label>
+        <quote>In this paper, we have introduced a novel method of angle loss regression, have successfully applied sparse convolution in a LiDAR-based network and have proposed a novel approach to data augmentation that makes full use of the advantages of point clouds. Experiments on the KITTI dataset have shown that the proposed network outperforms other state-of-the-art approaches. Additionally, the proposed architecture has been shown to run in real time. However, our network shows lower performance for pedestrian and cyclist detection and for BEV detection.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>pedestrians and cyclists give fewer points per instance and higher instance density, so they are more easily confused with clutter</label>
+        <quote>Here, there are more false positives and false negatives than there were for cars. Some false positives present on unreasonable locations in the image. This difficulty can be attributed to the typically higher instance densities of pedestrians and cyclists compared with that of cars, with fewer points per instance, which cause pedestrians and cyclists to be more easily confused with other point clusters and noise.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>test-server access was limited, so the larger model was evaluated on the test set only and the validation assessment covers the smaller model alone</label>
+        <quote>Because of limited access to the test server, we evaluated our larger model using only the test set and thus can provide an assessment of performance on the validation set only for our smaller model.</quote>
+      </span>
+      <span xml:id="t12" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>the focal loss, carried from single-stage 2D image detection into 3D point-cloud detection to handle the same foreground-background imbalance</label>
+        <quote>Our network usually generates ∼70k anchors within a KITTI point cloud. Unfortunately, there are usually only a few ground truths, each of which generates only 4–6 positives. This leads to an extreme imbalance between the foreground and background classes.</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the same detector with dense convolution instead of sparse, to attribute the speed gain</label>
+        <note>eliminates: a speed gain produced by the rest of the detector rather than by sparse convolution · outcome: held</note>
+        <quote>In comparison to a dense convolution network, our sparse-convolution-based detector achieves a factor-of-4 speed enhancement during training on the KITTI dataset and a factor-of-3 improvement in the speed of inference. As a further test, we have designed a small model for real-time detection that has a run time of approximately 0.025 s on a GTX 1080 Ti GPU, with only a slight loss of performance.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>the angle encoding used by AVOD and ComplexYOLO, run as the comparison for the new angle loss</label>
+        <note>eliminates: a new angle loss credited with an improvement that the encoding used by the baselines would also have produced · outcome: held</note>
+        <quote>It can be seen that our method of handling angles performs better than the angle vector encoding used in AVOD and ComplexYOLO.</quote>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>a physical-plausibility check on the augmented scenes</label>
+        <note>eliminates: a detector trained on augmented scenes containing objects that could not physically coexist, which would teach it geometry no sensor will ever show it · outcome: held</note>
+        <quote>To avoid physically impossible outcomes, we performed a collision test after sampling the ground truths and removed any sampled objects that collided with other objects.</quote>
+      </span>
+      <span xml:id="t16" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>a validation-set assessment of the larger model</label>
+        <note>eliminates: over-fitting of the larger model to the test set - the validation-set assessment that would show it exists only for the smaller model, because access to the test server was limited · outcome: absent-declared-unreported</note>
+        <quote>Because of limited access to the test server, we evaluated our larger model using only the test set and thus can provide an assessment of performance on the validation set only for our smaller model.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>sparse convolution</label>
+        <term>sparse convolution</term>
+        <quote>In this paper, we present a novel approach called SECOND (Sparsely Embedded CONvolutional Detection), which addresses these challenges in 3D convolution-based detection by maximizing the use of the rich 3D information present in point cloud data. This method incorporates several improvements to the existing convolutional network architecture. Spatially sparse convolutional networks are introduced for LiDAR-based detection and are used to extract information from the z-axis before the 3D data are downsampled to something akin to 2D image data.</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>angle regression</label>
+        <term>angle regression</term>
+        <quote>Previous methods of angle regression, including corner encoding, direct encoding and vector encoding, usually exhibit poor performance. The corner prediction approach cannot determine the direction of an object and cannot be used for pedestrian detection, for which the BEV boxes are nearly square. The vector encoding approach retains redundant information and leads to difficulty detecting far-away objects based on LiDAR.</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>corner encoding</label>
+        <term>corner encoding</term>
+        <quote>Previous methods of angle regression, including corner encoding, direct encoding and vector encoding, usually exhibit poor performance. The corner prediction approach cannot determine the direction of an object and cannot be used for pedestrian detection, for which the BEV boxes are nearly square. The vector encoding approach retains redundant information and leads to difficulty detecting far-away objects based on LiDAR.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>direction classifier</label>
+        <term>direction classifier</term>
+        <quote>To address the issue that this loss treats boxes with opposite directions as being the same, we have added a simple direction classifier to the output of the RPN. This direction classifier uses a softmax loss function. We use the following approach to generate the direction classifier target: if the yaw rotation around the z-axis of the ground truth is higher than zero, the result is positive; otherwise, it is negative.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>ground truths</label>
+        <term>ground truths</term>
+        <quote>The major problem we encountered during training was the existence of too few ground truths, which significantly limited the convergence speed and final performance of the network. To solve this problem, we introduced a data augmentation approach. First, we generated a database containing the labels of all ground truths and their associated point cloud data (points inside the 3D bounding boxes of the ground truths) from the training dataset. Then, during training, we randomly selected several ground truths from this database and introduced them into the current training point cloud via concatenation. Using this approach, we could greatly increase the number of ground truths per point cloud and simulate objects existing in different environments.</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>anchors</label>
+        <term>anchors</term>
+        <quote>Our network usually generates ∼70k anchors within a KITTI point cloud. Unfortunately, there are usually only a few ground truths, each of which generates only 4–6 positives. This leads to an extreme imbalance between the foreground and background classes.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>VoxelNet</label>
+        <term>VoxelNet</term>
+        <quote>Recently, a new approach called VoxelNet has been developed. This approach combines raw point cloud feature extraction and voxel-based feature extraction in a single-stage end-to-end network. It first groups point cloud data into voxels and then applies linear networks voxel by voxel before converting the voxels into dense 3D tensors to be used in a region proposal network (RPN). At present, this is a state-of-the-art approach. However, its computational cost makes it difficult to use for real-time applications.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>KITTI</label>
+        <term>KITTI</term>
+        <quote>In comparison to a dense convolution network, our sparse-convolution-based detector achieves a factor-of-4 speed enhancement during training on the KITTI dataset and a factor-of-3 improvement in the speed of inference. As a further test, we have designed a small model for real-time detection that has a run time of approximately 0.025 s on a GTX 1080 Ti GPU, with only a slight loss of performance.</quote>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>&#x27;orientation error&#x27; was measuring the ANGLE and not the BOX - two angles describing one box produced maximal loss</label>
+        <quote>Previous methods of angle regression, including corner encoding, direct encoding and vector encoding, usually exhibit poor performance. The corner prediction approach cannot determine the direction of an object and cannot be used for pedestrian detection, for which the BEV boxes are nearly square. The vector encoding approach retains redundant information and leads to difficulty detecting far-away objects based on LiDAR.</quote>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>the new loss treats boxes with opposite directions as the SAME by design, and a separate classifier recovers the direction</label>
+        <quote>To address the issue that this loss treats boxes with opposite directions as being the same, we have added a simple direction classifier to the output of the RPN. This direction classifier uses a softmax loss function. We use the following approach to generate the direction classifier target: if the yaw rotation around the z-axis of the ground truth is higher than zero, the result is positive; otherwise, it is negative.</quote>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>the direction target is defined by a sign test on yaw: positive above zero, negative otherwise</label>
+        <quote>To address the issue that this loss treats boxes with opposite directions as being the same, we have added a simple direction classifier to the output of the RPN. This direction classifier uses a softmax loss function. We use the following approach to generate the direction classifier target: if the yaw rotation around the z-axis of the ground truth is higher than zero, the result is positive; otherwise, it is negative.</quote>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>&#x27;state of the art&#x27; here is dataset-relative: 90% AP for 2D car detection against 15% for 3D image-based</label>
+        <quote>State-of-the-art methods can achieve an average precision (AP) of 90% of 2D car detection but only an AP of 15% for 3D image-based car detection. To overcome the lack of spatial information provided by images alone, point cloud data have become increasingly important in 3D applications.</quote>
+      </span>
+      <span xml:id="t29" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>&#x27;real-time&#x27; is stated as a run time, not a claim - 20 fps for the large model and 40 for the small</label>
+        <quote>At the time of submission, our method produces state-of-the-art results across all classes for KITTI-based 3D detection, while running at 20 fps for the larger model and 40 fps for the smaller one.</quote>
+      </span>
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → VoxelNet, which combines raw-point and voxel feature extraction end to end</label>
+        <note>keeps the voxel approach and replaces the dense 3D convolution that made it too slow</note>
+        <quote>Recently, a new approach called VoxelNet has been developed. This approach combines raw point cloud feature extraction and voxel-based feature extraction in a single-stage end-to-end network. It first groups point cloud data into voxels and then applies linear networks voxel by voxel before converting the voxels into dense 3D tensors to be used in a region proposal network (RPN). At present, this is a state-of-the-art approach. However, its computational cost makes it difficult to use for real-time applications.</quote>
+      </span>
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>critiques → prior angle encodings - corner, direct and vector</label>
+        <note>each is rejected for a different failure, and the replacement is a loss that changes what is being measured rather than how well</note>
+        <quote>Previous methods of angle regression, including corner encoding, direct encoding and vector encoding, usually exhibit poor performance. The corner prediction approach cannot determine the direction of an object and cannot be used for pedestrian detection, for which the BEV boxes are nearly square. The vector encoding approach retains redundant information and leads to difficulty detecting far-away objects based on LiDAR.</quote>
+      </span>
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the focal loss introduced for single-stage detection</label>
+        <quote>Our network usually generates ∼70k anchors within a KITTI point cloud. Unfortunately, there are usually only a few ground truths, each of which generates only 4–6 positives. This leads to an extreme imbalance between the foreground and background classes.</quote>
+      </span>
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>direction classifier —part-of→ angle regression</label>
+        <term>direction classifier</term>
+        <term>angle regression</term>
+        <note>strength of the relation: 0.95 — the classifier exists only because the angle loss was made direction-blind on purpose; the pair replaces one quantity with two</note>
+        <quote>To address the issue that this loss treats boxes with opposite directions as being the same, we have added a simple direction classifier to the output of the RPN. This direction classifier uses a softmax loss function. We use the following approach to generate the direction classifier target: if the yaw rotation around the z-axis of the ground truth is higher than zero, the result is positive; otherwise, it is negative.</quote>
+      </span>
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>sparse convolution —contrasted-with→ VoxelNet</label>
+        <term>sparse convolution</term>
+        <term>VoxelNet</term>
+        <note>differs in: cost - the dense predecessor is accurate and too slow for real-time use · strength of the relation: 0.95</note>
+        <quote>Recently, a new approach called VoxelNet has been developed. This approach combines raw point cloud feature extraction and voxel-based feature extraction in a single-stage end-to-end network. It first groups point cloud data into voxels and then applies linear networks voxel by voxel before converting the voxels into dense 3D tensors to be used in a region proposal network (RPN). At present, this is a state-of-the-art approach. However, its computational cost makes it difficult to use for real-time applications.</quote>
+      </span>
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>anchors —contrasted-with→ ground truths</label>
+        <term>anchors</term>
+        <term>ground truths</term>
+        <note>differs in: count - about 70,000 anchors against a few ground truths each yielding 4 to 6 positives · strength of the relation: 0.95</note>
+        <quote>Our network usually generates ∼70k anchors within a KITTI point cloud. Unfortunately, there are usually only a few ground truths, each of which generates only 4–6 positives. This leads to an extreme imbalance between the foreground and background classes.</quote>
+      </span>
+      <span xml:id="t36" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+        <label>corner encoding —operationalised-as→ angle regression</label>
+        <term>corner encoding</term>
+        <term>angle regression</term>
+        <note>strength of the relation: 0.85 — one of three prior operationalisations the paper reviews and rejects</note>
+        <quote>Previous methods of angle regression, including corner encoding, direct encoding and vector encoding, usually exhibit poor performance. The corner prediction approach cannot determine the direction of an object and cannot be used for pedestrian detection, for which the BEV boxes are nearly square. The vector encoding approach retains redundant information and leads to difficulty detecting far-away objects based on LiDAR.</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>sparse convolution gives a large speed gain over dense convolution at slight cost in performance</label>
+        <quote>In comparison to a dense convolution network, our sparse-convolution-based detector achieves a factor-of-4 speed enhancement during training on the KITTI dataset and a factor-of-3 improvement in the speed of inference. As a further test, we have designed a small model for real-time detection that has a run time of approximately 0.025 s on a GTX 1080 Ti GPU, with only a slight loss of performance.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>the new angle loss outperforms the vector encoding used by two prior detectors</label>
+        <quote>It can be seen that our method of handling angles performs better than the angle vector encoding used in AVOD and ComplexYOLO.</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the method reaches state-of-the-art results using LiDAR alone</label>
+        <quote>Our method achieves state-of-the-art results with only LiDAR data and is superior to the original VoxelNet by a significant margin</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>performance remains lower for pedestrians and cyclists than for cars</label>
+        <quote>Here, there are more false positives and false negatives than there were for cars. Some false positives present on unreasonable locations in the image. This difficulty can be attributed to the typically higher instance densities of pedestrians and cyclists compared with that of cars, with fewer points per instance, which cause pedestrians and cyclists to be more easily confused with other point clusters and noise.</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>angle regression</label>
+        <term>angle regression</term>
+        <quote>Previous methods of angle regression, including corner encoding, direct encoding and vector encoding, usually exhibit poor performance. The corner prediction approach cannot determine the direction of an object and cannot be used for pedestrian detection, for which the BEV boxes are nearly square. The vector encoding approach retains redundant information and leads to difficulty detecting far-away objects based on LiDAR.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>direction classifier</label>
+        <term>direction classifier</term>
+        <quote>To address the issue that this loss treats boxes with opposite directions as being the same, we have added a simple direction classifier to the output of the RPN. This direction classifier uses a softmax loss function. We use the following approach to generate the direction classifier target: if the yaw rotation around the z-axis of the ground truth is higher than zero, the result is positive; otherwise, it is negative.</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>90% AP for 2D car detection against 15% for 3D image-based car detection — None</label>
+        <quote>State-of-the-art methods can achieve an average precision (AP) of 90% of 2D car detection but only an AP of 15% for 3D image-based car detection. To overcome the lack of spatial information provided by images alone, point cloud data have become increasingly important in 3D applications.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>a factor-of-4 training speedup and factor-of-3 inference speedup against dense convolution — None</label>
+        <quote>In comparison to a dense convolution network, our sparse-convolution-based detector achieves a factor-of-4 speed enhancement during training on the KITTI dataset and a factor-of-3 improvement in the speed of inference. As a further test, we have designed a small model for real-time detection that has a run time of approximately 0.025 s on a GTX 1080 Ti GPU, with only a slight loss of performance.</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>about 0.025 s per frame for the small model on a GTX 1080 Ti — None</label>
+        <quote>In comparison to a dense convolution network, our sparse-convolution-based detector achieves a factor-of-4 speed enhancement during training on the KITTI dataset and a factor-of-3 improvement in the speed of inference. As a further test, we have designed a small model for real-time detection that has a run time of approximately 0.025 s on a GTX 1080 Ti GPU, with only a slight loss of performance.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
+        <label>20 fps for the larger model and 40 fps for the smaller — None</label>
+        <quote>At the time of submission, our method produces state-of-the-art results across all classes for KITTI-based 3D detection, while running at 20 fps for the larger model and 40 fps for the smaller one.</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">
+        <label>about 70,000 anchors per point cloud against a few ground truths giving 4 to 6 positives each — None</label>
+        <quote>Our network usually generates ∼70k anchors within a KITTI point cloud. Unfortunately, there are usually only a few ground truths, each of which generates only 4–6 positives. This leads to an extreme imbalance between the foreground and background classes.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>average precision (AP)</label>
+        <term>average precision (AP)</term>
+        <quote>State-of-the-art methods can achieve an average precision (AP) of 90% of 2D car detection but only an AP of 15% for 3D image-based car detection. To overcome the lack of spatial information provided by images alone, point cloud data have become increasingly important in 3D applications.</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>orientation</label>
+        <term>orientation</term>
+        <quote>Voxel-based 3D convolutional networks have been used for some time to enhance the retention of information when processing point cloud LiDAR data. However, problems remain, including a slow inference speed and low orientation estimation performance.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>anchors</label>
+        <term>anchors</term>
+        <quote>Our network usually generates ∼70k anchors within a KITTI point cloud. Unfortunately, there are usually only a few ground truths, each of which generates only 4–6 positives. This leads to an extreme imbalance between the foreground and background classes.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.3390/s18103337.</note></p>
+    </body>
+  </text>
+</TEI>

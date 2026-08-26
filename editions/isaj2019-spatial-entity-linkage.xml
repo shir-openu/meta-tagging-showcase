@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">37 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">43 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -131,92 +131,126 @@
         <note>what this limits: carrying an entity-resolution method over to spatial entities: the authors state such solutions are learned on human entity datasets and that the resemblance of behaviours between the two cannot merely be assumed</note>
         <quote>The proposed solutions for entity resolution in individuals, either supervised or based on an experimental threshold, are learned on human entity datasets. One can not merely assume the resemblance of behaviors in a human entity dataset to a spatial entity one</quote>
       </span>
-      <span xml:id="t19" type="concepts" ana="#concepts[1]" resp="#paper">
+      <span xml:id="t19" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>manual checking of the labels on a sample of the pairs - 1,500 in the sample dataset and about 10,000 overall - against the automatic labels inferred from shared website or phone number</label>
+        <note>eliminates: that the automatic labelling is wrong in the two ways the paper names: the same entity holding a different phone number or website, and different entities sharing a phone number</note>
+        <quote>Hence, we checked around 10,000 of the pairs, and for the rest, we rely on automatic labeling.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[1]" resp="#paper">
         <label>spatial entity linkage</label>
         <term>spatial entity linkage</term>
         <quote>Unfortunately, the identity of a spatial entity is sometimes difficult to infer due to the inconsistencies within and among the sources</quote>
       </span>
-      <span xml:id="t20" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t21" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>spatial entity</label>
         <term>spatial entity</term>
         <quote>The identity of a spatial entity is the combination of several attributes</quote>
       </span>
-      <span xml:id="t21" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t22" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>spatial object</label>
         <term>spatial object</term>
         <quote>However, while a spatial object is identified only by the coordinates</quote>
       </span>
-      <span xml:id="t22" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t23" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>ground truth</label>
         <term>ground truth</term>
         <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[9]" resp="#paper">
+      <span xml:id="t24" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>spatial blocking</label>
         <term>spatial blocking</term>
         <quote>However, the existing quadtree algorithm needs to be adapted for spatial blocking</quote>
       </span>
-      <span xml:id="t24" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>spatial entity vs spatial object - THE DISTINCTION THE WHOLE PAPER RESTS ON: an object is identified by its coordinates alone, an entity is not, so the two words name things that need different identity conditions even though both sit at a point on a map</label>
         <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
       </span>
-      <span xml:id="t25" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>identity - AS A COMBINATION OF ATTRIBUTES, NOT A KEY: the paper states outright that what makes a spatial entity itself is several attributes together, and that inconsistency between sources makes that combination hard to infer</label>
         <quote>The identity of a spatial entity is the combination of several attributes. Unfortunately, the identity of a spatial entity is sometimes difficult to infer due to the inconsistencies within and among the sources; each location-based source contains different attributes; some attributes might be missing and even contradicting</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>similarity - SYNTACTIC AND SPATIAL COME APART: a one-character change in an address is a 0.963 string similarity and 650 metres on the ground, which is why the paper refuses ordinary string metrics for exactly the field that looks most like an identifier</label>
         <quote>since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
       </span>
-      <span xml:id="t27" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → the authors&#x27; earlier conference paper [38] (QuadFlex + SkyEx)</label>
         <quote>We significantly extend a previous conference paper [38].</quote>
       </span>
-      <span xml:id="t28" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → the skyline computation method of [38] for spatial blocking and pairwise comparison</label>
         <quote>The present paper uses the solution in [38] for the spatial blocking and the pairwise comparisons.</quote>
       </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the lattice-based skyline algorithm of [42]</label>
         <quote>SkyRank uses the method proposed in [42], which first scales down the d-dimensional domain and then pre-filters the data using a lattice.</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → WordNet [20] and the Wu &amp; Palmer semantic similarity measure [21]</label>
         <quote>We use Wordnet [20] for detecting the type of relationship between two words and Wu&amp; Palmer similarity measure (wup) [21].</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>contradicts → the spatial entity matching tools of Karam et al. [17], Berjawi et al. [18] and Morana et al. [19]</label>
         <quote>The works in [17–19] lack an evaluation of the algorithms.</quote>
       </span>
-      <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>RETRACTED (RE-GROUNDED) · spatial entity —distinct-from→ spatial object</label>
         <term>spatial entity</term>
         <term>spatial object</term>
         <note>RETRACTED: RE-GROUNDED. The old span named only `spatial object` and began mid-contrast (&#x27;However, while ...&#x27;). This sentence names both AND CARRIES THE DIFFERENTIA: an object is fully determined by its coordinates, an entity is geo-located AND has more. A distinction with its criterion. — strength of the relation: 1</note>
         <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
       </span>
-      <span xml:id="t33" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>spatial entity linkage —operationalised-as→ ground truth</label>
         <term>spatial entity linkage</term>
         <term>ground truth</term>
         <note>strength of the relation: 1</note>
         <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
       </span>
-      <span xml:id="t34" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
         <label>spatial entity —distinct-from→ spatial object</label>
         <term>spatial entity</term>
         <term>spatial object</term>
         <note>differs in: THE AXIS IS WHETHER IDENTITY BEYOND POSITION IS PART OF THE THING. &#x27;Spatial objects differ from spatial entities mainly because A SPATIAL OBJECT IS FULLY DETERMINED BY ITS COORDINATES OR ITS SPATIAL SHAPE whereas a spatial entity, IN ADDITION TO BEING GEO-LOCATED, HAS A WELLDEFINED IDENTITY (name, phone, categories).&#x27; Both are located; only one carries an identity, and that is the whole of the distinction. Q-463. · strength of the relation: 1 — RE-GROUNDS isaj2019-spatial-entity-linkage[0]: the old span named ONE endpoint.</note>
         <quote>Spatial objects differ from spatial entities mainly because a spatial object is fully determined by its coordinates or its spatial shape whereas a spatial entity, in addition to being geo-located, has a welldefined identity (name, phone, categories).</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>Sources describing the same physical world disagree: each covers only part of it, with different attributes, sometimes contradicting each other.</label>
+        <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held a copy with the line-break hyphen closed in `at- tributes`. Re-cut from the paper as it stands; the closing was correct scholarship and silently unverifiable.</note>
+        <quote>each one has only partial coverage of the spatial entities, describe them with different attributes, and sometimes provide contradicting information</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>Because a match is either right or wrong, the method can be scored directly against labelled data.</label>
+        <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
+        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>spatial entity linkage</label>
         <term>spatial entity linkage</term>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The problem of finding which spatial entities belong to the same physical entity is referred to as spatial entity linkage or spatial entity resolution</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>0.85 precision / 0.85 recall — QuadSky on a manually labelled set of 1,500 pairs</label>
+        <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
+        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>0.87 precision / 0.6 recall — QuadSky on a semi-manually labelled set of 777,452 pairs</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>0.87 precision and 0.6 recall for a semi-manually labeled dataset of 777,452 pairs</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>precision</label>
+        <term>precision</term>
+        <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
+        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>recall</label>
+        <term>recall</term>
+        <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
+        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
       </span>
     </spanGrp>
   </standOff>

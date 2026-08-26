@@ -35,7 +35,7 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
+      <change when="2026-08-26"
               who="build_paper_edition.py">38 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
@@ -82,21 +82,25 @@
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>THE REJECTED ALTERNATIVE IS DESCRIBED AS MORE REALISTIC THAN THE ONE CHOSEN: on a different assumption about the extinction distribution, one COULD CHOOSE A **LESS CONSERVATIVE BUT MORE REALISTIC** narrow prior probability distribution. **The paper says outright that the option it did not take is the more realistic one** - conservatism is being bought, and the price is named</term>
+        <note>about this quote: The span contains `dataˇs` for `data&#x27;s` - the apostrophe rendered as a caron by the extraction. This file&#x27;s ligature handling is broken throughout: `fi` becomes `(cid:209)` or an em dash, so `flat` is `(cid:209)at` and `identified` is `identi—ed`. Measured at 18% of sentences, which is why the slicer here refuses any span containing an em dash.</note>
         <quote>If one alternatively assumes that the current dataˇs extinction distribution is quite as narrow as that of previously observed supernovae, one can choose a less conservative but more realistic narrow prior probability distribution</quote>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>A BIAS IS ELIMINATED BY PERMITTING A PHYSICALLY IMPOSSIBLE VALUE: any such small bias CAN BE ELIMINATED by ASSUMING NO BAYESIAN PRIOR on the host-galaxy extinction, ALLOWING EXTINCTION CORRECTIONS TO BE NEGATIVE for supernovae measured to be bluer than the zero-extinction case. Dust cannot brighten a source; the estimator is allowed to say it did, so that the estimator stops leaning</term>
+        <note>about this quote: RE-SLICED. My first end key was `&quot;...bluer than the zero-extinction case.&quot;` - and the file says `&quot;bluer than the zero-extinction E(B[V ) value.&quot;` I had taken the key from a TRUNCATED PRINT (cut at `zero-extinc`) and then typed the word `case` to finish it. **Second time today I used a truncated display as a key** - the first was bengio2021 - and the Q-638 cut-word guard refused both. The span now ends at the clause that carries the claim.</note>
         <quote>We can eliminate any such small bias of this method by assuming no Bayesian prior on the host-galaxy extinction, allowing extinction corrections to be negative</quote>
       </span>
       <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>AN ERROR&#x27;S RELEVANCE IS ASSESSED AGAINST THE SPECIFIC QUESTION RATHER THAN IN GENERAL: a parenthesis notes that IN THIS DIRECTION ANY SYSTEMATIC ERROR IS **LESS RELEVANT TO THE QUESTION** of the existence of a cosmological constant. The same uncertainty matters more or less depending on which claim is being defended, and the asymmetry is stated rather than hidden</term>
+        <note>about this quote: RE-SLICED to include the OPENING bracket. Starting at &quot;In this direction&quot; made the span close a parenthesis it never opened, which is exactly what audit_span_orphan_bracket (Q-650) exists to catch - and it caught it here, on my own draft.</note>
         <quote>(In this direction any systematic error is less relevant to the question of the existence of a cosmological constant.)</quote>
       </span>
       <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>ONE UNCERTAINTY IS BOOKED AS A SEPARATE ANALYSIS RATHER THAN AS A CONTRIBUTION, AND THE CHOICE IS DECLARED: the effect of small-scale clumping of mass is treated AS A SEPARATE ANALYSIS CASE **RATHER THAN AS A CONTRIBUTING SYSTEMATIC ERROR** in the primary analysis - while THE TOTAL SYSTEMATIC UNCERTAINTY APPLIES TO THIS ANALYSIS AS WELL. Where an uncertainty is entered in the books is a decision, and it is written down</term>
+        <note>about this quote: The span begins mid-sentence at &quot;due to small-scale clumping&quot; because what precedes it in the staged text is interleaved mathematics - `/2 [ ) &quot; 4 ) H M 0 0 0 due to small-scale clumping` - so the quantity the clumping affects is unrecoverable from a contiguous span. The tag does not name it.</note>
         <quote>due to small-scale clumping of mass as a separate analysis case rather than as a contributing systematic error in our primary analysis ; the total systematic uncertainty applies to this analysis as well.</quote>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[5]" resp="#tagger">
@@ -106,12 +110,12 @@
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.9">
         <label>Hypothetical systematics such as evolving gray dust and supernova evolution are bounded and tested but remain hard to quantify, and are excluded from the identified systematic error budget.</label>
-        <note>what this limits: the same scope as item 2 - bounded and tested, still difficult to quantify</note>
+        <note>about this quote: Q-616, 2026-08-16: FAILED GLYPH INSIDE THIS QUOTE. (cid:134) is the ff LIGATURE, which this extraction could not map: e(cid:134)ects -&gt; effects. It occurs in BOTH quote fields on this row. No word is ambiguous - the ligature is purely typographic and the sentence reads normally once it is restored. The quote is an exact substring of the staged file; the file is incomplete here, not the tag. Detected by TOOLS/test_damaged_quote_is_annotated.py. · what this limits: the same scope as item 2 - bounded and tested, still difficult to quantify</note>
         <quote>We have presented bounds and tests for these e(cid:134)ects, which give preliminary indications that they are not large sources of uncertainty, but at this time they remain difficult to quantify, at least partly because the proposed physical processes and entities that might cause the e(cid:134)ects are not completely de—ned.</quote>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[7]" resp="#tagger" cert="0.9">
         <label>The well-studied SN Ia sample is still small, especially at low redshift, so the authors do not consider all loopholes closed.</label>
-        <note>what this limits: the same scope as item 3 - the low-redshift sample is small</note>
+        <note>about this quote: Q-616, 2026-08-16: FAILED GLYPH INSIDE THIS QUOTE. (cid:134) is the ff LIGATURE, which this extraction could not map: di(cid:134)erent -&gt; different. It occurs in BOTH quote fields on this row. No word is ambiguous - the ligature is purely typographic and the sentence reads normally once it is restored. The quote is an exact substring of the staged file; the file is incomplete here, not the tag. Detected by TOOLS/test_damaged_quote_is_annotated.py. · what this limits: the same scope as item 3 - the low-redshift sample is small</note>
         <quote>Also, the full data set of well-studied SNe Ia is still relatively small, particularly at low redshifts, and we would like to see a more extensive study of SNe Ia in many di(cid:134)erent hostgalaxy environments before we consider all plausible loopholes (including those listed in Table 4B) to be closed.</quote>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[8]" resp="#tagger">
@@ -218,6 +222,7 @@
       </span>
       <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>42 — high-redshift SNe Ia analysed (Supernova Cosmology Project)</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>the analysis of 42 type Ia supernovae discovered by the Supernova Cosmology Project</quote>
       </span>
       <span xml:id="t37" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">

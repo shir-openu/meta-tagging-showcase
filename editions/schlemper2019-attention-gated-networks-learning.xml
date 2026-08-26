@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Attention gated networks: Learning to leverage salient regions in medical images</title>
+        <author>Jo Schlemper</author>
+        <author>Ozan Oktay</author>
+        <author>Michiel Schaap</author>
+        <author>Mattias P. Heinrich‬</author>
+        <author>Bernhard Kainz</author>
+        <author>Ben Glocker</author>
+        <author>Daniel Rueckert</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Attention gated networks: Learning to leverage salient regions in medical images</title>
+          <date>2019</date>
+          <publisher>Medical Image Analysis</publisher>
+          <idno type="DOI">10.1016/j.media.2019.01.012</idno>
+          
+          <idno type="record">schlemper2019-attention-gated-networks-learning</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\schlemper2019-attention-gated-networks-learning.txt</note>
+          <note type="text-sha1">0ea854df39ee8627e4351e3db99424bfbf960f0b</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>computer-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">65 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>whether a network can be made to find the organ it is supposed to measure, instead of being handed a cropped region by a second network trained to find it</label>
+        <quote>We propose a novel attention gate (AG) model for medical image analysis that automatically learns to focus on target structures of varying shapes and sizes. Models trained with AGs implicitly learn to suppress irrelevant regions in an input image while highlighting salient features useful for a specific task. This enables us to eliminate the necessity of using explicit external tissue/organ localisation modules when using convolutional neural networks (CNNs).</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether a soft attention gate inside a single CNN can replace the cascade - a localisation model followed by a segmentation model - without losing accuracy or adding many parameters</label>
+        <quote>Methods for existing applications rely heavily on multi-stage, cascaded CNNs when the target organs show large inter-patient variation in terms of shape and size. Cascaded frameworks extract a region of interest (ROI) and make dense predictions on that particular ROI. The application areas include cardiac MRI, cardiac CT, abdominal CT segmentation, and lung CT nodule detection. However, this approach leads to excessive and redundant use of computational resources and model parameters; for instance, similar low-level features are repeatedly extracted by all models within the cascade.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a grid-based additive attention gate that drops into VGG or U-Net, learns where to look with no bounding boxes and no extra supervision, improves recall and precision on CT pancreas segmentation and fetal ultrasound plane detection, and is shown to beat simply making the baseline bigger</label>
+        <quote>We take the attention approach proposed by a step further by proposing grid-based gating that allows attention gates to be more specific to local regions. This improves performance compared to gating based on a global feature vector.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>To address this general problem, we propose a simple and yet effective solution, named attention gates (AGs). By incorporating AGs into standard CNN models, model parameters and intermediate feature maps are expected to be utilised more efficiently while minimising the necessity of cascaded models to solve localisation and classification tasks separately. In more detail, AGs automatically learn to focus on target structures without additional supervision. At test time, these gates generate soft region proposals implicitly on-the-fly and highlight salient features useful for a specific task. In return, the proposed AGs improve model sensitivity and accuracy for global and dense label predictions by suppressing feature activations in irrelevant regions. In this way, the necessity of using an external organ localisation module can be eliminated while maintaining the high prediction accuracy.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>small, variable-shaped structures that a single-stage network misses, and the cascades built to hand it a cropped view of them - which repeat the same low-level features in every model of the chain</label>
+        <quote>Methods for existing applications rely heavily on multi-stage, cascaded CNNs when the target organs show large inter-patient variation in terms of shape and size. Cascaded frameworks extract a region of interest (ROI) and make dense predictions on that particular ROI. The application areas include cardiac MRI, cardiac CT, abdominal CT segmentation, and lung CT nodule detection. However, this approach leads to excessive and redundant use of computational resources and model parameters; for instance, similar low-level features are repeatedly extracted by all models within the cascade.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>attention coefficients computed from a coarse gating signal and a finer feature map, applied multiplicatively, trained end-to-end with deep supervision at each scale; evaluated on two CT abdominal datasets and a 190k-frame ultrasound set</label>
+        <term>attention coefficients computed from a coarse gating signal and a finer feature map, applied multiplicatively, trained end-to-end with deep supervision at each scale; evaluated on two CT abdominal datasets and a 190k-frame ultrasound set</term>
+        <quote>Gating parameters are initialised so that attention gates pass through feature vectors at all spatial locations. Moreover, we do not require multiple training stages as in hard-attention based approaches therefore simplifying the training procedure.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>a cascade spends a whole network learning where the organ is and then throws that network&#x27;s features away; a gate computes the same decision from features the predictor already has, so the localisation costs 8% more parameters instead of a second model, and the low-level features are extracted once</label>
+        <term>localisation folded into the predictor</term>
+        <quote>Methods for existing applications rely heavily on multi-stage, cascaded CNNs when the target organs show large inter-patient variation in terms of shape and size. Cascaded frameworks extract a region of interest (ROI) and make dense predictions on that particular ROI. The application areas include cardiac MRI, cardiac CT, abdominal CT segmentation, and lung CT nodule detection. However, this approach leads to excessive and redundant use of computational resources and model parameters; for instance, similar low-level features are repeatedly extracted by all models within the cascade.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>the gating parameters start so that every feature vector passes at every location - the network begins as its own baseline and has to learn to suppress, which is why no multi-stage training schedule is needed and why any difference is attributable to what the gate learned rather than to where it started</label>
+        <term>a gate initialised to do nothing</term>
+        <quote>Gating parameters are initialised so that attention gates pass through feature vectors at all spatial locations. Moreover, we do not require multiple training stages as in hard-attention based approaches therefore simplifying the training procedure.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>the gating signal is taken from a coarser grid, where the receptive field is large enough to know where the organ is, and applied to a finer map, where the resolution is enough to draw its boundary - which is the same division of labour a cascade makes between its two networks, done inside one</label>
+        <term>coarse context deciding fine attention</term>
+        <quote>We commonly observe that AGs initially have a uniform distribution and pass features at all spatial locations. This is gradually updated and localised towards the targeted organ boundaries. Additionally, at coarser scales AGs provide a rough outline of organs which are gradually refined at finer resolutions. Moreover, by training multiple AGs at each image scale, we observe that each AG learns to focus on a particular subset of organs.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>softmax over the attention map produces sparse, intensity-sensitive attention, which is bad in ultrasound; sigmoid only rescales and lets more information through, and pays for it with gradient saturation. Neither is free and the paper reports both costs</label>
+        <term>a normalisation choice that trades sparsity against gradients</term>
+        <quote>We empirically observed and reported that using soft-max as the activation function tends to generate a map that is sparsely activated and is overly sensitive to local intensity changes. The latter is problematic as in ultrasound imaging, image quality is often low. In the classification setting, We found that dividing the activations by the sum of the activations helped generate attention map with larger contextual support. As demonstrated in the segmentation framework, Sigmoid function is a good alternative as it only normalises the range and allows more information to flow. However, we found that training is non-trivial due to the gradient saturation problem.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the attention map outlines the discriminant region and does not necessarily coincide with the entire object, so it localises without delineating</label>
+        <quote>We see that the network consistently focuses on the object of interest, consistent with the blue ground truth annotation. We note, however, attention map outlines the discriminant region; in particular, it does not necessarily coincide with the entire object. Nevertheless, as it does not guided backpropagation for localisation (a strategy in), attention models are advantageous for the real-time applications.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the comparison against 2D cascaded state-of-the-art models is called insufficient to draw a final conclusion, because the 3D model has context and the 2D models have resolution</label>
+        <quote>Lastly, we note that the presented quantitative comparisons between the Attention 3D-Unet and state-of-the-art 2D cascaded models might not be sufficient enough to draw a final conclusion, as the proposed approach takes advantage of rich contextual information in all spatial dimensions. On the other hand, the 2D models utilise the high resolution information present in axial CT planes without any downsampling.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>softmax normalisation gives sparse, intensity-sensitive maps and sigmoid gives gradient saturation - the normalisation choice has no free option</label>
+        <quote>We empirically observed and reported that using soft-max as the activation function tends to generate a map that is sparsely activated and is overly sensitive to local intensity changes. The latter is problematic as in ultrasound imaging, image quality is often low. In the classification setting, We found that dividing the activations by the sum of the activations helped generate attention map with larger contextual support. As demonstrated in the segmentation framework, Sigmoid function is a good alternative as it only normalises the range and allows more information to flow. However, we found that training is non-trivial due to the gradient saturation problem.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>training the attention mechanism is more complex than the baseline, and the most stable route was per-scale training followed by fine-tuning</label>
+        <quote>We noted that training the attention-mechanism was slightly more complex than the standard network architecture. In particular, we observed that the strategy employed to aggregate the attention maps at different scales affects both the learning of the attention mechanism itself and hence the performance. Having a loss term defined at each scale ensures that the network learns to attend at each scale. We observed that first training the network at each scale separately, followed by fine-tuning was the most stable approach to get the optimal performance.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>residual connections around the gate gave no significant improvement in the segmentation experiments</label>
+        <quote>There is a vast body of literature in machine learning exploring different gating architectures. For example, highway networks make use of residual connections around the gate block to allow better gradient backpropagation and slightly softer attention mechanisms. Although our segmentation experiments with residual connections have not provided any significant performance improvement, future work will focus on this aspect to obtain a better training behaviour.</quote>
+      </span>
+      <span xml:id="t15" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>additive soft attention, carried from sentence-to-sentence machine translation into a convolutional network over medical images, and re-based on an image grid so the coefficients can be local</label>
+        <quote>We take the attention approach proposed by a step further by proposing grid-based gating that allows attention gates to be more specific to local regions. This improves performance compared to gating based on a global feature vector.</quote>
+      </span>
+      <span xml:id="t16" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>higher-capacity U-Net models trained and compared against the smaller gated model, rather than only against the same-size baseline</label>
+        <note>eliminates: the extra parameters as the explanation of the gain - a module that adds 8% capacity and improves DSC by 2-3% has to be shown to beat 8% more capacity spread uniformly, and it does at p = .007 · outcome: held</note>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>the same two models retrained at a smaller training size (30 images instead of 120)</label>
+        <note>eliminates: the improvement being an artefact of one data budget - if attention only helps when data is plentiful it is not solving the localisation problem it claims to · outcome: held</note>
+        <quote>In the second experiment, the same models are trained with fewer training images (30) to show that the performance improvement is consistent and significant for different sizes of training data (p = .01). For both approaches, we observe a performance drop on spleen DSC as the training size is reduced. The drop is less significant with the proposed framework. For kidney segmentation, the models achieve similar accuracy since the tissue contrast is higher.</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>models trained on CT-150 applied directly to the public CT-82 benchmark with no fine-tuning, before any adaptation is done</label>
+        <note>eliminates: the result being tied to one institution&#x27;s data - the transfer is measured before the models are allowed to see the new distribution · outcome: held</note>
+        <quote>Initially, the models trained on CT-150 dataset are directly applied to CT-82 dataset to observe the applicability of the two models on different datasets. The corresponding results (BFT) are given in Table 3. U-Net model outperforms traditional atlas techniques although it was trained on a disjoint dataset. Moreover, the attention model performs consistently better in pancreas segmentation across different datasets.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>both models also trained from scratch on 61 CT-82 images, in addition to the fine-tuned and directly-applied conditions</label>
+        <note>eliminates: pre-training on the private dataset as a hidden advantage in the public benchmark comparison · outcome: held</note>
+        <quote>Additionally, we trained the two models from scratch (SCR) with 61 training images randomly selected from the CT-82 dataset. Similar to the results on CT-150 dataset, AGs improve the segmentation accuracy and lower the surface distances (p = .03) due to increased recall rate of pancreas pixels (p = .09).</quote>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>5-fold cross-validation on CT-82 with the Attention U-Net, reported with its standard deviation</label>
+        <note>eliminates: a single favourable train/test split - the spread of 6.23 DSC is the size of the effect being claimed, and reporting it makes that visible · outcome: held</note>
+        <quote>Lastly, we performed 5-fold cross-validation on the CT-82 dataset using the Attention U-Net for a better comparison, which achieved 81.48 ± 6.23 DSC for pancreas labels.</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>conditional random field post-processing deliberately NOT applied, and said so, although the comparison methods use it</label>
+        <note>eliminates: post-processing absorbing or masking the gate&#x27;s contribution - the measured difference is the module&#x27;s in an isolated setting, at the cost of a lower absolute number · outcome: held</note>
+        <quote>It is important to note that, postprocessing (e.g. using conditional random field) is not utilised in our framework as the experiments mainly focus on quantification of performance improvement brought by AGs in an isolated setting. Similarly, residual and dense connections can be used as in in conjunction with AGs to improve the segmentation results.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[6]" resp="#tagger" cert="0.85">
+        <label>ultrasound frames cropped to the central 208 x 272 so the network cannot read the annotations the scanner prints around the image</label>
+        <note>eliminates: the network reading the annotations the scanner prints around the image instead of the anatomy - a leak that would look like accuracy · outcome: held</note>
+        <quote>data was cropped to central 208 × 272 to prevent the network from learning the surrounding annotations shown in the ultrasound scan screen.</quote>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[7]" resp="#tagger" cert="0.95">
+        <label>gating parameters initialised so that the gates pass every feature vector at every location, making the network start as its own baseline</label>
+        <note>eliminates: that the attention gates help only because they change the initialisation - starting open makes the network its own baseline at step zero · outcome: held</note>
+        <quote>Gating parameters are initialised so that attention gates pass through feature vectors at all spatial locations. Moreover, we do not require multiple training stages as in hard-attention based approaches therefore simplifying the training procedure.</quote>
+      </span>
+      <span xml:id="t24" type="controls" ana="#controls[8]" resp="#tagger" cert="0.95">
+        <label>class imbalance handled by weighted sampling for classification and a Dice loss for segmentation, in both the attention and the baseline networks</label>
+        <note>eliminates: the dominant background class carrying the score, and any difference between the two networks being a difference in how each one met the imbalance · outcome: held</note>
+        <quote>The datasets used in this manuscript contain large class imbalance issue that needs to be addressed. For ultrasound dataset, due to the nature of screening process, the background label dominates the dataset. To address this, we used a weighted sampling strategy, where we matched the probability of sampling one of the foreground labels to the probability of sampling a background label. For the segmentation models, the class imbalance problem is tackled using the Sorensen-Dice loss defined over all semantic classes. Dice loss is experimentally shown to be less sensitive to class imbalance in segmentation tasks.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>attention gates</label>
+        <term>attention gates</term>
+        <quote>To address this general problem, we propose a simple and yet effective solution, named attention gates (AGs). By incorporating AGs into standard CNN models, model parameters and intermediate feature maps are expected to be utilised more efficiently while minimising the necessity of cascaded models to solve localisation and classification tasks separately. In more detail, AGs automatically learn to focus on target structures without additional supervision. At test time, these gates generate soft region proposals implicitly on-the-fly and highlight salient features useful for a specific task. In return, the proposed AGs improve model sensitivity and accuracy for global and dense label predictions by suppressing feature activations in irrelevant regions. In this way, the necessity of using an external organ localisation module can be eliminated while maintaining the high prediction accuracy.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>cascaded</label>
+        <term>cascaded</term>
+        <quote>Methods for existing applications rely heavily on multi-stage, cascaded CNNs when the target organs show large inter-patient variation in terms of shape and size. Cascaded frameworks extract a region of interest (ROI) and make dense predictions on that particular ROI. The application areas include cardiac MRI, cardiac CT, abdominal CT segmentation, and lung CT nodule detection. However, this approach leads to excessive and redundant use of computational resources and model parameters; for instance, similar low-level features are repeatedly extracted by all models within the cascade.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>soft attention</label>
+        <term>soft attention</term>
+        <quote>Trainable attention, on the other hand, is enforced by design and categorised as hard- and soft-attention. Hard attention, e.g. iterative region proposal and cropping, is often non-differentiable and relies on reinforcement learning for parameter updates, which makes model training more difficult. used recursive hard-attention to detect anomalies in chest X-ray scans. Contrarily, soft attention is probabilistic, end-to-end differentiable, and utilises standard back-propagation without need for posterior sampling.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>Hard attention</label>
+        <term>Hard attention</term>
+        <quote>Trainable attention, on the other hand, is enforced by design and categorised as hard- and soft-attention. Hard attention, e.g. iterative region proposal and cropping, is often non-differentiable and relies on reinforcement learning for parameter updates, which makes model training more difficult. used recursive hard-attention to detect anomalies in chest X-ray scans. Contrarily, soft attention is probabilistic, end-to-end differentiable, and utilises standard back-propagation without need for posterior sampling.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>discriminant region</label>
+        <term>discriminant region</term>
+        <quote>We see that the network consistently focuses on the object of interest, consistent with the blue ground truth annotation. We note, however, attention map outlines the discriminant region; in particular, it does not necessarily coincide with the entire object. Nevertheless, as it does not guided backpropagation for localisation (a strategy in), attention models are advantageous for the real-time applications.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>recall</label>
+        <term>recall</term>
+        <quote>The results on pancreas predictions demonstrate that attention gates (AGs) increase recall values (p =.005) by improving the model’s expression power as it relies on AGs to localise foreground pixels.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>trainable parameters</label>
+        <term>trainable parameters</term>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>DSC</label>
+        <term>DSC</term>
+        <quote>However, in public benchmarks such as the TCIA dataset, Dice similarity coefficients (DSC) for atlas-based frameworks are relatively low, ranging from 69.6% to 73.9%. A classification based framework was proposed by to remove the dependency of atlas to image registration.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>conditional random field</label>
+        <term>conditional random field</term>
+        <quote>It is important to note that, postprocessing (e.g. using conditional random field) is not utilised in our framework as the experiments mainly focus on quantification of performance improvement brought by AGs in an isolated setting. Similarly, residual and dense connections can be used as in in conjunction with AGs to improve the segmentation results.</quote>
+      </span>
+      <span xml:id="t34" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>an attention map - AS THE PAPER USES IT: a soft region proposal that suppresses background and lets the network localise without a second model</label>
+        <quote>To address this general problem, we propose a simple and yet effective solution, named attention gates (AGs). By incorporating AGs into standard CNN models, model parameters and intermediate feature maps are expected to be utilised more efficiently while minimising the necessity of cascaded models to solve localisation and classification tasks separately. In more detail, AGs automatically learn to focus on target structures without additional supervision. At test time, these gates generate soft region proposals implicitly on-the-fly and highlight salient features useful for a specific task. In return, the proposed AGs improve model sensitivity and accuracy for global and dense label predictions by suppressing feature activations in irrelevant regions. In this way, the necessity of using an external organ localisation module can be eliminated while maintaining the high prediction accuracy.</quote>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>an attention map - AS THE PAPER SAYS IT IS NOT: the object. It outlines the DISCRIMINANT REGION and does not necessarily coincide with the whole structure</label>
+        <quote>We see that the network consistently focuses on the object of interest, consistent with the blue ground truth annotation. We note, however, attention map outlines the discriminant region; in particular, it does not necessarily coincide with the entire object. Nevertheless, as it does not guided backpropagation for localisation (a strategy in), attention models are advantageous for the real-time applications.</quote>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>the gain from attention - AGAINST THE SAME-SIZE BASELINE: 2-3 DSC points for 8% extra parameters</label>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+      <span xml:id="t37" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>the gain from attention - AGAINST A BASELINE GROWN TO MATCH: still significant at p = .007, which is what makes it a claim about the gate rather than about size</label>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+      <span xml:id="t38" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>the state-of-the-art comparison - AS THE TABLE READS: comparable to 2D cascaded models and better than single-model frameworks</label>
+        <quote>Initially, the models trained on CT-150 dataset are directly applied to CT-82 dataset to observe the applicability of the two models on different datasets. The corresponding results (BFT) are given in Table 3. U-Net model outperforms traditional atlas techniques although it was trained on a disjoint dataset. Moreover, the attention model performs consistently better in pancreas segmentation across different datasets.</quote>
+      </span>
+      <span xml:id="t39" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>the state-of-the-art comparison - AS THE AUTHORS QUALIFY IT: not sufficient to draw a final conclusion, because their 3D model trades resolution for context and the 2D models trade context for resolution</label>
+        <quote>Lastly, we note that the presented quantitative comparisons between the Attention 3D-Unet and state-of-the-art 2D cascaded models might not be sufficient enough to draw a final conclusion, as the proposed approach takes advantage of rich contextual information in all spatial dimensions. On the other hand, the 2D models utilise the high resolution information present in axial CT planes without any downsampling.</quote>
+      </span>
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → cascaded multi-stage CNN frameworks, which reach 81-82% DSC on the TCIA pancreas benchmark but re-extract the same low-level features in every model of the chain</label>
+        <quote>Methods for existing applications rely heavily on multi-stage, cascaded CNNs when the target organs show large inter-patient variation in terms of shape and size. Cascaded frameworks extract a region of interest (ROI) and make dense predictions on that particular ROI. The application areas include cardiac MRI, cardiac CT, abdominal CT segmentation, and lung CT nodule detection. However, this approach leads to excessive and redundant use of computational resources and model parameters; for instance, similar low-level features are repeatedly extracted by all models within the cascade.</quote>
+      </span>
+      <span xml:id="t41" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → hard-attention approaches, which crop, are non-differentiable, and need reinforcement learning for parameter updates</label>
+        <quote>Trainable attention, on the other hand, is enforced by design and categorised as hard- and soft-attention. Hard attention, e.g. iterative region proposal and cropping, is often non-differentiable and relies on reinforcement learning for parameter updates, which makes model training more difficult. used recursive hard-attention to detect anomalies in chest X-ray scans. Contrarily, soft attention is probabilistic, end-to-end differentiable, and utilises standard back-propagation without need for posterior sampling.</quote>
+      </span>
+      <span xml:id="t42" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>extends → soft attention as used for adaptive feature pooling in natural image classification and captioning, generalised here to grid-based gating so coefficients can be specific to local regions</label>
+        <quote>We take the attention approach proposed by a step further by proposing grid-based gating that allows attention gates to be more specific to local regions. This improves performance compared to gating based on a global feature vector.</quote>
+      </span>
+      <span xml:id="t43" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+        <label>qualifies → its own state-of-the-art comparison, which the authors say is not sufficient to draw a final conclusion because the 3D and 2D models are given different information</label>
+        <quote>Lastly, we note that the presented quantitative comparisons between the Attention 3D-Unet and state-of-the-art 2D cascaded models might not be sufficient enough to draw a final conclusion, as the proposed approach takes advantage of rich contextual information in all spatial dimensions. On the other hand, the 2D models utilise the high resolution information present in axial CT planes without any downsampling.</quote>
+      </span>
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">
+        <label>qualifies → the interpretability claim for attention maps - they outline what the model used, not the object, and the paper says so in the same paragraph that offers them for localisation</label>
+        <quote>We see that the network consistently focuses on the object of interest, consistent with the blue ground truth annotation. We note, however, attention map outlines the discriminant region; in particular, it does not necessarily coincide with the entire object. Nevertheless, as it does not guided backpropagation for localisation (a strategy in), attention models are advantageous for the real-time applications.</quote>
+      </span>
+      <span xml:id="t45" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>attention gates —distinct-from→ cascaded</label>
+        <term>attention gates</term>
+        <term>cascaded</term>
+        <note>differs in: whether localisation is a separate model with its own parameters or a module inside the predictor · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>To address this general problem, we propose a simple and yet effective solution, named attention gates (AGs). By incorporating AGs into standard CNN models, model parameters and intermediate feature maps are expected to be utilised more efficiently while minimising the necessity of cascaded models to solve localisation and classification tasks separately. In more detail, AGs automatically learn to focus on target structures without additional supervision. At test time, these gates generate soft region proposals implicitly on-the-fly and highlight salient features useful for a specific task. In return, the proposed AGs improve model sensitivity and accuracy for global and dense label predictions by suppressing feature activations in irrelevant regions. In this way, the necessity of using an external organ localisation module can be eliminated while maintaining the high prediction accuracy.</quote>
+      </span>
+      <span xml:id="t46" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>soft attention —distinct-from→ Hard attention</label>
+        <term>soft attention</term>
+        <term>Hard attention</term>
+        <note>differs in: whether the attention step can be differentiated through · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>Trainable attention, on the other hand, is enforced by design and categorised as hard- and soft-attention. Hard attention, e.g. iterative region proposal and cropping, is often non-differentiable and relies on reinforcement learning for parameter updates, which makes model training more difficult. used recursive hard-attention to detect anomalies in chest X-ray scans. Contrarily, soft attention is probabilistic, end-to-end differentiable, and utilises standard back-propagation without need for posterior sampling.</quote>
+      </span>
+      <span xml:id="t47" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>discriminant region —distinct-from→ attention gates</label>
+        <term>discriminant region</term>
+        <term>attention gates</term>
+        <note>differs in: whether the highlighted area is the evidence or the thing · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>We see that the network consistently focuses on the object of interest, consistent with the blue ground truth annotation. We note, however, attention map outlines the discriminant region; in particular, it does not necessarily coincide with the entire object. Nevertheless, as it does not guided backpropagation for localisation (a strategy in), attention models are advantageous for the real-time applications.</quote>
+      </span>
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>attention gates —distinct-from→ trainable parameters</label>
+        <term>attention gates</term>
+        <term>trainable parameters</term>
+        <note>differs in: whether the extra parameters are spread across all layers or spent on localisation · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>attention gates beat a U-Net grown uniformly to the same parameter count, at p = .007, so the gain is the module and not the capacity</label>
+        <term>attention gates beat a U-Net grown uniformly to the same parameter count, at p = .007, so the gain is the module and not the capacity</term>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>the improvement holds at 30 training images as well as 120, so it is not an artefact of one data budget</label>
+        <term>the improvement holds at 30 training images as well as 120, so it is not an artefact of one data budget</term>
+        <quote>In the second experiment, the same models are trained with fewer training images (30) to show that the performance improvement is consistent and significant for different sizes of training data (p = .01). For both approaches, we observe a performance drop on spleen DSC as the training size is reduced. The drop is less significant with the proposed framework. For kidney segmentation, the models achieve similar accuracy since the tissue contrast is higher.</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>attention gates raise recall at p = .005 in pancreas segmentation, which is the quantity a localisation module is supposed to move</label>
+        <term>attention gates raise recall at p = .005 in pancreas segmentation, which is the quantity a localisation module is supposed to move</term>
+        <quote>The results on pancreas predictions demonstrate that attention gates (AGs) increase recall values (p =.005) by improving the model’s expression power as it relies on AGs to localise foreground pixels.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the attention map outlines the discriminant region and does not necessarily coincide with the entire object</label>
+        <term>the attention map outlines the discriminant region and does not necessarily coincide with the entire object</term>
+        <quote>We see that the network consistently focuses on the object of interest, consistent with the blue ground truth annotation. We note, however, attention map outlines the discriminant region; in particular, it does not necessarily coincide with the entire object. Nevertheless, as it does not guided backpropagation for localisation (a strategy in), attention models are advantageous for the real-time applications.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>no conditional random field or other post-processing was used, so the reported numbers isolate the gate&#x27;s contribution at the cost of absolute performance</label>
+        <term>no conditional random field or other post-processing was used, so the reported numbers isolate the gate&#x27;s contribution at the cost of absolute performance</term>
+        <quote>It is important to note that, postprocessing (e.g. using conditional random field) is not utilised in our framework as the experiments mainly focus on quantification of performance improvement brought by AGs in an isolated setting. Similarly, residual and dense connections can be used as in in conjunction with AGs to improve the segmentation results.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>a gated Sononet at capacity 8 performs close to an ungated Sononet with double the capacity</label>
+        <term>a gated Sononet at capacity 8 performs close to an ungated Sononet with double the capacity</term>
+        <quote>In general, AG-Sononet improves the results over Sononet at all capacity levels. In particular, AG-Sononet achieves higher precision. AG-Sononet reduces false positive examples because the gating mechanism suppresses background noise and forces the network to make the prediction based on class-specific features. As the capacity of Sononet is increased, the gap between the methods are tightened, but we note that the performance of AG-Sononet is also close to the one of Sononet with double the capacity.</quote>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>each attention gate learns to focus on a particular subset of organs, starting from a uniform distribution and localising over training</label>
+        <term>each attention gate learns to focus on a particular subset of organs, starting from a uniform distribution and localising over training</term>
+        <quote>We commonly observe that AGs initially have a uniform distribution and pass features at all spatial locations. This is gradually updated and localised towards the targeted organ boundaries. Additionally, at coarser scales AGs provide a rough outline of organs which are gradually refined at finer resolutions. Moreover, by training multiple AGs at each image scale, we observe that each AG learns to focus on a particular subset of organs.</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>probabilistic, end-to-end differentiable attention using standard backpropagation without posterior sampling - as against hard attention, which crops and needs reinforcement learning</label>
+        <term>soft attention</term>
+        <quote>Trainable attention, on the other hand, is enforced by design and categorised as hard- and soft-attention. Hard attention, e.g. iterative region proposal and cropping, is often non-differentiable and relies on reinforcement learning for parameter updates, which makes model training more difficult. used recursive hard-attention to detect anomalies in chest X-ray scans. Contrarily, soft attention is probabilistic, end-to-end differentiable, and utilises standard back-propagation without need for posterior sampling.</quote>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>what an attention map outlines - the part of the object the classifier uses, which the authors state does not necessarily coincide with the entire object</label>
+        <term>discriminant region</term>
+        <quote>We see that the network consistently focuses on the object of interest, consistent with the blue ground truth annotation. We note, however, attention map outlines the discriminant region; in particular, it does not necessarily coincide with the entire object. Nevertheless, as it does not guided backpropagation for localisation (a strategy in), attention models are advantageous for the real-time applications.</quote>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>extra capacity added to the standard U-Net by the attention gates, for a 2-3% DSC improvement</label>
+        <term>8%</term>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>mean pancreas DSC over 5-fold cross-validation on CT-82, with a standard deviation of 6.23</label>
+        <term>81.48</term>
+        <quote>Lastly, we performed 5-fold cross-validation on the CT-82 dataset using the Attention U-Net for a better comparison, which achieved 81.48 ± 6.23 DSC for pancreas labels.</quote>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>the bottom of the atlas-method DSC range on the TCIA pancreas benchmark</label>
+        <term>69.6%</term>
+        <quote>However, in public benchmarks such as the TCIA dataset, Dice similarity coefficients (DSC) for atlas-based frameworks are relatively low, ranging from 69.6% to 73.9%. A classification based framework was proposed by to remove the dependency of atlas to image registration.</quote>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>DSC</label>
+        <term>DSC</term>
+        <quote>However, in public benchmarks such as the TCIA dataset, Dice similarity coefficients (DSC) for atlas-based frameworks are relatively low, ranging from 69.6% to 73.9%. A classification based framework was proposed by to remove the dependency of atlas to image registration.</quote>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>p</label>
+        <term>p</term>
+        <quote>The results on pancreas predictions demonstrate that attention gates (AGs) increase recall values (p =.005) by improving the model’s expression power as it relies on AGs to localise foreground pixels.</quote>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>recall</label>
+        <term>recall</term>
+        <quote>The results on pancreas predictions demonstrate that attention gates (AGs) increase recall values (p =.005) by improving the model’s expression power as it relies on AGs to localise foreground pixels.</quote>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>trainable parameters</label>
+        <term>trainable parameters</term>
+        <quote>In Table 1, we also report the number of trainable parameters for both models. We observe that by adding 8% extra capacity to the standard U-Net, the performance can be improved by 2-3% in terms of DSC. For a fair comparison, we also train higher capacity U-Net models and compare against the proposed model with smaller network size. The results shown in Table 2 demonstrate that the addition of AGs contributes more than simply increasing model capacity (uniformly) across all layers of the network (p = .007). Therefore, additional capacity should be used for AGs to localise tissues, in cases when AGs are used to reduce the redundancy of training multiple, individual models.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1016/j.media.2019.01.012.</note></p>
+    </body>
+  </text>
+</TEI>

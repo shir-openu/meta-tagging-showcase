@@ -36,7 +36,7 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
+      <change when="2026-08-26"
               who="build_paper_edition.py">55 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
@@ -68,21 +68,25 @@
       <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>A CRITERION IS SHOWN TO FORBID THE GROUND TRUTH: demographic parity would not allow the ideal predictor that simply equals the true outcome - which, the authors say, CAN HARDLY BE CONSIDERED DISCRIMINATORY as it represents the actual outcome. The case arises whenever the target is correlated with the protected attribute</term>
+        <note>about this quote: The span contains `(cid:98)Y`, which is Y-hat - the circumflex accent failed to map and the extraction emitted a glyph code. 367 of these are in this file and almost all are this same hat. The quote is an exact substring and anchors correctly; the mathematics is unreadable in it. Damage shape 6. Unavoidable here: the sentence&#x27;s subject IS the predictor.</note>
         <quote>Second, demographic parity often cripples the utility that we might hope to achieve. Just imagine the common scenario in which the target variable Y —whether an individual actually defaults or not—is correlated with A. Demographic parity would not allow the ideal predictor (cid:98)Y = Y , which can hardly be considered discriminatory as it represents the actual outcome.</quote>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>THE NEW CRITERION IS ENGINEERED SO THE PERFECT PREDICTOR ALWAYS PASSES, AND SO THAT IT GETS EASIER AS ACCURACY RISES: the authors state that unlike demographic parity theirs always allows the perfectly accurate solution, and that the criterion is easier to achieve the more accurate the predictor is - explicitly ALIGNING fairness with the existing objective of supervised learning rather than trading against it</term>
+        <note>about this quote: The span contains `(cid:98)Y`, which is Y-hat - the circumflex accent failed to map and the extraction emitted a glyph code. 367 of these are in this file and almost all are this same hat. The quote is an exact substring and anchors correctly; the mathematics is unreadable in it. Damage shape 6. Unavoidable here: the sentence&#x27;s subject IS the predictor.</note>
         <quote>Unlike demographic parity, our notion always allows for the perfectly accurate solution of (cid:98)Y = Y . More broadly, our criterion is easier to achieve the more accurate the predictor (cid:98)Y is, aligning fairness with the central goal in supervised learning of building more accurate predictors.</quote>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>THE CRITERION PERMITS ONE ROUTE AND PROHIBITS ANOTHER BETWEEN THE SAME TWO VARIABLES: the prediction may depend on the protected attribute but ONLY THROUGH the target, so the definition ENCOURAGES features that predict the target directly and PROHIBITS abusing the protected attribute as a proxy for it. What the definition constrains is the PATH the dependence takes</term>
+        <note>about this quote: The span contains `(cid:98)Y`, which is Y-hat - the circumflex accent failed to map and the extraction emitted a glyph code. 367 of these are in this file and almost all are this same hat. The quote is an exact substring and anchors correctly; the mathematics is unreadable in it. Damage shape 6. Unavoidable here: the sentence&#x27;s subject IS the predictor.</note>
         <quote>Unlike demographic parity, equalized odds allows (cid:98)Y to depend on A but only through the target variable Y . As such, the definition encourages the use of features that allow to directly predict Y , but prohibits abusing A as a proxy for Y .</quote>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>A PROPERTY IS DEFINED FOR PROPERTIES, NOT FOR PREDICTORS: `oblivious` is given a formal definition one level up - a PROPERTY of a predictor or score is oblivious if it depends only on the joint distribution of outcome, protected attribute and prediction. The definition&#x27;s subject is other definitions</term>
+        <note>about this quote: The span contains `(cid:98)Y`, which is Y-hat - the circumflex accent failed to map and the extraction emitted a glyph code. 367 of these are in this file and almost all are this same hat. The quote is an exact substring and anchors correctly; the mathematics is unreadable in it. Damage shape 6. Unavoidable here: the sentence&#x27;s subject IS the predictor.</note>
         <quote>A property of a predictor (cid:98)Y or score R is said to be oblivious if it only depends on the joint distribution of (Y , A, (cid:98)Y ) or (Y , A, R), respectively.</quote>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.85">
@@ -113,6 +117,7 @@
       <span xml:id="t14" type="mechanisms" ana="#mechanisms[11]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>ACCESS TO THE FEATURES DOES NOT RESCUE IT - THE PAPER CLOSES ITS OWN LOOP: without ATTACHING MEANING to the features or making CAUSAL ASSUMPTIONS about them, no further insight into the two scores is gained. Subjective interpretation was excluded in order to make the criterion objective, and here the authors state that without it nothing more can be learned</term>
+        <note>about this quote: RE-SLICED. My first cut ran straight through a WORD-ORDER SCRAMBLE (damage shape 5): the staged text reads &quot;since the distributions , (cid:101)R) agree ... The over (Y , A, R features are correlated&quot;, with two clauses interleaved and a superscript hoisted. It would have been perfectly verbatim and unreadable. The span now keeps only the closing sentence, which carries the claim and is clean.</note>
         <quote>Without attaching meaning to the features or making causal assumptions about them, we do not gain any further insight on the two scores.</quote>
       </span>
       <span xml:id="t15" type="mechanisms" ana="#mechanisms[12]" resp="#tagger" cert="0.95">
@@ -168,7 +173,7 @@
       <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper">
         <label>equalized odds</label>
         <term>equalized odds</term>
-        <quote>As such, the definition encourages the use of features that allow to directly predict Y , but prohibits abusing A as a proxy for Y</quote>
+        <quote>Unlike demographic parity, equalized odds allows (cid:98)Y to depend on A but only through the target variable Y . As such, the definition encourages the use of features that allow to directly predict Y , but prohibits abusing A as a proxy for Y</quote>
       </span>
       <span xml:id="t26" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>equal opportunity</label>
@@ -239,7 +244,7 @@
       </span>
       <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>May 2014 — Obama Big Data report warning on discrimination</label>
-        <quote>In May 2014, the Obama Administration</quote>
+        <quote>In May 2014, the Obama Administration’s Big Data Working Group released a report [PPM+14]</quote>
       </span>
       <span xml:id="t41" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>demographic parity is seriously flawed on two counts</label>
@@ -280,7 +285,7 @@
       <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>demographic parity</label>
         <term>demographic parity</term>
-        <quote>parity requires that a decision</quote>
+        <quote>parity requires that a decision—such as accepting or denying a loan application—be independent of the protected attribute</quote>
       </span>
       <span xml:id="t50" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>fairness through unawareness</label>
@@ -295,7 +300,7 @@
       <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>equal opportunity by design</label>
         <term>equal opportunity by design</term>
-        <quote>as a guiding principle in domains</quote>
+        <quote>A subsequent White House report [Whi16] calls for “equal opportunity by design” as a guiding principle in domains</quote>
       </span>
       <span xml:id="t53" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
@@ -305,6 +310,7 @@
       <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>correlation</label>
         <term>correlation</term>
+        <note>about this quote: 2026-08-25 terminal-a. DAMAGED GLYPHS IN THIS QUOTE: (cid:101). These are raw PDF font glyph indices that leaked out in place of the characters they stand for - usually a mathematical operator. The quote is verbatim to the staged text and its anchor is sound; the STAGED TEXT is what is damaged. NOT repaired: the cid-to-character mapping is defined by the font embedded in that particular PDF, so guessing it would produce a clean and unverifiable quote. Repair needs the source PDF and is a re-staging job.</note>
         <quote>If A and X3, and thus A and Y , are positively correlated, then (cid:101)R would depend inversely on A (see numerical construction below), introducing a form of “corrective</quote>
       </span>
     </spanGrp>

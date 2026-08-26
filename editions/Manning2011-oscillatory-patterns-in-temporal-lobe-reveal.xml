@@ -38,8 +38,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">145 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">148 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -141,7 +141,7 @@
       </span>
       <span xml:id="t22" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>a null in other regions is not read as evidence of absence</label>
-        <note>what this limits: the same scope as item 1 - absence of evidence is not read as evidence of absence</note>
+        <note>duplicate of: limitations[1] · what this limits: the same scope as item 1 - absence of evidence is not read as evidence of absence</note>
         <quote>Our inability to find neural signatures of context reinstatement in extratemporal brain regions does not necessarily mean that those regions are not involved in context reinstatement.</quote>
       </span>
       <span xml:id="t23" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
@@ -186,535 +186,550 @@
         <label>the Hilbert transform on band-passed signals, with power computed across the whole session before segmentation specifically to avoid edge artifacts</label>
         <quote>To reduce edge artifacts, we computed power at each frequency for the entire recording session before parsing the recordings into experimental events.</quote>
       </span>
-      <span xml:id="t32" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
+      <span xml:id="t32" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the analysis checked against rehearsal during study as an alternative source of the temporal context effect</label>
+        <note>eliminates: rehearsal, per se, as the explanation of the neural context-reinstatement finding - the paper reports the check came back against it</note>
+        <quote>S2 ), suggesting that rehearsal during study, per se, is unlikely to account for our findings.</quote>
+      </span>
+      <span xml:id="t33" type="controls" ana="#controls[1]" resp="#tagger" cert="0.85">
+        <label>the feature vectors given enough dimensions that a neural signature of context reinstatement could be observed at all if it were there</label>
+        <note>eliminates: a null that means the measure could not have detected the effect rather than that the effect is absent</note>
+        <quote>First, we wanted to ensure that the feature vectors were of high enough dimensionality that it would be possible to observe neural signatures of context reinstatement ( Fig.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.85">
+        <label>feature vectors</label>
+        <term>feature vectors</term>
+        <quote>In the remainder of this paper, we refer to the set of autocorrelated principal components as feature vectors.</quote>
+      </span>
+      <span xml:id="t35" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
         <label>Rehearsal-based models → context-based models</label>
         <note>THE TWO CANNOT BE SEPARATED IN THIS STUDY - the DESIGN form (Q-286/Q-287). It bounds what the paper&#x27;s own results can mean, and it lives in a methods paragraph where nothing downstream will find it. TWO MODEL CLASSES THAT CANNOT BE TOLD APART BY THE DATA, with the reason given: a context-based mechanism is needed to explain the rehearsal pattern, so the two are entangled by construction.</note>
         <quote>Rehearsal-based models have been shown to be difficult to distinguish from context-based models ( 34 , 35 ), likely because a context-based mechanism is necessary to explain the pattern of rehearsals made in a free-recall task.</quote>
       </span>
-      <span xml:id="t33" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t36" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
         <label>context — as external environmental conditions versus as an internal, ever-changing mental state; the paper&#x27;s theory requires both</label>
         <quote>the reinstatement of a gradually changing context representation that reflects not only external conditions, but also an ever-changing internal context state ( 1 , 2 )</quote>
       </span>
-      <span xml:id="t34" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t37" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>context — operationalised: the principal components whose activity is positively autocorrelated during study, and nothing else</label>
         <quote>In the remainder of this paper, we refer to the set of autocorrelated principal components as feature vectors.</quote>
       </span>
-      <span xml:id="t35" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t38" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>reinstatement — of content (the item&#x27;s own representation) versus of context (the states of its neighbours); the whole design exists to separate these</label>
         <quote>To distinguish between content and context reinstatement, we compared the feature vectors associated with each recall event with the feature vectors associated with the neighbors of the recalled word in the study sequence.</quote>
       </span>
-      <span xml:id="t36" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t39" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>contiguity effect — behavioural (transitions between neighbouring items at recall) versus neural (similarity declining with absolute lag); the paper coins the second and correlates the two</label>
         <quote>Furthermore, the strength of this neural contiguity effect tracks the behavioral contiguity effect in free recall: Participants who exhibit a stronger tendency to make transitions among neighboring items during recall also exhibit a stronger relation between neural similarity and absolute lag.</quote>
       </span>
-      <span xml:id="t37" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+      <span xml:id="t40" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
         <label>contextual features — as environmental cues, as recently studied items, as internal mental states, or as a process evolving randomly; four readings the founding theories left open</label>
         <quote>These contextual features may reflect environmental cues, recently studied items, participants’ internal mental states, or may evolve randomly over time.</quote>
       </span>
-      <span xml:id="t38" type="senses" ana="#senses[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t41" type="senses" ana="#senses[5]" resp="#tagger" cert="1.0">
         <label>gradual change — as evidence for context versus as the signature of any autocorrelated process; the paper insists the first requires more than the second</label>
         <quote>Whereas this gradually changing neural representation is consistent with context-based models, such a result would also be expected to arise as a result of other autocorrelated neural processes that lack the rich dynamics implied by context-based theories of memory.</quote>
       </span>
-      <span xml:id="t39" type="alternatives" ana="#alternatives.method" resp="#tagger">
+      <span xml:id="t42" type="alternatives" ana="#alternatives.method" resp="#tagger">
         <label>method: electrocorticography in epilepsy patients during delayed free recall; oscillatory power in five bands per electrode, reduced by PCA, with components selected for slow autocorrelation during study and tested for similarity to recall-time activity as a function of lag</label>
         <note>a second reading DIFFERING from the recorded value. Recorded: electrophysiology — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note>
         <quote>We constructed a matrix containing, for each electrode, measurements of mean oscillatory power in five frequency bands (δ: 2–4 Hz, θ: 4–8 Hz, α: 8–12 Hz, β: 12–30 Hz, and γ: 30–99 Hz) during each study event (200–1,600 ms relative to each word&#x27;s appearance on screen) and recall event (−600 to 200 ms relative to vocalization).</quote>
       </span>
-      <span xml:id="t40" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger">
+      <span xml:id="t43" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger">
         <label>phenomenon: temporal context reinstatement during episodic memory search</label>
         <note>a second reading DIFFERING from the recorded value. Recorded: temporal context reinstatement during memory search — a second reading, verbatim-verified, disagreeing with the value on the record. Not applied - a person decides.</note>
         <quote>The ability to reinstate this contextual information during memory search has been considered a hallmark of episodic, or event-based, memory.</quote>
       </span>
-      <span xml:id="t41" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → retrieved context theories of episodic memory (refs 1, 5, 6, 24)</label>
         <quote>This pattern of results is exactly what one would predict on the basis of retrieved context theories of episodic memory ( 1 , 5 , 6 , 24 ).</quote>
       </span>
-      <span xml:id="t42" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Tulving (ref 2) - episodic retrieval as mental time travel</label>
         <quote>This notion is consistent with the contention of Tulving ( 2 ) that episodic memory retrieval is like mental time travel, in that when we remember the past, many details of the prior experience are retrieved along with the desired material.</quote>
       </span>
-      <span xml:id="t43" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="1.0">
         <label>supports → retrieved context theories of episodic memory (refs 1, 5, 6, 24), by supplying the neurophysiological evidence they lacked</label>
         <quote>This pattern of results is exactly what one would predict on the basis of retrieved context theories of episodic memory ( 1 , 5 , 6 , 24 ).</quote>
       </span>
-      <span xml:id="t44" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
         <label>extends → prior demonstrations that an item&#x27;s own representation is reinstated at recall (refs 25, 26), by showing the neighbours&#x27; representations return too</label>
         <quote>In recalling a list item, people not only reinstate that item&#x27;s representation, as has been recently documented ( 25 , 26 ), but they also revive the brain activity associated with neighboring items.</quote>
       </span>
-      <span xml:id="t45" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">
         <label>contradicts → theories deriving contiguity from direct item-to-item associations formed within seconds (refs 11–14)</label>
         <quote>This result is difficult to explain according to the view that contiguity arises from direct item-to-item associations that are established within a few seconds, as suggested by other classes of psychological and neurobiological theories ( 11 – 14 ).</quote>
       </span>
-      <span xml:id="t46" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="0.9">
+      <span xml:id="t49" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="0.9">
         <label>critiques → rehearsal-based accounts of the neural contiguity effect, via the absent primacy correlation</label>
         <quote>Nonetheless, it is clear that the mechanisms underlying the primacy effect are unrelated to the neural contiguity effect we observe.</quote>
       </span>
-      <span xml:id="t47" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="0.95">
+      <span xml:id="t50" type="claim_relations" ana="#claim_relations[6]" resp="#tagger" cert="0.95">
         <label>supports → Tulving&#x27;s characterisation of episodic retrieval as mental time travel</label>
         <quote>This notion is consistent with the contention of Tulving ( 2 ) that episodic memory retrieval is like mental time travel, in that when we remember the past, many details of the prior experience are retrieved along with the desired material.</quote>
       </span>
-      <span xml:id="t48" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="0.95">
+      <span xml:id="t51" type="claim_relations" ana="#claim_relations[7]" resp="#tagger" cert="0.95">
         <label>builds-on → the hypothesis that medial temporal lobe and prefrontal cortex maintain and update temporal context</label>
         <quote>For example, recent work has given rise to the hypothesis that the medial temporal lobe ( 23 , 27 – 32 ) and prefrontal cortex ( 22 , 32 , 33 ) are critically involved in the maintenance and updating of temporal context.</quote>
       </span>
-      <span xml:id="t49" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t52" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>context reinstatement —causes→ contiguity effect</label>
         <term>context reinstatement</term>
         <term>contiguity effect</term>
         <note>strength of the relation: 0.8</note>
         <quote>Recent neurocomputational models of episodic memory ( 5 , 6 ) suggest that contextual reinstatement underlies the contiguity effect: people&#x27;s tendency to successively recall items that were presented in nearby positions on a studied list ( 7 ).</quote>
       </span>
-      <span xml:id="t50" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t53" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>contiguity effect —is-a→ temporal clustering</label>
         <term>contiguity effect</term>
         <term>temporal clustering</term>
         <note>strength of the relation: 0.95</note>
         <quote>The contiguity effect is an example of temporal clustering, which is perhaps the dominant form of organization in free recall.</quote>
       </span>
-      <span xml:id="t51" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+      <span xml:id="t54" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
         <label>episodic memory —contrasted-with→ semantic memory</label>
         <term>episodic memory</term>
         <term>semantic memory</term>
         <note>strength of the relation: 0.95</note>
         <quote>The pivotal distinction between memory for facts (semantic memory) and memory for episodes or experiences (episodic memory) has been argued to reflect, at least in part, the reinstatement of a gradually changing context representation that reflects not only external conditions, but also an ever-changing internal context state ( 1 , 2 ).</quote>
       </span>
-      <span xml:id="t52" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+      <span xml:id="t55" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
         <label>content reinstatement —distinct-from→ context reinstatement</label>
         <term>content reinstatement</term>
         <term>context reinstatement</term>
         <note>strength of the relation: 1</note>
         <quote>To distinguish between content and context reinstatement, we compared the feature vectors associated with each recall event with the feature vectors associated with the neighbors of the recalled word in the study sequence.</quote>
       </span>
-      <span xml:id="t53" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
+      <span xml:id="t56" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
         <label>temporal context —operationalised-as→ autocorrelation</label>
         <term>temporal context</term>
         <term>autocorrelation</term>
         <note>strength of the relation: 1</note>
         <quote>we selected PCA-derived features from study events that showed significant positive autocorrelations ( Materials and Methods ), a defining feature of temporal context, for further analysis</quote>
       </span>
-      <span xml:id="t54" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">
         <label>temporal context —operationalised-as→ feature vectors</label>
         <term>temporal context</term>
         <term>feature vectors</term>
         <note>strength of the relation: 0.95</note>
         <quote>In the remainder of this paper, we refer to the set of autocorrelated principal components as feature vectors.</quote>
       </span>
-      <span xml:id="t55" type="concept_edges" ana="#concept_edges[6]" resp="#tagger">
+      <span xml:id="t58" type="concept_edges" ana="#concept_edges[6]" resp="#tagger">
         <label>context reinstatement —operationalised-as→ neural similarity</label>
         <term>context reinstatement</term>
         <term>neural similarity</term>
         <note>strength of the relation: 0.95</note>
-        <quote>we calculated the similarity between the feature vector associated with the recall event and the feature vectors associated with each of the studied items (e.g., ant , tape , nose , vase , sheep ), where similarity is defined as the normalized dot product between the feature vectors (the vectors were normalized to have unit length before the dot product was performed)</quote>
+        <quote>Of these three simulations, only the context reinstatement model predicts that neural similarity will decrease substantially with absolute lag in both the positive and negative directions, as observed in the neural data (further details and discussion are provided in SI Materials and Methods ).</quote>
       </span>
-      <span xml:id="t56" type="concept_edges" ana="#concept_edges[7]" resp="#tagger">
+      <span xml:id="t59" type="concept_edges" ana="#concept_edges[7]" resp="#tagger">
         <label>rehearsal-based models —contrasted-with→ retrieved context theories</label>
         <term>rehearsal-based models</term>
         <term>retrieved context theories</term>
         <note>strength of the relation: 0.9</note>
         <quote>Rehearsal-based models have been shown to be difficult to distinguish from context-based models ( 34 , 35 ), likely because a context-based mechanism is necessary to explain the pattern of rehearsals made in a free-recall task.</quote>
       </span>
-      <span xml:id="t57" type="concept_edges" ana="#concept_edges[8]" resp="#tagger">
+      <span xml:id="t60" type="concept_edges" ana="#concept_edges[8]" resp="#tagger">
         <label>autocorrelated noise —contrasted-with→ context reinstatement</label>
         <term>autocorrelated noise</term>
         <term>context reinstatement</term>
         <note>strength of the relation: 0.95</note>
         <quote>Of these three simulations, only the context reinstatement model predicts that neural similarity will decrease substantially with absolute lag in both the positive and negative directions, as observed in the neural data (further details and discussion are provided in SI Materials and Methods ).</quote>
       </span>
-      <span xml:id="t58" type="concept_edges" ana="#concept_edges[9]" resp="#tagger">
+      <span xml:id="t61" type="concept_edges" ana="#concept_edges[9]" resp="#tagger">
         <label>free recall —contrasted-with→ cued recall</label>
         <term>free recall</term>
         <term>cued recall</term>
         <note>strength of the relation: 0.9</note>
         <quote>A number of laboratory memory tasks rely on episodic memory, including experimenter-cued tasks (e.g., item recognition and cued recall) and self-cued tasks (e.g., free recall).</quote>
       </span>
-      <span xml:id="t59" type="concept_edges" ana="#concept_edges[10]" resp="#tagger">
+      <span xml:id="t62" type="concept_edges" ana="#concept_edges[10]" resp="#tagger">
         <label>medial temporal lobe —part-of→ temporal lobe</label>
         <term>medial temporal lobe</term>
         <term>temporal lobe</term>
         <note>strength of the relation: 0.95</note>
         <quote>temporal lobe (including the hippocampus and medial temporal lobe), frontal lobe (including prefrontal cortex), parietal lobe, and occipital lobe</quote>
       </span>
-      <span xml:id="t60" type="concept_edges" ana="#concept_edges[11]" resp="#tagger">
+      <span xml:id="t63" type="concept_edges" ana="#concept_edges[11]" resp="#tagger">
         <label>rehearsal-based models —operationalised-as→ primacy effect</label>
         <term>rehearsal-based models</term>
         <term>primacy effect</term>
         <note>strength of the relation: 0.85</note>
         <quote>It has been well established that rehearsal is associated with enhanced recall for early list items [i.e., the primacy effect ( 36 – 40 )].</quote>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
-        <quote>For each participant, we regressed the mean neural similarity between feature vectors on lag separately for positive and negative lags (two regressions were performed for each participant).</quote>
+        <quote>For each participant, we regressed the mean neural similarity between feature vectors on lag separately for positive and negative lags (two regressions were performed for each participant). Each regression</quote>
       </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>t-test</label>
         <term>t-test</term>
         <quote>We found that the mean neural similarity at lag = 0 was significantly greater than the mean neural similarity at other lags [paired-sample t test across 39 participants with at least 5 autocorrelated features: t (38) = 3.10, P = 0.004; Fig. 4 A ].</quote>
       </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t66" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>t-test</label>
         <term>t-test</term>
         <quote>The similarity in recorded activity during each pair of word presentations decreased with the positional distance between the presentations [ t test on distribution of t values from the regressions: t (68) = −9.31, P &lt; 10 −10 ], indicating that the ECoG recordings evolve gradually over the course of the studied lists.</quote>
       </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>correlation</label>
         <term>correlation</term>
         <quote>Consistent with the hypothesis that the contiguity effect arises due to context reinstatement ( 5 , 6 , 24 ), participants with stronger neural signatures of context reinstatement exhibited more pronounced contiguity effects than did participants with weaker reinstatement effects ( r = 0.42, P = 0.007; Fig. 4 C ).</quote>
       </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t68" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>principal components analysis</label>
         <term>principal components analysis</term>
         <quote>We then used principal components analysis (PCA) to distill these highly correlated neural features into a smaller number of orthogonal components ( Fig. 1 C ).</quote>
       </span>
-      <span xml:id="t66" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t69" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>Kaiser criterion for component retention</label>
         <term>Kaiser criterion for component retention</term>
         <quote>We used the Kaiser criterion to choose, for each participant, the principal components that explained a substantial proportion of the variance ( 44 ).</quote>
       </span>
-      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>autocorrelation</label>
         <term>autocorrelation</term>
         <quote>We select those components that show significant positive autocorrelation (a defining feature of temporal context) during the study phase of the experiment.</quote>
       </span>
-      <span xml:id="t68" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>z-score standardisation</label>
         <term>z-score standardisation</term>
         <quote>Before applying PCA to the frequency × electrode matrices ( Fig. 1 B ), we z -transformed power values relative to the distribution of all events in the recording session (the z -transformation was performed independently for each frequency-electrode pair).</quote>
       </span>
-      <span xml:id="t69" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+      <span xml:id="t72" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
         <label>standard error of the mean</label>
         <term>standard error of the mean</term>
         <quote>Error bars in A and B denote ±1 SEM.</quote>
       </span>
-      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t73" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger" cert="1.0">
         <label>t test</label>
         <term>t test</term>
         <quote>t test on distribution of t values from the regressions: t (68) = −9.31, P &lt; 10 −10</quote>
       </span>
-      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t74" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger" cert="1.0">
         <label>paired-sample t test</label>
         <term>paired-sample t test</term>
         <quote>paired-sample t test across 39 participants with at least 5 autocorrelated features: t (38) = 3.10, P = 0.004</quote>
       </span>
-      <span xml:id="t72" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t75" type="content_tags" ana="#content_tags.statistics[11]" resp="#tagger" cert="1.0">
         <label>β coefficient</label>
         <term>β coefficient</term>
         <quote>Each regression yielded a t value associated with the slope (β coefficient) of the fitted line.</quote>
       </span>
-      <span xml:id="t73" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t76" type="content_tags" ana="#content_tags.statistics[12]" resp="#tagger" cert="1.0">
         <label>principal components analysis</label>
         <term>principal components analysis</term>
         <quote>We then used principal components analysis (PCA) to distill these highly correlated neural features into a smaller number of orthogonal components</quote>
       </span>
-      <span xml:id="t74" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t77" type="content_tags" ana="#content_tags.statistics[13]" resp="#tagger" cert="1.0">
         <label>Kaiser criterion</label>
         <term>Kaiser criterion</term>
         <quote>We used the Kaiser criterion to choose, for each participant, the principal components that explained a substantial proportion of the variance ( 44 ).</quote>
       </span>
-      <span xml:id="t75" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t78" type="content_tags" ana="#content_tags.statistics[14]" resp="#tagger" cert="1.0">
         <label>z -transformed</label>
         <term>z -transformed</term>
         <quote>we z -transformed power values relative to the distribution of all events in the recording session (the z -transformation was performed independently for each frequency-electrode pair)</quote>
       </span>
-      <span xml:id="t76" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t79" type="content_tags" ana="#content_tags.statistics[15]" resp="#tagger" cert="1.0">
         <label>SEM</label>
         <term>SEM</term>
         <quote>Error bars denote ±1 SEM.</quote>
       </span>
-      <span xml:id="t77" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t80" type="content_tags" ana="#content_tags.statistics[16]" resp="#tagger" cert="1.0">
         <label>normalized dot product</label>
         <term>normalized dot product</term>
         <quote>We then compute the similarity (normalized dot product) between the feature vectors of each recall event (e.g., “nose”) and the feature vectors associated with the corresponding study event (lag = 0), as well as the similarity of the recall event to surrounding study events with varying lags.</quote>
       </span>
-      <span xml:id="t78" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t81" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Neural similarity between pairs of studied words fell off as the distance between their serial positions grew, showing that the ECoG signal drifts gradually across a list.</label>
         <quote>The similarity in recorded activity during each pair of word presentations decreased with the positional distance between the presentations [ t test on distribution of t values from the regressions: t (68) = −9.31, P &lt; 10 −10 ], indicating that the ECoG recordings evolve gradually over the course of the studied lists.</quote>
       </span>
-      <span xml:id="t79" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t82" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Brain activity recorded just before a word was recalled was more similar to activity during study of that same word than to activity during study of any other list word.</label>
         <quote>We found that the mean neural similarity at lag = 0 was significantly greater than the mean neural similarity at other lags [paired-sample t test across 39 participants with at least 5 autocorrelated features: t (38) = 3.10, P = 0.004; Fig. 4 A ].</quote>
       </span>
-      <span xml:id="t80" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t83" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>Similarity between recall activity and study activity declined with absolute lag in both the forward and backward directions, the pattern predicted by context reinstatement rather than item-content reinstatement.</label>
         <quote>Consistent with the context-reinstatement hypothesis, t tests on the distributions of t values across participants indicated that similarity decreased with absolute lag in both the positive [ t (38) = −3.63, P = 0.0008] and negative [ t (38) = −2.42, P = 0.02] directions ( Fig. 4 A ).</quote>
       </span>
-      <span xml:id="t81" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t84" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>Participants whose neural reinstatement effect was stronger also recalled neighbouring list items successively more often, linking the neural signature to the behavioural contiguity effect.</label>
         <quote>Consistent with the hypothesis that the contiguity effect arises due to context reinstatement ( 5 , 6 , 24 ), participants with stronger neural signatures of context reinstatement exhibited more pronounced contiguity effects than did participants with weaker reinstatement effects ( r = 0.42, P = 0.007; Fig. 4 C ).</quote>
       </span>
-      <span xml:id="t82" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+      <span xml:id="t85" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
         <label>Restricting the analysis to temporal lobe electrodes still produced the graded decrease of similarity with lag in both directions.</label>
         <quote>We found that neural activity recorded from temporal lobe electrodes exhibited a decrease in similarity with increasing absolute lag in both the positive and negative directions [positive: t (20) = −2.20, P = 0.04; negative: t (20) = −2.82, P = 0.01; Fig. 5 B ].</quote>
       </span>
-      <span xml:id="t83" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
+      <span xml:id="t86" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
         <label>The frontal-lobe reinstatement signature showed no relationship to how strongly participants clustered their recalls in time, unlike the temporal-lobe signature.</label>
         <quote>However, this frontal signature of context reinstatement was not correlated with temporal clustering of participants’ recalls ( r = −0.08, P = 0.73).</quote>
       </span>
-      <span xml:id="t84" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
+      <span xml:id="t87" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
         <label>Primacy strength was unrelated to neural contiguity, arguing against rehearsal during study as the source of the reinstatement effect.</label>
         <quote>We observed no significant correlation between primacy and neural contiguity ( r = 0.13, P = 0.42; SI Materials and Methods, Analysis Methods and Fig. S2 ), suggesting that rehearsal during study, per se, is unlikely to account for our findings.</quote>
       </span>
-      <span xml:id="t85" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
+      <span xml:id="t88" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
         <label>The forward asymmetry that characterises behavioural contiguity was absent from the neural similarity data and from the context-reinstatement simulation.</label>
         <quote>However, the forward asymmetry in the contiguity effect ( Fig. 4 B ) is evident in neither the neural data ( Fig. 4 A ) nor our simulation of context reinstatement ( Fig. 3 F ).</quote>
       </span>
-      <span xml:id="t86" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger">
+      <span xml:id="t89" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger">
         <label>Among the autocorrelated-noise, content-reinstatement and context-reinstatement simulations, only the context-reinstatement network reproduced the observed symmetric decline of similarity with lag.</label>
         <quote>Of these three simulations, only the context reinstatement model predicts that neural similarity will decrease substantially with absolute lag in both the positive and negative directions, as observed in the neural data</quote>
       </span>
-      <span xml:id="t87" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t90" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="1.0">
         <label>neural similarity between two study events fell with the positional distance between them, so the recording drifts gradually across a list</label>
         <quote>decreased with the positional distance between the presentations [ t test on distribution of t values from the regressions: t (68) = −9.31, P &lt; 10 −10 ], indicating that the ECoG recordings evolve gradually over the course of the studied lists</quote>
       </span>
-      <span xml:id="t88" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t91" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="1.0">
         <label>recall-time activity was most similar to study of the same word, at lag zero</label>
         <quote>We found that the mean neural similarity at lag = 0 was significantly greater than the mean neural similarity at other lags [paired-sample t test across 39 participants with at least 5 autocorrelated features: t (38) = 3.10, P = 0.004; Fig. 4 A ]</quote>
       </span>
-      <span xml:id="t89" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t92" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="1.0">
         <label>similarity also declined with absolute lag in both directions — the signature that separates context from content</label>
         <quote>Consistent with the context-reinstatement hypothesis, t tests on the distributions of t values across participants indicated that similarity decreased with absolute lag in both the positive [ t (38) = −3.63, P = 0.0008] and negative [ t (38) = −2.42, P = 0.02] directions ( Fig. 4 A ).</quote>
       </span>
-      <span xml:id="t90" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t93" type="content_tags" ana="#content_tags.findings[12]" resp="#tagger" cert="1.0">
         <label>patients with a stronger neural reinstatement signature showed a stronger behavioural contiguity effect</label>
         <quote>participants with stronger neural signatures of context reinstatement exhibited more pronounced contiguity effects than did participants with weaker reinstatement effects ( r = 0.42, P = 0.007; Fig. 4 C )</quote>
       </span>
-      <span xml:id="t91" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t94" type="content_tags" ana="#content_tags.findings[13]" resp="#tagger" cert="1.0">
         <label>temporal lobe electrodes showed the bidirectional lag decay, and the effect there tracked behavioural clustering</label>
         <quote>As in the whole-brain analysis, the neural signature of context reinstatement in the temporal lobe was significantly correlated with the temporal clustering of participants’ recalls ( r = 0.48, P = 0.03; Fig. 5 C ).</quote>
       </span>
-      <span xml:id="t92" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t95" type="content_tags" ana="#content_tags.findings[14]" resp="#tagger" cert="1.0">
         <label>the frontal lobe signature did not track behavioural clustering</label>
         <quote>However, this frontal signature of context reinstatement was not correlated with temporal clustering of participants’ recalls ( r = −0.08, P = 0.73).</quote>
       </span>
-      <span xml:id="t93" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t96" type="content_tags" ana="#content_tags.findings[15]" resp="#tagger" cert="1.0">
         <label>neural contiguity did not correlate with the primacy effect, arguing against a rehearsal account</label>
         <quote>We observed no significant correlation between primacy and neural contiguity ( r = 0.13, P = 0.42; SI Materials and Methods, Analysis Methods and Fig. S2 ), suggesting that rehearsal during study, per se, is unlikely to account for our findings.</quote>
       </span>
-      <span xml:id="t94" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t97" type="content_tags" ana="#content_tags.findings[16]" resp="#tagger" cert="1.0">
         <label>the forward asymmetry of the behavioural contiguity effect was absent from the neural data and from the context simulation alike</label>
         <quote>However, the forward asymmetry in the contiguity effect ( Fig. 4 B ) is evident in neither the neural data ( Fig. 4 A ) nor our simulation of context reinstatement ( Fig. 3 F ).</quote>
       </span>
-      <span xml:id="t95" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t98" type="content_tags" ana="#content_tags.findings[17]" resp="#tagger" cert="1.0">
         <label>only the context reinstatement simulation reproduced bidirectional decay; noise and content models did not</label>
         <quote>Of these three simulations, only the context reinstatement model predicts that neural similarity will decrease substantially with absolute lag in both the positive and negative directions, as observed in the neural data (further details and discussion are provided in SI Materials and Methods ).</quote>
       </span>
-      <span xml:id="t96" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">
+      <span xml:id="t99" type="content_tags" ana="#content_tags.findings[18]" resp="#tagger" cert="1.0">
         <label>participants recalled 22.7% of studied words, with about a third of all responses being repetitions or intrusions</label>
         <quote>Participants recalled 22.7 ± 1.0% (mean ± SEM) of the studied words. Repetitions and incorrect recalls (32.4 ± 2.6% of all responses) were excluded from our analyses, as were responses that occurred within 1 s of a prior vocalization.</quote>
       </span>
-      <span xml:id="t97" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">
+      <span xml:id="t100" type="content_tags" ana="#content_tags.findings[19]" resp="#tagger" cert="1.0">
         <label>of temporal lobe electrodes, 13.9% were in hippocampus and 27.0% in other medial temporal structures</label>
         <quote>Of the temporal lobe electrodes, 13.9% were located in hippocampus, 27.0% were located in medial temporal lobe structures (excluding hippocampus), and the remaining 59.1% were located in other temporal lobe regions.</quote>
       </span>
-      <span xml:id="t98" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t101" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>contiguity effect</label>
         <term>contiguity effect</term>
         <quote>Recent neurocomputational models of episodic memory ( 5 , 6 ) suggest that contextual reinstatement underlies the contiguity effect: people&#x27;s tendency to successively recall items that were presented in nearby positions on a studied list ( 7 ).</quote>
       </span>
-      <span xml:id="t99" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t102" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>feature vectors</label>
         <term>feature vectors</term>
         <quote>In the remainder of this paper, we refer to the set of autocorrelated principal components as feature vectors.</quote>
       </span>
-      <span xml:id="t100" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t103" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>lag</label>
         <term>lag</term>
         <quote>We assigned each studied item a lag (positional distance) relative to the recalled item (e.g., vase has a lag of +1 to “nose”, ant has a lag of −2 to “nose”, and nose has a lag of 0 to “nose”).</quote>
       </span>
-      <span xml:id="t101" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t104" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>context (for a target event)</label>
         <term>context (for a target event)</term>
         <quote>The events surrounding a target event, and the thoughts they evoke, may be considered to represent a context for the target event, helping to distinguish that event from similar events experienced at different times.</quote>
       </span>
-      <span xml:id="t102" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
+      <span xml:id="t105" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
         <label>temporal clustering score</label>
         <term>temporal clustering score</term>
         <quote>The temporal clustering score measures the degree to which responses were clustered on the basis of their temporal contiguity at study ( SI Materials and Methods, Analysis Methods ).</quote>
       </span>
-      <span xml:id="t103" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
+      <span xml:id="t106" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="1.0">
         <label>context</label>
         <term>context</term>
         <quote>The events surrounding a target event, and the thoughts they evoke, may be considered to represent a context for the target event, helping to distinguish that event from similar events experienced at different times.</quote>
       </span>
-      <span xml:id="t104" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t107" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="1.0">
         <label>contiguity effect</label>
         <term>contiguity effect</term>
         <quote>the contiguity effect: people&#x27;s tendency to successively recall items that were presented in nearby positions on a studied list</quote>
       </span>
-      <span xml:id="t105" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t108" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="1.0">
         <label>lag</label>
         <term>lag</term>
         <quote>We assigned each studied item a lag (positional distance) relative to the recalled item</quote>
       </span>
-      <span xml:id="t106" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t109" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="1.0">
         <label>similarity</label>
         <term>similarity</term>
         <quote>where similarity is defined as the normalized dot product between the feature vectors (the vectors were normalized to have unit length before the dot product was performed)</quote>
       </span>
-      <span xml:id="t107" type="content_tags" ana="#content_tags.definitions[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t110" type="content_tags" ana="#content_tags.definitions[9]" resp="#tagger" cert="1.0">
         <label>feature vectors</label>
         <term>feature vectors</term>
         <quote>In the remainder of this paper, we refer to the set of autocorrelated principal components as feature vectors.</quote>
       </span>
-      <span xml:id="t108" type="content_tags" ana="#content_tags.definitions[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t111" type="content_tags" ana="#content_tags.definitions[10]" resp="#tagger" cert="1.0">
         <label>temporal clustering score</label>
         <term>temporal clustering score</term>
         <quote>The temporal clustering score measures the degree to which responses were clustered on the basis of their temporal contiguity at study</quote>
       </span>
-      <span xml:id="t109" type="content_tags" ana="#content_tags.definitions[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t112" type="content_tags" ana="#content_tags.definitions[11]" resp="#tagger" cert="1.0">
         <label>context representation</label>
         <term>context representation</term>
         <quote>context representations are composed of many features that fluctuate from moment to moment, gradually drifting through a multidimensional feature space</quote>
       </span>
-      <span xml:id="t110" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t113" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>lag (positional distance between a recalled item and a studied item)</label>
         <term>lag (positional distance between a recalled item and a studied item)</term>
         <quote>For each participant, we regressed the mean neural similarity between feature vectors on lag separately for positive and negative lags (two regressions were performed for each participant).</quote>
       </span>
-      <span xml:id="t111" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t114" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>neural similarity between feature vectors (normalized dot product)</label>
         <term>neural similarity between feature vectors (normalized dot product)</term>
         <quote>For each participant, we regressed the mean neural similarity between feature vectors on lag separately for positive and negative lags (two regressions were performed for each participant).</quote>
       </span>
-      <span xml:id="t112" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t115" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>oscillatory power in five frequency bands at each electrode</label>
         <term>oscillatory power in five frequency bands at each electrode</term>
         <quote>We constructed a matrix containing, for each electrode, measurements of mean oscillatory power in five frequency bands (δ: 2–4 Hz, θ: 4–8 Hz, α: 8–12 Hz, β: 12–30 Hz, and γ: 30–99 Hz) during each study event (200–1,600 ms relative to each word&#x27;s appearance on screen) and recall event (−600 to 200 ms relative to vocalization).</quote>
       </span>
-      <span xml:id="t113" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t116" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>temporal clustering score of recall transitions</label>
         <term>temporal clustering score of recall transitions</term>
         <quote>The temporal clustering score measures the degree to which responses were clustered on the basis of their temporal contiguity at study ( SI Materials and Methods, Analysis Methods ).</quote>
       </span>
-      <span xml:id="t114" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+      <span xml:id="t117" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
         <label>word presentation duration (fixed at 1,600 ms for every item)</label>
         <term>word presentation duration (fixed at 1,600 ms for every item)</term>
         <quote>Following a fixation cue, the computer displayed each word for 1,600 ms, followed by an 800- to 1,200-ms blank interstimulus interval.</quote>
       </span>
-      <span xml:id="t115" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
+      <span xml:id="t118" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
         <label>18-s arithmetic distractor interposed between study and recall on every list</label>
         <term>18-s arithmetic distractor interposed between study and recall on every list</term>
         <quote>For 18 s following list presentation, participants solved a series of single-digit addition problems of the form A + B + C = X.</quote>
       </span>
-      <span xml:id="t116" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="1.0">
+      <span xml:id="t119" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="1.0">
         <label>lag</label>
         <term>lag</term>
         <quote>We assigned each studied item a lag (positional distance) relative to the recalled item</quote>
       </span>
-      <span xml:id="t117" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t120" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="1.0">
         <label>neural similarity</label>
         <term>neural similarity</term>
         <quote>Mean neural similarity is shown as a function of study distance (difference in serial position) between pairs of presented words.</quote>
       </span>
-      <span xml:id="t118" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t121" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="1.0">
         <label>temporal clustering score</label>
         <term>temporal clustering score</term>
         <quote>The temporal clustering score measures the degree to which responses were clustered on the basis of their temporal contiguity at study</quote>
       </span>
-      <span xml:id="t119" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t122" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="1.0">
         <label>mean oscillatory power</label>
         <term>mean oscillatory power</term>
         <quote>measurements of mean oscillatory power in five frequency bands</quote>
       </span>
-      <span xml:id="t120" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t123" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="1.0">
         <label>serial position</label>
         <term>serial position</term>
         <quote>First, we identified the serial position (on the studied list) of each correctly recalled word.</quote>
       </span>
-      <span xml:id="t121" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t124" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="1.0">
         <label>region of interest</label>
         <term>region of interest</term>
         <quote>We divided our dataset into four regions of interest: temporal lobe (blue, 1,815 electrodes), frontal lobe (red, 1,737 electrodes), parietal lobe (yellow, 512 electrodes), and occipital lobe (green, 138 electrodes).</quote>
       </span>
-      <span xml:id="t122" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t125" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>69 — number of neurosurgical epilepsy patients whose intracranial recordings were analysed</label>
         <quote>To test the context reinstatement hypothesis, we studied 69 neurosurgical patients who were implanted with subdural electrode arrays and depth electrodes during treatment for drug-resistant epilepsy.</quote>
       </span>
-      <span xml:id="t123" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t126" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>22.7 ± 1.0% — proportion of studied words that participants recalled, mean ± SEM</label>
         <quote>Participants recalled 22.7 ± 1.0% (mean ± SEM) of the studied words.</quote>
       </span>
-      <span xml:id="t124" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t127" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>r = 0.42, P = 0.007 — across-participant correlation between the whole-brain neural reinstatement measure and behavioural temporal clustering</label>
         <quote>Consistent with the hypothesis that the contiguity effect arises due to context reinstatement ( 5 , 6 , 24 ), participants with stronger neural signatures of context reinstatement exhibited more pronounced contiguity effects than did participants with weaker reinstatement effects ( r = 0.42, P = 0.007; Fig. 4 C ).</quote>
       </span>
-      <span xml:id="t125" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+      <span xml:id="t128" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>r = 0.48, P = 0.03 — correlation between the temporal-lobe reinstatement signature and behavioural temporal clustering</label>
         <quote>As in the whole-brain analysis, the neural signature of context reinstatement in the temporal lobe was significantly correlated with the temporal clustering of participants’ recalls ( r = 0.48, P = 0.03; Fig. 5 C ).</quote>
       </span>
-      <span xml:id="t126" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+      <span xml:id="t129" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>1,815 / 1,737 / 512 / 138 — electrodes assigned to the temporal, frontal, parietal and occipital regions of interest</label>
         <quote>We divided our dataset into four regions of interest: temporal lobe (blue, 1,815 electrodes), frontal lobe (red, 1,737 electrodes), parietal lobe (yellow, 512 electrodes), and occipital lobe (green, 138 electrodes).</quote>
       </span>
-      <span xml:id="t127" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
+      <span xml:id="t130" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
         <label>132 (of 144) — recording sessions in which gradually changing candidate context features could be identified</label>
         <quote>Features that met these criteria were identified in 132 (of 144) recording sessions.</quote>
       </span>
-      <span xml:id="t128" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
+      <span xml:id="t131" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
         <label>13.9% / 27.0% / 59.1% — share of temporal-lobe electrodes in hippocampus, in other medial temporal lobe structures, and elsewhere in temporal lobe</label>
         <quote>Of the temporal lobe electrodes, 13.9% were located in hippocampus, 27.0% were located in medial temporal lobe structures (excluding hippocampus), and the remaining 59.1% were located in other temporal lobe regions.</quote>
       </span>
-      <span xml:id="t129" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">
+      <span xml:id="t132" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="1.0">
         <label>69 patients — neurosurgical patients recorded</label>
         <quote>we studied 69 neurosurgical patients who were implanted with subdural electrode arrays and depth electrodes during treatment for drug-resistant epilepsy</quote>
       </span>
-      <span xml:id="t130" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
+      <span xml:id="t133" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="1.0">
         <label>39 participants — those with at least five autocorrelated features, on whom the main tests were run</label>
         <quote>paired-sample t test across 39 participants with at least 5 autocorrelated features: t (38) = 3.10, P = 0.004</quote>
       </span>
-      <span xml:id="t131" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">
+      <span xml:id="t134" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="1.0">
         <label>132 of 144 sessions — recording sessions in which context features were found at all</label>
         <quote>Features that met these criteria were identified in 132 (of 144) recording sessions.</quote>
       </span>
-      <span xml:id="t132" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
+      <span xml:id="t135" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="1.0">
         <label>68 sessions — further sessions excluded for having fewer than five candidate features</label>
         <quote>We further excluded an additional 68 sessions in which fewer than five candidate context features were identified.</quote>
       </span>
-      <span xml:id="t133" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="1.0">
+      <span xml:id="t136" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="1.0">
         <label>δ: 2–4 Hz, θ: 4–8 Hz, α: 8–12 Hz, β: 12–30 Hz, and γ: 30–99 Hz — the five frequency bands in which power was measured</label>
         <quote>measurements of mean oscillatory power in five frequency bands (δ: 2–4 Hz, θ: 4–8 Hz, α: 8–12 Hz, β: 12–30 Hz, and γ: 30–99 Hz)</quote>
       </span>
-      <span xml:id="t134" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">
+      <span xml:id="t137" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="1.0">
         <label>200–1,600 ms — the study-event window relative to word onset</label>
         <quote>during each study event (200–1,600 ms relative to each word&#x27;s appearance on screen)</quote>
       </span>
-      <span xml:id="t135" type="content_tags" ana="#content_tags.quantities[13]" resp="#tagger" cert="1.0">
+      <span xml:id="t138" type="content_tags" ana="#content_tags.quantities[13]" resp="#tagger" cert="1.0">
         <label>−600 to 200 ms — the recall-event window relative to vocalization — mostly before the word is spoken</label>
         <quote>and recall event (−600 to 200 ms relative to vocalization)</quote>
       </span>
-      <span xml:id="t136" type="content_tags" ana="#content_tags.quantities[14]" resp="#tagger" cert="1.0">
+      <span xml:id="t139" type="content_tags" ana="#content_tags.quantities[14]" resp="#tagger" cert="1.0">
         <label>22.7 ± 1.0% — proportion of studied words recalled</label>
         <quote>Participants recalled 22.7 ± 1.0% (mean ± SEM) of the studied words.</quote>
       </span>
-      <span xml:id="t137" type="content_tags" ana="#content_tags.quantities[15]" resp="#tagger" cert="1.0">
+      <span xml:id="t140" type="content_tags" ana="#content_tags.quantities[15]" resp="#tagger" cert="1.0">
         <label>32.4 ± 2.6% — share of all responses that were repetitions or incorrect</label>
         <quote>Repetitions and incorrect recalls (32.4 ± 2.6% of all responses) were excluded from our analyses</quote>
       </span>
-      <span xml:id="t138" type="content_tags" ana="#content_tags.quantities[16]" resp="#tagger" cert="1.0">
+      <span xml:id="t141" type="content_tags" ana="#content_tags.quantities[16]" resp="#tagger" cert="1.0">
         <label>r = 0.42, P = 0.007 — correlation between neural reinstatement and behavioural contiguity across patients</label>
         <quote>( r = 0.42, P = 0.007; Fig. 4 C )</quote>
       </span>
-      <span xml:id="t139" type="content_tags" ana="#content_tags.quantities[17]" resp="#tagger" cert="1.0">
+      <span xml:id="t142" type="content_tags" ana="#content_tags.quantities[17]" resp="#tagger" cert="1.0">
         <label>r = 0.48, P = 0.03 — the same correlation restricted to temporal lobe electrodes</label>
         <quote>the neural signature of context reinstatement in the temporal lobe was significantly correlated with the temporal clustering of participants’ recalls ( r = 0.48, P = 0.03; Fig. 5 C )</quote>
       </span>
-      <span xml:id="t140" type="content_tags" ana="#content_tags.quantities[18]" resp="#tagger" cert="1.0">
+      <span xml:id="t143" type="content_tags" ana="#content_tags.quantities[18]" resp="#tagger" cert="1.0">
         <label>1,815 / 1,737 / 512 / 138 electrodes — electrode counts in temporal, frontal, parietal and occipital regions</label>
         <quote>temporal lobe (blue, 1,815 electrodes), frontal lobe (red, 1,737 electrodes), parietal lobe (yellow, 512 electrodes), and occipital lobe (green, 138 electrodes)</quote>
       </span>
-      <span xml:id="t141" type="content_tags" ana="#content_tags.quantities[19]" resp="#tagger" cert="1.0">
+      <span xml:id="t144" type="content_tags" ana="#content_tags.quantities[19]" resp="#tagger" cert="1.0">
         <label>15 or 20 nouns — list length in the free recall task</label>
         <quote>Participants studied lists of 15 or 20 high-frequency nouns for a delayed free recall task.</quote>
       </span>
-      <span xml:id="t142" type="content_tags" ana="#content_tags.quantities[20]" resp="#tagger" cert="1.0">
+      <span xml:id="t145" type="content_tags" ana="#content_tags.quantities[20]" resp="#tagger" cert="1.0">
         <label>1,600 ms / 800- to 1,200-ms — word presentation duration and interstimulus interval</label>
         <quote>the computer displayed each word for 1,600 ms, followed by an 800- to 1,200-ms blank interstimulus interval</quote>
       </span>
-      <span xml:id="t143" type="content_tags" ana="#content_tags.quantities[21]" resp="#tagger" cert="1.0">
+      <span xml:id="t146" type="content_tags" ana="#content_tags.quantities[21]" resp="#tagger" cert="1.0">
         <label>18 s / 45 s — arithmetic distractor duration and the recall period</label>
         <quote>For 18 s following list presentation, participants solved a series of single-digit addition problems of the form A + B + C = X. Participants were then given 45 s to recall list items in any order.</quote>
       </span>
-      <span xml:id="t144" type="content_tags" ana="#content_tags.quantities[22]" resp="#tagger" cert="1.0">
+      <span xml:id="t147" type="content_tags" ana="#content_tags.quantities[22]" resp="#tagger" cert="1.0">
         <label>1 to 4 wk — duration electrodes remained implanted</label>
         <quote>who had arrays of subdural and/or depth electrodes surgically implanted for 1 to 4 wk to localize the sites of seizure onset</quote>
       </span>

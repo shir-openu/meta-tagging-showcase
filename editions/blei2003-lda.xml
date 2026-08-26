@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">36 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">41 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -90,128 +90,154 @@
         <note>what this limits: any use of a topic model over a corpus with an order that matters, such as a diachronic study: the methods assume documents are exchangeable, so the specific ordering of documents in a corpus can be neglected, which the authors note is less often stated formally</note>
         <quote>All of these methods are based on the “bag-of-words” assumption—that the order of words in a document can be neglected. In the language of probability theory, this is an assumption of exchangeability for the words in a document (Aldous, 1985). Moreover, although less often stated formally, these methods also assume that documents are exchangeable; the specific ordering of the documents in a corpus can also be neglected</quote>
       </span>
-      <span xml:id="t10" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t10" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>the document-and-words structure of latent Dirichlet allocation carried over to collaborative filtering, with a user standing in for a document and the movies chosen standing in for its words</label>
+        <quote>A user and the movies chosen are analogous to a document and the words in the document (respectively).</quote>
+      </span>
+      <span xml:id="t11" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>density estimation evaluated by likelihood on a held-out test set, with the corpora treated as unlabelled</label>
+        <note>eliminates: a model rewarded for memorising the documents it was fitted to</note>
+        <quote>The documents in the corpora are treated as unlabeled; thus, our goal is density estimation—we wish to achieve high likelihood on a held-out test set.</quote>
+      </span>
+      <span xml:id="t12" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>latent multinomial variables</label>
         <term>latent multinomial variables</term>
         <quote>We refer to the latent multinomial variables in the LDA model as topics, so as to exploit text-oriented intuitions, but we make no epistemological claims regarding these latent variables beyond their utility in representing probability distributions on sets of words</quote>
       </span>
-      <span xml:id="t11" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t13" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>exchangeability</label>
         <term>exchangeability</term>
         <quote>All of these methods are based on the “bag-of-words” assumption—that the order of words in a document can be neglected. In the language of probability theory, this is an assumption of exchangeability for the words in a document (Aldous, 1985). Moreover, although less often stated formally, these methods also assume that documents are exchangeable; the specific ordering of the documents in a corpus can also be neglected</quote>
       </span>
-      <span xml:id="t12" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t14" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>bag-of-words</label>
         <term>bag-of-words</term>
         <quote>All of these methods are based on the “bag-of-words” assumption—that the order of words in a document can be neglected. In the language of probability theory, this is an assumption of exchangeability for the words in a document (Aldous, 1985). Moreover, although less often stated formally, these methods also assume that documents are exchangeable; the specific ordering of the documents in a corpus can also be neglected</quote>
       </span>
-      <span xml:id="t13" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t15" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>perplexity</label>
         <term>perplexity</term>
         <quote>The perplexity, used by convention in language modeling, is monotonically decreasing in the likelihood of the test data, and is algebraicly equivalent to the inverse of the geometric mean per-word likelihood</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t16" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>topic</label>
         <term>topic</term>
         <quote>We refer to the latent multinomial variables in the LDA model as topics, so as to exploit text-oriented intuitions, but we make no epistemological claims regarding these latent variables beyond their utility in representing probability distributions on sets of words</quote>
       </span>
-      <span xml:id="t15" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t17" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>a topic - A LATENT MULTINOMIAL VARIABLE, NAMED TO BORROW A MEANING IT DOES NOT CLAIM: the authors say they call these variables topics in order to exploit text-oriented intuitions, and in the same sentence make no epistemological claims about them beyond representing probability distributions over words; the word appears about a hundred times in the body and the disclaimer once, in a footnote</label>
         <quote>We refer to the latent multinomial variables in the LDA model as topics, so as to exploit text-oriented intuitions, but we make no epistemological claims regarding these latent variables beyond their utility in representing probability distributions on sets of words</quote>
       </span>
-      <span xml:id="t16" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t18" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>the language of text collections - A GUIDE TO INTUITION, NOT A DOMAIN: words, documents and corpora are used throughout because they help intuition, while the model itself is stated not to be necessarily tied to text and is applied to collaborative filtering and other collections</label>
         <quote>We use the language of text collections throughout the paper, referring to entities such as “words,” “documents,” and “corpora.” This is useful in that it helps to guide intuition, particularly when we introduce latent variables which aim to capture abstract notions such as topics. It is important to note, however, that the LDA model is not necessarily tied to text</quote>
       </span>
-      <span xml:id="t17" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t19" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>exchangeability - TWO ASSUMPTIONS, ONE OF THEM USUALLY LEFT UNSAID: words within a document are exchangeable, which is the bag-of-words assumption everyone states, and DOCUMENTS are exchangeable too, which the authors say is less often stated formally - the second is what removes time from a corpus</label>
         <quote>All of these methods are based on the “bag-of-words” assumption—that the order of words in a document can be neglected. In the language of probability theory, this is an assumption of exchangeability for the words in a document (Aldous, 1985). Moreover, although less often stated formally, these methods also assume that documents are exchangeable; the specific ordering of the documents in a corpus can also be neglected</quote>
       </span>
-      <span xml:id="t18" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t20" type="alternatives" ana="#alternatives.claim_type" resp="#tagger" cert="0.9">
+        <label>claim_type: method</label>
+        <note>a second reading reaching the same value. Recorded: method — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>We describe latent Dirichlet allocation (LDA), a generative probabilistic model for collections of discrete data such as text corpora.</quote>
+      </span>
+      <span xml:id="t21" type="alternatives" ana="#alternatives.method" resp="#tagger" cert="0.75">
+        <label>method: probabilistic-modelling</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: system-or-tool-building — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>We present efficient approximate inference techniques based on variational methods and an EM algorithm for empirical Bayes parameter estimation.</quote>
+      </span>
+      <span xml:id="t22" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger" cert="0.9">
+        <label>phenomenon: latent topic structure in collections of discrete data such as text corpora</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: topic modelling of document collections — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>In this paper we consider the problem of modeling text corpora and other collections of discrete data.</quote>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → hierarchical Bayesian modeling</label>
         <quote>LDA is a three-level hierarchical Bayesian model</quote>
       </span>
-      <span xml:id="t19" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → LSI (latent semantic indexing) methodology</label>
         <quote>it is not clear why one should adopt the LSI methodology</quote>
       </span>
-      <span xml:id="t20" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → Hofmann (1999) probabilistic latent semantic indexing (pLSI) model</label>
         <quote>LDA overcomes both of these problems by treating the topic mixture weights as a k-parameter hidden random variable rather than a large set of individual parameters which are explicitly linked to the training set.</quote>
       </span>
-      <span xml:id="t21" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>contradicts → Hofmann&#x27;s pLSI treatment of documents</label>
         <note>differs in: THE PARAMETER IS THE LEVEL AT WHICH THE MODEL IS PROBABILISTIC. The span: &#x27;While Hofmann&#x27;s work is a useful step toward probabilistic modeling of text, IT IS INCOMPLETE IN THAT IT PROVIDES NO PROBABILISTIC MODEL AT THE LEVEL OF DOCUMENTS.&#x27; The contradiction is not global - pLSI is granted as a useful step - and it turns on one named thing. Q-437.</note>
         <quote>While Hofmann’s work is a useful step toward probabilistic modeling of text, it is incomplete in that it provides no probabilistic model at the level of documents.</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>builds-on → de Finetti (1990) representation theorem for exchangeable random variables</label>
         <quote>A classic representation theorem due to de Finetti (1990) establishes that any collection of exchangeable random variables has a representation as a mixture distribution—in general an infinite mixture.</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
         <label>builds-on → Nigam et al. (2000) mixture of unigrams model</label>
         <quote>If we augment the unigram model with a discrete random topic variable z (Figure 3b), we obtain a mixture of unigrams model (Nigam et al., 2000).</quote>
       </span>
-      <span xml:id="t24" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>topic —operationalised-as→ latent multinomial variables</label>
         <term>topic</term>
         <term>latent multinomial variables</term>
         <note>strength of the relation: 1</note>
         <quote>We refer to the latent multinomial variables in the LDA model as topics, so as to exploit text-oriented intuitions, but we make no epistemological claims regarding these latent variables beyond their utility in representing probability distributions on sets of words</quote>
       </span>
-      <span xml:id="t25" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>bag-of-words —same-as→ exchangeability</label>
         <term>bag-of-words</term>
         <term>exchangeability</term>
         <note>strength of the relation: 1</note>
         <quote>All of these methods are based on the “bag-of-words” assumption—that the order of words in a document can be neglected. In the language of probability theory, this is an assumption of exchangeability for the words in a document (Aldous, 1985). Moreover, although less often stated formally, these methods also assume that documents are exchangeable; the specific ordering of the documents in a corpus can also be neglected</quote>
       </span>
-      <span xml:id="t26" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+      <span xml:id="t31" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
         <label>bag-of-words —renamed-across-fields→ exchangeability</label>
         <term>bag-of-words</term>
         <term>exchangeability</term>
-        <note>strength of the relation: 1 — ADDS the better-typed edge beside the record&#x27;s `same-as`. The same-as is defensible and is left alone; this one says WHY they are the same - it is one assumption renamed between fields.</note>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 — ADDS the better-typed edge beside the record&#x27;s `same-as`. The same-as is defensible and is left alone; this one says WHY they are the same - it is one assumption renamed between fields.</note>
         <quote>All of these methods are based on the “bag-of-words” assumption—that the order of words in a document can be neglected. In the language of probability theory, this is an assumption of exchangeability for the words in a document (Aldous, 1985). Moreover, although less often stated formally, these methods also assume that documents are exchangeable; the specific ordering of the documents in a corpus can also be neglected</quote>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>LDA is a generative probabilistic (three-level hierarchical Bayesian) model for text corpora: each document is a finite mixture over latent topics, each topic a distribution over words — giving an explicit topic-based representation of documents.</label>
         <quote>latent Dirichlet allocation (LDA), a generative probabilistic model for collections of discrete data such as text corpora. LDA is a three-level hierarchical Bayesian model, in which each item of a collection is modeled as a finite mixture over an underlying set of topics.</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Efficient approximate inference via variational methods + EM; LDA outperforms mixture-of-unigrams and probabilistic LSI on document modeling, text classification, and collaborative filtering.</label>
         <quote>We present efficient approximate inference techniques based on variational methods and an EM algorithm for empirical Bayes parameter estimation. We report results in document modeling, text classification, and collaborative filtering, comparing to a mixture of unigrams model and the probabilistic LSI model.</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>observed word counts per document (bag-of-words)</label>
         <term>observed word counts per document (bag-of-words)</term>
         <quote>for each document in the corpus, a count is formed of the number of occurrences of each word</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>latent topic mixture / topic-word distributions</label>
         <term>latent topic mixture / topic-word distributions</term>
         <quote>each item of a collection is modeled as a finite mixture over an underlying set of topics</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>latent Dirichlet allocation (LDA)</label>
         <term>latent Dirichlet allocation (LDA)</term>
         <quote>latent Dirichlet allocation (LDA), a generative probabilistic model for collections of discrete data such as text corpora</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>topic (as word distribution)</label>
         <term>topic (as word distribution)</term>
         <quote>Each topic is, in turn, modeled as an infinite mixture over an underlying set of topic probabilities</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>tf-idf scheme</label>
         <term>tf-idf scheme</term>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>In the popular tf-idf scheme (Salton and McGill, 1983), a basic vocabulary of “words” or “terms” is chosen, and, for each document in the corpus, a count is formed</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a unicode and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>LDA is a three-level hierarchical Bayesian model, in which each item of a collection is modeled as a finite mixture over an underlying set of topics.</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>Laplace smoothing is commonly used; this essentially yields the mean of the posterior distribution under a uniform Dirichlet prior on the multinomial parameters.</quote>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Open Babel: An open chemical toolbox</title>
+        <author>Noel M. O’Boyle</author>
+        <author>Michael Banck</author>
+        <author>Craig A. James</author>
+        <author>Chris Morley</author>
+        <author>Tim Vandermeersch</author>
+        <author>Geoffrey Hutchison</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Open Babel: An open chemical toolbox</title>
+          <date>2011</date>
+          <publisher>Journal of Cheminformatics</publisher>
+          <idno type="DOI">10.1186/1758-2946-3-33</idno>
+          
+          <idno type="record">o-boyle2011-open-babel-an-open-chemical-toolbo</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\o-boyle2011-open-babel-an-open-chemical-toolbo.txt</note>
+          <note type="text-sha1">a1b4a7260041030a9eae734d6cdd159895fb1086</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>chemistry</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">40 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the interconversion of chemical structures between file formats, and the 111 formats Open Babel implements</label>
+        <quote>With the release of Open Babel 2.3, Open Babel supports 111 chemical file formats in total. It can read 82 formats and write 85 formats.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how a single toolkit can read and write the many incompatible representations of molecular data</label>
+        <quote>A frequent problem in computational modeling is the interconversion of chemical structures between different formats.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>Open Babel itself, described for the first time, with a round-trip validation taking the error rate from 8% to 0.01%</label>
+        <quote>At the time of starting this work (March 2009), the error rate found was 1424 (8%); by Oct 2009, combined work on stereochemistry, kekulization and canonicalization had reduced this to 190 (~1%), and continued improvements have reduced the number of errors down to two (shown in Figure 4) for Open Babel 2.3.1 (~0.01%).</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>With the release of Open Babel 2.3, Open Babel supports 111 chemical file formats in total. It can read 82 formats and write 85 formats.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>the proliferation of incompatible chemical file formats, which a standard failed to resolve</label>
+        <quote>While attempts have been made to provide a standard format for storing chemical data, including most notably the development of Chemical Markup Language (CML) [2-6], an XML dialect, such formats have not yet achieved widespread use.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>an open-source C++ library with formats as plugins, validated by a round-trip over 18,084 structures and a nightly test suite</label>
+        <term>an open-source C++ library with formats as plugins, validated by a round-trip over 18,084 structures and a nightly test suite</term>
+        <quote>Starting with a dataset of 18,084 3D structures from PubChem3D as an SDF file, we compared the result of (a) conversion to SMILES, followed by conversion of that to Canonical SMILES to (b) conversion directly to Canonical SMILES.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>BOND CONNECTIVITY FROM GEOMETRY ALONE: atoms closer than the sum of their covalent radii plus 0.45 angstrom are bonded, which is what lets formats that store no bonding at all be read as molecules</term>
+        <quote>Bond connectivity is determined by the frequently used algorithm of detecting atoms closer than the sum of their covalent radii, with a slight tolerance (0.45 Å) to allow for longer than typical bonds.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>AROMATICITY IS WITHHELD UNLESS A KEKULE PATTERN EXISTS: the ring is only called aromatic when a well-defined valence-bond assignment can be found, so the label is earned by a construction rather than asserted from ring membership</term>
+        <quote>Aromaticity is established only if a well-defined valence bond Kekulé pattern can be determined.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>AN EXPONENTIAL SEARCH WITH A DELIBERATE GIVE-UP: kekulisation terminates at 30 levels of recursion or 15 seconds, so a large fused ring system returns no answer rather than hanging</term>
+        <quote>Since this process is exponential in complexity, the algorithm will terminate if more than 30 levels of recursion or 15 seconds are exceeded (which may occur in the case of large fused ring systems such as carbon nanotubes).</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>SUBSTRUCTURE SEARCH BY HASHED BIT-STRING: every linear and ring substructure of length 1 to 7 is mapped onto 1024 bits, so a query&#x27;s bits must all be set in any target that contains it</term>
+        <quote>This fingerprint, referred to as FP2 in Open Babel, identifies all linear and ring substructures in the molecule of lengths 1 to 7 (excluding the 1-atom substructures C and N) and maps them onto a bit-string of length 1024 using a hash function.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>TWO round-trip failures remain at 0.01%, and the paper names both: a kekulisation error in a polycyclic aromatic with heteroatoms, and a bridgehead-carbon stereochemistry case</label>
+        <quote>At the time of starting this work (March 2009), the error rate found was 1424 (8%); by Oct 2009, combined work on stereochemistry, kekulization and canonicalization had reduced this to 190 (~1%), and continued improvements have reduced the number of errors down to two (shown in Figure 4) for Open Babel 2.3.1 (~0.01%).</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>Molecules outside the pharmaceutical mainstream - radicals, organometallics, inorganics, coordinate and 3-center 2-electron bonds - are stated to be poorly supported, and not only by this toolkit</label>
+        <quote>Typically toolkits focus on the types of molecules of principal importance to the pharmaceutical industry, namely stable organic molecules comprising wholly of 2-center 2-electron covalent bonds. Molecules outside this set - such as radicals, organometallic and inorganic molecules, molecules with coordinate bonds or 3-center 2-electron bonds - are poorly supported in general.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>Kekulisation is exponential and is CUT OFF at 30 levels of recursion or 15 seconds, so large fused ring systems are a known non-answer</label>
+        <quote>Since this process is exponential in complexity, the algorithm will terminate if more than 30 levels of recursion or 15 seconds are exceeded (which may occur in the case of large fused ring systems such as carbon nanotubes).</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>The standard that was meant to remove the problem did not take: CML exists and is not widely used, which is the premise the whole toolkit rests on</label>
+        <quote>While attempts have been made to provide a standard format for storing chemical data, including most notably the development of Chemical Markup Language (CML) [2-6], an XML dialect, such formats have not yet achieved widespread use.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a round-trip over 18,084 PubChem3D structures: SDF to SMILES to canonical SMILES, compared against SDF straight to canonical SMILES</label>
+        <note>eliminates: errors anywhere in reading SDF, reading and writing SMILES, and canonicalisation - by making two routes to the same answer disagree</note>
+        <quote>Starting with a dataset of 18,084 3D structures from PubChem3D as an SDF file, we compared the result of (a) conversion to SMILES, followed by conversion of that to Canonical SMILES to (b) conversion directly to Canonical SMILES.</quote>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>a nightly test suite of 60 programs, each with tens to hundreds of tests</label>
+        <note>eliminates: regressions between releases</note>
+        <quote>Open Babel includes an extensive test suite comprising 60 different test programs each with tens to hundreds of tests.</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>Open Babel</label>
+        <term>Open Babel</term>
+        <quote>With the release of Open Babel 2.3, Open Babel supports 111 chemical file formats in total. It can read 82 formats and write 85 formats.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>interconversion</label>
+        <term>interconversion</term>
+        <quote>A frequent problem in computational modeling is the interconversion of chemical structures between different formats.</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>Chemical Markup Language</label>
+        <term>Chemical Markup Language</term>
+        <quote>While attempts have been made to provide a standard format for storing chemical data, including most notably the development of Chemical Markup Language (CML) [2-6], an XML dialect, such formats have not yet achieved widespread use.</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>canonical representation</label>
+        <term>canonical representation</term>
+        <quote>While each of the orderings encodes exactly the same information, it can be useful to define a canonical numbering of the atoms of a molecule and use this to derive a canonical representation of a molecule for a particular file format.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>canonical numbering</label>
+        <term>canonical numbering</term>
+        <quote>While each of the orderings encodes exactly the same information, it can be useful to define a canonical numbering of the atoms of a molecule and use this to derive a canonical representation of a molecule for a particular file format.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>canonicalization</label>
+        <term>canonicalization</term>
+        <quote>At the time of starting this work (March 2009), the error rate found was 1424 (8%); by Oct 2009, combined work on stereochemistry, kekulization and canonicalization had reduced this to 190 (~1%), and continued improvements have reduced the number of errors down to two (shown in Figure 4) for Open Babel 2.3.1 (~0.01%).</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>kekulization</label>
+        <term>kekulization</term>
+        <quote>At the time of starting this work (March 2009), the error rate found was 1424 (8%); by Oct 2009, combined work on stereochemistry, kekulization and canonicalization had reduced this to 190 (~1%), and continued improvements have reduced the number of errors down to two (shown in Figure 4) for Open Babel 2.3.1 (~0.01%).</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>stereochemistry</label>
+        <term>stereochemistry</term>
+        <quote>At the time of starting this work (March 2009), the error rate found was 1424 (8%); by Oct 2009, combined work on stereochemistry, kekulization and canonicalization had reduced this to 190 (~1%), and continued improvements have reduced the number of errors down to two (shown in Figure 4) for Open Babel 2.3.1 (~0.01%).</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>aromaticity</label>
+        <term>aromaticity</term>
+        <quote>Aromaticity is established only if a well-defined valence bond Kekulé pattern can be determined.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>covalent radii</label>
+        <term>covalent radii</term>
+        <quote>Bond connectivity is determined by the frequently used algorithm of detecting atoms closer than the sum of their covalent radii, with a slight tolerance (0.45 Å) to allow for longer than typical bonds.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>Tanimoto coefficient</label>
+        <term>Tanimoto coefficient</term>
+        <quote>The fingerprints for two molecules can also be used to calculate structural similarity using the Tanimoto coefficient, the number of bits in common divided by the union of the bits set.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>substructures</label>
+        <term>substructures</term>
+        <quote>This fingerprint, referred to as FP2 in Open Babel, identifies all linear and ring substructures in the molecule of lengths 1 to 7 (excluding the 1-atom substructures C and N) and maps them onto a bit-string of length 1024 using a hash function.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>structural similarity</label>
+        <term>structural similarity</term>
+        <quote>The fingerprints for two molecules can also be used to calculate structural similarity using the Tanimoto coefficient, the number of bits in common divided by the union of the bits set.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>XML dialect</label>
+        <term>XML dialect</term>
+        <quote>While attempts have been made to provide a standard format for storing chemical data, including most notably the development of Chemical Markup Language (CML) [2-6], an XML dialect, such formats have not yet achieved widespread use.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>SMILES</label>
+        <term>SMILES</term>
+        <quote>Starting with a dataset of 18,084 3D structures from PubChem3D as an SDF file, we compared the result of (a) conversion to SMILES, followed by conversion of that to Canonical SMILES to (b) conversion directly to Canonical SMILES.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>test suite</label>
+        <term>test suite</term>
+        <quote>Open Babel includes an extensive test suite comprising 60 different test programs each with tens to hundreds of tests.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>OELib</label>
+        <term>OELib</term>
+        <quote>Open Babel has its origin in a version of OELib released as open-source software by OpenEye Scientific under the GPL (GNU Public License). In 2001, OpenEye decided to rewrite OELib in-house as the proprietary OEChem library, so the existing code from OELib was spun out into the new Open Babel project.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>OEChem</label>
+        <term>OEChem</term>
+        <quote>Open Babel has its origin in a version of OELib released as open-source software by OpenEye Scientific under the GPL (GNU Public License). In 2001, OpenEye decided to rewrite OELib in-house as the proprietary OEChem library, so the existing code from OELib was spun out into the new Open Babel project.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>file formats</label>
+        <term>file formats</term>
+        <quote>With the release of Open Babel 2.3, Open Babel supports 111 chemical file formats in total. It can read 82 formats and write 85 formats.</quote>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>canonical representation - A CHOICE, NOT A FACT ABOUT THE MOLECULE: the same structure has N! orderings that encode exactly the same information, and canonicalisation picks one so it can be used as a database key</label>
+        <quote>While each of the orderings encodes exactly the same information, it can be useful to define a canonical numbering of the atoms of a molecule and use this to derive a canonical representation of a molecule for a particular file format.</quote>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>failure - IN THIS PAPER A ROUND-TRIP DISAGREEMENT, not a wrong answer: two routes to the same canonical SMILES are compared against each other, and the second of the two residual failures is a case where BOTH strings are correct and the algorithm merely failed to choose</label>
+        <quote>The second failure involves confusion over the canonical stereochemistry at a bridgehead carbon</quote>
+      </span>
+      <span xml:id="t37" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>Chemical Markup Language —is-a→ XML dialect</label>
+        <term>Chemical Markup Language</term>
+        <term>XML dialect</term>
+        <note>strength of the relation: 1</note>
+        <quote>While attempts have been made to provide a standard format for storing chemical data, including most notably the development of Chemical Markup Language (CML) [2-6], an XML dialect, such formats have not yet achieved widespread use.</quote>
+      </span>
+      <span xml:id="t38" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>canonical numbering —operationalised-as→ canonical representation</label>
+        <term>canonical numbering</term>
+        <term>canonical representation</term>
+        <note>strength of the relation: 1</note>
+        <quote>While each of the orderings encodes exactly the same information, it can be useful to define a canonical numbering of the atoms of a molecule and use this to derive a canonical representation of a molecule for a particular file format.</quote>
+      </span>
+      <span xml:id="t39" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>structural similarity —operationalised-as→ Tanimoto coefficient</label>
+        <term>structural similarity</term>
+        <term>Tanimoto coefficient</term>
+        <note>strength of the relation: 1</note>
+        <quote>The fingerprints for two molecules can also be used to calculate structural similarity using the Tanimoto coefficient, the number of bits in common divided by the union of the bits set.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/1758-2946-3-33.</note></p>
+    </body>
+  </text>
+</TEI>

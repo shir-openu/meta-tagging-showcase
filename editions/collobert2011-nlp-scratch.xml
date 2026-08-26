@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">49 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">52 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -74,6 +74,7 @@
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>THE ANNOTATIONS EXIST IN ORDER TO MAKE SYSTEMS COMPARABLE, AND THE BENCHMARKS ARE CREDITED WITH DRIVING THE RESEARCH: text corpora HAVE BEEN MANUALLY ANNOTATED with such data structures IN ORDER TO COMPARE THE PERFORMANCE of various systems, and THE AVAILABILITY OF STANDARD BENCHMARKS HAS STIMULATED RESEARCH. The ground truth&#x27;s purpose is comparison, and the comparison is what made the field move</term>
+        <note>about this quote: RE-SLICED, AND THE GUARD THAT CAUGHT IT WAS TWENTY MINUTES OLD. My end key was &quot;...Natural Language Processing (NLP) and&quot; - ending on &quot;and&quot; - because the page furniture (&quot;Keywords: ... arXiv 1. Introduction&quot;) is spliced into that sentence and its real continuation is on the far side of the header. The Q-669 dangling-word check refused it at drafting time.</note>
         <quote>Text corpora have been manually annotated with such data structures in order to compare the performance of various systems. The availability of standard benchmarks has stimulated research in Natural Language Processing (NLP)</quote>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
@@ -145,132 +146,148 @@
         <note>what this limits: the best figures quoted from this paper: a later section evaluates how much further improvement comes from incorporating standard NLP task-specific engineering, which the main architecture avoids</note>
         <quote>Section 6 then evaluates how much further improvement can be achieved by incorporating standard NLP task-specific engineering into our systems</quote>
       </span>
-      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t21" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the word embedding dimension held constant at 50 across the tasks, so the language models of the earlier section could be reused unchanged</label>
+        <note>eliminates: a task-to-task difference that is really a difference in embedding capacity</note>
+        <quote>The word embedding dimension was kept constant d0 = 50 in order to reuse the language models of Section 4.5.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[1]" resp="#tagger" cert="0.85">
+        <label>performance also reported with the embeddings FROZEN during task-specific training, beside the figures where they are allowed to move</label>
+        <note>eliminates: attributing to the pre-trained embeddings a gain that actually comes from fine-tuning them on the task</note>
+        <quote>We also report performance when our embeddings are kept fixed during task-specific training.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>benchmark</label>
         <term>benchmark</term>
-        <quote>In fact we view the benchmarks as indirect measurements of the relevance of the internal representations</quote>
+        <quote>In fact we view the benchmarks as indirect measurements of the relevance of the internal representations discovered by the learning procedure, and we posit that these intermediate representations are more general than any of the benchmarks</quote>
       </span>
-      <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t24" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>internal representations</label>
         <term>internal representations</term>
         <quote>we view the benchmarks as indirect measurements of the relevance of the internal representations discovered by the learning procedure</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t25" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>linguistic knowledge</label>
         <term>linguistic knowledge</term>
         <quote>Our desire to avoid task-specific engineered features led us to ignore a large body of linguistic knowledge</quote>
       </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t26" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>lookup table</label>
         <term>lookup table</term>
         <quote>the first layer of our network maps each of these word indices into a feature vector, by a lookup table operation</quote>
       </span>
-      <span xml:id="t25" type="concepts" ana="#concepts[9]" resp="#paper">
+      <span xml:id="t27" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>a priori NLP knowledge</label>
         <term>a priori NLP knowledge</term>
         <quote>We call this approach “almost from scratch” to emphasize the reduced (but still important) reliance on a priori NLP knowledge</quote>
       </span>
-      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t28" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>&#x27;almost from scratch&#x27; - THE PAPER NAMES ITS OWN HEDGE AND GIVES THE REASON: it calls the approach almost from scratch to emphasise a reduced but still important reliance on a priori NLP knowledge, while the body says &#x27;from scratch&#x27; twenty-seven times and &#x27;almost from scratch&#x27; once</label>
         <quote>We call this approach “almost from scratch” to emphasize the reduced (but still important) reliance on a priori NLP knowledge</quote>
       </span>
-      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t29" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>a benchmark - AS AN INDIRECT MEASUREMENT, NOT A GOAL: the scores stand in for the relevance of internal representations that nobody measures directly, and the authors posit those representations are more general than the benchmarks that stand in for them</label>
         <quote>In fact we view the benchmarks as indirect measurements of the relevance of the internal representations discovered by the learning procedure, and we posit that these intermediate representations are more general than any of the benchmarks</quote>
       </span>
-      <span xml:id="t28" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the cost of the design - LINGUISTIC KNOWLEDGE, DELIBERATELY SET ASIDE: avoiding task-specific engineered features is stated to have led the authors to ignore a large body of linguistic knowledge, so the architecture&#x27;s generality and its ignorance are the same decision</label>
         <quote>Our desire to avoid task-specific engineered features led us to ignore a large body of linguistic knowledge</quote>
       </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>contradicts → the reliance on task-specific hand-engineered features in NLP</label>
         <note>differs in: THE PARAMETER IS WHERE THE FEATURES COME FROM. The span: &#x27;INSTEAD OF EXPLOITING MAN-MADE INPUT FEATURES CAREFULLY OPTIMIZED FOR EACH TASK, our system learns internal representations on the basis of vast amounts of mostly unlabeled training data.&#x27; `Instead of` names the axis of disagreement in the same clause as the disagreement. Q-437.</note>
         <quote>Instead of exploiting man-made input features carefully optimized for each task, our system learns internal representations on the basis of vast amounts of mostly unlabeled training data.</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → the convolutional / Time Delay Neural Network approach of Waibel et al. (1989)</label>
         <quote>When using neural networks, the natural choice to tackle this problem becomes a convolutional approach, first introduced by Waibel et al. (1989) and also called Time Delay Neural Networks (TDNNs) in the literature.</quote>
       </span>
-      <span xml:id="t31" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → Conditional Random Fields (Lafferty et al., 2001)</label>
         <quote>Compared to such CRFs, we take advantage of the nonlinear network to learn appropriate features for each task of interest.</quote>
       </span>
-      <span xml:id="t32" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → graph transformer networks (Bottou et al., 1997; Le Cun et al., 1998)</label>
         <quote>Our approach is a particular case of the discriminative forward training for graph transformer networks (GTNs) (Bottou et al., 1997; Le Cun et al., 1998).</quote>
       </span>
-      <span xml:id="t33" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>internal representations —operationalised-as→ benchmark</label>
         <term>internal representations</term>
         <term>benchmark</term>
         <note>strength of the relation: 1</note>
         <quote>In fact we view the benchmarks as indirect measurements of the relevance of the internal representations discovered by the learning procedure, and we posit that these intermediate representations are more general than any of the benchmarks</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>852 — unlabeled corpus used for language modeling</label>
+        <quote>large unlabeled datasets ( 852 million words)</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>4 — benchmark tasks (POS, CHUNK, NER, SRL)</label>
         <quote>we briefly introduce four standard NLP tasks</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>912,344 — POS training-set size (WSJ sections)</label>
         <quote>912,344</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>one unified network handles many NLP tasks without task-specific engineering</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>a unified neural network architecture and learning algorithm that can be applied to various</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>the system learns internal representations from mostly unlabeled data</label>
-        <quote>our system learns internal representations on the</quote>
+        <quote>our system learns internal representations on the basis of vast amounts of mostly unlabeled training data</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>transferring unsupervised representations improves supervised benchmarks</label>
         <quote>Performance improvements are then demonstrated by transferring the unsupervised</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>avoiding task-specific engineering deliberately disregards prior knowledge</label>
         <quote>trying to avoid task-specific</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>internal representations</label>
         <term>internal representations</term>
         <quote>discover intermediate representations by engineering task-specific features</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>unlabeled training data</label>
         <term>unlabeled training data</term>
         <quote>transferring intermediate representations discovered on large unlabeled</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>benchmark tasks (POS/CHUNK/NER/SRL)</label>
         <term>benchmark tasks (POS/CHUNK/NER/SRL)</term>
         <quote>Part-Of-Speech tagging (POS), chunking (CHUNK), Named Entity</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>ad-hoc task-specific features</label>
         <term>ad-hoc task-specific features</term>
         <quote>applying linear statistical models to ad-hoc features</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>almost from scratch</label>
         <term>almost from scratch</term>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>We call this approach “almost from scratch” to emphasize the reduced</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>Part-Of-Speech tagging</label>
         <term>Part-Of-Speech tagging</term>
-        <quote>POS aims at labeling each word with a unique tag that indicates its syntactic role</quote>
+        <quote>The Benchmark Tasks ∼ 2.1 Part-Of-Speech Tagging POS aims at labeling each word with a unique tag that indicates its syntactic role</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>unified architecture</label>
         <term>unified architecture</term>
-        <quote>We propose a unified neural network architecture and learning algorithm</quote>
+        <quote>We propose a unified neural network architecture and learning algorithm that can be applied to various natural language processing tasks including: part-of-speech tagging, chunking, named entity recognition, and semantic role labeling.</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>syntactic vs semantic information</label>
         <term>syntactic vs semantic information</term>
         <quote>They can describe syntactic information</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
         <quote>We show the standard deviation (obtained over 5 runs with different random initialization), for the architecture we picked (300 hidden units for POS, CHUNK and NER, 500 for SRL).</quote>

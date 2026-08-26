@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation</title>
+        <author>Sebastian Bach</author>
+        <author>Alexander Binder</author>
+        <author>Grégoire Montavon</author>
+        <author>Frederick Klauschen</author>
+        <author>Klaus‐Robert Müller</author>
+        <author>Wojciech Samek</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>On Pixel-Wise Explanations for Non-Linear Classifier Decisions by Layer-Wise Relevance Propagation</title>
+          <date>2015</date>
+          <publisher>PLoS ONE</publisher>
+          <idno type="DOI">10.1371/journal.pone.0130140</idno>
+          
+          <idno type="record">bach2015-on-pixel-wise-explanations-for-non</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\bach2015-on-pixel-wise-explanations-for-non.txt</note>
+          <note type="text-sha1">61074252fd380df41485a39bf257484518c82c81</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>machine-learning</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">70 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the contribution of each individual input pixel to one non-linear classifier&#x27;s decision on one image</label>
+        <quote>The overall idea of pixel-wise decomposition is to understand the contribution of a single pixel of an image x to the prediction f(x) made by a classifier f in an image classification task. We would like to find out, separately for each image x, which pixels contribute to what extent to a positive or negative classification result.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to explain why a non-linear image classifier reached a particular decision, at the resolution of single pixels</label>
+        <quote>However, like many methods in machine learning, these models often lack a straightforward interpretability of the classifier predictions. In other words the classifier acts as a black box and does not provide detailed information about why it reaches a certain classification decision.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>layer-wise relevance propagation - a heatmapping concept defined as a set of constraints rather than an algorithm - together with a Taylor-type alternative, both applicable to pre-trained Bag-of-Words and neural classifiers</label>
+        <quote>We will introduce layer-wise relevance propagation as a concept defined by a set of constraints. Any solution satisfying the constraints will be considered to follow the concept of layer-wise relevance propagation.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>The overall idea of pixel-wise decomposition is to understand the contribution of a single pixel of an image x to the prediction f(x) made by a classifier f in an image classification task. We would like to find out, separately for each image x, which pixels contribute to what extent to a positive or negative classification result.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>classifier opacity: a non-linear model gives a decision without saying what in the input produced it</label>
+        <quote>However, like many methods in machine learning, these models often lack a straightforward interpretability of the classifier predictions. In other words the classifier acts as a black box and does not provide detailed information about why it reaches a certain classification decision.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>redistribute the prediction backwards layer by layer under a conservation constraint until it rests on the input pixels</label>
+        <term>redistribute the prediction backwards layer by layer under a conservation constraint until it rests on the input pixels</term>
+        <quote>The underlying Formula (2) can be interpreted as a conservation law for the relevance R in between layers of the feature processing.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>the relevance held by a unit is redistributed onto the units that fed it, and the total is preserved from one layer to the next, so the prediction survives intact all the way down to the pixels</label>
+        <term>relevance conservation between layers</term>
+        <quote>The underlying Formula (2) can be interpreted as a conservation law for the relevance R in between layers of the feature processing.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>relevance is computed one layer at a time rather than globally, which is cheap but can strand relevance in a lower layer where it is then distributed randomly</label>
+        <term>greedy layer-at-a-time propagation</term>
+        <quote>A first aspect that needs to be investigated is the greediness of the layer-wise relevance propagation procedure, in the sense that it is computed one layer at a time, and its potential impact on the quality of heatmaps: While computationally advantageous, some of the backpropagated relevance might encounter a dead-end in the lower layers and be distributed randomly.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>the gradient at the prediction point points toward the nearest local optimum, which may carry the SAME SIGN as the prediction - so it does not point at the boundary the explanation is relative to</label>
+        <quote>The differential Df(x) at the prediction point does not necessarily point to a root which is close under the Euclidean norm.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>a root is found by taking any candidate with the opposite prediction sign and searching the line between them - the segment must cross zero, so interval intersection locates it</label>
+        <quote>It is clear that the line l(a) = ax + (1 − a)x′ must contain a root of f which can be found by interval intersection.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>the root point is specified by CONSTRAINTS rather than by a formula - it must be a root and must lie near the data point, with the rest deferred</label>
+        <quote>In particular, the root point x 0 at which the Taylor decomposition is computed is constrained to satisfy f(x 0) = 0 and to lie not too far (e.g. within a fixed radius) from the actual data point x.</quote>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
+        <label>the two approaches differ in what they conserve: the earlier work rectifies activations to keep feature maps non-negative, this one uses SIGNED activations to conserve the relevance quantity across layers</label>
+        <quote>uses rectified linear units to project information from the unfolded maps towards the inputs with the aim to ensure the feature maps to be non-negative.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the propagation is greedy - computed one layer at a time - and some relevance may hit a dead end in the lower layers and be distributed randomly</label>
+        <quote>A first aspect that needs to be investigated is the greediness of the layer-wise relevance propagation procedure, in the sense that it is computed one layer at a time, and its potential impact on the quality of heatmaps: While computationally advantageous, some of the backpropagated relevance might encounter a dead-end in the lower layers and be distributed randomly.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the proposed propagation rules are heuristic: whether relevance proportional to weighted neuron activations can be analytically justified is open</label>
+        <quote>Another open question relates to the heuristic nature of the proposed instances of relevance propagation, in particular, whether the distributed relevance messages being proportional to the weighted neuron activations can be analytically justified.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>there is no way to evaluate the quality of a heatmap beyond looking at it</label>
+        <quote>Finally, it is not clear how to evaluate the quality of a heatmap beyond simple visual assessment.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>no universal metric for quantifying heatmap quality exists; the paper defers it to future work</label>
+        <quote>Future work will need to explore the many domain- and data-specific degrees of freedom in the heatmapping process in order to ultimately propose a universal metric for quantification.</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>a decomposition satisfying the conservation equation is neither unique nor guaranteed to be meaningful - the constraint set does not pin down an answer</label>
+        <quote>As we will show now, a decomposition satisfying Eq (2) per se is neither unique, nor it is guaranteed that it yields a meaningful interpretation of the classifier prediction.</quote>
+      </span>
+      <span xml:id="t17" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>the Taylor approach needs a second point besides the input, and finding it is called a technical difficulty in the paper&#x27;s own words</label>
+        <quote>One technical difficulty is to find a root point x 0.</quote>
+      </span>
+      <span xml:id="t18" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.9">
+        <label>where several minimal-norm roots exist the method must average or integrate over them rather than pick one</label>
+        <quote>In case of multiple existing roots x 0 with minimal norm, they can be averaged or integrated in order to get an average over all these solutions.</quote>
+      </span>
+      <span xml:id="t19" type="limitations" ana="#limitations[7]" resp="#tagger" cert="0.9">
+        <label>a competing method is specific to convolutional architectures, which the paper contrasts with its own range of applicability</label>
+        <quote>This work is specific to the architecture of convolutional neural networks.</quote>
+      </span>
+      <span xml:id="t20" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>the conservation law, taken from physics and imposed on relevance flowing between network layers</label>
+        <quote>The underlying Formula (2) can be interpreted as a conservation law for the relevance R in between layers of the feature processing.</quote>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a quantitative test that can separate two heatmaps which look equally good to a human</label>
+        <note>eliminates: two heatmapping methods being ranked on how good they look to a human, which is the judgement the paper exists to replace · outcome: partial</note>
+        <quote>In this paper we have proposed as a starting point a pixel-flipping method that allows to discriminate between two heatmapping methods that may otherwise look of similar quality to the human.</quote>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>a counterexample testing whether the conservation constraint alone yields a meaningful decomposition</label>
+        <note>eliminates: the conservation constraint being credited with producing a meaningful decomposition when it constrains only the total · outcome: failed</note>
+        <quote>In terms of pixel-wise decomposition interpretation, all inputs point towards the presence of a structure if f(x) &gt; 0 and towards the absence of a structure if f(x) &lt; 0. This is for many classification problems not a realistic interpretation.</quote>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>application to a classifier the authors did not train, to show no retraining is needed</label>
+        <note>eliminates: a heatmapping result that depends on the authors having trained the classifier themselves · outcome: held</note>
+        <quote>This desirable property is demonstrated in this paper by the heatmapping of images classified by the third-party GPU-trained ImageNet neural network. In particular, our heatmapping procedure was applied to this network without any further training or retraining.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>pixel-wise decomposition</label>
+        <term>pixel-wise decomposition</term>
+        <quote>The overall idea of pixel-wise decomposition is to understand the contribution of a single pixel of an image x to the prediction f(x) made by a classifier f in an image classification task. We would like to find out, separately for each image x, which pixels contribute to what extent to a positive or negative classification result.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>layer-wise relevance propagation</label>
+        <term>layer-wise relevance propagation</term>
+        <quote>We will introduce layer-wise relevance propagation as a concept defined by a set of constraints. Any solution satisfying the constraints will be considered to follow the concept of layer-wise relevance propagation.</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>relevance</label>
+        <term>relevance</term>
+        <quote>The above example gives furthermore an intuition about what relevance R is, namely, the local contribution to the prediction function f(x). In that sense the relevance of the output layer is the prediction itself f(x).</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>heatmap</label>
+        <term>heatmap</term>
+        <quote>In terms of subsequent visualization, which however will not be the scope of this paper, the resulting relevances R d for each input pixel x (d) can be mapped to a color space and visualized in that way as a conventional heatmap.</quote>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>conservation law</label>
+        <term>conservation law</term>
+        <quote>The underlying Formula (2) can be interpreted as a conservation law for the relevance R in between layers of the feature processing.</quote>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>black box</label>
+        <term>black box</term>
+        <quote>However, like many methods in machine learning, these models often lack a straightforward interpretability of the classifier predictions. In other words the classifier acts as a black box and does not provide detailed information about why it reaches a certain classification decision.</quote>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>pixel-flipping</label>
+        <term>pixel-flipping</term>
+        <quote>In this paper we have proposed as a starting point a pixel-flipping method that allows to discriminate between two heatmapping methods that may otherwise look of similar quality to the human.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>segmentation</label>
+        <term>segmentation</term>
+        <quote>The methods we propose in this paper do not involve segmentation. They do not require pixel-wise training as learning setup or pixel-wise labeling for the training phase. The setup used here is image-wise classification, in which during training one label is provided for an image as a whole, however, the contribution of this paper is not about classifier training. The proposed methods are built on top of a pre-trained classifier.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>pre-trained classifier</label>
+        <term>pre-trained classifier</term>
+        <quote>The methods we propose in this paper do not involve segmentation. They do not require pixel-wise training as learning setup or pixel-wise labeling for the training phase. The setup used here is image-wise classification, in which during training one label is provided for an image as a whole, however, the contribution of this paper is not about classifier training. The proposed methods are built on top of a pre-trained classifier.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>non-linearity</label>
+        <term>non-linearity</term>
+        <quote>This lack of interpretability is due to the non-linearity of the various mappings that process the raw image pixels to its feature representation and from that to the final classifier function.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.85">
+        <label>Taylor reference point</label>
+        <term>Taylor reference point</term>
+        <quote>Notably, these two methods were not defined as a particular solution to the heatmapping problem, but instead as a set of constraints that the heatmapping procedure must fulfill in order to be admissible. For instance, the exact choice of Taylor reference point was not specified beyond the constraints that it should be a root and that it should be located close to the actual data point. Similarly, the layer-wise relevance propagation has been defined with the sole restriction that the propagation rule conserves class relevance on a layer and node basis.</quote>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>Taylor-type decomposition</label>
+        <term>Taylor-type decomposition</term>
+        <quote>One alternative approach for achieving a decomposition as in (1) for a general differentiable predictor f is first order Taylor approximation.</quote>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>root point</label>
+        <term>root point</term>
+        <quote>Thus, x 0 should be chosen to be a root of the predictor f.</quote>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>sensitivity maps</label>
+        <term>sensitivity maps</term>
+        <quote>Several works have been using sensitivity maps for visualization of classifier predictions which were based on using partial derivatives at the prediction point x.</quote>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.9">
+        <label>Taylor residuum</label>
+        <term>Taylor residuum</term>
+        <quote>For the sake of precision of the Taylor approximation of the prediction, x 0 should be chosen to be close to x under the Euclidean norm in order to minimize the Taylor residuum according to higher order Taylor approximations.</quote>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.9">
+        <label>locally linear</label>
+        <term>locally linear</term>
+        <quote>Thus the whole pixel-wise decomposition is not a linear, but a locally linear algorithm, as the root point x 0 depends on the prediction point x.</quote>
+      </span>
+      <span xml:id="t40" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>layer-wise relevance propagation = whatever satisfies the constraints; several different algorithms qualify</label>
+        <quote>It is important to note that the definition is not given as an algorithm or a solution of an objective with a distinct minimum. Instead, it is given as a set of constraints that the solution should satisfy. Thus, different algorithms with different resulting solutions may be admissible under these constraints.</quote>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>R_d &lt; 0 = evidence AGAINST the structure being present; R_d &gt; 0 = evidence FOR it</label>
+        <quote>The qualitative interpretation is that R d &lt; 0 contributes evidence against the presence of a structure which is to be classified while R d &gt; 0 contributes evidence for its presence.</quote>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>relevance at the output layer = the prediction f(x) itself</label>
+        <quote>The above example gives furthermore an intuition about what relevance R is, namely, the local contribution to the prediction function f(x). In that sense the relevance of the output layer is the prediction itself f(x).</quote>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>heatmap = relevances mapped to a colour space - named, then explicitly put out of scope</label>
+        <quote>In terms of subsequent visualization, which however will not be the scope of this paper, the resulting relevances R d for each input pixel x (d) can be mapped to a color space and visualized in that way as a conventional heatmap.</quote>
+      </span>
+      <span xml:id="t44" type="senses" ana="#senses[4]" resp="#tagger" cert="0.85">
+        <label>&#x27;admissible&#x27; = satisfying the constraints, which is weaker than &#x27;correct&#x27; and the paper says so</label>
+        <quote>It is important to note that the definition is not given as an algorithm or a solution of an objective with a distinct minimum. Instead, it is given as a set of constraints that the solution should satisfy. Thus, different algorithms with different resulting solutions may be admissible under these constraints.</quote>
+      </span>
+      <span xml:id="t45" type="alternatives" ana="#alternatives.claim_type" resp="#tagger" cert="0.9">
+        <label>claim_type: method</label>
+        <note>a second reading reaching the same value. Recorded: method — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>This work proposes a general solution to the problem of understanding classification decisions by pixel-wise decomposition of nonlinear classifiers.</quote>
+      </span>
+      <span xml:id="t46" type="alternatives" ana="#alternatives.method" resp="#tagger" cert="0.8">
+        <label>method: system-or-tool-building</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: redistribute the prediction backwards layer by layer under a conservation constraint until it rests on the input pixels — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>We introduce a methodology that allows to visualize the contributions of single pixels to predictions for kernel-based classifiers over Bag of Words features and for multilayered neural networks.</quote>
+      </span>
+      <span xml:id="t47" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger" cert="0.85">
+        <label>phenomenon: which parts of an input image drive a nonlinear classifier&#x27;s decision</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: classifier opacity: a non-linear model gives a decision without saying what in the input produced it — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
+        <quote>Although machine learning methods are solving very successfully a plethora of tasks, they have in most cases the disadvantage of acting as a black box, not providing any information about what made them arrive at a particular decision.</quote>
+      </span>
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>distinguishes-from → the standard task of optimising a classifier for accuracy and generalisation</label>
+        <note>the paper&#x27;s framing move: explaining one decision is ORTHOGONAL to training a good classifier, so a better classifier does not make a better explanation</note>
+        <quote>Making, say, a nonlinear classification decision for one particular novel data point transparent to the user is essentially orthogonal to the standard task of optimizing for an excellent and well generalizing classifier.</quote>
+      </span>
+      <span xml:id="t49" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>critiques → the claim that non-linear models&#x27; success justifies their opacity</label>
+        <note>highly successful AND prevented from contributing understanding - the paper puts those in one sentence</note>
+        <quote>While highly successful in e.g. hard classification, regression or ranking problems, their non-linearity so far has prevented these models to additionally explain and thus contribute to a better understanding about the nature of the solved problem.</quote>
+      </span>
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>layer-wise relevance propagation —contrasted-with→ Taylor reference point</label>
+        <term>layer-wise relevance propagation</term>
+        <term>Taylor reference point</term>
+        <note>strength of the relation: 0.85 — the two proposed approaches leave DIFFERENT things unspecified - a reference point in one, a propagation rule in the other</note>
+        <quote>Notably, these two methods were not defined as a particular solution to the heatmapping problem, but instead as a set of constraints that the heatmapping procedure must fulfill in order to be admissible. For instance, the exact choice of Taylor reference point was not specified beyond the constraints that it should be a root and that it should be located close to the actual data point. Similarly, the layer-wise relevance propagation has been defined with the sole restriction that the propagation rule conserves class relevance on a layer and node basis.</quote>
+      </span>
+      <span xml:id="t51" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>non-linearity —causes→ black box</label>
+        <term>non-linearity</term>
+        <term>black box</term>
+        <note>direction on the measure: increases · strength of the relation: 0.95</note>
+        <quote>This lack of interpretability is due to the non-linearity of the various mappings that process the raw image pixels to its feature representation and from that to the final classifier function.</quote>
+      </span>
+      <span xml:id="t52" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>relevance —part-of→ conservation law</label>
+        <term>relevance</term>
+        <term>conservation law</term>
+        <note>strength of the relation: 0.85 — the conservation law is a property required OF relevance, which is why it constrains rather than computes it</note>
+        <quote>The underlying Formula (2) can be interpreted as a conservation law for the relevance R in between layers of the feature processing.</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>a decomposition satisfying the layer-wise equation is neither unique nor necessarily meaningful</label>
+        <quote>As we will show now, a decomposition satisfying Eq (2) per se is neither unique, nor it is guaranteed that it yields a meaningful interpretation of the classifier prediction.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>a trivially valid decomposition makes every input point the same way as the prediction, which is not a realistic interpretation</label>
+        <quote>In terms of pixel-wise decomposition interpretation, all inputs point towards the presence of a structure if f(x) &gt; 0 and towards the absence of a structure if f(x) &lt; 0. This is for many classification problems not a realistic interpretation.</quote>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the method runs on a third-party pre-trained ImageNet network with no retraining, on a modest CPU</label>
+        <quote>This desirable property is demonstrated in this paper by the heatmapping of images classified by the third-party GPU-trained ImageNet neural network. In particular, our heatmapping procedure was applied to this network without any further training or retraining.</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the two proposed methods are given as constraint sets, so their remaining freedom is deferred to the user</label>
+        <quote>Thus, the further specification of relevance propagation rule is deferred to the appreciation of the user, or as a future work, and may either be model-specific, problem-specific, or subject to a particular practical or computational requirement.</quote>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>there is no direct relationship between a classifier&#x27;s value at a point and its derivative at the same point, which is the first reason a gradient map is not an explanation</label>
+        <quote>Firstly, there is no direct relationship between the function value f(x) at the prediction point x and the differential Df(x) at the same point x.</quote>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>derivatives at the prediction point are stated to be UNSUITABLE for the paper&#x27;s aim - a rejection of the dominant visualisation method of the time</label>
+        <quote>Therefore derivatives at the prediction point x are not useful for achieving our aim.</quote>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>layer-wise relevance propagation needs no second reference point at all, which is the practical advantage claimed over Taylor decomposition</label>
+        <quote>Unlike the Taylor approximation, layer-wise relevance propagation does not require to use a second point besides the input point.</quote>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.9">
+        <label>in the worked illustration the gradient explanation puts too much weight in an irrelevant direction, because the nearest points of the other class lie at a very different angle</label>
+        <quote>In this example the explanation vector from the local gradient at the prediction point x has a too large contribution in an irrelevant direction.</quote>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>pixel-wise decomposition</label>
+        <term>pixel-wise decomposition</term>
+        <quote>The overall idea of pixel-wise decomposition is to understand the contribution of a single pixel of an image x to the prediction f(x) made by a classifier f in an image classification task. We would like to find out, separately for each image x, which pixels contribute to what extent to a positive or negative classification result.</quote>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>layer-wise relevance propagation</label>
+        <term>layer-wise relevance propagation</term>
+        <quote>We will introduce layer-wise relevance propagation as a concept defined by a set of constraints. Any solution satisfying the constraints will be considered to follow the concept of layer-wise relevance propagation.</quote>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>relevance</label>
+        <term>relevance</term>
+        <quote>The above example gives furthermore an intuition about what relevance R is, namely, the local contribution to the prediction function f(x). In that sense the relevance of the output layer is the prediction itself f(x).</quote>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">
+        <label>heatmap</label>
+        <term>heatmap</term>
+        <quote>In terms of subsequent visualization, which however will not be the scope of this paper, the resulting relevances R d for each input pixel x (d) can be mapped to a color space and visualized in that way as a conventional heatmap.</quote>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">
+        <label>pixel-flipping</label>
+        <term>pixel-flipping</term>
+        <quote>In this paper we have proposed as a starting point a pixel-flipping method that allows to discriminate between two heatmapping methods that may otherwise look of similar quality to the human.</quote>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.95">
+        <label>the sign convention that makes a root the state of maximal uncertainty - positive means presence, negative means absence</label>
+        <quote>As said above, in case of classification we are interested to find out the contribution of each pixel relative to the state of maximal uncertainty of the prediction which is given by the set of points f(x 0) = 0, since f(x) &gt; 0 denotes presence and f(x) &lt; 0 absence of the learned structure.</quote>
+      </span>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>conservation of total relevance across layers</label>
+        <term>conservation of total relevance across layers</term>
+        <quote>The underlying Formula (2) can be interpreted as a conservation law for the relevance R in between layers of the feature processing.</quote>
+      </span>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>relevance</label>
+        <term>relevance</term>
+        <quote>The underlying Formula (2) can be interpreted as a conservation law for the relevance R in between layers of the feature processing.</quote>
+      </span>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>prediction</label>
+        <term>prediction</term>
+        <quote>The above example gives furthermore an intuition about what relevance R is, namely, the local contribution to the prediction function f(x). In that sense the relevance of the output layer is the prediction itself f(x).</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1371/journal.pone.0130140.</note></p>
+    </body>
+  </text>
+</TEI>

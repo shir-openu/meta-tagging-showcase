@@ -41,8 +41,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">41 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">42 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -121,10 +121,12 @@
       </span>
       <span xml:id="t15" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
         <label>the displayed samples declared to be FAIR RANDOM DRAWS rather than selected</label>
+        <note>eliminates: selection of the best outputs as the basis for judging the model - a figure of hand-picked samples shows what the model CAN do at its best, which is not what the distribution looks like, and nothing in the image itself would reveal the difference</note>
         <quote>Samples are fair random draws, not cherry-picked.</quote>
       </span>
       <span xml:id="t16" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
         <label>a column showing the NEAREST TRAINING EXAMPLE beside each generated sample</label>
+        <note>eliminates: memorisation of the training set as the explanation of sample quality - a model that reproduced its training data would look excellent by every visual measure, and the neighbour column is what makes that checkable by the reader</note>
         <quote>Rightmost column shows the nearest training example of the neighboring sample, in order to demonstrate that the model has not memorized the training set.</quote>
       </span>
       <span xml:id="t17" type="concepts" ana="#concepts[2]" resp="#paper">
@@ -210,32 +212,38 @@
         <label>At the unique optimum, G recovers the true data distribution and D outputs 1/2 everywhere; with MLPs the whole system trains by backpropagation, needing no Markov chains or unrolled inference.</label>
         <quote>a unique solution exists, with G recovering the training data distribution and D equal to 1 2 everywhere. In the case where G and D are defined by multilayer perceptrons, the entire system can be trained with backpropagation.</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.85">
+        <label>generator vs discriminator adversarial training</label>
+        <term>generator vs discriminator adversarial training</term>
+        <quote>we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>generated-sample realism / distribution match</label>
         <term>generated-sample realism / distribution match</term>
         <quote>with G recovering the training data distribution and D equal to 1 2 everywhere</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>generative adversarial net (minimax game)</label>
         <term>generative adversarial net (minimax game)</term>
         <quote>This framework corresponds to a minimax two-player game</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>discriminator D</label>
         <term>discriminator D</term>
         <quote>a discriminative model D that estimates the probability that a sample came from the training data rather than G</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>More recent examples of training a generative machine by back-propagating into it include recent work on auto-encoding variational Bayes [20] and stochastic backpropagation [24].</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>standard-error</label>
         <term>standard-error</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>The reported numbers on MNIST are the mean loglikelihood of samples on test set, with the standard error of the mean computed across examples.</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <quote>This method of estimating the likelihood has somewhat high variance and does not perform well in high dimensional spaces but it is the best method available to our knowledge.</quote>

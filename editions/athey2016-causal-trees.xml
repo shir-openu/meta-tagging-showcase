@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">44 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">45 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -107,151 +107,159 @@
         <label>regression-tree (recursive partitioning) methods adapted to estimate heterogeneous treatment effects</label>
         <quote>Our approach builds on regression tree methods, modified to optimize for goodness of fit in treatment effects</quote>
       </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.8">
+        <label>three simulation designs differing in whether noise covariates are present and in how covariates enter the treatment effect</label>
+        <note>eliminates: that the advantage of honest estimation depends on one particular data-generating design, in particular on the absence of noise covariates · outcome: held</note>
+        <quote>Design 1 does not have noise covariates.</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>honest estimation</label>
         <term>honest estimation</term>
         <quote>we impose a separation between constructing the partition and estimating effects within leaves of the partition, using separate samples for the two tasks, in what we refer to as “honest” estimation</quote>
       </span>
-      <span xml:id="t15" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>adaptive</label>
         <term>adaptive</term>
         <quote>We contrast ‘’honest” estimation with “adaptive” estimation used in conventional CART, where the same data is used to build the partition and estimate leaf effects</quote>
       </span>
-      <span xml:id="t16" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>unconfoundedness</label>
         <term>unconfoundedness</term>
-        <quote>we maintain the assumption of randomization conditional on the covariates</quote>
+        <quote>1.2 Unconfoundedness Throughout the paper, we maintain the assumption of randomization conditional on the covariates</quote>
       </span>
-      <span xml:id="t17" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>mean-squared error</label>
         <term>mean-squared error</term>
         <quote>following much of the literature, we focus on Mean-squared error (MSE) criteria, but we will modify these criteria in a variety of ways</quote>
       </span>
-      <span xml:id="t18" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>coverage</label>
         <term>coverage</term>
         <quote>we show that honest estimation can result in substantial improvements in coverage of confidence intervals, where our method attains nominal coverage rates</quote>
       </span>
-      <span xml:id="t19" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>&#x27;honest&#x27; - A STIPULATED PROPERTY OF DATA USE: a model is honest when the information selecting its structure is not the information estimating its parameters, which is sample splitting and nothing about truthfulness, candour or good faith - all of which the word carries anyway</label>
         <quote>We say that a model is “honest” if it does not use the same information for selecting the model structure (in our case, the partition of the covariate space) and for estimation given a model structure</quote>
       </span>
-      <span xml:id="t20" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>&#x27;adaptive&#x27; - THE NAME GIVEN TO THE ALTERNATIVE: conventional CART, where one sample does both jobs, is labelled adaptive here so that the two can be compared; the word is the paper&#x27;s, applied to a practice that did not call itself that</label>
         <quote>We contrast ‘’honest” estimation with “adaptive” estimation used in conventional CART, where the same data is used to build the partition and estimate leaf effects</quote>
       </span>
-      <span xml:id="t21" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>the estimand - UNOBSERVABLE FOR EVERY UNIT: unit-level causal effects are not observed for any unit at all, so unlike an ordinary prediction problem there is no held-out truth anywhere in the data against which a per-unit estimate could be scored</label>
         <quote>This creates complications for conventional methods because we do not observe unit level causal effects for any unit</quote>
       </span>
-      <span xml:id="t22" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → regression tree methods (machine learning)</label>
         <quote>Our approach builds on regression tree methods</quote>
       </span>
-      <span xml:id="t23" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → standard CART regression trees ([4], [3])</label>
         <quote>In this paper, we focus on the analogous goal of deriving a partition of the population according to treatment effect heterogeneity, building on standard regression trees ([4], [3]).</quote>
       </span>
-      <span xml:id="t24" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the Rubin Causal Model / potential outcome framework ([19], [11], [14])</label>
         <quote>Causal effects, in the Rubin Causal Model or potential outcome framework we use here ([19], [11], [14]), are comparisons between outcomes we observe and counterfactual outcomes we would have observed under a different regime or treatment.</quote>
       </span>
-      <span xml:id="t25" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t26" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>RETRACTED (RE-GROUNDED) · honest estimation —contrasted-with→ adaptive</label>
         <term>honest estimation</term>
         <term>adaptive</term>
         <note>RETRACTED: RE-GROUNDED. The old span named only one endpoint. This sentence names both and states the contrast WITH ITS DIRECTION - honest estimation improves on adaptive, not merely differs. — strength of the relation: 1</note>
         <quote>We contrast ‘’honest” estimation with “adaptive” estimation used in conventional CART, where the same data is used to build the partition and estimate leaf effects</quote>
       </span>
-      <span xml:id="t26" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>honest estimation —operationalised-as→ coverage</label>
         <term>honest estimation</term>
         <term>coverage</term>
         <note>strength of the relation: 1</note>
         <quote>we show that honest estimation can result in substantial improvements in coverage of confidence intervals, where our method attains nominal coverage rates</quote>
       </span>
-      <span xml:id="t27" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
         <label>honest estimation —contrasted-with→ adaptive</label>
         <term>honest estimation</term>
         <term>adaptive</term>
         <note>strength of the relation: 1 — RE-GROUNDS athey2016-causal-trees[0]: the old span named only ONE endpoint.</note>
         <quote>We find in the settings we consider that honest estimation results in improvements in fit, in some cases very large improvements, over a more traditional “adaptive” estimation approach.</quote>
       </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Their honest estimation — one sample to build the partition, a separate sample to estimate effects — yields VALID confidence intervals even with many covariates and no sparsity, since per-leaf estimates are unbiased.</label>
         <quote>we propose an “honest” approach to estimation, whereby one sample is used to construct the partition and another to estimate treatment effects for each subpopulation</quote>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>covariates (used to split the population)</label>
         <term>covariates (used to split the population)</term>
         <quote>partition the data into subpopulations which differ in the magnitude of their treatment effects</quote>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t31" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>estimated heterogeneous treatment effect (per subpopulation)</label>
         <term>estimated heterogeneous treatment effect (per subpopulation)</term>
         <quote>another to estimate treatment effects for each subpopulation</quote>
       </span>
-      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>honest estimation</label>
         <term>honest estimation</term>
         <quote>an “honest” approach to estimation, whereby one sample is used to construct the partition and another to estimate treatment effects for each subpopulation</quote>
       </span>
-      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>heterogeneous treatment effects</label>
         <term>heterogeneous treatment effects</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>estimating heterogeneity in causal effects in experimental and observational studies</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>Using Bayesian nonparametric methods with Dirichlet priors, they project their estimates of heterogeneous treatment effects</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>confidence-interval</label>
         <term>confidence-interval</term>
         <quote>The approach enables the construction of valid confidence intervals for treatment effects, even in samples with many covariates relative to the sample size, and without “sparsity” assumptions.</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>false-discovery-rate</label>
         <term>false-discovery-rate</term>
         <quote>For experiments, our method allows researchers to identify heterogeneity in treatment effects that was not specified in a pre-analysis plan, without concern about invalidating inference due to concerns about multiple testing.</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>hypothesis-testing</label>
         <term>hypothesis-testing</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>for estimating heterogeneity in causal effects in experimental and observational studies, and for conducting hypothesis tests about the magnitude of the differences in treatment effects across subsets of the population.</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>The treatment effect estimator within a leaf is the same as the adaptive method, that is, the sample mean of Y ∗ i within the leaf.</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>null-hypothesis</label>
         <term>null-hypothesis</term>
         <quote>the last estimator we look for splits with the largest value for the square of the t-statistic for testing the null hypothesis that the average treatment effect is the same in the two potential If the two leaves are denoted L (Left) and</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>p-value</label>
         <term>p-value</term>
         <quote>It enables researchers to let the data discover relevant subgroups without falling prey to concerns of multiple hypothesis testing that would invalidate p-values.</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
+        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>regression trees ([4]), random forests ([3]), LASSO ([24]), support vector machines ([26]), etc.) entail building a model of the relationship between attributes and outcomes, with a penalty parameter that penalizes model complexity.</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
         <label>sample-size</label>
         <term>sample-size</term>
         <quote>The approach enables the construction of valid confidence intervals for treatment effects, even in samples with many covariates relative to the sample size, and without “sparsity” assumptions.</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
         <label>t-test</label>
         <term>t-test</term>
         <quote>4.4 Squared T-statistic Trees (TS) For the last estimator we look for splits with the largest value for the square of the t-statistic</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <quote>covariates, anticipating that bias will be eliminated by honest estimation, but also accounting for the change in the variance of treatment effect estimates within each subpopulation as a result of the split.</quote>

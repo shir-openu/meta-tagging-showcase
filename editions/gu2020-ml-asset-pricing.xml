@@ -22,7 +22,7 @@
           
           <idno type="record">gu2020-ml-asset-pricing</idno>
           <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\gu2020-ml-asset-pricing.txt</note>
-          <note type="text-sha1">dda0ca70503e727c6694998c211357657d6b9819</note>
+          <note type="text-sha1">65d08196367dad03a2ed4c6d50467b0f395b6172</note>
           <note type="rights">arxiv-open</note>
         </bibl>
       </sourceDesc>
@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-20"
-              who="build_paper_edition.py">50 spans placed by verified search</change>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">51 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -95,6 +95,7 @@
       <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>the squared-error objective is replaced by a hybrid of squared loss for relatively small errors and absolute loss for relatively large ones, with the crossover controlled by a tuning parameter optimised adaptively from the data</term>
+        <note>about this quote: Q-609, 2026-08-16: THE EXTRACTION HAS STRIPPED THE MATH SYMBOLS INSIDE THIS QUOTE. It reads &quot;The Huber loss, H(?), is a hybrid ... controlled by a tuning parameter, , that can be optimized adaptively&quot; - the argument of H and the NAME OF THE TUNING PARAMETER are both absent from the staged file, leaving a bare comma where the symbol was. The quote is an exact substring and the file is incomplete here. The tag deliberately describes the parameter by its role rather than naming it, because naming it would mean supplying a character the staged text does not contain.</note>
         <quote>The Huber loss, H(�), is a hybrid of squared loss for relatively small errors and absolute loss for relatively large errors, where the combination is controlled by a tuning parameter, , that can be optimized adaptively from the data.</quote>
       </span>
       <span xml:id="t12" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
@@ -157,134 +158,139 @@
         <note>what this limits: reading &quot;machine learning&quot; here as a standard term: the paper says the definition is inchoate and stipulates its own three-part one</note>
         <quote>The definition of &quot;machine learning&quot; is inchoate and is often context specific. We use the term to describe (i) a diverse collection of high-dimensional models for statistical prediction, combined with (ii) so-called &quot;regularization&quot; methods for model selection and mitigation of overfit, and (iii) efficient algorithms for searching among a vast number of potential model specifications.</quote>
       </span>
-      <span xml:id="t24" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t24" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.85">
+        <label>the architecture and vocabulary of the biological nervous system - neurons, synapses, axons, signals passed between layers - carried into empirical asset pricing as the description of a feed-forward network</label>
+        <quote>Analogous to axons in a biological brain, layers of the networks represent groups of &quot;neurons&quot; with each layer connected by &quot;synapses&quot; that transmit signals among neurons of different layers.</quote>
+      </span>
+      <span xml:id="t25" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
         <label>parameter penalisation and deliberately conservative model-selection criteria applied across the whole method comparison</label>
+        <note>eliminates: overfitting and false discovery as the source of apparent predictive power - the flexible functional forms being compared can fit noise, and without the penalty the comparison would reward whichever method fits it best</note>
         <quote>parameter penalization and conservative model selection criteria complement the breadth of functional forms spanned by these methods in order to avoid overfit biases and false discovery</quote>
       </span>
-      <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper">
+      <span xml:id="t26" type="concepts" ana="#concepts[1]" resp="#paper">
         <label>machine learning</label>
         <term>machine learning</term>
         <quote>The definition of &quot;machine learning&quot; is inchoate and is often context specific.</quote>
       </span>
-      <span xml:id="t26" type="concepts" ana="#concepts[2]" resp="#paper">
+      <span xml:id="t27" type="concepts" ana="#concepts[2]" resp="#paper">
         <label>risk premium</label>
         <term>risk premium</term>
         <quote>We use the terms &quot;expected return&quot; and &quot;risk premium&quot; interchangeably.</quote>
       </span>
-      <span xml:id="t27" type="concepts" ana="#concepts[4]" resp="#paper">
+      <span xml:id="t28" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>expected return</label>
         <term>expected return</term>
         <quote>Our focus is on measuring conditional expected stock returns in excess of the risk-free rate.</quote>
       </span>
-      <span xml:id="t28" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t29" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>neural networks</label>
         <term>neural networks</term>
-        <quote>we find that neural network performance peaks at three hidden layers then declines as more layers are added.</quote>
+        <quote>When we consider a range of neural networks from very shallow (a single hidden layer) to deeper networks (up to five hidden layers), we find that neural network performance peaks at three hidden layers then declines as more layers are added.</quote>
       </span>
-      <span xml:id="t29" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>regression trees</label>
         <term>regression trees</term>
         <quote>we expand the model to accommodate nonlinear predictive relationships via generalized linear models, regression trees, and neural networks.</quote>
       </span>
-      <span xml:id="t30" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>elastic net</label>
         <term>elastic net</term>
         <quote>the &quot;elastic net,&quot; which uses parameter shrinkage and variable selection to limit the regression&#x27;s degrees of freedom, solves the OLS inefficiency problem.</quote>
       </span>
-      <span xml:id="t31" type="concepts" ana="#concepts[8]" resp="#paper">
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>support vector machines</label>
         <term>support vector machines</term>
         <quote>we exclude support vector machines as these share an equivalence with other methods that we study4 and are primarily used for classification problems.</quote>
       </span>
-      <span xml:id="t32" type="concepts" ana="#concepts[9]" resp="#paper">
+      <span xml:id="t33" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>variable importance</label>
         <term>variable importance</term>
         <quote>We discover influential covariates by ranking them according to a notion of variable importance</quote>
       </span>
-      <span xml:id="t33" type="concepts" ana="#concepts[10]" resp="#paper">
+      <span xml:id="t34" type="concepts" ana="#concepts[10]" resp="#paper">
         <label>out-of-sample R2</label>
         <term>out-of-sample R2</term>
         <quote>A subtle but important aspect of our R2 metric is that the denominator is the sum of squared excess returns without demeaning.</quote>
       </span>
-      <span xml:id="t34" type="concepts" ana="#concepts[11]" resp="#paper">
+      <span xml:id="t35" type="concepts" ana="#concepts[11]" resp="#paper">
         <label>predictive performance</label>
         <term>predictive performance</term>
         <quote>To assess predictive performance for individual excess stock return forecasts, we calculate the outof-sample R2 as</quote>
       </span>
-      <span xml:id="t35" type="concepts" ana="#concepts[12]" resp="#paper">
+      <span xml:id="t36" type="concepts" ana="#concepts[12]" resp="#paper">
         <label>traditional econometric prediction techniques</label>
         <term>traditional econometric prediction techniques</term>
         <quote>enhances their flexibility relative to more traditional econometric prediction techniques.</quote>
       </span>
-      <span xml:id="t36" type="concepts" ana="#concepts[13]" resp="#paper">
+      <span xml:id="t37" type="concepts" ana="#concepts[13]" resp="#paper">
         <label>Diebold-Mariano test</label>
         <term>Diebold-Mariano test</term>
         <quote>To make pairwise comparisons of methods, we use the Diebold and Mariano (1995) test for differences in out-of-sample predictive accuracy between two models.</quote>
       </span>
-      <span xml:id="t37" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t38" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>out-of-sample R2 - denominator is the sum of squared excess returns, NOT demeaned, so the benchmark forecast is zero</label>
         <quote>A subtle but important aspect of our R2 metric is that the denominator is the sum of squared excess returns without demeaning. In many out-of-sample forecasting applications, predictions are compared against historical mean returns. While this approach is sensible for the aggregate index or long-short portfolios, for example, it is flawed when it comes to analyzing individual stock returns. Predicting future excess stock returns with historical averages typically underperforms a naive fore- cast of zero by a large margin. That is, the historical mean stock return is so noisy that it artificially lowers the bar for &quot;good&quot; forecasting performance. We avoid this pitfall by benchmarking our R2 against a forecast value of zero.</quote>
       </span>
-      <span xml:id="t38" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t39" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>out-of-sample R2 - the conventional sense, benchmarked against historical mean returns, which the paper says would raise all its numbers by about three percentage points</label>
         <quote>In many out-of-sample forecasting applications, predictions are compared against historical mean returns. While this approach is sensible for the aggregate index or long-short portfolios, for example, it is flawed when it comes to analyzing individual stock returns. Predicting future excess stock returns with historical averages typically underperforms a naive fore- cast of zero by a large margin. That is, the historical mean stock return is so noisy that it artificially lowers the bar for &quot;good&quot; forecasting performance. We avoid this pitfall by benchmarking our R2 against a forecast value of zero. To give an indication of the importance of this choice, when we benchmark model predictions against historical mean stock returns, the out-of-sample monthly R2 of all methods rises by roughly three percentage points.</quote>
       </span>
-      <span xml:id="t39" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t40" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>machine learning - the authors&#x27; stipulated three-part sense: high-dimensional prediction models, regularization, and search algorithms</label>
         <quote>We use the term to describe (i) a diverse collection of high-dimensional models for statistical prediction, combined with (ii) so-called &quot;regularization&quot; methods for model selection and mitigation of overfit, and (iii) efficient algorithms for searching among a vast number of potential model specifications.</quote>
       </span>
-      <span xml:id="t40" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t41" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>risk premium - used interchangeably with expected return, while the paper notes components one may wish to distinguish</label>
         <quote>We use the terms &quot;expected return&quot; and &quot;risk premium&quot; interchangeably. One may be interested in potentially distinguishing among different components of expected returns such as those due to systematic risk compensation, idiosyncratic risk compensation, or even due to mispricing.</quote>
       </span>
-      <span xml:id="t41" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+      <span xml:id="t42" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
         <label>variable importance - a ranking used to identify influential covariates, explicitly not an account of mechanism</label>
         <quote>Our goal in interpreting machine learning models is modest. We aim to identify covariates that have an important influence on the cross-section of expected returns while simultaneously controlling for the many other predictors in the system.</quote>
       </span>
-      <span xml:id="t42" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t43" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
         <label>qualifies → Green et al. (2013), Harvey et al. (2016), Welch and Goyal (2008) — the predictor-counting literature</label>
         <note>differs in: WHETHER THE COUNT IS OF PREDICTORS OR OF REPORTED PREDICTORS. Three surveys are cited with their totals - 330 stock-level signals, 316 factors, nearly 20 aggregate-market predictors - and then: &#x27;THERE PRESUMABLY EXISTS A MUCH LARGER SET OF PREDICTORS THAT WERE TESTED BUT FAILED TO PREDICT RETURNS AND WERE THUS NEVER REPORTED.&#x27; The denominator of the search is unobservable, so the counts bound the published literature and not the work done</note>
         <quote>Green et al. (2013) count 330 stock-level predictive signals in published or circulated drafts. Harvey et al. (2016) study 316 &quot;factors,&quot; which include firm characteristics and common factors, for describing stock return behavior. They note that this is only a subset of those studied in the literature. Welch and Goyal (2008) analyze nearly 20 predictors for the aggregate market return. In both stock and aggregate return predictions, there presumably exists a much larger set of predictors that were tested but failed to predict returns and were thus never reported.</quote>
       </span>
-      <span xml:id="t43" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
         <label>builds-on → Welch and Goyal (2008)</label>
         <note>differs in: WHAT THE BENCHMARK IS. The comparison point is not a rival method&#x27;s success but a documented FAILURE: &#x27;nearly all of the macroeconomic return predictor variables in the survey of Welch and Goyal (2008) FAIL TO PRODUCE A POSITIVE OUT-OF-SAMPLE FORECAST R2.&#x27; A negative result is doing the work of a baseline, which is only legible if the reader knows the sign convention of this R2 - and the record already carries two senses of it</note>
         <quote>As a benchmark for comparison, nearly all of the macroeconomic return predictor variables in the survey of Welch and Goyal (2008) fail to produce a positive out-of-sample forecast R2.</quote>
       </span>
-      <span xml:id="t44" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
         <label>distinguishes-from → principal components regression (PCA)</label>
         <note>differs in: WHETHER THE DIMENSION REDUCTION KNOWS WHAT IT IS PREDICTING. &#x27;PCA condenses data into components based on the covariation AMONG THE PREDICTORS. THIS HAPPENS PRIOR TO THE FORECASTING STEP AND WITHOUT CONSIDERATION OF HOW PREDICTORS ASSOCIATE WITH FUTURE RETURNS. IN CONTRAST, partial least squares performs dimension reduction by DIRECTLY EXPLOITING COVARIATION OF PREDICTORS WITH THE FORECAST TARGET.&#x27; Two reductions of the same data differing only in whether the target is in scope when the axes are chosen</note>
         <quote>PCA condenses data into components based on the covariation among the predictors. This happens prior to the forecasting step and without consideration of how predictors associate with future returns. In contrast, partial least squares performs dimension reduction by directly exploiting covariation of predictors with the forecast target.</quote>
       </span>
-      <span xml:id="t45" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t46" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>risk premium —same-as→ expected return</label>
         <term>risk premium</term>
         <term>expected return</term>
         <note>strength of the relation: 1</note>
         <quote>We use the terms &quot;expected return&quot; and &quot;risk premium&quot; interchangeably.</quote>
       </span>
-      <span xml:id="t46" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+      <span xml:id="t47" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>predictive performance —operationalised-as→ out-of-sample R2</label>
         <term>predictive performance</term>
         <term>out-of-sample R2</term>
         <note>strength of the relation: 1</note>
         <quote>To assess predictive performance for individual excess stock return forecasts, we calculate the outof-sample R2 as</quote>
       </span>
-      <span xml:id="t47" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
         <label>neural networks —contrasted-with→ regression trees</label>
         <term>neural networks</term>
         <term>regression trees</term>
         <note>strength of the relation: 0.9</note>
         <quote>Neural networks and, to a lesser extent, regression trees, are the best performing methods.</quote>
       </span>
-      <span xml:id="t48" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
         <label>support vector machines —part-of→ machine learning</label>
         <term>support vector machines</term>
         <term>machine learning</term>
         <note>strength of the relation: 0.9</note>
         <quote>our list is designed to be representative of predictive analytics tools from various branches of the machine learning toolkit.</quote>
       </span>
-      <span xml:id="t49" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
         <label>machine learning —contrasted-with→ traditional econometric prediction techniques</label>
         <term>machine learning</term>
         <term>traditional econometric prediction techniques</term>

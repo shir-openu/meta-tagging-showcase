@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SCANPY: large-scale single-cell gene expression data analysis</title>
+        <author>F. Alexander Wolf</author>
+        <author>Philipp Angerer</author>
+        <author>Fabian J. Theis</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>SCANPY: large-scale single-cell gene expression data analysis</title>
+          <date>2018</date>
+          <publisher>Genome biology</publisher>
+          <idno type="DOI">10.1186/s13059-017-1382-0</idno>
+          
+          <idno type="record">wolf2018-scanpy-large-scale-single-cell-gen</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\wolf2018-scanpy-large-scale-single-cell-gen.txt</note>
+          <note type="text-sha1">5308128fbd70ce88c47cd7e1afde42dc09ec050b</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>biology</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">31 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>single-cell gene expression data at a scale existing frameworks do not reach</label>
+        <quote>However, these frameworks do not scale to the increasingly available large data sets with up to and more than one million cells. Here, we present a framework that overcomes this limitation and provides similar analysis possibilities.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to give the established single-cell analyses a form that scales past a million cells</label>
+        <quote>However, these frameworks do not scale to the increasingly available large data sets with up to and more than one million cells. Here, we present a framework that overcomes this limitation and provides similar analysis possibilities.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>SCANPY, and ANNDATA - a generic annotated data matrix that every tool reads and writes without changing its structure</label>
+        <quote>With SCANPY , we introduce the class ANNDATA —with a corresponding package ANNDATA —which stores a data matrix with the most general annotations possible: annotations of observations (samples, cells) and variables (features, genes), and unstructured annotations.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>However, these frameworks do not scale to the increasingly available large data sets with up to and more than one million cells. Here, we present a framework that overcomes this limitation and provides similar analysis possibilities.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>analysis frameworks failing at data sizes their science has already reached</label>
+        <quote>However, these frameworks do not scale to the increasingly available large data sets with up to and more than one million cells. Here, we present a framework that overcomes this limitation and provides similar analysis possibilities.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>a Python toolkit built around one annotated data class, with HDF5 backing and a single reused neighbourhood graph</label>
+        <term>a Python toolkit built around one annotated data class, with HDF5 backing and a single reused neighbourhood graph</term>
+        <quote>Typically, SCANPY ’s tools reuse a once-computed, single graph representation of data and hence, avoid the use of different, potentially inconsistent, and computationally expensive representations of data.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>ONE REPRESENTATION, COMPUTED ONCE, REUSED: the tools share a single graph of the data instead of each building its own, which the paper justifies by what it avoids - DIFFERENT, POTENTIALLY INCONSISTENT representations of the same data</term>
+        <quote>Typically, SCANPY ’s tools reuse a once-computed, single graph representation of data and hence, avoid the use of different, potentially inconsistent, and computationally expensive representations of data.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>EXTENSIBILITY THROUGH A FIXED STRUCTURE: a tool extracts from the matrix and writes its result back into the same object, and the object&#x27;s structure is unaffected - so adding a method does not oblige anything else to change</term>
+        <quote>As SCANPY is built around that class, it is easy to add new functionality to the toolkit. All statistics and machine-learning tools extract information from a data matrix, which can be added to an ANNDATA object while leaving the structure of ANNDATA unaffected.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>SCALE BY CHANGING RESIDENCY, NOT ALGORITHM: HDF5 backing lets the object be operated on without being loaded, so the limit moves from memory size to disk</term>
+        <quote>This allows operating on an ANNDATA object without fully loading it into memory—the functionality is offered via ANNDATA ’s backed mode as opposed to its memory mode.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>SPEED FROM BLOCKING, NOT FROM APPROXIMATION: neighbourhood distances are computed by aggregating rows into submatrices and multiplying, rather than by sampling</term>
+        <quote>The computation of neighborhood relations is much faster than in the popular reference package [ 27 ]. This is achieved by aggregating rows (observations) in a data matrix to submatrices and computing distances for each submatrix using fast parallelized matrix multiplication.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>The comparison offered is against R-based frameworks and CELL RANGER; the claim of no comparable toolkit is scoped to the PYTHON ecosystem, in the paper&#x27;s own words</label>
+        <quote>SCANPY integrates well into the existing Python ecosystem, in which no comparable toolkit yet exists.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>The scaling evidence is a demonstration on named datasets - 68,579 cells for the speedup and 1.3 million for feasibility - not a complexity result</label>
+        <quote>Moreover, we demonstrate the feasibility of analyzing 1.3 million cells without subsampling in a few hours of computing time on eight cores of a small computing server</quote>
+      </span>
+      <span xml:id="t12" type="controls" ana="#controls[0]" resp="#tagger" cert="0.8">
+        <label>benchmarking SCANPY against established single-cell analysis packages on a clustering tutorial of 2,700 peripheral blood mononuclear cells</label>
+        <note>eliminates: that SCANPY&#x27;s clustering results differ from what the established tools produce on the same data, so that its speed advantage comes at a cost in output · outcome: held</note>
+        <quote>SCANPY is benchmarked in comparisons with established packages In a detailed clustering tutorial of 2700 peripheral blood mononuclear cells (PBMCs), adapted from one of SEURAT ’s tutorials ( http://satijalab.org/seurat/pbmc3k_tutorial.html ) [ 2 ], all steps starting from raw count data to the identification of cell types are carried out, providing speedups between 5 and 90 times in each step ( https://github.com/theislab/scanpy_usage/tree/master/170505_seurat ).</quote>
+      </span>
+      <span xml:id="t13" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>SCANPY</label>
+        <term>SCANPY</term>
+        <quote>However, these frameworks do not scale to the increasingly available large data sets with up to and more than one million cells. Here, we present a framework that overcomes this limitation and provides similar analysis possibilities.</quote>
+      </span>
+      <span xml:id="t14" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>ANNDATA</label>
+        <term>ANNDATA</term>
+        <quote>With SCANPY , we introduce the class ANNDATA —with a corresponding package ANNDATA —which stores a data matrix with the most general annotations possible: annotations of observations (samples, cells) and variables (features, genes), and unstructured annotations.</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>EXPRESSIONSET</label>
+        <term>EXPRESSIONSET</term>
+        <quote>ANNDATA is similar to R’s EXPRESSIONSET [ 26 ], but supports sparse data and allows HDF5-based backing of ANNDATA objects on disk, a format independent of platform, framework, and language.</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>backed mode</label>
+        <term>backed mode</term>
+        <quote>This allows operating on an ANNDATA object without fully loading it into memory—the functionality is offered via ANNDATA ’s backed mode as opposed to its memory mode.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>memory mode</label>
+        <term>memory mode</term>
+        <quote>This allows operating on an ANNDATA object without fully loading it into memory—the functionality is offered via ANNDATA ’s backed mode as opposed to its memory mode.</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>annotations</label>
+        <term>annotations</term>
+        <quote>With SCANPY , we introduce the class ANNDATA —with a corresponding package ANNDATA —which stores a data matrix with the most general annotations possible: annotations of observations (samples, cells) and variables (features, genes), and unstructured annotations.</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>data matrix</label>
+        <term>data matrix</term>
+        <quote>With SCANPY , we introduce the class ANNDATA —with a corresponding package ANNDATA —which stores a data matrix with the most general annotations possible: annotations of observations (samples, cells) and variables (features, genes), and unstructured annotations.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>neighborhood relations</label>
+        <term>neighborhood relations</term>
+        <quote>The computation of neighborhood relations is much faster than in the popular reference package [ 27 ]. This is achieved by aggregating rows (observations) in a data matrix to submatrices and computing distances for each submatrix using fast parallelized matrix multiplication.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>single graph representation</label>
+        <term>single graph representation</term>
+        <quote>Typically, SCANPY ’s tools reuse a once-computed, single graph representation of data and hence, avoid the use of different, potentially inconsistent, and computationally expensive representations of data.</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>sparse data</label>
+        <term>sparse data</term>
+        <quote>ANNDATA is similar to R’s EXPRESSIONSET [ 26 ], but supports sparse data and allows HDF5-based backing of ANNDATA objects on disk, a format independent of platform, framework, and language.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>CELL RANGER</label>
+        <term>CELL RANGER</term>
+        <quote>Benchmarking against the more run-time optimized CELL RANGER R kit [ 6 ], we demonstrate a speedup of 5 to 16 times for a data set of 68,579 PBMCs</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.85">
+        <label>SEURAT</label>
+        <term>SEURAT</term>
+        <quote>Simple integrated analysis work flows for single-cell transcriptomic data [ 1 ] have been enabled by frameworks such as SEURAT [ 2 ], MONOCLE [ 3 ], SCDE/PAGODA [ 4 ], MAST [ 5 ], CELL RANGER [ 6 ], SCATER [ 7 ], and SCRAN [ 8 ]. However, these frameworks do not scale to the increasingly available large data sets with up to and more than one million cells. Here, we present a framework that overcomes this limitation and provides similar analysis possibilities.</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>Python ecosystem</label>
+        <term>Python ecosystem</term>
+        <quote>SCANPY integrates well into the existing Python ecosystem, in which no comparable toolkit yet exists.</quote>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>ANNDATA - THE ANNOTATION IS THE POINT, NOT THE MATRIX: a data matrix plus annotations of observations, of variables, and unstructured ones, held together so a tool can add a result without changing the structure everything else reads</label>
+        <quote>With SCANPY , we introduce the class ANNDATA —with a corresponding package ANNDATA —which stores a data matrix with the most general annotations possible: annotations of observations (samples, cells) and variables (features, genes), and unstructured annotations.</quote>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>backed mode - the same object read WITHOUT being loaded into memory, as opposed to memory mode. One class, two residencies, and the analysis code does not change</label>
+        <quote>This allows operating on an ANNDATA object without fully loading it into memory—the functionality is offered via ANNDATA ’s backed mode as opposed to its memory mode.</quote>
+      </span>
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>ANNDATA —contrasted-with→ EXPRESSIONSET</label>
+        <term>ANNDATA</term>
+        <term>EXPRESSIONSET</term>
+        <note>differs in: sparse data support and HDF5-based backing on disk, which is what lets an object be operated on without being loaded · strength of the relation: 1</note>
+        <quote>ANNDATA is similar to R’s EXPRESSIONSET [ 26 ], but supports sparse data and allows HDF5-based backing of ANNDATA objects on disk, a format independent of platform, framework, and language.</quote>
+      </span>
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>ANNDATA —part-of→ SCANPY</label>
+        <term>ANNDATA</term>
+        <term>SCANPY</term>
+        <note>strength of the relation: 1</note>
+        <quote>As SCANPY is built around that class, it is easy to add new functionality to the toolkit. All statistics and machine-learning tools extract information from a data matrix, which can be added to an ANNDATA object while leaving the structure of ANNDATA unaffected.</quote>
+      </span>
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>backed mode —distinct-from→ memory mode</label>
+        <term>backed mode</term>
+        <term>memory mode</term>
+        <note>strength of the relation: 1</note>
+        <quote>This allows operating on an ANNDATA object without fully loading it into memory—the functionality is offered via ANNDATA ’s backed mode as opposed to its memory mode.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/s13059-017-1382-0.</note></p>
+    </body>
+  </text>
+</TEI>

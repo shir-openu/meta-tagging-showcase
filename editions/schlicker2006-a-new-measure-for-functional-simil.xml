@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>A new measure for functional similarity of gene products based on Gene Ontology</title>
+        <author>Andreas Schlicker</author>
+        <author>Francisco S. Domingues</author>
+        <author>Jörg Rahnenführer</author>
+        <author>Thomas Lengauer</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>A new measure for functional similarity of gene products based on Gene Ontology</title>
+          <date>2006</date>
+          <publisher>BMC Bioinformatics</publisher>
+          <idno type="DOI">10.1186/1471-2105-7-302</idno>
+          
+          <idno type="record">schlicker2006-a-new-measure-for-functional-simil</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\schlicker2006-a-new-measure-for-functional-simil.txt</note>
+          <note type="text-sha1">6097f2452cc08845eabedfb1b4af2be227bb2471</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>biology</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">55 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>A SIMILARITY MEASURE COMPUTED FROM A CONTROLLED VOCABULARY&#x27;S OWN SHAPE - how alike two gene products are, decided by where their Gene Ontology terms sit in the graph rather than by their sequences</label>
+        <quote>Gene products are functionally similar if they have comparable molecular functions and are involved in similar biological processes. These gene products did not necessarily evolve from a common ancestor and therefore do not necessarily show sequence similarity.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to score the functional similarity of two gene products from their GO annotations alone, in a way that survives incomplete and partly subjective annotation</label>
+        <quote>In addition, GO is an ongoing project in which new terms are added continuously but many specific functional terms may still be missing. The manual mapping of GO terms to genes is based on results available in the scientific literature or in public databases, but relies on human decision and therefore is considerably subjective [ 12 ]. In addition, a large part of gene products is not yet annotated with GO terms.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>two measures - simRel for a pair of GO terms and funSim for a pair of gene products - that combine Resnik&#x27;s and Lin&#x27;s definitions and allow partial matches</label>
+        <quote>The measure also allows for partial matches, resulting in a more robust similarity score for the comparison of gene products with incomplete annotation or for the comparison of multi-functional proteins.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>The measure also allows for partial matches, resulting in a more robust similarity score for the comparison of gene products with incomplete annotation or for the comparison of multi-functional proteins.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>similarity of meaning treated as a computable property of a vocabulary&#x27;s graph, with the vocabulary&#x27;s own defects inherited by every score</label>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>semantic similarity over the GO directed acyclic graph: information content of the lowest common ancestor, combined across the three ontologies, evaluated against sequence-similarity approaches and applied to yeast, human, fungal and Pfam sets</label>
+        <term>semantic similarity over the GO directed acyclic graph: information content of the lowest common ancestor, combined across the three ontologies, evaluated against sequence-similarity approaches and applied to yeast, human, fungal and Pfam sets</term>
+        <quote>Resnik [ 13 , 14 ] developed a measure of semantic similarity for &quot;is-a&quot; ontologies based on the information content of the lowest common ancestor (LCA) of two terms. The more frequently a term occurs, i.e., the higher its probability of occurring, the lower its information content. If the LCA of two terms describes a generic concept, these terms are not very similar and this is reflected in a low information content of their LCA. This measure considers how specific the LCA of the two terms is but disregards how far away the two terms are from their LCA.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>DEPTH IS NOT SPECIFICITY, AND THE MEASURE EXISTS BECAUSE OF IT: `the DEPTH OF A TERM in the GO graph IS NOT REPRESENTATIVE OF THE SPECIFICITY of the underlying concept. DIFFERENT TERMS ON THE SAME RANK (same depth in the GO graph) USUALLY ARE NOT EQUALLY SPECIFIC.` The obvious structural proxy for how precise a term is does not work, and information content is used instead</label>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>AND THE MEASURE DOES NOT RETURN 1.0 FOR A TERM COMPARED WITH ITSELF: `Comparing the GO term `biotin biosynthesis` (GO:0009102) WITH ITSELF results in a sim Rel score of 0.99993. THE SCORE IS SMALLER THAN 1.0 BECAUSE sim Rel RELIES ON THE PROBABILITY OF THE TERM`. IDENTITY IS NOT A FIXED POINT OF THE MEASURE, and everything built on it inherits that - including the funSim score and the maps drawn from it</label>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>AND THE INTERPRETIVE BANDS ARE CHOSEN, NOT DERIVED: `GO terms with a sim Rel score ABOVE 0.9 correspond to HIGHLY SIMILAR functions. BETWEEN 0.5 AND 0.7, the two GO terms MAY BE CONSIDERED FUNCTIONALLY RELATED and BELOW 0.3, THEY ARE NOT FUNCTIONALLY SIMILAR.` Three classes on a continuous score, with the ranges 0.3-0.5 and 0.7-0.9 left unnamed</label>
+        <quote>The sim Rel score ranges between 0 and 1. GO terms with a sim Rel score above 0.9 correspond to highly similar functions. Between 0.5 and 0.7, the two GO terms may be considered functionally related and below 0.3, they are not functionally similar.</quote>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>AND THE THING BEING REPLACED HAS A MEASURED ERROR RATE: `Devos and Valencia suggest that UP TO 30% OF THE FUNCTION ANNOTATIONS MADE THROUGH SEQUENCE SIMILARITY SEARCHES MIGHT BE ERRONEOUS`, and the EC number `tends to be COMPLETELY CONSERVED ONLY FOR PROTEINS WITH MORE THAN 80% SEQUENCE IDENTITY ... PROBLEMATIC to assign EC numbers based on a sequence alignment with LESS THAN 30% IDENTITY`</label>
+        <quote>Devos and Valencia [ 2 , 3 ] suggest that up to 30% of the function annotations made through sequence similarity searches might be erroneous.</quote>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>and the definition the whole apparatus serves is explicitly NOT evolutionary: `Gene products are FUNCTIONALLY SIMILAR IF they have COMPARABLE MOLECULAR FUNCTIONS AND ARE INVOLVED IN SIMILAR BIOLOGICAL PROCESSES. These gene products DID NOT NECESSARILY EVOLVE FROM A COMMON ANCESTOR and therefore DO NOT NECESSARILY SHOW SEQUENCE SIMILARITY`</label>
+        <quote>Gene products are functionally similar if they have comparable molecular functions and are involved in similar biological processes. These gene products did not necessarily evolve from a common ancestor and therefore do not necessarily show sequence similarity.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE VOCABULARY IS INCOMPLETE AND THE MAPPING IS SUBJECTIVE, SAID BY ITS USERS: `GO is an ongoing project in which new terms are added continuously but MANY SPECIFIC FUNCTIONAL TERMS MAY STILL BE MISSING. The manual mapping of GO terms to genes ... RELIES ON HUMAN DECISION AND THEREFORE IS CONSIDERABLY SUBJECTIVE ... a LARGE PART of gene products IS NOT YET ANNOTATED with GO terms.`</label>
+        <quote>In addition, GO is an ongoing project in which new terms are added continuously but many specific functional terms may still be missing. The manual mapping of GO terms to genes is based on results available in the scientific literature or in public databases, but relies on human decision and therefore is considerably subjective [ 12 ]. In addition, a large part of gene products is not yet annotated with GO terms.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>AND A NAMED MISSING ANNOTATION WITH ITS CONSEQUENCE: `such sequence-independent similarity measures are ALWAYS LIMITED BY THE AVAILABILITY AND QUALITY OF THE FUNCTIONAL ANNOTATIONS and their underlying ontologies. This is reflected by the previously mentioned MISSING `boron transport` ANNOTATION for the human protein Q8NBS3, MAKING IT IMPOSSIBLE TO FIND FUNCTIONALLY RELATED PROTEINS in yeast.` One absent term, one comparison that cannot be made</label>
+        <quote>Nevertheless, such sequence-independent similarity measures are always limited by the availability and quality of the functional annotations and their underlying ontologies. This is refected by the previously mentioned missing &quot;boron transport&quot; annotation for the human protein Q8NBS3 , making it impossible to find functionally related proteins in yeast.</quote>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>NO GOLD STANDARD, AND THE PAPER SAYS WHAT THAT COSTS: `The comparison of our measures with Lord&#x27;s approach IS LIMITED BY THE LACK OF A GOLD STANDARD for either TRUE POSITIVES OR TRUE NEGATIVES. Therefore, ONE IS RESTRICTED TO THE COMPARISON OF THE SHAPES OF THE DISTRIBUTIONS of scores.` `ainsworth2020`, staged in this corpus an hour before this record, says `NO CLEAR GOLD STANDARD EXISTS` about serological assays. Ontology similarity and immunoassays, fourteen years apart, blocked on the same missing thing</label>
+        <quote>The comparison of our measures with Lord&#x27;s approach [ 16 ] is limited by the lack of a gold standard for either true positives or true negatives. Therefore, one is restricted to the comparison of the shapes of the distributions of scores.</quote>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>and the remedy is named as an open problem rather than claimed: `FUTURE PROGRESS IN THIS AREA REQUIRES AN OBJECTIVE CRITERION FOR TESTING THE PERFORMANCE of the different measures of functional similarity`</label>
+        <quote>Future progress in this area requires an objective criterion for testing the performance of the different measures of functional similarity.</quote>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>and the scope is stated as additive rather than replacing: `The new approach IS NOT INTENDED TO BE A REPLACEMENT of the sequence comparison or homology-based approaches BUT RATHER PROVIDES AN ADDITIONAL ALTERNATIVE for the objective comparison of the annotated gene products`</label>
+        <quote>The new approach is not intended to be a replacement of the sequence comparison or homology-based approaches but rather provides an additional alternative for the objective comparison of the annotated gene products.</quote>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.85">
+        <label>DAMAGE INHERITED FROM THE PUBLISHER, NOT FROM OUR EXTRACTION: the staged body reads `refect` FOUR times and `reflect` THREE - a lost `fl` ligature - and BOTH COUNTS ARE IDENTICAL IN EUROPE PMC&#x27;s OWN fullTextXML, checked directly. Second confirmed instance of Q-990&#x27;s category and a different mechanism from the first: zook2016 lost a whole `&lt;` and its following text, this loses one letter of a ligature. The partiality within one document is what makes it findable</label>
+        <quote>Lin [ 15 ] developed a related measure that depends on the information content of the LCA and of the two terms that are compared. This measure assesses how close the terms are to their LCA. It does not refect the level of detail of the lowest common ancestor, though.</quote>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>information content in place of graph depth as the measure of a term&#x27;s specificity</label>
+        <note>eliminates: the assumption that terms at the same rank are equally specific - which the authors state is false · outcome: held</note>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>allowing partial matches rather than penalising every mismatch</label>
+        <note>eliminates: scores driven by incomplete annotation rather than by function - `suitable for the comparison of gene products for which ONLY PART of the functional annotation is available` · outcome: held</note>
+        <quote>The measure also allows for partial matches, resulting in a more robust similarity score for the comparison of gene products with incomplete annotation or for the comparison of multi-functional proteins.</quote>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>a gold standard of true positives and true negatives to test the measures against</label>
+        <note>eliminates: nothing - it does not exist: `LIMITED BY THE LACK OF A GOLD STANDARD for either true positives or true negatives`, leaving only distribution shapes to compare · outcome: absent-not-in-staged-text</note>
+        <quote>The comparison of our measures with Lord&#x27;s approach [ 16 ] is limited by the lack of a gold standard for either true positives or true negatives. Therefore, one is restricted to the comparison of the shapes of the distributions of scores.</quote>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>depth</label>
+        <term>depth</term>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>specificity</label>
+        <term>specificity</term>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>semantic similarity</label>
+        <term>semantic similarity</term>
+        <quote>Resnik [ 13 , 14 ] developed a measure of semantic similarity for &quot;is-a&quot; ontologies based on the information content of the lowest common ancestor (LCA) of two terms. The more frequently a term occurs, i.e., the higher its probability of occurring, the lower its information content. If the LCA of two terms describes a generic concept, these terms are not very similar and this is reflected in a low information content of their LCA. This measure considers how specific the LCA of the two terms is but disregards how far away the two terms are from their LCA.</quote>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>information content</label>
+        <term>information content</term>
+        <quote>Resnik [ 13 , 14 ] developed a measure of semantic similarity for &quot;is-a&quot; ontologies based on the information content of the lowest common ancestor (LCA) of two terms. The more frequently a term occurs, i.e., the higher its probability of occurring, the lower its information content. If the LCA of two terms describes a generic concept, these terms are not very similar and this is reflected in a low information content of their LCA. This measure considers how specific the LCA of the two terms is but disregards how far away the two terms are from their LCA.</quote>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>sim Rel</label>
+        <term>sim Rel</term>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>probability of the term</label>
+        <term>probability of the term</term>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>biological process</label>
+        <term>biological process</term>
+        <quote>The Gene Ontology (GO) is divided into three orthogonal ontologies, biological process , molecular function , and cellular component . The three ontologies are represented as directed acyclic graphs (DAG) in which nodes correspond to terms and their relationships are represented by edges. Each node can have several parents and several children. There are two types of relationships. &quot;is-a&quot; indicates that the child is a subclass of the parent, and &quot;part-of&quot; is used when the child is a component of the parent.</quote>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>Gene Ontology</label>
+        <term>Gene Ontology</term>
+        <quote>The Gene Ontology (GO) is divided into three orthogonal ontologies, biological process , molecular function , and cellular component . The three ontologies are represented as directed acyclic graphs (DAG) in which nodes correspond to terms and their relationships are represented by edges. Each node can have several parents and several children. There are two types of relationships. &quot;is-a&quot; indicates that the child is a subclass of the parent, and &quot;part-of&quot; is used when the child is a component of the parent.</quote>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>`specificity` (of a GO term) - NOT depth in the graph: `DIFFERENT TERMS ON THE SAME RANK ... USUALLY ARE NOT EQUALLY SPECIFIC`. Operationalised instead as information content, i.e. how rarely the term is used</label>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t29" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>`functionally similar` - `comparable molecular functions AND ... similar biological processes`, explicitly WITHOUT common ancestry: `did NOT NECESSARILY EVOLVE FROM A COMMON ANCESTOR and therefore DO NOT NECESSARILY SHOW SEQUENCE SIMILARITY`</label>
+        <quote>Gene products are functionally similar if they have comparable molecular functions and are involved in similar biological processes. These gene products did not necessarily evolve from a common ancestor and therefore do not necessarily show sequence similarity.</quote>
+      </span>
+      <span xml:id="t30" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>`sim Rel` - a score in [0,1] that DOES NOT REACH 1 FOR A TERM AGAINST ITSELF (0.99993 for `biotin biosynthesis`), because it is a function of the term&#x27;s probability rather than of the pair alone</label>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t31" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>`highly similar` / `functionally related` / `not functionally similar` - three chosen bands on the simRel score: above 0.9, between 0.5 and 0.7, below 0.3</label>
+        <quote>The sim Rel score ranges between 0 and 1. GO terms with a sim Rel score above 0.9 correspond to highly similar functions. Between 0.5 and 0.7, the two GO terms may be considered functionally related and below 0.3, they are not functionally similar.</quote>
+      </span>
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>extends → Resnik&#x27;s and Lin&#x27;s semantic similarity measures, which simRel combines - Resnik weighs the specificity of the common ancestor, Lin the distance to it</label>
+        <quote>Resnik [ 13 , 14 ] developed a measure of semantic similarity for &quot;is-a&quot; ontologies based on the information content of the lowest common ancestor (LCA) of two terms. The more frequently a term occurs, i.e., the higher its probability of occurring, the lower its information content. If the LCA of two terms describes a generic concept, these terms are not very similar and this is reflected in a low information content of their LCA. This measure considers how specific the LCA of the two terms is but disregards how far away the two terms are from their LCA.</quote>
+      </span>
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>contrasts-with → homology-based functional annotation, of which `up to 30% ... might be erroneous` and whose EC assignments are unreliable below 30% sequence identity</label>
+        <quote>Devos and Valencia [ 2 , 3 ] suggest that up to 30% of the function annotations made through sequence similarity searches might be erroneous.</quote>
+      </span>
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>depth —distinct-from→ specificity</label>
+        <term>depth</term>
+        <term>specificity</term>
+        <note>strength of the relation: 0.95 — `the DEPTH OF A TERM in the GO graph IS NOT REPRESENTATIVE OF THE SPECIFICITY of the underlying concept. DIFFERENT TERMS ON THE SAME RANK ... USUALLY ARE NOT EQUALLY SPECIFIC.` The obvious structural proxy for precision fails, which is why the measure uses information content instead - and any graph our concept layer builds will have the same property</note>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>semantic similarity —operationalised-as→ information content</label>
+        <term>semantic similarity</term>
+        <term>information content</term>
+        <note>strength of the relation: 0.95 — `Resnik developed A MEASURE OF SEMANTIC SIMILARITY for `is-a` ontologies BASED ON THE INFORMATION CONTENT of the lowest common ancestor of two terms. The more frequently a term occurs ... THE LOWER ITS INFORMATION CONTENT.` Similarity of meaning operationalised as rarity of the shared ancestor</note>
+        <quote>Resnik [ 13 , 14 ] developed a measure of semantic similarity for &quot;is-a&quot; ontologies based on the information content of the lowest common ancestor (LCA) of two terms. The more frequently a term occurs, i.e., the higher its probability of occurring, the lower its information content. If the LCA of two terms describes a generic concept, these terms are not very similar and this is reflected in a low information content of their LCA. This measure considers how specific the LCA of the two terms is but disregards how far away the two terms are from their LCA.</quote>
+      </span>
+      <span xml:id="t36" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>sim Rel —operationalised-as→ probability of the term</label>
+        <term>sim Rel</term>
+        <term>probability of the term</term>
+        <note>strength of the relation: 0.95 — `Comparing the GO term `biotin biosynthesis` WITH ITSELF results in a sim Rel score of 0.99993. THE SCORE IS SMALLER THAN 1.0 BECAUSE sim Rel RELIES ON THE PROBABILITY OF THE TERM.` The dependency is stated by the authors as the reason self-similarity is not 1</note>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t37" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>biological process —part-of→ Gene Ontology</label>
+        <term>biological process</term>
+        <term>Gene Ontology</term>
+        <note>strength of the relation: 0.95 — NO CUE BINDS THIS EDGE AND I DID NOT BIND ONE. The containment is stated as `The Gene Ontology (GO) IS DIVIDED INTO three orthogonal ontologies, BIOLOGICAL PROCESS, molecular function, and cellular component`, and `divided into` is on no list. The only CONTAINMENT cue in the quote is `a component of`, which belongs to the sentence DEFINING the part-of relation type - a different pair entirely. Binding it would be Q-992 exactly: the cue attached to the wrong argument</note>
+        <quote>The Gene Ontology (GO) is divided into three orthogonal ontologies, biological process , molecular function , and cellular component . The three ontologies are represented as directed acyclic graphs (DAG) in which nodes correspond to terms and their relationships are represented by edges. Each node can have several parents and several children. There are two types of relationships. &quot;is-a&quot; indicates that the child is a subclass of the parent, and &quot;part-of&quot; is used when the child is a component of the parent.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>DEPTH IS NOT SPECIFICITY: `the DEPTH OF A TERM in the GO graph IS NOT REPRESENTATIVE OF THE SPECIFICITY of the underlying concept. DIFFERENT TERMS ON THE SAME RANK ... USUALLY ARE NOT EQUALLY SPECIFIC`</label>
+        <term>DEPTH IS NOT SPECIFICITY: `the DEPTH OF A TERM in the GO graph IS NOT REPRESENTATIVE OF THE SPECIFICITY of the underlying concept. DIFFERENT TERMS ON THE SAME RANK ... USUALLY ARE NOT EQUALLY SPECIFIC`</term>
+        <quote>One problem is that the depth of a term in the GO graph is not representative of the specificity of the underlying concept. Different terms on the same rank (same depth in the GO graph) usually are not equally specific.</quote>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>AND THE MEASURE DOES NOT RETURN 1.0 FOR A TERM AGAINST ITSELF: `Comparing the GO term biotin biosynthesis WITH ITSELF results in a sim Rel score of 0.99993 ... BECAUSE sim Rel RELIES ON THE PROBABILITY OF THE TERM`. Identity is not a fixed point of the measure</label>
+        <term>AND THE MEASURE DOES NOT RETURN 1.0 FOR A TERM AGAINST ITSELF: `Comparing the GO term biotin biosynthesis WITH ITSELF results in a sim Rel score of 0.99993 ... BECAUSE sim Rel RELIES ON THE PROBABILITY OF THE TERM`. Identity is not a fixed point of the measure</term>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>THE INTERPRETIVE BANDS ARE CHOSEN, NOT DERIVED: `ABOVE 0.9 ... HIGHLY SIMILAR. BETWEEN 0.5 AND 0.7 ... FUNCTIONALLY RELATED and BELOW 0.3, THEY ARE NOT FUNCTIONALLY SIMILAR` - with 0.3-0.5 and 0.7-0.9 left unnamed</label>
+        <term>THE INTERPRETIVE BANDS ARE CHOSEN, NOT DERIVED: `ABOVE 0.9 ... HIGHLY SIMILAR. BETWEEN 0.5 AND 0.7 ... FUNCTIONALLY RELATED and BELOW 0.3, THEY ARE NOT FUNCTIONALLY SIMILAR` - with 0.3-0.5 and 0.7-0.9 left unnamed</term>
+        <quote>The sim Rel score ranges between 0 and 1. GO terms with a sim Rel score above 0.9 correspond to highly similar functions. Between 0.5 and 0.7, the two GO terms may be considered functionally related and below 0.3, they are not functionally similar.</quote>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>THE VOCABULARY IS INCOMPLETE AND THE MAPPING IS SUBJECTIVE, SAID BY ITS USERS: `MANY SPECIFIC FUNCTIONAL TERMS MAY STILL BE MISSING ... RELIES ON HUMAN DECISION AND THEREFORE IS CONSIDERABLY SUBJECTIVE ... a LARGE PART of gene products IS NOT YET ANNOTATED`</label>
+        <term>THE VOCABULARY IS INCOMPLETE AND THE MAPPING IS SUBJECTIVE, SAID BY ITS USERS: `MANY SPECIFIC FUNCTIONAL TERMS MAY STILL BE MISSING ... RELIES ON HUMAN DECISION AND THEREFORE IS CONSIDERABLY SUBJECTIVE ... a LARGE PART of gene products IS NOT YET ANNOTATED`</term>
+        <quote>In addition, GO is an ongoing project in which new terms are added continuously but many specific functional terms may still be missing. The manual mapping of GO terms to genes is based on results available in the scientific literature or in public databases, but relies on human decision and therefore is considerably subjective [ 12 ]. In addition, a large part of gene products is not yet annotated with GO terms.</quote>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>AND ONE NAMED MISSING ANNOTATION MAKES A WHOLE COMPARISON IMPOSSIBLE: the `MISSING boron transport ANNOTATION for the human protein Q8NBS3, MAKING IT IMPOSSIBLE TO FIND FUNCTIONALLY RELATED PROTEINS in yeast`</label>
+        <term>AND ONE NAMED MISSING ANNOTATION MAKES A WHOLE COMPARISON IMPOSSIBLE: the `MISSING boron transport ANNOTATION for the human protein Q8NBS3, MAKING IT IMPOSSIBLE TO FIND FUNCTIONALLY RELATED PROTEINS in yeast`</term>
+        <quote>Nevertheless, such sequence-independent similarity measures are always limited by the availability and quality of the functional annotations and their underlying ontologies. This is refected by the previously mentioned missing &quot;boron transport&quot; annotation for the human protein Q8NBS3 , making it impossible to find functionally related proteins in yeast.</quote>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>NO GOLD STANDARD, IN A SECOND DISCIPLINE: `LIMITED BY THE LACK OF A GOLD STANDARD for either TRUE POSITIVES OR TRUE NEGATIVES. Therefore, ONE IS RESTRICTED TO THE COMPARISON OF THE SHAPES OF THE DISTRIBUTIONS of scores` - and ainsworth2020, staged the same day, says the same of serological assays</label>
+        <term>NO GOLD STANDARD, IN A SECOND DISCIPLINE: `LIMITED BY THE LACK OF A GOLD STANDARD for either TRUE POSITIVES OR TRUE NEGATIVES. Therefore, ONE IS RESTRICTED TO THE COMPARISON OF THE SHAPES OF THE DISTRIBUTIONS of scores` - and ainsworth2020, staged the same day, says the same of serological assays</term>
+        <quote>The comparison of our measures with Lord&#x27;s approach [ 16 ] is limited by the lack of a gold standard for either true positives or true negatives. Therefore, one is restricted to the comparison of the shapes of the distributions of scores.</quote>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>AND THE THING BEING REPLACED HAS A MEASURED ERROR RATE: `UP TO 30% OF THE FUNCTION ANNOTATIONS MADE THROUGH SEQUENCE SIMILARITY SEARCHES MIGHT BE ERRONEOUS`</label>
+        <term>AND THE THING BEING REPLACED HAS A MEASURED ERROR RATE: `UP TO 30% OF THE FUNCTION ANNOTATIONS MADE THROUGH SEQUENCE SIMILARITY SEARCHES MIGHT BE ERRONEOUS`</term>
+        <quote>Devos and Valencia [ 2 , 3 ] suggest that up to 30% of the function annotations made through sequence similarity searches might be erroneous.</quote>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>AND A CLASSIFICATION TRANSFERS ONLY ABOVE A THRESHOLD: the EC number `tends to be COMPLETELY CONSERVED ONLY FOR PROTEINS WITH MORE THAN 80% SEQUENCE IDENTITY ... PROBLEMATIC to assign EC numbers based on a sequence alignment with LESS THAN 30% IDENTITY`</label>
+        <term>AND A CLASSIFICATION TRANSFERS ONLY ABOVE A THRESHOLD: the EC number `tends to be COMPLETELY CONSERVED ONLY FOR PROTEINS WITH MORE THAN 80% SEQUENCE IDENTITY ... PROBLEMATIC to assign EC numbers based on a sequence alignment with LESS THAN 30% IDENTITY`</term>
+        <quote>The same authors showed that the Enzyme Classification (EC) [ 4 ] number tends to be completely conserved only for proteins with more than 80% sequence identity. They found that it is problematic to assign EC numbers based on a sequence alignment with less than 30% identity.</quote>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="0.85">
+        <label>AND THE BODY CARRIES PUBLISHER-SIDE LIGATURE DAMAGE: `refect` four times against `reflect` three, IDENTICAL IN EUROPE PMC&#x27;s OWN fullTextXML. Second confirmed instance of Q-990&#x27;s category, by a different mechanism from zook2016&#x27;s eaten `&lt;`</label>
+        <term>AND THE BODY CARRIES PUBLISHER-SIDE LIGATURE DAMAGE: `refect` four times against `reflect` three, IDENTICAL IN EUROPE PMC&#x27;s OWN fullTextXML. Second confirmed instance of Q-990&#x27;s category, by a different mechanism from zook2016&#x27;s eaten `&lt;`</term>
+        <quote>Lin [ 15 ] developed a related measure that depends on the information content of the LCA and of the two terms that are compared. This measure assesses how close the terms are to their LCA. It does not refect the level of detail of the lowest common ancestor, though.</quote>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>`comparable molecular functions AND ... involved in similar biological processes`, explicitly without common ancestry or sequence similarity</label>
+        <term>functionally similar</term>
+        <quote>Gene products are functionally similar if they have comparable molecular functions and are involved in similar biological processes. These gene products did not necessarily evolve from a common ancestor and therefore do not necessarily show sequence similarity.</quote>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>a score in [0,1] that returns 0.99993 - NOT 1.0 - for a term compared with itself, `because sim Rel RELIES ON THE PROBABILITY OF THE TERM`</label>
+        <term>sim Rel</term>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>in GO, `indicates that THE CHILD IS A SUBCLASS OF THE PARENT`, as against `part-of`, used `when the child is A COMPONENT OF THE PARENT`</label>
+        <term>is-a</term>
+        <quote>The Gene Ontology (GO) is divided into three orthogonal ontologies, biological process , molecular function , and cellular component . The three ontologies are represented as directed acyclic graphs (DAG) in which nodes correspond to terms and their relationships are represented by edges. Each node can have several parents and several children. There are two types of relationships. &quot;is-a&quot; indicates that the child is a subclass of the parent, and &quot;part-of&quot; is used when the child is a component of the parent.</quote>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>30 — the proportion of sequence-similarity function annotations that may be erroneous</label>
+        <quote>Devos and Valencia [ 2 , 3 ] suggest that up to 30% of the function annotations made through sequence similarity searches might be erroneous.</quote>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>80 — the level above which an EC number tends to be completely conserved</label>
+        <quote>The same authors showed that the Enzyme Classification (EC) [ 4 ] number tends to be completely conserved only for proteins with more than 80% sequence identity. They found that it is problematic to assign EC numbers based on a sequence alignment with less than 30% identity.</quote>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>0.99993 — the similarity of a GO term to ITSELF - not 1.0, because the score depends on the term&#x27;s probability</label>
+        <quote>Comparing the GO term &quot;biotin biosynthesis&quot; (GO:0009102) with itself results in a sim Rel score of 0.99993. The score is smaller than 1.0 because sim Rel relies on the probability of the term (see Methods for details).</quote>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
+        <label>0.9 — the chosen band above which two GO terms are called highly similar</label>
+        <quote>The sim Rel score ranges between 0 and 1. GO terms with a sim Rel score above 0.9 correspond to highly similar functions. Between 0.5 and 0.7, the two GO terms may be considered functionally related and below 0.3, they are not functionally similar.</quote>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>the quantity standing in for a term&#x27;s specificity, since depth in the graph does not track it</label>
+        <term>information content</term>
+        <quote>Resnik [ 13 , 14 ] developed a measure of semantic similarity for &quot;is-a&quot; ontologies based on the information content of the lowest common ancestor (LCA) of two terms. The more frequently a term occurs, i.e., the higher its probability of occurring, the lower its information content. If the LCA of two terms describes a generic concept, these terms are not very similar and this is reflected in a low information content of their LCA. This measure considers how specific the LCA of the two terms is but disregards how far away the two terms are from their LCA.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/1471-2105-7-302.</note></p>
+    </body>
+  </text>
+</TEI>

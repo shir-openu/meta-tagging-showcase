@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>MAST: a flexible statistical framework for assessing transcriptional changes and characterizing heterogeneity in single-cell RNA sequencing data</title>
+        <author>Greg Finak</author>
+        <author>Andrew McDavid</author>
+        <author>Masanao Yajima</author>
+        <author>Jingyuan Deng</author>
+        <author>Vivian H. Gersuk</author>
+        <author>Alex K. Shalek</author>
+        <author>Chloe K. Slichter</author>
+        <author>Hannah W. Miller</author>
+        <author>M. Juliana McElrath</author>
+        <author>Martin Prlic</author>
+        <author>Peter S. Linsley</author>
+        <author>Raphaël Gottardo</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>MAST: a flexible statistical framework for assessing transcriptional changes and characterizing heterogeneity in single-cell RNA sequencing data</title>
+          <date>2015</date>
+          <publisher>Genome biology</publisher>
+          <idno type="DOI">10.1186/s13059-015-0844-5</idno>
+          
+          <idno type="record">finak2015-mast-a-flexible-statistical-framew</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\finak2015-mast-a-flexible-statistical-framew.txt</note>
+          <note type="text-sha1">4c8c2fb814bf30f613c526c76510514ae82d20b2</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>biology</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">39 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>single-cell RNA-seq expression, in which a gene is either strongly positive or undetected, and the reason for the zero cannot be read off the zero</label>
+        <quote>First, single-cell expression has repeatedly been shown to exhibit a characteristic bimodal expression pattern, wherein the expression of otherwise abundant genes is either strongly positive or undetected within individual cells.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to test for differential expression when the detection rate itself carries both technical and biological variation</label>
+        <quote>We and other groups [ 4 – 7 ] have shown that the proportion of cells with detectable expression reflects both technical factors and biological differences between samples.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a two-part generalized linear model that parameterises the discrete and the continuous halves of bimodal expression, with the cellular detection rate adjusted for as a covariate</label>
+        <quote>We propose a two-part, generalized linear model for such bimodal data that parameterizes both of these features.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>We propose a two-part, generalized linear model for such bimodal data that parameterizes both of these features.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>bimodal single-cell expression, where the technical dropout and the biological extrinsic noise arrive in the same measurement</label>
+        <quote>This is due in part to low starting quantities of RNA such that many genes will be below the threshold of detection, but there is also a biological component to this variation (termed extrinsic noise in the literature) that is conflated with the technical variability</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>a hurdle model fitted per gene, with the cellular detection rate as a covariate, validated against simulated confounding and applied to MAIT cell activation data</label>
+        <term>a hurdle model fitted per gene, with the cellular detection rate as a covariate, validated against simulated confounding and applied to MAIT cell activation data</term>
+        <quote>We explored the effect of confounding between the CDR and treatment effects on the MAST false positive rate in the presence and absence of CDR control in the MAST model (Additional file 1 : Figure S4A, B). Controlling for CDR improved the sensitivity and specificity of MAST in the presence of confounding, and did not negatively impact its performance either in the absence of confounding or in the absence of a CDR effect.</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>the zero has two causes that produce the same observation - RNA below the threshold of detection, and genuine biological absence - and the paper says the second is CONFLATED WITH the first in the literature&#x27;s term `extrinsic noise`</label>
+        <quote>This is due in part to low starting quantities of RNA such that many genes will be below the threshold of detection, but there is also a biological component to this variation (termed extrinsic noise in the literature) that is conflated with the technical variability</quote>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>the cellular detection rate is the fraction of genes detected in a cell, and it REFLECTS BOTH technical factors and biological differences between samples - so the covariate proposed as nuisance is partly the thing being measured</label>
+        <quote>We and other groups [ 4 – 7 ] have shown that the proportion of cells with detectable expression reflects both technical factors and biological differences between samples.</quote>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>a physical route by which the confounding could arise is named rather than left abstract: TREATED CELLS COULD BECOME LARGER IN VOLUME, which would move the detection rate for the same reason the treatment moves expression</label>
+        <quote>It is possible that the CDR and treatment effects could be partially confounded, for example, treated cells could become larger in volume.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE NUISANCE VARIABLE IS PARTLY THE SIGNAL. CDR is proposed as `a source of nuisance variation` to adjust for, and the same paper reports that it reflects biological differences too - so the adjustment may remove part of the effect</label>
+        <quote>We argue that the cellular detection rate, the fraction of genes expressed in a cell, should be adjusted for as a source of nuisance variation.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>and the size of the problem is stated: THE CDR DEVIANCE ESTIMATES FOR MANY GENES WERE COMPARABLE TO, IF NOT GREATER THAN, THE TREATMENT DEVIANCE ESTIMATES</label>
+        <quote>It should also be noted that the CDR deviance estimates for many of the genes were comparable to (if not greater than) the treatment deviance estimates.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>A METHODS PAPER SAYING THE BEST ANSWER TO ITS OWN PROBLEM IS NOT A MODEL: `the OPTIMAL APPROACH to handle confounding between technical and biological effects on the CDR is to DESIGN EXPERIMENTS with biological replicates across multiple batches`</label>
+        <quote>the optimal approach to handle confounding between technical and biological effects on the CDR is to design experiments with biological replicates across multiple batches.</quote>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the alternative treatments of CDR each carry an assumption the paper names - centering within treatment groups `would implicitly ASSUME that the observed changes are treatment induced`, and the control-gene offset needs genes ASSUMED to be treatment invariant</label>
+        <quote>It is also possible to use CDR as a precision variable (an uncorrelated secondary cause) by centering the CDR within each treatment groups, which makes the CDR measurement orthogonal to treatment. This would implicitly assume that the observed changes are treatment induced, while still modeling the heterogeneity in cell volume within each treatment group.</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the confounding the method&#x27;s own covariate could cause is SIMULATED and the false positive rate measured with and without CDR control, in the presence and absence of confounding and of a CDR effect</label>
+        <note>eliminates: an adjustment that improves fit while destroying the effect it was meant to clean - the four-way comparison is what shows the adjustment does not hurt when there is nothing to adjust for · outcome: held</note>
+        <quote>We explored the effect of confounding between the CDR and treatment effects on the MAST false positive rate in the presence and absence of CDR control in the MAST model (Additional file 1 : Figure S4A, B). Controlling for CDR improved the sensitivity and specificity of MAST in the presence of confounding, and did not negatively impact its performance either in the absence of confounding or in the absence of a CDR effect.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>the relative size of the CDR effect against the treatment effect is reported rather than assumed small</label>
+        <note>eliminates: a nuisance covariate quietly dominating the model - and the answer is that CDR deviance was COMPARABLE TO OR GREATER THAN treatment deviance for many genes · outcome: failed</note>
+        <quote>It should also be noted that the CDR deviance estimates for many of the genes were comparable to (if not greater than) the treatment deviance estimates.</quote>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether the technical and biological contributions to the detection rate can be separated by any analysis of these data</label>
+        <note>eliminates: nothing - the paper states the optimal approach is to design experiments with biological replicates across multiple batches, which is not an analysis · outcome: failed</note>
+        <quote>We and other groups [ 4 – 7 ] have shown that the proportion of cells with detectable expression reflects both technical factors and biological differences between samples.</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>cellular detection rate</label>
+        <term>cellular detection rate</term>
+        <quote>We argue that the cellular detection rate, the fraction of genes expressed in a cell, should be adjusted for as a source of nuisance variation.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>extrinsic noise</label>
+        <term>extrinsic noise</term>
+        <quote>This is due in part to low starting quantities of RNA such that many genes will be below the threshold of detection, but there is also a biological component to this variation (termed extrinsic noise in the literature) that is conflated with the technical variability</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>bimodal</label>
+        <term>bimodal</term>
+        <quote>We propose a two-part, generalized linear model for such bimodal data that parameterizes both of these features.</quote>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>generalized linear model</label>
+        <term>generalized linear model</term>
+        <quote>We propose a two-part, generalized linear model for such bimodal data that parameterizes both of these features.</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>cellular detection rate - AS USED HERE, IN TWO INCOMPATIBLE ROLES IN ONE PAPER. In the abstract it is `a source of NUISANCE variation` to be adjusted away. In the results it `reflects BOTH technical factors AND biological differences`, its deviance rivals the treatment&#x27;s, and it may be confounded with treatment because treated cells grow. THE SAME NUMBER IS THE ARTEFACT AND THE SIGNAL</label>
+        <quote>We and other groups [ 4 – 7 ] have shown that the proportion of cells with detectable expression reflects both technical factors and biological differences between samples.</quote>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>extrinsic noise - the literature&#x27;s name for the biological half of the variation, and the paper&#x27;s point is that the NAME DOES NOT SEPARATE IT: it arrives conflated with the technical variability in the same measurement</label>
+        <quote>This is due in part to low starting quantities of RNA such that many genes will be below the threshold of detection, but there is also a biological component to this variation (termed extrinsic noise in the literature) that is conflated with the technical variability</quote>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>bimodality - AS DEFINED BY THE OBSERVATION, not the cause: expression is `either strongly positive or undetected`. The model parameterises the two modes precisely because it cannot attribute any single zero to one cause or the other</label>
+        <quote>First, single-cell expression has repeatedly been shown to exhibit a characteristic bimodal expression pattern, wherein the expression of otherwise abundant genes is either strongly positive or undetected within individual cells.</quote>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → the model of independent expression between genes - `That CDR predicts expression levels CONTRADICTS` it, since an average across many genes could not affect any single gene were expression independent</label>
+        <quote>That CDR predicts expression levels contradicts the model of independent expression between genes, because the level of expression (averaged across many genes) would not affect the level in any given gene were expression independent.</quote>
+      </span>
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → co-expression analyses that do not adjust for the detection rate, in which `the apparent correlation between genes is greatly inflated`</label>
+        <quote>It is especially important to adjust for CDR when testing for co-expression between genes, or the apparent correlation between genes is greatly inflated</quote>
+      </span>
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>extends → Hicks et al.&#x27;s point that confounding between technical and biological effects is best handled by experimental design - conceded here as the optimal approach</label>
+        <quote>the optimal approach to handle confounding between technical and biological effects on the CDR is to design experiments with biological replicates across multiple batches.</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>THE SIGNAL AND THE ARTEFACT ARE THE SAME MEASUREMENT: the biological component of the variation is CONFLATED WITH THE TECHNICAL VARIABILITY, and the detection rate reflects both</label>
+        <term>THE SIGNAL AND THE ARTEFACT ARE THE SAME MEASUREMENT: the biological component of the variation is CONFLATED WITH THE TECHNICAL VARIABILITY, and the detection rate reflects both</term>
+        <quote>This is due in part to low starting quantities of RNA such that many genes will be below the threshold of detection, but there is also a biological component to this variation (termed extrinsic noise in the literature) that is conflated with the technical variability</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>the CDR deviance estimates for many genes were COMPARABLE TO, IF NOT GREATER THAN, the treatment deviance estimates - the nuisance is the size of the effect</label>
+        <term>the CDR deviance estimates for many genes were COMPARABLE TO, IF NOT GREATER THAN, the treatment deviance estimates - the nuisance is the size of the effect</term>
+        <quote>It should also be noted that the CDR deviance estimates for many of the genes were comparable to (if not greater than) the treatment deviance estimates.</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>CDR AND TREATMENT COULD BE PARTIALLY CONFOUNDED, with a physical route named: treated cells could become larger in volume</label>
+        <term>CDR AND TREATMENT COULD BE PARTIALLY CONFOUNDED, with a physical route named: treated cells could become larger in volume</term>
+        <quote>It is possible that the CDR and treatment effects could be partially confounded, for example, treated cells could become larger in volume.</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>that CDR predicts expression levels CONTRADICTS THE MODEL OF INDEPENDENT EXPRESSION between genes - an incidental result sharper than most papers&#x27; main one</label>
+        <term>that CDR predicts expression levels CONTRADICTS THE MODEL OF INDEPENDENT EXPRESSION between genes - an incidental result sharper than most papers&#x27; main one</term>
+        <quote>That CDR predicts expression levels contradicts the model of independent expression between genes, because the level of expression (averaged across many genes) would not affect the level in any given gene were expression independent.</quote>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>without adjusting for CDR the apparent correlation between genes is GREATLY INFLATED, which matters most exactly where co-expression networks are the output</label>
+        <term>without adjusting for CDR the apparent correlation between genes is GREATLY INFLATED, which matters most exactly where co-expression networks are the output</term>
+        <quote>It is especially important to adjust for CDR when testing for co-expression between genes, or the apparent correlation between genes is greatly inflated</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>A METHODS PAPER CONCEDING THAT THE BEST ANSWER IS NOT A MODEL: the optimal approach to the technical/biological confounding is to DESIGN EXPERIMENTS with biological replicates across multiple batches</label>
+        <term>A METHODS PAPER CONCEDING THAT THE BEST ANSWER IS NOT A MODEL: the optimal approach to the technical/biological confounding is to DESIGN EXPERIMENTS with biological replicates across multiple batches</term>
+        <quote>the optimal approach to handle confounding between technical and biological effects on the CDR is to design experiments with biological replicates across multiple batches.</quote>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the fraction of genes expressed in a cell, argued to be a source of nuisance variation that should be adjusted for</label>
+        <term>cellular detection rate</term>
+        <quote>We argue that the cellular detection rate, the fraction of genes expressed in a cell, should be adjusted for as a source of nuisance variation.</quote>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the literature&#x27;s term for the biological component of expression variation, which arrives conflated with the technical variability</label>
+        <term>extrinsic noise</term>
+        <quote>This is due in part to low starting quantities of RNA such that many genes will be below the threshold of detection, but there is also a biological component to this variation (termed extrinsic noise in the literature) that is conflated with the technical variability</quote>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>generalized linear model</label>
+        <term>generalized linear model</term>
+        <quote>We propose a two-part, generalized linear model for such bimodal data that parameterizes both of these features.</quote>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>deviance</label>
+        <term>deviance</term>
+        <quote>It should also be noted that the CDR deviance estimates for many of the genes were comparable to (if not greater than) the treatment deviance estimates.</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
+        <label>false positive rate</label>
+        <term>false positive rate</term>
+        <quote>We explored the effect of confounding between the CDR and treatment effects on the MAST false positive rate in the presence and absence of CDR control in the MAST model (Additional file 1 : Figure S4A, B). Controlling for CDR improved the sensitivity and specificity of MAST in the presence of confounding, and did not negatively impact its performance either in the absence of confounding or in the absence of a CDR effect.</quote>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>cellular detection rate</label>
+        <term>cellular detection rate</term>
+        <quote>We argue that the cellular detection rate, the fraction of genes expressed in a cell, should be adjusted for as a source of nuisance variation.</quote>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>cell volume</label>
+        <term>cell volume</term>
+        <quote>It is also possible to use CDR as a precision variable (an uncorrelated secondary cause) by centering the CDR within each treatment groups, which makes the CDR measurement orthogonal to treatment. This would implicitly assume that the observed changes are treatment induced, while still modeling the heterogeneity in cell volume within each treatment group.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1186/s13059-015-0844-5.</note></p>
+    </body>
+  </text>
+</TEI>

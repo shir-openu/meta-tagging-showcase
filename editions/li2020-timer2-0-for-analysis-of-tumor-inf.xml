@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>TIMER2.0 for analysis of tumor-infiltrating immune cells</title>
+        <author>Taiwen Li</author>
+        <author>Jingxin Fu</author>
+        <author>Zexian Zeng</author>
+        <author>David Cohen</author>
+        <author>Jing Li</author>
+        <author>Qianming Chen</author>
+        <author>Bo Li</author>
+        <author>X. Shirley Liu</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>TIMER2.0 for analysis of tumor-infiltrating immune cells</title>
+          <date>2020</date>
+          <publisher>Nucleic Acids Research</publisher>
+          <idno type="DOI">10.1093/nar/gkaa407</idno>
+          
+          <idno type="record">li2020-timer2-0-for-analysis-of-tumor-inf</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\li2020-timer2-0-for-analysis-of-tumor-inf.txt</note>
+          <note type="text-sha1">9015a7659f57c19fb5243ecb40907dabd955f3d1</note>
+          <note type="rights">cc-by-nc</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>medicine</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-08-26"
+              who="build_paper_edition.py">32 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>immune cell composition of tumours - a quantity that is inferred from bulk transcriptome rather than counted, by six different algorithms</label>
+        <quote>While informative, tumor transcriptomics data do not immediately indicate immune cell compositions, which instead require computational inference.</quote>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to make immune-infiltration estimates from public tumour data usable without committing to any one inference algorithm</label>
+        <quote>We hope that evaluating estimations from multiple algorithms might help the user gain more comprehensive and robust results.</quote>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a web platform that runs six estimation algorithms over uniformly pre-processed TCGA data and shows their outputs side by side</label>
+        <quote>Instead of just using one algorithm, TIMER2.0 ( http://timer.cistrome.org/ ) provides more robust estimation of immune infiltration levels for The Cancer Genome Atlas (TCGA) or user-provided tumor profiles using six state-of-the-art algorithms.</quote>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <quote>Instead of just using one algorithm, TIMER2.0 ( http://timer.cistrome.org/ ) provides more robust estimation of immune infiltration levels for The Cancer Genome Atlas (TCGA) or user-provided tumor profiles using six state-of-the-art algorithms.</quote>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>tumour immune infiltration, whose direct measurement is limited enough that the field works from computational inference instead</label>
+        <quote>Due to the limitations of direct measurement methods, computational algorithms are often used to infer immune cell composition from bulk tumor transcriptome profiles.</quote>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>six published algorithms - gene-signature and deconvolution based - applied uniformly to TCGA and to user-supplied profiles, with a heatmap over cancer types</label>
+        <term>six published algorithms - gene-signature and deconvolution based - applied uniformly to TCGA and to user-supplied profiles, with a heatmap over cancer types</term>
+        <quote>The available computational algorithms ( 7–12 ) for immune infiltration estimation fall into two main categories: gene signature- and deconvolution-based approaches</quote>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>gene-signature methods score cell-type-specific gene sets INDEPENDENTLY per cell type; deconvolution methods model the tissue&#x27;s expression as a WEIGHTED SUM of the component cells&#x27; profiles. Two different mathematical objects behind one output name</label>
+        <quote>Deconvolution methods define the problem as mathematical equations that model the gene expression of a tissue sample as the weighted sum of the expression profiles from the cells in the population mix</quote>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE QUANTITY IS NOT MEASURED. `DUE TO THE LIMITATIONS OF DIRECT MEASUREMENT METHODS, computational algorithms are often used to INFER immune cell composition` - and the transcriptome `does not immediately indicate` it</label>
+        <quote>Due to the limitations of direct measurement methods, computational algorithms are often used to infer immune cell composition from bulk tumor transcriptome profiles.</quote>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>SIX ALGORITHMS, ONE OUTPUT NAME, AND ONLY TWO PRODUCE A QUANTITY ON A MEANINGFUL SCALE: `EPIC AND quanTIseq HAVE THE ADVANTAGE OF DIRECTLY GENERATING SCORES INTERPRETED AS CELL FRACTIONS`. The other four produce enrichment scores displayed beside them</label>
+        <quote>EPIC and quanTIseq have the advantage of directly generating scores interpreted as cell fractions.</quote>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>each algorithm is named with its own failure: TIMER handles tissue specificity but covers only six cell types, xCell covers more but MAY FAIL TO DETECT SIGNALS FROM HOMOGENEOUS SAMPLES</label>
+        <quote>TIMER is the only method that takes tissue specificity into account when estimating immune cell populations, although it only makes estimations on six immune cell types. xCell can make estimations on the higher number of different immune cell types but may fail to detect signals from homogeneous samples.</quote>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the justification for running all six is a HOPE, in the authors&#x27; own word: `WE HOPE THAT evaluating estimations from multiple algorithms MIGHT HELP the user gain more comprehensive and robust results`</label>
+        <quote>We hope that evaluating estimations from multiple algorithms might help the user gain more comprehensive and robust results.</quote>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>and the cross-species use is caveated where it is offered: mouse estimations `SHOULD BE INTERPRETED WITH CAUTION since human and the mouse tumors may have different immune properties`</label>
+        <quote>We note that estimations on mouse samples should be interpreted with caution since human and the mouse tumors may have different immune properties.</quote>
+      </span>
+      <span xml:id="t12" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>all TCGA samples are pre-processed UNIFORMLY before the six algorithms run, so the estimates differ by algorithm and not by pipeline</label>
+        <note>eliminates: disagreement between algorithms that is really disagreement between normalisations - which is the only way the side-by-side display could mean anything · outcome: held</note>
+        <quote>Uniform pre-processing of all the TCGA samples using these algorithms enables users to visualize all the estimations together to reach more confident conclusions.</quote>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>whether the six estimates are on the same scale</label>
+        <note>eliminates: nothing - EPIC and quanTIseq generate cell fractions and the rest do not, and the platform shows all six together without reconciling them · outcome: failed</note>
+        <quote>EPIC and quanTIseq have the advantage of directly generating scores interpreted as cell fractions.</quote>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether running six algorithms actually yields more robust results</label>
+        <note>eliminates: nothing that is demonstrated here - the claim is `we HOPE ... MIGHT HELP`, with no comparison against single-algorithm use reported · outcome: absent-declared-unreported</note>
+        <quote>We hope that evaluating estimations from multiple algorithms might help the user gain more comprehensive and robust results.</quote>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>deconvolution</label>
+        <term>deconvolution</term>
+        <quote>The available computational algorithms ( 7–12 ) for immune infiltration estimation fall into two main categories: gene signature- and deconvolution-based approaches</quote>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>cell fractions</label>
+        <term>cell fractions</term>
+        <quote>EPIC and quanTIseq have the advantage of directly generating scores interpreted as cell fractions.</quote>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>xCell</label>
+        <term>xCell</term>
+        <quote>TIMER is the only method that takes tissue specificity into account when estimating immune cell populations, although it only makes estimations on six immune cell types. xCell can make estimations on the higher number of different immune cell types but may fail to detect signals from homogeneous samples.</quote>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>TIMER</label>
+        <term>TIMER</term>
+        <quote>TIMER is the only method that takes tissue specificity into account when estimating immune cell populations, although it only makes estimations on six immune cell types. xCell can make estimations on the higher number of different immune cell types but may fail to detect signals from homogeneous samples.</quote>
+      </span>
+      <span xml:id="t19" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>immune infiltration level - AS DELIVERED BY THIS PLATFORM, SIX DIFFERENT QUANTITIES UNDER ONE HEADING. Two are cell fractions, four are enrichment scores, and the platform&#x27;s design is to show them together rather than to reconcile them. THE NAME IS THE ONLY THING THE SIX SHARE</label>
+        <quote>EPIC and quanTIseq have the advantage of directly generating scores interpreted as cell fractions.</quote>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>estimation, AS OPPOSED TO MEASUREMENT - the paper&#x27;s own framing throughout, and it is honest: direct measurement is limited, so the field infers. Every number this server is cited for is downstream of that sentence</label>
+        <quote>Due to the limitations of direct measurement methods, computational algorithms are often used to infer immune cell composition from bulk tumor transcriptome profiles.</quote>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>robustness, AS THIS PLATFORM OPERATIONALISES IT: agreement across six algorithms, displayed for the user to judge. Not a statistic, not a test - A LAYOUT. And the authors say they HOPE it helps</label>
+        <quote>Uniform pre-processing of all the TCGA samples using these algorithms enables users to visualize all the estimations together to reach more confident conclusions.</quote>
+      </span>
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → reliance on any single immune-infiltration algorithm, since the two families have variable performance advantages across cell types and tumours</label>
+        <quote>These two complementary categories of algorithms have demonstrated variable performance advantages in estimating specific immune cell types in different tumors.</quote>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>extends → the original TIMER web server, which used one algorithm where this uses six</label>
+        <quote>Instead of just using one algorithm, TIMER2.0 ( http://timer.cistrome.org/ ) provides more robust estimation of immune infiltration levels for The Cancer Genome Atlas (TCGA) or user-provided tumor profiles using six state-of-the-art algorithms.</quote>
+      </span>
+      <span xml:id="t24" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>THE QUANTITY IS INFERRED, NOT MEASURED: due to the limitations of direct measurement methods, immune cell composition is computed from bulk transcriptome</label>
+        <term>THE QUANTITY IS INFERRED, NOT MEASURED: due to the limitations of direct measurement methods, immune cell composition is computed from bulk transcriptome</term>
+        <quote>Due to the limitations of direct measurement methods, computational algorithms are often used to infer immune cell composition from bulk tumor transcriptome profiles.</quote>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>SIX ALGORITHMS, ONE OUTPUT NAME, AND ONLY TWO ON A MEANINGFUL SCALE: EPIC and quanTIseq have the advantage of DIRECTLY GENERATING SCORES INTERPRETED AS CELL FRACTIONS</label>
+        <term>SIX ALGORITHMS, ONE OUTPUT NAME, AND ONLY TWO ON A MEANINGFUL SCALE: EPIC and quanTIseq have the advantage of DIRECTLY GENERATING SCORES INTERPRETED AS CELL FRACTIONS</term>
+        <quote>EPIC and quanTIseq have the advantage of directly generating scores interpreted as cell fractions.</quote>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>each algorithm carries its own failure mode - TIMER covers only six cell types, xCell may fail to detect signals from homogeneous samples</label>
+        <term>each algorithm carries its own failure mode - TIMER covers only six cell types, xCell may fail to detect signals from homogeneous samples</term>
+        <quote>TIMER is the only method that takes tissue specificity into account when estimating immune cell populations, although it only makes estimations on six immune cell types. xCell can make estimations on the higher number of different immune cell types but may fail to detect signals from homogeneous samples.</quote>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the reason for running all six is stated as a HOPE: `we hope that evaluating estimations from multiple algorithms MIGHT HELP the user gain more comprehensive and robust results`</label>
+        <term>the reason for running all six is stated as a HOPE: `we hope that evaluating estimations from multiple algorithms MIGHT HELP the user gain more comprehensive and robust results`</term>
+        <quote>We hope that evaluating estimations from multiple algorithms might help the user gain more comprehensive and robust results.</quote>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>mouse estimations SHOULD BE INTERPRETED WITH CAUTION because human and mouse tumours may have different immune properties - the caveat is placed where the feature is offered</label>
+        <term>mouse estimations SHOULD BE INTERPRETED WITH CAUTION because human and mouse tumours may have different immune properties - the caveat is placed where the feature is offered</term>
+        <quote>We note that estimations on mouse samples should be interpreted with caution since human and the mouse tumors may have different immune properties.</quote>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>methods that model the gene expression of a tissue sample as the weighted sum of the expression profiles from the cells in the population mix</label>
+        <term>Deconvolution</term>
+        <quote>Deconvolution methods define the problem as mathematical equations that model the gene expression of a tissue sample as the weighted sum of the expression profiles from the cells in the population mix</quote>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>deconvolution</label>
+        <term>deconvolution</term>
+        <quote>The available computational algorithms ( 7–12 ) for immune infiltration estimation fall into two main categories: gene signature- and deconvolution-based approaches</quote>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>tissue specificity</label>
+        <term>tissue specificity</term>
+        <quote>TIMER is the only method that takes tissue specificity into account when estimating immune cell populations, although it only makes estimations on six immune cell types. xCell can make estimations on the higher number of different immune cell types but may fail to detect signals from homogeneous samples.</quote>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. Every tag above carries the exact sentence it was made from, quoted
+      under fair quotation. The article itself is at https://doi.org/10.1093/nar/gkaa407.</note></p>
+    </body>
+  </text>
+</TEI>
