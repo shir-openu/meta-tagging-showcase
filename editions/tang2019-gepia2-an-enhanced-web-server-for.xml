@@ -38,347 +38,127 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-26"
+      <change when="2026-08-28"
               who="build_paper_edition.py">68 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
-        <label>gene- and isoform-level expression across TCGA tumour and GTEx normal samples</label>
-        <quote>Featuring 198 619 isoforms and 84 cancer subtypes, GEPIA2 has extended gene expression quantification from the gene level to the transcript level, and supports analysis of a specific cancer subtype, and comparison between subtypes.</quote>
-      </span>
-      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
-        <label>how to make expression, survival and signature analysis of TCGA/GTEx available at isoform and cancer-subtype resolution</label>
-        <quote>Featuring 198 619 isoforms and 84 cancer subtypes, GEPIA2 has extended gene expression quantification from the gene level to the transcript level, and supports analysis of a specific cancer subtype, and comparison between subtypes.</quote>
-      </span>
-      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
-        <label>a web server extending expression quantification from the gene to the transcript level and to 84 cancer subtypes, with user-uploaded data comparison and a python API</label>
-        <quote>Featuring 198 619 isoforms and 84 cancer subtypes, GEPIA2 has extended gene expression quantification from the gene level to the transcript level, and supports analysis of a specific cancer subtype, and comparison between subtypes.</quote>
-      </span>
-      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
-        <label>method</label>
-        <quote>GEPIA2 performs survival analyses based on gene or isoform expression levels. Given a list of custom cancer types, GEPIA2 would provide a heat map to show the survival analysis result based on multiple cancer types (Figure 2A).</quote>
-      </span>
-      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
-        <label>prognostic associations that appear only at cancer-subtype resolution</label>
-        <quote>It is thus desirable to perform prognostic analysis at a higher resolution. Based on the outputs of GEPIA2, we found that MAPK6 showed no association with breast cancer survival while it exhibited significant association with unfavorable prognostic outcome in Lumina A subtype</quote>
-      </span>
-      <span xml:id="t5" type="method" ana="#method" resp="#paper">
-        <label>interactive analysis over UCSC Xena recomputed TCGA and GTEx RNA-seq, served from a relational database</label>
-        <term>interactive analysis over UCSC Xena recomputed TCGA and GTEx RNA-seq, served from a relational database</term>
-        <quote>In GEPIA2, we utilized the UCSC Xena recomputed data of TCGA and GTEx for 198,619 coding and a series of other non-coding transcripts, and developed new computational functionalities to explore such events.</quote>
-      </span>
-      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.85">
-        <label>alternative splicing shifts which isoform of a gene predominates, and the shift can be specific to a cancer type</label>
-        <term>isoform switching</term>
-        <quote>Users can view the protein translation of each isoform in different cancer types and find the cancer specific isoform or isoform ‘switch’ event in a certain cancer type.</quote>
-      </span>
-      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
-        <label>a user&#x27;s uploaded matrix and the server-side target set are quantile-normalised against each other before any differential test, so the comparison is between normalised distributions rather than raw counts</label>
-        <term>cross-dataset normalisation</term>
-        <quote>After the Quantile-normalization or other two additional normalization strategies (inspired by GenomeSpace) based on the uploaded dataset and the target dataset on the server, GEPIA2 performs the differential expression analysis and return result in boxplot.</quote>
-      </span>
-      <span xml:id="t8" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
-        <label>the Cancer-subtype Classifier is described as predicting accurately, and the article reports no accuracy, no held-out split and no confusion matrix anywhere</label>
-        <quote>With this function, users can accurately predict the cancer type or cancer-subtype of their uploaded samples based on the gene expression. The classifier is trained by TCGA expression data.</quote>
-      </span>
-      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
-        <label>the two classifier modes trade sensitivity against coverage, and the paper states the trade-off without quantifying either side</label>
-        <quote>We provide two modes to work with the classifier by choosing the actual cancer type first and predict for its corresponding subtypes or directly predict with the range of all cancer subtypes. The former way provides a more sensitive result, and the latter will be more useful for the identification of the cancer with unknown origin.</quote>
-      </span>
-      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
-        <label>prognostic gene lists in the prior literature were derived at cancer-type level, so a subtype-specific effect is invisible in them</label>
-        <quote>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.</quote>
-      </span>
-      <span xml:id="t11" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
-        <label>gene signature quantification, taken from single-cell sequencing practice into bulk TCGA/GTEx analysis</label>
-        <quote>However, the existing data cannot present the expression distribution of a certain immune-cell cluster across cancer types. In this case, researchers can use GEPIA2 to easily obtain the immune-cell cluster signature profile in a pan-cancer manner. For example, one can readily find that Th1-like signature in stomach tumors is significantly higher than that in adjacent normal tissues (Figure 2C).</quote>
-      </span>
-      <span xml:id="t12" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
-        <label>any accuracy, precision, recall or held-out validation figure for the Cancer-subtype Classifier</label>
-        <note>eliminates: a classifier that is confidently wrong - no accuracy, precision, recall or held-out figure is given for a tool the sentence says predicts cancer subtype `accurately` · outcome: absent-declared-unreported</note>
-        <quote>With this function, users can accurately predict the cancer type or cancer-subtype of their uploaded samples based on the gene expression. The classifier is trained by TCGA expression data.</quote>
-      </span>
-      <span xml:id="t13" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
-        <label>the same MAPK6 survival test run at whole-breast-cancer level alongside the Lumina A subtype level</label>
-        <note>eliminates: a survival signal that exists only in one subtype being reported as a property of the cancer type · outcome: held</note>
-        <quote>(D) The overall survival analyses based on the cancer type and cancer subtype showed the significant prognostic impact of MAPK6 in Lumina A breast cancer subtype (left, P = 0.022) but not the whole breast cancer (right, P = 0.15).</quote>
-      </span>
-      <span xml:id="t14" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
-        <label>signature score</label>
-        <term>signature score</term>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t15" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
-        <label>isoform usage</label>
-        <term>isoform usage</term>
-        <quote>(B) The violin-plots show the expression level (log2(TPM + 1)) of each isoform in a certain gene while the bar-plot panel present the isoform usage (from 0% to 100%) distribution.</quote>
-      </span>
-      <span xml:id="t16" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.85">
-        <label>survival map</label>
-        <term>survival map</term>
-        <quote>## NEW FEATURES ### Survival map GEPIA2 performs survival analyses based on gene or isoform expression levels. Given a list of custom cancer types, GEPIA2 would provide a heat map to show the survival analysis result based on multiple cancer types (Figure 2A).</quote>
-      </span>
-      <span xml:id="t17" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.85">
-        <label>hazard ratios</label>
-        <term>hazard ratios</term>
-        <quote>The heat map shows the hazard ratios in logarithmic scale (log10) for different genes. The red and blue blocks denote higher and lower risks, respectively.</quote>
-      </span>
-      <span xml:id="t18" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.85">
-        <label>cancer subtype</label>
-        <term>cancer subtype</term>
-        <quote>Additionally, cancers are often comprised by heterogeneous subtypes with distinct prognosis. For instance, MSI and MSS colorectal cancers respond differently to chemotherapy and immunotherapy. To better investigate the underlying biological mechanisms of different cancer subtypes, GEPIA2 allows users to fine-tune</quote>
-      </span>
-      <span xml:id="t19" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
-        <label>MSI</label>
-        <term>MSI</term>
-        <quote>Additionally, cancers are often comprised by heterogeneous subtypes with distinct prognosis. For instance, MSI and MSS colorectal cancers respond differently to chemotherapy and immunotherapy.</quote>
-      </span>
-      <span xml:id="t20" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
-        <label>MSS</label>
-        <term>MSS</term>
-        <quote>Additionally, cancers are often comprised by heterogeneous subtypes with distinct prognosis. For instance, MSI and MSS colorectal cancers respond differently to chemotherapy and immunotherapy.</quote>
-      </span>
-      <span xml:id="t21" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
-        <label>Quantile-normalization</label>
-        <term>Quantile-normalization</term>
-        <quote>After the Quantile-normalization or other two additional normalization strategies (inspired by GenomeSpace) based on the uploaded dataset and the target dataset on the server, GEPIA2 performs the differential expression analysis and return result in boxplot.</quote>
-      </span>
-      <span xml:id="t22" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
-        <label>Pfam</label>
-        <term>Pfam</term>
-        <quote>Meanwhile, GEPIA2 provides the isoform protein domain structure plots based on the prediction of Pfam for exhibiting the structural differences between each isoform.</quote>
-      </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
-        <label>triple-negative breast cancer</label>
-        <term>triple-negative breast cancer</term>
-        <quote>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.</quote>
-      </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
-        <label>MAPK6</label>
-        <term>MAPK6</term>
-        <quote>It is thus desirable to perform prognostic analysis at a higher resolution. Based on the outputs of GEPIA2, we found that MAPK6 showed no association with breast cancer survival while it exhibited significant association with unfavorable prognostic outcome in Lumina A subtype</quote>
-      </span>
-      <span xml:id="t25" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
-        <label>TPM</label>
-        <term>TPM</term>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t26" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
-        <label>log2(TPM + 1)</label>
-        <term>log2(TPM + 1)</term>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t27" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
-        <label>cancer type</label>
-        <term>cancer type</term>
-        <quote>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.</quote>
-      </span>
-      <span xml:id="t28" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
-        <label>breast cancer subtypes</label>
-        <term>breast cancer subtypes</term>
-        <quote>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.</quote>
-      </span>
-      <span xml:id="t29" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
-        <label>GEPIA2</label>
-        <term>GEPIA2</term>
-        <quote>Although platforms like GenomeSpace allow users to perform similar analyses online, GEPIA2 provides a direct toolset to address these needs.</quote>
-      </span>
-      <span xml:id="t30" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
-        <label>GenomeSpace</label>
-        <term>GenomeSpace</term>
-        <quote>Although platforms like GenomeSpace allow users to perform similar analyses online, GEPIA2 provides a direct toolset to address these needs.</quote>
-      </span>
-      <span xml:id="t31" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
-        <label>isoform protein domain structure plots</label>
-        <term>isoform protein domain structure plots</term>
-        <quote>Meanwhile, GEPIA2 provides the isoform protein domain structure plots based on the prediction of Pfam for exhibiting the structural differences between each isoform.</quote>
-      </span>
-      <span xml:id="t32" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
-        <label>signature score = mean log2(TPM + 1) across a signature&#x27;s genes</label>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t33" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
-        <label>&#x27;Stacked&#x27; = pool the selected subtypes, then compare the pool with normal samples</label>
-        <quote>For the Box Plots feature, once users select the custom subtypes, they can select ‘Stacked’, ‘Separated’ or ‘Comparing Across Subtypes’ for different purposes. ‘Stacked’ indicates the approach to combine all the samples from selected subtypes prior to differential expression analysis with normal samples. ‘Separated’ means the method to perform differential expression analysis separately with normal samples. ‘Comparing Across Subtypes’ selection performs the differential expression analysis among the selected subtypes.</quote>
-      </span>
-      <span xml:id="t34" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
-        <label>&#x27;Separated&#x27; = compare each selected subtype with normal samples on its own</label>
-        <quote>For the Box Plots feature, once users select the custom subtypes, they can select ‘Stacked’, ‘Separated’ or ‘Comparing Across Subtypes’ for different purposes. ‘Stacked’ indicates the approach to combine all the samples from selected subtypes prior to differential expression analysis with normal samples. ‘Separated’ means the method to perform differential expression analysis separately with normal samples. ‘Comparing Across Subtypes’ selection performs the differential expression analysis among the selected subtypes.</quote>
-      </span>
-      <span xml:id="t35" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
-        <label>&#x27;Comparing Across Subtypes&#x27; = compare the selected subtypes with each other, not with normal</label>
-        <quote>For the Box Plots feature, once users select the custom subtypes, they can select ‘Stacked’, ‘Separated’ or ‘Comparing Across Subtypes’ for different purposes. ‘Stacked’ indicates the approach to combine all the samples from selected subtypes prior to differential expression analysis with normal samples. ‘Separated’ means the method to perform differential expression analysis separately with normal samples. ‘Comparing Across Subtypes’ selection performs the differential expression analysis among the selected subtypes.</quote>
-      </span>
-      <span xml:id="t36" type="senses" ana="#senses[4]" resp="#tagger" cert="0.85">
-        <label>isoform &#x27;switch&#x27; = the isoform carrying most of a gene&#x27;s expression differs by cancer type</label>
-        <quote>Users can view the protein translation of each isoform in different cancer types and find the cancer specific isoform or isoform ‘switch’ event in a certain cancer type.</quote>
-      </span>
-      <span xml:id="t37" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
-        <label>extends → GEPIA (Tang et al. 2017), the previous version of this server</label>
-        <note>the whole paper is a version increment; the extension named first is gene level to transcript level</note>
-        <quote>Featuring 198 619 isoforms and 84 cancer subtypes, GEPIA2 has extended gene expression quantification from the gene level to the transcript level, and supports analysis of a specific cancer subtype, and comparison between subtypes.</quote>
-      </span>
-      <span xml:id="t38" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
-        <label>qualifies → prognostic gene lists identified at the level of a general cancer type</label>
-        <note>not a contradiction - the paper accepts those lists and argues they are at the wrong resolution</note>
-        <quote>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.</quote>
-      </span>
-      <span xml:id="t39" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
-        <label>signature score —operationalised-as→ log2(TPM + 1)</label>
-        <term>signature score</term>
-        <term>log2(TPM + 1)</term>
-        <note>the relation itself is separately evidenced · strength of the relation: 0.95</note>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t40" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
-        <label>MSI —distinct-from→ MSS</label>
-        <term>MSI</term>
-        <term>MSS</term>
-        <note>differs in: response to chemotherapy and immunotherapy · strength of the relation: 0.95</note>
-        <quote>Additionally, cancers are often comprised by heterogeneous subtypes with distinct prognosis. For instance, MSI and MSS colorectal cancers respond differently to chemotherapy and immunotherapy.</quote>
-      </span>
-      <span xml:id="t41" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
-        <label>triple-negative breast cancer —distinct-from→ breast cancer subtypes</label>
-        <term>triple-negative breast cancer</term>
-        <term>breast cancer subtypes</term>
-        <note>differs in: five-year survival rate, about 15% lower · strength of the relation: 0.85</note>
-        <quote>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.</quote>
-      </span>
-      <span xml:id="t42" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
-        <label>cancer subtype —part-of→ cancer type</label>
-        <term>cancer subtype</term>
-        <term>cancer type</term>
-        <note>the relation itself is separately evidenced · strength of the relation: 0.95</note>
-        <quote>Additionally, cancers are often comprised by heterogeneous subtypes with distinct prognosis. For instance, MSI and MSS colorectal cancers respond differently to chemotherapy and immunotherapy.</quote>
-      </span>
-      <span xml:id="t43" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
-        <label>GEPIA2 —contrasted-with→ GenomeSpace</label>
-        <term>GEPIA2</term>
-        <term>GenomeSpace</term>
-        <note>strength of the relation: 0.95 — the paper&#x27;s only named alternative, and it concedes the alternative can do the same analyses</note>
-        <quote>Although platforms like GenomeSpace allow users to perform similar analyses online, GEPIA2 provides a direct toolset to address these needs.</quote>
-      </span>
-      <span xml:id="t44" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">
-        <label>Pfam —operationalised-as→ isoform protein domain structure plots</label>
-        <term>Pfam</term>
-        <term>isoform protein domain structure plots</term>
-        <note>strength of the relation: 0.85</note>
-        <quote>Meanwhile, GEPIA2 provides the isoform protein domain structure plots based on the prediction of Pfam for exhibiting the structural differences between each isoform.</quote>
-      </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
-        <label>MAPK6 shows no association with breast cancer survival overall, and a significant unfavourable association within the Lumina A subtype</label>
-        <quote>It is thus desirable to perform prognostic analysis at a higher resolution. Based on the outputs of GEPIA2, we found that MAPK6 showed no association with breast cancer survival while it exhibited significant association with unfavorable prognostic outcome in Lumina A subtype</quote>
-      </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
-        <label>the Th1-like signature score is significantly higher in stomach tumours than in adjacent normal tissue</label>
-        <quote>However, the existing data cannot present the expression distribution of a certain immune-cell cluster across cancer types. In this case, researchers can use GEPIA2 to easily obtain the immune-cell cluster signature profile in a pan-cancer manner. For example, one can readily find that Th1-like signature in stomach tumors is significantly higher than that in adjacent normal tissues (Figure 2C).</quote>
-      </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
-        <label>gene survival analyses are context-dependent, which is the stated reason for scanning many cancer types at once</label>
-        <quote>Since gene survival analyses can be context-dependent, this function allows users to screen for the prognostic impact of a gene or an isoform across different cancer types.</quote>
-      </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
-        <label>signature score</label>
-        <term>signature score</term>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
-        <label>isoform usage</label>
-        <term>isoform usage</term>
-        <quote>(B) The violin-plots show the expression level (log2(TPM + 1)) of each isoform in a certain gene while the bar-plot panel present the isoform usage (from 0% to 100%) distribution.</quote>
-      </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
-        <label>Stacked</label>
-        <term>Stacked</term>
-        <quote>For the Box Plots feature, once users select the custom subtypes, they can select ‘Stacked’, ‘Separated’ or ‘Comparing Across Subtypes’ for different purposes. ‘Stacked’ indicates the approach to combine all the samples from selected subtypes prior to differential expression analysis with normal samples. ‘Separated’ means the method to perform differential expression analysis separately with normal samples. ‘Comparing Across Subtypes’ selection performs the differential expression analysis among the selected subtypes.</quote>
-      </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">
-        <label>Separated</label>
-        <term>Separated</term>
-        <quote>For the Box Plots feature, once users select the custom subtypes, they can select ‘Stacked’, ‘Separated’ or ‘Comparing Across Subtypes’ for different purposes. ‘Stacked’ indicates the approach to combine all the samples from selected subtypes prior to differential expression analysis with normal samples. ‘Separated’ means the method to perform differential expression analysis separately with normal samples. ‘Comparing Across Subtypes’ selection performs the differential expression analysis among the selected subtypes.</quote>
-      </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">
-        <label>Comparing Across Subtypes</label>
-        <term>Comparing Across Subtypes</term>
-        <quote>For the Box Plots feature, once users select the custom subtypes, they can select ‘Stacked’, ‘Separated’ or ‘Comparing Across Subtypes’ for different purposes. ‘Stacked’ indicates the approach to combine all the samples from selected subtypes prior to differential expression analysis with normal samples. ‘Separated’ means the method to perform differential expression analysis separately with normal samples. ‘Comparing Across Subtypes’ selection performs the differential expression analysis among the selected subtypes.</quote>
-      </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
-        <label>198 619 isoforms — None</label>
-        <quote>Featuring 198 619 isoforms and 84 cancer subtypes, GEPIA2 has extended gene expression quantification from the gene level to the transcript level, and supports analysis of a specific cancer subtype, and comparison between subtypes.</quote>
-      </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
-        <label>84 cancer subtypes — None</label>
-        <quote>Featuring 198 619 isoforms and 84 cancer subtypes, GEPIA2 has extended gene expression quantification from the gene level to the transcript level, and supports analysis of a specific cancer subtype, and comparison between subtypes.</quote>
-      </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
-        <label>about 15% lower five-year survival in triple-negative breast cancer — None</label>
-        <quote>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.</quote>
-      </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
-        <label>414 citations of GEPIA by May 2019, per Google Scholar — None</label>
-        <quote>By May 2019, GEPIA has been cited 414 times according to Google Scholar and has processed ∼400 000 analysis requests from ∼110 000 distinct IP addresses worldwide.</quote>
-      </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">
-        <label>about 400 000 analysis requests from about 110 000 distinct IP addresses — None</label>
-        <quote>By May 2019, GEPIA has been cited 414 times according to Google Scholar and has processed ∼400 000 analysis requests from ∼110 000 distinct IP addresses worldwide.</quote>
-      </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="0.95">
-        <label>5 functionalities in the python package — None</label>
-        <quote>GEPIA2 python API provides users with access to GEPIA2’s analyses from a programming environment. Designed to perform multiple requests for our service, it boosts the efficiency of users by allowing batch process and streamlining results retrieval. The API is implemented in python language and we provide a tutorial for users to utilize the API. The python package provides access to 5 functionalities: boxplot, similar, correlation, survival and survival map.</quote>
-      </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="0.95">
-        <label>MySQL version 5.7.17 — None</label>
-        <quote>We downloaded the TCGA and GTEx isoform expression data that are re-computed from raw RNA-Seq data by the UCSC Xena project based on a uniform pipeline and collected different cancer subtypes information from TCGA papers. The datasets are stored in a MySQL relational database (version 5.7.17).</quote>
-      </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
-        <label>log2(TPM + 1)</label>
-        <term>log2(TPM + 1)</term>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
-        <label>hazard ratio in log10 scale</label>
-        <term>hazard ratio in log10 scale</term>
-        <quote>The heat map shows the hazard ratios in logarithmic scale (log10) for different genes. The red and blue blocks denote higher and lower risks, respectively.</quote>
-      </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
-        <label>P = 0.022</label>
-        <term>P = 0.022</term>
-        <quote>(D) The overall survival analyses based on the cancer type and cancer subtype showed the significant prognostic impact of MAPK6 in Lumina A breast cancer subtype (left, P = 0.022) but not the whole breast cancer (right, P = 0.15).</quote>
-      </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger" cert="0.95">
-        <label>P = 0.15</label>
-        <term>P = 0.15</term>
-        <quote>(D) The overall survival analyses based on the cancer type and cancer subtype showed the significant prognostic impact of MAPK6 in Lumina A breast cancer subtype (left, P = 0.022) but not the whole breast cancer (right, P = 0.15).</quote>
-      </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger" cert="0.95">
-        <label>Quantile-normalization</label>
-        <term>Quantile-normalization</term>
-        <quote>After the Quantile-normalization or other two additional normalization strategies (inspired by GenomeSpace) based on the uploaded dataset and the target dataset on the server, GEPIA2 performs the differential expression analysis and return result in boxplot.</quote>
-      </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
-        <label>isoform expression level</label>
-        <term>isoform expression level</term>
-        <quote>For a given gene and a list of custom cancer types, GEPIA2 generates the violin-plot and bar-plot panels for presenting the expression distribution and the isoform usage of each isoforms in the given gene (Figure 2B).</quote>
-      </span>
-      <span xml:id="t66" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
-        <label>signature score</label>
-        <term>signature score</term>
-        <quote>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.</quote>
-      </span>
-      <span xml:id="t67" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger" cert="0.95">
-        <label>hazard ratio</label>
-        <term>hazard ratio</term>
-        <quote>The heat map shows the hazard ratios in logarithmic scale (log10) for different genes. The red and blue blocks denote higher and lower risks, respectively.</quote>
-      </span>
+      <span xml:id="t0" from="#a1" to="#a2" type="object_of_study" ana="#object_of_study" resp="#paper">gene- and isoform-level expression across TCGA tumour and GTEx normal samples</span>
+      <span xml:id="t1" from="#a1" to="#a2" type="research_question" ana="#research_question" resp="#paper">how to make expression, survival and signature analysis of TCGA/GTEx available at isoform and cancer-subtype resolution</span>
+      <span xml:id="t2" from="#a1" to="#a2" type="contribution" ana="#contribution" resp="#paper">a web server extending expression quantification from the gene to the transcript level and to 84 cancer subtypes, with user-uploaded data comparison and a python API</span>
+      <span xml:id="t3" from="#a9" to="#a10" type="claim_type" ana="#claim_type" resp="#paper">method</span>
+      <span xml:id="t4" from="#a45" to="#a46" type="phenomenon" ana="#phenomenon" resp="#paper">prognostic associations that appear only at cancer-subtype resolution</span>
+      <span xml:id="t5" from="#a3" to="#a4" type="method" ana="#method" resp="#paper">interactive analysis over UCSC Xena recomputed TCGA and GTEx RNA-seq, served from a relational database<term>interactive analysis over UCSC Xena recomputed TCGA and GTEx RNA-seq, served from a relational database</term></span>
+      <span xml:id="t6" from="#a21" to="#a22" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.85">alternative splicing shifts which isoform of a gene predominates, and the shift can be specific to a cancer type<term>isoform switching</term></span>
+      <span xml:id="t7" from="#a25" to="#a26" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">a user&#x27;s uploaded matrix and the server-side target set are quantile-normalised against each other before any differential test, so the comparison is between normalised distributions rather than raw counts<term>cross-dataset normalisation</term></span>
+      <span xml:id="t8" from="#a27" to="#a28" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">the Cancer-subtype Classifier is described as predicting accurately, and the article reports no accuracy, no held-out split and no confusion matrix anywhere</span>
+      <span xml:id="t9" from="#a29" to="#a30" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">the two classifier modes trade sensitivity against coverage, and the paper states the trade-off without quantifying either side</span>
+      <span xml:id="t10" from="#a43" to="#a44" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">prognostic gene lists in the prior literature were derived at cancer-type level, so a subtype-specific effect is invisible in them</span>
+      <span xml:id="t11" from="#a41" to="#a42" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">gene signature quantification, taken from single-cell sequencing practice into bulk TCGA/GTEx analysis</span>
+      <span xml:id="t12" from="#a27" to="#a28" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">any accuracy, precision, recall or held-out validation figure for the Cancer-subtype Classifier<note>eliminates: a classifier that is confidently wrong - no accuracy, precision, recall or held-out figure is given for a tool the sentence says predicts cancer subtype `accurately` · outcome: absent-declared-unreported</note></span>
+      <span xml:id="t13" from="#a17" to="#a18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">the same MAPK6 survival test run at whole-breast-cancer level alongside the Lumina A subtype level<note>eliminates: a survival signal that exists only in one subtype being reported as a property of the cancer type · outcome: held</note></span>
+      <span xml:id="t14" from="#a31" to="#a32" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">signature score<term>signature score</term></span>
+      <span xml:id="t15" from="#a15" to="#a16" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">isoform usage<term>isoform usage</term></span>
+      <span xml:id="t16" from="#a8" to="#a10" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.85">survival map<term>survival map</term></span>
+      <span xml:id="t17" from="#a13" to="#a14" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.85">hazard ratios<term>hazard ratios</term></span>
+      <span xml:id="t18" from="#a5" to="#a7" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.85">cancer subtype<term>cancer subtype</term></span>
+      <span xml:id="t19" from="#a5" to="#a6" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">MSI<term>MSI</term></span>
+      <span xml:id="t20" from="#a5" to="#a6" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">MSS<term>MSS</term></span>
+      <span xml:id="t21" from="#a25" to="#a26" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">Quantile-normalization<term>Quantile-normalization</term></span>
+      <span xml:id="t22" from="#a23" to="#a24" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">Pfam<term>Pfam</term></span>
+      <span xml:id="t23" from="#a43" to="#a44" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">triple-negative breast cancer<term>triple-negative breast cancer</term></span>
+      <span xml:id="t24" from="#a45" to="#a46" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">MAPK6<term>MAPK6</term></span>
+      <span xml:id="t25" from="#a31" to="#a32" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">TPM<term>TPM</term></span>
+      <span xml:id="t26" from="#a31" to="#a32" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">log2(TPM + 1)<term>log2(TPM + 1)</term></span>
+      <span xml:id="t27" from="#a43" to="#a44" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">cancer type<term>cancer type</term></span>
+      <span xml:id="t28" from="#a43" to="#a44" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">breast cancer subtypes<term>breast cancer subtypes</term></span>
+      <span xml:id="t29" from="#a39" to="#a40" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">GEPIA2<term>GEPIA2</term></span>
+      <span xml:id="t30" from="#a39" to="#a40" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">GenomeSpace<term>GenomeSpace</term></span>
+      <span xml:id="t31" from="#a23" to="#a24" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">isoform protein domain structure plots<term>isoform protein domain structure plots</term></span>
+      <span xml:id="t32" from="#a31" to="#a32" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">signature score = mean log2(TPM + 1) across a signature&#x27;s genes</span>
+      <span xml:id="t33" from="#a33" to="#a34" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">&#x27;Stacked&#x27; = pool the selected subtypes, then compare the pool with normal samples</span>
+      <span xml:id="t34" from="#a33" to="#a34" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">&#x27;Separated&#x27; = compare each selected subtype with normal samples on its own</span>
+      <span xml:id="t35" from="#a33" to="#a34" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">&#x27;Comparing Across Subtypes&#x27; = compare the selected subtypes with each other, not with normal</span>
+      <span xml:id="t36" from="#a21" to="#a22" type="senses" ana="#senses[4]" resp="#tagger" cert="0.85">isoform &#x27;switch&#x27; = the isoform carrying most of a gene&#x27;s expression differs by cancer type</span>
+      <span xml:id="t37" from="#a1" to="#a2" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">extends → GEPIA (Tang et al. 2017), the previous version of this server<note>the whole paper is a version increment; the extension named first is gene level to transcript level</note></span>
+      <span xml:id="t38" from="#a43" to="#a44" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">qualifies → prognostic gene lists identified at the level of a general cancer type<note>not a contradiction - the paper accepts those lists and argues they are at the wrong resolution</note></span>
+      <span xml:id="t39" from="#a31" to="#a32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">signature score —operationalised-as→ log2(TPM + 1)<note>the relation itself is separately evidenced · strength of the relation: 0.95</note><term>signature score</term><term>log2(TPM + 1)</term></span>
+      <span xml:id="t40" from="#a5" to="#a6" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">MSI —distinct-from→ MSS<note>differs in: response to chemotherapy and immunotherapy · strength of the relation: 0.95</note><term>MSI</term><term>MSS</term></span>
+      <span xml:id="t41" from="#a43" to="#a44" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">triple-negative breast cancer —distinct-from→ breast cancer subtypes<note>differs in: five-year survival rate, about 15% lower · strength of the relation: 0.85</note><term>triple-negative breast cancer</term><term>breast cancer subtypes</term></span>
+      <span xml:id="t42" from="#a5" to="#a6" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">cancer subtype —part-of→ cancer type<note>the relation itself is separately evidenced · strength of the relation: 0.95</note><term>cancer subtype</term><term>cancer type</term></span>
+      <span xml:id="t43" from="#a39" to="#a40" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">GEPIA2 —contrasted-with→ GenomeSpace<note>strength of the relation: 0.95 — the paper&#x27;s only named alternative, and it concedes the alternative can do the same analyses</note><term>GEPIA2</term><term>GenomeSpace</term></span>
+      <span xml:id="t44" from="#a23" to="#a24" type="concept_edges" ana="#concept_edges[5]" resp="#tagger">Pfam —operationalised-as→ isoform protein domain structure plots<note>strength of the relation: 0.85</note><term>Pfam</term><term>isoform protein domain structure plots</term></span>
+      <span xml:id="t45" from="#a45" to="#a46" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">MAPK6 shows no association with breast cancer survival overall, and a significant unfavourable association within the Lumina A subtype</span>
+      <span xml:id="t46" from="#a41" to="#a42" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">the Th1-like signature score is significantly higher in stomach tumours than in adjacent normal tissue</span>
+      <span xml:id="t47" from="#a11" to="#a12" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">gene survival analyses are context-dependent, which is the stated reason for scanning many cancer types at once</span>
+      <span xml:id="t48" from="#a31" to="#a32" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">signature score<term>signature score</term></span>
+      <span xml:id="t49" from="#a15" to="#a16" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">isoform usage<term>isoform usage</term></span>
+      <span xml:id="t50" from="#a33" to="#a34" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">Stacked<term>Stacked</term></span>
+      <span xml:id="t51" from="#a33" to="#a34" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">Separated<term>Separated</term></span>
+      <span xml:id="t52" from="#a33" to="#a34" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">Comparing Across Subtypes<term>Comparing Across Subtypes</term></span>
+      <span xml:id="t53" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">198 619 isoforms — None</span>
+      <span xml:id="t54" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">84 cancer subtypes — None</span>
+      <span xml:id="t55" from="#a43" to="#a44" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">about 15% lower five-year survival in triple-negative breast cancer — None</span>
+      <span xml:id="t56" from="#a47" to="#a48" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">414 citations of GEPIA by May 2019, per Google Scholar — None</span>
+      <span xml:id="t57" from="#a47" to="#a48" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">about 400 000 analysis requests from about 110 000 distinct IP addresses — None</span>
+      <span xml:id="t58" from="#a37" to="#a38" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="0.95">5 functionalities in the python package — None</span>
+      <span xml:id="t59" from="#a35" to="#a36" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="0.95">MySQL version 5.7.17 — None</span>
+      <span xml:id="t60" from="#a31" to="#a32" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">log2(TPM + 1)<term>log2(TPM + 1)</term></span>
+      <span xml:id="t61" from="#a13" to="#a14" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">hazard ratio in log10 scale<term>hazard ratio in log10 scale</term></span>
+      <span xml:id="t62" from="#a17" to="#a18" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">P = 0.022<term>P = 0.022</term></span>
+      <span xml:id="t63" from="#a17" to="#a18" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger" cert="0.95">P = 0.15<term>P = 0.15</term></span>
+      <span xml:id="t64" from="#a25" to="#a26" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger" cert="0.95">Quantile-normalization<term>Quantile-normalization</term></span>
+      <span xml:id="t65" from="#a19" to="#a20" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">isoform expression level<term>isoform expression level</term></span>
+      <span xml:id="t66" from="#a31" to="#a32" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">signature score<term>signature score</term></span>
+      <span xml:id="t67" from="#a13" to="#a14" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger" cert="0.95">hazard ratio<term>hazard ratio</term></span>
     </spanGrp>
   </standOff>
   <text>
     <body>
-      <p><note type="rights">The full text of this article is not redistributable, so it is
-      not included here. Every tag above carries the exact sentence it was made from, quoted
-      under fair quotation. The article itself is at https://doi.org/10.1093/nar/gkz430.</note></p>
+        <p><anchor xml:id="a0"/> # Abstract</p>
+        <p>Introduced in 2017, the GEPIA (Gene Expression Profiling Interactive Analysis) web server has been a valuable and highly cited resource for gene expression analysis based on tumor and normal samples from the TCGA and the GTEx databases. Here, we present GEPIA2, an updated and enhanced version to provide insights with higher resolution and more functionalities. <anchor xml:id="a1"/>Featuring 198 619 isoforms and 84 cancer subtypes, GEPIA2 has extended gene expression quantification from the gene level to the transcript level, and supports analysis of a specific cancer subtype, and comparison between subtypes.<anchor xml:id="a2"/> In addition, GEPIA2 has adopted new analysis techniques of gene signature quantification inspired by single-cell sequencing studies, and provides customized analysis where users can upload their own RNA-seq data and compare them with TCGA and GTEx samples. We also offer an API for batch process and easy retrieval of the analysis results. The updated web server is publicly accessible at http://gepia2.cancer-pku.cn/.</p>
+        <p>## INTRODUCTION</p>
+        <p>Valuable cancer-related RNA sequencing resources like TCGA and GTEx have provided ample opportunities for data mining and deeper understanding of gene functions. As these data became available to researchers, numerous methods and procedures for analyzing large gene expression datasets also emerged, some of which were later accepted as common practices for mining such data. Survival analysis, for example, allows the identification of links between gene expression levels and prognostic outcomes, and hence has been widely used for evaluating the clinical relevance of a given gene. To facilitate the intuitive and interactive application of such methods to the TCGA and the GTEx datasets, we initially developed the GEPIA web server in 2016. Armed with functionalities such as differential expression analysis, survival analysis, and similar gene identification, GEPIA provided experimental biologists and clinicians with a handy tool to explore TCGA and GTEx datasets. GEPIA has aided the investigation of various genes in multiple cancer types, and led to the identification of potential biomarkers and therapeutic targets.</p>
+        <p>As we continuously accommodate the feedbacks and requests from our users, we have identified new angles to explore the TCGA and GTEx resources, and have thus developed a much-enhanced new version of GEPIA, named GEPIA2. For example, alternative splicing, resulting in different isoform usages, has gained traction in cancer target finding. <anchor xml:id="a3"/>In GEPIA2, we utilized the UCSC Xena recomputed data of TCGA and GTEx for 198,619 coding and a series of other non-coding transcripts, and developed new computational functionalities to explore such events.<anchor xml:id="a4"/> <anchor xml:id="a5"/>Additionally, cancers are often comprised by heterogeneous subtypes with distinct prognosis. For instance, MSI and MSS colorectal cancers respond differently to chemotherapy and immunotherapy.<anchor xml:id="a6"/> To better investigate the underlying biological mechanisms of different cancer subtypes, GEPIA2 allows users to fine-tune<anchor xml:id="a7"/> their analyses to focus on each of the 84 cancer subtypes, and to compare across different subtypes. Furthermore, with single-cell sequencing becoming widely available, new paradigms of analysis have surfaced. In particular, gene signatures are often used to interrogate the composition of tumor microenvironment and the functional status of infiltrating immune content. Such techniques are also integrated in to GEPIA2 as we provide signature-based functionalities with a curated list of signatures for efficient investigation. Finally, GEPIA2 provides features to process user-uploaded expression data and compare such data with the large collection of TCGA and GTEx samples.</p>
+        <p>## METHODS AND IMPLEMENTATION</p>
+        <p>We added a collection of new features and upgraded multiple previous features in GEPIA2. To widen the analysis usage from gene level to isoform level and to better delineate different pathological status, isoform expression data and cancer subtype information are made available. The features in GEPIA2 are divided into two major topics: Expression Analysis and Custom Data Analysis. The Expression Analysis contains eight tabs: General, Differential Genes, Expression DIY, Survival Analysis, Isoform Details, Correlation Analysis, Similar Genes Detection and Dimensionality Reduction. Custom Data Analysis contains two tabs: Cancer Subtype Classifier and Expression Comparison (Figure 1). These features allow users to analyze the existing data and upload their own data for analysis based on different interactive functions. In addition to the web-based interface, we also provide a python package, to allow easy access of GEPIA2 analyses from a command-line environment. An overview for each new and upgraded feature is given in the following sections.</p>
+        <p>Schema describing the features of public data and uploaded data analyses in GEPIA2.</p>
+        <p><anchor xml:id="a8"/>## NEW FEATURES</p>
+        <p>### Survival map</p>
+        <p><anchor xml:id="a9"/>GEPIA2 performs survival analyses based on gene or isoform expression levels. Given a list of custom cancer types, GEPIA2 would provide a heat map to show the survival analysis result based on multiple cancer types (Figure 2A).<anchor xml:id="a10"/> The red blocks denote higher and blue ones lower risk, with an increase in the gene or isoform expression. The blocks with darkened frames indicate statistical significance in prognostic analyses. <anchor xml:id="a11"/>Since gene survival analyses can be context-dependent, this function allows users to screen for the prognostic impact of a gene or an isoform across different cancer types.<anchor xml:id="a12"/></p>
+        <p>Examples of GEPIA2 outputs. (A) Users can check the prognostic impacts of gene or isoform expression level based on the survival heat map. <anchor xml:id="a13"/>The heat map shows the hazard ratios in logarithmic scale (log10) for different genes. The red and blue blocks denote higher and lower risks, respectively.<anchor xml:id="a14"/> The rectangles with frames mean the significant unfavorable and favorable results in prognostic analyses. <anchor xml:id="a15"/>(B) The violin-plots show the expression level (log2(TPM + 1)) of each isoform in a certain gene while the bar-plot panel present the isoform usage (from 0% to 100%) distribution.<anchor xml:id="a16"/> (C) GEPIA2 provides differential signature score analysis based on the box plots. The signature score is calculated by mean value of log2(TPM + 1) of each gene in Th1-like signature gene set. The orange box indicates the tumor samples while the blue one represents the normal tissues. The Th1-like signature score level in stomach tumors is significantly higher than normal tissues. <anchor xml:id="a17"/>(D) The overall survival analyses based on the cancer type and cancer subtype showed the significant prognostic impact of MAPK6 in Lumina A breast cancer subtype (left, P = 0.022) but not the whole breast cancer (right, P = 0.15).<anchor xml:id="a18"/></p>
+        <p>### Isoform usage profiling</p>
+        <p><anchor xml:id="a19"/>For a given gene and a list of custom cancer types, GEPIA2 generates the violin-plot and bar-plot panels for presenting the expression distribution and the isoform usage of each isoforms in the given gene (Figure 2B).<anchor xml:id="a20"/> <anchor xml:id="a21"/>Users can view the protein translation of each isoform in different cancer types and find the cancer specific isoform or isoform ‘switch’ event in a certain cancer type.<anchor xml:id="a22"/> <anchor xml:id="a23"/>Meanwhile, GEPIA2 provides the isoform protein domain structure plots based on the prediction of Pfam for exhibiting the structural differences between each isoform.<anchor xml:id="a24"/></p>
+        <p>### Uploaded expression data comparison</p>
+        <p>GEPIA2 bridges the gap between users’ custom data and the public cancer genomic data. This function enables users to upload their own data for performing differential analysis with the tumor or normal data from TCGA or GTEx projects. <anchor xml:id="a25"/>After the Quantile-normalization or other two additional normalization strategies (inspired by GenomeSpace) based on the uploaded dataset and the target dataset on the server, GEPIA2 performs the differential expression analysis and return result in boxplot.<anchor xml:id="a26"/></p>
+        <p>### Cancer-subtype Classifier</p>
+        <p><anchor xml:id="a27"/>With this function, users can accurately predict the cancer type or cancer-subtype of their uploaded samples based on the gene expression. The classifier is trained by TCGA expression data.<anchor xml:id="a28"/> For each sample, the probability of this sample belonging to each subtype would be listed below. <anchor xml:id="a29"/>We provide two modes to work with the classifier by choosing the actual cancer type first and predict for its corresponding subtypes or directly predict with the range of all cancer subtypes. The former way provides a more sensitive result, and the latter will be more useful for the identification of the cancer with unknown origin.<anchor xml:id="a30"/></p>
+        <p>## UPGRADES</p>
+        <p>### Isoform analysis</p>
+        <p>Except for multiple gene comparison and dimensionality reduction functions, GEPIA2 allows users to perform all expression analyses at the isoform level (Table 1). Users can input an isoform symbol (e.g. ERBB2–001) or an Ensembl ID (e.g. ENST00000584601) to analyze an isoform of interest. Using different features, users can profile the isoform expression across different cancer types, obtain the differentially expressed isoforms, discover the prognostic isoforms and examine the correlation between two isoforms. Meanwhile, analyses based on both the gene and isoform levels could be performed to reveal the similarities or differences between them.</p>
+        <p>Table describing the new features and improvements in the GEPIA2 visualization tools</p>
+        <p>Gene	Isoform	Gene signature	Cancer subtype	Python package	 	General	✓	✓				 	Differential genes	✓	✓				 	Expression DIY	Gene expression profile	✓	✓				 		Box plots	✓	✓	✓	✓	✓	 		Pathological stage plot	✓	✓				 		Multiple gene comparison	✓					 	Survival analysis	Survival plots	✓	✓	✓	✓	✓	 		Most differential survival genes	✓	✓				 		Survival Map	✓	✓			✓	 	Isoform details	Isoform usage		✓				 		Isoform structure		✓				 	Correlation analysis	✓	✓	✓		✓	 	Similar genes detection	✓	✓	✓		✓	 	Dimensionality reduction	✓</p>
+        <p>### Signature score</p>
+        <p><anchor xml:id="a31"/>This function analyzes the prevalence of a gene signature in TCGA and GTEx samples. The mean value of the log2(TPM + 1) is used as the signature score.<anchor xml:id="a32"/> Based on the signature score, users can obtain the distribution of cell-type signature genes, such as effector T cell and exhausted T cell signature genes, across different cancer types. Meanwhile, GEPIA2 can calculate the correlation between two signatures and check their prognostic impact.</p>
+        <p>### Cancer subtypes</p>
+        <p>The subtype information on GEPIA2 allows users to select their subtype of interest for differential expression analysis or survival analysis. <anchor xml:id="a33"/>For the Box Plots feature, once users select the custom subtypes, they can select ‘Stacked’, ‘Separated’ or ‘Comparing Across Subtypes’ for different purposes. ‘Stacked’ indicates the approach to combine all the samples from selected subtypes prior to differential expression analysis with normal samples. ‘Separated’ means the method to perform differential expression analysis separately with normal samples. ‘Comparing Across Subtypes’ selection performs the differential expression analysis among the selected subtypes.<anchor xml:id="a34"/></p>
+        <p>## DOCUMENTS AND AVAILABILITY</p>
+        <p>The GEPIA2 website is built in a similar architecture to GEPIA, using a combination of HTML5, JavaScript, and PHP for interactive controls. On the server side, GEPIA2 accesses and processes data using R and Perl scripts. <anchor xml:id="a35"/>We downloaded the TCGA and GTEx isoform expression data that are re-computed from raw RNA-Seq data by the UCSC Xena project based on a uniform pipeline and collected different cancer subtypes information from TCGA papers. The datasets are stored in a MySQL relational database (version 5.7.17).<anchor xml:id="a36"/></p>
+        <p>The GEPIA2 website is freely available to all users. GEPIA2 documentation and example pages are available and can be accessed by clicking the ‘Help’ link in the left navigation bar. Meanwhile, clicking the ‘Help’ button in each feature can open the collapsed tooltips, which contain the concise explanations and detail of each parameter. All plotting features in GEPIA2 are developed using similar packages and program as GEPIA. For more easily using, we use the dashboard to present the analysis in GEPIA2.</p>
+        <p><anchor xml:id="a37"/>GEPIA2 python API provides users with access to GEPIA2’s analyses from a programming environment. Designed to perform multiple requests for our service, it boosts the efficiency of users by allowing batch process and streamlining results retrieval. The API is implemented in python language and we provide a tutorial for users to utilize the API. The python package provides access to 5 functionalities: boxplot, similar, correlation, survival and survival map.<anchor xml:id="a38"/></p>
+        <p>Finally, we maintain a forum for users to discuss about the questions, problems or suggestions about GEPIA2.</p>
+        <p>## RESULTS AND DISCUSSIONS</p>
+        <p>GEPIA2 facilitates easy exploration of the large TCGA and GTEx datasets for experimental scientists. The availability of new data and new functionalities allow them to ask specific questions and test their hypotheses at a higher resolution. <anchor xml:id="a39"/>Although platforms like GenomeSpace allow users to perform similar analyses online, GEPIA2 provides a direct toolset to address these needs.<anchor xml:id="a40"/> Based on the new features and the improvements of the GEPIA2, users can focus on these important tasks:</p>
+        <p>### Immune-cell clusters analysis</p>
+        <p>Recently, single cell analyses based on the immune cells have gain tractions for different cancer types. Gene signatures of existing and novel immune-cell clusters have been identified. <anchor xml:id="a41"/>However, the existing data cannot present the expression distribution of a certain immune-cell cluster across cancer types. In this case, researchers can use GEPIA2 to easily obtain the immune-cell cluster signature profile in a pan-cancer manner. For example, one can readily find that Th1-like signature in stomach tumors is significantly higher than that in adjacent normal tissues (Figure 2C).<anchor xml:id="a42"/> Furthermore, researchers can validate the prognostic impact of these immune-cell clusters in a given cancer type.</p>
+        <p>### Subtype-specific prognostic analysis</p>
+        <p>Prognostic genes in different cancer types have been identified recently. <anchor xml:id="a43"/>These prognostic genes were identified based on a general cancer type rather than cancer subtype. However, different cancer subtypes in a cancer type can be distinct. For instance, triple-negative breast cancer has a ∼15% lower five-year survival rate compared to other breast cancer subtypes.<anchor xml:id="a44"/> <anchor xml:id="a45"/>It is thus desirable to perform prognostic analysis at a higher resolution. Based on the outputs of GEPIA2, we found that MAPK6 showed no association with breast cancer survival while it exhibited significant association with unfavorable prognostic outcome in Lumina A subtype<anchor xml:id="a46"/> (Figure 2D).</p>
+        <p>## CONCLUSIONS</p>
+        <p>We introduce GEPIA2 that significantly enhances the functionalities of GEPIA. <anchor xml:id="a47"/>By May 2019, GEPIA has been cited 414 times according to Google Scholar and has processed ∼400 000 analysis requests from ∼110 000 distinct IP addresses worldwide.<anchor xml:id="a48"/> In GEPIA2, the newly available isoform quantification and cancer subtype information will push the analyses to a higher resolution. New analysis methods like isoform usage profiling and custom data analysis arm users with a larger arsenal for deeper and wider interrogation of their genes of interest. With these new features, we believe GEPIA2 will be one of the most preferred tools for experimental biologists and clinicians to explore the big cancer genomics data.</p>
+        <p>## FUNDING</p>
+        <p>Beijing Advanced Innovation Centre for Genomics at Peking University, Key Technologies R&amp;D Program [2016YFC0900100]; National Natural Science Foundation of China [81573022, 31530036, 91742203]. Funding for open access charge: Beijing Advanced Innovation Centre for Genomics at Peking University, Key Technologies R&amp;D Program [2016YFC0900100]; National Natural Science Foundation of China [81573022, 31530036, 91742203].</p>
+        <p>Conflict of interest statement. None declared.<anchor xml:id="a49"/></p>
     </body>
   </text>
 </TEI>

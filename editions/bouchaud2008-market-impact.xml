@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-26"
-              who="build_paper_edition.py">62 spans placed by verified search</change>
+      <change when="2026-08-28"
+              who="build_paper_edition.py">78 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -189,152 +189,235 @@
         <term>effective market order</term>
         <quote>we simply classify them based on whether an order results in an immediate transaction, in which case we call it an effective market order</quote>
       </span>
-      <span xml:id="t30" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
+      <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="1.0">
+        <label>off-book market</label>
+        <term>off-book market</term>
+        <quote>In addition to continuous double auctions the London Stock Exchange has what is called the off-book market and the New York Stock Exchange has what is called the upstairs market. These are both bilateral exchanges, in which members of the exchange can interact in person or via telephone to arrange transactions</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="1.0">
+        <label>upstairs market</label>
+        <term>upstairs market</term>
+        <quote>In addition to continuous double auctions the London Stock Exchange has what is called the off-book market and the New York Stock Exchange has what is called the upstairs market. These are both bilateral exchanges, in which members of the exchange can interact in person or via telephone to arrange transactions</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[10]" resp="#paper" cert="1.0">
+        <label>Marketable limit orders</label>
+        <term>Marketable limit orders</term>
+        <quote>Marketable limit orders (also called crossing limit orders) are limit orders that cross the opposing best price, and so result in at least a partial transaction.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[11]" resp="#paper" cert="1.0">
+        <label>crossing limit orders</label>
+        <term>crossing limit orders</term>
+        <quote>Marketable limit orders (also called crossing limit orders) are limit orders that cross the opposing best price, and so result in at least a partial transaction.</quote>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>market impact</label>
+        <term>market impact</term>
+        <quote>By market impact we mean the average response of prices to trades; liquidity refers to the scale of the market impact</quote>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>liquidity</label>
+        <term>liquidity</term>
+        <quote>By market impact we mean the average response of prices to trades; liquidity refers to the scale of the market impact</quote>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>long-memory processes</label>
+        <term>long-memory processes</term>
+        <quote>Stochastic processes for which the autocorrelation function decays asymptotically as a power-law with an exponent smaller than one are called long-memory processes</quote>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.85">
+        <label>quotes</label>
+        <term>quotes</term>
+        <quote>participants may place quotes (also called orders) stating the quantities and prices at which they are willing to trade</quote>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.85">
+        <label>orders</label>
+        <term>orders</term>
+        <quote>participants may place quotes (also called orders) stating the quantities and prices at which they are willing to trade</quote>
+      </span>
+      <span xml:id="t39" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
         <label>urgency → informativeness</label>
         <note>THE INDEXING / PROXY RELATION - Q-299. `from` STANDS IN FOR `to`. We have no type for it: `causes` asserts production, and `operationalised-as` says the authors CHOSE a measure, whereas a proxy claim says THIS STANDS IN FOR WHAT WE ACTUALLY CARE ABOUT AND WE KNOW IT IS NOT THE SAME THING. Measured at 8% of papers. A proxy held UNDER A THEORY, not asserted: &#x27;UNDER THE THEORY THAT urgency is a proxy for informativeness, empirical work on the subject has often defined an informed trade as one that is executed by a market order&#x27;. The whole downstream definition depends on a substitution the sentence flags as theoretical.</note>
         <quote>For example, under the theory that urgency is a proxy for informativeness, empirical work on the subject has often defined an informed trade as one that is executed by a market order, and defined an uninformed trade as one that is represented by a limit order.</quote>
       </span>
-      <span xml:id="t31" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t40" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger" cert="0.9">
+        <label>liquidity → market impact</label>
+        <note>IS-AN-ASPECT-OF / IS-DEFINED-IN-TERMS-OF, AND NONE OF THE EIGHT TYPES HOLDS IT. `liquidity REFERS TO THE SCALE OF the market impact` - the paper gives `liquidity` no content of its own; it is the size parameter of the other quantity. `operationalised-as` is the nearest type and the gate refused it correctly: the cue vocabulary wants `measured / defined as / quantified / computed as`, and `refers to the scale of` is a definitional gloss, not a measurement procedure. `part-of` is wrong because a scale is not a component. `same-as` is wrong because the two are not interchangeable - one is a response, the other is how big that response is. **Filed rather than forced: typing this as `operationalised-as` would put a measurement claim in the corpus that the paper does not make.** Reached 2026-08-26 by terminal-a during the schema 0.3 pass.</note>
+        <quote>By market impact we mean the average response of prices to trades; liquidity refers to the scale of the market impact</quote>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>liquidity - REVEALED: the liquidity a market actually shows, which the review says is vanishing</label>
         <quote>markets operate in a regime of vanishing revealed liquidity</quote>
       </span>
-      <span xml:id="t32" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t42" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>liquidity - LATENT: the large volume that exists but is deliberately not shown, which is why revealed liquidity is small</label>
         <quote>Both want to have their trading done as quickly as possible, but both try not to show their hands and reveal their intentions. As a result, markets operate in a regime of vanishing revealed liquidity, but large latent liquidity</quote>
       </span>
-      <span xml:id="t33" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t43" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>information - mostly generated by supply and demand itself rather than arriving from outside the market</label>
         <quote>Most of the processed information appears to come from supply and demand itself, rather than from external news.</quote>
       </span>
-      <span xml:id="t34" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t44" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>effective market order - a stipulated classification by OUTCOME rather than by order type: whether it results in an immediate transaction</label>
         <quote>we simply classify them based on whether an order results in an immediate transaction, in which case we call it an effective market order</quote>
       </span>
-      <span xml:id="t35" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t45" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+        <label>`off-book market` / `upstairs market` - ONE INSTITUTION, TWO EXCHANGE-LOCAL NAMES, AND THE REVIEW GIVES THE SHARED DEFINITION IMMEDIATELY AFTER: `the London Stock Exchange has what is called THE OFF-BOOK MARKET and the New York Stock Exchange has what is called THE UPSTAIRS MARKET. THESE ARE BOTH BILATERAL EXCHANGES, in which members of the exchange can interact in person or via telephone.` THE AXIS IS THE VENUE, NOT THE DISCIPLINE. This corpus already carries naming split by field (`newman2003`), by language of publication (`buck2011`, tenside/surfactant) and by profession (`bishop2017`); **an exchange is a fourth kind of community that names things its own way**, and the two names are not even metaphorically related - one is about the order book, the other about a floor of a building.</label>
+        <quote>In addition to continuous double auctions the London Stock Exchange has what is called the off-book market and the New York Stock Exchange has what is called the upstairs market. These are both bilateral exchanges, in which members of the exchange can interact in person or via telephone to arrange transactions</quote>
+      </span>
+      <span xml:id="t46" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>`market impact` / `liquidity` - TWO TERMS STIPULATED IN ONE PARENTHESIS, AND THE SECOND IS DEFINED OUT OF THE FIRST. `(By MARKET IMPACT we mean THE AVERAGE RESPONSE OF PRICES TO TRADES; LIQUIDITY REFERS TO THE SCALE OF THE MARKET IMPACT).` **`liquidity` is one of the most used words in finance and it is given here no independent content at all** - it is the size parameter of the other term. A reader who imports `liquidity` from any neighbouring paper imports a different quantity. **NO EDGE IS PROPOSED FOR THIS PAIR.** `refers to the scale of` is a definitional gloss, and the gate correctly refuses it as `operationalised-as` (which wants measured / defined as / quantified / computed as). The relation the paper states is `is an aspect of` / `is defined in terms of`, and the eight edge types do not contain it - the same gap `NOTES/RELATION_TYPE_VOCABULARY_PROPOSAL.md` is open on. Forcing the nearest type would put a measurement claim in the corpus that the paper does not make.</label>
+        <quote>By market impact we mean the average response of prices to trades; liquidity refers to the scale of the market impact</quote>
+      </span>
+      <span xml:id="t47" type="senses" ana="#senses[6]" resp="#tagger" cert="0.85">
+        <label>`quotes` / `orders` - AN ALIAS OFFERED IN PASSING BECAUSE THE PAPER IS EXPLAINING AN AUCTION TO PEOPLE WHO KNOW MARKETS. `participants may place QUOTES (ALSO CALLED ORDERS)`. The auction vocabulary is the formal one and the market vocabulary is the working one; the parenthesis exists to let the reader carry their own word through the rest of the section.</label>
+        <quote>participants may place quotes (also called orders) stating the quantities and prices at which they are willing to trade</quote>
+      </span>
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>contradicts → a rival explanation for concave market impact</label>
         <quote>We find this explanation implausible.</quote>
       </span>
-      <span xml:id="t36" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t49" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>contradicts → the Kyle model of linear, permanent price impact (Kyle [1985])</label>
         <quote>This is at variance with many simple models, including the famous Kyle model, where impact is assumed to be linear and permanent.</quote>
       </span>
-      <span xml:id="t37" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t50" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → Hasbrouck [1988] on impact depending on the predictability of trades</label>
         <quote>The body of work reviewed here instead assumes that the impact of trades depends only on their predictability, e.g. that highly predictable trades have little impact, as originally postulated by Hasbrouck [1988].</quote>
       </span>
-      <span xml:id="t38" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t51" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → the long-memory order-flow discovery of Bouchaud et al. [2004] and Lillo and Farmer [2004]</label>
         <quote>The reviewed body of theory springs from the recent empirical discovery that changes in supply and demand constitute a long-memory process , i.e. that its autocorrelation function is a slowly decaying power law (Bouchaud et al. [2004], Lillo and Farmer [2004]).</quote>
       </span>
-      <span xml:id="t39" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t52" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>revealed liquidity —distinct-from→ latent liquidity</label>
         <term>revealed liquidity</term>
         <term>latent liquidity</term>
         <note>strength of the relation: 1</note>
         <quote>Both want to have their trading done as quickly as possible, but both try not to show their hands and reveal their intentions. As a result, markets operate in a regime of vanishing revealed liquidity, but large latent liquidity</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t53" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="1.0">
+        <label>off-book market —renamed-across-fields→ upstairs market</label>
+        <term>off-book market</term>
+        <term>upstairs market</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 — FILED AS `renamed-across-fields` BECAUSE THE GATE&#x27;S TEST IS THE RIGHT ONE - both names present, a naming cue (`what is called`), and a shared definition in the next sentence. But the axis is INSTITUTIONAL rather than disciplinary, and the type name says `fields`. Recording the mismatch rather than forcing a different type: **the vocabulary has one label for what are at least four axes of renaming - discipline, language, profession, and venue.**</note>
+        <quote>In addition to continuous double auctions the London Stock Exchange has what is called the off-book market and the New York Stock Exchange has what is called the upstairs market. These are both bilateral exchanges, in which members of the exchange can interact in person or via telephone to arrange transactions</quote>
+      </span>
+      <span xml:id="t54" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="1.0">
+        <label>Marketable limit orders —same-as→ crossing limit orders</label>
+        <term>Marketable limit orders</term>
+        <term>crossing limit orders</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 — `Marketable limit orders (ALSO CALLED crossing limit orders)` - a bare parenthetical synonym, no hedge.</note>
+        <quote>Marketable limit orders (also called crossing limit orders) are limit orders that cross the opposing best price, and so result in at least a partial transaction.</quote>
+      </span>
+      <span xml:id="t55" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.85">
+        <label>quotes —same-as→ orders</label>
+        <term>quotes</term>
+        <term>orders</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 — `also called` - an explicit alias with both names inside the span. Confidence 0.85 rather than higher because both words are ordinary English and only this parenthesis ties them.</note>
+        <quote>participants may place quotes (also called orders) stating the quantities and prices at which they are willing to trade</quote>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>months — period over which large orders are traded incrementally</label>
         <quote>large orders to buy or sell can only be traded</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t57" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>revealed liquidity is so low that large orders must trade incrementally</label>
         <quote>revealed market liquidity is extremely low, large orders to buy or sell can only be traded</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t58" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>order flow is a highly persistent long-memory process</label>
         <quote>order flow is a highly</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t59" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>most processed information comes from supply and demand, not external news</label>
         <quote>processed information appears to come from supply and demand itself, rather than from external news.</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t60" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>agents are at best weakly informed with noisy price impact</label>
         <quote>agents are at best only</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t61" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>market impact</label>
         <term>market impact</term>
         <quote>the volume and time dependence of market impact</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t62" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>order flow</label>
         <term>order flow</term>
         <quote>On the origin of long-memory of order flow .</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t63" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>bid-ask spread</label>
         <term>bid-ask spread</term>
         <quote>the bid-ask spread, order book dynamics,</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t64" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>liquidity</label>
         <term>liquidity</term>
         <quote>revealed market liquidity is extremely low</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t65" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>tatonnement</label>
         <term>tatonnement</term>
         <quote>the classic problem of tatonnement in price formation</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t66" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>long-memory of order flow</label>
         <term>long-memory of order flow</term>
         <quote>Empirical evidence for long-memory of order flow .</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t67" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>market efficiency</label>
         <term>market efficiency</term>
         <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>Maintaining compatibility with market efficiency has profound</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t68" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>the liquidity paradox</label>
         <term>the liquidity paradox</term>
         <quote>The liquidity paradox</quote>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t69" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>But as trading occurs, either at the bid or at the ask, the market maker updates in a Bayesian way the value of δ+ = 1 − δ−: trades at the ask increase the value of δ+, while trades at the bid increase δ−.</quote>
       </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>confidence-interval</label>
         <term>confidence-interval</term>
         <quote>Unfortunately there are still not good statistical methods for assigning confidence intervals for exponents of power laws, particularly when the observations have long-memory, but the errors can be roughly assessed by examining sub-samples.</quote>
       </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>hypothesis-testing</label>
         <term>hypothesis-testing</term>
         <quote>have used membership codes of the London Stock Exchange to test the hypothesis of the theory presented in Lillo et al.</quote>
       </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+      <span xml:id="t72" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>We have plotted the average value of the return conditioned to be in the direction of the predictor, r+, and the average return when the sign of the predictor is wrong, r−.</quote>
       </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t73" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
         <quote>At a daily scale he finds he gets the best linear regression against contemporary daily returns with ψ ≈ 0.5.</quote>
       </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+      <span xml:id="t74" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
         <quote>Analysis of price impact makes INFORMATION, LIQUIDITY &amp; EFFICIENCY 13 it clear that the standard deviation of impacts is very large compared to their mean, suggesting that this is indeed the case.</quote>
       </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t75" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>standard-error</label>
         <term>standard-error</term>
         <quote>Error bars are standard errors.</quote>
       </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+      <span xml:id="t76" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
         <label>statistical-significance</label>
         <term>statistical-significance</term>
         <quote>It is observed in all the stock markets studied so far at very high levels of statistical significance.</quote>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+      <span xml:id="t77" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <note>about this quote: 2026-08-25 terminal-a. DAMAGED GLYPHS IN THIS QUOTE: (cid:96). These are raw PDF font glyph indices that leaked out in place of the characters they stand for - usually a mathematical operator. The quote is verbatim to the staged text and its anchor is sound; the STAGED TEXT is what is damaged. NOT repaired: the cid-to-character mapping is defined by the font embedded in that particular PDF, so guessing it would produce a clean and unverifiable quote. Repair needs the source PDF and is a re-staging job.</note>

@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-26"
-              who="build_paper_edition.py">47 spans placed by verified search</change>
+      <change when="2026-08-28"
+              who="build_paper_edition.py">54 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -202,78 +202,110 @@
         <term>single-token name</term>
         <quote>This construction means that the set of concepts the lens can name is exactly the set of concepts that have a single-token name in the tokenizer&#x27;s vocabulary.</quote>
       </span>
-      <span xml:id="t30" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper" cert="1.0">
+        <label>J-space component</label>
+        <term>J-space component</term>
+        <quote>When we refer to the “J-space component” of a vector, we mean the component that can be written as such a sparse (nonnegative) sum. When we describe a vector as being “in” or “aligned with” the J-space, we mean that this J-space component is close to the original vector.</quote>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>counterfactual reflection training</label>
+        <term>counterfactual reflection training</term>
+        <quote>we test this prediction with a training technique we call counterfactual reflection training.</quote>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.9">
+        <label>J-space</label>
+        <term>J-space</term>
+        <quote>This union of cones is the J-space.</quote>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.9">
+        <label>J-space component</label>
+        <term>J-space component</term>
+        <quote>When we refer to the “J-space component” of a vector, we mean the component that can be written as such a sparse (nonnegative) sum.</quote>
+      </span>
+      <span xml:id="t34" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>global workspace - the theory&#x27;s sense: a shared space a representation is posted to, from which many downstream processes can read</label>
         <quote>A representation becomes consciously accessible when it is posted to a shared &quot;global workspace&quot; from which many downstream processes can read .</quote>
       </span>
-      <span xml:id="t31" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t35" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>global workspace - a processing hub that integrates and broadcasts, so the information can be used for flexible internal reasoning and report</label>
         <quote>Under the theory, the workspace is a processing hub that integrates and broadcasts information, allowing it to be used for flexible internal reasoning and report .</quote>
       </span>
-      <span xml:id="t32" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t36" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>nameable concept - bounded by the tokenizer: exactly those concepts holding a single-token name, which is what the lens can report at all</label>
         <quote>This construction means that the set of concepts the lens can name is exactly the set of concepts that have a single-token name in the tokenizer&#x27;s vocabulary.</quote>
       </span>
-      <span xml:id="t33" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+      <span xml:id="t37" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
         <label>global workspace - what the paper explicitly does NOT claim language models reproduce</label>
         <quote>we do not claim that language models reproduce the full architecture global workspace theory ascribes to the brain</quote>
       </span>
-      <span xml:id="t34" type="alternatives" ana="#alternatives.claim_type" resp="#tagger" cert="0.75">
+      <span xml:id="t38" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+        <label>`J-space component`, and `in` / `aligned with` - A PAPER STIPULATING NOT ONLY A NOUN BUT THE PREPOSITIONS APPLIED TO IT: `When we refer to the “J-space component” of a vector, WE MEAN the component that can be written as such a sparse (nonnegative) sum. When we describe a vector as being “IN” OR “ALIGNED WITH” the J-space, WE MEAN that this J-space component is close to the original vector.` THE SECOND SENTENCE IS THE UNUSUAL ONE. A term can be defined and still be misread through the spatial metaphor its own name invites - `in` a space normally means membership, and here it is stipulated to mean APPROXIMATION. The authors fix the preposition because the noun alone would not have stopped the wrong reading.</label>
+        <quote>When we refer to the “J-space component” of a vector, we mean the component that can be written as such a sparse (nonnegative) sum. When we describe a vector as being “in” or “aligned with” the J-space, we mean that this J-space component is close to the original vector.</quote>
+      </span>
+      <span xml:id="t39" type="senses" ana="#senses[5]" resp="#tagger" cert="0.9">
+        <label>`J-space` - A NAME BORROWED FROM LINEAR ALGEBRA FOR SOMETHING THAT IS NOT A SUBSPACE. `THIS UNION OF CONES IS THE J-SPACE.` The suffix `-space` invites every habit a reader has about spans, bases and dimensions, and the object is **a union of polyhedral cones** - closed under nonnegative combination only. **The paper says so plainly and the name still does the misleading**, which is mechanism 28&#x27;s shape (a name whose extension is wrong) arriving through a suffix rather than through a stem.</label>
+        <quote>This union of cones is the J-space.</quote>
+      </span>
+      <span xml:id="t40" type="senses" ana="#senses[6]" resp="#tagger" cert="0.9">
+        <label>`J-space component` - DEFINED BY WHAT IT CAN BE WRITTEN AS, NOT BY A PROJECTION. `When we refer to the “J-SPACE COMPONENT” of a vector, WE MEAN THE COMPONENT THAT CAN BE WRITTEN AS SUCH A SPARSE (NONNEGATIVE) SUM.` In a subspace, `component` means an orthogonal projection and is unique. Here it means a best sparse nonnegative approximation - **the same word, a different mathematical object, and the difference follows directly from J-space not being a space.** **NO EDGE PROPOSED, AND THIS REFUSAL IS DIFFERENT FROM THE OTHERS TONIGHT.** `part-of` is the RIGHT type here; the paper simply never asserts the containment in words. I searched every sentence mentioning `J-space` for an accepted containment cue and the closest is a QUESTION - `what fraction of the model&#x27;s representational space BELONGS TO the J-space?` - which asks the thing rather than claiming it. The relation was my inference from the definition, not the paper&#x27;s statement, and the gate caught exactly that.</label>
+        <quote>When we refer to the “J-space component” of a vector, we mean the component that can be written as such a sparse (nonnegative) sum.</quote>
+      </span>
+      <span xml:id="t41" type="alternatives" ana="#alternatives.claim_type" resp="#tagger" cert="0.75">
         <label>claim_type: mechanism</label>
         <note>a second reading DIFFERING from the recorded value. Recorded: existence — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
         <quote>In this paper, we present evidence that an analogous functional distinction has emerged in modern AI models.</quote>
       </span>
-      <span xml:id="t35" type="alternatives" ana="#alternatives.method" resp="#tagger" cert="0.85">
+      <span xml:id="t42" type="alternatives" ana="#alternatives.method" resp="#tagger" cert="0.85">
         <label>method: mechanistic-interpretability</label>
         <note>a second reading DIFFERING from the recorded value. Recorded: system-or-tool-building — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
         <quote>Comparing a post-trained model against its corresponding base model, we find that post-training causes the J-space to acquire the Assistant&#x27;s &quot;point of view.&quot; Following post-training, Assistant reactions to user prompts, like empathy or safety concerns, appear in the model&#x27;s J-space while it is still reading the user&#x27;s message.</quote>
       </span>
-      <span xml:id="t36" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger" cert="0.85">
+      <span xml:id="t43" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger" cert="0.85">
         <label>phenomenon: a global-workspace-like functional structure in the internal activations of large language models</label>
         <note>a second reading DIFFERING from the recorded value. Recorded: global workspace / conscious-access-like representations in large language models — A BLIND second reading by terminal-a on 2026-08-25: the record&#x27;s own claim_type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no `alternatives` block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is). See Q-1176, Q-1178.</note>
         <quote>While the global workspace model is not universally accepted, and there exist other theories that explain conscious access in different ways ( §9.4 ), we find it a useful comparison point to ground our investigations in language models.</quote>
       </span>
-      <span xml:id="t37" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → the logit lens</label>
         <quote>While the logit lens assumes that representations use the same coordinates in all layers, the Jacobian lens corrects for representational changes that take place across layers, allowing it to uncover meaningful information in earlier layers where the logit lens produces uninterpretable readouts.</quote>
       </span>
-      <span xml:id="t38" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → Hernandez et al., per-relation linear maps from Jacobians</label>
         <quote>The J-lens applies the same first-order approximation to the map from activations to model outputs, rather than to a single relation.</quote>
       </span>
-      <span xml:id="t39" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>replicates → Li et al., logit-lens decoding and patching of multi-hop intermediates</label>
         <quote>Closest to our approach, Li et al. use the logit lens to decode the intermediate entity in a multi-hop query from middle layers and patch along the decoded directions to redirect the answer, paralleling the internal-reasoning results of §3.3 .</quote>
       </span>
-      <span xml:id="t40" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → work on implicit chain-of-thought</label>
         <quote>More closely related to our method is work on “implicit chain-of-thought” , which establishes that training on auxiliary reasoning text can shape computation in that context, even when the auxiliary text is dropped at inference.</quote>
       </span>
-      <span xml:id="t41" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>consciously accessible information —operationalised-as→ global workspace</label>
         <term>consciously accessible information</term>
         <term>global workspace</term>
         <note>strength of the relation: 0.9</note>
         <quote>A representation becomes consciously accessible when it is posted to a shared &quot;global workspace&quot; from which many downstream processes can read .</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>LLMs maintain a privileged set of internal representations available for report, modulation, and flexible reasoning</label>
         <quote>language models maintain a privileged set of internal representations, available for report, modulation, and flexible internal reasoning</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>an analogous accessible/unconscious functional distinction has emerged in modern AI models</label>
         <quote>an analogous functional distinction has emerged in modern AI</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>a new interpretability technique surfaces the concepts a model is poised to verbalize</label>
         <quote>a new interpretability technique, which surfaces the concepts a model is poised</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>verbalizable vs automatic internal representations</label>
         <term>verbalizable vs automatic internal representations</term>
         <quote>the concepts a model is poised</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t53" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>global workspace (LLM analog)</label>
         <term>global workspace (LLM analog)</term>
         <quote>a privileged set of internal representations, available for report, modulation, and flexible internal reasoning</quote>

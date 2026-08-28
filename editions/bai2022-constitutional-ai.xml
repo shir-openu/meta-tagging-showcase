@@ -37,8 +37,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-26"
-              who="build_paper_edition.py">66 spans placed by verified search</change>
+      <change when="2026-08-28"
+              who="build_paper_edition.py">64 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -139,212 +139,201 @@
         <label>the red-teaming design means the human side of each evaluated conversation was typically harmful, which the paper says may have made the task harder for small or zero-shot models</label>
         <quote>Note that the human was typically quite harmful, since they were red teaming the AI, and this may 11The data is available at https://github.com/anthropics/hh-rlhf 19 p. 20 109 1010 Parameters 0.4 0.5 0.6 0.7 0.8Accuracy Previous HHH Comparison Evals HH PM from Human Feedback Helpful RLHF (0-shot) Helpful RLHF (5-shot) Chance Figure 11 Results on the original HHH evaluations developed in [Askell et al., 2021] and available on BIG Bench [Srivastava et al., 2022]. 109 1010 Parameters 0.50 0.55 0.60 0.65 0.70Accuracy Identify Harmful vs Ethical Assistant Behavior Pretrained LM (5-shot) Helpful RLHF (0-shot) Helpful RLHF (5-shot) Chain-of-Thought (prompted) Chance 109 1010 Parameters 0.1 0.2 0.3 0.4 0.5 0.6Accuracy Classifying Harmful Behavior Pretrained LM (5-shot) Helpful RLHF (0-shot) Helpful RLHF (5-shot) Chance Figure 12 Here we show results on identifying and classifying harmful behaviors, without any task speciﬁc training or human feedback.</quote>
       </span>
-      <span xml:id="t21" type="limitations" ana="#limitations[17]" resp="#tagger" cert="0.95">
-        <label>The constitution is the method&#x27;s namesake and its construction is the part the paper declines to defend: chosen &#x27;in a fairly ad hoc and iterative way for research purposes&#x27;, and elsewhere &#x27;not carefully designed as in [Glaese et al., 2022]&#x27;, with the authors saying such principles should later be redeveloped by a larger set of stakeholders and adapted to the intended use.</label>
-        <quote>We will finetune AI models to be harmless using only of order ten2 simple principles, stated in natural language. 2These principles were chosen in a fairly ad hoc and iterative way for research purposes. In the future, we believe such principles should be redeveloped and refined by a larger set of stakeholders, and that they should also be adapted depending on the intended usage</quote>
-      </span>
-      <span xml:id="t22" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+      <span xml:id="t21" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
         <label>64 hand-picked red team prompts HELD OUT from training, with harmfulness averaged over 256 model responses each</label>
         <note>eliminates: a harmlessness score earned on the prompts the model was trained against - the held-out set was never available to the training process</note>
         <quote>We show absolute harmfulness scores for our models in Figure 10 on a selection of 64 hand-picked held-out red team prompts, averaged over 256 model responses per prompt.</quote>
       </span>
-      <span xml:id="t23" type="concepts" ana="#concepts[5]" resp="#paper">
+      <span xml:id="t22" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>constitution</label>
         <term>constitution</term>
         <quote>we cannot avoid choosing some set of principles to govern it, even if they remain hidden or implicit.</quote>
       </span>
-      <span xml:id="t24" type="concepts" ana="#concepts[6]" resp="#paper">
+      <span xml:id="t23" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>RL from AI Feedback</label>
         <term>RL from AI Feedback</term>
         <quote>We then train with RL using the preference model as the reward signal, i.e. we use ‘RL from AI Feedback’ (RLAIF).</quote>
       </span>
-      <span xml:id="t25" type="concepts" ana="#concepts[7]" resp="#paper">
+      <span xml:id="t24" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>preference model</label>
         <term>preference model</term>
         <quote>and then train a preference model from this dataset of AI preferences.</quote>
       </span>
-      <span xml:id="t26" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.9">
+      <span xml:id="t25" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.9">
         <label>evasive</label>
         <term>evasive</term>
         <quote>As a result we are able to train a harmless but nonevasive AI assistant that engages with harmful queries by explaining its objections to them</quote>
       </span>
-      <span xml:id="t27" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+      <span xml:id="t26" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
         <label>dual use</label>
         <term>dual use</term>
         <quote>As with most methods that can control AI behavior, the ideas discussed in this work have a dual use.</quote>
       </span>
-      <span xml:id="t28" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.9">
+      <span xml:id="t27" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.9">
         <label>red teaming</label>
         <term>red teaming</term>
         <quote>As part of our recent work on red teaming [Ganguli et al., 2022], we asked crowdworkers to rate the level of harmfulness 11 displayed by various language models in human/assistant interactions, and to categorize harmful behaviors with discrete labels and categories.</quote>
       </span>
-      <span xml:id="t29" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+      <span xml:id="t28" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
         <label>CritiqueRequest</label>
         <term>CritiqueRequest</term>
         <quote>CritiqueRequest: Identify specific ways in which the assistant’s last response is harmful, unethical, racist, sexist, toxic, dangerous, or illegal.</quote>
       </span>
-      <span xml:id="t30" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.9">
+      <span xml:id="t29" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.9">
         <label>chain-of-thought</label>
         <term>chain-of-thought</term>
         <quote>Chain-of-thought and few-shot evaluation signiﬁcantly improve the zero-shot performance.</quote>
       </span>
-      <span xml:id="t31" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t30" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>constitution - a short list of principles, of order ten, stated in natural language, which is the whole of the value specification the model is trained against</label>
         <quote>We will finetune AI models to be harmless using only of order ten2 simple principles, stated in natural language.</quote>
       </span>
-      <span xml:id="t32" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t31" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>the choice of governing principles - stated to be UNAVOIDABLE for any general AI system, and to be made either explicitly or invisibly</label>
         <quote>we cannot avoid choosing some set of principles to govern it, even if they remain hidden or implicit.</quote>
       </span>
-      <span xml:id="t33" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t32" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>harmless - defined here so as to EXCLUDE evasion: a model that engages with harmful queries by explaining its objections, rather than one that refuses</label>
         <quote>As a result we are able to train a harmless but nonevasive AI assistant that engages with harmful queries by explaining its objections to them.</quote>
       </span>
-      <span xml:id="t34" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+      <span xml:id="t33" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
         <label>human oversight - relocated rather than removed: no human labels on harmful outputs, but humans write the principles the model critiques itself against</label>
         <quote>The only human oversight is provided through a list of rules or principles, and so we refer to the method as ‘Constitutional AI’.</quote>
       </span>
-      <span xml:id="t35" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → RLHF (reinforcement learning from human feedback)</label>
         <quote>RLHF typically uses tens of thousands of human preference labels</quote>
       </span>
-      <span xml:id="t36" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → reinforcement learning from human feedback [Christiano et al., 2017]</label>
         <quote>The method therefore improves upon, and partially replaces reinforcement learning from human feedback [Christiano et al., 2017].</quote>
       </span>
-      <span xml:id="t37" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>extends → the authors&#x27; prior helpful-and-harmless RLHF assistant [Bai et al., 2022]</label>
         <quote>We used this method to train models that are both harmless and non-evasive, partially resolving an issue in [Bai et al., 2022].</quote>
       </span>
-      <span xml:id="t38" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t37" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → chain-of-thought reasoning [Nye et al., 2021, Wei et al., 2022]</label>
         <quote>We also use chain-of-thought reasoning [Nye et al., 2021, Wei et al., 2022] to augment model performance and make AI decision making more transparent.</quote>
       </span>
-      <span xml:id="t39" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>builds-on → the red-teaming study and dataset of [Ganguli et al., 2022]</label>
         <quote>The motivations behind this work also align naturally with [Ganguli et al., 2022], which provides an extensive study of red teaming of language models, and significant portions of our red teaming data are gathered from that work.</quote>
       </span>
-      <span xml:id="t40" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t39" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
         <label>constitution —operationalised-as→ harmlessness</label>
         <term>constitution</term>
         <term>harmlessness</term>
         <note>differs in: HOW THE PRINCIPLES WERE ARRIVED AT, AND THE PAPER SAYS IT TWICE: &#x27;These principles were chosen in a fairly AD HOC AND ITERATIVE way for research purposes&#x27;, and in a later footnote, &#x27;selected in an ad hoc manner … and were NOT CAREFULLY DESIGNED as in [Glaese et al., 2022]&#x27;. The method is named after the artefact whose construction it declines to defend · strength of the relation: 0.9 — The whole of harmlessness is carried by &#x27;only of order ten simple principles, stated in natural language&#x27; - a very small, very informal object doing very heavy work, and the authors flag both the smallness and the informality themselves. The record already carries `constitution` as a sense on exactly those terms.</note>
         <quote>We will finetune AI models to be harmless using only of order ten2 simple principles, stated in natural language. 2These principles were chosen in a fairly ad hoc and iterative way for research purposes. In the future, we believe such principles should be redeveloped and refined by a larger set of stakeholders, and that they should also be adapted depending on the intended usage</quote>
       </span>
-      <span xml:id="t41" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t40" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
         <label>RLAIF —contrasted-with→ RLHF</label>
         <term>RLAIF</term>
         <term>RLHF</term>
         <note>differs in: WHERE THE HUMAN JUDGEMENT ENTERS, not whether it does: &#x27;The only human oversight is provided through A LIST OF RULES OR PRINCIPLES&#x27;. Human labels on individual outputs are replaced by human authorship of the principles, so the supervision moves from the instances to the rule · strength of the relation: 0.9</note>
         <quote>The only human oversight is provided through a list of rules or principles, and so we refer to the method as ‘Constitutional AI’.</quote>
       </span>
-      <span xml:id="t42" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+      <span xml:id="t41" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
         <label>harmlessness —distinct-from→ evasive</label>
         <term>harmlessness</term>
         <term>evasive</term>
         <note>strength of the relation: 0.9 — HARMLESS IS DEFINED SO AS TO EXCLUDE THE CHEAPEST WAY OF ACHIEVING IT, and the paper reports the failure mode from its own prior system: the assistant &#x27;often REFUSED to answer controversial questions&#x27; and &#x27;could get stuck producing EVASIVE responses for the remainder of the conversation. Ultimately this was due to the fact that EVASIVENESS WAS REWARDED as a response to harmful inputs by our crowdworkers.&#x27; The metric rewarded refusal, so refusal is what it got - and the fix is a redefinition, not a better model.</note>
         <quote>our assistant often refused to answer controversial questions. Furthermore, once it encountered objectionable queries, it could get stuck producing evasive responses4 for the remainder of the conversation. Ultimately this was due to the fact that evasiveness was rewarded as a response to harmful inputs by our crowdworkers</quote>
       </span>
-      <span xml:id="t43" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
-        <label>constitution —operationalised-as→ harmlessness</label>
-        <term>constitution</term>
-        <term>harmlessness</term>
-        <note>differs in: HOW THE PRINCIPLES WERE ARRIVED AT, AND THE PAPER SAYS IT TWICE: &#x27;These principles were chosen in a fairly AD HOC AND ITERATIVE way for research purposes&#x27;, and in a later footnote, &#x27;selected in an ad hoc manner … and were NOT CAREFULLY DESIGNED as in [Glaese et al., 2022]&#x27;. The method is named after the artefact whose construction it declines to defend · strength of the relation: 0.9 — The whole of harmlessness is carried by &#x27;only of order ten simple principles, stated in natural language&#x27; - a very small, very informal object doing very heavy work, and the authors flag both the smallness and the informality themselves. The record already carries `constitution` as a sense on exactly those terms.</note>
-        <quote>We will finetune AI models to be harmless using only of order ten2 simple principles, stated in natural language. 2These principles were chosen in a fairly ad hoc and iterative way for research purposes. In the future, we believe such principles should be redeveloped and refined by a larger set of stakeholders, and that they should also be adapted depending on the intended usage</quote>
-      </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>2 — supervised-learning and reinforcement-learning stages</label>
         <quote>The process involves both a supervised learning and a reinforcement</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>4 — stated motivations for the technique</label>
         <quote>Our motivations for developing this technique were: (1) to study</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
         <label>the balanced evaluation set for identifying harmful versus ethical behaviour</label>
         <quote>We then constructed a balanced evaluation set of 254 such conversations, where we ask models to identify if the assistant’s behavior was harmful or ethical.</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
         <label>the dataset size and label count for the harmful-behaviour classification task</label>
         <quote>For the task of classifying harmful behavior, we used the nine most frequently occurring labels assigned by crowdworkers to red teaming conversations, and constructed a dataset of 287 examples.</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>a harmless assistant is trained without human harm labels</label>
         <quote>without any human labels identifying harmful outputs</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>RL-CAI is preferred by crowdworkers over human-feedback-trained models</label>
         <quote>is preferred by crowdworkers over those trained with</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>the assistant is non-evasive, explaining objections to harmful queries</label>
         <quote>engages with harmful queries by explaining its objections to them</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>chain-of-thought reasoning improves performance and transparency</label>
         <quote>can leverage chain-of-thought style reasoning to improve the</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
         <label>the first revision removes most harmful content and later revisions add only minor improvements - the gain is front-loaded</label>
         <quote>Nonetheless, the revisions were generally more harmless than the original response.</quote>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
         <label>chain-of-thought and few-shot prompting substantially improve zero-shot accuracy at identifying harmful versus ethical assistant behaviour</label>
         <quote>Chain-of-thought and few-shot evaluation signiﬁcantly improve the zero-shot performance.</quote>
       </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.9">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.9">
         <label>the authors conclude that as capability rises it should become increasingly tractable to use AI evaluations to identify and avoid harmful behaviour</label>
         <quote>These results suggest that as model capabilities continue to improve, it should become increasingly tractable to use AI evaluations to identify and avoid harmful behaviors.</quote>
       </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.9">
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.9">
         <label>the method&#x27;s own worked example shows a fourth critique objecting that discussing illegality is too intense for young children, and the fourth revision then DROPS the statement that theft is illegal</label>
         <quote>The assistant is correct to condemn theft, particularly for children, but the frank discussion of illegality may be too intense for young children.</quote>
       </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t54" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>the constitution (principles)</label>
         <term>the constitution (principles)</term>
         <quote>The only human oversight is provided through a list of rules or principles</quote>
       </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t55" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>preference model</label>
         <term>preference model</term>
         <quote>train with RL using the preference model as the reward signal</quote>
       </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t56" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>self-critiques and revisions</label>
         <term>self-critiques and revisions</term>
         <quote>generate self-critiques and revisions, and then finetune the original model on revised responses</quote>
       </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t57" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>helpfulness vs harmlessness tension</label>
         <term>helpfulness vs harmlessness tension</term>
         <quote>between helpfulness and harmlessness and</quote>
       </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t58" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>Constitutional AI (CAI)</label>
         <term>Constitutional AI (CAI)</term>
         <quote>we develop a method we refer to as Constitutional AI (CAI)</quote>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t59" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>RL from AI Feedback (RLAIF)</label>
         <term>RL from AI Feedback (RLAIF)</term>
         <quote>RL from AI Feedback’ (RLAIF)</quote>
       </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t60" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>scaling supervision</label>
         <term>scaling supervision</term>
         <quote>1.1 Motivations Scaling Supervision We use the term ‘Scaling Supervision’ for techniques that leverage AI to help humans to more efficiently</quote>
       </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t61" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>helpful, honest, and harmless</label>
         <term>helpful, honest, and harmless</term>
         <quote>train AI systems that remain helpful, honest, and harmless</quote>
       </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">
+      <span xml:id="t62" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">
         <label>the critique instruction as literally issued to the model</label>
         <quote>CritiqueRequest: Identify specific ways in which the assistant’s last response is harmful, unethical, racist, sexist, toxic, dangerous, or illegal.</quote>
       </span>
-      <span xml:id="t65" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.95">
+      <span xml:id="t63" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.95">
         <label>how the harmful-versus-ethical evaluation set was selected - only conversations both raters scored at an extreme</label>
         <quote>For the case of identifying harmful versus ethical behaviors, we considered conversations where both the crowdworker engaged in the conversation, and another independent reviewer, either assigned the conversation the minimum or maximum score for harmfulness (on a 1-5 scale).</quote>
       </span>

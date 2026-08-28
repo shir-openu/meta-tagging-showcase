@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-26"
-              who="build_paper_edition.py">53 spans placed by verified search</change>
+      <change when="2026-08-28"
+              who="build_paper_edition.py">56 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -137,155 +137,171 @@
         <term>test set</term>
         <quote>Only one of these potential outcomes can ever be observed in practice, and so direct test-set evaluation is in general impossible. 1 Thus, when evaluating estimators of causal effects, asymptotic theory plays a much more important role than in the standard prediction context.</quote>
       </span>
-      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+      <span xml:id="t20" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>double-sample tree</label>
+        <term>double-sample tree</term>
+        <quote>Our first algorithm, which we call a double-sample tree, achieves honesty by dividing its training subsample into two halves I andJ . Then, it uses the J -sample to place the splits, while holding out the I-sample to do within-leaf estimation</quote>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>unconfoundedness - the assumption that makes nearby observations behave as if they came from a randomized experiment, which is what licenses matching</label>
         <quote>The motivation behind unconfoundedness is that, given continuity assumptions, it effectively implies that we can treat nearby observations in x-space as having come from a randomized experiment</quote>
       </span>
-      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+      <span xml:id="t22" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>honesty - a condition the authors name and impose: the tree is grown on one subsample and its leaf predictions are estimated on a different one</label>
         <quote>it relies on deeply grown trees that satisfy a condition we call “honesty” to reduce bias. An example of an honest tree is one where the tree is grown using one subsample, while the predictions at the leaves of the tree are estimated using a different</quote>
       </span>
-      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+      <span xml:id="t23" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>treatment effect - a quantity not estimable from the observed data at all without further restrictions on the data generating distribution</label>
         <quote>In general, we cannot estimate τ(x) simply from the observed data (Xi, Yi, Wi) without further restrictions on the data generating distribution.</quote>
       </span>
-      <span xml:id="t23" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+      <span xml:id="t24" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
         <label>evaluation - FOR A CAUSAL ESTIMAND THE STANDARD MACHINE-LEARNING SENSE IS UNAVAILABLE: only one potential outcome per unit is ever observed, so &#x27;direct test-set evaluation is in general impossible&#x27; and asymptotic theory does the work that held-out prediction error does elsewhere</label>
         <quote>Only one of these potential outcomes can ever be observed in practice, and so direct test-set evaluation is in general impossible. 1 Thus, when evaluating estimators of causal effects, asymptotic theory plays a much more important role than in the standard prediction context.</quote>
       </span>
-      <span xml:id="t24" type="senses" ana="#senses[4]" resp="#tagger" cert="0.9">
+      <span xml:id="t25" type="senses" ana="#senses[4]" resp="#tagger" cert="0.9">
         <label>sample splitting - AS COSTED HERE: the usual objection is that it wastes half the training data, and the answer is that the waste is per TREE and recovered across the ENSEMBLE, since the I/J split is re-randomised over each subsample so every point serves both roles in some tree</label>
         <quote>We note that sample splitting procedures are sometimes criticized as inefficient because they “waste” half of the training data at each step of the estimation procedure. However, in our case, the forest subampling mechanism enables us to achieve honesty without wasting any data in this sense, because we re-randomize theI/J -data splits over each subsample. Thus, although no data point can be used for split selection and leaf estimation in a single tree, each data point will participate in both I andJ</quote>
       </span>
-      <span xml:id="t25" type="senses" ana="#senses[5]" resp="#tagger" cert="0.9">
-        <label>sample splitting - AS COSTED HERE: the usual objection is that it wastes half the training data, and the answer is that the waste is per TREE and recovered across the ENSEMBLE, since the I/J split is re-randomised over each subsample so every point serves both roles in some tree</label>
-        <quote>We note that sample splitting procedures are sometimes criticized as inefficient because they “waste” half of the training data at each step of the estimation procedure. However, in our case, the forest subampling mechanism enables us to achieve honesty without wasting any data in this sense, because we re-randomize theI/J -data splits over each subsample. Thus, although no data point can be used for split selection and leaf estimation in a single tree, each data point will participate in both I andJ</quote>
+      <span xml:id="t26" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>`honesty` - A MORAL WORD GIVEN A BICONDITIONAL DEFINITION, AND THE DEFINITION IS A PROHIBITION ON DOUBLE USE. `A TREE IS HONEST IF, for each training example i, IT ONLY USES THE RESPONSE Yi TO ESTIMATE THE WITHIN-LEAF TREATMENT EFFECT τ ... OR TO DECIDE WHERE TO PLACE THE SPLITS, BUT NOT BOTH.` **Nothing about the definition is moral** - it forbids using one observation twice for two purposes. The name imports an intuition (a tree that does not cheat) that the formal content neither needs nor supports, and it travels: a reader meeting `honest trees` in a later paper will reconstruct the intuition, not the disjunction. This record is the second half of the typology&#x27;s mechanism 25 - `athey2016` -&gt; `wager2018` tightening this very term. **STAGED-TEXT NOTE:** LaTeX-adjacency fusion in the staged text, declared rather than hidden: `responseYi` is `response Y_i` and `effectτ` is `effect τ`, the space lost where prose meets a math symbol. The span is kept because it is the paper&#x27;s ONLY statement of the definition and the fusion is legible; re-slicing around the symbols would remove the quantifier the definition turns on. `word_join_damage` is a declared field on `claim_relations` but NOT on `senses`, and the gate&#x27;s allow-list refused it - correctly, since inventing a field per layer is how `_note` and `correction` became invisible rows. The disclosure lives here instead.</label>
+        <quote>a tree is honest if, for each training example i, it only uses the responseYi to estimate the within-leaf treatment effectτ using (5) or to decide where to place the splits, but not both.</quote>
       </span>
-      <span xml:id="t26" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+      <span xml:id="t27" type="senses" ana="#senses[6]" resp="#tagger" cert="0.9">
+        <label>`double-sample tree` - THE NAME DESCRIBES THE MECHANISM AND NOT THE PROPERTY IT BUYS. `Our first algorithm, WHICH WE CALL A DOUBLE-SAMPLE TREE, ACHIEVES HONESTY BY DIVIDING ITS TRAINING SUBSAMPLE INTO TWO HALVES.` Honesty is the requirement; two samples is one way to meet it. **A name for the means, in a paper whose theorems are all about the end** - which is why `honesty` and `double-sample` are not interchangeable even though this paper&#x27;s only honest algorithm is a double-sample one.</label>
+        <quote>Our first algorithm, which we call a double-sample tree, achieves honesty by dividing its training subsample into two halves I andJ . Then, it uses the J -sample to place the splits, while holding out the I-sample to do within-leaf estimation</quote>
+      </span>
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → random forests (Breiman) for statistical inference</label>
         <quote>the first set of results that allows any type of random forest</quote>
       </span>
-      <span xml:id="t27" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+      <span xml:id="t29" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>extends → Breiman&#x27;s random forest algorithm [Breiman, 2001a]</label>
         <quote>In this paper, we develop a non-parametric causal forest for estimating heterogeneous treatment effects that extends Breiman’s widely used random forest algorithm.</quote>
       </span>
-      <span xml:id="t28" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the honest causal trees of Athey and Imbens [2016]</label>
         <quote>Following Athey and Imbens [2016], our proposed forest is composed of causal trees that estimate the effect of the treatment at the leaves of the trees; we thus refer to our algorithm as a causal forest.</quote>
       </span>
-      <span xml:id="t29" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → the asymptotic normality result of Mentch and Hooker [2016]</label>
         <quote>Thus, although the result of Mentch and Hooker [2016] may appear qualitatively similar to ours, it cannot be used for valid asymptotic statistical inference about µ(x).</quote>
       </span>
-      <span xml:id="t30" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>builds-on → the infinitesimal jackknife for random forests of Efron [2014] and Wager et al. [2014]</label>
         <quote>We also show that the heuristically motivated infinitesimal jackknife for random forests developed by Efron [2014] and Wager et al. [2014] is consistent for the asymptotic variance of random forests in this setting.</quote>
       </span>
-      <span xml:id="t31" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
         <label>honesty —operationalised-as→ double-sample trees</label>
         <term>honesty</term>
         <term>double-sample trees</term>
         <note>strength of the relation: 0.9 — The condition is named first and realised second: &#x27;Double-sample trees, as defined in Procedure 1, CAN ALWAYS BE USED TO BUILD HONEST TREES&#x27;, and propensity trees give &#x27;a simple recipe for building honest trees WITHOUT SAMPLE SPLITTING&#x27; - so one condition has two constructions, only one of which splits the sample.</note>
         <quote>Double-sample trees, as defined in Procedure 1, can always be used to build honest trees with respect to theI-sample. In the context of causal trees for observational studies, propensity trees (Procedure 2) provide a simple recipe for building honest trees without sample splitting.</quote>
       </span>
-      <span xml:id="t32" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
         <label>subsample size —causes→ confidence intervals</label>
         <term>subsample size</term>
         <term>confidence intervals</term>
         <note>differs in: THE RATE AT WHICH THE SUBSAMPLE GROWS. &#x27;the bias of the random forest decays as 1/sqrt(s_n), while its variance decays as s_n/n. IF s_n/sqrt(n) -&gt; 0, the squared bias decays SLOWER than the variance, and so confidence intervals built using the resulting Gaussian limit distribution WILL NOT COVER&#x27; the target. Two asymptotic-normality results for random forests differ on this one exponent and on nothing a reader would notice from the statement of either theorem · strength of the relation: 0.9 — THE PAPER NAMES THE PARAMETER ITS DISAGREEMENT TURNS ON AND SAYS WHAT GOES WRONG: &#x27;although the result of Mentch and Hooker [2016] MAY APPEAR QUALITATIVELY SIMILAR TO OURS, IT CANNOT BE USED FOR VALID ASYMPTOTIC STATISTICAL INFERENCE&#x27;. A Gaussian limit is not by itself a licence to build an interval - the bias has to vanish faster than the standard error, which is a condition on a tuning parameter, not on the theorem.</note>
         <quote>A quick calculation shows that the bias of the random forest decays as 1/√sn, while its variance decays assn/n. If sn/√n→ 0, the squared bias decays slower than the variance, and so confidence intervals built using the resulting Gaussian limit distribution will not cover µ(x). Thus, although the result of Mentch and Hooker [2016] may appear qualitatively similar to ours, it cannot be used for valid asymptotic statistical inference about</quote>
       </span>
-      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+      <span xml:id="t35" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+        <label>double-sample tree —operationalised-as→ honesty</label>
+        <term>double-sample tree</term>
+        <term>honesty</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 — Direction: the ALGORITHM realises the PROPERTY. `achieves honesty by` states the means-to-end relation outright.</note>
+        <quote>Our first algorithm, which we call a double-sample tree, achieves honesty by dividing its training subsample into two halves I andJ . Then, it uses the J -sample to place the splits, while holding out the I-sample to do within-leaf estimation</quote>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>2 — a treatment effect is a difference between two of them</label>
         <quote>difference between two potential outcomes</quote>
       </span>
-      <span xml:id="t34" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>1 — survival threshold in a prediction example</label>
         <quote>survive for more than, say, one year</quote>
       </span>
-      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>causal forests are pointwise consistent and asymptotically Gaussian</label>
         <quote>causal forests are pointwise consistent for the true treatment effect, and have an asymptotically Gaussian and centered sampling distribution</quote>
       </span>
-      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>first results letting any random forest be used for valid statistical inference</label>
         <quote>this is the first set of results that allows any type of random forest, including</quote>
       </span>
-      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>causal forests are more powerful than nearest-neighbor matching</label>
         <quote>we find causal forests to be substantially more powerful than classical</quote>
       </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
         <label>the causal forest&#x27;s advantage over kNN grows with the number of covariates</label>
         <quote>terms of both bias and variance in a variety of settings, and that its advantage increases</quote>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>treatment effect</label>
         <term>treatment effect</term>
         <quote>the expected benefit from the treatment is less than the treatment cost</quote>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+      <span xml:id="t43" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>number of covariates</label>
         <term>number of covariates</term>
         <quote>quickly break down as the number of covariates</quote>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+      <span xml:id="t44" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>confidence intervals</label>
         <term>confidence intervals</term>
         <quote>constructing asymptotic confidence intervals for the true treatment</quote>
       </span>
-      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+      <span xml:id="t45" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
         <label>honest trees</label>
         <term>honest trees</term>
         <quote>An example of an honest tree is one where the tree is grown using</quote>
       </span>
-      <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>causal forest</label>
         <term>causal forest</term>
         <quote>our proposed forest is composed of causal trees that estimate the effect of the treatment at the leaves of the trees; we thus refer to our algorithm as a causal forest.</quote>
       </span>
-      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>potential outcomes framework with unconfoundedness</label>
         <term>potential outcomes framework with unconfoundedness</term>
         <quote>In the potential outcomes framework with unconfoundedness,</quote>
       </span>
-      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
         <label>honesty</label>
         <term>honesty</term>
         <quote>the predictions at the leaves of the tree are estimated using a different</quote>
       </span>
-      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
         <label>heterogeneous treatment effects</label>
         <term>heterogeneous treatment effects</term>
         <quote>estimating heterogeneous treatment effects in the potential outcomes framework</quote>
       </span>
-      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>ANOVA</label>
         <term>ANOVA</term>
         <quote>model for random forests introduced by Lin and Jeon [2006]; the key technical device used in Section 3.3.2 is the ANOVA decomposition of Efron and Stein [1981].</quote>
       </span>
-      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <quote>These papers use the Bayesian Additive Regression Tree (BART) method of Chipman et al.</quote>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>bootstrap</label>
         <term>bootstrap</term>
         <quote>Instead of using subsampling, Breiman originally described random forests in terms of bootstrap sampling, or bagging [Breiman, 1996].</quote>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t53" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>confidence-interval</label>
         <term>confidence-interval</term>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
         <quote>We also discuss a practical method for constructing asymptotic confidence intervals for the true treatment effect that are centered at the causal forest estimates.</quote>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+      <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <quote>Random forests are related to kernels and nearest-neighbor methods in that they make predictions using a weighted average of “nearby” observations; however, random forests differ in that they have a data-driven way to determine which</quote>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
         <label>sample-size</label>
         <term>sample-size</term>
         <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
