@@ -36,281 +36,281 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-28"
-              who="build_paper_edition.py">52 spans placed by verified search</change>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">0 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
       <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
         <label>method</label>
-        <quote>Our proposed solution (QuadSky) starts with a time-efficient spatial blocking technique (QuadFlex), compares pairwise the spatial entities in the same block, ranks the pairs using Pareto optimality with the SkyRank algorithm, and finally, classifies the pairs with our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs and 0.87 precision and 0.6 recall for a semi-manually labeled dataset of 777,452 pairs.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
         <label>spatial entity linkage across location-based sources</label>
-        <quote>The problem of finding which spatial entities belong to the same physical entity is referred to as spatial entity linkage or spatial entity resolution.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t2" type="method" ana="#method" resp="#paper">
         <label>system-or-tool-building</label>
         <term>system-or-tool-building</term>
-        <quote>In this paper, we address the problem of spatial entity linkage across different location-based sources.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>the blocking structure&#x27;s splitting criterion is changed from CAPACITY to density and diagonal, because a count of points is not a spatial quantity: a dense city block should split before its capacity is reached, and two farm points far apart may still be one entity</term>
-        <quote>First, a quadtree needs a capacity (number of points) as a parameter. The capacity is not a meaningful parameter for spatial blocking, while the density of the area is a better candidate. For example, if the area is too dense (e.g., city center), even though the capacity is not reached, a further split would be more beneficial. On the contrary, two points in the countryside (e.g., a farm) might be farther apart, but they still might be the same entity. Second, a quadtree does not limit the distance between points. Even though two points might be in an area that respects the density, if they are quite distant from each other, it is not necessary to compare them. The maximal distance between two points in a child is the diagonal of the area (all quadtree children are rectangular). We used m, the diagonal of an area, as a parameter that controls the distance of points rather than comparing all distances between all spatial entities.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>a point is allowed to be assigned to MORE THAN ONE child of the split, so that two nearby entities are not separated merely because a dividing line happened to fall between them</term>
-        <quote>Finally, a quadtree splits into four children, and sometimes nearby points might fall into different leaves. We modify the procedure of the assignment of the points into a child by allowing more than one assignment.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>the address is deliberately NOT compared by edit distance, because syntactic and spatial closeness come apart in both directions - one changed digit is 650 metres, eight added characters is the same building - and is instead scored by equality, inclusion, or nothing</term>
-        <quote>The similarity between two addresses cannot be measured with Levenshtein, Jaccard, Cosine, etc. since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart. However, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 15 9480 Løkken Denmark” have a distance of 8 and Levenshtein similarity of 0.772, but they are the same building. In [17, 18] the address is considered as another textual attribute. In our case, we perform some data cleaning (removing commas, punctuation marks, lowercase, etc.), and then we search for equality or inclusion of the strings. We assign a similarity of 1.0 in the case of equality, 0.9 in the case of inclusion, and 0.0 otherwise.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>category and keyword similarity is taken as the MAXIMUM over all cross-pairs of the two entities&#x27; keyword lists under a Wordnet-based measure, rather than by string matching, so that synonyms count as agreement</term>
-        <quote>The similarity of fields like categories, keywords, or metadata cannot be compared only syntactically. Sometimes, several synonyms are used to express the same idea. Thus, we need to find a similarity than considers the synonyms as well. We use Wordnet [20] for detecting the type of relationship between two words and Wu&amp; Palmer similarity measure (wup) [21]. The semantic similarity between two spatial entities is the maximal similarity between their list of categories, keywords, or metadata.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>the weighted scoring function is removed entirely and replaced by Pareto optimality: points on one frontier have equal utility, so the method says a pair is better than another WITHOUT quantifying by how much, and needs no attribute weights to do it</term>
-        <quote>We propose a more relaxed technique that uses Pareto optimality [28] for filtering the positive class. A solution (x, y) is Pareto optimal when no other solution can increase x without decreasing y. The points in the same Pareto frontier or skyline have the same utility. Widely used in economics and multi-objective problems, Pareto optimality is free of weights and similarity score functions. In the context of entity resolution, the skylines provide a selection of points that are better than others, but without quantifying how much better.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
         <label>mechanisms</label>
         <term>the whole threshold problem is collapsed to ONE number - which skyline level separates the classes - in place of a threshold per attribute similarity plus another for the function that aggregates them</term>
-        <quote>In contrast to the threshold-based methods used in entity resolution problems [13, 18, 19] where we have to find a threshold for each similarity of the attributes and then a threshold for the similarity function that aggregates the similarity scores, we have simplified our problem to only one parameter: k.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>THE UNSUPERVISED CUT-OFF WORKS BECAUSE THE POSITIVE CLASS IS NOT A CLUSTER: matching pairs are scattered, since several different patterns can make a match, so instead of intra-class compactness the method separates them by their distance to the NEGATIVE class, and sets the cut-off where that inter-class distance starts to increase</term>
-        <quote>Our classes are not characterized by a small intra-class distance. Various patterns can reveal a positive class; for example, a similar name but different category or similar category and similar address, etc. Thus, the positive pairs, positioned in the first skylines, are scattered and do not necessarily form a cluster. However, they can still be separated from the rest, considering the distance to the negative class. Theoretically, the inter-class distance stays small when we are in the first skylines (potential positives), then starts to increase while we move into later skylines and finally falls again when we enter the deeper skylines (potential negatives). SkyEx-D notices the increase of the inter-class distance and sets kd accordingly.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
         <label>mechanisms</label>
         <term>the attributes used to BUILD the ground truth - phone, opening hours - are excluded from the similarity computation, and the stated reason is that they are used to construct the ground truth</term>
-        <quote>The similarity between two fields expressed as numbers, dates, times or intervals is a boolean decision (true or false). Even though the similarity of these fields relies only on an equality check, most of the effort is put in data preparation. For example, the different phone formats should be identified and cleaned from prefixes. Other data formats like intervals (opening hours) might require temporal queries for similarity, inclusion, and intersection of the intervals. In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>Ground truth for the full dataset is mostly automatic, not manually checked, because manual labelling at that scale was not feasible.</label>
-        <quote>Checking the labels manually on the full dataset of 777,452 pairs is unfeasible.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Performance on the full dataset is lower than on the manually labelled sample, possibly an artefact of the automatic labelling rather than of the method.</label>
-        <quote>The evaluation on the full dataset yields lower values (F-measure of 0.72) compared to the sample (F-measure of 0.85), which might be a simple consequence of automatic labeling.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>The skyline-based algorithms could in principle degrade to cubic complexity.</label>
-        <quote>However, there is a theoretical risk of a cubic complexity in SkyEx-F and SkyEx-D if the number of skylines K = |P |.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>The ranking step is computationally expensive because it requires repeated Pareto frontier computation.</label>
-        <quote>SkyRank requires calculating the Pareto frontiers, which is time-consuming.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The attributes that define a correct match are the ones excluded from the scoring, so identity is fixed by whichever fields were reserved.</label>
         <note>what this limits: any accuracy figure reported here: the attributes used to construct the ground truth are deliberately excluded from the similarity computation, so what counts as the same entity is defined by one set of attributes and predicted from a different set</note>
-        <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>String similarity is stated to be inapplicable to the attribute that looks most like a key, with a worked counterexample.</label>
         <note>what this limits: any use of string-similarity metrics on addresses: the paper states they cannot be used, giving two addresses with a Levenshtein similarity of 0.963 that are 650 meters apart</note>
-        <quote>The similarity between two addresses cannot be measured with Levenshtein, Jaccard, Cosine, etc. since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Coordinates fail as an identifier in both directions at once.</label>
         <note>what this limits: any linkage of these sources on coordinates: different spatial entities may share coordinates, as with shops in a shopping mall, and one entity may appear at coordinates 82 meters apart in two sources</note>
-        <quote>Different spatial entities might co-exist in the same coordinates (shops in a shopping mall), or the same entity might be located in different but nearby coordinates across different sources (e.g., ”Chicago Roasthouse” appears in Yelp and Google Places with coordinates 82 meters apart</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The methods this work builds on were fitted to a different kind of entity, and the authors say the resemblance cannot be assumed.</label>
         <note>what this limits: carrying an entity-resolution method over to spatial entities: the authors state such solutions are learned on human entity datasets and that the resemblance of behaviours between the two cannot merely be assumed</note>
-        <quote>The proposed solutions for entity resolution in individuals, either supervised or based on an experimental threshold, are learned on human entity datasets. One can not merely assume the resemblance of behaviors in a human entity dataset to a spatial entity one</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t19" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
         <label>manual checking of the labels on a sample of the pairs - 1,500 in the sample dataset and about 10,000 overall - against the automatic labels inferred from shared website or phone number</label>
         <note>eliminates: that the automatic labelling is wrong in the two ways the paper names: the same entity holding a different phone number or website, and different entities sharing a phone number</note>
-        <quote>Hence, we checked around 10,000 of the pairs, and for the rest, we rely on automatic labeling.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t20" type="concepts" ana="#concepts[1]" resp="#paper">
         <label>spatial entity linkage</label>
         <term>spatial entity linkage</term>
-        <quote>Unfortunately, the identity of a spatial entity is sometimes difficult to infer due to the inconsistencies within and among the sources</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t21" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>spatial entity</label>
         <term>spatial entity</term>
-        <quote>The identity of a spatial entity is the combination of several attributes</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t22" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>spatial object</label>
         <term>spatial object</term>
-        <quote>However, while a spatial object is identified only by the coordinates</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t23" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>ground truth</label>
         <term>ground truth</term>
-        <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t24" type="concepts" ana="#concepts[9]" resp="#paper">
         <label>spatial blocking</label>
         <term>spatial blocking</term>
-        <quote>However, the existing quadtree algorithm needs to be adapted for spatial blocking</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t25" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.9">
         <label>QuadFlex</label>
         <term>QuadFlex</term>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t26" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.9">
         <label>pairwise comparisons</label>
         <term>pairwise comparisons</term>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t27" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.9">
         <label>SkyRank</label>
         <term>SkyRank</term>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t28" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.9">
         <label>QuadSky</label>
         <term>QuadSky</term>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t29" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>spatial entity vs spatial object - THE DISTINCTION THE WHOLE PAPER RESTS ON: an object is identified by its coordinates alone, an entity is not, so the two words name things that need different identity conditions even though both sit at a point on a map</label>
-        <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t30" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>identity - AS A COMBINATION OF ATTRIBUTES, NOT A KEY: the paper states outright that what makes a spatial entity itself is several attributes together, and that inconsistency between sources makes that combination hard to infer</label>
-        <quote>The identity of a spatial entity is the combination of several attributes. Unfortunately, the identity of a spatial entity is sometimes difficult to infer due to the inconsistencies within and among the sources; each location-based source contains different attributes; some attributes might be missing and even contradicting</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t31" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>similarity - SYNTACTIC AND SPATIAL COME APART: a one-character change in an address is a 0.963 string similarity and 650 metres on the ground, which is why the paper refuses ordinary string metrics for exactly the field that looks most like an identifier</label>
-        <quote>since a small change in the address might be a giant gap in the spatial distance between the entities. For example, ”Jyllandsgade 15 9480 Løkken” and ”Jyllandsgade 75 9480 Løkken” have a distance of 1 and Levenshtein similarity of 0.963, but they are 650 meters apart</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t32" type="senses" ana="#senses[3]" resp="#tagger" cert="0.9">
-        <label>`QuadSky` - A PIPELINE WHOSE FOUR PARTS ARE NAMED TWICE OVER, ONCE BY FUNCTION AND ONCE BY ALGORITHM. `QuadSky CONSISTS OF FOUR MAIN PARTS: SPATIAL BLOCKING (QUADFLEX), PAIRWISE COMPARISONS, RANKING THE PAIRS (SKYRANK), and LABELLING THE PAIRS (the SkyEx-* family of algorithms).` **Three of the four carry a coined proper name in a parenthesis and one does not** - `pairwise comparisons` is the stage the authors did not invent anything for, and the naming records that asymmetry exactly. A reader tracking `SkyRank` and a reader tracking `ranking the pairs` are following the same stage under a name that belongs to a different level.</label>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <label>`QuadSky` - A PIPELINE WHOSE FOUR PARTS ARE NAMED TWICE OVER, ONCE BY FUNCTION AND ONCE BY ALGORITHM. `Quotation withheld` **Three of the four carry a coined proper name in a parenthesis and one does not** - `pairwise comparisons` is the stage the authors did not invent anything for, and the naming records that asymmetry exactly. A reader tracking `SkyRank` and a reader tracking `ranking the pairs` are following the same stage under a name that belongs to a different level.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t33" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>extends → the authors&#x27; earlier conference paper [38] (QuadFlex + SkyEx)</label>
-        <quote>We significantly extend a previous conference paper [38].</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t34" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → the skyline computation method of [38] for spatial blocking and pairwise comparison</label>
-        <quote>The present paper uses the solution in [38] for the spatial blocking and the pairwise comparisons.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t35" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the lattice-based skyline algorithm of [42]</label>
-        <quote>SkyRank uses the method proposed in [42], which first scales down the d-dimensional domain and then pre-filters the data using a lattice.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t36" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → WordNet [20] and the Wu &amp; Palmer semantic similarity measure [21]</label>
-        <quote>We use Wordnet [20] for detecting the type of relationship between two words and Wu&amp; Palmer similarity measure (wup) [21].</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t37" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
         <label>contradicts → the spatial entity matching tools of Karam et al. [17], Berjawi et al. [18] and Morana et al. [19]</label>
-        <quote>The works in [17–19] lack an evaluation of the algorithms.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t38" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>RETRACTED (RE-GROUNDED) · spatial entity —distinct-from→ spatial object</label>
         <term>spatial entity</term>
         <term>spatial object</term>
         <note>RETRACTED: RE-GROUNDED. The old span named only `spatial object` and began mid-contrast (&#x27;However, while ...&#x27;). This sentence names both AND CARRIES THE DIFFERENTIA: an object is fully determined by its coordinates, an entity is geo-located AND has more. A distinction with its criterion. — strength of the relation: 1</note>
-        <quote>However, while a spatial object is identified only by the coordinates, this is not the case for spatial entities</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t39" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>spatial entity linkage —operationalised-as→ ground truth</label>
         <term>spatial entity linkage</term>
         <term>ground truth</term>
         <note>strength of the relation: 1</note>
-        <quote>In this paper, we do not compute the similarity between these attributes as we use them to construct the ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t40" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
         <label>spatial entity —distinct-from→ spatial object</label>
         <term>spatial entity</term>
         <term>spatial object</term>
-        <note>differs in: THE AXIS IS WHETHER IDENTITY BEYOND POSITION IS PART OF THE THING. &#x27;Spatial objects differ from spatial entities mainly because A SPATIAL OBJECT IS FULLY DETERMINED BY ITS COORDINATES OR ITS SPATIAL SHAPE whereas a spatial entity, IN ADDITION TO BEING GEO-LOCATED, HAS A WELLDEFINED IDENTITY (name, phone, categories).&#x27; Both are located; only one carries an identity, and that is the whole of the distinction. Q-463. · strength of the relation: 1 — RE-GROUNDS isaj2019-spatial-entity-linkage[0]: the old span named ONE endpoint.</note>
-        <quote>Spatial objects differ from spatial entities mainly because a spatial object is fully determined by its coordinates or its spatial shape whereas a spatial entity, in addition to being geo-located, has a welldefined identity (name, phone, categories).</quote>
+        <note>differs in: THE AXIS IS WHETHER IDENTITY BEYOND POSITION IS PART OF THE THING. &#x27;Quotation withheld&#x27; Both are located; only one carries an identity, and that is the whole of the distinction. Q-463. · strength of the relation: 1 — RE-GROUNDS isaj2019-spatial-entity-linkage[0]: the old span named ONE endpoint.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t41" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
         <label>spatial blocking —part-of→ QuadSky</label>
         <term>spatial blocking</term>
         <term>QuadSky</term>
         <note>the relation itself is separately evidenced · strength of the relation: 1 — `CONSISTS OF` is the containment cue and it is in the gate&#x27;s list, so this edge is cue-tested. The whole is named first and the parts second - CONTAINER_FIRST order.</note>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t42" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">
         <label>QuadFlex —part-of→ QuadSky</label>
         <term>QuadFlex</term>
         <term>QuadSky</term>
         <note>the relation itself is separately evidenced · strength of the relation: 1 — `CONSISTS OF` is the containment cue and it is in the gate&#x27;s list, so this edge is cue-tested. The whole is named first and the parts second - CONTAINER_FIRST order.</note>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t43" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.95">
         <label>pairwise comparisons —part-of→ QuadSky</label>
         <term>pairwise comparisons</term>
         <term>QuadSky</term>
         <note>the relation itself is separately evidenced · strength of the relation: 1 — `CONSISTS OF` is the containment cue and it is in the gate&#x27;s list, so this edge is cue-tested. The whole is named first and the parts second - CONTAINER_FIRST order.</note>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t44" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">
         <label>SkyRank —part-of→ QuadSky</label>
         <term>SkyRank</term>
         <term>QuadSky</term>
         <note>the relation itself is separately evidenced · strength of the relation: 1 — `CONSISTS OF` is the containment cue and it is in the gate&#x27;s list, so this edge is cue-tested. The whole is named first and the parts second - CONTAINER_FIRST order.</note>
-        <quote>QuadSky consists of four main parts: spatial blocking (QuadFlex), pairwise comparisons, ranking the pairs (SkyRank), and labelling the pairs (the SkyEx-* family of algorithms).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t45" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>Sources describing the same physical world disagree: each covers only part of it, with different attributes, sometimes contradicting each other.</label>
         <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held a copy with the line-break hyphen closed in `at- tributes`. Re-cut from the paper as it stands; the closing was correct scholarship and silently unverifiable.</note>
-        <quote>each one has only partial coverage of the spatial entities, describe them with different attributes, and sometimes provide contradicting information</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t46" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
         <label>Because a match is either right or wrong, the method can be scored directly against labelled data.</label>
         <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
-        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>spatial entity linkage</label>
         <term>spatial entity linkage</term>
         <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>The problem of finding which spatial entities belong to the same physical entity is referred to as spatial entity linkage or spatial entity resolution</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t48" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>0.85 precision / 0.85 recall — QuadSky on a manually labelled set of 1,500 pairs</label>
         <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
-        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t49" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>0.87 precision / 0.6 recall — QuadSky on a semi-manually labelled set of 777,452 pairs</label>
         <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>0.87 precision and 0.6 recall for a semi-manually labeled dataset of 777,452 pairs</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t50" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>precision</label>
         <term>precision</term>
         <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
-        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t51" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>recall</label>
         <term>recall</term>
         <note>retracted: RE-GROUNDED. The published string was not verbatim in EITHER copy of the paper. A quote field promises the author&#x27;s words; this held `QuadSky achieves 0.85 precision and 0.85 recall`. The paper attributes those figures to `our novel SkyEx-* family of algorithms`, which is the LABELLING STEP of QuadSky - one of its four parts, beside QuadFlex, pairwise comparison and SkyRank. Naming the pipeline where the paper names the classifier moves a measured result onto a larger object than the one measured.</note>
-        <quote>our novel SkyEx-* family of algorithms that yield 0.85 precision and 0.85 recall for a manually labeled dataset of 1,500 pairs</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
     </spanGrp>
   </standOff>
   <text>
     <body>
       <p><note type="rights">The full text of this article is not redistributable, so it is
-      not included here. Every tag above carries the exact sentence it was made from, quoted
-      under fair quotation. The article itself is at https://doi.org/10.1145/3340964.3340979.</note></p>
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1145/3340964.3340979.</note></p>
     </body>
   </text>
 </TEI>

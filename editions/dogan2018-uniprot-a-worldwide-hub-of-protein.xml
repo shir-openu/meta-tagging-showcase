@@ -34,171 +34,366 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-28"
-              who="build_paper_edition.py">75 spans placed by verified search</change>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">0 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" from="#a1" to="#a2" type="object_of_study" ana="#object_of_study" resp="#paper">the UniProt Knowledgebase itself - 120 million protein records, of which just over half a million carry annotations a human curator read out of the literature</span>
-      <span xml:id="t1" from="#a3" to="#a4" type="research_question" ana="#research_question" resp="#paper">how to keep a knowledge base current, provenance-tracked and correct while the sequence data entering it grows exponentially</span>
-      <span xml:id="t2" from="#a1" to="#a2" type="contribution" ana="#contribution" resp="#paper">a two-year update: expanded reference proteomes especially for viruses, new rule-based and association-rule annotation systems, a bibliography layer built from other databases and text mining, and a licence change to CC-BY 4.0</span>
-      <span xml:id="t3" from="#a43" to="#a44" type="claim_type" ana="#claim_type" resp="#paper">method</span>
-      <span xml:id="t4" from="#a23" to="#a24" type="phenomenon" ana="#phenomenon" resp="#paper">the gap between what has been sequenced and what has been read - 120 million entries against half a million with curated annotation, and expert curation reaching 35-50% of the curatable literature</span>
-      <span xml:id="t5" from="#a5" to="#a6" type="method" ana="#method" resp="#paper">expert biocuration into Swiss-Prot, rule-based automatic annotation into TrEMBL, redundancy removal into an archive rather than deletion, and evidence tags on every claim from either route<term>expert biocuration into Swiss-Prot, rule-based automatic annotation into TrEMBL, redundancy removal into an archive rather than deletion, and evidence tags on every claim from either route</term></span>
-      <span xml:id="t6" from="#a35" to="#a36" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">why one wrong curated record matters far beyond itself: functional data is computationally transferred from Swiss-Prot to sequence-related but less studied proteins in TrEMBL, so a correction upstream stops misleading data being added to orthologues on the strength of an over-predictive signature<term>annotation propagation</term></span>
-      <span xml:id="t7" from="#a9" to="#a10" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">the growth problem is not more biology but more of the same: 90% of proteins have over 90% identity because sequencing is driven by very similar strains of the same species<term>redundancy from near-identical strains</term></span>
-      <span xml:id="t8" from="#a43" to="#a44" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.85">the premise of the DAAC predictor - that function depends not only on WHICH domains a protein has but on their arrangement and order, so two proteins with the same domain set can do different things<term>domain architecture</term></span>
-      <span xml:id="t9" from="#a47" to="#a48" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">how a cluster-level GO term is earned: it is assigned only when every annotated member carries it, or when it is a common ancestor of at least one term from each - agreement across the cluster rather than a majority<term>conservative propagation</term></span>
-      <span xml:id="t10" from="#a23" to="#a24" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">expert biocuration reaches only 35-45% of the curatable literature for a species, 50% for humans - the coverage gap is measured and published rather than left implicit</span>
-      <span xml:id="t11" from="#a21" to="#a22" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">curation is labour intensive and the authors defend it anyway as the most efficient way to get everything out of a paper - which is a statement about what automation has NOT replaced</span>
-      <span xml:id="t12" from="#a27" to="#a28" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">keeping a record current is hard because knowledge of protein function evolves and new techniques produce results that may appear to contradict earlier observations</span>
-      <span xml:id="t13" from="#a37" to="#a38" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">MECHANISMS TO IDENTIFY AND HIGHLIGHT CONTRADICTORY INFORMATION IN EXISTING ENTRIES ARE A FUTURE PLAN, NOT A CAPABILITY - a 120-million-record knowledge base with per-claim evidence still cannot systematically surface where its own entries disagree</span>
-      <span xml:id="t14" from="#a17" to="#a18" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">redundancy removal is not applied to viruses at all, because their small genomes carry too many variants - a stated exemption with a stated reason</span>
-      <span xml:id="t15" from="#a55" to="#a56" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">UPCLASS, the classifier applied to 32 million accession-PMID pairs, has a published recall of 0.62 - so roughly a third of the classifications it should make, it does not</span>
-      <span xml:id="t16" from="#a53" to="#a54" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.85">the categorisation of computationally mapped bibliography by source database is described by the authors as not optimal for all literature, which is why the classifier was brought in</span>
-      <span xml:id="t17" from="#a31" to="#a32" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">an evidence tag on every individual piece of captured knowledge, naming its source<note>eliminates: a claim in the database being untraceable to where it came from - and it is not restricted to the curated half: automatic annotations carry which system produced them · outcome: held</note></span>
-      <span xml:id="t18" from="#a33" to="#a34" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">a CAUTION comment recording that a previously reported activity is an unsafe observation, kept on the entry alongside the annotation<note>eliminates: a superseded finding either persisting silently or disappearing without trace - the reader gets the claim, the doubt and the reason together · outcome: held</note></span>
-      <span xml:id="t19" from="#a11" to="#a12" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">redundancy removal that moves ~38% of complete proteomes out of UniProtKB and into UniParc, which retains historical obsolete sequence<note>eliminates: growth in near-identical strains swamping the knowledgebase - WITHOUT losing the sequences, which is the difference between a withdrawal and a deletion · outcome: held</note></span>
-      <span xml:id="t20" from="#a47" to="#a48" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">assigning a GO term to a UniRef cluster only when EVERY annotated member has it, or when it is a common ancestor of at least one term from each<note>eliminates: a single member&#x27;s annotation propagating to a whole cluster - the rule requires unanimity or a shared ancestor, not a majority · outcome: held</note></span>
-      <span xml:id="t21" from="#a55" to="#a56" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">publishing UPCLASS&#x27;s precision, recall and F-score before applying it at scale<note>eliminates: the classifier&#x27;s error rate being invisible to users of the 32 million pairs it classified - PARTIAL, because knowing recall is 0.62 does not tell a user WHICH third is missing · outcome: partial</note></span>
-      <span xml:id="t22" from="#a25" to="#a26" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">prioritising for curation exactly what computational prediction gets WRONG - proteins a signature would place in an enzyme family but which are non-functional through the loss of specific residues<note>eliminates: human effort being spent where the automatic systems already succeed, and leaves the curators on the cases where a prediction would be confidently wrong · outcome: held</note></span>
-      <span xml:id="t23" from="#a19" to="#a20" type="controls" ana="#controls[6]" resp="#tagger" cert="0.95">admitting metagenome-assembled genomes only when they show high completeness and low contamination, and removing segmented viruses missing one or more segments<note>eliminates: partial or contaminated assemblies entering the knowledgebase as if they were whole proteomes · outcome: held</note></span>
-      <span xml:id="t24" from="#a39" to="#a40" type="controls" ana="#controls[7]" resp="#tagger" cert="0.9">re-importing curated data from the domain-specific resources it was contributed to - IMEx, the Complex Portal, GO - rather than duplicating their maintenance<note>eliminates: the same fact diverging between UniProt and the specialist database that owns it; each is stored and maintained where it belongs and flows back · outcome: held</note></span>
-      <span xml:id="t25" from="#a5" to="#a6" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">UniProtKB<term>UniProtKB</term></span>
-      <span xml:id="t26" from="#a1" to="#a2" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">annotations<term>annotations</term></span>
-      <span xml:id="t27" from="#a31" to="#a32" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">evidences<term>evidences</term></span>
-      <span xml:id="t28" from="#a23" to="#a24" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">expert biocuration<term>expert biocuration</term></span>
-      <span xml:id="t29" from="#a33" to="#a34" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">CAUTION<term>CAUTION</term></span>
-      <span xml:id="t30" from="#a11" to="#a12" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">UniParc<term>UniParc</term></span>
-      <span xml:id="t31" from="#a17" to="#a18" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">redundancy removal<term>redundancy removal</term></span>
-      <span xml:id="t32" from="#a41" to="#a42" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">InterPro<term>InterPro</term></span>
-      <span xml:id="t33" from="#a47" to="#a48" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">GO annotation<term>GO annotation</term></span>
-      <span xml:id="t34" from="#a55" to="#a56" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">UPCLASS<term>UPCLASS</term></span>
-      <span xml:id="t35" from="#a45" to="#a46" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">UniFire<term>UniFire</term></span>
-      <span xml:id="t36" from="#a23" to="#a24" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">curatable literature<term>curatable literature</term></span>
-      <span xml:id="t37" from="#a29" to="#a30" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">METTL14<term>METTL14</term></span>
-      <span xml:id="t38" from="#a29" to="#a30" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">METTL3<term>METTL3</term></span>
-      <span xml:id="t39" from="#a19" to="#a20" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">MAGs<term>MAGs</term></span>
-      <span xml:id="t40" from="#a33" to="#a34" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">CAUTION → METTL14<note>A RECORD HOLDING A CLAIM AND A DOUBT ABOUT THAT CLAIM AT ONCE. The entry keeps the reported methyltransferase activity AND a comment saying the report is an unsafe observation. There is no edge type for `this annotation is flagged as unreliable` - all eight assert that a relation holds, and the whole content of a CAUTION is that something asserted elsewhere should not be relied on. This is CLAUDE_B&#x27;s quine1951 finding with a WORKING IMPLEMENTATION on the other side: UniProt can write it and we cannot</note></span>
-      <span xml:id="t41" from="#a23" to="#a24" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger">expert biocuration → curatable literature<note>A COVERAGE RATIO, WHICH IS A RELATION BETWEEN AN ACTIVITY AND WHAT IT HAS NOT REACHED. Curation captures 35-45% of the curatable literature per species, 50% for humans. `part-of` is wrong, `causes` is wrong, and there is no type for `X covers this fraction of Y` - which is the single most useful thing a knowledge base can say about itself and the thing our own corpus has never stated about its own coverage</note></span>
-      <span xml:id="t42" from="#a5" to="#a6" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">reviewed versus unreviewed - NOT A QUALITY GRADE BUT A PROVENANCE CLASS, and the two are wildly different sizes. `Reviewed` means a curator assimilated multiple lines of evidence from a paper&#x27;s text and figures; `unreviewed` means a rule fired. Half a million against 120 million. A user filtering to `reviewed` is not filtering out errors, they are filtering to the fraction a person has read</span>
-      <span xml:id="t43" from="#a31" to="#a32" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">evidence, in UniProt - A SOURCE TAG ON EVERY INDIVIDUAL CLAIM, not a citation on the record. Each piece of knowledge carries where it came from, and automatic annotations carry which system produced them. This is the same commitment this corpus makes with its `evidence` field, made by a database three orders of magnitude larger</span>
-      <span xml:id="t44" from="#a33" to="#a34" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">CAUTION - A COMMENT TYPE THAT SAYS A PUBLISHED FINDING IS UNSAFE. When structural work showed METTL14 has a degenerate active site, the earlier reported methyltransferase activity was not deleted and not silently overwritten: a CAUTION comment was added to tell users the initial report is `an unsafe observation`. THE RECORD CARRIES BOTH THE CLAIM AND THE DOUBT</span>
-      <span xml:id="t45" from="#a11" to="#a12" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">removed, of a proteome - MOVED TO AN ARCHIVE, NOT DELETED. Redundancy removal has taken about 38% of complete proteomes out of UniProtKB and placed their sequences in UniParc, which holds a complete set of known sequences including historical obsolete ones. A withdrawal convention at the scale of 241 million proteins</span>
-      <span xml:id="t46" from="#a49" to="#a50" type="senses" ana="#senses[4]" resp="#tagger" cert="0.9">prediction precision, of the UniRef GO propagation - MEASURED AGAINST ITS OWN EARLIER OUTPUT. The &gt;97% figure comes from comparing sequences that newly acquired a GO annotation with ones the same system annotated in previous releases. That is self-consistency across releases, which is worth knowing and is not external validation against experiment</span>
-      <span xml:id="t47" from="#a23" to="#a24" type="senses" ana="#senses[5]" resp="#tagger" cert="0.9">curatable literature - THE DENOMINATOR THEY MEASURE THEMSELVES AGAINST, and it is not the literature. Coverage of 35-45%, rising to 50% for humans, is a share of the papers judged curatable for a species, so a paper outside that judgement is not counted as missed</span>
-      <span xml:id="t48" from="#a29" to="#a30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">contradicts → the initial characterisation of METTL14 as a methyltransferase, based on reported activity and MT-A70 family membership<note>`contradicts` is right here and it was not for cruz-jentoft2018&#x27;s mass criterion. The paper does not demote the earlier claim, it reports that structural work showed the active site is degenerate and cannot accommodate the substrates - the earlier finding is not narrowed, it is wrong, and UniProt flags it as unsafe rather than deleting it</note></span>
-      <span xml:id="t49" from="#a1" to="#a2" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.9">extends → the UniProt Consortium&#x27;s own previous database update, published in the same journal in 2017</span>
-      <span xml:id="t50" from="#a41" to="#a42" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">builds-on → InterPro and its member databases PROSITE, SMART and Pfam, whose predictive signatures classify sequences and predict domains for the unreviewed records</span>
-      <span xml:id="t51" from="#a59" to="#a60" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.9">predicts → the authors of future papers, who are asked to write protein mentions as (UniProtKB: P68369) so curators and text-mining tools can connect their work<note>an instruction to a literature that does not exist yet, and the paper defers to any journal that already has its own format - a standard proposed with its own exception attached</note></span>
-      <span xml:id="t52" from="#a39" to="#a40" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">builds-on → the specialist resources this data is contributed to and re-imported from - the IMEx Consortium, the Complex Portal and the Gene Ontology</span>
-      <span xml:id="t53" from="#a1" to="#a2" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">annotations —part-of→ UniProtKB<note>strength of the relation: 1</note><term>annotations</term><term>UniProtKB</term></span>
-      <span xml:id="t54" from="#a31" to="#a32" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">evidences —part-of→ annotations<note>strength of the relation: 0.95 — RETYPED IN THE AUDIT from `annotations --operationalised-as--&gt; evidences`, where my own note conceded it was not a measurement relation. The quote says every piece of knowledge is ASSOCIATED WITH evidences, which is attachment - and attachment is what `part-of` says</note><term>evidences</term><term>annotations</term></span>
-      <span xml:id="t55" from="#a33" to="#a34" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">CAUTION —part-of→ annotations<note>strength of the relation: 0.9 — a comment type carried on an entry beside its annotation - the mechanism by which a record holds a claim and a doubt about that claim at the same time</note><term>CAUTION</term><term>annotations</term></span>
-      <span xml:id="t56" from="#a29" to="#a30" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">METTL3 —distinct-from→ METTL14<note>strength of the relation: 1 — and the distinction is the whole point: they are both MT-A70 family members and both were reported to have methyltransferase activity. Only one has a working active site</note><term>METTL3</term><term>METTL14</term></span>
-      <span xml:id="t57" from="#a13" to="#a14" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">redundancy removal —causes→ UniProtKB<note>direction on the measure: reduces · strength of the relation: 0.9 — and the reduction is the point - the paper reports that it made growth scalable rather than merely smaller</note><term>redundancy removal</term><term>UniProtKB</term></span>
-      <span xml:id="t58" from="#a1" to="#a2" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">120 million protein entries, of which just over half a million carry annotations extracted from the literature by expert curators</span>
-      <span xml:id="t59" from="#a23" to="#a24" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">expert biocuration reaches 35-45% of the curatable literature per species, 50% for humans</span>
-      <span xml:id="t60" from="#a13" to="#a14" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">redundancy removal has taken about 38% of complete proteomes out of UniProtKB and into UniParc, which made growth scalable rather than merely smaller</span>
-      <span xml:id="t61" from="#a15" to="#a16" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">virus reference proteomes went from 428 - an order of magnitude below the known species count - after a concerted curation effort</span>
-      <span xml:id="t62" from="#a29" to="#a30" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">a claim overturned in the database: METTL14 was reported as a methyltransferase and structural work showed its active site is degenerate; the entry now carries a CAUTION</span>
-      <span xml:id="t63" from="#a51" to="#a52" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">the bibliography layer adds 902,956 unique papers over 363,591 entries, and 36,147,401 accession-PMID pairs</span>
-      <span xml:id="t64" from="#a57" to="#a58" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">UniProt data moved to a CC-BY 4.0 licence to make reuse easier - stated in the paper itself</span>
-      <span xml:id="t65" from="#a5" to="#a6" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">UniProtKB = reviewed Swiss-Prot entries curated by an expert team, plus unreviewed TrEMBL entries annotated by automated and rule-based systems</span>
-      <span xml:id="t66" from="#a31" to="#a32" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">evidences = the source tag attached to every individual piece of captured knowledge</span>
-      <span xml:id="t67" from="#a33" to="#a34" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">CAUTION = a comment telling users that an initially reported finding is an unsafe observation</span>
-      <span xml:id="t68" from="#a7" to="#a8" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">UniParc = the archive holding a complete set of known sequences including historical obsolete ones, where redundancy-removed proteomes go</span>
-      <span xml:id="t69" from="#a47" to="#a48" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">the UniRef cluster-level GO rule: a term is assigned when every annotated member has it, or when it is a common ancestor of at least one term from each</span>
-      <span xml:id="t70" from="#a55" to="#a56" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">UPCLASS precision 0.80, recall 0.62, F-score 0.70 - published before being applied to 32 million accession-PMID pairs</span>
-      <span xml:id="t71" from="#a49" to="#a50" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">UniRef GO propagation precision above 97% in all three GO domains - measured by comparing newly annotated sequences against the system&#x27;s own earlier releases</span>
-      <span xml:id="t72" from="#a9" to="#a10" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">90% of proteins have over 90% identity to another, which is what makes the growth a redundancy problem rather than a knowledge one</span>
-      <span xml:id="t73" from="#a5" to="#a6" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">the two provenance classes a UniProt annotation can carry: expert curation into Swiss-Prot, and rule-based automatic annotation into TrEMBL</span>
-      <span xml:id="t74" from="#a43" to="#a44" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">the two rule systems: UniRule and the Statistical Automatic Annotation System</span>
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the UniProt Knowledgebase itself - 120 million protein records, of which just over half a million carry annotations a human curator read out of the literature</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to keep a knowledge base current, provenance-tracked and correct while the sequence data entering it grows exponentially</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a two-year update: expanded reference proteomes especially for viruses, new rule-based and association-rule annotation systems, a bibliography layer built from other databases and text mining, and a licence change to CC-BY 4.0</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>the gap between what has been sequenced and what has been read - 120 million entries against half a million with curated annotation, and expert curation reaching 35-50% of the curatable literature</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>expert biocuration into Swiss-Prot, rule-based automatic annotation into TrEMBL, redundancy removal into an archive rather than deletion, and evidence tags on every claim from either route</label>
+        <term>expert biocuration into Swiss-Prot, rule-based automatic annotation into TrEMBL, redundancy removal into an archive rather than deletion, and evidence tags on every claim from either route</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>why one wrong curated record matters far beyond itself: functional data is computationally transferred from Swiss-Prot to sequence-related but less studied proteins in TrEMBL, so a correction upstream stops misleading data being added to orthologues on the strength of an over-predictive signature</label>
+        <term>annotation propagation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>the growth problem is not more biology but more of the same: 90% of proteins have over 90% identity because sequencing is driven by very similar strains of the same species</label>
+        <term>redundancy from near-identical strains</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.85">
+        <label>the premise of the DAAC predictor - that function depends not only on WHICH domains a protein has but on their arrangement and order, so two proteins with the same domain set can do different things</label>
+        <term>domain architecture</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>how a cluster-level GO term is earned: it is assigned only when every annotated member carries it, or when it is a common ancestor of at least one term from each - agreement across the cluster rather than a majority</label>
+        <term>conservative propagation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>expert biocuration reaches only 35-45% of the curatable literature for a species, 50% for humans - the coverage gap is measured and published rather than left implicit</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>curation is labour intensive and the authors defend it anyway as the most efficient way to get everything out of a paper - which is a statement about what automation has NOT replaced</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>keeping a record current is hard because knowledge of protein function evolves and new techniques produce results that may appear to contradict earlier observations</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>MECHANISMS TO IDENTIFY AND HIGHLIGHT CONTRADICTORY INFORMATION IN EXISTING ENTRIES ARE A FUTURE PLAN, NOT A CAPABILITY - a 120-million-record knowledge base with per-claim evidence still cannot systematically surface where its own entries disagree</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>redundancy removal is not applied to viruses at all, because their small genomes carry too many variants - a stated exemption with a stated reason</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>UPCLASS, the classifier applied to 32 million accession-PMID pairs, has a published recall of 0.62 - so roughly a third of the classifications it should make, it does not</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.85">
+        <label>the categorisation of computationally mapped bibliography by source database is described by the authors as not optimal for all literature, which is why the classifier was brought in</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>an evidence tag on every individual piece of captured knowledge, naming its source</label>
+        <note>eliminates: a claim in the database being untraceable to where it came from - and it is not restricted to the curated half: automatic annotations carry which system produced them · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>a CAUTION comment recording that a previously reported activity is an unsafe observation, kept on the entry alongside the annotation</label>
+        <note>eliminates: a superseded finding either persisting silently or disappearing without trace - the reader gets the claim, the doubt and the reason together · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>redundancy removal that moves ~38% of complete proteomes out of UniProtKB and into UniParc, which retains historical obsolete sequence</label>
+        <note>eliminates: growth in near-identical strains swamping the knowledgebase - WITHOUT losing the sequences, which is the difference between a withdrawal and a deletion · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>assigning a GO term to a UniRef cluster only when EVERY annotated member has it, or when it is a common ancestor of at least one term from each</label>
+        <note>eliminates: a single member&#x27;s annotation propagating to a whole cluster - the rule requires unanimity or a shared ancestor, not a majority · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>publishing UPCLASS&#x27;s precision, recall and F-score before applying it at scale</label>
+        <note>eliminates: the classifier&#x27;s error rate being invisible to users of the 32 million pairs it classified - PARTIAL, because knowing recall is 0.62 does not tell a user WHICH third is missing · outcome: partial</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>prioritising for curation exactly what computational prediction gets WRONG - proteins a signature would place in an enzyme family but which are non-functional through the loss of specific residues</label>
+        <note>eliminates: human effort being spent where the automatic systems already succeed, and leaves the curators on the cases where a prediction would be confidently wrong · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[6]" resp="#tagger" cert="0.95">
+        <label>admitting metagenome-assembled genomes only when they show high completeness and low contamination, and removing segmented viruses missing one or more segments</label>
+        <note>eliminates: partial or contaminated assemblies entering the knowledgebase as if they were whole proteomes · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="controls" ana="#controls[7]" resp="#tagger" cert="0.9">
+        <label>re-importing curated data from the domain-specific resources it was contributed to - IMEx, the Complex Portal, GO - rather than duplicating their maintenance</label>
+        <note>eliminates: the same fact diverging between UniProt and the specialist database that owns it; each is stored and maintained where it belongs and flows back · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>UniProtKB</label>
+        <term>UniProtKB</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>annotations</label>
+        <term>annotations</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>evidences</label>
+        <term>evidences</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>expert biocuration</label>
+        <term>expert biocuration</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>CAUTION</label>
+        <term>CAUTION</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>UniParc</label>
+        <term>UniParc</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>redundancy removal</label>
+        <term>redundancy removal</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>InterPro</label>
+        <term>InterPro</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>GO annotation</label>
+        <term>GO annotation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>UPCLASS</label>
+        <term>UPCLASS</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>UniFire</label>
+        <term>UniFire</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>curatable literature</label>
+        <term>curatable literature</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>METTL14</label>
+        <term>METTL14</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>METTL3</label>
+        <term>METTL3</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>MAGs</label>
+        <term>MAGs</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
+        <label>CAUTION → METTL14</label>
+        <note>A RECORD HOLDING A CLAIM AND A DOUBT ABOUT THAT CLAIM AT ONCE. The entry keeps the reported methyltransferase activity AND a comment saying the report is an unsafe observation. There is no edge type for `this annotation is flagged as unreliable` - all eight assert that a relation holds, and the whole content of a CAUTION is that something asserted elsewhere should not be relied on. This is CLAUDE_B&#x27;s quine1951 finding with a WORKING IMPLEMENTATION on the other side: UniProt can write it and we cannot</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger">
+        <label>expert biocuration → curatable literature</label>
+        <note>A COVERAGE RATIO, WHICH IS A RELATION BETWEEN AN ACTIVITY AND WHAT IT HAS NOT REACHED. Curation captures 35-45% of the curatable literature per species, 50% for humans. `part-of` is wrong, `causes` is wrong, and there is no type for `X covers this fraction of Y` - which is the single most useful thing a knowledge base can say about itself and the thing our own corpus has never stated about its own coverage</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>reviewed versus unreviewed - NOT A QUALITY GRADE BUT A PROVENANCE CLASS, and the two are wildly different sizes. `Reviewed` means a curator assimilated multiple lines of evidence from a paper&#x27;s text and figures; `unreviewed` means a rule fired. Half a million against 120 million. A user filtering to `reviewed` is not filtering out errors, they are filtering to the fraction a person has read</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>evidence, in UniProt - A SOURCE TAG ON EVERY INDIVIDUAL CLAIM, not a citation on the record. Each piece of knowledge carries where it came from, and automatic annotations carry which system produced them. This is the same commitment this corpus makes with its `evidence` field, made by a database three orders of magnitude larger</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>CAUTION - A COMMENT TYPE THAT SAYS A PUBLISHED FINDING IS UNSAFE. When structural work showed METTL14 has a degenerate active site, the earlier reported methyltransferase activity was not deleted and not silently overwritten: a CAUTION comment was added to tell users the initial report is `an unsafe observation`. THE RECORD CARRIES BOTH THE CLAIM AND THE DOUBT</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>removed, of a proteome - MOVED TO AN ARCHIVE, NOT DELETED. Redundancy removal has taken about 38% of complete proteomes out of UniProtKB and placed their sequences in UniParc, which holds a complete set of known sequences including historical obsolete ones. A withdrawal convention at the scale of 241 million proteins</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="senses" ana="#senses[4]" resp="#tagger" cert="0.9">
+        <label>prediction precision, of the UniRef GO propagation - MEASURED AGAINST ITS OWN EARLIER OUTPUT. The &gt;97% figure comes from comparing sequences that newly acquired a GO annotation with ones the same system annotated in previous releases. That is self-consistency across releases, which is worth knowing and is not external validation against experiment</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="senses" ana="#senses[5]" resp="#tagger" cert="0.9">
+        <label>curatable literature - THE DENOMINATOR THEY MEASURE THEMSELVES AGAINST, and it is not the literature. Coverage of 35-45%, rising to 50% for humans, is a share of the papers judged curatable for a species, so a paper outside that judgement is not counted as missed</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>contradicts → the initial characterisation of METTL14 as a methyltransferase, based on reported activity and MT-A70 family membership</label>
+        <note>`contradicts` is right here and it was not for cruz-jentoft2018&#x27;s mass criterion. The paper does not demote the earlier claim, it reports that structural work showed the active site is degenerate and cannot accommodate the substrates - the earlier finding is not narrowed, it is wrong, and UniProt flags it as unsafe rather than deleting it</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.9">
+        <label>extends → the UniProt Consortium&#x27;s own previous database update, published in the same journal in 2017</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>builds-on → InterPro and its member databases PROSITE, SMART and Pfam, whose predictive signatures classify sequences and predict domains for the unreviewed records</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.9">
+        <label>predicts → the authors of future papers, who are asked to write protein mentions as (UniProtKB: P68369) so curators and text-mining tools can connect their work</label>
+        <note>an instruction to a literature that does not exist yet, and the paper defers to any journal that already has its own format - a standard proposed with its own exception attached</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">
+        <label>builds-on → the specialist resources this data is contributed to and re-imported from - the IMEx Consortium, the Complex Portal and the Gene Ontology</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>annotations —part-of→ UniProtKB</label>
+        <term>annotations</term>
+        <term>UniProtKB</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>evidences —part-of→ annotations</label>
+        <term>evidences</term>
+        <term>annotations</term>
+        <note>strength of the relation: 0.95 — RETYPED IN THE AUDIT from `annotations --operationalised-as--&gt; evidences`, where my own note conceded it was not a measurement relation. The quote says every piece of knowledge is ASSOCIATED WITH evidences, which is attachment - and attachment is what `part-of` says</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>CAUTION —part-of→ annotations</label>
+        <term>CAUTION</term>
+        <term>annotations</term>
+        <note>strength of the relation: 0.9 — a comment type carried on an entry beside its annotation - the mechanism by which a record holds a claim and a doubt about that claim at the same time</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+        <label>METTL3 —distinct-from→ METTL14</label>
+        <term>METTL3</term>
+        <term>METTL14</term>
+        <note>strength of the relation: 1 — and the distinction is the whole point: they are both MT-A70 family members and both were reported to have methyltransferase activity. Only one has a working active site</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
+        <label>redundancy removal —causes→ UniProtKB</label>
+        <term>redundancy removal</term>
+        <term>UniProtKB</term>
+        <note>direction on the measure: reduces · strength of the relation: 0.9 — and the reduction is the point - the paper reports that it made growth scalable rather than merely smaller</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>120 million protein entries, of which just over half a million carry annotations extracted from the literature by expert curators</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>expert biocuration reaches 35-45% of the curatable literature per species, 50% for humans</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>redundancy removal has taken about 38% of complete proteomes out of UniProtKB and into UniParc, which made growth scalable rather than merely smaller</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>virus reference proteomes went from 428 - an order of magnitude below the known species count - after a concerted curation effort</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>a claim overturned in the database: METTL14 was reported as a methyltransferase and structural work showed its active site is degenerate; the entry now carries a CAUTION</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>the bibliography layer adds 902,956 unique papers over 363,591 entries, and 36,147,401 accession-PMID pairs</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>UniProt data moved to a CC-BY 4.0 licence to make reuse easier - stated in the paper itself</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>UniProtKB = reviewed Swiss-Prot entries curated by an expert team, plus unreviewed TrEMBL entries annotated by automated and rule-based systems</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>evidences = the source tag attached to every individual piece of captured knowledge</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>CAUTION = a comment telling users that an initially reported finding is an unsafe observation</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">
+        <label>UniParc = the archive holding a complete set of known sequences including historical obsolete ones, where redundancy-removed proteomes go</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">
+        <label>the UniRef cluster-level GO rule: a term is assigned when every annotated member has it, or when it is a common ancestor of at least one term from each</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>UPCLASS precision 0.80, recall 0.62, F-score 0.70 - published before being applied to 32 million accession-PMID pairs</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t71" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>UniRef GO propagation precision above 97% in all three GO domains - measured by comparing newly annotated sequences against the system&#x27;s own earlier releases</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t72" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
+        <label>90% of proteins have over 90% identity to another, which is what makes the growth a redundancy problem rather than a knowledge one</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t73" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>the two provenance classes a UniProt annotation can carry: expert curation into Swiss-Prot, and rule-based automatic annotation into TrEMBL</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t74" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>the two rule systems: UniRule and the Statistical Automatic Annotation System</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
     </spanGrp>
   </standOff>
   <text>
     <body>
-        <p><anchor xml:id="a0"/> # Abstract</p>
-        <p><anchor xml:id="a1"/>The UniProt Knowledgebase is a collection of sequences and annotations for over 120 million proteins across all branches of life. Detailed annotations extracted from the literature by expert curators have been collected for over half a million of these proteins. These annotations are supplemented by annotations provided by rule based automated systems, and those imported from other resources.<anchor xml:id="a2"/> In this article we describe significant updates that we have made over the last 2 years to the resource. We have greatly expanded the number of Reference Proteomes that we provide and in particular we have focussed on improving the number of viral Reference Proteomes. The UniProt website has been augmented with new data visualizations for the subcellular localization of proteins as well as their structure and interactions. UniProt resources are available under a CC-BY (4.0) license via the web at https://www.uniprot.org/.</p>
-        <p>## INTRODUCTION</p>
-        <p>The proteins expressed in a cell at any moment of time determine its function, its topology, how it reacts to changes in environment and ultimately its longevity and well-being. Improvements in experimental techniques are providing ever deeper information on the structure and function of individual proteins, whilst large-scale sequencing efforts are driving increased coverage of the complete proteomes of the breadth of organisms that populate the tree of life. <anchor xml:id="a3"/>Our challenge is to capture the growing depth and breadth of information and make it easily available and interpretable to our users.<anchor xml:id="a4"/> <anchor xml:id="a5"/>The UniProt Knowledgebase (UniProtKB) combines reviewed UniProtKB/Swiss-Prot entries, to which data have been added by our expert biocuration team, with the unreviewed UniProtKB/TrEMBL entries which are annotated by automated systems including our rule-based systems.<anchor xml:id="a6"/> The output from large-scale sequencing projects form the vast majority of the ∼120 million entries in UniProtKB/TrEMBL. Improved metagenomic assembly and binning tools are resulting in an increasing number of high-quality metagenomic assembled genomes (MAGs) being represented in the database. <anchor xml:id="a7"/>Additionally, we provide the UniRef databases that cluster sequence sets at various levels of sequence identity and the UniProt Archive (UniParc) that delivers a complete set of known sequences, including historical obsolete sequence.<anchor xml:id="a8"/></p>
-        <p>We describe the major developments that we have made since our last update published in this journal in 2017 ( 1) with a focus on how we are positioning the UniProt database to address the challenges of the increased volume of sequence data entering the database.</p>
-        <p>## PROGRESS AND DEVELOPMENTS</p>
-        <p>### Growth of sequences in UniProt</p>
-        <p>The UniProtKB Proteomes portal ( https://www.uniprot.org/proteomes/) provides access to proteomes for over 84 thousand (84 387, release 2018\_07) species with completely sequenced genomes. The majority of these proteomes are based on the translation of genome sequence submissions to the INSDC source databases—ENA, GenBank and the DDBJ ( 2). To ensure comprehensiveness, complementary pipelines have been developed to supplement these with genomes sequenced and/or annotated by groups such as Ensembl ( 3), Vectorbase ( 4) and WormBase ParaSite ( 5). This has been extended to RefSeq genomes, allowing us to import key genomes of special interest annotated by NCBI’s Eukaryotic Genome Annotation Pipeline. Release 2018\_03, for example, saw the inclusion of a set of primate proteomes and a dozen genomes for marine mammals were imported from RefSeq for release 2018\_08. Taxa may be specifically targeted by curators to fill gaps in the taxonomic space and additional proteome import can be requested by individual users.</p>
-        <p><anchor xml:id="a9"/>The continuing growth of sequenced genomes is a challenge for databases as much of this growth is being driven by sequencing of very similar and almost identical strains (90% of proteins have &gt;90% identity) of the same species.<anchor xml:id="a10"/> We continue to see exponential growth in many of our datasets, see Figure 1. We are managing this growth by a number of processes. <anchor xml:id="a11"/>Most critically, a redundancy removal process was first introduced in 2015. This process identifies and removes almost identical proteomes of the same species before their inclusion in UniProtKB ( https://www.uniprot.org/help/proteome\_redundancy) and places their sequences in UniParc.<anchor xml:id="a12"/> <anchor xml:id="a13"/>Currently this process has removed ∼38% all complete proteomes (∼241 million proteins) from UniProtKB.<anchor xml:id="a14"/> As can be seen in Figure 1, the redundancy reduction both greatly reduced the size of UniProtKB as well as made its growth more scalable. This approach has now been extended from prokaryotes to fungi, resulting in the deprecation of ∼1 million fungal protein records in release 2016\_08.</p>
-        <p>#### Figure 1.</p>
-        <p>![Figure 1.](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=6323992_gky1049fig1.jpg)</p>
-        <p>Open in a new tab</p>
-        <p>Growth of UniProt sequences over the last decade.</p>
-        <p>### Reference proteomes</p>
-        <p>For the remaining proteomes we provide a Reference Proteome set (∼9% of total proteomes) selected by the research community and supplemented with selected proteomes from a computational clustering ( 6) to provide the best annotated proteome in their cluster. Recently, we have added virus Reference Proteomes (described below) to this list. The growth of Reference Proteome sets is shown in Figure 2. Programmatic access to the non-redundant proteomes included in UniProtKB is provided via the Proteins API ( https://www.ebi.ac.uk/proteins/api/doc/) ( 7) whilst all proteomes reference, non-reference and redundant in UniProtKB and UniParc are accessible via the Proteome section of the UniProt website ( https://www.uniprot.org/proteomes/).</p>
-        <p>#### Figure 2.</p>
-        <p>![Figure 2.](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=6323992_gky1049fig2.jpg)</p>
-        <p>Open in a new tab</p>
-        <p>Growth of the total number of Complete Proteomes and Reference Proteomes since 2015.</p>
-        <p>UniProt reference proteomes are used by user communities such as the Quest for Orthologs (QfO) group as the ‘gold standard’ reference proteome dataset for orthologue benchmarking ( 8). The QfO reference proteomes datasets are a compiled subset of the UniProt reference proteomes, comprising well-annotated model organisms and organisms of interest for biomedical research and phylogeny, with the intention to provide broad coverage of the tree of life whilst maintaining a low number of proteomes for the benchmark. Such datasets have been generated annually from the UniProt Knowledgebase (UniProtKB) database for the past seven years. To this end, a gene-centric pipeline has been developed and enhanced over the past year by UniProt. These complete, non-redundant reference proteomes are publicly available at ftp://ftp.ebi.ac.uk/pub/databases/reference\_proteomes/QfO. The datasets are provided either in SeqXML format or as a collection of FASTA files and include genomics coordinates for most proteins. In the last release for QfO in April, the number of species increased from 66 to 78 comprising 1,311,679 non-redundant protein sequences (48 Eukaryotes and 30 bacteria-archaea).</p>
-        <p><anchor xml:id="a15"/>At the time of our previous publication, the number of virus Reference Proteomes in UniProtKB stood at 428—practically an order of magnitude less than the number of known viral species (which stands at 4405 according to the International Committee on Taxonomy of Viruses, or ICTV).<anchor xml:id="a16"/> To improve Reference Proteome Coverage of viruses in UniProt we have undertaken a concerted effort to curate Complete Proteomes and to use these as input for the computational selection of Reference Proteomes. We compiled and curated complete viral genome (proteome) data from INSDC (which feeds into UniProt) as well as a range of other specialized viral genome resources including ViPr ( 9), IRD ( 10), the HIV database ( https://www.hiv.lanl.gov/), Papillomavirus Episteme ( 11) and the HCV database ( https://hcv.lanl.gov/) and HBV database ( 12). This curation effort included the identification and removal of segmented viruses lacking one or more segments, and increased the number of the Complete Proteomes of viral origin in UniProt to 86 951 (UniProt release 2018\_07). Computational clustering of this enhanced viral Complete Proteome set ( 13) produced 5,887 viral Reference Proteomes. <anchor xml:id="a17"/>Note that redundancy removal procedures are not currently applied to viruses, due to the challenges posed by the high number of variants in the small genomes of these species.<anchor xml:id="a18"/></p>
-        <p>Technological advances have enabled the sequencing of the genetic material from all the microorganisms in a particular environment without the cultivation of any of the community members. Concurrent advances in bioinformatics have enabled the rapid assembly of genomes from metagenomes (MAGs) and a corresponding input of sequence data into the UniProt database with &gt;4800 assembled proteomes in the database (4839, release 2018\_07). The existing data input pipeline is currently based on those submissions to the INSDC which fulfil certain threshold criteria but future plans are to move to using the EBI Metagenomics resource, MGnify ( 14), as the main source of metagenome derived assemblies. <anchor xml:id="a19"/>We will include only those MAGs that show a high level of completeness and a low level of contamination.<anchor xml:id="a20"/></p>
-        <p>### Expert curation progress</p>
-        <p>Expert curation of the literature is critically important to the UniProt databases. The information extracted from scientific publications is stored in the UniProtKB/Swiss-Prot section of the UniProt Knowledgebase and describes functional information both in the form of human readable free-text/controlled syntax summaries and via structured vocabularies such as the Gene Ontology (GO) ( 15) or ChEBI ( 16). <anchor xml:id="a21"/>Expert curation is labour intensive, with curators assimilating and evaluating multiple lines of evidence from the text and figures of relevant publications, but this has repeatedly proven to be the most efficient method of extracting all relevant data from a paper.<anchor xml:id="a22"/> <anchor xml:id="a23"/>We have previously demonstrated that UniProtKB expert biocuration captures between 35 and 45% of the curatable literature for any given species, rising to 50% of the curatable literature for _Homo sapiens_<anchor xml:id="a24"/> ( 17). <anchor xml:id="a25"/>UniProtKB/Swiss-Prot entries serve as a source of functional data for the development and enhancement of bioinformatics prediction tools, so we prioritize the capture of functional data that cannot currently be correctly predicted by computational methods, such as proteins which predictive protein signatures would describe as being part of an enzyme family but are in fact non-functional due to the loss of specific amino acid residues.<anchor xml:id="a26"/> An example of this is PLC1 (UniProtKB: Q15111), a member of the phosphoinositide phospholipase C family (InterPro:IPR001192) in which the existence of an asparagine residue in the active site instead of the conserved histidine residue suggests a non-catalytic role for this protein. This has broader applications than the annotation of just one protein as information on protein function is computationally transferred from UniProtKB/Swiss-Prot to sequence-related, but less well studied, proteins in UniProtKB/TrEMBL. Therefore, it is important to ensure we have a broad enough collection of annotated proteins in UniProtKB/Swiss-Prot to add value to new entries as the taxonomic range of fully sequenced proteomes continues to expand.</p>
-        <p>Once a record has been moved into UniProtKB/Swiss-Prot from UniProtKB/TrEMBL, there is a concerted effort to ensure that it is regularly updated to ensure the current understanding of a protein’s activity reflects that in the scientific literature. <anchor xml:id="a27"/>This task can be difficult, as our knowledge of protein function continues to evolve and finer grained experimental techniques provide new knowledge that may appear to contradict previous observations.<anchor xml:id="a28"/> An example of this is provided by the proteins involved in N6-methyladenosine (m6A) modification which takes place on both coding and non-coding RNAs containing a Pu\[G&gt;A\]m6AC\[A/C/U\] (Pu = purine) sequence, the nucleotide A3 of which becomes N6-methylated. The modification acts as a key regulator of mRNA stability: methylation is completed upon the release of mRNA into the nucleoplasm and affects various processes, such as mRNA stability, processing, translation efficiency and editing. The enzymes that catalyse this process were believed to have been fully characterized some years ago, but more recent data has changed our understanding of how these molecules work.</p>
-        <p>m6A methylation is performed by a heteromeric WMM N6-adenosine-methyltransferase complex, originally thought to be a heterotrimer of METTL3 (UniProtKB: Q86U44), METTL14 (UniProtKB: Q9HCE5) and WTAP (UniProtKB: Q15007), but additional component subunits have recently been identified ( 18). Initial work indicated that METTL3 and METTL14 form a tight heterodimer in order to perform catalysis on the preferred motif sequence. Both proteins are members of the MT-A70 family and are classified as S-adenosyl-L-methionine-dependent methyltransferases by sequence prediction resources. Methyltransferase activity has been reported for both ( 19). <anchor xml:id="a29"/>Subsequent structural studies have now shown that that only one protein, METTL3, constitutes the catalytic subunit ( 20–22). The other subunit, METTL14, has a degenerate active site that is unable to accommodate donor and acceptor substrates and plays a non-catalytic role in maintaining complex integrity and substrate RNA binding<anchor xml:id="a30"/> ( 22). WTAP appears to serve as a regulatory subunit. A newly identified subunit of the WMM methyltransferase complex, VIRMA (UniProtKB: Q69YN4) plays a role in mediating mRNA m6A methylation in 3′UTRs and near stop codons and in recruiting the methyltransferase core components.</p>
-        <p>Expert biocuration has been essential in keeping the relevant UniProtKB/Swiss-Prot entries up to date with each step in the pathway to reflect our understanding of the function of these proteins and the molecules they associate with. <anchor xml:id="a31"/>Every piece of knowledge we capture is associated with evidences (see https://www.uniprot.org/help/evidences for further details) to indicate the source of information<anchor xml:id="a32"/> and <anchor xml:id="a33"/>we have added a CAUTION comment to the METTL14 entry to both provide some background and inform users that the initially reported methyltransferase activity is an unsafe observation<anchor xml:id="a34"/> (Figure 3). <anchor xml:id="a35"/>The correct annotation on the UniProtKB/Swiss-Prot entry will ensure that misleading data is not computationally added to orthologous proteins in UniProtKB/TrEMBL on the basis of an over-predictive protein signature, again highlighting the importance of expert biocuration.<anchor xml:id="a36"/> <anchor xml:id="a37"/>Future plans for the manual curation activities in UniProtKB include the development of mechanisms to identify and highlight contradictory information in existing protein entries in order to improve rigor and reproducibility.<anchor xml:id="a38"/> <anchor xml:id="a39"/>This example also illustrates the collaborative nature of the UniProt Consortium in that the molecular interactions involved have also been added to the IMEx Consortium ( www.imexconsortium.org) dataset by UniProt curators ( 23), the protein complexes involved curated into the Complex Portal ( https://www.ebi.ac.uk/complexportal/) ( 24) and both the proteins and complexes have been further annotated using GO<anchor xml:id="a40"/> ( http://www.geneontology.org). New terms were added to the GO to enable this and others were updated. All of these data are subsequently reimported back to enrich the appropriate entries in UniProtKB/Swiss-Prot but are stored and maintained by these domain-specific resources.</p>
-        <p>#### Figure 3.</p>
-        <p>![Figure 3.](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=6323992_gky1049fig3.jpg)</p>
-        <p>Open in a new tab</p>
-        <p>Functional annotation describing human METTL14 (UniProtKB Q9HCE5).</p>
-        <p>### Automatic annotation progress</p>
-        <p>UniProt&#x27;s automatic annotation pipelines enrich the unreviewed records in UniProtKB/TrEMBL with classification and functional annotations. <anchor xml:id="a41"/>InterPro is used to classify sequences at superfamily, family and subfamily levels and to predict the occurrence of functional domains and important sites. InterPro integrates predictive models of protein function, so-called ‘signatures’, from a number of member databases.<anchor xml:id="a42"/> In UniProtKB/TrEMBL entries, domains from the InterPro member databases PROSITE, SMART or Pfam are predicted and used to automatically provide domain annotations. All automatic annotations are labelled with their evidence/source. <anchor xml:id="a43"/>UniProt has developed two complementary rule-based prediction systems, UniRule and the Statistical Automatic Annotation System (SAAS) to automatically annotate UniProtKB/TrEMBL in an efficient and scalable manner with a high degree of accuracy.<anchor xml:id="a44"/> These prediction systems can annotate protein properties such as protein names, function, catalytic activity, pathway membership and subcellular location, along with sequence-specific information, such as the positions of post-translational modifications and active sites. We continue to increase the number of Rules used for annotation and this has now grown to over 6000 in total as shown in Figure 4.</p>
-        <p>#### Figure 4.</p>
-        <p>![Figure 4.](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=6323992_gky1049fig4.jpg)</p>
-        <p>Open in a new tab</p>
-        <p>Growth of curated automatic annotation rules within the UniRule system.</p>
-        <p>### Ongoing developments in automatic annotation</p>
-        <p>We are evaluating new methods for computational annotation of function based on based specifically on their domain architecture (DAAC, or Domain Architecture Alignment and Classification) ( 22, 25) or any combination of sequence properties and features (ARBA, or Association-Rule-Based Annotator).</p>
-        <p>The Domain Architecture Alignment and Classification system (DAAC, ( 25)) is based on the assumption that not only the presence of domains is important for the protein to perform its function but also their architecture i.e. their arrangement and order. It performs the prediction in four major steps. Firstly, it generates the different ordered combinations of InterPro domains, these combinations are termed domain architectures (DA). Secondly, it calculates the pairwise similarity between DAs using alignment. The third step is that of training. In this phase, clusters of proteins are created, where each cluster represents a single annotation. A threshold of belonging is determined for each cluster while maximising the classification performance, and then annotations corresponding to low performance clusters are discarded. In the final step, the clusters along with their corresponding thresholds serve as models to annotate other query proteins. The fact that DAAC takes into account the arrangement of domains within proteins allows it to make more accurate predictions for specific cases where proteins can have the same set of domains but with different arrangements and hence could perform different functions. Based on UniProt release 2018\_05, DAAC generates 7 095 966 EC predictions. 3 880 775 of them are new predictions (not predicted by UniRule or SAAS). Furthermore, DAAC generates 82 285 267 predictions of GO Terms for 20 827 747 distinct proteins in UniProtKB/TrEMBL. In total, 47 992 323 of the predictions are new (not predicted by UniRule or SAAS).</p>
-        <p>Association rule mining and selection techniques can be used effectively as computational methods for functional prediction. ARBA (Association-Rule-Based Annotator) is based on these techniques and can be used to enhance the quality of automatically generated annotations as well as annotating proteins with unknown functions. It learns on data from UniProtKB/Swiss-Prot and uses InterPro signatures and organism taxonomy as attributes to predict most of the protein functional annotations including GO terms, metabolic pathways, EC numbers, etc. With respect to certain quality measures, ARBA finds all rules which would define significant relationships between attributes and functional annotations in UniProtKB/Swiss-Prot entries. The set of extracted rules represent the comprehensive knowledge which could explain protein functions. However, these rules comprise redundant information and their high number makes it infeasible to apply them on large sets of data such as UniProtKB/TrEMBL. To address this issue, ARBA puts these rules into a fast competition process called SkyRule based on two concepts, namely dominance and comparability. Rules are then elegantly and considerably reduced in number and aggregated to form concise prediction models that assign functional annotations to UniProtKB entries.</p>
-        <p>In order to share our knowledge in computational annotation and our rule-based systems, we are working on developing standard formats for rule annotation and tools to apply them. <anchor xml:id="a45"/>UniFire (the UNIprot Functional annotation Inference Rule Engine) is a standalone tool to apply the UniProt annotation rules on third party data. This engine is based on a Business Rules Management System (BRMS) named Drools and is developed in conjunction with an exchangeable format for UniProt rules and the protein data to be annotated.<anchor xml:id="a46"/> we termed it URML (Uniprot Rule Markup Language). URML respects the definition of business rules, and is therefore executable. When applied on third party proteins, UniFire will transform the data according to the URML format and execute the UniProt rules on them to generate functional predictions. We would like to work with the scientific community in this development and encourage users to register their interest in the links provide in our blog Inside UniProt ( https://insideuniprot.blogspot.com/2018/03/).</p>
-        <p>A new change in UniRef to provide GO annotation was based on user feedback. The UniRef databases (UniProt Reference Clusters) provide clustered sets of sequences from the UniProt Knowledgebase and selected UniParc records to obtain complete coverage of sequence space at several resolutions while hiding redundant sequences. Our study indicated functional annotations are generally preserved in UniRef clusters due to the intra-cluster homogeneity ( 26). The GO terms of member protein sequences are highly consistent at UniRef90/50 levels in each of the three GO domains: Molecular Function, Biological Process and Cellular Component. We have started to compute GO annotations last year for UniRef90 and UniRef50 clusters: <anchor xml:id="a47"/>A GO term is assigned to a cluster when it is found in every UniProtKB member that has GO annotation in this cluster, or when it is a common ancestor of at least one GO term from each such member.<anchor xml:id="a48"/> <anchor xml:id="a49"/>We evaluated the GO term prediction by comparing the protein sequences that newly acquired GO annotation with the ones that GO terms were assigned by UniRef in previous releases. The overall rate of prediction precision is higher than 97%, in all three GO domains, indicating the confidence to propagate UniRef GO annotation to member sequences.<anchor xml:id="a50"/> Thus, UniRef provides an annotation source to our users. They can search against UniRef and then obtain GO annotation from their results.</p>
-        <p>GO annotations of UniRef can be found in the UniRef XML files from the UniProt ftp site: ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/.</p>
-        <p>For the release 2018\_06, 25 300 GO terms were assigned to 33 814 200 UniRef90 clusters and 21 000 GO terms were assigned to 11 235 770 UniRef50 Clusters.</p>
-        <p>### UniProt bibliography</p>
-        <p>UniProt compiles additional bibliography from external sources to complement the curated literature set in UniProtKB/Swiss-Prot with additional publications and to add relevant literature to UniProtKB/TrEMBL entries not yet curated. The sources of literature are of two types: biological databases (currently 22 sources, including model organism, structure, post-translational modification, function, disease and interaction databases) where the literature mapped to UniProt entries are added in a collaborative manner, and secondly, text mining (currently PubTator\_Tmvar for literature about human variants in disease ( 27) and pGenN ( 28) for literature related to plant proteins). <anchor xml:id="a51"/>Altogether these sources add 902 956 unique papers covering 363 591 entries, with a total of 36 147 401 UniProt accession-PubMed identifier (accession/PMID) pairs (Release 2018\_08).<anchor xml:id="a52"/></p>
-        <p><anchor xml:id="a53"/>In the entry publication section, publications providing evidence for a specific annotation type are organized across different categories, such as function, interaction and expression, based on the type of data they contain. This categorization facilitates navigation through the protein entry literature by offering users quick access to literature of interest related to a given protein-topic.<anchor xml:id="a54"/> The classification of the UniProt references is automatically done based on the topics found in the flat file RP lines that are linked to the references, whereas the computationally mapped bibliography has to be categorized in a different way.</p>
-        <p>As a first approach, we rely on the information provided by the underlying database sources for this categorization (e.g. the literature provided by iPTMnet ( 29) will fall into PTM/Processing category and literature provided by Intact will be classified as Interaction). However, this approach is not optimal for all literature, thus we are now systematically classifying the articles into the UniProt main categories present in the entry using UPCLASS, a neural network based pipeline to classify publications for UniProtKB protein entries, developed in SIB Text Mining group ( https://www.sib.swiss/ruch-patrick/patrick-ruch-sub). <anchor xml:id="a55"/>UPCLASS has been trained and evaluated with the curated literature and categories in UniProt entries (with precision, recall and F-score of 0.80, 0.62 and 0.70, respectively<anchor xml:id="a56"/>). The model used for UniProt classification considers the protein names corresponding to the accession-PMID pair, resulting in a more accurate protein-centric classification. Implementation of UPCLASS has enabled the classification of 32 196 740 UniProt accession-PMID pairs that have been previously displayed as unclassified, representing 254 038 protein entries and 768 505 PMIDs (Release 2018\_08).</p>
-        <p>### Outreach and training</p>
-        <p>The training of our users to make the best use of our data, whether accessed via the web, the API or downloaded from the FTP site, is a key mission of the UniProt Consortium. We have played an active role in the provision of hands-on training workshops across the globe, supporting both early-career researchers and domain specialists such as clinicians and proteomic scientists. Whilst face-to-face training will remain an important route for disseminating very detailed information, it is not always the most efficient method of reaching out to large numbers of users or of penetrating new user groups. We have therefore scheduled a series of webinars, with basic modules on searching protein sequence and function repeated regularly and more specialist units, for example on protein structure, machine learning protein function and linking protein and genome annotation delivered less often. The webinars are recorded, and are subsequently made available online ( https://www.ebi.ac.uk/training/online/) where they are supported by related online training materials and YouTube videos ( https://www.youtube.com/user/uniprotvideos/). In order to reach new communities, the webinars are widely advertised, making pro-active use of social media forums such as Twitter (@uniprot) and FaceBook ( https://www.facebook.com/uniprot.org/) as well as established mailing lists.</p>
-        <p>### Website developments</p>
-        <p>During the last year we have added three new visualizations to the UniProt website. Firstly, we have added a method for viewing molecular interactions, secondly a method for viewing the subcellular localization of the proteins and finally we have added a molecular structure viewer. Together these enable users to rapidly understand the molecular context of UniProt entries.</p>
-        <p>For UniProtKB entries that include an Interaction section, we show details of the protein&#x27;s binary interactions with other proteins, using a high-quality dataset supplied by the IMEx Consortium. The binary interactions of a protein are now shown as a matrix that shows the interaction partners of your protein and also shows which of those partners interact with each other. For example, the interaction matrix for the human E3 ubiquitin–protein ligase parkin protein (UniProtKB: O60260) is shown in Figure 5.</p>
-        <p>#### Figure 5.</p>
-        <p>!Figure 5.</p>
-        <p>Open in a new tab</p>
-        <p>Interaction matrix of the human Parkin protein.</p>
-        <p>One of the sections on the protein entry pages is Subcellular Location. This section provides information on the location and the topology of the mature protein in the cell. We now allow users to visually explore the subcellular location in UniProtKB entries. The visualization presents image templates from COMPARTMENTS ( https://compartments.jensenlab.org/) ( 28, 30) combined with protein location data from UniProt (expert annotation, rule-based automatic annotation) and imported from GO annotation. Figure 6 below shows the subcellular location view from the Human Copper-transporting ATPase 2 protein (UniProtKB: P35670).</p>
-        <p>#### Figure 6.</p>
-        <p>![Figure 6.](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=6323992_gky1049fig6.jpg)</p>
-        <p>Open in a new tab</p>
-        <p>The subcellular localization view of a UniProt entry (UniProtKB P35670).</p>
-        <p>Structural information is important in understanding the molecular mechanisms that allow proteins to perform their specific functions. UniProt now provides a protein structure viewer in the ‘Structure’ section of the entry view of the website as well as in the ProtVista protein viewer (see Figure 7). The structures are rendered using the Litemol viewer. This innovation helps users to connect protein information in UniProt with structural data.</p>
-        <p>#### Figure 7.</p>
-        <p>![Figure 7.](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=6323992_gky1049fig7.jpg)</p>
-        <p>Open in a new tab</p>
-        <p>The molecular structure of the Spike protein of the Human SARS coronavirus (PDB ID: 1WNC) structure as shown in the ProtVista protein viewer. The 3D viewer is interactively connected with the sequence level annotations in UniProt e.g. domains, PTMs and mutations. Note that the user can select from any of the structures that map to the protein entry.</p>
-        <p>## CONCLUSION</p>
-        <p>UniProt continually develops its processes and procedures to efficiently provide a global collection of protein sequences and annotations. Over the past two years we have seen significant growth in numbers of genomes and proteins sequences. We have continued to organize that data and provide it to our users in a variety of user-friendly ways. <anchor xml:id="a57"/>We have recently also updated the terms of our license to a CC-BY (4.0) making it easier for UniProt data to be reused by others.<anchor xml:id="a58"/></p>
-        <p>A critical component for UniProt is to connect papers to the relevant entries. In this paper we have described how this is carried out by our expert curators as well as how we supplement these curated papers by connecting papers from other databases and text mining tools. You can help enable curators and text mining tools to connect your scientific papers to UniProt and other molecular biology databases through tagging mentions of proteins with UniProt identifiers. <anchor xml:id="a59"/>We request that authors use the following format (UniProtKB: P68369) to describe a protein within the text of a paper. This formatting follows the compact identifier representation that has been recently proposed to enable uniform resolution of biomedical resource identifiers<anchor xml:id="a60"/> ( 31). Using this format can also provide a simple mechanism to refer to other data resources. Some journals already have specific formatting requirements for such citations to accessions and these should always be given precedence.</p>
-        <p>We greatly value the feedback and annotation updates from our user community. Please send your feedback and suggestions to the e-mail address help@uniprot.org or via the contact link on the UniProt website.</p>
-        <p>## ACKNOWLEDGEMENTS</p>
-        <p>The UniProt publication has been prepared by Alex Bateman, Maria-Jesus Martin, Sandra Orchard, Michele Magrane, Emanuele Alpi, Benoit Bely, Mark Bingley, Ramona Britto, Borisas Bursteinas, Gianluca Busiello, Hema Bye-A-Jee, Alan Da Silva, Maurizio De Giorgi, Tunca Dogan, Leyla Garcia Castro, Penelope Garmiri, George Georghiou, Daniel Gonzales, Leonardo Gonzales, Emma Hatton-Ellis, Alexandr Ignatchenko, Rizwan Ishtiaq, Petteri Jokinen, Vishal Joshi, Dushyanth Jyothi, Rodrigo Lopez, Jie Luo, Yvonne Lussi, Alistair MacDougall, Fabio Madeira, Mahdi Mahmoudy, Manuela Menchi, Andrew Nightingale, Joseph Onwubiko, Barbara Palka, Klemens Pichler, Sangya Pundir, Guoying Qi, Shriya Raj, Alexandre Renaux, Milagros Rodriguez Lopez, Rabie Saidi, Tony Sawford, Aleksandra Shypitsyna, Elena Speretta, Edward Turner, Nidhi Tyagi, Preethi Vasudev, Vladimir Volynkin, Tony Wardell, Kate Warner, Xavier Watkins, Rossana Zaru, and Hermann Zellner at the EMBL- European Bioinformatics Institute; Alan Bridge, Ioannis Xenarios, Sylvain Poux, Nicole Redaschi, Lucila Aimo, Ghislaine Argoud-Puy, Andrea Auchincloss, Kristian Axelsen, Parit Bansal, Delphine Baratin, Marie-Claude Blatter, Jerven Bolleman, Emmanuel Boutet, Lionel Breuza, Cristina Casals-Casas, Edouard de Castro, Elisabeth Coudert, Beatrice Cuche, Mikael Doche, Dolnide Dornevil, Anne Estreicher, Livia Famiglietti, Marc Feuermann, Elisabeth Gasteiger, Sebastien Gehant, Vivienne Gerritsen, Arnaud Gos, Nadine Gruaz, Ursula Hinz, Chantal Hulo, Nevila Hyka-Nouspikel, Florence Jungo, Guillaume Keller, Arnaud Kerhornou, Vicente Lara, Philippe Lemercier, Damien Lieberherr, Thierry Lombardot, Xavier Martin, Patrick Masson, Anne Morgat, Teresa Batista Neto, Salvo Paesano, Ivo Pedruzzi, Sandrine Pilbout, Monica Pozzato, Manuela Pruess, Catherine Rivoire, Christian Sigrist, Karin Sonesson, Andre Stutz, Shyamala Sundaram, Michael Tognolli, and Laure Verbregue at the SIB Swiss Institute of Bioinformatics; Cathy H. Wu, Cecilia N. Arighi, Leslie Arminski, Chuming Chen, Yongxing Chen, Julie Cowart, John S. Garavelli, Hongzhan Huang, Kati Laiho, Peter McGarvey, Darren A. Natale, Karen Ross, C. R. Vinayaka, Qinghua Wang, Yuqi Wang, Lai-Su Yeh and Jian Zhang at the Protein Information Resource.</p>
-        <p>The UniProt consortium also acknowledges the contributions of Patrick Ruch and Douglas Teodoro from the SIB Swiss Institute of Bioinformatics who developed the UPCLASS publication classification tool.</p>
-        <p>## Notes</p>
-        <p>**Disclaimer:** The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.</p>
-        <p>## FUNDING</p>
-        <p>National Eye Institute; National Human Genome Research Institute; National Heart, Lung, and Blood Institute; National Institute of Allergy and Infectious Diseases; National Institute of Diabetes and Digestive and Kidney Diseases; National Institute of General Medical Sciences; National Institute of Mental Health of the National Institutes of Health \[U24HG007822\]; National Human Genome Research Institute \[U41HG007822, U41HG002273\]; National Institute of General Medical Sciences \[R01GM080646, P20GM103446, U01GM120953\]; Biotechnology and Biological Sciences Research Council \[BB/M011674/1\]; British Heart Foundation \[RG/13/5/30112\]; Open Targets; Swiss Federal Government through the State Secretariat for Education, Research and Innovation; European Molecular Biology Laboratory core funds. The open access publication charge for this paper has been waived by Oxford University Press - _NAR_ Editorial Board members are entitled to one free paper per year in recognition of their work on behalf of the journal.</p>
-        <p>_Conflict of interest statement_. None declared.<anchor xml:id="a61"/></p>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1093/nar/gky1049.</note></p>
     </body>
   </text>
 </TEI>

@@ -38,65 +38,429 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-28"
-              who="build_paper_edition.py">48 spans placed by verified search</change>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">0 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" from="#a1" to="#a8" type="claim_type" ana="#claim_type" resp="#paper">existence</span>
-      <span xml:id="t1" from="#a17" to="#a24" type="phenomenon" ana="#phenomenon" resp="#paper">emotional arcs of stories</span>
-      <span xml:id="t2" from="#a40" to="#a41" type="method" ana="#method" resp="#paper">computational-text-analysis<term>computational-text-analysis</term></span>
-      <span xml:id="t3" from="#a40" to="#a44" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">mechanisms<term>three independent methods are run over the same arcs - matrix decomposition, hierarchical clustering and an unsupervised self-organising map - and the paper states that confirmation comes only from the three supporting each other</term></span>
-      <span xml:id="t4" from="#a34" to="#a36" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.9">mechanisms<term>the emotional arc is separated from the plot by construction: it is what the words invoke, and the paper says the same arc can arise from very different plots</term></span>
-      <span xml:id="t5" from="#a47" to="#a48" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">the sliding-window construction itself is described in a different sentence and in the Figure 1 caption, not in this span; the window size is unquotable here because the extraction stores its digits as private-use glyphs (Q-595)<term>the paper states plainly that the dictionary method it relies on performs WORSE THAN RANDOM on an individual sentence, which is why the instrument is never applied at sentence level</term></span>
-      <span xml:id="t6" from="#a63" to="#a64" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">mechanisms<term>the arcs are mean-centred before decomposition so that the first mode is not spent on the average sentiment or on the positivity bias of language</term></span>
-      <span xml:id="t7" from="#a59" to="#a60" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">mechanisms<term>clusters are built by Ward&#x27;s method, which the paper describes as proceeding by minimising variance between clusters</term></span>
-      <span xml:id="t8" from="#a54" to="#a55" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">mechanisms<term>conflation of several arcs in one book is limited by restricting the corpus to shorter books, a filter chosen for that purpose</term></span>
-      <span xml:id="t9" from="#a71" to="#a72" type="limitations" ana="#limitations[1]" resp="#tagger">Success is measured only by Project Gutenberg download counts.<note>what this limits: the success analysis only: DOWNLOADS ARE ONLY A ROUGH PROXY FOR SUCCESS</note></span>
-      <span xml:id="t10" from="#a52" to="#a53" type="limitations" ana="#limitations[2]" resp="#tagger">The sliding-window method cannot detect briefly mentioned emotional events.<note>what this limits: the resolution of every arc: OUR METHOD DOES NOT PICK UP EMOTIONAL MOMENTS DISCUSSED BRIEFLY, PERHAPS IN ONE PARAGRAPH OR SENTENCE (E.G., THE FIRST KISS OF HARRY AND GINNY)</note></span>
-      <span xml:id="t11" from="#a34" to="#a36" type="limitations" ana="#limitations[3]" resp="#tagger">An emotional arc is not the plot and does not identify it.<note>what this limits: any narrative reading of the arcs: an emotional arc is not the plot and does not identify it</note></span>
-      <span xml:id="t12" from="#a54" to="#a55" type="limitations" ana="#limitations[4]" resp="#tagger">Only shorter books were analysed, to avoid conflating several core arcs.<note>what this limits: the corpus the arcs were derived from: TO LIMIT THE CONFLATION OF MULTIPLE CORE EMOTIONAL ARCS, WE RESTRICT OUR ANALYSIS TO SHORTER BOOKS</note></span>
-      <span xml:id="t13" from="#a47" to="#a48" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">The sentiment tool is stated to perform worse than random on individual sentences, and is made usable only by averaging over a rolling window.<note>what this limits: any sentence-level or short-passage reading of these sentiment scores: the authors state that dictionary-based sentiment methods usually perform worse than random on individual sentences, and the arcs are built from a rolling average instead</note></span>
-      <span xml:id="t14" from="#a42" to="#a43" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">The result is what three different methods agree on; the paper says no single tool establishes it.<note>what this limits: the six-arc finding: it is confirmed only by considering the results of each tool in support of the others - a matrix decomposition, a hierarchical clustering and an unsupervised map - so a citation of &#x27;six basic shapes&#x27; that drops the three-method agreement drops the evidence</note></span>
-      <span xml:id="t15" from="#a65" to="#a66" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">Two of the six decomposition modes are retained for completeness and are stated not to match the archetypes the other methods produce.<note>what this limits: the six SVD modes as six arcs: the paper says the high-frequency modes contribute little variance and do not align with the core archetypes recovered by the other methods, and are included only for completeness</note></span>
-      <span xml:id="t16" from="#a18" to="#a23" type="transfers" ana="#transfers[0]" resp="#tagger">sentiment analysis applied to works of fiction to extract their emotional arcs</span>
-      <span xml:id="t17" from="#a56" to="#a57" type="controls" ana="#controls[0]" resp="#tagger" cert="0.9">every method re-run at four different DOWNLOAD-COUNT thresholds. THE NUMERALS SURVIVE EXTRACTION AS PRIVATE-USE-AREA GLYPHS (U+F639, U+F63C ...) rather than digits, so the thresholds are present in the text and unreadable; they are quoted as they stand and not guessed<note>eliminates: the popularity cut-off as the source of the emotional-arc findings - a corpus filtered by downloads is a corpus of what people read, and an arc shape could be a property of the filter rather than of literature · outcome: held</note></span>
-      <span xml:id="t18" from="#a34" to="#a35" type="concepts" ana="#concepts[0]" resp="#paper">emotional arc<term>emotional arc</term></span>
-      <span xml:id="t19" from="#a17" to="#a23" type="concepts" ana="#concepts[1]" resp="#paper">sentiment analysis<term>sentiment analysis</term></span>
-      <span xml:id="t20" from="#a27" to="#a31" type="concepts" ana="#concepts[4]" resp="#paper">plot<term>plot</term></span>
-      <span xml:id="t21" from="#a49" to="#a50" type="concepts" ana="#concepts[5]" resp="#paper">Hedonometer<term>Hedonometer</term></span>
-      <span xml:id="t22" from="#a45" to="#a46" type="concepts" ana="#concepts[6]" resp="#paper">labMT<term>labMT</term></span>
-      <span xml:id="t23" from="#a34" to="#a37" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">emotional arc - NOT THE PLOT, and the paper names the conflation as the misunderstanding that drew criticism from the digital humanities community: the same falling arc can come from very different plots</span>
-      <span xml:id="t24" from="#a61" to="#a62" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">the six arcs - AS THE INTERSECTION OF THREE PROCEDURES: modes of a matrix decomposition, clusters from Ward&#x27;s algorithm, and clusters from an unsupervised map; six is what survives all three, not what any one of them returns</span>
-      <span xml:id="t25" from="#a49" to="#a51" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">sentiment - AS A WINDOW AVERAGE: the reported quantity is the score of a sliding fixed-size window, never of a sentence, which is what makes the underlying dictionary usable at all</span>
-      <span xml:id="t26" from="#a18" to="#a23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">builds-on → sentiment analysis (from NLP)</span>
-      <span xml:id="t27" from="#a38" to="#a39" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">builds-on → Kurt Vonnegut&#x27;s claim that the shapes of stories can be computed</span>
-      <span xml:id="t28" from="#a34" to="#a37" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">emotional arc —distinct-from→ plot<note>strength of the relation: 1</note><term>emotional arc</term><term>plot</term></span>
-      <span xml:id="t29" from="#a49" to="#a51" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">emotional arc —operationalised-as→ Hedonometer<note>strength of the relation: 1</note><term>emotional arc</term><term>Hedonometer</term></span>
-      <span xml:id="t30" from="#a2" to="#a3" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">1,327 — filtered Project Gutenberg fiction corpus</span>
-      <span xml:id="t31" from="#a4" to="#a6" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">6 — basic emotional-arc shapes found</span>
-      <span xml:id="t32" from="#a10" to="#a12" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">3 — independent techniques used to confirm the arcs<note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note></span>
-      <span xml:id="t33" from="#a5" to="#a7" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">six core emotional arcs are the building blocks of story trajectories</span>
-      <span xml:id="t34" from="#a13" to="#a14" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">particular emotional arcs enjoy greater download success</span>
-      <span xml:id="t35" from="#a9" to="#a11" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">the result is confirmed by three independent methods<note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note></span>
-      <span xml:id="t36" from="#a34" to="#a37" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">the emotional arc is distinct from the plot</span>
-      <span xml:id="t37" from="#a20" to="#a22" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">emotional arc<term>emotional arc</term></span>
-      <span xml:id="t38" from="#a18" to="#a23" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">sentiment<term>sentiment</term></span>
-      <span xml:id="t39" from="#a15" to="#a16" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">downloads<term>downloads</term></span>
-      <span xml:id="t40" from="#a27" to="#a28" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">plot<term>plot</term></span>
-      <span xml:id="t41" from="#a32" to="#a33" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">emotional arc<term>emotional arc</term></span>
-      <span xml:id="t42" from="#a25" to="#a26" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">narratology<term>narratology</term></span>
-      <span xml:id="t43" from="#a19" to="#a21" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">sentiment analysis<term>sentiment analysis</term></span>
-      <span xml:id="t44" from="#a29" to="#a30" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">plot (backbone of events)<term>plot (backbone of events)</term></span>
-      <span xml:id="t45" from="#a67" to="#a68" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">mean<term>mean</term></span>
-      <span xml:id="t46" from="#a69" to="#a70" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">sample-size<note>about this quote: NOT REPAIRED, AND REVERTED AFTER IT WAS. This quote is verbatim in source/fulltext.html and carries a real minus sign in `2( N − 1)`. The grounding copy has an en dash there. A repair that normalised dashes matched the two and replaced the correct character with the poorer extraction&#x27;s. The quote stays as the paper set it and stays unanchorable against the grounding copy, which is the honest state - CLAUDE_B, 2026-08-23 17:35: the quotes are right, the staging is what disagrees.</note><term>sample-size</term></span>
-      <span xml:id="t47" from="#a58" to="#a60" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">variance<term>variance</term></span>
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>existence</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>emotional arcs of stories</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>computational-text-analysis</label>
+        <term>computational-text-analysis</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>three independent methods are run over the same arcs - matrix decomposition, hierarchical clustering and an unsupervised self-organising map - and the paper states that confirmation comes only from the three supporting each other</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>the emotional arc is separated from the plot by construction: it is what the words invoke, and the paper says the same arc can arise from very different plots</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">
+        <label>the sliding-window construction itself is described in a different sentence and in the Figure 1 caption, not in this span; the window size is unquotable here because the extraction stores its digits as private-use glyphs (Q-595)</label>
+        <term>the paper states plainly that the dictionary method it relies on performs WORSE THAN RANDOM on an individual sentence, which is why the instrument is never applied at sentence level</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>the arcs are mean-centred before decomposition so that the first mode is not spent on the average sentiment or on the positivity bias of language</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>clusters are built by Ward&#x27;s method, which the paper describes as proceeding by minimising variance between clusters</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>conflation of several arcs in one book is limited by restricting the corpus to shorter books, a filter chosen for that purpose</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Success is measured only by Project Gutenberg download counts.</label>
+        <note>what this limits: the success analysis only: DOWNLOADS ARE ONLY A ROUGH PROXY FOR SUCCESS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The sliding-window method cannot detect briefly mentioned emotional events.</label>
+        <note>what this limits: the resolution of every arc: OUR METHOD DOES NOT PICK UP EMOTIONAL MOMENTS DISCUSSED BRIEFLY, PERHAPS IN ONE PARAGRAPH OR SENTENCE (E.G., THE FIRST KISS OF HARRY AND GINNY)</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>An emotional arc is not the plot and does not identify it.</label>
+        <note>what this limits: any narrative reading of the arcs: an emotional arc is not the plot and does not identify it</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>Only shorter books were analysed, to avoid conflating several core arcs.</label>
+        <note>what this limits: the corpus the arcs were derived from: TO LIMIT THE CONFLATION OF MULTIPLE CORE EMOTIONAL ARCS, WE RESTRICT OUR ANALYSIS TO SHORTER BOOKS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The sentiment tool is stated to perform worse than random on individual sentences, and is made usable only by averaging over a rolling window.</label>
+        <note>what this limits: any sentence-level or short-passage reading of these sentiment scores: the authors state that dictionary-based sentiment methods usually perform worse than random on individual sentences, and the arcs are built from a rolling average instead</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The result is what three different methods agree on; the paper says no single tool establishes it.</label>
+        <note>what this limits: the six-arc finding: it is confirmed only by considering the results of each tool in support of the others - a matrix decomposition, a hierarchical clustering and an unsupervised map - so a citation of &#x27;six basic shapes&#x27; that drops the three-method agreement drops the evidence</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>Two of the six decomposition modes are retained for completeness and are stated not to match the archetypes the other methods produce.</label>
+        <note>what this limits: the six SVD modes as six arcs: the paper says the high-frequency modes contribute little variance and do not align with the core archetypes recovered by the other methods, and are included only for completeness</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>sentiment analysis applied to works of fiction to extract their emotional arcs</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.9">
+        <label>every method re-run at four different DOWNLOAD-COUNT thresholds. THE NUMERALS SURVIVE EXTRACTION AS PRIVATE-USE-AREA GLYPHS (U+F639, U+F63C ...) rather than digits, so the thresholds are present in the text and unreadable; they are quoted as they stand and not guessed</label>
+        <note>eliminates: the popularity cut-off as the source of the emotional-arc findings - a corpus filtered by downloads is a corpus of what people read, and an arc shape could be a property of the filter rather than of literature · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[0]" resp="#paper">
+        <label>emotional arc</label>
+        <term>emotional arc</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[1]" resp="#paper">
+        <label>sentiment analysis</label>
+        <term>sentiment analysis</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>plot</label>
+        <term>plot</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>Hedonometer</label>
+        <term>Hedonometer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>labMT</label>
+        <term>labMT</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>folkloristics</label>
+        <term>folkloristics</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>matrix decomposition</label>
+        <term>matrix decomposition</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>singular value decomposition</label>
+        <term>singular value decomposition</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>supervised learning</label>
+        <term>supervised learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>agglomerative (hierarchical) clustering</label>
+        <term>agglomerative (hierarchical) clustering</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>Ward’s method</label>
+        <term>Ward’s method</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>unsupervised learning</label>
+        <term>unsupervised learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>self-organizing map</label>
+        <term>self-organizing map</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>neural network</label>
+        <term>neural network</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>Rags to riches</label>
+        <term>Rags to riches</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>Tragedy</label>
+        <term>Tragedy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>Riches to rags</label>
+        <term>Riches to rags</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>Man in a hole</label>
+        <term>Man in a hole</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">
+        <label>Icarus</label>
+        <term>Icarus</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">
+        <label>Cinderella</label>
+        <term>Cinderella</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">
+        <label>Oedipus</label>
+        <term>Oedipus</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">
+        <label>word salad</label>
+        <term>word salad</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.95">
+        <label>nonsense</label>
+        <term>nonsense</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="concepts" ana="#concepts[25]" resp="#paper" cert="0.95">
+        <label>null model</label>
+        <term>null model</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>emotional arc - NOT THE PLOT, and the paper names the conflation as the misunderstanding that drew criticism from the digital humanities community: the same falling arc can come from very different plots</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>the six arcs - AS THE INTERSECTION OF THREE PROCEDURES: modes of a matrix decomposition, clusters from Ward&#x27;s algorithm, and clusters from an unsupervised map; six is what survives all three, not what any one of them returns</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>sentiment - AS A WINDOW AVERAGE: the reported quantity is the score of a sliding fixed-size window, never of a sentence, which is what makes the underlying dictionary usable at all</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>folkloristics - the study of society and culture through literary analysis</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>matrix decomposition - the SVD branch of the paper&#x27;s three-tool analysis</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>singular value decomposition - SVD used for matrix decomposition of emotional arcs</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>supervised learning - the paper&#x27;s label for agglomerative clustering with Ward&#x27;s method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>agglomerative hierarchical clustering - the supervised analysis performed with Ward&#x27;s method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="senses" ana="#senses[8]" resp="#tagger" cert="0.95">
+        <label>Ward&#x27;s method - the method used in the agglomerative hierarchical clustering branch</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="senses" ana="#senses[9]" resp="#tagger" cert="0.95">
+        <label>unsupervised learning - the paper&#x27;s label for the self-organizing-map analysis</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="senses" ana="#senses[10]" resp="#tagger" cert="0.95">
+        <label>self-organizing map - SOM, the neural-network branch of the unsupervised analysis</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="senses" ana="#senses[11]" resp="#tagger" cert="0.95">
+        <label>neural network - the class to which the self-organizing map is assigned</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="senses" ana="#senses[12]" resp="#tagger" cert="0.95">
+        <label>Rags to riches - rise</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="senses" ana="#senses[13]" resp="#tagger" cert="0.95">
+        <label>Tragedy - fall, also called Riches to rags</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="senses" ana="#senses[14]" resp="#tagger" cert="0.95">
+        <label>Riches to rags - the alternative label for the falling Tragedy arc</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="senses" ana="#senses[15]" resp="#tagger" cert="0.95">
+        <label>Man in a hole - fall then rise</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="senses" ana="#senses[16]" resp="#tagger" cert="0.95">
+        <label>Icarus - rise then fall</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="senses" ana="#senses[17]" resp="#tagger" cert="0.95">
+        <label>Cinderella - rise, fall, then rise</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="senses" ana="#senses[18]" resp="#tagger" cert="0.95">
+        <label>Oedipus - fall, rise, then fall</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="senses" ana="#senses[19]" resp="#tagger" cert="0.95">
+        <label>word salad - a null story version without coherent plot or emotional arc</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="senses" ana="#senses[20]" resp="#tagger" cert="0.95">
+        <label>nonsense - a null story version without coherent plot or emotional arc</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="senses" ana="#senses[21]" resp="#tagger" cert="0.95">
+        <label>null model - a written-story comparison lacking coherent plot or structure</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → sentiment analysis (from NLP)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → Kurt Vonnegut&#x27;s claim that the shapes of stories can be computed</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>emotional arc —distinct-from→ plot</label>
+        <term>emotional arc</term>
+        <term>plot</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>emotional arc —operationalised-as→ Hedonometer</label>
+        <term>emotional arc</term>
+        <term>Hedonometer</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>self-organizing map —is-a→ neural network</label>
+        <term>self-organizing map</term>
+        <term>neural network</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 — The paper explicitly calls SOM a type of neural network.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>1,327 — filtered Project Gutenberg fiction corpus</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>6 — basic emotional-arc shapes found</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t71" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>3 — independent techniques used to confirm the arcs</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t72" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>six core emotional arcs are the building blocks of story trajectories</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t73" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>particular emotional arcs enjoy greater download success</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t74" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>the result is confirmed by three independent methods</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t75" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+        <label>the emotional arc is distinct from the plot</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t76" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>emotional arc</label>
+        <term>emotional arc</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t77" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>sentiment</label>
+        <term>sentiment</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t78" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>downloads</label>
+        <term>downloads</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t79" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>plot</label>
+        <term>plot</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t80" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>emotional arc</label>
+        <term>emotional arc</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t81" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>narratology</label>
+        <term>narratology</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t82" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>sentiment analysis</label>
+        <term>sentiment analysis</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t83" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>plot (backbone of events)</label>
+        <term>plot (backbone of events)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t84" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t85" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <note>about this quote: NOT REPAIRED, AND REVERTED AFTER IT WAS. This quote is verbatim in source/fulltext.html and carries a real minus sign in `2( N − 1)`. The grounding copy has an en dash there. A repair that normalised dashes matched the two and replaced the correct character with the poorer extraction&#x27;s. The quote stays as the paper set it and stays unanchorable against the grounding copy, which is the honest state - CLAUDE_B, 2026-08-23 17:35: the quotes are right, the staging is what disagrees.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t86" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>variance</label>
+        <term>variance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
     </spanGrp>
   </standOff>
   <text>
     <body>
-        <p><anchor xml:id="a0"/> Reagan et al. EPJ Data Science (2016) 5:31 DOI 10.1140/epjds/s13688-016-0093-1 R E G U L A R A R T I C L E Open Access The emotional arcs of stories are dominated by six basic shapes Andrew J Reagan1*, Lewis Mitchell2, Dilan Kiley1, Christopher M Danforth1 and Peter Sheridan Dodds1 *Correspondence: andrew.reagan@uvm.edu 1University of Vermont, 85 South Prospect St, Burlington, VT 05405, USA Full list of author information is available at the end of the article Abstract Advances in computing power, natural language processing, and digitization of text now make it possible to study a culture’s evolution through its texts using a ‘big data’ lens. Our ability to communicate relies in part upon a shared emotional experience, with stories often following distinct emotional trajectories and forming patterns that are meaningful to us. <anchor xml:id="a1"/>Here, by classifying the emotional arcs for <anchor xml:id="a2"/>a filtered subset of 1,327 stories from Project Gutenberg<anchor xml:id="a3"/>’s fiction collection, <anchor xml:id="a4"/>we find a set of <anchor xml:id="a5"/>six core emotional arcs<anchor xml:id="a6"/> which form the essential building blocks<anchor xml:id="a7"/> of complex emotional trajectories.<anchor xml:id="a8"/> <anchor xml:id="a9"/>We strengthen our findings by <anchor xml:id="a10"/>separately applying matrix decomposition<anchor xml:id="a11"/>, supervised<anchor xml:id="a12"/> learning, and unsupervised learning. For each of these six core emotional arcs, we examine the closest characteristic stories in publication today and find that <anchor xml:id="a13"/>particular emotional arcs enjoy<anchor xml:id="a14"/> greater success, <anchor xml:id="a15"/>as measured by downloads<anchor xml:id="a16"/>. Keywords: stories; sentiment mining; narratology; language; society 1 Introduction The power of stories to transfer information and define our own existence has been shown time and again [–]. We are fundamentally driven to find and tell stories, likened to Pan Narrans or Homo Narrativus. Stories are encoded in art, language, and even in the mathematics of physics: We use equations to represent both simple and complicated functions that describe our observations of the real world. In science, we formalize the ideas that best fit our experience with principles such as Occam’s Razor: The simplest story is the one we should trust. We tend to prefer stories that fit into the molds which are familiar, and reject narratives that do not align with our experience []. We seek to better understand stories that are captured and shared in written form, a medium that since inception has radically changed how information flows []. Without evolved cues from tone, facial expression, or body language, written stories are forced to capture the entire transfer of experience on a page. An often integral part of a written story is the emotional experience that is evoked in the reader. <anchor xml:id="a17"/>Here, <anchor xml:id="a18"/>we use a simple, robust <anchor xml:id="a19"/>sentiment analysis tool to <anchor xml:id="a20"/>extract the reader-perceived<anchor xml:id="a21"/> emotional content of written stories<anchor xml:id="a22"/> as they unfold on the page<anchor xml:id="a23"/>.<anchor xml:id="a24"/> We objectively test aspects of the theories of folkloristics [, ], specifically the commonality of core stories within societal boundaries [, ]. A major component of folkloristics is the study of society and culture through literary analysis. This is sometimes <anchor xml:id="a25"/>referred to as narratology, which at its core is<anchor xml:id="a26"/> ‘a series of events, real or fictional, presented to the © Reagan et al. 2016. This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. Reagan et al. EPJ Data Science (2016) 5:31 Page 2 of 12 reader or the listener’ []. In our present treatment, <anchor xml:id="a27"/>we consider the plot as<anchor xml:id="a28"/> the ‘backbone’ <anchor xml:id="a29"/>of events that occur in a chronological<anchor xml:id="a30"/> sequence<anchor xml:id="a31"/> (more detail on previous theories of plot are in Appendix A in Additional file ). While the plot captures the mechanics of a narrative and the structure encodes their delivery, in the present work <anchor xml:id="a32"/>we examine the emotional arc that is<anchor xml:id="a33"/> invoked through the words used. <anchor xml:id="a34"/>The emotional arc of a story does not give us direct information about the plot or the intended meaning of the story<anchor xml:id="a35"/>, but rather exists as part of the whole narrative (e.g., an emotional arc showing a fall in sentiment throughout a story may arise from very different plot and structure combinations).<anchor xml:id="a36"/> This distinction between the emotional arc and the plot of a story is one point of misunderstanding in other work that has drawn criticism from the digital humanities community<anchor xml:id="a37"/> []. Through the identification of motifs [], narrative theories [] allow us to analyze, interpret, describe, and compare stories across cultures and regions of the world []. We show that automated extraction of emotional arcs is not only possibly, but can test previous theories and provide new insights with the potential to quantify unobserved trends as the field transitions from data-scarce to data-rich [, ]. The rejected master’s thesis of Kurt Vonnegut - which he personally considered his greatest contribution - defines the emotional arc of a story on the ‘Beginning-End’ and ‘Ill Fortune-Great Fortune’ axes []. Vonnegut finds a remarkable similarity between Cinderella and the origin story of Christianity in the Old Testament (see Figure S in Appendix B in Additional file ), leading us to search for all such groupings. In a recorded lecture available on YouTube [], <anchor xml:id="a38"/>Vonnegut asserted: ‘There is no reason why the simple shapes of stories can’t be fed into computers, they are beautiful shapes.’<anchor xml:id="a39"/> <anchor xml:id="a40"/>For our analysis, we apply three independent tools: matrix decomposition by singular value decomposition (SVD), supervised learning by agglomerative (hierarchical) clustering with Ward’s method, and unsupervised learning by a self-organizing map (SOM, a type of neural network).<anchor xml:id="a41"/> Each tool encompasses different strengths: the SVD finds the underlying basis of all of the emotional arcs, the clustering classifies the emotional arcs into distinct groups, and the SOM generates arcs from noise which are similar to those in our corpus using a stochastic process. <anchor xml:id="a42"/>It is only by considering the results of each tool in support of each other that we are able to confirm our findings<anchor xml:id="a43"/>.<anchor xml:id="a44"/> We proceed as follows. We first introduce our methods in Section , we then discuss the combined results of each method in Section , and we present our conclusions in Section . A graphical outline of the methodology and results can be found as Figure S in Appendix B in Additional file . 2 Methods 2.1 Emotional arc construction To generate emotional arcs, we analyze the sentiment of , word windows, which we slide through the text (see Figure ). <anchor xml:id="a45"/>We rate the emotional content of each window using our Hedonometer with the labMT dataset, chosen for lexical coverage and its ability to generate meaningful word shift graphs<anchor xml:id="a46"/>, specifically using , words as a minimum necessary to generate meaningful sentiment scores [, ]. <anchor xml:id="a47"/>We emphasize that dictionarybased methods for sentiment analysis usually perform worse than random on individual sentences<anchor xml:id="a48"/> [, ], and although this issue can be resolved by using a rolling average of Reagan et al. EPJ Data Science (2016) 5:31 Page 3 of 12 Figure 1 Schematic of how we compute emotional arcs. The indicated uniform length segments (gap between samples) taken from the text form the sample with fixed window size set at Nw = 10,000 words. The segment length is thus Ns = (N – (Nw + 1))/n for N the length of the book in words, and n the number of points in the time series. <anchor xml:id="a49"/>Sliding this fixed size window through the book, we generate n sentiment scores with the Hedonometer<anchor xml:id="a50"/>, which comprise the emotional arc<anchor xml:id="a51"/> [22]. Figure 2 Annotated emotional arc of Harry Potter and the Deathly Hallows, by JK Rowling, inspired by the illustration made by Medaris for The Why Files [23]. The entire seven book series can be classified as a ‘Kill the monster’ plot [24], while the many sub plots and connections between them complicate the emotional arc of each individual book: this plot could not be readily inferred from the emotional arc alone. The emotional arc shown here, captures the major highs and lows of the story, and should be familiar to any reader well acquainted with Harry Potter. <anchor xml:id="a52"/>Our method does not pick up emotional moments discussed briefly, perhaps in one paragraph or sentence (e.g., the first kiss of Harry and Ginny).<anchor xml:id="a53"/> We provide interactive visualizations of all Project Gutenberg books at http://hedonometer.org/books/v3/1/ and a selection of classic and popular books at http://hedonometer.org/books/v1/. sentences scores, it begets a basic misunderstanding of similar efforts []. In Figure , we show the emotional arc of Harry Potter and the Deathly Hallows, the final book in the popular Harry Potter series by JK Rowling. While the plot of the book is nested and complicated, the emotional arc associated with each sub-narrative is clearly visible. <anchor xml:id="a54"/>We analyze the emotional arcs corresponding to complete books, and to limit the conflation of multiple core emotional arcs, we restrict our analysis to shorter books by selecting a maximum number of words when building our filter.<anchor xml:id="a55"/> Further details of the emotional arc construction can be found in Appendix C in Additional file . 2.2 Project Gutenberg corpus For a suitable corpus we draw on the open access Project Gutenberg data set []. We apply rough filters to the collection (roughly , books) in an attempt to obtain a Reagan et al. EPJ Data Science (2016) 5:31 Page 4 of 12 set of books that represent English works of fiction. We start by selecting for only English books, with total words between , and ,, with more than  downloads from the Project Gutenberg website, and with Library of Congress Class corresponding to English fiction.a <anchor xml:id="a56"/>To ensure that the -download limit is not influencing the results here, we further test each method for , , , and  download thresholds<anchor xml:id="a57"/>, in each case confirming the  download findings to be qualitatively unchanged. Next, we remove books with any word in the title from a list of keywords (e.g., ‘poems’ and ‘collection’, full list in Appendix C in Additional file ). From within this set of books, we remove the front and back matter of each book using regular expression pattern matches that match on .% of the books included. Two slices of the data for download count and the total word count are shown in Appendix C, Figure S in Additional file . We provide a list of the book ID’s which are included for download in the Online Appendices at http://compstorylab.org/share/papers/reaganb/, the books are listed in Table S in Appendix D in Additional file , and we attempt to provide the Project Gutenberg ID when we mention a book by title herein. Given the Project Gutenberg ID n, the raw ebook is available online from Project Gutenberg at http://www.gutenberg.org/ebooks/n/, e.g., Alice’s Adventures in Wonderland by Lewis Carroll, has ID  and is available at http://www.gutenberg.org/ebooks//. We also provide an online, interactive version of the emotional arc for each book indexed by the ID, e.g., Alice’s Adventures in Wonderland is available at http://hedonometer.org/books/v//. 2.3 Principal component analysis (SVD) We use the standard linear algebra technique singular value decomposition (SVD) to find a decomposition of stories onto an orthogonal basis of emotional arcs. Starting with the sentiment time series for each book bi as row i in the matrix A, we apply the SVD to find A = U(cid:2)V T = WV T , () where U contains the projection of each sentiment time series onto each of the right singular vectors (rows of V T , eigenvectors of AT A), which have singular values given along the diagonal of (cid:2), with W = U(cid:2). Different intuitive interpretations of the matrices U, (cid:2), and V T are useful in the various domains in which the SVD is applied; here, we focus on right singular vectors as an orthonormal basis for the sentiment time series in the rows of A, which we will refer to as the modes. We combine (cid:2) and U into the single coefficient matrix W for clarity and convenience, such that W now represents the mode coefficients. 2.4 <anchor xml:id="a58"/>Hierarchical clustering <anchor xml:id="a59"/>We use Ward’s method to generate a hierarchical clustering of stories, which proceeds by minimizing variance between clusters of books<anchor xml:id="a60"/> []. We use the mean-centered books and the distance function D(bi, bj) = l– l(cid:2) (cid:3) (cid:3)bi(t) – bj(t) (cid:3) (cid:3) t= () for t indexing the window in books bi, bj to generate the distance matrix. Reagan et al. EPJ Data Science (2016) 5:31 Page 5 of 12 2.5 Self-organizing map (SOM) We implement a self-organized map (SOM), an unsupervised machine learning method (a type of neural network) to cluster emotional arcs []. The SOM works by finding the most similar emotional arc in a random collection of arcs. We use an  ×  SOM (for  nodes, roughly % of the number of books), connected on a square grid, training according to the original procedure (with winner take all, and scaling functions across both distance and magnitude). We take the neighborhood influence function at iteration i as (cid:4) Nbdk(i) = j ∈ N |D(k, j) &lt; √ (cid:5) N · (i + )α () for a node k in the set of nodes N , with distance function D given above and total number of nodes N . For results shown here we take α = –.. We implement the learning adaptation function at training iteration i as f (i) = (i + )β , again with β = –., a standard value for the training hyper-parameters. 3 Results We obtain a collection of , books that are mostly, but not all, fictional stories by using metadata from Project Gutenberg to construct a rough filter. We find broad support for the following six emotional arcs: • ‘Rags to riches’ (rise). • ‘Tragedy’, or ‘Riches to rags’ (fall). • ‘Man in a hole’ (fall-rise). • ‘Icarus’ (rise-fall). • ‘Cinderella’ (rise-fall-rise). • ‘Oedipus’ (fall-rise-fall). <anchor xml:id="a61"/>Importantly, we obtain these same six emotional arcs from all possible arcs by observing them as the result of three methods: As modes from a matrix decomposition by SVD, as clusters in a hierarchical clustering using Ward’s algorithm, and as clusters using unsupervised machine learning<anchor xml:id="a62"/>. We examine each of the results in this section. 3.1 Principal component analysis (SVD) In Figure  we show the leading  modes in both the weighted (dark) and un-weighted (lighter) representation. In total, the first  modes explain % and % of the variance from the mean centered and raw time series, respectively. <anchor xml:id="a63"/>The modes are from meancentered emotional arcs, such that the first SVD mode need not extract the average from the labMT scores nor the positivity bias present in language<anchor xml:id="a64"/> []. The coefficients for each mode within a single emotional arc are both positive and negative, so we need to consider both the modes and their negation. We can immediately recognize the familiar shapes of core emotional arcs in the first four modes, and compositions of these emotional arcs in modes  and . We observe ‘Rags to riches’ (mode , positive), ‘Tragedy’ or ‘Riches to rags’ (mode , negative), Vonnegut’s ‘Man in a hole’ (mode , positive), ‘Icarus’ (mode , negative), ‘Cinderella’ (mode , positive), ‘Oedipus’ (mode , negative). We choose to include modes - only for completeness, as <anchor xml:id="a65"/>these high frequency modes have little contribution to variance and do not align with core emotional arc archetypes from other methods<anchor xml:id="a66"/> (more below). Reagan et al. EPJ Data Science (2016) 5:31 Page 6 of 12 Figure 3 Top 12 modes from the singular value decomposition of 1,327 Project Gutenberg books. We show in a lighter color modes weighted by their corresponding singular value, where we have scaled the matrix (cid:2) such that the first entry is 1 for comparison (for reference, the largest singular value is 34.5). The mode coefficients normalized for each book are shown in the right panel accompanying each mode, in the range –1 to 1, with the ‘Tukey’ box plot. We emphasize that by definition of the SVD, the mode coefficients in W can be either positive and negative, such that the modes themselves explain variance with both the positive and negative version. In the right panels of each mode in Figure  we project the , stories onto each of first six modes and show the resulting coefficients. While none are far from  (as would be expected), mode  has a mean slightly above  and both modes  and  have means slightly below . To sort the books by their coefficient for each mode, we normalize the coefficients within each book in the rows of W to sum to , accounting for books with higher total energy, and these are the coefficients shown in the right panels of each mode in Figure . In Appendix E in Additional file , we provide supporting, intuitive details of the SVD method, as well as example emotional arc reconstruction using the modes (see Figures S-S in Additional file ). As expected, less than  modes are enough to reconstruct the emotional arc to a degree of accuracy visible to the eye. We show labeled examples of the emotional arcs closest to the top  modes in Figure  and Figure S in Additional file . We present both the positive and negative modes, and the stories closest to each by sorting on the coefficient for that mode. For the positive stories, we sort in ascending order, and vice versa. Mode , which encompasses both the ‘Rags to riches’ and ‘Tragedy’ emotional arcs, captures % of the variance of the entire space. We examine the closest stories to both sides of modes -, and direct the reader to Figure S in Additional file  for more details on the higher order modes. The two stories that have the most support from the ‘Rags to riches’ mode are The Winter’s Tale (,) and Oscar Wilde, Art and Morality: A Defence of ‘The Picture of Dorian Gray’ (,). Among Reagan et al. EPJ Data Science (2016) 5:31 Page 7 of 12 Figure 4 First 3 SVD modes and their negation with the closest stories to each. To locate the emotional arcs on the same scale as the modes, we show the modes directly from the rows of V T and weight the emotional arcs by the inverse of their coefficient in W for the particular mode. The closest stories shown for each mode are those stories with emotional arcs which have the greatest coefficient in W. In parentheses for each story is the Project Gutenberg ID and the number of downloads from the Project Gutenberg website, respectively. Links below each story point to an interactive visualization on http://hedonometer.org which enables detailed exploration of the emotional arc for the story. the most categorical tragedies we find Lady Susan () and Warlord of Kor (,). Number  in the sorted list of tragedies is perhaps the most famous tragedy: Romeo and Juliet by William Shakespeare. Mode  is the ‘Man in a hole’ emotional arc, and we find the stories which most closely follow this path to be The Magic of Oz () and Children of the Frost (,). The negation of mode  most closely resembles the emotional arc of the ‘Icarus’ narrative. For this emotional arc, the most characteristic stories are Shadowings (,) and Battle-Pieces and Aspects of the War (,). Mode  is the ‘Cinderella’ emotional arc, and includes Mystery of the Hasty Arrow (,) and Through the Magic Dorr (,). The negation of Mode , which we refer to as ‘Oedipus’, is found most characteristically in This World is Taboo (,), Old Indian Days (), and The Evil Guest (,). We also note that the spread of the stories from their core mode increases strongly for the higher modes. 3.2 Hierarchical clustering We show a dendrogram of the  clusters with highest linkage cost in Figure . The average silhouette coefficient is shown on the bottom of Figure , and the distributions of silhouette values within each cluster (see Figures S and S in Additional file ) can be used to analyze the appropriate number of clusters []. A characteristic book from each cluster is shown on the leaf nodes by sorting the books within each cluster by the total Reagan et al. EPJ Data Science (2016) 5:31 Page 8 of 12 Figure 5 Dendrogram from the hierarchical clustering procedure using Ward’s minimum variance method. For each <anchor xml:id="a67"/>cluster, a selection of the 20 most central books to a fully-connected network of books are shown along with the average of the emotional arc for all books in the cluster, along with the cluster ID and number of books in each cluster<anchor xml:id="a68"/> (shown in parenthesis). <anchor xml:id="a69"/>The cluster ID is given by numbering the clusters in order of linkage starting at 0, with each individual book representing a cluster of size 1 such that the final cluster (all books) has the ID 2(N – 1) for the N = 1,327 books<anchor xml:id="a70"/>. At the bottom, we show the average Silhouette value for all books, with higher value representing a more appropriate number of clusters. For each of the 60 leaf nodes (right side) we show the number of books within the cluster and the most central book to that cluster’s book network. distance to other books in the cluster (e.g., considering each intra-cluster collection as a fully connected weighted network, we take the most central node), and in parenthesis the number of books in that cluster. In other words, we label each cluster by considering the network centrality of the fully connected cluster with edges weighted by the distance between stories. By cutting the dendrogram in Figure  at various linkage costs we are able to extract clusters of the desired granularity. For the cuts labeled C, C, and C, we show these clusters in Figures S, S, and S in Additional file . We find the first four of our final six arcs appearing among the eight most different clusters (Figure S in Additional file ). The clustering method groups stories with a ‘Man in a hole’ emotional arc for a range of different variances, separate from the other arcs, in total these clusters (panels A, E, and I of Figure S in Additional file ) account for % of the Gutenberg corpus. The remainder of the stories have emotional arcs that are clustered among the ‘Tragedy’ arc (%), ‘Rags to riches’ arc (%), and the ‘Oedipus’ arc (%). A more detailed analysis of the results from hierarchical clustering can be found in Appendix F in Additional file , and this result generally agrees with other attempts that use only hierarchical clustering []. Reagan et al. EPJ Data Science (2016) 5:31 Page 9 of 12 Figure 6 Results of the SOM applied to Project Gutenberg books. Left panel: Nodes on the 2D SOM grid are shaded by the number of stories for which they are the winner. Right panel: The B-matrix shows that there are clear clusters of stories in the 2D space imposed by the SOM network. 3.3 Self-organizing map (SOM) Finally, we apply Kohonen’s self-organizing map (SOM) and find core arcs from unsupervised machine learning on the emotional arcs. On the two dimensional component plane, the prescribed network topology, we find seven spatially coherent groups, with five emotional arcs. These spatial groups are comprised of stories with core emotional arcs of differing variance. In Figure  we see both the B-matrix to demonstrate the strength of spatial clustering and a heat-map showing where we find the winning nodes. The A-I labels refer to the individual nodes shown in Figure S in Additional file , and we observe seven spatial groups in the both panels of Figure : () A and G, () B and I, () C, () D, () E, and () H, and () F. These spatial clusters reinforce the visible similarity of the winning node arcs, given that nodes H and F are close spatially but separated by the B-matrix and contain very distinct arcs. We show the winning node emotional arcs and the arcs of books for which they are the winners in Figure S in Additional file . The legend shows the node ID, numbers the cluster by size, and in parentheses indicates the size of the cluster on that individual node. In panels A and G we see varying strengths of the ‘Man in a hole’ emotional arc. In panels B and I, the second largest individual cluster consists of the ‘Rags to riches’ arcs. In panel C, and in panel F, we find the ‘Oedipus’ emotional arc, with a more pronounced positive start and decline in panel C. In panel D we see the ‘Icarus’ arc, and in panel E and panel H we see the ‘Tragedy’ arc. Each of these top stories are all readily identifiable, yet again demonstrating the universality of these story types. 3.4 Null comparison There are many possible emotional arcs in the space that we consider. To demonstrate that these specific arcs are uniquely compelling as stories written by and for homo narrativus, we consider the true emotional arcs in relation to their most suitable comparison: the book with randomly shuffled words (‘word salad’) and the resulting text from a -gram Markov model trained on the individual book itself (‘nonsense’). We chose to compare to ‘word salad’ and ‘nonsense’ versions as they are more representative of a null model: written stories that are without coherent plot or structure to generate a coherent emotional arc, which is not true of a stochastic process (e.g., a random walk model or noise). Examples of the emotional arc and null emotional arcs for a single book are shown in Figure S in Additional file , with  ‘word salad’ and ‘nonsense’ versions. Sampled text using each method is given in Appendix C in Additional file . We re-run each method on Reagan et al. EPJ Data Science (2016) 5:31 Page 10 of 12 Figure 7 Download statistics for stories whose SVD Modes comprise more than 2.5% of books, for N the total number of books and Nm the number corresponding to the particular mode. Modes SV 3 through -SV 4 (both polarities of modes 3 and 4) exhibit a higher average number of downloads and more variance than the others. Mode arcs are rows of V T and the download distribution is show in log10 space from 20 to 30,000 downloads. the English fiction Gutenberg Corpus with the null versions of each book and verify that the emotional arcs of real stories are not simply an artifact. The singular value spectrum from the SVD is flatter, with higher-frequency modes appearing more quickly, and in total representing % of the total variance present in real stories (see Figures S and S in Additional file ). Hierarchical clustering generates less distinct clusters with considerably lower linkage cost (final linkage cost , vs ,) for the emotional arcs from nonsense books, and the winning node vectors on a self-organizing map lack coherent structure (see Figures S and S in Appendix H in Additional file ). 3.5 The success of stories To examine how the emotional trajectory impacts success, in Figure  we examine the downloads for all of the books that are most similar to each SVD mode (for additional modes, see Figure S in Appendix B in Additional file ). We find that the first four modes, which contain the greatest total number of books, are not the most popular. Along with the negative of mode , both polarities of modes  and  have markedly higher median downloads, while we discount the importance of the mean with the high variance. The success of the stories underlying these emotional arcs suggests that the emotional experience of readers strongly affects how stories are shared. We find ‘Icarus’ (-SV ), ‘Oedipus’ (-SV ), and two sequential ‘Man in a hole’ arcs (SV ), are the three most successful emotional arcs. These results are influenced by individual books within each mode which have high numbers of downloads, and we refer the reader to the download-sorted tables for each mode in Appendix E in Additional file . 4 Conclusion Using three distinct methods, we have demonstrated that there is strong support for six core emotional arcs. Our methodology brings to bear a cross section of data science tools with a knowledge of the potential issues that each present. We have also shown that consideration of the emotional arc for a given story is important for the success of that story. <anchor xml:id="a71"/>Of course, downloads are only a rough proxy for success, and this work may provide an outline for more detailed analysis of the factors that impact meaningful measures of success, i.e., sales or cultural influence.<anchor xml:id="a72"/> Our approach could be applied in the opposite direction: namely by beginning with the emotional arc and aiding in the generation of compelling stories []. Understanding the emotional arcs of stories may be useful to aid in constructing arguments [] and teaching common sense to artificial intelligence systems []. Reagan et al. EPJ Data Science (2016) 5:31 Page 11 of 12 Extensions of our analysis that use a more curated selection of full-text fiction can answer more detailed questions about which stories are the most popular throughout time, and across regions []. Automatic extraction of character networks would allow a more detailed analysis of plot structure for the Project Gutenberg corpus used here [, , ]. Bridging the gap between the full text stories [] and systems that analyze plot sequences will allow such systems to undertake studies of this scale []. Place could also be used to consider separate character networks through time, and to help build an analog to Randall Munroe’s Movie narrative charts []. We are producing data at an ever increasing rate, including rich sources of stories written to entertain and share knowledge, from books to television series to news. Of profound scientific interest will be the degree to which we can eventually understand the full landscape of human stories, and data driven approaches will play a crucial role. Additional material Additional file 1: Supplementary material (as Appendices A-H). (pdf ) Competing interests The authors declare that they have no competing interests. Authors’ contributions All authors contributed equally to the writing of this paper. All authors read and approved the final manuscript. Author details 1University of Vermont, 85 South Prospect St, Burlington, VT 05405, USA. 2University of Adelaide, Adelaide, SA 5005, Australia. Acknowledgements PSD and CMD acknowledge support from NSF Big Data Grant #1447634. Endnote a The specific classes have labels PN, PR, PS, and PZ. Received: 2 July 2016 Accepted: 26 October 2016<anchor xml:id="a73"/></p>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1140/epjds/s13688-016-0093-1.</note></p>
     </body>
   </text>
 </TEI>

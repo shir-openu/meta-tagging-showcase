@@ -46,263 +46,285 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-28"
-              who="build_paper_edition.py">56 spans placed by verified search</change>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">0 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
-      <span xml:id="t0" from="#a1" to="#a2" type="object_of_study" ana="#object_of_study" resp="#paper">the ReaxFF reactive force field - a classical interatomic potential that describes bond breaking and forming through a bond-order formalism, without explicit quantum mechanics</span>
-      <span xml:id="t1" from="#a11" to="#a12" type="research_question" ana="#research_question" resp="#paper">how a single functional form can cover reactive chemistry across phases, and what the resulting parameter sets can and cannot be combined with</span>
-      <span xml:id="t2" from="#a11" to="#a12" type="contribution" ana="#contribution" resp="#paper">a review of ReaxFF&#x27;s development, applications and directions - including an explicit account of why its parameter sets fall into two mutually untransferable branches</span>
-      <span xml:id="t3" from="#a1" to="#a2" type="claim_type" ana="#claim_type" resp="#paper">method</span>
-      <span xml:id="t4" from="#a13" to="#a14" type="phenomenon" ana="#phenomenon" resp="#paper">a method whose defining choice is to give an element ONE description everywhere, and whose parameter sets have consequently forked into two populations that cannot be mixed</span>
-      <span xml:id="t5" from="#a7" to="#a8" type="method" ana="#method" resp="#paper">a review of the bond-order formalism and of the published parameterisations, organised by development branch and by the training sets each was fitted or validated against<term>a review of the bond-order formalism and of the published parameterisations, organised by development branch and by the training sets each was fitted or validated against</term></span>
-      <span xml:id="t6" from="#a13" to="#a14" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">ReaxFF&#x27;s defining choice is that an element has ONE description regardless of environment, which is what lets an atom migrate between phases mid-simulation. The cost is that a parameter set cannot be specialised without changing the shared atom-level parameters - so the specialisation became a BRANCH instead of a TYPE. REFUSING TO SPLIT THE VOCABULARY SPLIT THE PARAMETER SETS<term>one type, two branches</term></span>
-      <span xml:id="t7" from="#a15" to="#a16" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">liquid water was not a development aim for the 2008 combustion field because every intended application was above the boiling point. That is a defensible scope decision at the time and it is why the field fails on liquid water in 2009, and why a second branch had to exist<term>the scope decision that became a failure</term></span>
-      <span xml:id="t8" from="#a19" to="#a20" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">parameter sets on the same branch combine by fitting only the bond and angular terms between the newly combined elements; across branches it takes extensive refitting, and combustion-to-aqueous is the easier direction. THE ASYMMETRY IS A FACT ABOUT THE FITTING HISTORY, not about the chemistry<term>a fork that cannot be undone cheaply</term></span>
-      <span xml:id="t9" from="#a21" to="#a22" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">several independent branches - B/N/H, Ni/C/H - began as non-transferable descriptions and were later merged into combustion or aqueous through extensive refitting. A vocabulary reconciled by redoing the work rather than by declaring the terms equivalent<term>branches merge by refitting, not by agreement</term></span>
-      <span xml:id="t10" from="#a3" to="#a4" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">QM structure and energy data train the empirical field, which then runs at scales orders of magnitude beyond what QM can reach. The potential is a compression of the quantum calculation, and every branch is a different compression of a different part of it<term>accuracy traded for scale, on purpose</term></span>
-      <span xml:id="t11" from="#a11" to="#a12" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">parameter sets cannot be used in any combination and expect satisfactory transferability - there are two branches and they are only intra-transferable</span>
-      <span xml:id="t12" from="#a13" to="#a14" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">the absence of atom typing makes force-field development significantly more complex</span>
-      <span xml:id="t13" from="#a15" to="#a16" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">the 2008 combustion force field fails to describe liquid water, and could not be reparameterised for it without changing general and atom-specific parameters</span>
-      <span xml:id="t14" from="#a19" to="#a20" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">transferring parameters between branches requires extensive refitting, and the direction matters</span>
-      <span xml:id="t15" from="#a3" to="#a4" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">empirical potentials trade accuracy for computational expense by construction</span>
-      <span xml:id="t16" from="#a1" to="#a2" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">the bond-order concept from chemical bonding theory, used as the empirical function of interatomic distance that lets a classical potential break bonds</span>
-      <span xml:id="t17" from="#a7" to="#a8" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">later parameterisations validated against the FULL training sets of the earlier ones they supersede - the 2008-C/H/O set against the entire 2001-C/H training set<note>eliminates: a newer parameter set that is better on its own data and worse on the old - the earlier training set is re-run rather than retired · outcome: held</note></span>
-      <span xml:id="t18" from="#a15" to="#a16" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">water tested in both phases under the same force field, rather than only in the phase the field was built for<note>eliminates: a force field that looks general because it was only asked about the case it was fitted to - testing the other phase is what exposed the branch · outcome: failed</note></span>
-      <span xml:id="t19" from="#a21" to="#a22" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">independent branches merged into combustion or aqueous through extensive refitting, with the high-energy-material description reported as merged without an obvious loss in accuracy<note>eliminates: a merge that silently degrades the absorbed branch - the accuracy claim is made explicitly at the point of merging · outcome: held</note></span>
-      <span xml:id="t20" from="#a5" to="#a6" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">the same element treated with one formalism across gas, liquid and solid, checked by letting atoms migrate between phases within a simulation<note>eliminates: phase boundaries being imposed by the model rather than by the physics · outcome: held</note></span>
-      <span xml:id="t21" from="#a9" to="#a10" type="controls" ana="#controls[4]" resp="#tagger" cert="0.85">other ReaxFF implementations developed outside the originating group, noted as existing<note>eliminates: that a result depends on this particular ReaxFF implementation rather than on the force field itself · outcome: absent-stated-about-other</note></span>
-      <span xml:id="t22" from="#a1" to="#a2" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">ReaxFF<term>ReaxFF</term></span>
-      <span xml:id="t23" from="#a13" to="#a14" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">atom typing<term>atom typing</term></span>
-      <span xml:id="t24" from="#a13" to="#a14" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">CHARMM<term>CHARMM</term></span>
-      <span xml:id="t25" from="#a17" to="#a18" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">combustion branch<term>combustion branch</term></span>
-      <span xml:id="t26" from="#a17" to="#a18" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">aqueous branch<term>aqueous branch</term></span>
-      <span xml:id="t27" from="#a11" to="#a12" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">transferability<term>transferability</term></span>
-      <span xml:id="t28" from="#a15" to="#a16" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">gas-phase<term>gas-phase</term></span>
-      <span xml:id="t29" from="#a15" to="#a16" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">liquid<term>liquid</term></span>
-      <span xml:id="t30" from="#a7" to="#a8" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">training set<term>training set</term></span>
-      <span xml:id="t31" from="#a1" to="#a2" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">bond order<term>bond order</term></span>
-      <span xml:id="t32" from="#a5" to="#a6" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">an oxygen atom - IN ReaxFF&#x27;s DESIGN: one type, treated with the same mathematical formalism whether it is O2 in gas, water in liquid, or a solid oxide</span>
-      <span xml:id="t33" from="#a17" to="#a18" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">an oxygen atom - IN PRACTICE: described by combustion-branch parameters or by aqueous-branch parameters, which are not directly transferable</span>
-      <span xml:id="t34" from="#a15" to="#a16" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">water - UNDER THE 2008 COMBUSTION FORCE FIELD: accurately described as a gas-phase molecule</span>
-      <span xml:id="t35" from="#a15" to="#a16" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">water - UNDER THE SAME FORCE FIELD, AS A LIQUID: not described at all, because liquid water was not a development aim at temperatures above the boiling point</span>
-      <span xml:id="t36" from="#a19" to="#a20" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">a parameter set - WITHIN ITS BRANCH: directly combinable, needing only bond and angular terms between the newly combined elements</span>
-      <span xml:id="t37" from="#a19" to="#a20" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">a parameter set - ACROSS BRANCHES: requiring extensive refitting, with combustion to aqueous the easier direction</span>
-      <span xml:id="t38" from="#a13" to="#a14" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">distinguishes-from → AMBER and CHARMM, non-reactive force fields that type atoms by chemical environment</span>
-      <span xml:id="t39" from="#a11" to="#a12" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">qualifies → ReaxFF&#x27;s own transferability claim, by stating that parameter sets fall into two branches that are only intra-transferable</span>
-      <span xml:id="t40" from="#a3" to="#a4" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">builds-on → quantum-mechanical structure and energy data, used as the training data for every parameterisation</span>
-      <span xml:id="t41" from="#a17" to="#a18" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">combustion branch —distinct-from→ aqueous branch<note>differs in: which O and H parameters, under an identical functional form · the relation itself is separately evidenced · strength of the relation: 0.95</note><term>combustion branch</term><term>aqueous branch</term></span>
-      <span xml:id="t42" from="#a13" to="#a14" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">ReaxFF —distinct-from→ CHARMM<note>differs in: whether an atom&#x27;s parameters depend on the environment it is in · the relation itself is separately evidenced · strength of the relation: 0.95</note><term>ReaxFF</term><term>CHARMM</term></span>
-      <span xml:id="t43" from="#a15" to="#a16" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">gas-phase —distinct-from→ liquid<note>differs in: which phase the same molecule is in · the relation itself is separately evidenced · strength of the relation: 0.95</note><term>gas-phase</term><term>liquid</term></span>
-      <span xml:id="t44" from="#a13" to="#a14" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">there is only one oxygen type in ReaxFF regardless of chemical environment, unlike AMBER and CHARMM<term>there is only one oxygen type in ReaxFF regardless of chemical environment, unlike AMBER and CHARMM</term></span>
-      <span xml:id="t45" from="#a11" to="#a12" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">parameter sets fall into two branches, combustion and aqueous, that are only intra-transferable<term>parameter sets fall into two branches, combustion and aqueous, that are only intra-transferable</term></span>
-      <span xml:id="t46" from="#a15" to="#a16" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">the 2008 combustion force field describes water as a gas accurately and fails to describe it as a liquid<term>the 2008 combustion force field describes water as a gas accurately and fails to describe it as a liquid</term></span>
-      <span xml:id="t47" from="#a17" to="#a18" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">the aqueous branch was created because the combustion field could not be parameterised for liquid water without changing general and atom-specific parameters<term>the aqueous branch was created because the combustion field could not be parameterised for liquid water without changing general and atom-specific parameters</term></span>
-      <span xml:id="t48" from="#a19" to="#a20" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">parameter sets on the same branch combine by fitting only bond and angular terms; across branches requires extensive refitting<term>parameter sets on the same branch combine by fitting only bond and angular terms; across branches requires extensive refitting</term></span>
-      <span xml:id="t49" from="#a21" to="#a22" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">independent branches such as B/N/H and Ni/C/H were later merged into combustion or aqueous through extensive refitting<term>independent branches such as B/N/H and Ni/C/H were later merged into combustion or aqueous through extensive refitting</term></span>
-      <span xml:id="t50" from="#a5" to="#a6" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">an element is treated with the same formalism in gas, liquid and solid, which is what allows atoms to migrate between phases in a simulation<term>an element is treated with the same formalism in gas, liquid and solid, which is what allows atoms to migrate between phases in a simulation</term></span>
-      <span xml:id="t51" from="#a1" to="#a2" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">an empirical interatomic potential cast within a bond-order formalism, describing chemical bonding implicitly and so allowing reactive events without expensive QM calculations<term>ReaxFF</term></span>
-      <span xml:id="t52" from="#a17" to="#a18" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">a parameter-set grouping employing the same functional form as the 2008 combustion description but with different O/H atom and bond parameters, not directly transferable with it<term>aqueous branch</term></span>
-      <span xml:id="t53" from="#a15" to="#a16" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">the C/H/O combustion force field that describes gas-phase water and fails on liquid water<term>2008</term></span>
-      <span xml:id="t54" from="#a11" to="#a12" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">transferability<term>transferability</term></span>
-      <span xml:id="t55" from="#a1" to="#a2" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">bond-order<term>bond-order</term></span>
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the ReaxFF reactive force field - a classical interatomic potential that describes bond breaking and forming through a bond-order formalism, without explicit quantum mechanics</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how a single functional form can cover reactive chemistry across phases, and what the resulting parameter sets can and cannot be combined with</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a review of ReaxFF&#x27;s development, applications and directions - including an explicit account of why its parameter sets fall into two mutually untransferable branches</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>a method whose defining choice is to give an element ONE description everywhere, and whose parameter sets have consequently forked into two populations that cannot be mixed</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>a review of the bond-order formalism and of the published parameterisations, organised by development branch and by the training sets each was fitted or validated against</label>
+        <term>a review of the bond-order formalism and of the published parameterisations, organised by development branch and by the training sets each was fitted or validated against</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>ReaxFF&#x27;s defining choice is that an element has ONE description regardless of environment, which is what lets an atom migrate between phases mid-simulation. The cost is that a parameter set cannot be specialised without changing the shared atom-level parameters - so the specialisation became a BRANCH instead of a TYPE. REFUSING TO SPLIT THE VOCABULARY SPLIT THE PARAMETER SETS</label>
+        <term>one type, two branches</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>liquid water was not a development aim for the 2008 combustion field because every intended application was above the boiling point. That is a defensible scope decision at the time and it is why the field fails on liquid water in 2009, and why a second branch had to exist</label>
+        <term>the scope decision that became a failure</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>parameter sets on the same branch combine by fitting only the bond and angular terms between the newly combined elements; across branches it takes extensive refitting, and combustion-to-aqueous is the easier direction. THE ASYMMETRY IS A FACT ABOUT THE FITTING HISTORY, not about the chemistry</label>
+        <term>a fork that cannot be undone cheaply</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>several independent branches - B/N/H, Ni/C/H - began as non-transferable descriptions and were later merged into combustion or aqueous through extensive refitting. A vocabulary reconciled by redoing the work rather than by declaring the terms equivalent</label>
+        <term>branches merge by refitting, not by agreement</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>QM structure and energy data train the empirical field, which then runs at scales orders of magnitude beyond what QM can reach. The potential is a compression of the quantum calculation, and every branch is a different compression of a different part of it</label>
+        <term>accuracy traded for scale, on purpose</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>parameter sets cannot be used in any combination and expect satisfactory transferability - there are two branches and they are only intra-transferable</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the absence of atom typing makes force-field development significantly more complex</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the 2008 combustion force field fails to describe liquid water, and could not be reparameterised for it without changing general and atom-specific parameters</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>transferring parameters between branches requires extensive refitting, and the direction matters</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>empirical potentials trade accuracy for computational expense by construction</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>the bond-order concept from chemical bonding theory, used as the empirical function of interatomic distance that lets a classical potential break bonds</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>later parameterisations validated against the FULL training sets of the earlier ones they supersede - the 2008-C/H/O set against the entire 2001-C/H training set</label>
+        <note>eliminates: a newer parameter set that is better on its own data and worse on the old - the earlier training set is re-run rather than retired · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>water tested in both phases under the same force field, rather than only in the phase the field was built for</label>
+        <note>eliminates: a force field that looks general because it was only asked about the case it was fitted to - testing the other phase is what exposed the branch · outcome: failed</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>independent branches merged into combustion or aqueous through extensive refitting, with the high-energy-material description reported as merged without an obvious loss in accuracy</label>
+        <note>eliminates: a merge that silently degrades the absorbed branch - the accuracy claim is made explicitly at the point of merging · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>the same element treated with one formalism across gas, liquid and solid, checked by letting atoms migrate between phases within a simulation</label>
+        <note>eliminates: phase boundaries being imposed by the model rather than by the physics · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[4]" resp="#tagger" cert="0.85">
+        <label>other ReaxFF implementations developed outside the originating group, noted as existing</label>
+        <note>eliminates: that a result depends on this particular ReaxFF implementation rather than on the force field itself · outcome: absent-stated-about-other</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>ReaxFF</label>
+        <term>ReaxFF</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>atom typing</label>
+        <term>atom typing</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>CHARMM</label>
+        <term>CHARMM</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>combustion branch</label>
+        <term>combustion branch</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>aqueous branch</label>
+        <term>aqueous branch</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>transferability</label>
+        <term>transferability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>gas-phase</label>
+        <term>gas-phase</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>liquid</label>
+        <term>liquid</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>training set</label>
+        <term>training set</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>bond order</label>
+        <term>bond order</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>an oxygen atom - IN ReaxFF&#x27;s DESIGN: one type, treated with the same mathematical formalism whether it is O2 in gas, water in liquid, or a solid oxide</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>an oxygen atom - IN PRACTICE: described by combustion-branch parameters or by aqueous-branch parameters, which are not directly transferable</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>water - UNDER THE 2008 COMBUSTION FORCE FIELD: accurately described as a gas-phase molecule</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>water - UNDER THE SAME FORCE FIELD, AS A LIQUID: not described at all, because liquid water was not a development aim at temperatures above the boiling point</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>a parameter set - WITHIN ITS BRANCH: directly combinable, needing only bond and angular terms between the newly combined elements</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>a parameter set - ACROSS BRANCHES: requiring extensive refitting, with combustion to aqueous the easier direction</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>distinguishes-from → AMBER and CHARMM, non-reactive force fields that type atoms by chemical environment</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>qualifies → ReaxFF&#x27;s own transferability claim, by stating that parameter sets fall into two branches that are only intra-transferable</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>builds-on → quantum-mechanical structure and energy data, used as the training data for every parameterisation</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>combustion branch —distinct-from→ aqueous branch</label>
+        <term>combustion branch</term>
+        <term>aqueous branch</term>
+        <note>differs in: which O and H parameters, under an identical functional form · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>ReaxFF —distinct-from→ CHARMM</label>
+        <term>ReaxFF</term>
+        <term>CHARMM</term>
+        <note>differs in: whether an atom&#x27;s parameters depend on the environment it is in · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>gas-phase —distinct-from→ liquid</label>
+        <term>gas-phase</term>
+        <term>liquid</term>
+        <note>differs in: which phase the same molecule is in · the relation itself is separately evidenced · strength of the relation: 0.95</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>there is only one oxygen type in ReaxFF regardless of chemical environment, unlike AMBER and CHARMM</label>
+        <term>there is only one oxygen type in ReaxFF regardless of chemical environment, unlike AMBER and CHARMM</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>parameter sets fall into two branches, combustion and aqueous, that are only intra-transferable</label>
+        <term>parameter sets fall into two branches, combustion and aqueous, that are only intra-transferable</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the 2008 combustion force field describes water as a gas accurately and fails to describe it as a liquid</label>
+        <term>the 2008 combustion force field describes water as a gas accurately and fails to describe it as a liquid</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the aqueous branch was created because the combustion field could not be parameterised for liquid water without changing general and atom-specific parameters</label>
+        <term>the aqueous branch was created because the combustion field could not be parameterised for liquid water without changing general and atom-specific parameters</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>parameter sets on the same branch combine by fitting only bond and angular terms; across branches requires extensive refitting</label>
+        <term>parameter sets on the same branch combine by fitting only bond and angular terms; across branches requires extensive refitting</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>independent branches such as B/N/H and Ni/C/H were later merged into combustion or aqueous through extensive refitting</label>
+        <term>independent branches such as B/N/H and Ni/C/H were later merged into combustion or aqueous through extensive refitting</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>an element is treated with the same formalism in gas, liquid and solid, which is what allows atoms to migrate between phases in a simulation</label>
+        <term>an element is treated with the same formalism in gas, liquid and solid, which is what allows atoms to migrate between phases in a simulation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>an empirical interatomic potential cast within a bond-order formalism, describing chemical bonding implicitly and so allowing reactive events without expensive QM calculations</label>
+        <term>ReaxFF</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>a parameter-set grouping employing the same functional form as the 2008 combustion description but with different O/H atom and bond parameters, not directly transferable with it</label>
+        <term>aqueous branch</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>the C/H/O combustion force field that describes gas-phase water and fails on liquid water</label>
+        <term>2008</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>transferability</label>
+        <term>transferability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>bond-order</label>
+        <term>bond-order</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
     </spanGrp>
   </standOff>
   <text>
     <body>
-        <p><anchor xml:id="a0"/> www.nature.com/npjcompumats All rights reserved 2057-3960/16</p>
-        <p>OPEN</p>
-        <p>REVIEW ARTICLE The ReaxFF reactive force-field: development, applications and future directions</p>
-        <p>Thomas P Senftle1, Sungwook Hong2, Md Mahbubul Islam2, Sudhir B Kylasa3, Yuanxia Zheng4, Yun Kyung Shin2, Chad Junkermeier2, Roman Engel-Herbert4, Michael J Janik1, Hasan Metin Aktulga5, Toon Verstraelen6, Ananth Grama3 and Adri CT van Duin2</p>
-        <p>The reactive force-field (ReaxFF) interatomic potential is a powerful computational tool for exploring, developing and optimizing material properties. Methods based on the principles of quantum mechanics (QM), while offering valuable theoretical guidance at the electronic level, are often too computationally intense for simulations that consider the full dynamic evolution of a system. <anchor xml:id="a1"/>Alternatively, empirical interatomic potentials that are based on classical principles require significantly fewer computational resources, which enables simulations to better describe dynamic processes over longer timeframes and on larger scales. Such methods, however, typically require a predefined connectivity between atoms, precluding simulations that involve reactive events. The ReaxFF method was developed to help bridge this gap. Approaching the gap from the classical side, ReaxFF casts the empirical interatomic potential within a bond-order formalism, thus implicitly describing chemical bonding without expensive QM calculations.<anchor xml:id="a2"/> This article provides an overview of the development, application, and future directions of the ReaxFF method.</p>
-        <p>npj Computational Materials (2016) 2, 15011; doi:10.1038/npjcompumats.2015.11; published online 4 March 2016</p>
-        <p>INTRODUCTION</p>
-        <p>Atomistic-scale computational techniques provide a powerful means for exploring, developing and optimizing promising properties of novel materials. Simulation methods based on quantum mechanics (QM) have grown in popularity over recent decades due to the development of user-friendly software packages making QM level calculations widely accessible. Such availability has proved particularly relevant to material design, where QM frequently serves as a theoretical guide and screening tool. Unfortunately, the computational cost inherent to QM level calculations severely limits simulation scales. This limitation often excludes QM methods from considering the dynamic evolution of a system, thus hampering our theoretical understanding of key factors affecting the overall behaviour of a material. <anchor xml:id="a3"/>To alleviate this issue, QM structure and energy data are used to train empirical force fields that require significantly fewer computational resources, thereby enabling simulations to better describe including reactive dynamic processes. Such empirical methods, force-field (ReaxFF),1 trade accuracy for lower computational expense, making it possible to reach simulation scales that are orders of magnitude beyond what is tractable for QM.<anchor xml:id="a4"/></p>
-        <p>Atomistic force-field methods utilise empirically determined interatomic potentials to calculate system energy as a function of atomic positions. Classical approximations are well suited for nonreactive interactions, such as angle-strain represented by harmonic potentials, dispersion represented by van der Waals potentials and Coulombic interactions represented by various polarisation schemes. However, such descriptions are inadequate for modelling changes in atom connectivity (i.e., for modelling chemical reactions as bonds break and form). This motivates the</p>
-        <p>terms</p>
-        <p>in the force-field inclusion of connection-dependent description, yielding a reactive force-field. the interatomic potential describes reactive events through a bondorder formalism, where bond order is empirically calculated from interatomic distances. Electronic interactions driving chemical bonding are treated implicitly, allowing the method to simulate reaction chemistry without explicit QM consideration.</p>
-        <p>In ReaxFF,</p>
-        <p>The classical treatment of reactive chemistry made available by the ReaxFF methodology has opened the door for numerous studies of phenomena occurring on scales that were previously inaccessible to computational methods. <anchor xml:id="a5"/>In particular, ReaxFF enables simulations involving reactive events at the interface liquid, and gas phases, which is made possible between solid, because the ReaxFF description of each element is transferable across phases. For example, an oxygen atom is treated with the same mathematical formalism whether that oxygen is in the gas phase as O2, in the liquid phase within an H2O molecule, or incorporated in a solid oxide.<anchor xml:id="a6"/> Such transferability, coupled with a lower computational expense allowing for longer simulation timescales, allows ReaxFF to consider phenomena dependent not only on the reactivity of the involved species, but also on dynamic factors, such as diffusivity and solubility, affecting how species migrate through the system. This allows ReaxFF to model complex processes involving multiple phases in contact with one another.</p>
-        <p>To demonstrate these capabilities, this article will review the development and application of the ReaxFF method. In ‘History of ReaxFF development’, we discuss initial development choices shaping the overall ReaxFF formalism, whereas ‘Current ReaxFF methodology’ available ReaxFF</p>
-        <p>and ‘Overview of</p>
-        <p>1Department of Chemical Engineering, Pennsylvania State University, University Park, PA, USA; 2Department of Mechanical and Nuclear Engineering, Pennsylvania State University, University Park, PA, USA; 3Department of Computer Science and Engineering, Purdue, West Lafayette, IN, USA; 4Department of Materials Science and Engineering, Pennsylvania State University, University Park, PA, USA; 5Department of Computer Science and Engineering, Michigan State University, East Lansing, MI, USA and 6Center for Molecular Modeling (CMM), Ghent University, Zwijnaarde, Belgium. Correspondence: ACT van Duin (acv13@psu.edu) Received 2 September 2015; revised 16 November 2015; accepted 16 November 2015</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>2</p>
-        <p>parameterisations and development branches’ outline the currently employed method and available parameter sets, respectively. Comparisons with other reactive potentials available in the literature are briefly discussed in ‘Comparison to similar methods’. Examples of various ReaxFF applications are provided in ‘Applications of ReaxFF’, with emphasis placed on demonstrating the breadth of systems that can be modelled with the method. future extensions and improvements are Finally, plans for discussed in ‘Future developments and outlook’.</p>
-        <p>DEVELOPMENT OF THE ReaxFF METHOD</p>
-        <p>form of</p>
-        <p>functional</p>
-        <p>History of ReaxFF development The current the ReaxFF potential, best described in the Chenoweth et al.2 hydrocarbon combustion work (herein referred to as 2008-C/H/O),2 has demonstrated significant transferability across the periodic table. It is important to note, however, that the 2008 functional form is different from the original 2001 ReaxFF hydrocarbon description,1 as well as from the 2003 extension to silicon and silica.3 Although conceptually similar to the current 2008-C/H/O functional form, the 2001 hydrocarbon description employed the same dissociation energy for C–C single, double and triple bonds. This approach was reasonable for hydrocarbons, but could not be extended to treat Si–O single and double bonds. As such, the 2003 Si/O/H extension required separate parameters describing single-, double- and triple-bond dissociation. Furthermore a lone-pair energy term was introduced to handle formation and dissociation of oxygen lone-pairs. The 2003 Si/O functional form was further augmented by a three-body conjugation term introduced to handle − NO2 group chemistry in nitramines, where a triple-bond stabilisation term was added to improve the description of terminal triple bonds. This led to the 2003–2005 ReaxFF description for the RDX high-energy material employed by Strachan et al.4,5 to study RDX initiation.</p>
-        <p>Since 2005,</p>
-        <p>the ReaxFF functional</p>
-        <p>(http://www.nanohub.org)</p>
-        <p>form has been stable, although optional additions, such as angular terms to destabilise Mg–Mg–H zero-degree angles6 or double-well angular terms ions,7 have necessary for describing aqueous transition metal occasionally been added to the potential. Goddard and coworkers implemented an additional attractive van der Waals term to improve performance for nitramine crystals (ReaxFF-lg).8 This concept, however, was not made transferable with previous or later ReaxFF parameter sets. The 2005 functional form developed for RDX is the current version of ReaxFF distributed by the van Duin group (commonly referred to as ‘standalone ReaxFF’), as well as integrated in the open-source LAMMPS code,9 supported through Nanohub, and available through the PuReMD (Purdue Reactive Molecular Dynamics) code.10–12 Apart from these open-source distributions, the ReaxFF method is also integrated in ADF13 (released by SCM (http://www. scm.com)) and in Materials Studio (released under license by Accelrys (http://www.accelrys.com)). The pre-2005 ReaxFF parameter sets, including the aforementioned 2001-C/H,1 2003-Si/O,3 and 2004-Al/O14 descriptions, are not supported by any codes curated by the van Duin group or its collaborators. The materials described by the three pre-2005 ReaxFF parameterisations are equally, if not better, described by later parameterisations. <anchor xml:id="a7"/>The 2008-C/H/O parameter set was trained against the entire 2001-C/H training set, while the 2010 and 2011 Si/O/H parameterisations (Fogarty et al.15 on the ‘aqueous branch’ and Neyts et al.16 on the ‘combustion branch’) were validated against the full 2003-Si/O/H training set.<anchor xml:id="a8"/> Finally, the 2008-Al/H ReaxFF description, and later applications to aluminium oxides and aluminosilicates,17–23 fully contain and extend the 2004-Al/O description. <anchor xml:id="a9"/>We are aware of other ReaxFF implementations, often developed by individual<anchor xml:id="a10"/> scientists based on the 2008-C/H/O formalism. Given the</p>
-        <p>Figure 1. (b) elements currently described in available parameter sets.</p>
-        <p>(a) Overview of the ReaxFF total energy components and</p>
-        <p>complexity of the ReaxFF functional it is advisable to validate ReaxFF implementations against the standalone ReaxFF code prior to applying them in production-scale simulations.</p>
-        <p>form,</p>
-        <p>the ReaxFF potential</p>
-        <p>Current ReaxFF methodology The currently implemented form of is described in detail in a recent article,24 and therefore here we only provide a brief overview of the method’s central concepts. ReaxFF employs a bond-order formalism in conjunction with polarisable charge descriptions to describe both reactive and non-reactive interactions between atoms (Figure 1). This allows ReaxFF to accurately model both covalent and electrostatic interactions for a diverse range of materials. Energy contributions to the ReaxFF potential are summarised by the following:</p>
-        <p>Esystem ¼ Ebond þ Eover þ Eangle þ Etors þ EvdWaals þ ECoulomb</p>
-        <p>þ ESpecific:</p>
-        <p>ð1Þ</p>
-        <p>Ebond is a continuous function of interatomic distance and describes the energy associated with forming bonds between atoms. Eangle and Etors are the energies associated with three-body valence angle strain and four-body torsional angle strain. Eover is an energy penalty preventing the over coordination of atoms, which is based on atomic valence rules (e.g., a stiff energy penalty is applied if a carbon atom forms more than four bonds). ECoulomb and EvdWaals are electrostatic and dispersive contributions calculated between all atoms, regardless of connectivity and bond-order. ESpecific represents system specific terms that are not generally included, unless required to capture properties particular to the system of interest, such as lone-pair, conjugation, hydrogen binding, and C2 corrections. Full functional forms can be found in the Supplementary Information of the 2008-C/H/O publication.2</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>3</p>
-        <p>Figure 2. ReaxFF development tree, where parameter sets on a common ‘branch’ are fully transferable with one another. Parameter sets are available in (a) van Duin et al.;1 (b) van Duin et al.;3 (c) Strachan et al.;4,5 (d) Chenoweth et al.;2 (e) Goddard et al.29 and Chenoweth et al.;28 (f) Castro-Marcano et al.163 and Kamat et al.;13 (g) Vasenkov et al.;164 (h) Weismiller et al.;32 (i) Mueller et al.;33 (j) Agrawalla et al.;165 (k) Rahaman et al.;116 (l) Monti et al.;53 (m) Fogarty et al.;15 (n) Raymand et al.;50 (o) Pitman et al.23 and Manzano et al.;166 and (p) van Duin et al.7 (Images adapted with permission from the provided references: (d, e, h–k, o, p) Copyright 2008, 2010, 2011 and 2012 American Chemical Society; (f, n) Copyright 2010 and 2012 Elsevier; (g, m) Copyright 2010 and 2012 AIP Publishing LLC; (l) Copyright 2013 Royal Society of Chemistry).</p>
-        <p>As depicted in Figure 1a, the potential is divided into bondorder-dependent and -independent contributions. Bond order is calculated directly from interatomic distance using the empirical formula:</p>
-        <p>þ BOππ ij (cid:5) pbo2</p>
-        <p>BOij ¼ BOσ þ BOπ ij ij (cid:4) (cid:1) (cid:3) rij ¼ exp pbo1 rσ o (cid:4) (cid:1) (cid:3) rij þ exp pbo5 rππ o</p>
-        <p>(cid:4) þ exp pbo3 (cid:5)</p>
-        <p>pbo6</p>
-        <p>(cid:5)</p>
-        <p>pbo4</p>
-        <p>(cid:1) (cid:3) rij rπ o</p>
-        <p>ð2Þ</p>
-        <p>rij</p>
-        <p>is where BO is the bond order between atoms i and j, interatomic distance, ro terms are equilibrium bond lengths, and pbo terms are empirical parameters. Equation (2) is continuous, containing no discontinuities through transitions between σ, π, and ππ bond character. This yields a differentiable potential energy surface, as required for the calculation of interatomic forces. This bond-order formula accommodates long-distance covalent interactions characteristic in transition state structures, allowing the force-field to accurately predict reaction barriers. This covalent range is typically taken to be 5 Angstrom—which is sufficient for most elements to capture even the weakest of covalent interactions—but can be extended beyond this range; this may occasionally be required for elements with very large covalent radii. This long-distance covalent bond feature, however, necessitates the addition of a bond-order correction to remove spurious bond character between non-bonded neighbours, such as neighbouring H atoms in a methane molecule. Terms in the potential that are dependent on bond order, such as bond energy and angle strains, are calculated directly from the corrected bond order. Finally, a charge equilibration scheme is applied at each iteration to calculate partial atomic charges (see ‘Charge description improvements’), which are then used to calculate Coulombic interactions.</p>
-        <p>Note that the non-bonded and bonded terms in ReaxFF are calculated independently—there is no information transfer</p>
-        <p>between the bond-order-based terms and the van der Waalsand Coulomb-related terms. For all materials and molecules, both bond-order-based terms and nonbonded terms are calculated—without exclusions—enabling ReaxFF to be applied to both predominantly covalent and ionic materials without user input.</p>
-        <p>Overview of available ReaxFF parameterisations and development branches Each element of the periodic table for which a ReaxFF parameter set has been published is highlighted in Figure 1b. <anchor xml:id="a11"/>Although a ReaxFF description exists for these elements, one cannot simply use these parameter sets in any combination and expect to obtain satisfactory transferability. As shown in Figure 2, there are currently two major groupings (i.e., the ReaxFF branches) of parameter sets that are intra-transferable with one another: (1) the combustion branch and (2) the aqueous branch.<anchor xml:id="a12"/> <anchor xml:id="a13"/>In order to explain the existence of branches within a common functional form, we must consider that ReaxFF does not employ atom typing in contrast to popular non-reactive force-fields like strategies, AMBER25 and CHARMM.26 For example, there is only one oxygen type in ReaxFF regardless of the chemical environment in which the oxygen atom finds itself. This is quite helpful because it allows atoms to migrate seamlessly between phases during a simulation. At the same time, however, this results in a significantly more complex force-field development process.<anchor xml:id="a14"/> <anchor xml:id="a15"/>The lack of transferability between branches is evident in the performance of the 2008-C/H/O combustion force-field,2 which accurately describes water as a gas-phase molecule yet fails to describe water as a liquid. During development at that time, describing liquid water was not a particular aim for ReaxFF. Since all intended applications were at temperatures well above the water boiling point, this was not a major development concern.<anchor xml:id="a16"/> In 2009, efforts were initiated to redevelop ReaxFF for aqueous chemistry, and it became clear that the 2008-C/H/O combustion force field, which at that time was already extended to a significant range of</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>4</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>metal oxide (Me = V/Bi/Mo/Nb/Si) materials and catalysts,27–31 could not be parameterised to treat liquid water without changing general-ReaxFF and atom-specific parameters. <anchor xml:id="a17"/>As such, the decision was made to initiate a new branch—the aqueousbranch—that employs the same functional form as the 2008-C/H/O description, but with different O/H atom and bond parameters. This resulted in the creation of a number of parameter sets that are not directly transferable with those on the pre-existing combustion branch, thus leading to the new aqueous branch (Figure 2).<anchor xml:id="a18"/></p>
-        <p><anchor xml:id="a19"/>Parameter sets on the same development branch can be directly combined, where the required force-field fitting consists only of parameterising bond and angular terms between the newly combined elements. Transferring parameters between branches, however, requires more extensive refitting.<anchor xml:id="a20"/> In general, combustion branch descriptions are more straightforwardly transferred to the aqueous branch. In addition to the combustion independent and aqueous branches, there have been several branches (e.g., the B/N/H and Ni/C/H sets shown in Figure 2).32,33 <anchor xml:id="a21"/>Typically these sets began as non-transferable ReaxFF descriptions constituting independent development branches, but many have later been merged, through extensive refitting, with the combustion (C/B/N/H/O)34 or aqueous branches (Ni/C/H/O).<anchor xml:id="a22"/>35–37 It is worth mentioning that the popular ReaxFF high-energy material description4,5,38–44 is older than the combustion branch, but was recently merged—without an obvious loss in accuracy—with this branch.39,45 Notable developments on the aqueous branch include water–liquid and proton/anion transfer extensions to a range of transition metals and metal oxides (Fe/Ni/Cu/Zn/Al/Ti/ Ca/Si),7,15,19,35,46–52 developments aimed at biomolecules and their interactions with inorganic interfaces.53–60</p>
-        <p>along with C/H/O/N/S/P</p>
-        <p>Comparison to similar methods Although in this article we focus almost exclusively on ReaxFF and its applications, the ReaxFF method is not unique in its aim: to provide a simulation environment for describing the dynamics of chemical reactions at an atomistic scale with significantly fewer computational resources compared with QM. Purely empirical methods essentially abandon—or simplify—QM concepts,61 providing significantly more freedom in their choice of functional form. Alternatively, some methods stay within the QM domain while applying substantial empirical approximations. Examples of the QM-based approaches include the MOPAC semiempirical62 and tight-binding DFT63,64 concepts, which have been developed with significant success for a wide range of systems. On the purely empirical side, restricting our discussion to the more transferable methods, Baskes and co-workers have developed the embedded atom method (EAM65,66), which—opposite to ReaxFF—was mainly formulated for metals, yet has since been modified (MEAM67) to treat oxides, hydrides and hydrocarbons. Furthermore, the bondorder concept, as initiated by Abell,68 Tersoff,69,70 and Brenner,71 was further developed into the AIREBO method72 by Stuart, Tutein and Harrison, as well as into the highly transferable COMB method73–77 by Sinnott, Philpott, and co-workers. We refer readers to recent reviews for more in-depth comparisons of empirical reactive methods,73,74 and of simulation methods for large-scale molecular dynamics on reactive systems.78</p>
-        <p>In general, empirical methods tend to be faster and scale better than QM-based approaches,79 although relatively few head-tohead comparisons have appeared in the literature so far. Within the empirical methods, ReaxFF’s origin in hydrocarbon chemistry has led to a focus on reproducing energy barriers, while methods developed by the materials community (e.g., EAM and COMB) tend to focus more on elastic properties. Long-range bond-order terms render ReaxFF suitable for transition states, but complicate bond-order descriptions in condensed systems when non-bonded</p>
-        <p>neighbours may be in close proximity. This does not necessarily exclude the method from reproducing elastic properties less (e.g., straightforward to include in force-field parameterisation.</p>
-        <p>refs 80,81), although it makes</p>
-        <p>these properties</p>
-        <p>APPLICATIONS OF REAXFF</p>
-        <p>the literature.</p>
-        <p>Here we highlight a few of the many studies that have employed the ReaxFF methodology, with the objective of demonstrating than providing a the diverse applicability of ReaxFF rather In ‘Heterogeneous comprehensive review of catalysis’ and ‘Atomic layer deposition’ we discuss the application of ReaxFF to heterogeneous catalysis and to atomic layer deposition (ALD), respectively, as these applications demonstrate the methodological strength of ReaxFF: modelling reactive chemistry at heterogeneous interfaces. A broader overview of other applications will be provided in ‘Other applications’. Finally, in Section 3.4 we discuss the development of computational methodologies that take advantage of the ReaxFF formalism to explore phenomena on time and length scales that are inaccessible to traditional MD simulation methodologies.</p>
-        <p>Heterogeneous catalysis Nickel catalysts. Ni-catalysed carbon nanotube (CNT) growth involves dissolution of C atoms into Ni nanoclusters, with CNT formation dependent on the dynamic reformation and transport of carbon through the cluster. Modelling such processes clearly requires some treatment of bond scission and formation, yet the time and length scales inherent to C diffusion in nm-sized clusters is not tractable with QM. For this reason, the ReaxFF force-field has been extensively applied to model catalytic processes involving CNT growth initiated from dissociative hydrocarbon adsorption on Ni surfaces. Mueller et al. developed82 and employed33 a Ni/C/H parameter set to investigate the onset of CNT formation via the dissociative adsorption of various hydrocarbons on Ni surfaces, where they found that surface defects likely play an essential role initiating CNT growth. ReaxFF enabled MD simulations to reach beyond the time and length scales available to ab initio methods, which proved essential in modelling defective Ni surfaces and clusters exposing active sites on irregular surface terminations and cluster edges. The Ni/C/H parameter set was further utilised by Neyts et al.83 to model the effect of Ar+ bombardment on CNT formation. Simulations showed that the energy of impinging Ar+ ions can be tuned to break weak C–C bonds between undercoordinated C atoms, In similar works,84–86 a force-biased Monte Carlo (MC) method, which will be further discussed in ‘Uniform-acceptance force-biased Monte Carlo’, was employed to demonstrate the growth of CNTs with well-defined chirality and the effect of applied electric fields on plasma-assisted CNT growth.</p>
-        <p>thus healing CNT defects.</p>
-        <p>In addition to catalysis by metal surfaces, Vanadia catalysts. ReaxFF is also an effective methodology for modelling the catalytic properties of oxides. Among the first studies in this area, Chenoweth et al. developed and implemented a V/O/C/H description aimed at capturing the interaction of hydrocarbons with vanadium oxide.27,28 Mixed-metal-oxide (MMO) catalysts typically feature partial, mixed, and irregular metal occupations at various crystallographic sites. This characteristic is difficult to capture with QM models, as prohibitively large unit cells are required if the system is to be treated with periodic boundary conditions. In ref. 28, a combined MC/reactive dynamics (MC/RD) procedure was employed to explore possible MMO structures, in which the MC/RD scheme was used to systematically interchange metal atoms between crystallographic sites to determine the lowest energy structures. Thermodynamically favoured structures were then exposed to hydrocarbons through MD simulations,</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>5</p>
-        <p>Figure 3. Application of ReaxFF in MD simulations demonstrating TMA nucleation on a bare Ge(100) slab. (a) Initial configuration of 200 TMA molecules on a bare Ge(100) surface. (b) Comparison of TMA nucleation on a bare Ge(100) surface as modelled by ReaxFF and as observed by STM.95 (c) Estimated coverage of TMA sites obtained by ReaxFF simulations (left panel) and determined experimentally using XPS (right panel).95 (STM images adapted with permission from ref. 95 Copyright 2011 AIP Publishing LLC).</p>
-        <p>demonstrating that optimal catalysts contain several surface channels exposing active metal sites. This study demonstrates the utility of ReaxFF when modelling catalytic processes on oxides, which can be readily combined with metal parameter sets to model cluster–support interactions impacting catalysis on oxidesupported metal catalysts—this extension is an active area of ReaxFF development.</p>
-        <p>Atomic layer deposition ReaxFF has recently been applied to study reactive events playing a critical role in the atomic layer deposition process (ALD), which is central to microchip manufacturing. ALD provides high conformity and excellent film thickness control in the ultrathin limit. Although ALD was introduced to the semiconductor industry quite some time ago as a cost-effective, scalable, low-temperature deposition process, a comprehensive and quantitative understanding of its kinetic mechanisms at the atomic scale has not yet been attained. This may be attributed to three main factors: (1) lack of suitable experimental probes to directly image or otherwise characterise the surface state with sufficient temporal and lateral resolution under realistic deposition conditions using spectroscopic or diffraction techniques; (2) challenges in computationally describing ALD relevant processes, such as adsorption, chemisorption, diffusion, steric hindrance, desorption and reaction dynamics; which are all strongly dependent on the ‘chemical state’ of the</p>
-        <p>solid surface; and (3) lack of interest in acquiring such detailed knowledge, as it is not entirely necessary in order to utilise ALD for Si-based technology.</p>
-        <p>With the current drive to develop CMOS technology beyond Si into large-scale, manufacturable processes with high yield low-power logic by replacing the enabling high performance, channel using high mobility, low bandgap semiconductors (Ge or III–V),87–89 the situation has markedly changed. The integration of a thermodynamically stable high-ĸ dielectric film that is in contact with the semiconductor and forms an electrically well-behaved interface, allows for aggressive thickness scaling to achieve a large gate capacitance while limiting the gate leakage is a critical roadblock toward realizing this technology.90–92 Here an atomic scale understanding of the chemical state of the surface, suitable precursors and successful passivation strategies to avoid electhe interface is critical. The ReaxFF trically active traps at methodology can help to rationalise and rapidly identify promising approaches, thus shortening the time required to develop this technology.</p>
-        <p>Recent studies have focused on ALD of Al2O3 using trimethylaluminum (TMA) and H2O cycles as a route for developing Ge-based metal oxide semiconductors (CMOS).89,93,94 To demonstrate the temperature dependence of TMA nucleation on a bare Ge(100) surface, which has been previously reported in the literature,95 MD simulations were performed at 23 °C, 227 °C, and 427 °C. The analysis of simulation trajectories revealed that TMA</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>6</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>molecules non-dissociatively chemisorb on Ge dangling bonds at room temperature, whereas at higher temperature (427 °C) residual methyl groups on TMA molecules either recombine to form methane (and ethane) or bind to neighbouring Ge dangling bonds resulting in Ge-Al-Ge connections on the Ge(100) surface. These results are qualitatively consistent with scanning tunneling microscopy (Figure 3). In addition, the coverage of TMA sites with respect to the number Ge dangling bonds was evaluated as a function of temperature and compared to values obtained with X-ray photoelectron spectroscopy (XPS). Both theoretical and experimental approaches confirm that carbon coverage decreases with elevated temperature due to the dissociation of methyl groups from TMA, while Al coverage remains nearly constant, indicating that TMA sites become saturated under operating conditions.</p>
-        <p>The recently developed ReaxFF description demonstrates the ability to correctly describe the TMA chemisorption on the Ge surface. This will enable future studies to assess ALD of Al2O3, as well as other feasible high-ĸ candidates and passivation strategies (such as hafnia, zirconia, tantalum, germanium oxynitride96–100 and bi/tri-layer dielectrics101–104) on pristine and oxidised Ge surfaces. As such, ReaxFF can be instrumental in identifying optimal processing conditions to form high quality high-ĸ dielectrics/non-Si semiconductor interfaces.</p>
-        <p>Other applications The utility of ReaxFF lies in its ability to treat reactive processes at the interface between gas, liquid, and solid phases, which is pertinent when dealing with heterogeneous catalysis on metals and oxides (Figures 4a and b, respectively). This capability is not only relevant to catalysis, but rather is essential for modelling any nanoscale phenomena in complex systems. Onofrio et al.105 employed a modified ReaxFF potential to conduct atomistic-scale simulations of electrode-bridge-electrode systems (Figure 4c). By modifying ReaxFF to enable the direct simulation of an applied potential, the authors were able to model the formation and degradation of metallic filaments bridging electrodes in resistance-switching cells. Tavazza et al.106 conducted MD simulations of nanoindentation processes on Ni substrates, where ReaxFF was used to more accurately describe attractive interactions between diamond indenter tips and Ni/NiO surfaces. The utility of using ReaxFF for modelling reactive events at the interface between gas and solid phases is demonstrated in the work of Bagri et al.,107 who investigated defect formation during the reduction of graphene oxide (GO). MD simulations revealed reorganisation patterns in the graphene sheet during reduction (Figure 4d), allowing the authors to identify more efficient pathways for minimising defect formation during GO reduction. This is an important issue, as GO reduction is a promising synthesis route for the rapid production of graphene sheets. Similarly, Srinivasan et al.108,109 studied hyperthermal oxygen collisions with graphene, which replicates degradation processes affecting the performance of graphene-based heat shields during spacecraft re-entry. Oxidation of metal surfaces was investigated by Fantauzzi et al.110 and by Senftle et al.,111 studies in which MD simulations were employed to assess kinetic limitations affecting the initial oxidation of Pt and Pd surfaces, respectively (Figure 4e). ReaxFF has also been employed to model the kinetics of hydrogen adsorption and diffusion in various Pt,112 Pd,113 and Fe114 phases. The effect of solid-gas interactions is further demonstrated in the work of Raju et al.,52,115 in which the authors investigated oriented attachment mechanisms governing the organisation of TiO2 nanocrystals (Figure 4f). MD simulations revealed that, in vacuum, TiO2 crystals tend to form polycrystalline aggregates. In solution, approaching TiO2 crystals effectively dissociate water, thus creating a network of hydrogen bonds facilitating oriented attachment.</p>
-        <p>In addition to gas phase chemistry, the development of the ‘aqueous branch’ parameter set has led to numerous ReaxFF studies involving reactive processes occurring in the liquid phase. Rahaman et al.54,116 developed a ReaxFF description capable of modelling glycine tautomerisation in water, which was later employed to investigate the interaction between glycine and TiO2 surfaces.54 Monti et al.53 further extended this parameter set to include amino acids and short peptide structures, allowing ReaxFF to simulate the conformational dynamics of biomolecules in solution (Figure 4g). Aqueous proton transfer across graphene was investigated by Achtyl et al.,51 where ReaxFF helped to establish that proton transfer is enabled by hydroxyl-terminated atomic defects in the graphene sheet (Figure 4h). Hatzell et al.117 used ReaxFF to determine the impact of strong acid functional groups on graphene electrodes in capacitive mixing devices, in which salinity gradients are used for power generation (Figure 4i). For numerous examples of water–solid interfaces that have been modelled with the ReaxFF potential, we refer the reader to references on the ‘aqueous branch’ shown in Figure 2.</p>
-        <p>RECENTLY DEVELOPED METHODS MD approaches with reactive force-fields are tremendously useful for examining dynamic and kinetic properties of chemical processes on timescales beyond what is accessible with QM. However, numerous chemical processes, and in particular processes requiring thermal activation to overcome significant kinetic barriers, occur on timescales that are still beyond the simulation capabilities of empirical methods. Such limitations have provided the impetus for developing MC and accelerated molecular dynamics (AMD) approaches for the ReaxFF potential. MC methods are most useful when the properties of interest in a system are dominated by thermodynamic driving forces (i.e., when kinetic factors do not limit the deterministic evolution of the system). Conversely, AMD methods are suitable for modelling kinetic processes, as arguments from transition state theory are employed to accelerate system evolution between rare events while maintain system determinism. This section highlights four methods (two MC-based and two AMD-based) that have been (1) hybrid Grand Canonical recently introduced to ReaxFF: MC/Molecular dynamics (GC-MC/MD), (2) uniform-acceptance force-biased MC (UFMC), (3) parallel replica dynamics (PRD), and (4) adaptive accelerated ReaxFF reaction dynamics (aARRDyn).</p>
-        <p>Grand canonical Monte Carlo/molecular dynamics (GC-MC/MD) MC methods in the grand canonical ensemble stochastically insert, remove, and displace MC-atoms in the host system. The equilibrated number of MC-atoms, as well as system structure, is dictated by the chemical potential of the MC-atom reservoir (i.e., the free energy per MC-atom in the original source, such as ½GO2 for modelling oxide formation upon exposure to O2). When applying GC-MC with the ReaxFF potential, we have introduced a force relaxation step (via either low-temperature MD or similar energy minimisation algorithms) that allows the structure of the host system to locally reorganise as MC-steps are executed (i.e., to find the nearest local energy minimum). The introduction of this MD step, motivated by the MC/MD methodology employed by Chenoweth et al.,28 is essential for reaching an equilibrated structure. Otherwise the majority of MC moves involving the addition of an atom into a bulk region will be rejected because such moves inevitably result in a very high energy. Slow acceptance rates are effectively mitigated by allowing the system to restructure as it accommodates the inserted MC-atoms, mimicking the kinetic restructuring of the system as the new phase is formed.</p>
-        <p>The GC-MC/MD approach was initially developed to model the extent of oxidation in Pd nanoclusters, as PdO formation</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>7</p>
-        <p>Figure 4. Application of the ReaxFF method to (a) Ni-catalysed CNT growth,83 (b) oxidative dehydrogenation over MMO catalysts,28 (c) electrometallisation cells,105 (d) reduction of graphene oxide,107 (e) Pd surface oxidation,111 (f) oriented attachment mechanisms in TiO2 nanocrystals,115 (g) conformational dynamics of biomolecules,53 (h) proton diffusion membranes51 and (i) capacitive mixing by double layer expansion.117 (Images adapted with permission from the provided references: a, Copyright 2013 American Physical Society; b, Copyright 2009 John Wiley and Sons; c, d and h, Copyright 2010 and 2015 Nature Publishing Group; e, Copyright 2013 AIP Publishing LLC; g, Copyright 2013 Royal Society of Chemistry; f and i, Copyright 2014 American Chemical Society).</p>
-        <p>significantly affects the performance of Pd-based catalysts.111 To validate the GC-MC/MD approach, we derived an oxidation phase diagram for Pd clusters, where the predicted T, P ranges of PdO to Pd transitions were in agreement with experimental observations (Figure 5a). Coupled with MD simulations capturing the extent of oxygen migration through various Pd surface facets, this study demonstrated the utility of ReaxFF for investigating both kinetic and thermodynamic driving forces affecting phase stability. A similar approach has been applied to investigate the initial stages of oxide formation on Pt surfaces.110 The method has additionally been applied to investigate hydrogen and carbon uptake by palladium, where it successfully captured phase transitions in bulk, cluster and oxide-supported systems.113,118–120 It has also been used to produce open-circuit voltage profiles for Li intercalation in graphite121 and sulfur122 electrodes during cell discharge.</p>
-        <p>Applied to catalysis, GC-MC/MD provides an approach for predicting the thermodynamic stability of phases likely to form</p>
-        <p>upon exposure to the reactant mixture, which can be used to establish plausible surface models that better approximate the structure of the catalyst under reaction conditions. To investigate kinetics, the derived surface models can then be directly employed in MD simulations of the catalytic process, or can serve to motivate smaller for more accurate DFT calculations. More importantly, it provides a means to explore the phase space of a system without a priori knowledge of the phase diagram in question—making it a powerful low-CPU-cost tool when searching for novel system properties.</p>
-        <p>scale models</p>
-        <p>Uniform-acceptance force-biased Monte Carlo (UFMC) Pure MC methods are stochastic in nature, and correspondingly cannot be used to evaluate the deterministic evolution of a system in time. However, stochastic approaches can be incorporated in deterministic MD to accelerate reaction steps past kinetic barriers, decreasing the number of iterations required to model</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>8</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>(a) grand canonical Monte Carlo,111 (b) parallel replica dynamics,126 Figure 5. New simulation techniques for the ReaxFF potential: (c) uniform-acceptance force-biased Monte Carlo,85 and (d) adaptive accelerated molecular dynamics.127 (Images adapted with permission from the provided references: a, Copyright 2013 AIP Publishing LLC; b–d, Copyright 2010, 2013, and 2014 American Chemical Society).</p>
-        <p>the system evolves.</p>
-        <p>state-to-state transitions in slower processes. Although information regarding the timescale of such processes may be lost, the deterministic nature of the simulation is preserved. This is valuable when one wishes to understand how the system evolves, rather In UFMC simulations,123 than how fast stochastic spatial displacements (accepted at every iteration) are applied along the force acting on each atom, where the extent and direction of the displacement is controlled by both the magnitude of the force and the overall system temperature. The displacement is restricted along the acting force when large forces are present or low temperature, whereas displacements are fully random when small forces are acting or the system is at high temperature. Uniform-acceptance prevents the system from becoming restricted to its current potential energy basin, while force-bias ensures a preferential evolution along the lowest-force reaction coordinate.</p>
-        <p>the system is at</p>
-        <p>This</p>
-        <p>strategy, called uniform-acceptance force-biased MC (UFMC), was adapted for ReaxFF by Neyts et al.84–86,124 to investigate the initial stages of CNT growth over Ni clusters. During simulations of CNT nucleation, UFMC simulation stages were incorporated between MD runs to allow deposited carbon atoms to relax into chiral CNT structures. Such relaxation steps with pure MD would necessitate unphysical carbon deposition rates, as well as intractable simulation timeframes. As described above, this methodology was also successfully employed to assess the effect of applied potentials and Ar+ ion bombardment on CNT nucleation and growth (Figure 5c).</p>
-        <p>in which independent</p>
-        <p>Parallel replica dynamics and adaptive accelerated ReaxFF reaction dynamics PRD and aARRDyn are two MD strategies designed to increase the sampling rate of infrequent events. PRD employs a temporal parallelisation strategy, trajectories of multiple system replicas are evaluated simultaneously across many processors. When a state transition occurs in one replica, all remaining replicas are reverted to the new state and are reinitialised with independent starting trajectories. The total elapsed simulation time is summed from contributions of each replica, where such parallelisation is indistinguishable from an analogous single-processor simulation if the transition process follows first-order escape kinetics, as demonstrated in the original PRD publication.125 Joshi et al.126 implemented PRD with the ReaxFF potential, where a state-transition event was defined as a change in molecular connectivity (i.e., a chemical reaction). When implemented with 180 replicas to track the thermal pyrolysis of n-heptane, PRD-ReaxFF was able to reach simulation times on the order of 1 μs with a parallel scaling efficiency of 93% (Figure 5b) aARRDyn, introduced to ReaxFF by Cheng et al.,127 employs a ‘bond boost’ algorithm to accelerate dynamic evolution across the potential energy surface. In this implementation, the bond-order formalism of ReaxFF is aptly suited for identifying elongated bonds that are approaching a transition state, where the boost potential is calculated using an envelope function128 that directs energy toward bonds that are closest to reacting. The authors demonstrated the aARRDyn methodology by modelling H2/O2</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>9</p>
-        <p>previously</p>
-        <p>ignition in simulations reaching ~ 10 ns, which successfully reproduced pathways (Figure 5d). Altogether, PRD and aARRDyn demonstrate the extension of ReaxFF to low-temperature applications, where kinetic processes occur on timescales inaccessible to traditional MD trajectory integration.</p>
-        <p>determined</p>
-        <p>reaction</p>
-        <p>FUTURE DEVELOPMENTS AND OUTLOOK</p>
-        <p>Charge description improvements Incorporation of ACKS2. A polarisable charge calculation method is essential for a transferable reactive force-field method. ReaxFF typically employs the electronegativity equalisation method (EEM) developed by Mortier et al.129 Unfortunately, EEM has a few drawbacks,130–134 the worst being its inability to restrain longrange charge-transfer, even between molecular fragments that are well separated. This issue is especially apparent in low-density gas phase simulations, where EEM-ReaxFF predicts small, but certainly nonzero, charges on isolated molecular species, which significantly affects accommodation coefficients.135 In simulations of dense systems, unrealistic charge-transfer may also occur (e.g., between two dielectric phases with a different intrinsic electronegativity). To ameliorate this issue, we have recently incorporated atom-condensed Kohn-Sham DFT approximated to second order (ACKS2) in ReaxFF.136,137 ACKS2 is an extension of EEM that penalises long-range charge transfer with a bondin line with the split-charge equilibration polarisation energy, (SQE) model.138 The bond polarisability is a function of interatomic distance, which slightly increases beyond the equilibrium bond length but then quickly decays to zero, effectively enforcing fragment neutrality. Transferring from EEM-ReaxFF to ACKS2- ReaxFF does require reparameterisation, although the EEM-ReaxFF parameters are typically a very good starting point for deriving ACKS2-ReaxFF parameters. As such, redevelopment is relatively straightforward. We believe that ACKS2-ReaxFF is most relevant for obtaining reliable accommodation coefficients, as well as for describing physisorption of neutral and ionic molecules on surfaces. It is also vital for incorporating explicit electronic degrees of freedom into ReaxFF, as described in the next section.</p>
-        <p>for</p>
-        <p>The treatment of Explicit electron description in ReaxFF (eReaxFF). force-field explicit charge and polarisation is essential descriptions applied to systems such as rechargeable battery interfaces and ferro-/piezoelectric materials. Essentially, such descriptions require a classical treatment for an explicit electron. Recently, potentials including some form of explicit electron description have been introduced, such as the electron forcefield139 and the LEWIS140 force-field. Nonetheless, these methods have not yet been demonstrated to accurately simulate complex materials and intricate chemistries.</p>
-        <p>To extend the ReaxFF description to include chemistry dependent on electron diffusion, we have introduced explicit electron-like and hole-like particles that carry negative (−1) and positive (+1) charges, respectively. The electron and hole particles interact with atomic centers through a single Gaussian function.139 We implemented charge-valence coupling, which allows the electron or hole particle to modify the number of valence electrons in a host atom, thus ensuring the appropriate change in valence when calculating the degree of over or under coordination in the host atom. To demonstrate the capability of the electron-explicit version of ReaxFF (eReaxFF), we trained our forcefield to capture the electron affinity (EA) of various hydrocarbon species. Figure 6 summarises the performance of eReaxFF compared with both standard ReaxFF and available literature data.141,142 eReaxFF qualitatively reproduces the literature data, whereas standard ReaxFF entirely fails to capture the EA of most species considered in this training set. Still, eReaxFF significantly</p>
-        <p>Figure 6. Performance of eReaxFF for calculating electron affinities in radical species compared to standard ReaxFF, QM, and experimental data.141,142</p>
-        <p>underestimates the EA of ethylene and propene compared with experimental data.142 To further investigate this discrepancy, we performed DFT calculations with the M06-2X functional implemented in Jaguar 7.5,143 which (aug-cc-pVTZ basis set) shows that DFT also underestimates the EA of these two species. Overall, eReaxFF provides a significant improvement in capturing EAs in comparison with standard ReaxFF. Future development of eReaxFF will focus on the description of interfacial chemistry in batteries and on structural/polarisation behaviour in piezo/ ferro-electric materials.</p>
-        <p>ReaxFF parameter optimisation Most ReaxFF parameter development is currently performed using a straightforward, single-parameter parabolic search method.144 This method has a high level of transparency—which, given the complexity of the ReaxFF functional form and the typically large size of its training set, is a significant advantage. However, this method is clearly not the most efficient for sampling the complex force-field error implicitly include landscape, as it does not parameter correlation and has a significant risk of becoming ensnared in local energy minima. As such, various groups have recently focused on developing more sophisticated parameter sampling methods. In particular, MC and genetic algorithm (GA) based approaches have risen in popularity.145–149 So far, these methods have only been used for isolated force-field development efforts, and as such they still have to demonstrate their transferability and user friendliness. They do hold promise for reducing force-field development time, as well as for making the process more accessible to nonexpert users.</p>
-        <p>ReaxFF implementations and current efforts for modern architectures A number of different ReaxFF implementations have been developed over the years. The first-generation ReaxFF implementation of van Duin et al.1 established the utility of the force field in the context of various applications. This fortran-77, implementation was integrated into the publicly available, open-source LAMMPS code150 by Thompson et al.151 as the Reax package152—the first publicly available parallel implementation of ReaxFF. Nomura et al. have developed a parallel ReaxFF implementation, which has been used in a number of largescale simulations, including high-energy materials, metal grain boundary decohesion, water bubbles and surface chemistry.153–159 This Nomura et al. code is not publicly available.</p>
-        <p>serial,</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>10</p>
-        <p>The ReaxFF reactive force-field TP Senftle et al</p>
-        <p>PuReMD v.s Hybrid-PuReMD(80K/node) PuReMD v.s Hybrid-PuReMD(100K/node)</p>
-        <p>10</p>
-        <p>p u d e e p S</p>
-        <p>Figure 7. Performance of the PuReMD implementation of ReaxFF. Time required to run 1,000 time steps of a MD simulation on half a million atoms where either GPU or CPU is used for computing the interatomic forces.</p>
-        <p>1</p>
-        <p>0</p>
-        <p>2</p>
-        <p>4</p>
-        <p>6</p>
-        <p>8  10 # of Nodes</p>
-        <p>12</p>
-        <p>14</p>
-        <p>16</p>
-        <p>18</p>
-        <p>Figure 8. Speedup achieved by Hybrid-PuReMD compared to PuReMD with 20 MPI processors per node.</p>
-        <p>The PuReMD software package, and its</p>
-        <p>integration into LAMMPS, which is available as the USER-REAXC package, represent the state-of-the-art open-source implementations of ReaxFF. Since PuReMD and USER-REAXC are, to the best of our knowledge, the most widely used open-source codes for ReaxFF simulations, we summarise algorithmic and software design choices, as well as future directions in PuReMD. PuReMD uses novel algorithms and data structures to achieve high performance in force computations, with a small memory footprint. An optimised binning-based neighbour generation method, elimination of the bond-order derivatives list in bonded interactions, lookup tables to accelerate non-bonded interaction computations, and preconditioned fast the charge equilibration problem are the major algorithmic innovations in PuReMD.10,12,15 The dynamic nature of the bond, three-body and four-body interactions in a reactive molecular system presents challenges in terms of memory management and data structures for efficiently computing bonded interactions. PuReMD introduces novel data structures to store three-body and four-body interactions in a compact form. Its dynamic memory management system automatically adapts to the needs of the input system over the course of a simulation, significantly reducing the memory footprint and minimizing the effort to setup a simulation. Its parallel formulation, called PuReMD, uses conventional message passing (MPI) large molecular to enable the simulation of systems12 on scalable parallel platforms.</p>
-        <p>iterative solvers</p>
-        <p>for</p>
-        <p>Recent efforts by us and others have focused on enabling fast ReaxFF simulations on GPUs. Zheng et al.160 reported the first GPU implementation of ReaxFF, called GMD-Reax. GMD-Reax is reported to be up to six times faster than the USER-REAXC package on small systems, and about 2.5 times faster on typical workloads using a quad core Intel Xeon CPU. However, this performance is significantly predicated on the use of singleprecision arithmetic operations (PuReMD codebase is fully double precision) and low-precision transcendental functions, which can potentially lead to significant energy drifts in long NVE simulations. GMD-Reax can run on single GPUs only, and is not publicly available.</p>
-        <p>Recently, Kylasa et al. have developed a publically available GPU version of the PuReMD code, called PuReMD-GPU10, which uses CUDA along with an extensive set of optimisations to deliver significant speedups on single GPU systems. For a variety of benchmarks, this code shows up to a 16-fold speedup on an Nvidia C2075 GPU, compared with a single core of an Intel Xeon processor.</p>
-        <p>Due to device memory limitations, single GPU simulations are typically limited to 30 to 40 thousand atoms. Our more recent development efforts have resulted in the PuReMD-PGPU code, which builds on PuReMD-GPU to enable ReaxFF simulations on</p>
-        <p>PuReMD(80K/node) Hybrid-PuReMD(80K/node) PuReMD(100K/node) Hybrid-PuReMD(100K/node)</p>
-        <p>10</p>
-        <p>e m T</p>
-        <p>i</p>
-        <p>1</p>
-        <p>0.1</p>
-        <p>0</p>
-        <p>2</p>
-        <p>4</p>
-        <p>6</p>
-        <p>8</p>
-        <p>10</p>
-        <p>12</p>
-        <p>14</p>
-        <p>16</p>
-        <p>18</p>
-        <p># of Nodes</p>
-        <p>Figure 9. Total time per time-step comparison between Hybrid- PuReMD and PuReMD for weak scaling scenarios.</p>
-        <p>multiple GPUs. PuReMD-PGPU has been benchmarked on Texas Advanced Computing Center’s Maverick cluster, which has 132 nodes each with two Intel E5–2680 v2 Ivy Bridge processors running at 2.86 GHz and one NVIDIA Tesla K40 GPU. We ran NVT MD calculations of DNA strands suspended in water, having a total of 531,494 atoms. In Figure 7, we present the performance of this simulation on 6, 8, 12, 15 and 18 nodes, where we use either 1 GPU per node to perform the calculations using PuReMD-PGPU or the MPI-based CPU code (PuReMD) with a varying number of cores per node. In terms of speed, we find that using one GPU per node with PuReMD-PGPU is equivalent to using 8 to 10 cores when using PuReMD.</p>
-        <p>leverages all</p>
-        <p>More recently, a Hybrid-PuReMD, an MPI/pthreads/CUDA the available implementation by Kylasa et al., compute resources on GPU-equipped nodes. Hybrid-PuReMD uses an effective task-parallel implementation by overlapping the execution of bonded interactions on CPU and non-bonded and charge equilibration computations on the GPU. This code has been benchmarked on Michigan State University’s High Performance Computing Center GPU cluster, which has 20 nodes each with two 2.5 GHz 10-core Intel Xeon E5–2670v2 processors and two NVIDIA K20 GPUs. Figures 8 and 9 plot the speedup achieved by Hybrid-PuReMD compared with PuReMD (20 MPI processes per node) and total time per time-step for weak scaling scenarios. We notice that for bulk water system with 100 K atoms per node Hybrid-PuReMD effectively delivers a speedup of over 3.3-fold over PuReMD on a per-node basis (i.e., 3.3 times the performance of PuReMD running on all 20 cores of the node)—achieving near optimal resource utilisation.</p>
-        <p>npj Computational Materials (2016) 15011</p>
-        <p>© 2016 Shanghai Institute of Ceramics, Chinese Academy of Sciences/Macmillan Publishers Limited</p>
-        <p>Other ongoing developments with PuReMD includes performance optimisation for many-core architectures, such as IBM BGQ and Intel Xeon Phi processors. Using a hybrid MPI/OpenMP parallel implementation, Aktulga et al. have achieved speedups of 1.5–4.5 × over the current USER-REAXC implementation for PETN crystal benchmarks of sizes ranging from 32 thousand to 16.6 million atoms161. This study has been conducted using up to 16,384 nodes (262 K cores) on Mira, an IBM BGQ supercomputer. While promising, performance results obtained on GPUs and many-core CPUs suggest that there is still room for performance improvements. Our future work will focus on achieving improved performance on GPUs, other accelerators, and many-core CPUs by better managing on-node parallelism, exploiting data locality, and the development of scalable solvers for the charge equilibration problem, which represents a major bottleneck in massively parallel runs.</p>
-        <p>SUMMARY</p>
-        <p>In this article, we reviewed the development, application, and future directions of the ReaxFF method. ReaxFF helps to bridge the gap in simulation scale separating QM and classical methods. By employing a bond-order formalism within a classical approach, ReaxFF implicitly describes chemical bonding without expensive QM calculations. We provided an overview of ReaxFF development history, lending insight into the development choices that shape the currently employed ReaxFF formalism. In addition, we discussed numerous applications of the method, which include processes ranging from the combustion of coal to the conformational dynamics of biomolecules. A particular emphasis was placed on studies that use ReaxFF to investigate reactive events at the liquid and gas phases, thus demoninterphase between solid, strating the diverse transferability of the ReaxFF formalism. In addition, we reviewed the recent development and application of MC and accelerated molecular dynamics methods tailored to the bond-length formalism of ReaxFF. Finally, we provided an overview of future research directions we will be taking, as we seek to improve the performance of ReaxFF, as well as to extend the range of chemical phenomena that can be studied with the method.</p>
-        <p>ACKNOWLEDGEMENTS</p>
-        <p>TPS, MJJ, and ACTvD acknowledge funding from the National Science Foundation, grant CBET-1032979. ACTvD acknowledges support from the Fluid Interfaces Reactions, Structures and Transport (FIRST) center funded by the US Department of Energy, Office of Energy, Office of Basic Energy Sciences. ACTvD and MMI acknowledge support from a grant from the US Army Research Laboratory through the Collaborative Research Alliance (CRA) for Multi Scale Multidisciplinary Modeling of Electronic Materials (MSME). TV is a post-doctoral fellow of the Fund for Scientific Research-Flanders (FWO) and received additional funding from the Research Board of the Ghent University (BOF) and BELSPO in the frame of IAP/7/05.</p>
-        <p>COMPETING INTERESTS The authors declare no conflict of interest.<anchor xml:id="a23"/></p>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1038/npjcompumats.2015.11.</note></p>
     </body>
   </text>
 </TEI>

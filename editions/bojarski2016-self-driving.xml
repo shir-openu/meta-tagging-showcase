@@ -37,252 +37,252 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-28"
-              who="build_paper_edition.py">49 spans placed by verified search</change>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">0 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
       <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
         <label>method</label>
-        <quote>We trained a convolutional neural network (CNN) to map raw pixels from a single front-facing camera directly to steering commands.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
         <label>end-to-end learning of lane and road following</label>
-        <quote>We have empirically demonstrated that CNNs are able to learn the entire task of lane and road following without manual decomposition into road or lane marking detection, semantic abstraction, path planning, and control.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t2" type="method" ana="#method" resp="#paper">
         <label>system-or-tool-building</label>
         <term>system-or-tool-building</term>
-        <quote>Evaluating our networks is done in two steps, first in simulation, and then in on-road tests.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the steering command is stored as 1/r rather than r, which removes the singularity at straight-ahead and makes the label continuous through zero across left and right turns</term>
-        <quote>In order to make our system independent of the car geometry, we represent the steering command as 1/r where r is the turning radius in meters. We use 1/r instead of r to prevent a singularity when driving straight (the turning radius for driving straight is infinity). 1/r smoothly transitions through zero from left turns (negative values) to right turns (positive values).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>recovery is taught rather than encountered: the training set is augmented with images of the car already displaced from the lane centre, because human driving alone never shows the network a mistake</term>
-        <quote>Training with data from only the human driver is not sufficient. The network must learn how to recover from mistakes. Otherwise the car will slowly drift off the road. The training data is therefore augmented with additional images that show the car in different shifts from the center of the lane and rotations from the direction of the road.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>off-centre viewpoints are synthesised under an approximation the paper states it knows to be wrong - everything below the horizon treated as flat ground, everything above it as infinitely far - accepted because the resulting distortions do not hurt training</term>
-        <quote>Precise viewpoint transformation requires 3D scene knowledge which we don’t have. We therefore approximate the transformation by assuming all points below the horizon are on flat ground and all points above the horizon are infinitely far away. This works fine for flat terrain but it introduces distortions for objects that stick above the ground, such as cars, poles, trees, and buildings. Fortunately these distortions don’t pose a big problem for network training.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the label for a synthesised viewpoint is not the driver&#x27;s command but the command that would return the car to the correct place within a fixed two-second horizon</term>
-        <quote>The steering label for transformed images is adjusted to one that would steer the vehicle back to the desired location and orientation in two seconds.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the training frames are filtered by the driver&#x27;s activity label and then downsampled, because consecutive frames at full rate are near-duplicates</term>
-        <quote>To train a CNN to do lane following we only select data where the driver was staying in a lane and discard the rest. We then sample that video at 10 FPS. A higher sampling rate would result in including images that are highly similar and thus not provide much useful information.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the perturbations are drawn from a normal distribution deliberately twice as wide as the variation measured in human drivers</term>
-        <quote>The magnitude of these perturbations is chosen randomly from a normal distribution. The distribution has zero mean, and the standard deviation is twice the standard deviation that we measured with human drivers.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>autonomy is computed from a COUNTED event and an ASSUMED constant: each simulated intervention is charged a fixed six seconds of human takeover time</term>
-        <quote>We assume that in real life an actual intervention would require a total of six seconds: this is the time required for a human to retake control of the vehicle, re-center it, and then restart the self-steering mode.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the normalisation layer is inside the network but hard-coded, so it is not learned and can be changed with the architecture and run on the GPU</term>
-        <quote>The first layer of the network performs image normalization. The normalizer is hard-coded and is not adjusted in the learning process. Performing normalization in the network allows the normalization scheme to be altered with the network architecture and to be accelerated via GPU processing.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>more work is needed to improve robustness and to verify/visualize the network&#x27;s internal processing</label>
-        <note>what this limits: the deployment readiness of the system: MORE WORK IS NEEDED TO IMPROVE THE ROBUSTNESS OF THE NETWORK</note>
-        <quote>More work is needed to improve the robustness of the network</quote>
+        <note>what this limits: the deployment readiness of the system: Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>The viewpoint transformation used for augmentation is an approximation because the true 3D scene geometry is unknown.</label>
         <note>what this limits: every augmented training example: PRECISE VIEWPOINT TRANSFORMATION REQUIRES 3D SCENE KNOWLEDGE WHICH WE DON&#x27;T HAVE</note>
-        <quote>Precise viewpoint transformation requires 3D scene knowledge which we don’t have.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>That approximation distorts objects standing above the ground plane.</label>
         <note>what this limits: the augmentation for anything but flat road: IT INTRODUCES DISTORTIONS FOR OBJECTS THAT STICK ABOVE THE GROUND, SUCH AS CARS, POLES, TREES, AND BUILDINGS - the distorted objects are the ones that matter</note>
-        <quote>This works fine for flat terrain but it introduces distortions for objects that stick above the ground, such as cars, poles, trees, and buildings.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>Larger augmentation magnitudes introduce undesirable artifacts into the training data.</label>
         <note>what this limits: the benefit of larger augmentation: ARTIFICIALLY AUGMENTING THE DATA DOES ADD UNDESIRABLE ARTIFACTS AS THE MAGNITUDE INCREASES</note>
-        <quote>Artificially augmenting the data does add undesirable artifacts as the magnitude increases (see Section 2).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger">
         <label>Robustness of the network, methods to verify it, and internal-state visualisation all remain open.</label>
         <note>what this limits: any safety or verification claim: MORE WORK IS NEEDED ... TO FIND METHODS TO VERIFY THE ROBUSTNESS, AND TO IMPROVE VISUALIZATION OF THE NETWORK-INTERNAL PROCESSING STEPS</note>
-        <quote>More work is needed to improve the robustness of the network, to find methods to verify the robustness, and to improve visualization of the network-internal processing steps.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger">
         <label>The results are explicitly preliminary.</label>
         <note>what this limits: the standing of every result reported: THIS PAPER DESCRIBES PRELIMINARY RESULTS OF THIS NEW EFFORT</note>
-        <quote>This paper describes preliminary results of this new effort.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>The reported autonomy percentage is built on an assumed six-second cost per intervention, which the authors state as an assumption rather than measure.</label>
         <note>what this limits: any autonomy percentage from this paper: it multiplies the intervention count by an assumed six seconds - the time the authors take a human to retake control, re-centre and restart self-steering - so the figure moves with that assumption</note>
-        <quote>We assume that in real life an actual intervention would require a total of six seconds: this is the time required for a human to retake control of the vehicle, re-center it, and then restart the self-steering mode</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t18" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>An intervention is a threshold crossing in simulation, not a human decision: the car counts as having failed when it passes one metre from the centre line.</label>
         <note>what this limits: the intervention count behind the autonomy figure: an intervention is triggered automatically when the simulated vehicle departs the centre line by more than one metre, so the number depends on that threshold</note>
-        <quote>These interventions occur when the simulated vehicle departs from the center line by more than one meter</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t19" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
         <label>After every simulated intervention the car is placed back on the recorded ground truth, so the measure cannot observe how a failure would have developed.</label>
         <note>what this limits: simulated autonomy as evidence of safety: after each intervention the vehicle is reset to the ground truth of the original video, so errors never compound and the metric counts how often the car left the lane rather than how badly</note>
-        <quote>a virtual human intervention is triggered, and the virtual vehicle position and orientation is reset to match the ground truth of the corresponding frame of the original test video</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t20" type="limitations" ana="#limitations[9]" resp="#tagger" cert="0.85">
         <label>The training set is deliberately not the driving distribution: one driver activity is kept, the rest discarded, and curves are then over-represented on purpose.</label>
         <note>what this limits: the trained network as a model of driving: only frames where the driver was staying in a lane were kept, the rest discarded, and road curves were then deliberately over-represented to remove a bias towards driving straight</note>
-        <quote>To train a CNN to do lane following we only select data where the driver was staying in a lane and discard the rest. We then sample that video at 10 FPS. A higher sampling rate would result in including images that are highly similar and thus not provide much useful information. Center cameraCNNNetwork computed steering commandDrive by wire interface Figure 4: CNN architecture. The network has about 27 million connections and 250 thousand parameters. To remove a bias towards driving straight the training data includes a higher proportion of frames that represent road curves</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t21" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
         <label>a convolutional network taking raw camera pixels, used in place of the perception-plus-control pipeline of robotics so that steering is learned end to end</label>
-        <quote>We trained a convolutional neural network (CNN) to map raw pixels from a single front-facing camera directly to steering commands.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t22" type="controls" ana="#controls[0]" resp="#tagger" cert="0.8">
         <label>manually calibrating the lane centre for each frame used by the simulator, rather than taking the human driver&#x27;s position as the target</label>
         <note>eliminates: the human drivers&#x27; own off-centre driving being learned as the correct steering target</note>
-        <quote>Since human drivers might not be driving in the center of the lane all the time, we manually calibrate the lane center associated with each frame in the video used by the simulator.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t23" type="concepts" ana="#concepts[0]" resp="#paper">
         <label>convolutional neural network</label>
         <term>convolutional neural network</term>
-        <quote>We trained a convolutional neural network (CNN) to map raw pixels from a single front-facing camera directly to steering commands</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t24" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>autonomy</label>
         <term>autonomy</term>
-        <quote>We estimate what percentage of the time the network could drive the car (autonomy). The metric is determined by counting simulated human interventions</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t25" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>intervention</label>
         <term>intervention</term>
-        <quote>These interventions occur when the simulated vehicle departs from the center line by more than one meter</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t26" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>road features</label>
         <term>road features</term>
-        <quote>The system automatically learns internal representations of the necessary processing steps such as detecting useful road features with only the human steering angle as the training signal. We never explicitly trained it to detect, for example, the outline of roads</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t27" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>training signal</label>
         <term>training signal</term>
-        <quote>with only the human steering angle as the training signal</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t28" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>autonomy - AS A STIPULATED FORMULA: one minus the intervention count times six seconds over elapsed time, as a percentage; the word names an arithmetic result, not an observed capability</label>
-        <quote>We calculate the percentage autonomy by counting the number of interventions, multiplying by 6 seconds, dividing by the elapsed time of the simulated test, and then subtracting the result from 1</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t29" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>a performance criterion - CHOSEN FOR LEGIBILITY, WHICH IS NOT THE SAME AS BEING RIGHT: the paper&#x27;s argument for end-to-end training is that human-selected intermediate criteria are picked because a person can interpret them, and that this does not guarantee system performance</label>
-        <quote>instead of optimizing human-selected intermediate criteria, e. g., lane detection. Such criteria understandably are selected for ease of human interpretation which doesn’t automatically guarantee maximum system performance</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t30" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>road features - LEARNED WITHOUT EVER BEING NAMED: the network detects them from the steering angle alone, and the authors state they never trained it to detect road outlines</label>
-        <quote>The system automatically learns internal representations of the necessary processing steps such as detecting useful road features with only the human steering angle as the training signal. We never explicitly trained it to detect, for example, the outline of roads</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t31" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → Pomerleau ALVINN (1989)</label>
-        <quote>In many ways, DAVE-2 was inspired by the pioneering work of Pomerleau [6] who in 1989 built the Autonomous Land Vehicle in a Neural Network (ALVINN) system.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t32" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → DARPA Autonomous Vehicle (DAVE) [5]</label>
-        <quote>The groundwork for this project was done over 10 years ago in a Defense Advanced Research Projects Agency (DARPA) seedling project known as DARPA Autonomous Vehicle (DAVE) [5] in which a sub-scale radio control (RC) car drove through a junk-filled alley way.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t33" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → Pomerleau [6], the ALVINN system</label>
-        <quote>In many ways, DAVE-2 was inspired by the pioneering work of Pomerleau [6] who in 1989 built the Autonomous Land Vehicle in a Neural Network (ALVINN) system.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t34" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>extends → Pomerleau [6], the ALVINN system</label>
-        <quote>Our work differs in that 25 years of advances let us apply far more data and computational power to the task.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t35" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>autonomy —operationalised-as→ intervention</label>
         <term>autonomy</term>
         <term>intervention</term>
         <note>strength of the relation: 1</note>
-        <quote>We estimate what percentage of the time the network could drive the car (autonomy). The metric is determined by counting simulated human interventions</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t36" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>training signal —causes→ road features</label>
         <term>training signal</term>
         <term>road features</term>
         <note>strength of the relation: 1</note>
-        <quote>The system automatically learns internal representations of the necessary processing steps such as detecting useful road features with only the human steering angle as the training signal</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t37" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>98% — fraction of time the network drove autonomously (Holmdel to Atlantic Highlands)</label>
-        <quote>we are autonomous approximately 98% of the time</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t38" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>30 — system operating frame rate</label>
-        <quote>The system operates at 30 frames per second (FPS).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t39" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>9 — network depth: 1 normalization + 5 convolutional + 3 fully connected</label>
-        <quote>The network consists of 9 layers, including a normalization layer, 5 convolutional layers and 3 fully connected layers.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>10 — distance driven on the Garden State Parkway with zero interventions</label>
-        <quote>We also drove 10 miles on the Garden State Parkway (a multi-lane divided highway with on and off ramps) with zero intercepts.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t41" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>An end-to-end CNN mapping raw front-camera pixels directly to steering commands learned to drive on local roads and highways with ~98% autonomy, without hand-coded lane detection or path planning.</label>
-        <quote>We trained a convolutional neural network (CNN) to map raw pixels from a single front-facing camera directly to steering commands. This end-to-end approach proved surprisingly powerful.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t42" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
-        <label>The network learned useful road features using only the human steering angle as the training signal, never explicitly supervised to detect them.</label>
-        <quote>detecting useful road features with only the human steering angle as the training signal. We never explicitly trained it to detect, for example, the outline of roads.</quote>
+        <label>The network learned useful road features using Quotation withheld, never explicitly supervised to detect them.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t43" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>raw camera pixels</label>
         <term>raw camera pixels</term>
-        <quote>map raw pixels from a single front-facing camera directly to steering commands</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t44" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>steering angle</label>
         <term>steering angle</term>
-        <quote>only the human steering angle as the training signal</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t45" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
         <label>autonomy</label>
         <term>autonomy</term>
-        <quote>estimate what percentage of the time the network could drive the car (autonomy)</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>autonomy (metric)</label>
         <term>autonomy (metric)</term>
-        <quote>estimate what percentage of the time the network could drive the car (autonomy). The metric is determined by counting simulated human interventions</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>end-to-end learning</label>
         <term>end-to-end learning</term>
-        <quote>our end-to-end system optimizes all processing steps simultaneously</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
-        <quote>The distribution has zero mean, and the standard deviation is twice the standard deviation that we measured with human drivers.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
     </spanGrp>
   </standOff>
   <text>
     <body>
       <p><note type="rights">The full text of this article is not redistributable, so it is
-      not included here. Every tag above carries the exact sentence it was made from, quoted
-      under fair quotation. The article itself is at https://arxiv.org/abs/1604.07316.</note></p>
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/1604.07316.</note></p>
     </body>
   </text>
 </TEI>

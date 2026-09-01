@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>OpenMM 7: Rapid development of high performance algorithms for molecular dynamics</title>
+        <author>Peter Eastman</author>
+        <author>Jason Swails</author>
+        <author>John D. Chodera</author>
+        <author>Robert T. McGibbon</author>
+        <author>Yutong Zhao</author>
+        <author>Kyle A. Beauchamp</author>
+        <author>Lee-Ping Wang</author>
+        <author>Andrew C. Simmonett</author>
+        <author>Matthew P. Harrigan</author>
+        <author>Chaya D. Stern</author>
+        <author>Rafal P. Wiewiora</author>
+        <author>Bernard R. Brooks</author>
+        <author>Vijay S. Pande</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>OpenMM 7: Rapid development of high performance algorithms for molecular dynamics</title>
+          <date>2017</date>
+          <publisher>PLOS Computational Biology</publisher>
+          <idno type="DOI">10.1371/journal.pcbi.1005659</idno>
+          
+          <idno type="record">eastman2017-openmm-rapid-development-high-performance</idno>
+          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\eastman2017-openmm-rapid-development-high-performance.txt</note>
+          <note type="text-sha1">ed125309f3ad364fb7acd1abe47929bc929a64e8</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>biophysics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">161 spans placed by verified search</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" from="#a1" to="#a2" type="object_of_study" ana="#object_of_study" resp="#paper">OpenMM 7 architecture, extensibility mechanisms, hardware portability, advanced molecular models, precision modes, and performance</span>
+      <span xml:id="t1" from="#a15" to="#a16" type="research_question" ana="#research_question" resp="#paper">how to make new molecular-dynamics methods easy to implement, portable across hardware, performant, and independently distributable</span>
+      <span xml:id="t2" from="#a13" to="#a14" type="contribution" ana="#contribution" resp="#paper">a layered molecular-dynamics toolkit combining Python scripting, expression-defined forces and integrators, runtime plugins, and multiple input pipelines</span>
+      <span xml:id="t3" from="#a1" to="#a2" type="claim_type" ana="#claim_type" resp="#paper">method</span>
+      <span xml:id="t4" from="#a5" to="#a6" type="phenomenon" ana="#phenomenon" resp="#paper">delayed and hardware-limited dissemination of new molecular-dynamics methods in monolithic simulation packages</span>
+      <span xml:id="t5" from="#a55" to="#a56" type="method" ana="#method" resp="#paper">software architecture description plus molecular-system benchmarks, precision experiments, and cross-package force and energy validation<term>software architecture description plus molecular-system benchmarks, precision experiments, and cross-package force and energy validation</term></span>
+      <span xml:id="t6" from="#a13" to="#a14" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">Python composes protocols, expression classes define calculations, and plugins implement kernels and hardware backends.<term>layered extensibility</term></span>
+      <span xml:id="t7" from="#a19" to="#a20" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">User mathematical expressions are parsed, analyzed, and JIT-compiled into efficient hardware-specific implementations.<term>expression-to-kernel compilation</term></span>
+      <span xml:id="t8" from="#a21" to="#a22" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">Separately packaged plugins are discovered and loaded dynamically to add calculations or hardware support.<term>runtime plugin discovery</term></span>
+      <span xml:id="t9" from="#a23" to="#a24" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">Systems prepared with Amber, CHARMM, Gromacs, or Desmond tools can be simulated in OpenMM.<term>external input-pipeline interoperability</term></span>
+      <span xml:id="t10" from="#a31" to="#a32" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">OpenMM differentiates a user-supplied interaction-energy expression and compiles machine code for force and energy.<term>analytic force generation</term></span>
+      <span xml:id="t11" from="#a35" to="#a36" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">Custom integrators specify per-degree, global, constraint, and flow-control operations for each time step.<term>operation-sequence integration</term></span>
+      <span xml:id="t12" from="#a39" to="#a40" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">Multipole atoms carry induced dipoles solved iteratively through mutual interaction.<term>AMOEBA induced-polarization calculation</term></span>
+      <span xml:id="t13" from="#a41" to="#a42" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.95">A few induced-dipole iterations are analytically extrapolated toward the infinite-iteration limit.<term>extrapolated polarization</term></span>
+      <span xml:id="t14" from="#a47" to="#a48" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.95">Weighted atom-position vectors define an orthonormal coordinate system and arbitrary site location.<term>general virtual-site coordinates</term></span>
+      <span xml:id="t15" from="#a63" to="#a64" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.95">Identical prepared systems are loaded into source packages and OpenMM, then forces and energies are compared.<term>cross-package input validation</term></span>
+      <span xml:id="t16" from="#a5" to="#a6" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">New molecular-dynamics methods may take years to reach other packages, may never be ported, or may remain slow and hardware-limited.</span>
+      <span xml:id="t17" from="#a7" to="#a8" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">Monolithic simulation engines make even simple extensions labor-intensive and dependent on core-team approval.</span>
+      <span xml:id="t18" from="#a9" to="#a10" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">Package-specific preparation tools, formats, and force fields make switching or combining features difficult.</span>
+      <span xml:id="t19" from="#a37" to="#a38" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">Plugins offer extreme extensibility but demand hardware-specific implementation work, so simpler mechanisms are preferred when possible.</span>
+      <span xml:id="t20" from="#a39" to="#a40" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">AMOEBA&#x27;s multipoles and self-consistent induced dipoles make it much slower than conventional force fields.</span>
+      <span xml:id="t21" from="#a51" to="#a52" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">The acceptable speed-accuracy precision tradeoff depends on simulation details and the information being sought.</span>
+      <span xml:id="t22" from="#a57" to="#a58" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.95">Using both GPUs accelerates one simulation but can be less efficient for maximizing aggregate simulated time.</span>
+      <span xml:id="t23" from="#a65" to="#a66" type="limitations" ana="#limitations[7]" resp="#tagger" cert="0.95">Nonbonded energies differ slightly across packages because their numerical implementations, including spline order, differ.</span>
+      <span xml:id="t24" from="#a1" to="#a2" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">OpenMM<term>OpenMM</term></span>
+      <span xml:id="t25" from="#a1" to="#a2" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">molecular dynamics simulation toolkit<term>molecular dynamics simulation toolkit</term></span>
+      <span xml:id="t26" from="#a1" to="#a2" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">extensibility<term>extensibility</term></span>
+      <span xml:id="t27" from="#a1" to="#a2" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">forces with novel functional forms<term>forces with novel functional forms</term></span>
+      <span xml:id="t28" from="#a1" to="#a2" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">new integration algorithms<term>new integration algorithms</term></span>
+      <span xml:id="t29" from="#a1" to="#a2" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">new simulation protocols<term>new simulation protocols</term></span>
+      <span xml:id="t30" from="#a1" to="#a2" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">CPUs<term>CPUs</term></span>
+      <span xml:id="t31" from="#a1" to="#a2" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">GPUs<term>GPUs</term></span>
+      <span xml:id="t32" from="#a3" to="#a4" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">molecular dynamics simulation<term>molecular dynamics simulation</term></span>
+      <span xml:id="t33" from="#a3" to="#a4" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">new force fields<term>new force fields</term></span>
+      <span xml:id="t34" from="#a3" to="#a4" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">new sampling methods<term>new sampling methods</term></span>
+      <span xml:id="t35" from="#a7" to="#a8" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">simulation engines<term>simulation engines</term></span>
+      <span xml:id="t36" from="#a7" to="#a8" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">plugin interface<term>plugin interface</term></span>
+      <span xml:id="t37" from="#a7" to="#a8" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">core development team<term>core development team</term></span>
+      <span xml:id="t38" from="#a13" to="#a14" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">layered architecture<term>layered architecture</term></span>
+      <span xml:id="t39" from="#a13" to="#a14" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">high-performance library<term>high-performance library</term></span>
+      <span xml:id="t40" from="#a13" to="#a14" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">domain specific language<term>domain specific language</term></span>
+      <span xml:id="t41" from="#a13" to="#a14" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">complete package<term>complete package</term></span>
+      <span xml:id="t42" from="#a17" to="#a18" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">Python scripting language<term>Python scripting language</term></span>
+      <span xml:id="t43" from="#a19" to="#a20" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">forces and integrators<term>forces and integrators</term></span>
+      <span xml:id="t44" from="#a19" to="#a20" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">mathematical expressions<term>mathematical expressions</term></span>
+      <span xml:id="t45" from="#a19" to="#a20" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">just-in-time compilation<term>just-in-time compilation</term></span>
+      <span xml:id="t46" from="#a19" to="#a20" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">efficient implementation<term>efficient implementation</term></span>
+      <span xml:id="t47" from="#a21" to="#a22" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">Calculations<term>Calculations</term></span>
+      <span xml:id="t48" from="#a21" to="#a22" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.95">computational kernels<term>computational kernels</term></span>
+      <span xml:id="t49" from="#a21" to="#a22" type="concepts" ana="#concepts[25]" resp="#paper" cert="0.95">plugin<term>plugin</term></span>
+      <span xml:id="t50" from="#a23" to="#a24" type="concepts" ana="#concepts[26]" resp="#paper" cert="0.95">multiple input pipelines<term>multiple input pipelines</term></span>
+      <span xml:id="t51" from="#a23" to="#a24" type="concepts" ana="#concepts[27]" resp="#paper" cert="0.95">Amber<term>Amber</term></span>
+      <span xml:id="t52" from="#a23" to="#a24" type="concepts" ana="#concepts[28]" resp="#paper" cert="0.95">CHARMM<term>CHARMM</term></span>
+      <span xml:id="t53" from="#a23" to="#a24" type="concepts" ana="#concepts[29]" resp="#paper" cert="0.95">Gromacs<term>Gromacs</term></span>
+      <span xml:id="t54" from="#a23" to="#a24" type="concepts" ana="#concepts[30]" resp="#paper" cert="0.95">Desmond<term>Desmond</term></span>
+      <span xml:id="t55" from="#a25" to="#a26" type="concepts" ana="#concepts[31]" resp="#paper" cert="0.95">PDBFixer<term>PDBFixer</term></span>
+      <span xml:id="t56" from="#a25" to="#a26" type="concepts" ana="#concepts[32]" resp="#paper" cert="0.95">YANK<term>YANK</term></span>
+      <span xml:id="t57" from="#a27" to="#a30" type="concepts" ana="#concepts[33]" resp="#paper" cert="0.95">custom forces<term>custom forces</term></span>
+      <span xml:id="t58" from="#a27" to="#a30" type="concepts" ana="#concepts[34]" resp="#paper" cert="0.95">mechanism for creating interactions<term>mechanism for creating interactions</term></span>
+      <span xml:id="t59" from="#a31" to="#a32" type="concepts" ana="#concepts[35]" resp="#paper" cert="0.95">interaction energy<term>interaction energy</term></span>
+      <span xml:id="t60" from="#a31" to="#a32" type="concepts" ana="#concepts[36]" resp="#paper" cert="0.95">machine code<term>machine code</term></span>
+      <span xml:id="t61" from="#a35" to="#a36" type="concepts" ana="#concepts[37]" resp="#paper" cert="0.95">custom integrators<term>custom integrators</term></span>
+      <span xml:id="t62" from="#a39" to="#a40" type="concepts" ana="#concepts[38]" resp="#paper" cert="0.95">AMOEBA polarizable force field<term>AMOEBA polarizable force field</term></span>
+      <span xml:id="t63" from="#a39" to="#a40" type="concepts" ana="#concepts[39]" resp="#paper" cert="0.95">force field<term>force field</term></span>
+      <span xml:id="t64" from="#a39" to="#a40" type="concepts" ana="#concepts[40]" resp="#paper" cert="0.95">conventional point charge force fields<term>conventional point charge force fields</term></span>
+      <span xml:id="t65" from="#a39" to="#a40" type="concepts" ana="#concepts[41]" resp="#paper" cert="0.95">multipole moment<term>multipole moment</term></span>
+      <span xml:id="t66" from="#a39" to="#a40" type="concepts" ana="#concepts[42]" resp="#paper" cert="0.95">induced dipole<term>induced dipole</term></span>
+      <span xml:id="t67" from="#a39" to="#a40" type="concepts" ana="#concepts[43]" resp="#paper" cert="0.95">iterative self-consistent field calculation<term>iterative self-consistent field calculation</term></span>
+      <span xml:id="t68" from="#a41" to="#a42" type="concepts" ana="#concepts[44]" resp="#paper" cert="0.95">extrapolated polarization approximation<term>extrapolated polarization approximation</term></span>
+      <span xml:id="t69" from="#a41" to="#a42" type="concepts" ana="#concepts[45]" resp="#paper" cert="0.95">large improvement in speed<term>large improvement in speed</term></span>
+      <span xml:id="t70" from="#a43" to="#a44" type="concepts" ana="#concepts[46]" resp="#paper" cert="0.95">Drude particles<term>Drude particles</term></span>
+      <span xml:id="t71" from="#a43" to="#a44" type="concepts" ana="#concepts[47]" resp="#paper" cert="0.95">dual-thermostat Langevin integrator<term>dual-thermostat Langevin integrator</term></span>
+      <span xml:id="t72" from="#a45" to="#a46" type="concepts" ana="#concepts[48]" resp="#paper" cert="0.95">virtual sites<term>virtual sites</term></span>
+      <span xml:id="t73" from="#a45" to="#a46" type="concepts" ana="#concepts[49]" resp="#paper" cert="0.95">interaction sites<term>interaction sites</term></span>
+      <span xml:id="t74" from="#a49" to="#a50" type="concepts" ana="#concepts[50]" resp="#paper" cert="0.95">triclinic boxes<term>triclinic boxes</term></span>
+      <span xml:id="t75" from="#a49" to="#a50" type="concepts" ana="#concepts[51]" resp="#paper" cert="0.95">rhombic dodecahedron<term>rhombic dodecahedron</term></span>
+      <span xml:id="t76" from="#a49" to="#a50" type="concepts" ana="#concepts[52]" resp="#paper" cert="0.95">cost of the simulation<term>cost of the simulation</term></span>
+      <span xml:id="t77" from="#a53" to="#a54" type="concepts" ana="#concepts[53]" resp="#paper" cert="0.95">Single Precision<term>Single Precision</term></span>
+      <span xml:id="t78" from="#a53" to="#a54" type="concepts" ana="#concepts[54]" resp="#paper" cert="0.95">Mixed Precision<term>Mixed Precision</term></span>
+      <span xml:id="t79" from="#a53" to="#a54" type="concepts" ana="#concepts[55]" resp="#paper" cert="0.95">Double Precision<term>Double Precision</term></span>
+      <span xml:id="t80" from="#a53" to="#a54" type="concepts" ana="#concepts[56]" resp="#paper" cert="0.95">accuracy of some quantities<term>accuracy of some quantities</term></span>
+      <span xml:id="t81" from="#a59" to="#a60" type="concepts" ana="#concepts[57]" resp="#paper" cert="0.95">large decrease in performance<term>large decrease in performance</term></span>
+      <span xml:id="t82" from="#a55" to="#a56" type="concepts" ana="#concepts[58]" resp="#paper" cert="0.95">DHFR<term>DHFR</term></span>
+      <span xml:id="t83" from="#a55" to="#a56" type="concepts" ana="#concepts[59]" resp="#paper" cert="0.95">ABL1<term>ABL1</term></span>
+      <span xml:id="t84" from="#a55" to="#a56" type="concepts" ana="#concepts[60]" resp="#paper" cert="0.95">MTOR<term>MTOR</term></span>
+      <span xml:id="t85" from="#a57" to="#a58" type="concepts" ana="#concepts[61]" resp="#paper" cert="0.95">using two GPUs<term>using two GPUs</term></span>
+      <span xml:id="t86" from="#a57" to="#a58" type="concepts" ana="#concepts[62]" resp="#paper" cert="0.95">a single GPU<term>a single GPU</term></span>
+      <span xml:id="t87" from="#a61" to="#a62" type="concepts" ana="#concepts[63]" resp="#paper" cert="0.95">energy drift<term>energy drift</term></span>
+      <span xml:id="t88" from="#a63" to="#a64" type="concepts" ana="#concepts[64]" resp="#paper" cert="0.95">input pipelines<term>input pipelines</term></span>
+      <span xml:id="t89" from="#a63" to="#a64" type="concepts" ana="#concepts[65]" resp="#paper" cert="0.95">forces and energies<term>forces and energies</term></span>
+      <span xml:id="t90" from="#a65" to="#a66" type="concepts" ana="#concepts[66]" resp="#paper" cert="0.95">agreement<term>agreement</term></span>
+      <span xml:id="t91" from="#a13" to="#a14" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger" cert="0.95">OpenMM → high-performance library<note>OpenMM can act as a high-performance library.</note></span>
+      <span xml:id="t92" from="#a13" to="#a14" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger" cert="0.95">OpenMM → domain specific language<note>OpenMM can act as a domain-specific language for implementing algorithms.</note></span>
+      <span xml:id="t93" from="#a13" to="#a14" type="unhoused_relations" ana="#unhoused_relations[2]" resp="#tagger" cert="0.95">OpenMM → complete package<note>OpenMM can act as a complete molecular-simulation package.</note></span>
+      <span xml:id="t94" from="#a21" to="#a22" type="unhoused_relations" ana="#unhoused_relations[3]" resp="#tagger" cert="0.95">plugin → computational kernels<note>A plugin defines new computational kernels or new implementations of existing kernels.</note></span>
+      <span xml:id="t95" from="#a23" to="#a24" type="unhoused_relations" ana="#unhoused_relations[4]" resp="#tagger" cert="0.95">multiple input pipelines → Amber<note>Multiple input pipelines let OpenMM read Amber formats and use Amber preparation tools.</note></span>
+      <span xml:id="t96" from="#a49" to="#a50" type="unhoused_relations" ana="#unhoused_relations[5]" resp="#tagger" cert="0.95">rhombic dodecahedron → cost of the simulation<note>A rhombic-dodecahedron box reduces simulation cost by requiring less solvent.</note></span>
+      <span xml:id="t97" from="#a45" to="#a46" type="unhoused_relations" ana="#unhoused_relations[6]" resp="#tagger" cert="0.95">virtual sites → interaction sites<note>Virtual sites are interaction sites within a molecule.</note></span>
+      <span xml:id="t98" from="#a57" to="#a58" type="unhoused_relations" ana="#unhoused_relations[7]" resp="#tagger" cert="0.95">using two GPUs → a single GPU<note>For aggregate simulation time it is more efficient to run a separate simulation on each GPU than one simulation on both.</note></span>
+      <span xml:id="t99" from="#a1" to="#a2" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">OpenMM as an extensible molecular-dynamics toolkit whose added methods remain portable across CPUs and GPUs</span>
+      <span xml:id="t100" from="#a15" to="#a16" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">extensibility as adding and distributing features independently without changing the OpenMM core</span>
+      <span xml:id="t101" from="#a13" to="#a14" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">OpenMM&#x27;s layered architecture as Python composition, expression-defined calculations, and plugin kernels</span>
+      <span xml:id="t102" from="#a13" to="#a14" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">OpenMM as library, domain-specific language, or complete simulation package depending on how it is used</span>
+      <span xml:id="t103" from="#a31" to="#a32" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">custom forces as algebraic interaction energies analytically differentiated and JIT-compiled for current hardware</span>
+      <span xml:id="t104" from="#a35" to="#a36" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">custom integrators as ordered calculation sequences with constraint and flow-control operations</span>
+      <span xml:id="t105" from="#a37" to="#a38" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">plugins as separately distributed runtime-loaded implementations of new calculations or hardware backends</span>
+      <span xml:id="t106" from="#a23" to="#a24" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">multiple input pipelines as preparing systems in Amber, CHARMM, Gromacs, or Desmond and simulating them in OpenMM</span>
+      <span xml:id="t107" from="#a39" to="#a40" type="senses" ana="#senses[8]" resp="#tagger" cert="0.95">AMOEBA as a polarizable multipole model with induced dipoles computed self-consistently</span>
+      <span xml:id="t108" from="#a43" to="#a44" type="senses" ana="#senses[9]" resp="#tagger" cert="0.95">Drude polarizability as paired charges coupled by an anisotropic harmonic force</span>
+      <span xml:id="t109" from="#a45" to="#a46" type="senses" ana="#senses[10]" resp="#tagger" cert="0.95">virtual sites as positions recalculated from other particles rather than integrated directly</span>
+      <span xml:id="t110" from="#a51" to="#a52" type="senses" ana="#senses[11]" resp="#tagger" cert="0.95">precision modes as an explicit speed-accuracy choice for GPU molecular dynamics</span>
+      <span xml:id="t111" from="#a55" to="#a56" type="senses" ana="#senses[12]" resp="#tagger" cert="0.95">benchmark performance as hardware-, system-, precision-, and simulation-goal dependent</span>
+      <span xml:id="t112" from="#a65" to="#a66" type="senses" ana="#senses[13]" resp="#tagger" cert="0.95">input-pipeline validity as cross-package agreement of forces and energy components</span>
+      <span xml:id="t113" from="#a11" to="#a12" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">extends → OpenMM 4.1<note>The article focuses on changes through OpenMM 7.0 since the earlier published version.</note></span>
+      <span xml:id="t114" from="#a11" to="#a12" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">builds-on → OpenMM&#x27;s original GPU calculation library<note>The complete package grew from the earlier GPU-focused library.</note></span>
+      <span xml:id="t115" from="#a23" to="#a24" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">extends → single-package molecular-system preparation<note>Multiple input pipelines add interoperability with four established package ecosystems.</note></span>
+      <span xml:id="t116" from="#a1" to="#a2" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">OpenMM —is-a→ molecular dynamics simulation toolkit<note>the relation itself is separately evidenced · strength of the relation: 1 — Direct categorical class statement.</note><term>OpenMM</term><term>molecular dynamics simulation toolkit</term></span>
+      <span xml:id="t117" from="#a21" to="#a22" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">Calculations —operationalised-as→ computational kernels<note>the relation itself is separately evidenced · strength of the relation: 0.95 — The paper explicitly defines the executable calculation unit.</note><term>Calculations</term><term>computational kernels</term></span>
+      <span xml:id="t118" from="#a19" to="#a20" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">just-in-time compilation —causes→ efficient implementation<note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 0.95 — A direct unhedged code-generation mechanism.</note><term>just-in-time compilation</term><term>efficient implementation</term></span>
+      <span xml:id="t119" from="#a28" to="#a29" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">custom forces —is-a→ mechanism for creating interactions<note>the relation itself is separately evidenced · strength of the relation: 1 — Direct categorical class statement.</note><term>custom forces</term><term>mechanism for creating interactions</term></span>
+      <span xml:id="t120" from="#a39" to="#a40" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">AMOEBA polarizable force field —is-a→ force field<note>the relation itself is separately evidenced · strength of the relation: 1 — This is explicitly marked as a compound-name inference.</note><term>AMOEBA polarizable force field</term><term>force field</term></span>
+      <span xml:id="t121" from="#a39" to="#a40" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.95">AMOEBA polarizable force field —contrasted-with→ conventional point charge force fields<note>the relation itself is separately evidenced · strength of the relation: 0.95 — The paper directly contrasts their atom and polarization representations.</note><term>AMOEBA polarizable force field</term><term>conventional point charge force fields</term></span>
+      <span xml:id="t122" from="#a41" to="#a42" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">extrapolated polarization approximation —causes→ large improvement in speed<note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 0.7 — The paper uses &#x27;can&#x27;, so paper strength is moderate.</note><term>extrapolated polarization approximation</term><term>large improvement in speed</term></span>
+      <span xml:id="t123" from="#a53" to="#a54" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.95">Mixed Precision —causes→ accuracy of some quantities<note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 0.95 — The performance of this mode is stated directly.</note><term>Mixed Precision</term><term>accuracy of some quantities</term></span>
+      <span xml:id="t124" from="#a59" to="#a60" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="0.95">Double Precision —causes→ large decrease in performance<note>direction on the measure: reduces · the relation itself is separately evidenced · strength of the relation: 0.95 — The direction is explicitly negative and the target is the decrease itself.</note><term>Double Precision</term><term>large decrease in performance</term></span>
+      <span xml:id="t125" from="#a57" to="#a58" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.95">using two GPUs —contrasted-with→ a single GPU<note>the relation itself is separately evidenced · strength of the relation: 0.95 — The comparison is measured and explicitly conditional on molecule and settings.</note><term>using two GPUs</term><term>a single GPU</term></span>
+      <span xml:id="t126" from="#a65" to="#a66" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.95">Amber —contrasted-with→ OpenMM<note>the relation itself is separately evidenced · strength of the relation: 0.95 — The paper directly contrasts a numerical implementation choice.</note><term>Amber</term><term>OpenMM</term></span>
+      <span xml:id="t127" from="#a1" to="#a2" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">OpenMM additions can be defined with minimal code, remain independent of the core, and run across supported CPUs and GPUs.</span>
+      <span xml:id="t128" from="#a13" to="#a14" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">The layered architecture supports use as a library, domain-specific language, or complete simulation package.</span>
+      <span xml:id="t129" from="#a33" to="#a34" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">Custom force expressions are analytically differentiated and JIT-compiled with little or no performance loss.</span>
+      <span xml:id="t130" from="#a37" to="#a38" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">Plugins can add calculations or hardware implementations but require substantially more development effort.</span>
+      <span xml:id="t131" from="#a41" to="#a42" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">The extrapolated polarization approximation improves AMOEBA speed with a small accuracy loss.</span>
+      <span xml:id="t132" from="#a47" to="#a48" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">The general three-atom virtual-site formulation covers all four Gromacs rules and additional cases.</span>
+      <span xml:id="t133" from="#a49" to="#a50" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">A rhombic-dodecahedron box uses about 71 percent of the rectangular-cell volume for the same padding.</span>
+      <span xml:id="t134" from="#a57" to="#a58" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">Two GPUs are 22 to 62 percent faster than one for a single simulation, depending on molecule and settings.</span>
+      <span xml:id="t135" from="#a59" to="#a60" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="0.95">Double precision is much slower, while mixed precision substantially improves accuracy at low performance cost.</span>
+      <span xml:id="t136" from="#a65" to="#a66" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="0.95">Input-pipeline energy components match source packages to at least four significant digits.</span>
+      <span xml:id="t137" from="#a1" to="#a2" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">an extensible molecular-dynamics toolkit portable across supported CPU and GPU hardware<term>OpenMM</term></span>
+      <span xml:id="t138" from="#a27" to="#a30" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">a mechanism for particle interactions with user-defined functional forms<term>custom forces</term></span>
+      <span xml:id="t139" from="#a35" to="#a36" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">integration algorithms defined as ordered mathematical and constraint operations<term>custom integrators</term></span>
+      <span xml:id="t140" from="#a21" to="#a22" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">a separately distributed runtime-loaded implementation of new or existing kernels<term>plugin</term></span>
+      <span xml:id="t141" from="#a45" to="#a46" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">interaction sites whose positions are calculated from other particles rather than integrated<term>virtual sites</term></span>
+      <span xml:id="t142" from="#a53" to="#a54" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.95">mode performing nearly all calculations in single precision<term>Single Precision</term></span>
+      <span xml:id="t143" from="#a53" to="#a54" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.95">mode using single precision for forces and double precision for integration and energy accumulation<term>Mixed Precision</term></span>
+      <span xml:id="t144" from="#a53" to="#a54" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="0.95">mode performing all calculations in double precision<term>Double Precision</term></span>
+      <span xml:id="t145" from="#a25" to="#a26" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">roughly 200 — lines of code reported for the simulated-tempering implementation</span>
+      <span xml:id="t146" from="#a25" to="#a26" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">about 1000 — lines of code reported for PDBFixer algorithms</span>
+      <span xml:id="t147" from="#a49" to="#a50" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">71% — rhombic-dodecahedron volume relative to a rectangular unit cell at equal padding</span>
+      <span xml:id="t148" from="#a55" to="#a56" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">23,558 — atoms in the DHFR benchmark system</span>
+      <span xml:id="t149" from="#a55" to="#a56" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">45,143 — atoms in the ABL1 benchmark system</span>
+      <span xml:id="t150" from="#a55" to="#a56" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="0.95">189,218 — atoms in the MTOR benchmark system</span>
+      <span xml:id="t151" from="#a57" to="#a58" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="0.95">22% to 62% — single-simulation speedup from two GPUs versus one</span>
+      <span xml:id="t152" from="#a61" to="#a62" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="0.95">more than two orders of magnitude — single-precision energy drift relative to mixed or double precision</span>
+      <span xml:id="t153" from="#a61" to="#a62" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="0.95">ten — independent simulations used for each precision-mode drift estimate</span>
+      <span xml:id="t154" from="#a65" to="#a66" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="0.95">at least four significant digits — minimum reported agreement of cross-package energy components</span>
+      <span xml:id="t155" from="#a15" to="#a16" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">hardware types<term>hardware types</term></span>
+      <span xml:id="t156" from="#a19" to="#a20" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">mathematical expressions<term>mathematical expressions</term></span>
+      <span xml:id="t157" from="#a51" to="#a52" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger" cert="0.95">precision mode<term>precision mode</term></span>
+      <span xml:id="t158" from="#a57" to="#a58" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger" cert="0.95">molecule and settings<term>molecule and settings</term></span>
+      <span xml:id="t159" from="#a61" to="#a62" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger" cert="0.95">rate of energy change<term>rate of energy change</term></span>
+      <span xml:id="t160" from="#a63" to="#a64" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger" cert="0.95">forces and energies<term>forces and energies</term></span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+        <p><anchor xml:id="a0"/> OpenMM 7: Rapid development of high performance algorithms for molecular dynamics</p>
+        <p>Abstract</p>
+        <p><anchor xml:id="a1"/>OpenMM is a molecular dynamics simulation toolkit with a unique focus on extensibility. It allows users to easily add new features, including forces with novel functional forms, new integration algorithms, and new simulation protocols. Those features automatically work on all supported hardware types (including both CPUs and GPUs) and perform well on all of them. In many cases they require minimal coding, just a mathematical description of the desired function. They also require no modification to OpenMM itself and can be distributed independently of OpenMM. This makes it an ideal tool for researchers developing new simulation methods, and also allows those new methods to be immediately available to the larger community<anchor xml:id="a2"/>.</p>
+        <p>This is a PLOS Computational Biology Software paper.</p>
+        <p>Introduction</p>
+        <p>Background</p>
+        <p><anchor xml:id="a3"/>Molecular dynamics simulation is a rapidly advancing field. Many aspects of it are subjects of current research and development. Some of the more important examples include the development of new force fields [ 1 , 2 ], sometimes involving novel functional forms for the interactions [ 3 , 4 ]; new integration algorithms [ 5 – 7 ]; new sampling methods [ 8 – 10 ]; and support for new types of hardware<anchor xml:id="a4"/> [ 11 – 13 ].</p>
+        <p><anchor xml:id="a5"/>There are many popular software packages for conducting molecular dynamics simulations. They vary considerably in their capabilities and feature sets. This is especially true when it comes to cutting edge, recently developed simulation techniques. The inventor of a new method will typically implement it in a single package, whichever one they are most comfortable working with. From that point, it may take years to be implemented in other packages, depending on the interests and priorities of the development team behind each one. In many cases, it may never get implemented. Even the initial implementation may not be accepted into an official release of the package it was created in. Or it may have limited usefulness, for example because it executes slowly or cannot be used on advanced hardware such as graphics processing units (GPUs)<anchor xml:id="a6"/>.</p>
+        <p><anchor xml:id="a7"/>The main reason for this problem is that most molecular dynamics packages were not designed with extensibility in mind. Adding new features, even very simple ones, is often labor intensive and requires a deep understanding of the code. Once a prototype implementation is complete, it may be even more difficult to turn that into a well optimized version that works on all hardware types. In most cases the simulation engines are also monolithic, so the only way to add features to them is to directly modify their source code. There is no plugin interface or other mechanism for allowing new features to be implemented and distributed independently. This turns the core development team into gatekeepers, restricting what features can be added to the package<anchor xml:id="a8"/>.</p>
+        <p><anchor xml:id="a9"/>A complete molecular dynamics package is, of course, much more than just a simulation engine. Each one typically has its own collection of tools for preparing molecular systems to simulate, its own file formats, and sometimes even its own force fields. This makes it difficult for users to switch back and forth between them, or to combine features from different packages<anchor xml:id="a10"/>.</p>
+        <p>OpenMM</p>
+        <p><anchor xml:id="a11"/>OpenMM is a molecular dynamics package designed to address these problems. It began as simply a library for performing certain types of calculations on GPUs, but in recent versions has grown into a complete simulation package with unique and powerful features. This article describes OpenMM 7.0, which is the latest release at the time of writing. An earlier version (OpenMM 4.1) was described in a previous publication [ 14 ]. This article focuses primarily on what has changed since that version, but for completeness there is some overlap between the two<anchor xml:id="a12"/>.</p>
+        <p><anchor xml:id="a13"/>OpenMM is based on a layered architecture which (see Fig 1 ), to the best of our knowledge, is unique among molecular dynamics packages. This allows it to be used in several different ways by users with varying needs and interests. Depending on how a particular user chooses to interact with it, OpenMM can act as:</p>
+        <p>A high-performance library , callable from other programs, for performing a wide range of calculations used in molecular modelling and simulation on a range of advanced hardware platforms (both CPUs and GPUs).</p>
+        <p>A domain specific language for easily implementing new algorithms for molecular modelling and simulation.</p>
+        <p>A complete package for running molecular simulations<anchor xml:id="a14"/>.</p>
+        <p>Architecture of OpenMM.</p>
+        <p><anchor xml:id="a15"/>Extensibility is built into every layer of the architecture as a fundamental design goal. A guiding philosophy is that users should be able to implement new features as easily as possible, by writing as little code as possible. Those features should then work on all types of hardware, including both CPUs and GPUs, and have good performance on all of them. Finally, the developer of a feature should be able to package and distribute their code independently, without needing the approval or participation of the core OpenMM development team<anchor xml:id="a16"/>.</p>
+        <p><anchor xml:id="a17"/>The highest layer of the architecture is based on the Python scripting language. Users can easily extend it by writing their own Python code to implement the algorithms of their choice. A wide range of simulation protocols, sampling methods, etc. can be implemented in this way, often with only a few lines of code<anchor xml:id="a18"/>.</p>
+        <p><anchor xml:id="a19"/>The next layer down defines the calculations that are tied together through Python scripting. This layer includes many classes for creating “custom” forces and integrators. These classes provide a simple but powerful mechanism for extensibility. The user provides one or more mathematical expressions to describe the calculation to be done. For example, they might give an expression for the interaction energy of a pair of particles as a function of the distance between them. The expression is parsed and analyzed, and just-in-time compilation is used to generate an efficient implementation of the code for calculating that interaction [ 15 ]. This allows users to easily define a huge variety of interactions and integration algorithms. They can then be used on any supported type of hardware, and involve little or no loss in performance<anchor xml:id="a20"/>.</p>
+        <p><anchor xml:id="a21"/>At the lowest layer, OpenMM is based on a plugin mechanism. Calculations are defined by “computational kernels”. A plugin may define new kernels for doing new types of calculations, or alternatively it may provide new implementations of existing kernels, for example to support a new type of hardware. Plugins are dynamically discovered and loaded at runtime. Each one is packaged as a file that can be distributed separately from the rest of OpenMM and installed by any user<anchor xml:id="a22"/>.</p>
+        <p><anchor xml:id="a23"/>Another unique feature of OpenMM is its support for multiple input pipelines. Before a molecular system can be simulated, it first must be modelled. This is sometimes a complex process involving such steps as combining multiple molecules into a single file, building missing loops, selecting a force field, and parametrizing small molecules. Typically, each simulation package provides its own tools for doing this. They often differ in significant ways, such as what force fields are available.</p>
+        <p>OpenMM does include modelling tools, but it also can directly read the file formats used by Amber [ 16 ], CHARMM [ 17 ], Gromacs [ 18 ], and Desmond [ 19 ]. A user can prepare their system with the tools from any of those packages, or with other tools that are designed to work with them, then simulate it in OpenMM. This gives great flexibility, since the user can use whatever tools are best suited to the system they want to simulate. It also lets OpenMM easily fit into their existing workflow. A user who is accustomed to a particular tool can continue to use it, but still run their simulation in OpenMM<anchor xml:id="a24"/>.</p>
+        <p>Design and implementation</p>
+        <p>Extensibility</p>
+        <p>Python scripting</p>
+        <p>The highest level of the architecture consists of a set of Python classes and functions. They may be chained together to create simple scripts that run simulations, or more complicated ones that implement a variety of advanced algorithms. These are some of the functions provided by OpenMM that may be used by Python scripts:</p>
+        <p>Reading input files, including standard formats like PDB or PDBx/mmCIF, as well as the proprietary formats used by applications such as Amber, CHARMM, Gromacs, and Desmond.</p>
+        <p>Editing molecular models, such as by combining molecules together, adding or deleting atoms, building solvent boxes, etc.</p>
+        <p>Defining the forces acting on a molecular system, either by specifying them explicitly or by loading a force field definition from a file.</p>
+        <p>Computing forces and energies.</p>
+        <p>Running simulations.</p>
+        <p>Outputting results.</p>
+        <p>An example of a script to run a simulation is shown in Listing 1. It loads a PDB file, models the forces with the AMBER99SB-ILDN force field [ 20 ] and TIP-3P water model [ 21 ], performs a local energy minimization to eliminate clashes, and then simulates 1 million steps of Verlet dynamics. Every 1000 steps, it writes the current structure to a DCD file, and the current time, potential energy, and temperature to a log file.</p>
+        <p>Listing 1: A Python script executing a complete molecular simulation from a PDB file.</p>
+        <p>from simtk.openmm.app import *</p>
+        <p>from simtk.openmm import *</p>
+        <p>from simtk.unit import *</p>
+        <p>pdb = PDBFile(&#x27;input.pdb&#x27;)</p>
+        <p>forcefield = ForceField(&#x27;amber99sbildn.xml&#x27;, &#x27;tip3p.xml&#x27;)</p>
+        <p>system = forcefield.createSystem(pdb.topology, nonbondedMethod = PME, nonbondedCutoff = 1*nanometer, constraints = HBonds)</p>
+        <p>integrator = VerletIntegrator(0.002*picoseconds)</p>
+        <p>simulation = Simulation(pdb.topology, system, integrator)</p>
+        <p>simulation.context.setPositions(pdb.positions)</p>
+        <p>simulation.context.setVelocitiesToTemperature(300*kelvin)</p>
+        <p>simulation.minimizeEnergy()</p>
+        <p>simulation.reporters.append(DCDReporter(&#x27;output.pdb&#x27;, 1000))</p>
+        <p>simulation.reporters.append(StateDataReporter(&#x27;output.log&#x27;, 1000, time = True, potentialEnergy = True, temperature = True))</p>
+        <p>simulation.step(1000000)</p>
+        <p><anchor xml:id="a25"/>This script runs a simple simulation, much like one might run in any molecular dynamics package. More sophisticated or exotic algorithms and protocols can be implemented in exactly the same way. Here are some examples of features or applications that use or extend OpenMM’s Python scripting features:</p>
+        <p>A class for simulated tempering [ 10 ], an accelerated sampling method that varies the temperature of a simulation to accelerate barrier crossings. The entire algorithm was implemented in roughly 200 lines of code.</p>
+        <p>PDBFixer, an application for cleaning up molecular models in preparation for simulating them. It includes such features as building missing loops, replacing nonstandard amino acids with standard ones, adding hydrogens, and building solvent boxes. By using the features provided by OpenMM, all of these algorithms were implemented in only about 1000 lines of code.</p>
+        <p>YANK [ 22 ] a sophisticated application and toolkit for alchemical free energy calculations. It implements Hamiltonian exchange molecular dynamics simulations to efficiently sample multiple alchemical states, and utilizes the “custom” forces provided by OpenMM to allow exploration of many different alchemical intermediate functional forms.</p>
+        <p>Although these tools are written in Python, all expensive calculations are done by OpenMM and take full advantage of the available hardware, including GPUs and multicore CPUs. Because they interact with OpenMM only through well-defined public interfaces, they can be packaged and distributed independently. No changes to OpenMM itself are required to use them<anchor xml:id="a26"/>.</p>
+        <p>A set of advanced examples is included in the supporting information. They demonstrate more complex simulation techniques, and show how to use OpenMM in combination with other programs.</p>
+        <p>Custom forces</p>
+        <p><anchor xml:id="a27"/>In addition to the standard forces provided by OpenMM (such as Lennard-Jones forces, PME and reaction field electrostatics, and generalized Born models), <anchor xml:id="a28"/>custom forces are a mechanism for creating interactions between particles with entirely novel functional forms<anchor xml:id="a29"/>. There are many different custom force classes, each supporting a particular category of interactions. They are listed in Table 1 . Since OpenMM 4.1 was described in an earlier publication, several new custom force classes have been added, including CustomCompoundBondForce (added in OpenMM 5.0), CustomManyParticleForce (added in OpenMM 6.2), and CustomCentroidBondForce (added in OpenMM 7.0)<anchor xml:id="a30"/>.</p>
+        <p>Custom forces supported by OpenMM 7.0.</p>
+        <p><anchor xml:id="a31"/>In each case, the user provides an algebraic expression for the interaction energy as a function of the relevant variables. OpenMM analytically differentiates the expression to determine the corresponding force, then uses just-in-time compilation to generate machine code for efficiently computing the force and energy on the current hardware (either CPU or GPU)<anchor xml:id="a32"/>.</p>
+        <p>As an example, Listing 2 defines a harmonic restraint that can be applied to the angles formed by triplets of atoms. It specifies that the energy of each triplet is given by k ( θ - θ 0 ) 2 . It also specifies that k and θ 0 are per-angle parameters: each triplet can have different values for them.</p>
+        <p>Listing 2: Implementation of a harmonic angle restraint using a CustomAngleForce.</p>
+        <p>force = CustomAngleForce(&#x27;k*(theta-theta0)^2&#x27;)</p>
+        <p>force.addPerAngleParameter(&#x27;k&#x27;)</p>
+        <p>force.addPerAngleParameter(&#x27;theta0&#x27;)</p>
+        <p><anchor xml:id="a33"/>Custom forces are designed to achieve several goals that usually conflict with each other. First, it should be exceptionally easy to implement completely new functional forms for interactions. As seen in Listing 2, it often requires no more than a few lines of Python code. Second, a single implementation should work on all types of hardware. The exact same code can be used whether the program is being run on a CPU or GPU. Third, the user should not need to sacrifice performance. Because the expression is converted to machine code before the simulation is run, there often is little or no difference in speed between a custom force and a hand-written implementation of the same interaction<anchor xml:id="a34"/>.</p>
+        <p>Custom integrators</p>
+        <p><anchor xml:id="a35"/>Just as custom forces allow users to implement novel interactions, custom integrators allow them to implement novel integration algorithms. The algorithm is defined by a sequence of operations, each defining a calculation to be done. Various types of operations are supported. Examples include:</p>
+        <p>Evaluating a mathematical expression for each degree of freedom, then assigning the result to a variable for each one.</p>
+        <p>Evaluating a mathematical expression once and assigning the result to a global variable.</p>
+        <p>Summing an expression over all degrees of freedom and assigning the result to a global variable.</p>
+        <p>Applying constraints to positions or velocities.</p>
+        <p>In the simplest case, all operations are executed in order to take a single integration time step. In addition, OpenMM 7.0 added support for more complex flow control through if and while blocks<anchor xml:id="a36"/>.</p>
+        <p>Listing 3 shows Python code that uses a custom integrator to implement the leapfrog Verlet algorithm. The function addPerDofVariable() defines a new variable that has a different value for each degree of freedom. The function addComputePerDof() defines a calculation to be performed independently for each degree of freedom. In the absence of constraints, each time step of this algorithm consists of the operations v ← v + d t · f / m x ← x + d t · v where x is the position at time t , v is the velocity at time t - dt /2, dt is the step size, f is the force, and m is the particle mass. When constraints are present, the positions must then be adjusted to satisfy them, and finally the velocities are recalculated as v ← ( x − x 0 ) / d t where x 0 is the position at the start of the step.</p>
+        <p>Listing 3: Leapfrog Verlet algorithm implemented as a CustomIntegrator.</p>
+        <p>integrator = CustomIntegrator(dt)</p>
+        <p>integrator.addPerDofVariable(&#x27;x0&#x27;, 0)</p>
+        <p>integrator.addComputePerDof(&#x27;x0&#x27;, &#x27;x&#x27;)</p>
+        <p>integrator.addComputePerDof(&#x27;v&#x27;, &#x27;v+dt*f/m&#x27;)</p>
+        <p>integrator.addComputePerDof(&#x27;x&#x27;, &#x27;x+dt*v&#x27;)</p>
+        <p>integrator.addConstrainPositions()</p>
+        <p>integrator.addComputePerDof(&#x27;v&#x27;, &#x27;(x-x0)/dt&#x27;)</p>
+        <p>Far more complicated and sophisticated algorithms can be implemented in the same way. Here are some examples of integrators that have been created with this mechanism.</p>
+        <p>The rRESPA multiple time step integration algorithm [ 23 ].</p>
+        <p>The aMD accelerated sampling algorithm [ 9 ].</p>
+        <p>Metropolis-Hastings Monte Carlo [ 24 ] with Gaussian displacement proposals.</p>
+        <p>Hybrid Monte Carlo and variants, such as Generalized hybrid Monte Carlo (GHMC) [ 25 ], a Metropolized form of Langevin dynamics.</p>
+        <p>Nonequilibrium candidate Monte Carlo (NCMC) [ 26 ], where an external field is changed during the course of dynamics and the resulting nonequilibrium proposal accepted or rejected to preserve the equilibrium distribution.</p>
+        <p>As with custom forces, a single implementation works on all types of hardware. Because just-in-time compilation is used to generate efficient machine code for the algorithm, there usually is little or no performance cost relative to using hand-written GPU code.</p>
+        <p>Plugins</p>
+        <p><anchor xml:id="a37"/>The lowest layer of the OpenMM architecture is based around plugins. This allows new features to be packaged as libraries, distributed independently, and loaded dynamically at runtime. For example, a plugin can implement a new type of interaction or a new integration algorithm, or it can add support for a new type of hardware. In fact, many of the core features of OpenMM are actually implemented as plugins, including its implementations of the AMOEBA force field [ 27 ], ring polymer molecular dynamics (RPMD) [ 28 ], and polarizable Drude particles [ 29 ].</p>
+        <p>This provides nearly unlimited extensibility, allowing users to implement any feature they might want. Writing a plugin involves far more work than the other extensibility features described above. For example, it is up to the user to write whatever code is necessary to make it work on each type of hardware, such as CUDA or OpenCL code for GPUs. When possible, it is therefore usually preferable to use one of the other mechanisms. Nevertheless, plugins are an important option when extreme extensibility and performance is needed. Like the other mechanisms, they allow a developer to create an extension and distribute it directly to users. No modifications to OpenMM itself are needed<anchor xml:id="a38"/>.</p>
+        <p>Advanced features</p>
+        <p>OpenMM has many other features beyond those discussed above, some of which are themselves unique or noteworthy. The following are some of the more significant ones.</p>
+        <p>AMOEBA</p>
+        <p><anchor xml:id="a39"/>OpenMM has an implementation of the AMOEBA polarizable force field which is, to the best of our knowledge, the fastest available in any code [ 3 ]. AMOEBA is designed to transcend the limitations of conventional point charge force fields and achieve much higher accuracy in force and energy computations. It uses two main mechanisms to achieve this. First, instead of approximating atoms as point charges, it assigns each one a multipole moment up to the level of quadrupoles. Second, it explicitly models atomic polarization by assigning an induced dipole to each atom. Because the induced dipoles interact with each other, they must be computed at each time step using an iterative self-consistent field calculation. Both of these features make AMOEBA far slower to simulate than conventional force fields<anchor xml:id="a40"/>.</p>
+        <p><anchor xml:id="a41"/>Much research has been done recently on ways to reduce this cost, and new versions of OpenMM have incorporated several of the most recent algorithms. Interactions between multipoles are computed using spherical harmonics in a quasi-internal coordinate system [ 30 , 31 ] (added in OpenMM 7.0). The iterative solver for induced dipoles uses the Direct Inversion in the Iterative Subspace (DIIS) algorithm [ 32 ] (added in OpenMM 6.1). Alternatively, it can use the recently developed extrapolated polarization approximation [ 33 ] (added in OpenMM 7.0). In this method, only a few iterations are performed, and then an analytic approximation is used to extrapolate to the limit of infinite iterations. This can give a large improvement in speed with only a very small loss in accuracy<anchor xml:id="a42"/>.</p>
+        <p>Drude particles</p>
+        <p><anchor xml:id="a43"/>A new feature introduced in OpenMM 5.2 is support for Drude particles [ 29 ] as an alternative way of modelling polarizability. In this method, each polarizable atom is modelled as a pair of charges connected by an anisotropic harmonic force. When an electric field is applied, the two particles are displaced from each other, creating a dipole moment. The strength of the force connecting them determines the atomic polarizability. The particle positions can be determined using a self-consistent field calculation or, more commonly, a dual-thermostat Langevin integrator that couples the center of mass of each pair to a high temperature heat bath (e.g. 300K), but the internal motion of each pair to a low temperature heat bath (e.g. 1K).</p>
+        <p>Polarizable force fields based on Drude particles are included with OpenMM. This includes the SWM4-NDP water model [ 34 ], and the CHARMM polarizable force field for proteins [ 4 ]. They aim to incorporate some of the same physical effects as AMOEBA at a lower computational cost<anchor xml:id="a44"/>.</p>
+        <p>Virtual sites</p>
+        <p><anchor xml:id="a45"/>Virtual sites are interaction sites within a molecule whose positions are not integrated directly. Instead, they are calculated at each time step based on the positions of other particles. They are often used to provide a more detailed charge distribution than would be possible using only a single point charge for each atom. For example, they appear in many multisite water models (such as TIP-4P and TIP-5P), and also in the CHARMM polarizable protein force field<anchor xml:id="a46"/>.</p>
+        <p>There are a multitude of possible ways a virtual site position can be specified based on the positions of other mobile atoms. Typically, a simulation package will provide a limited choice of rules, covering only those cases needed for the particular force fields that package supports. For example, Gromacs 5 offers a choice of four methods for calculating a virtual site position based on the positions of three atoms. Each one covers one very specific case that occurs in a supported force field. One can easily imagine other cases that would be impossible to construct with any of the current rules, and would therefore require adding a fifth rule.</p>
+        <p><anchor xml:id="a47"/>OpenMM also offers a few specialized rules for positioning virtual sites, but in addition, it has a very general method designed to cover all cases that are ever likely to occur in which a virtual site depends on the positions of three atoms. This method, added in OpenMM 6.1, can reproduce all four of the rules provided by Gromacs, as well as supporting many other situations they could not.</p>
+        <p>In this method, three vectors are first calculated as weighted averages of the positions of the three atoms: o = w 1 o r 1 + w 2 o r 2 + w 3 o r 3 d x = w 1 x r 1 + w 2 x r 2 + w 3 x r 3 d y = w 1 y r 1 + w 2 y r 2 + w 3 y r 3 where r 1 , r 2 , and r 3 are the atom positions, and the coefficients are user-defined. They are then used to construct a set of orthonormal coordinate axes ( x ^ , y ^ , z ^ ): d z = d x × d y x ^ = d x / | d x | z ^ = d z / | d z | y ^ = z ^ × x ^</p>
+        <p>Finally, the virtual site position is set to an arbitrary user-defined location within this coordinate system: r = o + p 1 x ^ + p 2 y ^ + p 3 z ^</p>
+        <p>This method is another example of how flexibility and extensibility are core design goals of OpenMM. Instead of supporting only a limited set of specialized virtual site types, it tries to provide a very general type that can cover as wide a range of cases as possible, thus giving maximum flexibility to users in designing their models and force fields<anchor xml:id="a48"/>.</p>
+        <p>Triclinic periodic boxes</p>
+        <p><anchor xml:id="a49"/>Earlier versions of OpenMM supported only rectangular periodic boxes. In OpenMM 6.3 it was extended to support triclinic boxes as well: ones formed by combinations of three arbitrary lattice vectors. It can be shown that this formulation is extremely general; all standard periodic box shapes, including the popular rhombic dodecahedron and truncated octahedron, can be represented as triclinic boxes [ 35 ].</p>
+        <p>This feature serves two important functions. First, it allows one to simulate crystals, which very often have non-rectangular unit cells. Second, it is useful when simulating freely rotating molecules in solvent. One needs to include a certain amount of padding around the molecule to ensure that no two periodic copies ever come too close together. Because the molecule can freely rotate, the same padding is required along all directions, so one wants the periodic box to be as close as possible to spherical. For a given padding distance, the rhombic dodecahedron has only about 71% the volume of a rectangular unit cell. It therefore requires less solvent and reduces the cost of the simulation<anchor xml:id="a50"/>.</p>
+        <p>Multiple precision modes</p>
+        <p><anchor xml:id="a51"/>Many aspects of a molecular dynamics code involve tradeoffs between speed and accuracy. This is especially true when executing on a GPU, since they often have very poor double precision performance. To optimize execution speed, it is preferable to use single precision whenever possible, resorting to double precision only when absolutely necessary. Unfortunately, there is no unique standard for when it is &quot;necessary&quot;. The minimum acceptable level of error can vary widely depending on the details of a simulation and the type of information one wishes to obtain from it<anchor xml:id="a52"/>.</p>
+        <p><anchor xml:id="a53"/>OpenMM 5.0 introduced support for multiple precision modes. When running on a GPU, the user has a choice of three modes:</p>
+        <p>Single Precision : Nearly all calculations are done in single precision. Double is used in only a handful of places where it has negligible impact on performance and is most important for accuracy.</p>
+        <p>Mixed Precision : Forces are computed in single precision, but integration and energy accumulation are done in double precision. This gives a large improvement in the accuracy of some quantities, while only having a small impact in performance.</p>
+        <p>Double Precision : All calculations are done in double precision. This gives the best accuracy, but often has a very large effect on performance<anchor xml:id="a54"/>.</p>
+        <p>The effects of the different modes are illustrated below in Results.</p>
+        <p>Regardless of the precision mode, forces are accumulated as 64 bit fixed point values. This improves accuracy when working in single or mixed precision modes, and ensures that force accumulation is deterministic. It also allows force accumulation to be done with integer atomic operations, which substantially improves performance. OpenMM has used this method since version 4.0, released in January 2012. Since that time, it has found its way into other GPU accelerated MD codes, such as AMBER [ 36 ].</p>
+        <p>Results</p>
+        <p>Performance</p>
+        <p><anchor xml:id="a55"/>To evaluate the speed of OpenMM, we benchmarked its performance with three molecular systems of varying size:</p>
+        <p>Dihydrofolate reductase (DHFR), a 2489 atom protein solvated with 7023 water molecules to give a total of 23,558 atoms.</p>
+        <p>Abl kinase (ABL1), a 4067 atom protein solvated with 13,692 water molecules to give a total of 45,143 atoms</p>
+        <p>The mechanistic target of rapamycin (MTOR), a 19,019 atom protein solvated with 56,733 water molecules to give a total of 189,218 atoms.</p>
+        <p>Benchmarks were run on the following types of hardware:</p>
+        <p>An NVIDIA Titan X Pascal GPU.</p>
+        <p>An NVIDIA Tesla K80 GPU.</p>
+        <p>A 4 core, 3.5 GHz Intel Core i7-2700K CPU.</p>
+        <p>All GPU simulations used CUDA 7.5. The K80 consists of two independent GPUs on a single board. OpenMM can parallelize a single simulation across multiple GPUs, or alternatively run a different simulation on each one at the same time. We therefore included benchmarks using only one of the GPUs (thus leaving the other free for a different simulation), as well as ones using both GPUs for a single simulation<anchor xml:id="a56"/>.</p>
+        <p>In the discussion below, we summarize the most important parameters for each set of simulations. Full details can be found in the scripts used to run the simulations, which are included in the Supplemental Information.</p>
+        <p>Amber</p>
+        <p>We first benchmarked the performance using the AMBER99SB-ILDN force field and TIP3P water model. All simulations used a Langevin integrator with a temperature of 300 K and a friction coefficient of 1 ps -1 . Long range Coulomb interactions were computed with the Particle Mesh Ewald (PME) method.</p>
+        <p>Simulations were run using integration time steps of both 2 fs and 5 fs. For the 2 fs simulations, covalent bonds involving a hydrogen atom were modelled as rigid constraints. For the 5 fs simulations, all covalent bonds were modelled as rigid constraints and hydrogen mass repartitioning was used to increase the mass of hydrogen atoms to 4 amu (while decreasing the masses of the atoms they were bonded to so as to keep the total system mass constant). In all cases, water molecules were kept rigid. All of the GPU simulations used single precision.</p>
+        <p>The results are shown in Table 2 .</p>
+        <p>Benchmark results for various protein systems in explicit solvent simulated with PME.</p>
+        <p><anchor xml:id="a57"/>Depending on the molecule and settings, using two GPUs is anywhere from 22% to 62% faster than a single GPU, with the larger molecules generally having the higher speedups. If the goal is to run a single simulation as quickly as possible, using multiple GPUs is therefore quite useful. On the other hand, if the goal is to generate as much total simulation time as possible, it is more efficient to run a separate simulation on each one<anchor xml:id="a58"/>.</p>
+        <p>AMOEBA</p>
+        <p>We next benchmarked performance using the AMOEBA2013 force field. The AMOEBA water model is designed to be flexible rather than rigid, which requires a smaller step size. We therefore used a rRESPA multiple time step integrator, in which bonded forces were evaluated every 1 fs and nonbonded forces every 2 fs. No degrees of freedom were constrained. As above, we used PME for long range Coulomb interactions and single precision.</p>
+        <p>Simulations were run with two different methods of calculating the induced dipoles:</p>
+        <p>Full mutual polarization with a tolerance of 10 −5 for the induced dipoles.</p>
+        <p>The extrapolated polarization approximation.</p>
+        <p>The CPU implementation of AMOEBA in OpenMM is not well optimized, so we only ran benchmarks on GPUs. Using multiple GPUs for a single simulation is not supported with AMOEBA. Because AMOEBA is a very expensive force field and is normally only used for modest sized systems, we only ran benchmarks for DHFR.</p>
+        <p>The results are shown in Table 3 .</p>
+        <p>Benchmark results for DHFR in explicit solvent using AMOEBA2013.</p>
+        <p>Effect of precision</p>
+        <p>When running on a GPU, OpenMM gives a choice of three precision modes: single, mixed, and double. To measure the effect of this choice on performance, we repeated the 2 fs time step DHFR simulations in mixed and double modes. The results are shown in Table 4 .</p>
+        <p>Effect of precision model on performance.</p>
+        <p><anchor xml:id="a59"/>The speed difference between single and mixed precision is quite small, whereas double precision is much slower. This is especially true on the Titan X, a GPU primarily targeted at consumers that has very poor double precision performance. The Tesla K80, which is targeted at high performance computing, does much better, although there is still a large decrease in performance. Overall, the Titan X is far faster in single or mixed precision modes, while the K80 is faster in double precision mode<anchor xml:id="a60"/>.</p>
+        <p>To see the benefits of higher precision, we performed additional simulations of DHFR. Because a thermostat tends to mask the effect of error, these simulations used a leapfrog Verlet integrator to simulate constant energy. All simulations used the AMBER99SB-ILDN force field, a 2 fs time step, rigid water, and constraints on bonds involving hydrogen.</p>
+        <p>Each simulation was 1 ns in length. The total energy was recorded every 1 ps, and a linear regression was used to estimate the rate of energy change. Ten independent simulations were performed for each precision mode, giving ten estimates of the rate. Table 5 reports the mean and standard error of those ten rates for each mode.</p>
+        <p>Energy drift for different precision models for the DHFR explicit solvent system.</p>
+        <p><anchor xml:id="a61"/>The energy drift in single precision is more than two orders of magnitude larger than in mixed or double precision. When accurate energy conservation is important, using mixed precision has a very large benefit at low cost. The average drift rates in mixed and double precision are not significantly different from each other, indicating that numeric precision is no longer the dominant source of error. In other cases, such as when using a smaller step size or when simulating a larger molecule, statistically significant differences between them might emerge<anchor xml:id="a62"/>.</p>
+        <p>Input pipelines</p>
+        <p>A key feature of OpenMM is its support for multiple input pipelines. This allows users to prepare molecular systems with the tools of their choice, then simulate them in OpenMM. Support for Gromacs input files was added in OpenMM 5.1, Desmond file support was added in OpenMM 6.0, and CHARMM file support was added in OpenMM 6.1.</p>
+        <p>The code in Listing 1 began from a PDB file and force field definition, using those to construct a description of the molecular system. Listing 4 shows the changes needed to instead construct it from an Amber prmtop file, as created by the AmberTools suite of software. More complete examples of using Amber and CHARMM input files are included in the supporting information.</p>
+        <p>Listing 4: Loading a system from Amber prmtop/inpcrd files.</p>
+        <p>prmtop = AmberPrmtopFile(&#x27;input.prmtop&#x27;)</p>
+        <p>system = prmtop.createSystem(nonbondedMethod = PME, nonbondedCutoff = 1*nanometer, constraints = HBonds)</p>
+        <p><anchor xml:id="a63"/>To validate the accuracy of the input pipelines, we constructed systems using the setup tools from other packages, then loaded them into those packages and into OpenMM and compared the forces and energies. We performed these tests on two systems: DHFR, a 159 residue protein, and 2KOC, a 14-mer hairpin RNA. Comparisons were made to Amber 16, Gromacs 4.6.5, and CHARMM-LITE c40b1. For Amber, we performed comparisons in both explicit solvent and OBC1 implicit solvent. For Gromacs and CHARMM, we compared only explicit solvent<anchor xml:id="a64"/>.</p>
+        <p>To create the Amber input files, ParmEd [ 37 ] was used to download PDB files 4M6J (DHFR) and 2KOC (RNA hairpin), which were then stripped of water molecules and adjusted to standard amino acids. In the case of 2KOC, the first model was used. Cofactors and phosphates were deleted. Amber prmtop and inpcrd files were created with LEaP from the AmberTools 16 distribution. For implicit solvent simulations, mbondi3 GB radii were used; for explicit solvent simulations, the system was solvated with TIP3P waters in an octahedral box with 15 Å of clearance, and 20 Na+ and 20 Cl- counterions were added.</p>
+        <p>To create the Gromacs input files, ParmEd was used to convert the Amber prmtop and inpcrd files into Gromacs top and gro files.</p>
+        <p>To create the CHARMM input files, CHARMM-GUI [ 38 ] was used to download the 4M6J and 2KOC PDB files. Crystallographic water molecules were deleted, and the system was solvated with a rectangular water box with 15 Å of padding. Default values were accepted for all other options, including replacing nonstandard amino acids and patching terminal residues.</p>
+        <p>All of the input files, as well as scripts needed to run the comparisons, are included in the Supplemental Information.</p>
+        <p><anchor xml:id="a65"/>Results are shown for Amber in Tables 6 and 7 , for Gromacs in Tables 8 and 9 , and for CHARMM in Tables 10 and 11 . In all cases the agreement is excellent, with all energy components matching to at least four significant digits. In systems that use PME, the nonbonded energies have somewhat larger differences than other energy components. This is partly because of the larger magnitude of this interaction, and partly because of the fact that different applications compute nonbonded interactions in slightly different ways. For example, Amber uses 4th order splines for charge spreading, while OpenMM uses 5th order splines. Nonetheless, they both compute the forces and energy to similar overall accuracy<anchor xml:id="a66"/>.</p>
+        <p>Comparison of energy components, as calculated by Amber and OpenMM.</p>
+        <p>Comparison of forces as computed by Amber and OpenMM.</p>
+        <p>Comparison of energy components, as calculated by Gromacs and OpenMM.</p>
+        <p>Comparison of forces as computed by Gromacs and OpenMM.</p>
+        <p>Comparison of energy components, as calculated by CHARMM and OpenMM.</p>
+        <p>Comparison of forces as computed by CHARMM and OpenMM.</p>
+        <p>Availability and future directions</p>
+        <p>OpenMM is available from http://openmm.org . Ongoing development is conducted through the Github community at https://github.com/pandegroup/openmm . Detailed instructions on how to compile it from source are found in the OpenMM User Guide at http://openmm.org/documentation.html .</p>
+        <p>Supporting information</p>
+        <p>(ZIP)</p>
+        <p>Click here for additional data file.</p>
+        <p>(ZIP)</p>
+        <p>Click here for additional data file.</p>
+        <p>(DOCX)</p>
+        <p>Click here for additional data file.<anchor xml:id="a67"/></p>
+    </body>
+  </text>
+</TEI>

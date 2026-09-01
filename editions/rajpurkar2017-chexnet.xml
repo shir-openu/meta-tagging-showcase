@@ -37,267 +37,267 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-28"
-              who="build_paper_edition.py">50 spans placed by verified search</change>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">0 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
       <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
         <label>method</label>
-        <quote>We develop an algorithm that can detect pneumonia from chest X-rays at a level exceeding practicing radiologists.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
         <label>pneumonia detection on chest radiographs</label>
-        <quote>However, detecting pneumonia in chest X-rays is a challenging task that relies on the availability of expert radiologists.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t2" type="method" ana="#method" resp="#paper">
         <label>system-or-tool-building</label>
         <term>system-or-tool-building</term>
-        <quote>CheXNet is a 121-layer Dense Convolutional Network (DenseNet) (Huang et al., 2016) trained on the ChestX-ray 14 dataset.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the binary cross entropy is weighted by the prevalence of the OPPOSITE class - w+ is the negative share and w- the positive share - so the rarer label carries the larger weight</term>
-        <quote>For a single example in the training set, we optimize the weighted binary cross entropy loss L(X, y) = −w+ · y log p(Y = 1|X) −w− · (1 − y) log p(Y = 0|X), where p(Y = i|X) is the probability that the network assigns to the label i, w+ = |N |/(|P |+|N |), and w− = |P |/(|P |+|N |) with |P | and |N | the number of positive cases and negative cases of pneumonia in the training set respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>dense connections improve the flow of information and gradients through the network, which is what the paper credits for making the optimization of a very deep network tractable</term>
-        <quote>DenseNets improve flow of information and gradients through the network, making the optimization of very deep networks tractable.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the network is not trained from scratch: the final layer is replaced and the rest starts from ImageNet weights</term>
-        <quote>We replace the final fully connected layer with one that has a single output, after which we apply a sigmoid nonlinearity. The weights of the network are initialized with weights from a model pretrained on ImageNet</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the learning rate is cut only when the validation loss stops improving, and the returned model is the best validation checkpoint rather than the last</term>
-        <quote>We use an initial learning rate of 0.001 that is decayed by a factor of 10 each time the validation loss plateaus after an epoch, and pick the model with the lowest validation loss.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
         <label>that this makes reader agreement the standard rather than the presence of disease is already recorded on this record as a limitation, not claimed here</label>
         <term>each radiologist and the model are scored against the OTHER FOUR radiologists&#x27; labels, taken as ground truth, and the reported figure is the mean of those four scores</term>
-        <quote>We compute the F1 score for each individual radiologist and for CheXNet against each of the other 4 labels as ground truth. We report the mean of the 4 resulting F1 scores for each radiologist and for CheXNet, along with the average F1 across the radiologists.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>significance is taken from the DIFFERENCE between the two averages computed on the same bootstrap samples, and read off whether the 95% CI on that difference contains zero</term>
-        <quote>To determine whether CheXNet’s performance is statistically significantly higher than radiologist performance, we also calculate the difference between the average F1 score of CheXNet and the average F1 score of the radiologists on the same bootstrap samples. If the 95% CI on the difference does not include zero, we conclude there was a significant difference between the F1 score of CheXNet and the F1 score of the radiologists. We find that the difference in F1 scores — 0.051 (95% CI 0.005, 0.084) — does not contain 0, and therefore conclude that the performance of CheXNet is statistically significantly higher than radiologist performance.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.9">
         <label>mechanisms</label>
         <term>the heatmap is the weighted sum of the final convolutional feature maps, weighted by the final classification layer&#x27;s own weights for that pathology, then upscaled and overlaid</term>
         <note>about this quote: Q-616, 2026-08-16: FAILED GLYPH INSIDE THIS QUOTE. The staged text reads &quot;Formally, Mc = (cid:88) k wc,kfk&quot; - (cid:88) is the SUMMATION SIGN, so the formula is Mc = sum over k of w_c,k * f_k, the weighted sum of feature maps the sentence has just described in words. The prose on either side is intact and states the mechanism; only the symbol is lost. The quote is an exact substring of the staged file; the file is incomplete here, not the tag. Detected by TOOLS/test_damaged_quote_is_annotated.py.</note>
-        <quote>To generate the CAMs, we feed an image into the fully trained network and extract the feature maps that are output by the final convolutional layer. Let fk be the kth feature map and let wc,k be the weight in the final classification layer for feature map k leading to pathology c. We obtain a map Mc of the most salient features used in classifying the image as having pathology c by taking the weighted sum of the feature maps using their associated weights. Formally, Mc = (cid:88) k wc,kfk. We identify the most important features used by the model in its prediction of the pathology c by upscaling the map Mc to the dimensions of the image and overlaying the image.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger">
         <label>the paper identifies three limitations of its radiologist comparison</label>
         <note>what this limits: the radiologist comparison, which the authors themselves qualify: WE IDENTIFY THREE LIMITATIONS OF THIS COMPARISON</note>
-        <quote>We identify three limitations of this comparison.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>The paper announces three limitations of the radiologist comparison but enumerates only two (a &#x27;First&#x27; and a &#x27;Third&#x27;); the second is missing from the text.</label>
         <note>duplicate of: limitations[0] · what this limits: the completeness of that qualification: the paper announces three limitations and prints a FIRST and a THIRD with no SECOND. Verified in the version of record, arXiv 1711.05225v3 (25 Dec 2017), not only in our staged copy - so this is the paper&#x27;s own text and not a lost sentence in extraction</note>
-        <quote>We identify three limitations of this comparison.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger">
         <label>Only frontal radiographs were shown to both model and radiologists, although a share of accurate diagnoses requires the lateral view.</label>
         <note>what this limits: the diagnostic setup for both model and radiologists: ONLY FRONTAL RADIOGRAPHS WERE PRESENTED ... BUT IT HAS BEEN SHOWN THAT UP TO 15% OF ACCURATE DIAGNOSES REQUIRE THE LATERAL VIEW</note>
-        <quote>First, only frontal radiographs were presented to the radiologists and model during diagnosis, but it has been shown that up to 15% of accurate diagnoses require the lateral view (Raoof et al., 2012); we thus expect that this setup provides a conservative estimate of performance.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger">
         <label>Neither model nor radiologists could use patient history, which is known to change radiologist diagnostic performance.</label>
         <note>what this limits: the comparison against clinical practice: NEITHER THE MODEL NOR THE RADIOLOGISTS WERE ... PERMITTED TO USE PATIENT HISTORY, WHICH HAS BEEN SHOWN TO DECREASE RADIOLOGIST DIAGNOSTIC PERFORMANCE</note>
-        <quote>Third, neither the model nor the radiologists were not permitted to use patient history, which has been shown to decrease radiologist diagnostic performance in interpreting chest radiographs (Berbaum et al., 1985; Potchen et al., 1979);</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
         <label>The standard the model is measured against is the other radiologists&#x27; labels, not the presence of disease.</label>
         <note>what this limits: the claim that this model exceeds practicing radiologists: the F1 score for each radiologist and for the model is computed against each of the other four radiologists&#x27; labels as ground truth, so the comparison is agreement with those four rather than detection of disease</note>
-        <quote>We compute the F1 score for each individual radiologist and for CheXNet against each of the other 4 labels as ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
         <label>The training labels were produced by text extraction from reports rather than by anyone looking at the images.</label>
         <note>what this limits: the labels this model was trained on: they were assigned by automatic extraction methods applied to radiology reports, so a label records what a report said rather than what an image shows</note>
-        <quote>annotate each image with up to 14 different thoracic pathology labels using automatic extraction methods on radiology reports</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
         <label>Every image the extractor did not mark becomes a negative example.</label>
         <note>what this limits: the negative class in this task: images are negative when pneumonia is not among the annotated pathologies, so absence of a label is used in place of absence of the condition</note>
-        <quote>We label images that have pneumonia as one of the annotated pathologies as positive examples and label all other images as negative examples</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t17" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
         <label>The model reports fourteen findings while the headline number describes one of them.</label>
         <note>what this limits: the performance figure quoted for this model: the network outputs a vector of binary labels over fourteen pathology classes, while the radiologist comparison concerns the pneumonia task alone</note>
-        <quote>instead of outputting one binary label, ChexNet outputs a vector t of binary labels indicating the absence or presence of each of the following 14 pathology classes</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t18" type="transfers" ana="#transfers[0]" resp="#tagger">
         <label>a deep convolutional network (DenseNet) applied to detect disease from chest X-rays at radiologist level</label>
-        <quote>a 121-layer convolutional neural network trained on ChestX-ray14</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t19" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
         <label>four practising academic radiologists annotating the same test set, used as the comparison for the model</label>
         <note>eliminates: a number that looks good against no reference - the baseline here is people doing the task on the same images</note>
-        <quote>Four practicing academic radiologists annotate a test set, on which we compare the performance of CheXNet to that of radiologists.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t20" type="concepts" ana="#concepts[4]" resp="#paper">
         <label>F1 score</label>
         <term>F1 score</term>
-        <quote>We compute the F1 score for each individual radiologist and for CheXNet against each of the other 4 labels as ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper">
         <label>ground truth</label>
         <term>ground truth</term>
-        <quote>for CheXNet against each of the other 4 labels as ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper">
         <label>pneumonia detection task</label>
         <term>pneumonia detection task</term>
-        <quote>The pneumonia detection task is a binary classification problem, where the input is a frontal-view chest Xray image X and the output is a binary label y ∈ {0, 1} indicating the absence or presence of pneumonia respectively</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper">
         <label>pathology labels</label>
         <term>pathology labels</term>
-        <quote>annotate each image with up to 14 different thoracic pathology labels using automatic extraction methods on radiology reports</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper">
         <label>automatic extraction methods</label>
         <term>automatic extraction methods</term>
-        <quote>using automatic extraction methods on radiology reports</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
         <label>&#x27;exceeding practicing radiologists&#x27; - AS AGREEMENT WITH FOUR OF THEM: the F1 for the model and for each radiologist is computed against the other four radiologists&#x27; labels, so the claim is about concordance with a particular panel and not about detecting pneumonia in a patient</label>
-        <quote>We compute the F1 score for each individual radiologist and for CheXNet against each of the other 4 labels as ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
         <label>a pathology label - AS A FACT ABOUT A REPORT, NOT AN IMAGE: the fourteen labels are assigned by automatic extraction from radiology reports, so the target the network learns is what a radiologist wrote down, filtered through a text-mining tool</label>
-        <quote>annotate each image with up to 14 different thoracic pathology labels using automatic extraction methods on radiology reports</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
         <label>&#x27;negative&#x27; - AS NOT-LABELLED: every image without pneumonia among its annotated pathologies becomes a negative example, so the class means the extractor found nothing rather than that nothing was there</label>
-        <quote>We label images that have pneumonia as one of the annotated pathologies as positive examples and label all other images as negative examples</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t28" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
         <label>builds-on → convolutional neural networks (deep learning)</label>
-        <quote>CheXNet, is a 121-layer convolutional neural network trained on ChestX-ray14</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t29" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
         <label>builds-on → DenseNet (Huang et al., 2016)</label>
-        <quote>CheXNet is a 121-layer Dense Convolutional Network (DenseNet) (Huang et al., 2016) trained on the ChestX-ray 14 dataset.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t30" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
         <label>builds-on → the ChestX-ray14 dataset of Wang et al. (2017)</label>
-        <quote>We use the ChestX-ray14 dataset released by Wang et al. (2017) which contains 112,120 frontal-view X-ray images of 30,805 unique patients.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t31" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
         <label>builds-on → the evaluation protocol of Wang et al. (2017) and Yao et al. (2017)</label>
-        <quote>We randomly split the dataset into training (70%), validation (10%), and test (20%) sets, following previous work on ChestX-ray14 (Wang et al., 2017; Yao et al., 2017).</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t32" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
         <label>F1 score —operationalised-as→ ground truth</label>
         <term>F1 score</term>
         <term>ground truth</term>
         <note>strength of the relation: 1</note>
-        <quote>We compute the F1 score for each individual radiologist and for CheXNet against each of the other 4 labels as ground truth</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t33" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>pathology labels —operationalised-as→ automatic extraction methods</label>
         <term>pathology labels</term>
         <term>automatic extraction methods</term>
         <note>strength of the relation: 1</note>
-        <quote>annotate each image with up to 14 different thoracic pathology labels using automatic extraction methods on radiology reports</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t34" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
         <label>121 — depth of the DenseNet CNN (CheXNet)</label>
-        <quote>CheXNet, is a 121-layer convolutional neural network trained on ChestX-ray14</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t35" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
         <label>112,120 — chest X-ray images in the ChestX-ray14 dataset</label>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>which contains 112,120 frontal-view chest X-ray images individually labeled with up to 14 different thoracic diseases</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t36" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
         <label>14 — thoracic disease labels detected</label>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>over 100,000 frontalview X-ray images with 14 diseases</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t37" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
         <label>420 — size of the radiologist-annotated test set</label>
-        <quote>We collected a test set of 420 frontal chest X-rays</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t38" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
         <label>&gt; 0.05 — margin over previous state of the art (emphysema)</label>
-        <quote>CheXNet has a margin of &gt;0.05 AUROC over previous state of the art results</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t39" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
         <label>CheXNet, a 121-layer DenseNet trained on ChestX-ray14, detects pneumonia from chest X-rays at a level exceeding average practicing-radiologist F1 performance.</label>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`. · retracted: RE-GROUNDED - THE POINTER WAS WRONG, NOT THE CLAIM. The old evidence was verbatim, anchored and correctly cut, and it contained NONE of this claim&#x27;s numbers (121, 14). The paper states the claim in one sentence elsewhere and the tagger did not use it. CLAUDE_B, 2026-08-23: `WE HAVE SPENT THE DAY VERIFYING THAT QUOTES ARE REAL AND NONE OF IT ASKS WHETHER THEY ARE RELEVANT.` Confirmed by reading the claim, the old span and the candidate together; the candidate carries every number AND the claim&#x27;s own content words.</note>
-        <quote>Our algorithm, CheXNet, is a 121-layer convolutional neural network trained on ChestX-ray14, currently the largest publicly available chest Xray dataset, containing over 100,000 frontalview X-ray images with 14 diseases.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t40" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
         <label>Extended to all 14 thoracic diseases, CheXNet achieves state-of-the-art results on every one.</label>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>We extend CheXNet to detect all 14 diseases in ChestX-ray14 and achieve state of the art results on all 14 diseases.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t41" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
         <label>chest X-ray image</label>
         <term>chest X-ray image</term>
-        <quote>can detect pneumonia from chest X-rays at</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t42" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
         <label>disease detection F1 performance</label>
         <term>disease detection F1 performance</term>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>CheXNet exceeds average radiologist performance on the F1 metric</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>CheXNet</label>
         <term>CheXNet</term>
-        <quote>CheXNet, is a 121-layer convolutional neural network trained on ChestX-ray14</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>ChestX-ray14 dataset</label>
         <term>ChestX-ray14 dataset</term>
         <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS (Q-701). The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>the largest publicly available chest Xray dataset, containing over 100,000 frontalview X-ray images with 14 diseases</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>bootstrap</label>
         <term>bootstrap</term>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>We use the bootstrap to construct 95% bootstrap confidence intervals (CIs), calculating the average F1 score for both the radiologists and CheXNet on 10,000 bootstrap samples, sampled with replacement from the test set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>confidence-interval</label>
         <term>confidence-interval</term>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>We use the bootstrap to construct 95% bootstrap confidence intervals (CIs), calculating the average F1 score for both the radiologists and CheXNet on 10,000 bootstrap samples, sampled with replacement from the test set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>We report the mean of the 4 resulting F1 scores for each radiologist and for CheXNet, along with the average F1 across the radiologists.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>standard-deviation</label>
         <term>standard-deviation</term>
-        <quote>Before inputting the images into the network, we downscale the images to 224×224 and normalize based on the mean and standard deviation of images in the ImageNet training set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
         <label>statistical-significance</label>
         <term>statistical-significance</term>
         <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <quote>We find that the difference in F1 scores — 0.051 (95% CI 0.005, 0.084) — does not contain 0, and therefore conclude that the performance of CheXNet is statistically significantly higher than radiologist performance.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
     </spanGrp>
   </standOff>
   <text>
     <body>
       <p><note type="rights">The full text of this article is not redistributable, so it is
-      not included here. Every tag above carries the exact sentence it was made from, quoted
-      under fair quotation. The article itself is at https://arxiv.org/abs/1711.05225.</note></p>
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/1711.05225.</note></p>
     </body>
   </text>
 </TEI>

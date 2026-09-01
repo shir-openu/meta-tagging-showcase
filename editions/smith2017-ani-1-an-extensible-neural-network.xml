@@ -36,289 +36,289 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-08-28"
-              who="build_paper_edition.py">57 spans placed by verified search</change>
+      <change when="2026-09-01"
+              who="build_paper_edition.py">0 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
     <spanGrp type="tags">
       <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
         <label>transferable atomistic potentials for organic molecules - whether a network trained on quantum-mechanical energies for small molecules can predict energies for larger ones it never saw</label>
-        <quote>Through a series of case studies, we show that ANI-1 is chemically accurate compared to reference DFT calculations on much larger molecular systems (up to 54 atoms) than those included in the training data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
         <label>whether the accuracy-for-speed trade that empirical potentials have always made can be avoided, rather than merely moved</label>
-        <quote>One of the grand challenges in modern theoretical chemistry is designing and implementing approximations that expedite ab initio methods without loss of accuracy.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
         <label>the ANI method - atomic environment vectors from modified Behler-Parrinello symmetry functions, plus Normal Mode Sampling - and ANI-1, a potential trained on 17.2 million DFT conformations of molecules up to 8 heavy atoms</label>
-        <quote>Through a series of case studies, we show that ANI-1 is chemically accurate compared to reference DFT calculations on much larger molecular systems (up to 54 atoms) than those included in the training data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
         <label>method</label>
-        <quote>Through a series of case studies, we show that ANI-1 is chemically accurate compared to reference DFT calculations on much larger molecular systems (up to 54 atoms) than those included in the training data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
         <label>transferability - a fitted potential&#x27;s ability to hold outside the domain it was fitted in, which this field has no systematic way to estimate</label>
-        <quote>Furthermore, each application of FF and EP needs to be carefully pondered, as their accuracy varies among different systems. In fact, performing benchmarks to determine the optimal FF combination for the problem at hand is usually unavoidable. Unfortunately, there are no systematic ways for improving or estimating the transferability of EPs.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t5" type="method" ana="#method" resp="#paper">
         <label>train atom-type-specific networks on atomic environment vectors, sample conformations by randomly perturbing along normal modes, and test only on molecules larger than any in the training set</label>
         <term>train atom-type-specific networks on atomic environment vectors, sample conformations by randomly perturbing along normal modes, and test only on molecules larger than any in the training set</term>
-        <quote>In practice, NMS works best when generating windows of the potential surface of many molecules to be used in the training of the same ANI potential. The reasoning behind this is as follows: if any interactions are missed or not sampled well by NMS, it is possible that other molecules in the data set contain the same or similar interactions. Therefore, the accuracy of using such a sampling method is dependent on not only the number of points per window but also the number of distinct molecules included in the data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
         <label>a sorted coulomb matrix sized for the largest training molecule leaves elements that are constant zero throughout training; a larger test molecule makes those elements non-zero, feeding values into network parameters that were never updated, so the output is arbitrary rather than merely inaccurate</label>
         <term>untrained parameters reached only by larger inputs</term>
-        <quote>For baseline 1, this is caused by the coulomb matrix having elements which remain a constant zero throughout training, yet when a larger molecule is tested on it, those elements have non-zero values. These non-zero values are then fed into untrained network parameters, which yields arbitrary results.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
         <label>symmetry functions that sum over all neighbours identically leave the network unable to tell a carbon from a hydrogen at a given distance, so the same vector element means different things in different molecules and training cannot resolve it</label>
         <term>atom-type indistinguishability blocking learning</term>
-        <quote>For baseline 2, the problem comes from the fact that the AEVs have an inability to differentiate between atom types, creating confusion during the learning process.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
         <label>MD follows one well-defined path across the potential surface, so a data set built from it is a sample of that path rather than of the surface; overcoming the bias requires a trajectory long enough to lose its own starting point</label>
         <term>trajectory bias in molecular-dynamics sampling</term>
-        <quote>Because of this, utilizing MD would follow a well-defined trajectory along the potential surface and would lead to sampling biased to the specific trajectory. Thus, a very long trajectory is required to overcome this bias.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
         <label>normal mode sampling can miss interactions in any single molecule, but a data set of many molecules contains the same interaction in other contexts - so accuracy depends on the number of distinct molecules and not only on points per molecule</label>
         <term>cross-molecule overlap covering a sampler&#x27;s gaps</term>
-        <quote>In practice, NMS works best when generating windows of the potential surface of many molecules to be used in the training of the same ANI potential. The reasoning behind this is as follows: if any interactions are missed or not sampled well by NMS, it is possible that other molecules in the data set contain the same or similar interactions. Therefore, the accuracy of using such a sampling method is dependent on not only the number of points per window but also the number of distinct molecules included in the data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
         <label>the headline 0.6 kcal/mol holds only within 30 kcal/mol of each molecule&#x27;s energy minimum; across the whole sampled range the RMSE is 1.8</label>
-        <quote>Fig. 4A is a correlation plot of the computed ANI-1 energies, E cmp, vs. the DFT reference energies, E ref. The ANI-1 potential achieves an RMSE of only 1.8 kcal mol–1 over the entire random sampling. Fig. 4B–D provides the same comparison but for popular semi-empirical methods to the DFT reference energies. If only relative energies within 30.0 kcal mol–1 of the minimum energy are considered, the ANI-1, DFTB, PM6, and AM1 methods obtain an RMSE of 0.6, 2.4, 3.6, and 4.2 kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
         <label>the potential covers only H, C, N and O, and only near-equilibrium conformations, because full sampling of each structure&#x27;s potential surface is near intractable</label>
-        <quote>Therefore, we limit the scope of this study to a specific class of systems, namely organic molecules with four atom types: H, C, N, and O. We also restrict our data set to near equilibrium conformations, since a full sampling of each structure&#x27;s potential surface increases the number of data points required for training to a near intractable level.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
         <label>Normal Mode Sampling is stated by the authors to be simply an approximation for generating structures, not a sampling of the true potential surface</label>
-        <quote>The choice of temperature is dependent on the intended use of the ANI potential being trained. However, it should be noted that this method of sampling the potential surface of a molecule is simply an approximation for generating structures.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
         <label>its accuracy is a property of the training data rather than of the method - the authors say so, and make the improvement path more data rather than a better model</label>
-        <quote>The accuracy of the ANI method is heavily dependent on the data used during training. Thus, continuing to augment the ANI-1 data set with new molecules and including more atomic numbers will improve the accuracy of the trained ANI potential further as well as extend the method to new chemical environments.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.85">
         <label>the error had not plateaued at the largest data set built, so the reported accuracy is a point on a curve still moving rather than a converged property</label>
-        <quote>More important than the low errors to the training, validation, and test sets, it shows that the extensibility of ANI potentials increase with data set size, and does not plateau up to the current data set size.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t15" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
         <label>deep learning architectures and their training machinery - mini-batches, ADAM, max-norm regularisation, early stopping - carried from image and speech recognition into quantum chemistry</label>
-        <quote>This cost function was chosen because of its robustness in handling outliers in data sets, a property that achieves 2 to 4 times lower error upon training an ANI potential.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t16" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
         <label>normal mode analysis, carried from vibrational spectroscopy into a sampler for generating training conformations</label>
-        <quote>The choice of temperature is dependent on the intended use of the ANI potential being trained. However, it should be noted that this method of sampling the potential surface of a molecule is simply an approximation for generating structures.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
         <label>testing only on molecules LARGER than any in the training set - every case study uses more than eight heavy atoms, where training stopped at eight</label>
         <note>eliminates: an accuracy that holds only inside the size range the network was trained on · outcome: held</note>
-        <quote>Through a series of case studies, we show that ANI-1 is chemically accurate compared to reference DFT calculations on much larger molecular systems (up to 54 atoms) than those included in the training data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
         <label>two baselines carried through the same training - a coulomb-matrix MLP, and an ANI network with atom types NOT differentiated - so the contribution of each design choice is separable</label>
         <note>eliminates: the whole architecture being credited with a gain that the representation or one design choice supplies · outcome: held</note>
-        <quote>ANI-1, when trained on the full ANI-1 training set, achieves a total energy RMSE of 1.9 kcal mol–1 while baseline 1 and baseline 2 achieve a RMSE of 493.7 kcal mol–1 and 6.6 kcal mol–1, respectively. While the baselines perform better on the ANI-1 test set, as seen in ESI Fig. S4,† their performance on the GDB-10 test set shows that both suffer from an inability to extend their learned interactions to larger molecules.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t19" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
         <label>comparison against three incumbent semi-empirical methods, DFTB, PM6 and AM1, on every case study rather than against DFT alone</label>
         <note>eliminates: a neural potential compared only against the reference it was trained to imitate, and never against the methods it is meant to replace · outcome: held</note>
-        <quote>As expected both semi-empirical methods severely underestimate dihedral rotation barriers, and in the case of lisdexamfetamine give an unrealistic shape of potential surface.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t20" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
         <label>checking that the potential surface is SMOOTH and not merely low-error, because a potential with the right energies and the wrong curvature is useless for dynamics</label>
         <note>eliminates: a potential with the right energies and the wrong curvature passing as usable for molecular dynamics · outcome: held</note>
-        <quote>However, to be useful in molecular dynamics simulations, the ANI-1 potential must not only have a low error, but must also produce a very smooth physically meaningful surface.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t21" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
         <label>training-set size varied to check whether accuracy had converged, rather than reporting the largest run alone</label>
         <note>eliminates: an accuracy figure reported from the largest training run without showing whether it had converged · outcome: partial</note>
-        <quote>More important than the low errors to the training, validation, and test sets, it shows that the extensibility of ANI potentials increase with data set size, and does not plateau up to the current data set size.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t22" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
         <label>transferability</label>
         <term>transferability</term>
-        <quote>Furthermore, each application of FF and EP needs to be carefully pondered, as their accuracy varies among different systems. In fact, performing benchmarks to determine the optimal FF combination for the problem at hand is usually unavoidable. Unfortunately, there are no systematic ways for improving or estimating the transferability of EPs.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t23" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
         <label>ANI-1</label>
         <term>ANI-1</term>
-        <quote>Through a series of case studies, we show that ANI-1 is chemically accurate compared to reference DFT calculations on much larger molecular systems (up to 54 atoms) than those included in the training data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t24" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
         <label>baseline 1</label>
         <term>baseline 1</term>
-        <quote>ANI-1, when trained on the full ANI-1 training set, achieves a total energy RMSE of 1.9 kcal mol–1 while baseline 1 and baseline 2 achieve a RMSE of 493.7 kcal mol–1 and 6.6 kcal mol–1, respectively. While the baselines perform better on the ANI-1 test set, as seen in ESI Fig. S4,† their performance on the GDB-10 test set shows that both suffer from an inability to extend their learned interactions to larger molecules.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t25" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
         <label>NMS</label>
         <term>NMS</term>
-        <quote>In practice, NMS works best when generating windows of the potential surface of many molecules to be used in the training of the same ANI potential. The reasoning behind this is as follows: if any interactions are missed or not sampled well by NMS, it is possible that other molecules in the data set contain the same or similar interactions. Therefore, the accuracy of using such a sampling method is dependent on not only the number of points per window but also the number of distinct molecules included in the data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t26" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
         <label>ReaxFF</label>
         <term>ReaxFF</term>
-        <quote>One exception to this is the ReaxFF force field, which is capable of studying chemical reactions and transition states. However, ReaxFF, like most reactive force fields, must generally be reparameterized from system to system and therefore lacks an “out-of-the-box” level of transferability.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t27" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
         <label>SFs</label>
         <term>SFs</term>
-        <quote>We suggest two reasons for the lack of transferability of the SFs. Firstly, as originally defined, SFs lack the functional form to create recognizable features (spatial arrangements of atoms found in common organic molecules, e.g. a benzene ring, alkenes, functional groups) in the molecular representation, a problem that can prevent a neural network from learning interactions in one molecule and then transferring its knowledge to another molecule upon prediction. Secondly, the SFs have limited atomic number differentiation, which empirically hinders training in complex chemical environments.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t28" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
         <label>DTNN</label>
         <term>DTNN</term>
-        <quote>So far, the DTNN model was only trained to small test data sets to show the model could predict molecular energies in specific cases, i.e. equilibrium geometries of organic molecules or the energy along the path of short QM molecular dynamics trajectories. In our experience, training to trajectories can bias the fitness of a model to the specific trajectory used for training, especially along short trajectories. Also, DTNN potentials were not shown to predict energies for larger systems than those included in the training set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t29" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
         <label>coulomb matrices</label>
         <term>coulomb matrices</term>
-        <quote>Also, the typical inputs, such as internal coordinates or coulomb matrices, lack transferability to different molecules since the input size to a neural network must remain constant.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
         <label>overtraining</label>
         <term>overtraining</term>
-        <quote>The choice of network architecture also plays a major role in how well a potential performs. Too small of a network reduces the flexibility of the function which can hinder performance and too large can lead to bad generalization across structures due to overtraining, especially on small data sets. With larger data sets, a bigger and more flexible network can be used to yield better results.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
         <label>network architecture</label>
         <term>network architecture</term>
-        <quote>The choice of network architecture also plays a major role in how well a potential performs. Too small of a network reduces the flexibility of the function which can hinder performance and too large can lead to bad generalization across structures due to overtraining, especially on small data sets. With larger data sets, a bigger and more flexible network can be used to yield better results.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t32" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
         <label>cost function</label>
         <term>cost function</term>
-        <quote>This cost function was chosen because of its robustness in handling outliers in data sets, a property that achieves 2 to 4 times lower error upon training an ANI potential.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t33" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
         <label>semi-empirical methods</label>
         <term>semi-empirical methods</term>
-        <quote>As expected both semi-empirical methods severely underestimate dihedral rotation barriers, and in the case of lisdexamfetamine give an unrealistic shape of potential surface.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t34" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
         <label>RMSE of ANI-1 against DFT - OVER THE WHOLE SAMPLING: 1.8 kcal/mol across 8,245 conformations of 134 ten-heavy-atom molecules</label>
-        <quote>Fig. 4A is a correlation plot of the computed ANI-1 energies, E cmp, vs. the DFT reference energies, E ref. The ANI-1 potential achieves an RMSE of only 1.8 kcal mol–1 over the entire random sampling. Fig. 4B–D provides the same comparison but for popular semi-empirical methods to the DFT reference energies. If only relative energies within 30.0 kcal mol–1 of the minimum energy are considered, the ANI-1, DFTB, PM6, and AM1 methods obtain an RMSE of 0.6, 2.4, 3.6, and 4.2 kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t35" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
         <label>RMSE of ANI-1 against DFT - WITHIN 30 kcal/mol OF THE MINIMUM: 0.6 kcal/mol. The number the conclusion quotes, and the window is stated with it</label>
-        <quote>Fig. 4A is a correlation plot of the computed ANI-1 energies, E cmp, vs. the DFT reference energies, E ref. The ANI-1 potential achieves an RMSE of only 1.8 kcal mol–1 over the entire random sampling. Fig. 4B–D provides the same comparison but for popular semi-empirical methods to the DFT reference energies. If only relative energies within 30.0 kcal mol–1 of the minimum energy are considered, the ANI-1, DFTB, PM6, and AM1 methods obtain an RMSE of 0.6, 2.4, 3.6, and 4.2 kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t36" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
         <label>&quot;the better model&quot; - ON THE ANI-1 TEST SET: the two baselines perform better than ANI-1</label>
-        <quote>ANI-1, when trained on the full ANI-1 training set, achieves a total energy RMSE of 1.9 kcal mol–1 while baseline 1 and baseline 2 achieve a RMSE of 493.7 kcal mol–1 and 6.6 kcal mol–1, respectively. While the baselines perform better on the ANI-1 test set, as seen in ESI Fig. S4,† their performance on the GDB-10 test set shows that both suffer from an inability to extend their learned interactions to larger molecules.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t37" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
         <label>&quot;the better model&quot; - ON THE GDB-10 EXTENSIBILITY SET: ANI-1 at 1.9 kcal/mol against baseline 1 at 493.7. Same models, same training, opposite ranking, and the disambiguator is whether the test molecules are larger than the training ones</label>
-        <quote>ANI-1, when trained on the full ANI-1 training set, achieves a total energy RMSE of 1.9 kcal mol–1 while baseline 1 and baseline 2 achieve a RMSE of 493.7 kcal mol–1 and 6.6 kcal mol–1, respectively. While the baselines perform better on the ANI-1 test set, as seen in ESI Fig. S4,† their performance on the GDB-10 test set shows that both suffer from an inability to extend their learned interactions to larger molecules.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t38" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
         <label>extends → Behler and Parrinello&#x27;s symmetry-function representation, by adding angular shifts and atomic-number differentiation to make it transferable across chemical environments</label>
-        <quote>We suggest two reasons for the lack of transferability of the SFs. Firstly, as originally defined, SFs lack the functional form to create recognizable features (spatial arrangements of atoms found in common organic molecules, e.g. a benzene ring, alkenes, functional groups) in the molecular representation, a problem that can prevent a neural network from learning interactions in one molecule and then transferring its knowledge to another molecule upon prediction. Secondly, the SFs have limited atomic number differentiation, which empirically hinders training in complex chemical environments.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t39" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
         <label>critiques → empirical and semi-empirical potentials, which trade accuracy for speed and offer no systematic way to estimate their own transferability</label>
-        <quote>Furthermore, each application of FF and EP needs to be carefully pondered, as their accuracy varies among different systems. In fact, performing benchmarks to determine the optimal FF combination for the problem at hand is usually unavoidable. Unfortunately, there are no systematic ways for improving or estimating the transferability of EPs.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t40" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
         <label>qualifies → neural network potentials demonstrated on single systems or short molecular-dynamics trajectories, which were never shown to predict energies for larger molecules</label>
-        <quote>So far, the DTNN model was only trained to small test data sets to show the model could predict molecular energies in specific cases, i.e. equilibrium geometries of organic molecules or the energy along the path of short QM molecular dynamics trajectories. In our experience, training to trajectories can bias the fitness of a model to the specific trajectory used for training, especially along short trajectories. Also, DTNN potentials were not shown to predict energies for larger systems than those included in the training set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t41" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
         <label>ANI-1 —contrasted-with→ baseline 1</label>
         <term>ANI-1</term>
         <term>baseline 1</term>
         <note>differs in: total energy RMSE on the GDB-10 extensibility set - 1.9 against 493.7 kcal/mol · the relation itself is separately evidenced · strength of the relation: 0.95</note>
-        <quote>ANI-1, when trained on the full ANI-1 training set, achieves a total energy RMSE of 1.9 kcal mol–1 while baseline 1 and baseline 2 achieve a RMSE of 493.7 kcal mol–1 and 6.6 kcal mol–1, respectively. While the baselines perform better on the ANI-1 test set, as seen in ESI Fig. S4,† their performance on the GDB-10 test set shows that both suffer from an inability to extend their learned interactions to larger molecules.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t42" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
         <label>network architecture —causes→ overtraining</label>
         <term>network architecture</term>
         <term>overtraining</term>
         <note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 0.8</note>
-        <quote>The choice of network architecture also plays a major role in how well a potential performs. Too small of a network reduces the flexibility of the function which can hinder performance and too large can lead to bad generalization across structures due to overtraining, especially on small data sets. With larger data sets, a bigger and more flexible network can be used to yield better results.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t43" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
         <label>a network trained on molecules up to 8 heavy atoms predicts DFT energies for molecules up to 54 atoms, at force-field cost</label>
         <term>a network trained on molecules up to 8 heavy atoms predicts DFT energies for molecules up to 54 atoms, at force-field cost</term>
-        <quote>Through a series of case studies, we show that ANI-1 is chemically accurate compared to reference DFT calculations on much larger molecular systems (up to 54 atoms) than those included in the training data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t44" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
         <label>the RMSE is 1.8 kcal/mol over the whole sampling and 0.6 within 30 kcal/mol of the minimum - the same model under two windows</label>
         <term>the RMSE is 1.8 kcal/mol over the whole sampling and 0.6 within 30 kcal/mol of the minimum - the same model under two windows</term>
-        <quote>Fig. 4A is a correlation plot of the computed ANI-1 energies, E cmp, vs. the DFT reference energies, E ref. The ANI-1 potential achieves an RMSE of only 1.8 kcal mol–1 over the entire random sampling. Fig. 4B–D provides the same comparison but for popular semi-empirical methods to the DFT reference energies. If only relative energies within 30.0 kcal mol–1 of the minimum energy are considered, the ANI-1, DFTB, PM6, and AM1 methods obtain an RMSE of 0.6, 2.4, 3.6, and 4.2 kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t45" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
         <label>the baselines beat ANI-1 on its own test set and fail by up to 260x on larger molecules</label>
         <term>the baselines beat ANI-1 on its own test set and fail by up to 260x on larger molecules</term>
-        <quote>ANI-1, when trained on the full ANI-1 training set, achieves a total energy RMSE of 1.9 kcal mol–1 while baseline 1 and baseline 2 achieve a RMSE of 493.7 kcal mol–1 and 6.6 kcal mol–1, respectively. While the baselines perform better on the ANI-1 test set, as seen in ESI Fig. S4,† their performance on the GDB-10 test set shows that both suffer from an inability to extend their learned interactions to larger molecules.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t46" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
         <label>a fixed-size representation cannot extend because the elements a larger molecule activates were never trained</label>
         <term>a fixed-size representation cannot extend because the elements a larger molecule activates were never trained</term>
-        <quote>For baseline 1, this is caused by the coulomb matrix having elements which remain a constant zero throughout training, yet when a larger molecule is tested on it, those elements have non-zero values. These non-zero values are then fed into untrained network parameters, which yields arbitrary results.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t47" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
         <label>there are no systematic ways for improving or estimating the transferability of empirical potentials</label>
         <term>there are no systematic ways for improving or estimating the transferability of empirical potentials</term>
-        <quote>Furthermore, each application of FF and EP needs to be carefully pondered, as their accuracy varies among different systems. In fact, performing benchmarks to determine the optimal FF combination for the problem at hand is usually unavoidable. Unfortunately, there are no systematic ways for improving or estimating the transferability of EPs.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t48" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
         <label>extensibility keeps improving with data set size and had not plateaued at 17.2 million conformations</label>
         <term>extensibility keeps improving with data set size and had not plateaued at 17.2 million conformations</term>
-        <quote>More important than the low errors to the training, validation, and test sets, it shows that the extensibility of ANI potentials increase with data set size, and does not plateau up to the current data set size.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
         <label>whether a potential holds outside the systems it was parameterised on; ReaxFF is given as the counter-case, being reparameterised system to system and so lacking an out-of-the-box level of it</label>
         <term>transferability</term>
-        <quote>One exception to this is the ReaxFF force field, which is capable of studying chemical reactions and transition states. However, ReaxFF, like most reactive force fields, must generally be reparameterized from system to system and therefore lacks an “out-of-the-box” level of transferability.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t50" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
         <label>Normal Mode Sampling - perturbing an energy-minimised structure along its normal modes to a chosen maximum energy, explicitly an approximation for generating structures</label>
         <term>NMS</term>
-        <quote>In practice, NMS works best when generating windows of the potential surface of many molecules to be used in the training of the same ANI potential. The reasoning behind this is as follows: if any interactions are missed or not sampled well by NMS, it is possible that other molecules in the data set contain the same or similar interactions. Therefore, the accuracy of using such a sampling method is dependent on not only the number of points per window but also the number of distinct molecules included in the data set.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t51" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
         <label>ANI-1&#x27;s RMSE against DFT over the entire random sampling</label>
         <term>1.8 kcal mol–1</term>
-        <quote>Fig. 4A is a correlation plot of the computed ANI-1 energies, E cmp, vs. the DFT reference energies, E ref. The ANI-1 potential achieves an RMSE of only 1.8 kcal mol–1 over the entire random sampling. Fig. 4B–D provides the same comparison but for popular semi-empirical methods to the DFT reference energies. If only relative energies within 30.0 kcal mol–1 of the minimum energy are considered, the ANI-1, DFTB, PM6, and AM1 methods obtain an RMSE of 0.6, 2.4, 3.6, and 4.2 kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t52" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
         <label>the energy window within which the RMSE falls to 0.6 - the restriction the headline number carries</label>
         <term>30.0 kcal mol–1</term>
-        <quote>Fig. 4A is a correlation plot of the computed ANI-1 energies, E cmp, vs. the DFT reference energies, E ref. The ANI-1 potential achieves an RMSE of only 1.8 kcal mol–1 over the entire random sampling. Fig. 4B–D provides the same comparison but for popular semi-empirical methods to the DFT reference energies. If only relative energies within 30.0 kcal mol–1 of the minimum energy are considered, the ANI-1, DFTB, PM6, and AM1 methods obtain an RMSE of 0.6, 2.4, 3.6, and 4.2 kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t53" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
         <label>baseline 1&#x27;s total-energy RMSE on the extensibility set, against ANI-1&#x27;s 1.9</label>
         <term>493.7 kcal mol–1</term>
-        <quote>ANI-1, when trained on the full ANI-1 training set, achieves a total energy RMSE of 1.9 kcal mol–1 while baseline 1 and baseline 2 achieve a RMSE of 493.7 kcal mol–1 and 6.6 kcal mol–1, respectively. While the baselines perform better on the ANI-1 test set, as seen in ESI Fig. S4,† their performance on the GDB-10 test set shows that both suffer from an inability to extend their learned interactions to larger molecules.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
         <label>RMSE</label>
         <term>RMSE</term>
-        <quote>Fig. 4A is a correlation plot of the computed ANI-1 energies, E cmp, vs. the DFT reference energies, E ref. The ANI-1 potential achieves an RMSE of only 1.8 kcal mol–1 over the entire random sampling. Fig. 4B–D provides the same comparison but for popular semi-empirical methods to the DFT reference energies. If only relative energies within 30.0 kcal mol–1 of the minimum energy are considered, the ANI-1, DFTB, PM6, and AM1 methods obtain an RMSE of 0.6, 2.4, 3.6, and 4.2 kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
         <label>root mean squared error</label>
         <term>root mean squared error</term>
-        <quote>The final fitness of the training, validation, and test sets in the case of the ANI-1 potential are 1.2, 1.3, and 1.3 root mean squared error (RMSE) in kcal mol–1, respectively.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t56" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
         <label>network architecture</label>
         <term>network architecture</term>
-        <quote>The choice of network architecture also plays a major role in how well a potential performs. Too small of a network reduces the flexibility of the function which can hinder performance and too large can lead to bad generalization across structures due to overtraining, especially on small data sets. With larger data sets, a bigger and more flexible network can be used to yield better results.</quote>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
     </spanGrp>
   </standOff>
   <text>
     <body>
       <p><note type="rights">The full text of this article is not redistributable, so it is
-      not included here. Every tag above carries the exact sentence it was made from, quoted
-      under fair quotation. The article itself is at https://doi.org/10.1039/c6sc05720a.</note></p>
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1039/c6sc05720a.</note></p>
     </body>
   </text>
 </TEI>
