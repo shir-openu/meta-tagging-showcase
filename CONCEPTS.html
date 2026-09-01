@@ -1,6 +1,19 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Concepts &mdash; every term, every paper</title><link rel="alternate" hreflang="en" href="CONCEPTS.html"><link rel="alternate" hreflang="he" href="CONCEPTS-he.html"><style>body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1.1rem;line-height:1.55;color:#1c1c1c;background:#fff;}
+<title>Concepts &mdash; every term, every paper</title><link rel="alternate" hreflang="en" href="CONCEPTS.html"><link rel="alternate" hreflang="he" href="CONCEPTS-he.html"><style>body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1.1rem;line-height:1.55;color:#1c1c1c;background:#fff;overflow-wrap:break-word;}
+/* PHONE. Measured 2026-09-01 at 390px: CONCEPTS.html was 595 wide and a paper page 589.
+   Two causes, and neither was the one I assumed. A 79-character URL with no break
+   opportunity accounted for the paper pages; a wide table for CONCEPTS. `display:block;
+   overflow-x:auto` on the table - the usual advice - moved the number by ZERO across three
+   variants, because the rows still paint outside the scroll box. `table-layout:fixed` works
+   because the table never asks to be wider than its container. Both verified in a headless
+   browser before being written here.
+
+   THIS CONSTANT IS THE GENERATOR AND REPORTS/report54.html IS ITS ARTEFACT. I patched the
+   artefact first and CONCEPTS.html did not move, because build_concept_index.py imports
+   THIS. */
+@media (max-width:700px){table{table-layout:fixed;width:100%;max-width:100%;}
+ th,td{overflow-wrap:anywhere!important;white-space:normal!important;}}  /* !important is deliberate and narrow: td.k{white-space:nowrap} is more specific than th,td and wins without it, which left a paper page 415 wide at 390. Measured, not assumed. */
  h1{font-size:1.5rem;margin-bottom:.1rem;} .sub{color:#666;font-size:.92rem;margin-top:0;}
  h2{font-size:1.15rem;margin:1.8rem 0 .5rem;color:#333;border-bottom:2px solid #eee;padding-bottom:.3rem;}
  h3{font-size:1.02rem;margin:1.4rem 0 .3rem;padding-bottom:.2rem;border-bottom:2px solid;}

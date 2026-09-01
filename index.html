@@ -10,7 +10,12 @@
  .lang-switch:hover{background:#0b4f9c;color:#fff;}
  .lang-switch:focus-visible{outline:3px solid #c2185b;outline-offset:2px;}
 
-body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1.1rem;line-height:1.55;color:#1c1c1c;background:#fff;}
+body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1.1rem;line-height:1.55;color:#1c1c1c;background:#fff;overflow-wrap:break-word;}
+@media (max-width:700px){table{table-layout:fixed;width:100%;max-width:100%;} th,td{overflow-wrap:anywhere!important;white-space:normal!important;}}  /* !important is deliberate and narrow: td.k{white-space:nowrap} is more specific than th,td and wins without it, which left a paper page 415 wide at 390. Measured, not assumed. */
+/* A 79-character URL with no break opportunity made a paper page 589px wide on a 390px
+   phone. Tables were the widest elements and were NOT the cause; bisecting by hiding one
+   child at a time found it in one pass. `break-word` only breaks a word that cannot fit
+   on its own line, so ordinary prose still wraps at spaces. */
  h1{font-size:1.5rem;margin-bottom:.1rem;} .sub{color:#666;font-size:.92rem;margin-top:0;}
  h2{font-size:1.15rem;margin:1.8rem 0 .5rem;color:#333;border-bottom:2px solid #eee;padding-bottom:.3rem;}
  h3{font-size:1.02rem;margin:1.4rem 0 .3rem;padding-bottom:.2rem;border-bottom:2px solid;}
@@ -20,6 +25,15 @@ body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;
  .kpi b{font-size:1.5rem;display:block;color:#0b4f9c;} .kpi .l{font-size:.72rem;color:#888;text-transform:uppercase;}
  .find{background:#fff5f9;border:1px solid #f6c2d8;border-left:5px solid #c2185b;border-radius:8px;padding:.9rem 1.2rem;margin:1rem 0;} .find b{color:#c2185b;}
  table{border-collapse:collapse;width:100%;font-size:.88rem;margin:.5rem 0;}
+ /* A TABLE MUST SCROLL INSIDE ITSELF, NOT DRAG THE PAGE SIDEWAYS. Measured 2026-09-01 on a
+    390px viewport: the showcase index reported scrollWidth 767 against clientWidth 390, so a
+    phone visitor had to scroll horizontally to read the first column of every paper table.
+    The platform pages were fine; only the pages built from this template were not, which is
+    why the rule belongs here rather than in one page's own <style>.
+    `display:block` is what makes overflow-x apply to a table at all. */
+ @media (max-width:700px){
+   th,td{white-space:normal;}
+ }
  th{text-align:left;font-size:.7rem;text-transform:uppercase;color:#8a8a8a;border-bottom:1px solid #eee;padding:.35rem .5rem;} th.ci{text-align:right;} th.no{width:1.6rem;}
  td{padding:.4rem .5rem;border-bottom:1px solid #f4f4f4;vertical-align:top;} td.no{color:#767676;width:1.6rem;text-align:center;}
  td.ci{text-align:right;font-weight:700;color:#1a7a33;font-variant-numeric:tabular-nums;white-space:nowrap;}
