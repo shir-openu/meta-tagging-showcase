@@ -18,6 +18,7 @@
 </style></head><body>
 <h1>Priming across the corpus — does the A·S·M definition hold?</h1>
 <p class="sub">One canonical phenomenon (priming), defined by <b>association · secondariness · modulation</b>, verified per field. Click a field.</p>
+<p class="nav"><a href="index.html">the showcase</a> &middot; <a href="INDEX.html">the corpus</a> &middot; <a href="CONCEPTS.html">concepts</a> &middot; <a href="GRAPH.html">the graph</a></p>
 <div class="banner"><b>Scale demonstration.</b> The 8 <b>bold</b> fields are from real tagged papers (A &amp; M verified 16/16; S proof-of-concept 5/5). The rest are an <b>illustrative projection</b> of what a thousands-paper run would surface — including honest exceptions (red-wine = a feature not met = a finding to investigate). Not measured data.</div>
 <div class="kpis">
  <div class="kpi"><b id="kN"></b><span>papers (proj.)</span></div>
@@ -52,7 +53,7 @@ bA.style.width=A.A+'%'; bA.style.background=cf(A.A);
 bS.style.width=A.S+'%'; bS.style.background=cf(A.S);
 bM.style.width=A.M+'%'; bM.style.background=cf(A.M);
 // nodes: priming(0), A(1),S(2),M(3), then fields
-const cv=document.getElementById('cv'), ctx=cv.getContext('2d'); let W,H,drag=null;
+const cv=document.getElementById('cv'), ctx=cv.getContext('2d'); let W,H,drag=null,hover=null;
 function status(r){return Math.min(r.A,r.S,r.M)>=85?'ok':'exc';}
 let NODES=[],EDGES=[];
 function resize(){W=cv.width=cv.clientWidth*devicePixelRatio;H=cv.height=cv.clientHeight*devicePixelRatio;}
@@ -78,6 +79,23 @@ function step(){const REP=14000*devicePixelRatio*devicePixelRatio, m=Math.min(W,
 function draw(){ctx.clearRect(0,0,W,H);ctx.strokeStyle='#d7dee7';ctx.lineWidth=1*devicePixelRatio;
  EDGES.forEach(e=>{ctx.beginPath();ctx.moveTo(e.a.x,e.a.y);ctx.lineTo(e.b.x,e.b.y);ctx.stroke();});
  ctx.font=(10*devicePixelRatio)+'px Segoe UI';ctx.textAlign='center';
+ // 58 ring labels were drawn unconditionally in a 704x440 canvas and printed through each
+ // other. Place them greedily: biggest disc first, and a label whose box hits one already
+ // placed is skipped, not shrunk. Keyed on the NODE OBJECT -- these nodes do have ids, which
+ // is precisely when an id-keyed map looks safe and stops being so the day two fields share
+ // a name. Anything skipped comes back on hover.
+ const radiusOf=(n)=>n.t==='c'?26*devicePixelRatio:n.t==='f'?16*devicePixelRatio
+   :(8+Math.min(14,n.r.n/22))*devicePixelRatio;
+ const placed=[], showLabel=new Set();
+ const clash=(p,q)=>!(p.x+p.w<q.x||q.x+q.w<p.x||p.y+p.h<q.y||q.y+q.h<p.y);
+ NODES.filter(n=>n.t==='d').slice().sort((a,b)=>radiusOf(b)-radiusOf(a)).forEach(n=>{
+   const R=radiusOf(n), w=ctx.measureText(n.l).width, h=12*devicePixelRatio, up=n.y<H/2;
+   const ty = up ? n.y-R-3*devicePixelRatio : n.y+R+3*devicePixelRatio;
+   const bx = {x:n.x-w/2, y: up?ty-h:ty, w:w, h:h};
+   if(placed.some(p=>clash(p,bx))) return;
+   placed.push(bx); showLabel.add(n);
+ });
+ window.__labelledNodes=[...showLabel];   // what the GATE passed, not what its inputs were
  NODES.forEach(n=>{let R,fill;
   if(n.t==='c'){R=26*devicePixelRatio;fill='#0d9488';}
   else if(n.t==='f'){R=16*devicePixelRatio;fill='#0d9488';}
@@ -85,13 +103,14 @@ function draw(){ctx.clearRect(0,0,W,H);ctx.strokeStyle='#d7dee7';ctx.lineWidth=1
   ctx.beginPath();ctx.arc(n.x,n.y,R,0,7);ctx.fillStyle=fill;ctx.fill();
   if(n.t==='c'){ctx.fillStyle='#fff';ctx.fillText('priming',n.x,n.y+4*devicePixelRatio);}
   else if(n.t==='f'){ctx.fillStyle='#fff';ctx.font='bold '+(12*devicePixelRatio)+'px Segoe UI';ctx.fillText(n.l,n.x,n.y+4*devicePixelRatio);ctx.font=(10*devicePixelRatio)+'px Segoe UI';}
-  else{ctx.fillStyle='#334155';const up=n.y<H/2;ctx.textBaseline=up?'bottom':'top';ctx.fillText(n.l,n.x,up?n.y-R-3*devicePixelRatio:n.y+R+3*devicePixelRatio);ctx.textBaseline='alphabetic';}
+  else if(showLabel.has(n)||n===hover){const up=n.y<H/2;ctx.textBaseline=up?'bottom':'top';const ty=up?n.y-R-3*devicePixelRatio:n.y+R+3*devicePixelRatio;if(n===hover){const w=ctx.measureText(n.l).width+8*devicePixelRatio,hh=14*devicePixelRatio;ctx.fillStyle='rgba(255,255,255,0.93)';ctx.fillRect(n.x-w/2,up?ty-hh:ty,w,hh);}ctx.fillStyle=n===hover?'#000':'#334155';ctx.fillText(n.l,n.x,ty);ctx.textBaseline='alphabetic';}
  });}
 function loop(){step();draw();requestAnimationFrame(loop);}
 function at(ev){const r=cv.getBoundingClientRect(),x=(ev.clientX-r.left)*devicePixelRatio,y=(ev.clientY-r.top)*devicePixelRatio;return NODES.find(n=>Math.hypot(n.x-x,n.y-y)<20*devicePixelRatio);}
 cv.addEventListener('pointerdown',ev=>{drag=at(ev); const n=drag; if(n&&n.t==='d')show(n.r);});
-cv.addEventListener('pointermove',ev=>{if(!drag)return;const r=cv.getBoundingClientRect();drag.x=(ev.clientX-r.left)*devicePixelRatio;drag.y=(ev.clientY-r.top)*devicePixelRatio;drag.vx=drag.vy=0;});
+cv.addEventListener('pointermove',ev=>{if(!drag){const h=at(ev);if(h!==hover){hover=h;cv.style.cursor=h?'pointer':'default';}return;}const r=cv.getBoundingClientRect();drag.x=(ev.clientX-r.left)*devicePixelRatio;drag.y=(ev.clientY-r.top)*devicePixelRatio;drag.vx=drag.vy=0;});
 cv.addEventListener('pointerup',()=>drag=null);
+cv.addEventListener('pointerleave',()=>{hover=null;});
 function mini(v){return `<div class="mini"><i style="width:${v}%;background:${cf(v)}"></i></div>`;}
 function show(r){document.getElementById('panel').innerHTML =
   `<h3>${r.d} <span class="tag" style="background:${r.real?'#00838f':'#9d1b6b'}">${r.real?'real':'projected'}</span></h3>`+
