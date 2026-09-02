@@ -44,6 +44,28 @@
           color:#33404d; line-height:1.75 }
  .prov b { color:#3d5f7a }
  .reading p { margin:1rem 0 }
+ /* PHONE. This file had NO media query at all, and every one of the 907 editions scrolled
+    sideways: measured at 390px, shannon1948 was 583 wide, friis2017 610 and love2014 628.
+    Three causes and I found them one at a time, each by measuring after fixing the last:
+
+      the facet TABLE, which is the same fault make_report54 already solved - and its note
+      says `display:block;overflow-x:auto` moved the number by ZERO across three variants,
+      because the rows still paint outside the scroll box. table-layout:fixed works because
+      the table never asks to be wider than its container. Reused, not re-derived.
+      the `.tg` tag spans, 411px of concept names run together with no break opportunity.
+      a `<p>` in the reading column holding an unbroken LaTeX run - a documentclass line
+      with its whole package list and no break opportunity - 524 wide inside a 348 column.
+      (Written without the braces on purpose: this whole block is an f-string, and the
+      first version of this comment quoted the LaTeX verbatim, so `{minimal}` became a
+      substitution and the renderer raised NameError on every record. It refused to build
+      rather than writing 907 broken pages, which is why nothing was lost.)
+
+    After all three: 390, 390, 390, with nothing past the edge on any of them. */
+ @media (max-width:700px) {
+   table { table-layout:fixed; width:100%; max-width:100% }
+   th, td { overflow-wrap:anywhere !important; white-space:normal !important }
+   .tg, .reading, .reading p, .wrap { overflow-wrap:anywhere }
+ }
 </style></head><body><div class="wrap">
 
 <h1>Students under lockdown: Comparisons of students’ social networks and mental health before and during the COVID-19 crisis in Switzerland</h1>
@@ -87,7 +109,4 @@
 
 <p class="meta" dir="ltr" style="text-align:start"><span class="credit">&copy; 2026 Shir Sivroni · <a href="https://orcid.org/0009-0000-2597-2824">ORCID 0009-0000-2597-2824</a></span></p>
 
-</div>
-<!-- page-load counter; GitHub publishes no analytics for Pages. Source: PRIMING_TOOLBOX/TOOLS/build_beacon.py -->
-<script src="https://shir-openu.github.io/beacon.js" defer></script>
-</body></html>
+</div></body></html>
