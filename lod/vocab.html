@@ -14,12 +14,26 @@
  tr:nth-child(even) td{background:#fafbfc;}
  td.he{direction:rtl;text-align:right;font-size:.9rem;color:#333;}
  td.n{text-align:right;color:#666;width:4rem;} td.term{font-weight:600;}
- td.ev{color:#777;font-size:.78rem;} .none{color:#bbb;}
+    /* RAISED TO WCAG AA. lod/vocab.html carried 33,305 failures in 67,078 elements -
+       half the page - and lod/index.html two more. Neither had ever been measured:
+       audit_a11y.py covered 0 of the 2 pages in this family, which is why the run
+       now prints its coverage per family instead of only "0 problems".
+
+       Three greys on four grounds - #ffffff, #fafbfc, #f2f4f7 and #effcfb - and the
+       worst ground is what decides: #777 is 4.06 there, #999 2.59, #bbb 1.74.
+
+       LIGHTNESS CAN NO LONGER CARRY THE HIERARCHY. These three were a deliberate
+       ladder - evidence, relation, none - and 4.5:1 on the palest ground bottoms out
+       around #6f6f6f, so the ladder compresses to a step nobody will see. The
+       distinction is worth keeping and lightness is no longer the way to keep it;
+       that is a design decision for Shir, not one to make silently in a stylesheet.
+       Until then all three are legible, which is the half that is not optional. */
+ td.ev{color:#6a6a6a;font-size:.78rem;} .none{color:#6f6f6f;}
  a.exact{color:#00707a;font-weight:700;text-decoration:none;} a.close{color:#9d1b6b;font-weight:700;text-decoration:none;}
- a.gn{color:#0b4f9c;font-size:.78rem;} .rel{color:#999;margin-left:.25rem;}
+ a.gn{color:#0b4f9c;font-size:.78rem;} .rel{color:#6e6e6e;margin-left:.25rem;}
  .box{background:#effcfb;border:1px solid #b6e6e6;border-left:5px solid #00838f;border-radius:8px;padding:.7rem 1rem;margin:1rem 0;font-size:.92rem;}
  code{background:#f2f4f7;padding:.05em .35em;border-radius:4px;font-size:.85em;}
- .foot{color:#999;font-size:.8rem;border-top:1px solid #eee;margin-top:2rem;padding-top:.7rem;}
+ .foot{color:#6e6e6e;font-size:.8rem;border-top:1px solid #eee;margin-top:2rem;padding-top:.7rem;}
 </style></head><body>
 <h1>Vocabulary — SKOS concept schemes</h1>
 <p class="sub">Every tag string in this project, as an addressable concept with a URI, an English and (where known) a Hebrew label, and a link to Wikidata. Machine-readable copies: <a href="vocab.jsonld">vocab.jsonld</a> · <a href="vocab.ttl">vocab.ttl</a> · <a href="index.html">what this is</a></p>
