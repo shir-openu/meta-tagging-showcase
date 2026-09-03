@@ -7,7 +7,7 @@
  .bar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:.5rem 0;}
  select{padding:.35rem .6rem;border:1.5px solid #bbb;border-radius:8px;font-size:.9rem;}
  canvas{width:100%;height:560px;border:1px solid #e4e4e4;border-radius:12px;background:#fbfdfd;touch-action:none;}
- .legend{font-size:.8rem;color:#555;margin:.4rem 0;} .legend span{margin-inline-end:.9rem;white-space:nowrap;}
+ .nlist{margin:.5rem 0;font-size:.92rem}.nlist summary{cursor:pointer;color:#0b4f9c}.nlist ul{columns:3;column-gap:1.4rem;margin:.5rem 0 0;padding-inline-start:1.1rem}.nlist li{break-inside:avoid;margin:.15rem 0}.nlist a{color:#0b4f9c}@media(max-width:700px){.nlist ul{columns:1}}.legend{font-size:.8rem;color:#555;margin:.4rem 0;} .legend span{margin-inline-end:.9rem;white-space:nowrap;}
  .dot{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:middle;margin-inline-end:3px;}
  .sq{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:middle;margin-inline-end:3px;}
  .hint{color:#747474;font-size:.8rem;} a{color:#0b4f9c;} /* The view picker holds 1,078 options and a select sizes to its widest one: 650px,
@@ -25,6 +25,17 @@ label{max-width:100%;display:inline-block}
  <span class="hint" id="count"></span>
 </div>
 <canvas id="cv"></canvas>
+<!-- THE CANVAS IS MOUSE-ONLY, AND SAYING SO WAS NOT ENOUGH.
+     2,729 nodes are painted here and 1,681 of them open something, all of it reachable by
+     pointer alone: this page carries no tabindex, no role and no aria attribute, and
+     audit_a11y.py -- which found "3 focusable controls, every control reachable and ringed"
+     -- has no canvas handling at all. Its pass was true of the select and the two links and
+     silent about everything drawn.
+     So the same destinations are offered as a list, built from the SAME array the frame is
+     drawn from, so the two cannot disagree. Collapsed, because on the neuroscience view it
+     is 991 rows; open, because a reader who cannot use the picture should not have to guess
+     the control exists. -->
+<details id="nlist" class="nlist"><summary></summary><ul></ul></details>
 <div class="legend">
  <span class="dot" style="background:#0d9488"></span>= canonical phenomenon
  <span class="sq" style="background:#0d9488"></span>= statistic tag
@@ -96,6 +107,25 @@ function load(view){
   const pos={}; NODES.forEach(n=>pos[n.i]=n);
   EDGES=E.map(e=>({a:pos[e.s],b:pos[e.d],t:e.t})).filter(e=>e.a&&e.b);
   document.getElementById('count').textContent=`${NODES.length} nodes · ${EDGES.length} edges`;
+  // BUILT FROM NODES, NOT FROM A SECOND MODEL. Whatever the frame can open, this lists.
+  (function(){
+    const d=document.getElementById('nlist'); if(!d) return;
+    const linked=NODES.filter(n=>n.u).sort((a,b)=>(a.l||'').localeCompare(b.l||''));
+    d.querySelector('summary').textContent =
+      linked.length ? `every place this view can take you (${linked.length})` : 'nothing in this view opens';
+    d.querySelector('ul').innerHTML = linked.map(n=>{
+      const t=(n.t==='Paper')?'paper':(n.k||'tag');
+      return `<li><a href="${n.u}"${/^https?:/.test(n.u)?' target="_blank" rel="noopener"':''}>`
+           // THE FULL TERM, NOT THE DRAWING LABEL. `l` is cut to 22 characters so a chip
+           // fits on the canvas; a list has no such constraint, and the first render of
+           // this list said "Akaike information cri" and "interquartile range (o". The
+           // id carries the whole thing -- the same field that scored 71% against the
+           // label's 40% when these nodes were matched to CONCEPTS.html.
+           + `${(String(n.i).split(':').slice(1).join(':') || n.l || n.i).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</a>`
+           + ` <span class="hint">${t}</span></li>`;
+    }).join('');
+    d.hidden = !linked.length;
+  })();
   if(!raf) tick();
 }
 function step(){
