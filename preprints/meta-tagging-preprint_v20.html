@@ -132,6 +132,47 @@ button.ghost{background:#fff;color:#6a1b9a}
 .back:hover{background:#4527a0;color:#fff}
 .fld:target{background:#fffbe6;outline:2px solid #f0dfae;outline-offset:3px;border-radius:8px}
 @media print{.toc{break-inside:avoid}h2{break-after:avoid}.back{display:none}}
+
+/* ------------------------------------------------------------------------------------
+   2026-09-03. THIS DOCUMENT IS ENGLISH AND WAS RENDERING RIGHT-TO-LEFT.
+
+   `body{...direction:rtl}` sits in the stylesheet above, on a page whose <html lang="en">
+   and whose every word is English. A Hebrew template leaked into an English paper. What a
+   reader saw, measured in a browser rather than inferred:
+
+       190 of 1,186 text nodes rendered right-to-left -- the LAST character of the line
+           painted to the LEFT of the first. Nine table questions read "?Does the definiens
+           contain the definiendum". The abstract ended ".definition, measures that too".
+       449 English blocks right-aligned.
+       The contents list read ".1", ".2", ".3" -- <ol> markers on the wrong side.
+
+   `innerText` cannot see any of this: it returns the logical string whichever way the line
+   is painted. It took Range.getBoundingClientRect on the first and last character of every
+   text node to measure it, and a screenshot to believe it.
+
+   WHY NOT SIMPLY direction:ltr ON THE BODY. The tables are AUTHORED FOR RTL: their cells
+   are written in reverse DOM order (#, Criterion, What it asks, Where measured) so that RTL
+   paints them as Where measured | What it asks | Criterion | #. Flipping the body alone
+   reverses every table on the page. Measured, not guessed.
+
+   So: the document goes LTR, the tables keep RTL for their column order, and the CELLS go
+   LTR so their English reads correctly inside them. After: 190 flipped -> 0, 449
+   right-aligned -> 4, and the header row still reads Where measured | What it asks |
+   Criterion | #.
+
+   TO UNDO, delete this block. Nothing else in the file was touched and no text changed.
+   ------------------------------------------------------------------------------------ */
+body { direction: ltr }
+table { direction: rtl }
+th, td { direction: ltr }
+
+/* And the phone. This page was 758px wide at a 390px viewport -- one table at 740px -- with
+   no @media rule but `print`. Three candidates were measured and photographed; making cells
+   wrap broke words mid-syllable (Discrimin/ation, Applicabi/lity), so the table scrolls
+   inside its own box instead and every word stays whole. */
+@media (max-width: 700px) {
+  table { display: block; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch }
+}
 </style></head><body>
 <div class="wrap">
 
