@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- absolute: this page is served for a miss at any depth, so a relative icon 404s -->
+<link rel="icon" href="/meta-tagging-showcase/favicon.svg" type="image/svg+xml">
 <title>Not found &mdash; Meta-Tagging Project</title>
 <style>body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1.1rem;line-height:1.55;color:#1c1c1c;background:#fff;overflow-wrap:break-word;}
 /* PHONE. Measured 2026-09-01 at 390px: CONCEPTS.html was 595 wide and a paper page 589.
@@ -53,12 +54,23 @@
 <p>Nothing is wrong with your browser. Either the page never existed, or it was withdrawn and
 something still links to it &mdash; if it was the second, that is our fault and not yours.</p>
 <h2>Where to go instead</h2>
+<!-- EVERY ROUTE ON THIS PAGE IS ABSOLUTE, and that is the whole point of the page.
+     GitHub serves 404.html for a miss at ANY depth with the browser's address unchanged, so
+     a relative href resolves against the missing path. Measured live on 2026-09-03, while
+     these were relative:
+         /meta-tagging-showcase/no-such-page           5 routes, 0 dead
+         /meta-tagging-showcase/papers/no-such.html    5 routes, 5 DEAD
+     papers/ and editions/ hold 1,814 of this site's pages, so a stale link lands there and
+     found a page of five ways out, all of them broken. This site is served under a path, so
+     the correct form carries that path; a bare "/" would leave for the portfolio site. -->
 <ul class="ways">
-<li><a href="index.html">The showcase</a> &mdash; every paper, by discipline</li>
-<li><a href="corpus.html">The corpus</a> &mdash; the catalogue with claims and phenomena</li>
-<li><a href="SEARCH.html">Search the tag layer</a> &mdash; which papers share a statistical tag</li>
-<li><a href="CONCEPTS.html">Concepts</a> &mdash; every term, and the papers that use it</li>
-<li><a href="AUTHORS.html">Authors</a></li>
+<li><a href="/meta-tagging-showcase/index.html">The showcase</a> &mdash; every paper, by discipline</li>
+<li><a href="/meta-tagging-showcase/corpus.html">The corpus</a> &mdash; the catalogue with claims and phenomena</li>
+<li><a href="/meta-tagging-showcase/SEARCH.html">Search the tag layer</a> &mdash; which papers share a statistical tag</li>
+<li><a href="/meta-tagging-showcase/CONCEPTS.html">Concepts</a> &mdash; every term, and the papers that use it</li>
+<li><a href="https://shir-openu.github.io/meta-tagging-platform-prototype/define/index.html">The
+definition board</a> &mdash; the same word, defined differently in different fields</li>
+<li><a href="/meta-tagging-showcase/AUTHORS.html">Authors</a></li>
 </ul>
 <p class="foot">&copy; 2026 Shir Sivroni &middot; Meta-Tagging Project</p>
 <script>
