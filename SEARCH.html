@@ -43,7 +43,15 @@ body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;
  #q{width:100%;box-sizing:border-box;border:1.5px solid #bbb;border-radius:8px;padding:.55rem .8rem;font-size:1rem;}
  .chips{display:flex;flex-wrap:wrap;gap:.35rem;}
  .chip{border:1.5px solid #ccc;border-radius:14px;padding:.12rem .6rem;font-size:.8rem;cursor:pointer;user-select:none;background:#fff;white-space:nowrap;}
- .chip.on{color:#fff;border-color:transparent;}
+ .chip.on:not(.d){color:#fff;border-color:transparent;}
+ /* A SELECTED DISCIPLINE CHIP WAS INVISIBLE. mkchips writes an inline color:<hex>, which
+    beats .chip.on{color:#fff}, and selecting also set background:<the same hex> -- so the
+    text and the fill were the SAME COLOUR: measured contrast 1.00 on all 157. Every one of
+    report41's 1,854 chips now arrives here with one selected, so it showed constantly.
+    Selection is weight, not fill. All 157 colours reach AA 4.5 on white already (worst
+    4.52), and a tint of the colour measures WORSE, 3.65 at 16%, so filling cannot be made
+    to work here. Colour on white, which is the standing rule. */
+ .chip.d.on{background:#fff;border-color:currentColor;border-width:3px;font-weight:700;}
  .chip.st{border-color:#99e2d9;color:#0f766e;} .chip.st.on{background:#0b857a;color:#fff;}
  .chip.cl{border-color:#f0c99a;color:#9d1b6b;} .chip.cl.on{background:#9d1b6b;color:#fff;}
  .chip.pre{border-color:#c2185b;color:#c2185b;font-weight:600;} .chip.pre:hover{background:#c2185b;color:#fff;}
@@ -127,7 +135,7 @@ function mkchips(host, items, cls, key){
     `<span class="chip ${cls}" data-k="${esc(x)}" style="${cls==='d'?('border-color:'+COL[x]+';color:'+COL[x]):''}">${esc(x)}</span>`).join('');
   document.querySelectorAll('#'+host+' .chip').forEach(el=>el.onclick=()=>{
     const k=el.dataset.k; if(sel[key].has(k)){sel[key].delete(k);el.classList.remove('on');el.style.background='';}
-    else{sel[key].add(k);el.classList.add('on'); if(cls==='d') el.style.background=COL[k];}
+    else{sel[key].add(k);el.classList.add('on');}
     run();
   });
 }
@@ -203,7 +211,7 @@ function fromHash(){
   if (d && DB.disciplines.indexOf(d) >= 0) sel.d.add(d);
   if (s) sel.st.add(s);
   document.querySelectorAll('#df .chip').forEach(function(e){
-    if (sel.d.has(e.dataset.k)) { e.classList.add('on'); e.style.background = COL[e.dataset.k]; }
+    if (sel.d.has(e.dataset.k)) e.classList.add('on');
   });
   syncStatChips();
   run();
