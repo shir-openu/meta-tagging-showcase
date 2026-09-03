@@ -185,6 +185,37 @@ mkchips('df', DB.disciplines, 'd', 'd');
 document.getElementById('q').oninput = run;
 document.getElementById('np').textContent = DB.n;
 run();
+
+/* A CHIP THAT OFFERS A LINK MUST ARRIVE SOMEWHERE. report41.html carries 1,854 discipline
+   chips, one per discipline that uses a statistic, and every one of them pointed at a
+   same-page anchor the report never emits -- 1,854 links, 4 ids, 0 of them matching. Nothing
+   caught it: check_internal_links compares file PATHS, and the tag-link check covers
+   cross-file fragments, not same-page ones.
+
+   They land here now, on the one destination that means what the chip means: the papers in
+   that discipline carrying that statistic. This drives the page's OWN state -- the same sel
+   sets and the same run() a click uses -- so a link can never diverge from what pressing the
+   chips does. */
+function fromHash(){
+  var p = new URLSearchParams((location.hash || '').replace(/^#/, ''));
+  var d = p.get('d'), s = p.get('s');
+  if (!d && !s) return false;
+  if (d && DB.disciplines.indexOf(d) >= 0) sel.d.add(d);
+  if (s) sel.st.add(s);
+  document.querySelectorAll('#df .chip').forEach(function(e){
+    if (sel.d.has(e.dataset.k)) { e.classList.add('on'); e.style.background = COL[e.dataset.k]; }
+  });
+  syncStatChips();
+  run();
+  return true;
+}
+fromHash();
+window.addEventListener('hashchange', function(){
+  sel.d.clear(); sel.st.clear();
+  document.querySelectorAll('.chip.on').forEach(function(e){
+    e.classList.remove('on'); e.style.background = ''; });
+  if (!fromHash()) run();
+});
 </script>
 
 <!-- page-load counter; GitHub publishes no analytics for Pages. Source: PRIMING_TOOLBOX/TOOLS/build_beacon.py -->
