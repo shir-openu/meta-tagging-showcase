@@ -1,7 +1,17 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>The corpus &mdash; every paper</title><link rel="alternate" hreflang="en" href="corpus.html"><link rel="alternate" hreflang="he" href="corpus-he.html">
-<style>body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1.1rem;line-height:1.55;color:#1c1c1c;background:#fff;overflow-wrap:break-word;}
+<style>/* ONE COLUMN GRID FOR EVERY SECTION. Each discipline gets its own <table>, so each
+   sized its own columns and the header row moved as you scrolled: measured at 1280px,
+   the CLAIM column's left edge varied by 432px across the 157 tables on this page.
+   Fixed widths align them. SCOPED TO >=760px on purpose -- at 390px these tables
+   already fit (92 pages measured, 0 over) and a percentage grid there would squeeze
+   the title column to a hundred pixels. Widths chosen by measuring the widest single
+   WORD against its column, not by eye: build_paper_edition's note records that
+   percentage widths once clipped chips to `relation to ot` while every number said
+   the page fitted. Here the cost is zero: no word gets narrower than it needs. */
+@media (min-width:760px){table{table-layout:fixed;width:100%}table th:nth-child(1),table td:nth-child(1){width:2.6rem}table th:nth-child(2),table td:nth-child(2){width:38%}table th:nth-child(3),table td:nth-child(3){width:8%}table th:nth-child(4),table td:nth-child(4){width:33%}table th:nth-child(5),table td:nth-child(5){width:7%}table th:nth-child(6),table td:nth-child(6){width:7%}}
+body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;padding:0 1.1rem;line-height:1.55;color:#1c1c1c;background:#fff;overflow-wrap:break-word;}
 /* PHONE. Measured 2026-09-01 at 390px: CONCEPTS.html was 595 wide and a paper page 589.
    Two causes, and neither was the one I assumed. A 79-character URL with no break
    opportunity accounted for the paper pages; a wide table for CONCEPTS. `display:block;

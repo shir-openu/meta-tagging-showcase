@@ -51,6 +51,31 @@ body{font-family:"Segoe UI",Arial,sans-serif;max-width:960px;margin:1.5rem auto;
 
  /* Only what the catalogue adds on top of report54: the two availability markers, the row meta
     line, and the missing-source note. Nothing here overrides a rule the template sets. */
+ /* ONE COLUMN GRID FOR EVERY DISCIPLINE. Each of the 155 sections is its own <table> and
+    sized its own columns, so the header row moved as you scrolled: at 1280px the CLAIM
+    column's left edge varied by 302px down the page and PHENOMENON by 325px. Fixed widths
+    align all 155. Scoped to >=760px because at 390px these already fit and a percentage
+    grid would squeeze the title column to about a hundred pixels.
+
+    THE WIDTHS WERE MEASURED, NOT CHOSEN. build_paper_edition carries the note that
+    percentage widths once clipped chips to `relation to ot` while every number said the
+    page fitted, so the test here was the widest single WORD against its own column. At
+    30% exactly one word in 907 rows is wider than the title column -- a 50-character
+    perfluoro- compound name needing 333px of 960 -- and the break-word rule on body wraps
+    it rather than cutting it, so no character is lost. Every other cell fits.
+
+    NO BRACES IN THIS COMMENT. It sits inside an f-string, so a CSS rule quoted verbatim
+    here becomes a substitution: the first version of this note wrote that rule out in full
+    and make_public died with NameError: name 'overflow' is not defined. It refused to
+    build rather than writing 907 broken pages. build_paper_edition carries the same note
+    about a LaTeX line, which is where I should have learned it. */
+ @media (min-width:760px){table{table-layout:fixed;width:100%}
+  table th:nth-child(1),table td:nth-child(1){width:2.6rem}
+  table th:nth-child(2),table td:nth-child(2){width:30%}
+  table th:nth-child(3),table td:nth-child(3){width:9%}
+  table th:nth-child(4),table td:nth-child(4){width:30%}
+  table th:nth-child(5),table td:nth-child(5){width:13%}
+  table th:nth-child(6),table td:nth-child(6){width:12%}}
  .op{color:#1a7a33;font-weight:700;} .pw{color:#8324c4;font-weight:700;}
  .meta{color:#767676;font-size:.78rem;margin-top:2px;}
  /* WCAG AA. These greys measured 2.81 to 3.54 against the page they sit on, all under 4.5; darkened with make_report54.darken_to against the actual background. A quiet grey in a footer or a table header is still text somebody has to read. */
