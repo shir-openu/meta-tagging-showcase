@@ -144,7 +144,23 @@ function step(){
     n.x=Math.max(30,Math.min(W-30,n.x)); n.y=Math.max(30,Math.min(H-30,n.y)); });
 }
 function nodeStyle(n){
-  if(n.t==='Canonical') return {r:24*devicePixelRatio,fill:'#0d9488',shape:'circle',txt:'#fff'};
+  // THE HUB'S CIRCLE IS SIZED TO ITS LABEL, because its label is drawn INSIDE it in white.
+  //
+  // Every other node that carries white text is shape:'rect', and chipW() grows the chip to
+  // fit -- max(2r, measureText+10). This one was a fixed r:24, so `priming (A/S/M)` measured
+  // 79px against a 48px disc and the 31px of overflow was white text on the white canvas.
+  // The centre of the default view read `ming (A/S`: the 61% of the string that happened to
+  // land on teal.
+  //
+  // The two-pass draw above fixed a DIFFERENT cause of the same symptom -- discs painted over
+  // labels -- and its comment records that. This is the half that survived it, and the half a
+  // pair-overlap count cannot see: nothing overlaps here, the text simply is not on the disc.
+  //
+  // It stays a CIRCLE. The legend distinguishes a filled circle (canonical phenomenon) from a
+  // filled rect (statistic tag), so making it a chip would have moved it into another key.
+  if(n.t==='Canonical'){ const w=ctx.measureText(n.l||'').width;
+    return {r:Math.max(24*devicePixelRatio, w/2+8*devicePixelRatio),
+            fill:'#0d9488',shape:'circle',txt:'#fff'}; }
   if(n.t==='Tag'&&n.k==='statistic') return {r:15*devicePixelRatio,fill:'#0d9488',shape:'rect',txt:'#fff'};
   if(n.t==='Tag'&&n.k==='phenomenon') return {r:14*devicePixelRatio,fill:'#c2185b',shape:'rect',txt:'#fff'};
   if(n.t==='Discipline') return {r:12*devicePixelRatio,fill:'#fff',stroke:n.c||'#888',shape:'circle',txt:'#333'};
