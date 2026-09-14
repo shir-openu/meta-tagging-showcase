@@ -42,7 +42,7 @@
     </profileDesc>
     <revisionDesc>
       <change when="2026-09-14"
-              who="build_paper_edition.py">196 spans placed by verified search</change>
+              who="build_paper_edition.py">194 spans placed by verified search</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -200,49 +200,47 @@
       <span xml:id="t150" from="#a3" to="#a4" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">a computational procedure predicting non-covalent binding conformation and usually affinity<term>molecular docking</term></span>
       <span xml:id="t151" from="#a3" to="#a4" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">an extensive search of molecular conformational space<term>sampling</term></span>
       <span xml:id="t152" from="#a7" to="#a8" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">a mapping from receptor-ligand conformational space to real values used to rank poses<term>scoring function</term></span>
-      <span xml:id="t153" from="#a7" to="#a8" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">a score derived from statistics of structural binding data<term>knowledge-based scoring function</term></span>
-      <span xml:id="t154" from="#a7" to="#a8" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">a force-field score built from physically derived interaction energies<term>physics-based scoring function</term></span>
-      <span xml:id="t155" from="#a9" to="#a10" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.95">a fitted weighted combination of manually selected energy terms<term>empirical scoring function</term></span>
-      <span xml:id="t156" from="#a13" to="#a14" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.95">layers of simple nonlinear models learning successively more abstract input representations<term>deep learning</term></span>
-      <span xml:id="t157" from="#a35" to="#a36" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="0.95">docking a cognate ligand back to its receptor<term>redocking</term></span>
-      <span xml:id="t158" from="#a35" to="#a36" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="0.95">docking a ligand to a non-cognate receptor<term>cross-docking</term></span>
-      <span xml:id="t159" from="#a43" to="#a44" type="content_tags" ana="#content_tags.definitions[9]" resp="#tagger" cert="0.95">the percentage of systems with a pose below 2 angstrom RMSD within the top N ranks<term>TopN</term></span>
-      <span xml:id="t160" from="#a43" to="#a44" type="content_tags" ana="#content_tags.definitions[10]" resp="#tagger" cert="0.95">TopN computed using only the top-ranked pose<term>Top1</term></span>
-      <span xml:id="t161" from="#a53" to="#a54" type="content_tags" ana="#content_tags.definitions[11]" resp="#tagger" cert="0.95">CNN-estimated affinity of the docked complex<term>CNNaffinity</term></span>
-      <span xml:id="t162" from="#a53" to="#a54" type="content_tags" ana="#content_tags.definitions[12]" resp="#tagger" cert="0.95">a zero-to-one pose-ranking value where one denotes a perfect pose<term>CNNscore</term></span>
-      <span xml:id="t163" from="#a25" to="#a26" type="content_tags" ana="#content_tags.definitions[13]" resp="#tagger" cert="0.95">the number of Monte Carlo chains run for a ligand<term>exhaustiveness</term></span>
-      <span xml:id="t164" from="#a21" to="#a22" type="content_tags" ana="#content_tags.definitions[14]" resp="#tagger" cert="0.95">extra spacing added around the ligand-derived Cartesian binding box<term>autobox_add</term></span>
-      <span xml:id="t165" from="#a57" to="#a58" type="content_tags" ana="#content_tags.definitions[15]" resp="#tagger" cert="0.95">five selected CNN models balancing docking performance and runtime<term>Default Ensemble</term></span>
-      <span xml:id="t166" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">58% to 73% — defined-pocket redocking Top1 improvement from CNN rescoring</span>
-      <span xml:id="t167" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">27% to 37% — defined-pocket cross-docking Top1 improvement from CNN rescoring</span>
-      <span xml:id="t168" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">31% to 38% — whole-protein redocking Top1 improvement</span>
-      <span xml:id="t169" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">12% to 16% — whole-protein cross-docking Top1 improvement</span>
-      <span xml:id="t170" from="#a35" to="#a36" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">4852 — high-quality PDBbind 2019 refined-set crystal structures</span>
-      <span xml:id="t171" from="#a39" to="#a40" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="0.95">4260 — filtered redocking protein-ligand pairs</span>
-      <span xml:id="t172" from="#a39" to="#a40" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="0.95">820280 — filtered cross-docking protein-ligand pairs before downsampling</span>
-      <span xml:id="t173" from="#a41" to="#a42" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="0.95">7970 — downsampled cross-docking protein-ligand pairs</span>
-      <span xml:id="t174" from="#a41" to="#a42" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="0.95">92 — unique cross-docking binding pockets after downsampling</span>
-      <span xml:id="t175" from="#a43" to="#a44" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="0.95">2 angstrom — RMSD threshold defining a good pose</span>
-      <span xml:id="t176" from="#a45" to="#a46" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="0.95">263 — complexes in the runtime benchmark subset</span>
-      <span xml:id="t177" from="#a57" to="#a58" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="0.95">5 — CNN models in the Default Ensemble</span>
-      <span xml:id="t178" from="#a59" to="#a60" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="0.95">16 — CNN models in the All Ensemble</span>
-      <span xml:id="t179" from="#a65" to="#a66" type="content_tags" ana="#content_tags.quantities[13]" resp="#tagger" cert="0.95">8 — default exhaustiveness for a defined binding pocket</span>
-      <span xml:id="t180" from="#a67" to="#a68" type="content_tags" ana="#content_tags.quantities[14]" resp="#tagger" cert="0.95">50 — default number of conformations saved per Monte Carlo chain</span>
-      <span xml:id="t181" from="#a67" to="#a68" type="content_tags" ana="#content_tags.quantities[15]" resp="#tagger" cert="0.95">9 — default number of output modes</span>
-      <span xml:id="t182" from="#a85" to="#a86" type="content_tags" ana="#content_tags.quantities[16]" resp="#tagger" cert="0.95">87% — redocking systems whose top pose had CNNscore above 0.8</span>
-      <span xml:id="t183" from="#a85" to="#a86" type="content_tags" ana="#content_tags.quantities[17]" resp="#tagger" cert="0.95">15% — cross-docked ligands whose top pose had CNNscore above 0.8</span>
-      <span xml:id="t184" from="#a43" to="#a44" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">RMSD<term>RMSD</term></span>
-      <span xml:id="t185" from="#a43" to="#a44" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">TopN<term>TopN</term></span>
-      <span xml:id="t186" from="#a45" to="#a46" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger" cert="0.95">Avg Time Per System<term>Avg Time Per System</term></span>
-      <span xml:id="t187" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger" cert="0.95">exhaustiveness<term>exhaustiveness</term></span>
-      <span xml:id="t188" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger" cert="0.95">autobox_add<term>autobox_add</term></span>
-      <span xml:id="t189" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger" cert="0.95">num_modes<term>num_modes</term></span>
-      <span xml:id="t190" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="0.95">num_mc_saved<term>num_mc_saved</term></span>
-      <span xml:id="t191" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="0.95">min_rmsd_filter<term>min_rmsd_filter</term></span>
-      <span xml:id="t192" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="0.95">cnn_rotation<term>cnn_rotation</term></span>
-      <span xml:id="t193" from="#a53" to="#a54" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="0.95">CNNscore<term>CNNscore</term></span>
-      <span xml:id="t194" from="#a53" to="#a54" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="0.95">CNNaffinity<term>CNNaffinity</term></span>
-      <span xml:id="t195" from="#a77" to="#a78" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="0.95">target-cognate RMSD<term>target-cognate RMSD</term></span>
+      <span xml:id="t153" from="#a9" to="#a10" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.95">a fitted weighted combination of manually selected energy terms<term>empirical scoring function</term></span>
+      <span xml:id="t154" from="#a13" to="#a14" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.95">layers of simple nonlinear models learning successively more abstract input representations<term>deep learning</term></span>
+      <span xml:id="t155" from="#a35" to="#a36" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="0.95">docking a cognate ligand back to its receptor<term>redocking</term></span>
+      <span xml:id="t156" from="#a35" to="#a36" type="content_tags" ana="#content_tags.definitions[8]" resp="#tagger" cert="0.95">docking a ligand to a non-cognate receptor<term>cross-docking</term></span>
+      <span xml:id="t157" from="#a43" to="#a44" type="content_tags" ana="#content_tags.definitions[9]" resp="#tagger" cert="0.95">the percentage of systems with a pose below 2 angstrom RMSD within the top N ranks<term>TopN</term></span>
+      <span xml:id="t158" from="#a43" to="#a44" type="content_tags" ana="#content_tags.definitions[10]" resp="#tagger" cert="0.95">TopN computed using only the top-ranked pose<term>Top1</term></span>
+      <span xml:id="t159" from="#a53" to="#a54" type="content_tags" ana="#content_tags.definitions[11]" resp="#tagger" cert="0.95">CNN-estimated affinity of the docked complex<term>CNNaffinity</term></span>
+      <span xml:id="t160" from="#a53" to="#a54" type="content_tags" ana="#content_tags.definitions[12]" resp="#tagger" cert="0.95">a zero-to-one pose-ranking value where one denotes a perfect pose<term>CNNscore</term></span>
+      <span xml:id="t161" from="#a25" to="#a26" type="content_tags" ana="#content_tags.definitions[13]" resp="#tagger" cert="0.95">the number of Monte Carlo chains run for a ligand<term>exhaustiveness</term></span>
+      <span xml:id="t162" from="#a21" to="#a22" type="content_tags" ana="#content_tags.definitions[14]" resp="#tagger" cert="0.95">extra spacing added around the ligand-derived Cartesian binding box<term>autobox_add</term></span>
+      <span xml:id="t163" from="#a57" to="#a58" type="content_tags" ana="#content_tags.definitions[15]" resp="#tagger" cert="0.95">five selected CNN models balancing docking performance and runtime<term>Default Ensemble</term></span>
+      <span xml:id="t164" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">58% to 73% — defined-pocket redocking Top1 improvement from CNN rescoring</span>
+      <span xml:id="t165" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">27% to 37% — defined-pocket cross-docking Top1 improvement from CNN rescoring</span>
+      <span xml:id="t166" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">31% to 38% — whole-protein redocking Top1 improvement</span>
+      <span xml:id="t167" from="#a1" to="#a2" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">12% to 16% — whole-protein cross-docking Top1 improvement</span>
+      <span xml:id="t168" from="#a35" to="#a36" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">4852 — high-quality PDBbind 2019 refined-set crystal structures</span>
+      <span xml:id="t169" from="#a39" to="#a40" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="0.95">4260 — filtered redocking protein-ligand pairs</span>
+      <span xml:id="t170" from="#a39" to="#a40" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="0.95">820280 — filtered cross-docking protein-ligand pairs before downsampling</span>
+      <span xml:id="t171" from="#a41" to="#a42" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="0.95">7970 — downsampled cross-docking protein-ligand pairs</span>
+      <span xml:id="t172" from="#a41" to="#a42" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="0.95">92 — unique cross-docking binding pockets after downsampling</span>
+      <span xml:id="t173" from="#a43" to="#a44" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger" cert="0.95">2 angstrom — RMSD threshold defining a good pose</span>
+      <span xml:id="t174" from="#a45" to="#a46" type="content_tags" ana="#content_tags.quantities[10]" resp="#tagger" cert="0.95">263 — complexes in the runtime benchmark subset</span>
+      <span xml:id="t175" from="#a57" to="#a58" type="content_tags" ana="#content_tags.quantities[11]" resp="#tagger" cert="0.95">5 — CNN models in the Default Ensemble</span>
+      <span xml:id="t176" from="#a59" to="#a60" type="content_tags" ana="#content_tags.quantities[12]" resp="#tagger" cert="0.95">16 — CNN models in the All Ensemble</span>
+      <span xml:id="t177" from="#a65" to="#a66" type="content_tags" ana="#content_tags.quantities[13]" resp="#tagger" cert="0.95">8 — default exhaustiveness for a defined binding pocket</span>
+      <span xml:id="t178" from="#a67" to="#a68" type="content_tags" ana="#content_tags.quantities[14]" resp="#tagger" cert="0.95">50 — default number of conformations saved per Monte Carlo chain</span>
+      <span xml:id="t179" from="#a67" to="#a68" type="content_tags" ana="#content_tags.quantities[15]" resp="#tagger" cert="0.95">9 — default number of output modes</span>
+      <span xml:id="t180" from="#a85" to="#a86" type="content_tags" ana="#content_tags.quantities[16]" resp="#tagger" cert="0.95">87% — redocking systems whose top pose had CNNscore above 0.8</span>
+      <span xml:id="t181" from="#a85" to="#a86" type="content_tags" ana="#content_tags.quantities[17]" resp="#tagger" cert="0.95">15% — cross-docked ligands whose top pose had CNNscore above 0.8</span>
+      <span xml:id="t182" from="#a43" to="#a44" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">RMSD<term>RMSD</term></span>
+      <span xml:id="t183" from="#a43" to="#a44" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">TopN<term>TopN</term></span>
+      <span xml:id="t184" from="#a45" to="#a46" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger" cert="0.95">Avg Time Per System<term>Avg Time Per System</term></span>
+      <span xml:id="t185" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger" cert="0.95">exhaustiveness<term>exhaustiveness</term></span>
+      <span xml:id="t186" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger" cert="0.95">autobox_add<term>autobox_add</term></span>
+      <span xml:id="t187" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger" cert="0.95">num_modes<term>num_modes</term></span>
+      <span xml:id="t188" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger" cert="0.95">num_mc_saved<term>num_mc_saved</term></span>
+      <span xml:id="t189" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger" cert="0.95">min_rmsd_filter<term>min_rmsd_filter</term></span>
+      <span xml:id="t190" from="#a49" to="#a50" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger" cert="0.95">cnn_rotation<term>cnn_rotation</term></span>
+      <span xml:id="t191" from="#a53" to="#a54" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger" cert="0.95">CNNscore<term>CNNscore</term></span>
+      <span xml:id="t192" from="#a53" to="#a54" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger" cert="0.95">CNNaffinity<term>CNNaffinity</term></span>
+      <span xml:id="t193" from="#a77" to="#a78" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger" cert="0.95">target-cognate RMSD<term>target-cognate RMSD</term></span>
     </spanGrp>
   </standOff>
   <text>
