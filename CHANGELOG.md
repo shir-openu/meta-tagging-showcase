@@ -6,6 +6,21 @@ each release also receives its own version DOI (v9.0 = `10.5281/zenodo.21552828`
 Note: `10.5281/zenodo.21429867` was an earlier standalone deposit (v1, 2026-07-18) in a separate
 concept and is superseded by the GitHub-linked lineage above.
 
+## [Unreleased]
+
+### Changed
+
+- **2026-09-16 — a retraction mark now distinguishes a corrected quotation from a withdrawn claim.**
+  `RETRACTED` previously covered both. Entries where the finding still stands and only the supporting
+  quotation had to be re-cut now read **EVIDENCE CORRECTED**; entries withdrawn in favour of a
+  corrected version elsewhere in the same record read **WITHDRAWN AND REPLACED**; entries whose claim
+  was itself wrong keep **RETRACTED**.
+  **If you saw an entry marked `RETRACTED` before this date and it now reads `EVIDENCE CORRECTED`,
+  that finding was never withdrawn.** The old mark did not distinguish a wrong quotation from a wrong
+  claim, so it said the stronger of the two things about entries that deserved the weaker one.
+  Nothing was deleted and no reason text was rewritten: every mark still carries its own reason, and
+  the totals are unchanged in each page family.
+
 ## [9.0] — 2026-07-24 — release-readiness revision
 
 Addresses the independent GitHub/Zenodo release-readiness review.
