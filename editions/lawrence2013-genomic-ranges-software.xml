@@ -26,7 +26,7 @@
           <idno type="DOI">10.1371/journal.pcbi.1003118</idno>
           
           <idno type="record">lawrence2013-genomic-ranges-software</idno>
-          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\lawrence2013-genomic-ranges-software.txt</note>
+          <note type="staged-file">lawrence2013-genomic-ranges-software.txt, the project's staged copy</note>
           <note type="text-sha1">680c646eb8dcabf4ac4f9d51d9f922128c8e1d73</note>
           <note type="rights">cc-by</note>
         </bibl>
@@ -41,8 +41,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-09-16"
-              who="build_paper_edition.py">173 spans placed by verified search</change>
+      <change when="2026-09-29"
+              who="build_paper_edition.py">173 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -136,7 +136,7 @@
       <span xml:id="t86" from="#a19" to="#a20" type="concepts" ana="#concepts[56]" resp="#paper" cert="0.95">other software tools<term>other software tools</term></span>
       <span xml:id="t87" from="#a45" to="#a46" type="concepts" ana="#concepts[57]" resp="#paper" cert="0.95">ctcfReads object<term>ctcfReads object</term></span>
       <span xml:id="t88" from="#a45" to="#a46" type="concepts" ana="#concepts[58]" resp="#paper" cert="0.95">GRanges<term>GRanges</term></span>
-      <span xml:id="t89" from="#a55" to="#a56" type="concepts" ana="#concepts[59]" resp="#paper" cert="0.95">countOverlaps<term>countOverlaps</term></span>
+      <span xml:id="t89" from="#a53" to="#a54" type="concepts" ana="#concepts[59]" resp="#paper" cert="0.95">countOverlaps<term>countOverlaps</term></span>
       <span xml:id="t90" from="#a55" to="#a56" type="concepts" ana="#concepts[60]" resp="#paper" cert="0.95">summarizeOverlaps<term>summarizeOverlaps</term></span>
       <span xml:id="t91" from="#a21" to="#a22" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger" cert="0.95">range → ordered set of consecutive integers<note>The paper uses the term range to denote an ordered set of consecutive integers.</note></span>
       <span xml:id="t92" from="#a23" to="#a24" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger" cert="0.95">GenomicRanges → IRanges<note>GenomicRanges builds on IRanges by adding biological semantics.</note></span>
@@ -170,10 +170,12 @@
       <span xml:id="t120" from="#a29" to="#a30" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">GenomicRanges —distinct-from→ IRanges<note>the relation itself is separately evidenced · strength of the relation: 0.95 · note: Explicit missing-feature distinction. · the relation stated: IRanges omits chromosome and strand while GenomicRanges adds genomic semantics.</note><term>GenomicRanges</term><term>IRanges</term></span>
       <span xml:id="t121" from="#a51" to="#a52" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.95">GRanges —distinct-from→ GRangesList<note>the relation itself is separately evidenced · strength of the relation: 0.95 · note: Flat representation distinction. · the relation stated: GRanges holds ungapped extents whereas GRangesList retains gaps.</note><term>GRanges</term><term>GRangesList</term></span>
       <span xml:id="t122" from="#a53" to="#a54" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">countOverlaps —contrasted-with→ summarizeOverlaps<note>the relation itself is separately evidenced · strength of the relation: 0.95 · note: Flat method comparison. · the relation stated: summarizeOverlaps discards multi-feature reads unlike countOverlaps.</note><term>countOverlaps</term><term>summarizeOverlaps</term></span>
-      <span xml:id="t123" from="#a55" to="#a56" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.95">SummarizedExperiment —distinct-from→ ExpressionSet<note>the relation itself is separately evidenced · strength of the relation: 0.95 · note: The paper explicitly names the primary difference. · the relation stated: SummarizedExperiment differs from ExpressionSet by being based on IRanges.</note><term>SummarizedExperiment</term><term>ExpressionSet</term></span>
+      <span xml:id="t123" from="#a55" to="#a56" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.95">SummarizedExperiment —distinct-from→ ExpressionSet<note>the relation itself is separately evidenced · strength of the relation: 0.95 · note: The paper explicitly names the primary difference. · the relation stated: SummarizedExperiment differs from ExpressionSet by being based on IRanges.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span says SummarizedExperiment follows the same pattern as ExpressionSet with one primary difference; distinct-from is loose.</note><term>SummarizedExperiment</term><term>ExpressionSet</term></span>
       <span xml:id="t124" from="#a41" to="#a42" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="0.95">coverage —operationalised-as→ number of features in the data set overlapping each position in the genome<note>the relation itself is separately evidenced · strength of the relation: 1 · note: Exact operational definition. · the relation stated: Coverage is defined as the number of overlapping features at each genomic position.</note><term>coverage</term><term>number of features in the data set overlapping each position in the genome</term></span>
       <span xml:id="t125" from="#a63" to="#a64" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.95">alternate nucleotide proportion —same-as→ ANP<note>the relation itself is separately evidenced · strength of the relation: 1 · note: Parenthetical naming equivalence. · the relation stated: Alternate nucleotide proportion is abbreviated ANP.</note><term>alternate nucleotide proportion</term><term>ANP</term></span>
-      <span xml:id="t126" from="#a9" to="#a10" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.95">abstraction —causes→ robust, maintainable software<note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 0.9 · note: The causal sentence attributes the outcome jointly to the listed benefits. · the relation stated: Abstraction and related benefits lead to more robust, maintainable software.</note><term>abstraction</term><term>robust, maintainable software</term></span>
+      <span xml:id="t126" from="#a9" to="#a10" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.95">abstraction —causes→ robust, maintainable software<note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 0.9 · note: The causal sentence attributes the outcome jointly to the listed benefits. · the relation stated: Abstraction and related benefits lead to more robust, maintainable software.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span says efficiency, interoperability and abstraction TOGETHER lead to robust, maintainable software; the cause is shared.</note><term>abstraction</term><term>robust, maintainable software</term></span>
       <span xml:id="t127" from="#a45" to="#a46" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.95">ctcfReads object —is-a→ GRanges<note>the relation itself is separately evidenced · strength of the relation: 1 · note: Direct categorical statement. · the relation stated: The ctcfReads object is a GRanges.</note><term>ctcfReads object</term><term>GRanges</term></span>
       <span xml:id="t128" from="#a3" to="#a4" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">Treating annotations and measurements as genome ranges provides a common scaffold for integration.</span>
       <span xml:id="t129" from="#a5" to="#a6" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">Range operations underlie gene-model manipulation, coverage, peak annotation, and expression estimation.</span>

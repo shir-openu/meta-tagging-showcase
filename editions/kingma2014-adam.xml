@@ -20,7 +20,7 @@
           
           <idno type="arXiv">1412.6980</idno>
           <idno type="record">kingma2014-adam</idno>
-          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\kingma2014-adam.txt</note>
+          <note type="staged-file">kingma2014-adam.txt, the project's staged copy</note>
           <note type="text-sha1">685c8f034ec860c572d0d9d8b467427c5617ea28</note>
           <note type="rights">arxiv-open</note>
         </bibl>
@@ -35,8 +35,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-09-16"
-              who="build_paper_edition.py">0 spans placed by verified search</change>
+      <change when="2026-09-29"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -95,7 +95,7 @@
       </span>
       <span xml:id="t11" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
         <label>the optimiser comparison run both with and without dropout noise</label>
-        <note>eliminates: an advantage that holds only in the absence of the regularisation practitioners actually use</note>
+        <note>eliminates: an advantage that holds only in the absence of the regularisation practitioners actually use · outcome (stated by the tagger, no quotation): held</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t12" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.9">
@@ -181,79 +181,61 @@
         <label>builds-on → the online learning framework of (Zinkevich, 2003)</label>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t30" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.9">
-        <label>effective stepsize —renamed-across-fields→ signal-to-noise ratio</label>
-        <term>effective stepsize</term>
-        <term>signal-to-noise ratio</term>
-        <note>strength of the relation: 0.8 · note: THE PAPER MARKS ITS OWN IMPORT: &#x27;with a slight abuse of terminology&#x27;. Taken from signal processing, and the authors decline to claim it applies exactly.</note>
-        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
-      </span>
-      <span xml:id="t31" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.85">
+      <span xml:id="t30" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.85">
         <label>AdaGrad —is-a→ Adam</label>
         <term>AdaGrad</term>
         <term>Adam</term>
-        <note>strength of the relation: 0.7 · note: A LIMITING-CASE MEMBERSHIP, typed `is-a` not `same-as` because the span says &#x27;corresponds to a version of&#x27;, not that the two are the same thing. The paper scopes it itself one sentence later: the correspondence &#x27;does not hold when removing the bias-correction terms&#x27;. Schema 0.3 has nowhere to put that scope - `holds_for` in NOTES/SCHEMA_04_PROPOSAL.md. Filing it in `differs_in` would mis-state a scope as an axis.</note>
+        <note>strength of the relation: 0.7 · note: A LIMITING-CASE MEMBERSHIP, typed &#x27;is-a&#x27; not &#x27;same-as&#x27; because the span says &#x27;corresponds to a version of&#x27;, not that the two are the same thing. The paper scopes it itself one sentence later: the correspondence &#x27;does not hold when removing…&#x27; the bias-correction terms. Schema 0.3 has nowhere to put that scope - holds for in an internal file. Filing it in differs in would mis-state a scope as an axis.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but AdaGrad &#x27;corresponds to a version of Adam&#x27; under limiting settings; is-a is loose.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t32" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.85">
-        <label>second raw moment —operationalised-as→ diagonal of the Fisher information matrix</label>
-        <term>second raw moment</term>
-        <term>diagonal of the Fisher information matrix</term>
-        <note>strength of the relation: 0.7 · note: Hedged by the paper as an APPROXIMATION and qualified in the same sentence: Adam&#x27;s preconditioner is &#x27;more conservative in its adaption than vanilla NGD&#x27;.</note>
-        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
-      </span>
-      <span xml:id="t33" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.7">
+      <span xml:id="t31" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.7">
         <label>effective stepsize —is-a→ trust region</label>
         <term>effective stepsize</term>
         <term>trust region</term>
-        <note>strength of the relation: 0.6 — the record marks this weak · note: Typed `is-a`, not `renamed-across-fields`: `trust region` is optimisation vocabulary in an optimisation paper, so nothing crosses a field boundary. The paper hedges - &#x27;CAN BE UNDERSTOOD AS establishing a trust region&#x27; - hence 0.7.</note>
+        <note>strength of the relation: 0.6 — the record marks this weak · note: Typed &#x27;is-a&#x27;, not &#x27;renamed-across-fields&#x27;: &#x27;trust region&#x27; is optimisation vocabulary in an optimisation paper, so nothing crosses a field boundary. The paper hedges - &#x27;can be understood as establishing a trust region&#x27; - hence 0.7.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the stepsize &#x27;can be understood as establishing a trust region&#x27;; is-a is loose.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t34" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.9">
+      <span xml:id="t32" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.9">
         <label>Adam —contrasted-with→ RMSProp</label>
         <term>Adam</term>
         <term>RMSProp</term>
-        <note>differs in: whether a bias-correction term is present, and the paper names the regime in which it decides the outcome: beta2 close to 1, which is what sparse gradients require · strength of the relation: 0.8</note>
+        <note>differs in: whether a bias-correction term is present, and the paper names the regime in which it decides the outcome: beta2 close to 1, which is what sparse gradients require · strength of the relation: 0.8
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;RMSProp also lacks&#x27; continues the list of differences between RMSProp and Adam (previous sentence).</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t35" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.9">
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.9">
         <label>Adam —contrasted-with→ Sum-of-Functions Optimizer (SFO)</label>
         <term>Adam</term>
         <term>Sum-of-Functions Optimizer (SFO)</term>
         <note>differs in: memory scaling: SFO&#x27;s requirement is linear in the number of minibatch partitions · strength of the relation: 0.8</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t36" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">
+      <span xml:id="t34" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">
         <label>Adam —same-as→ adaptive moment estimation</label>
         <term>Adam</term>
         <term>adaptive moment estimation</term>
-        <note>strength of the relation: 0.5 — the record marks this weak · note: An acronym and its expansion, so `same-as`. NOT `derived_from_name`: in this corpus that field marks compound names whose head noun is the parent concept (&#x27;radical reductionism is-a reductionism&#x27;, 11 of 18 uses).</note>
+        <note>strength of the relation: 0.5 — the record marks this weak · note: An acronym and its expansion, so &#x27;same-as&#x27;. NOT derived from name: in this corpus that field marks compound names whose head noun is the parent concept (&#x27;radical reductionism is-a reductionism&#x27;, 11 of 18 uses).</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t37" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.85">
-        <label>initialization bias correction —part-of→ second raw moment</label>
-        <term>initialization bias correction</term>
-        <term>second raw moment</term>
-        <note>strength of the relation: 0.7</note>
-        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
-      </span>
-      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>Bayesian</label>
         <term>Bayesian</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
         <label>mean</label>
         <term>mean</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
         <label>regression</label>
         <term>regression</term>
-        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
         <label>variance</label>
         <term>variance</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>

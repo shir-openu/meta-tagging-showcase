@@ -21,7 +21,7 @@
           
           <idno type="arXiv">1508.06576</idno>
           <idno type="record">gatys2015-style-transfer</idno>
-          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\gatys2015-style-transfer.txt</note>
+          <note type="staged-file">gatys2015-style-transfer.txt, the project's staged copy</note>
           <note type="text-sha1">1a62e230dce3258bdb715c2b08baac4175d9a30b</note>
           <note type="rights">arxiv-open</note>
         </bibl>
@@ -36,8 +36,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-09-16"
-              who="build_paper_edition.py">0 spans placed by verified search</change>
+      <change when="2026-09-29"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -67,7 +67,7 @@
       </span>
       <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
         <label>Content and style are not fully independent, so the separation is only partial.</label>
-        <note>what this limits: the same scope as item 0 - the separation is partial, and the paper says so in its own framing</note>
+        <note>what this limits: the same scope as limitations[0] - the separation is partial, and the paper says so in its own framing</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
@@ -156,43 +156,37 @@
         <label>style representation —operationalised-as→ Gram matrix</label>
         <term>style representation</term>
         <term>Gram matrix</term>
-        <note>strength of the relation: 1</note>
+        <note>strength of the relation: 1
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;These feature correlations&#x27; = the style representation (previous sentence).</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t25" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
         <label>EVIDENCE CORRECTED (RE-GROUNDED) · style representation —distinct-from→ content representation</label>
         <term>style representation</term>
         <term>content representation</term>
-        <note>EVIDENCE CORRECTED: RE-GROUNDED. The old span named neither representation as the edge writes them. This sentence names both and is the one that separates them - the method&#x27;s whole premise is that a photograph&#x27;s CONTENT and an artwork&#x27;s STYLE can be matched independently. — strength of the relation: 1</note>
+        <note>EVIDENCE CORRECTED: RE-GROUNDED. The old span named neither representation as the edge writes them. This sentence names both and is the one that separates them - the method&#x27;s whole premise is that a photograph&#x27;s CONTENT and an artwork&#x27;s STYLE can be matched independently. — strength of the relation: 1
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span writes &#x27;the representations of content and style ... are separable&#x27;, not &#x27;content representation&#x27;.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t26" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
-        <label>style representation —distinct-from→ content representation</label>
-        <term>style representation</term>
-        <term>content representation</term>
-        <note>strength of the relation: 1 · note: RE-GROUNDS gatys2015-style-transfer[1]: the relation was always stated, the endpoint names were not in the span.</note>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>The system uses neural representations to separate and recombine the content and style of arbitrary images, giving a neural algorithm for creating artistic images.</label>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
-        <label>Neural style transfer uses CNN feature representations (VGG) to SEPARATE and recombine the CONTENT and STYLE of arbitrary images, creating high-quality artistic images — the first artificial system for this.</label>
-        <note>about this quote: QUOTE REPAIRED (Q-697): the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in `evidence_as_extracted`.</note>
-        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
-      </span>
-      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+      <span xml:id="t27" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
         <label>style representation</label>
         <term>style representation</term>
-        <note>NOT MACHINE-VOUCHED: restored-notation - The Gram matrix definition. Its notation is not in the text layer of either copy, so the quote cannot be matched against one. Verified by reading, not by re-running a check (CLAUDE_B, 74 papers). NO COPY OF THE PAPER CONTAINS THIS STRING VERBATIM, and that is a fact about the extraction rather than about the tag. Recorded so the page can say so: Q-942.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t29" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+      <span xml:id="t28" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
         <label>convolutional neural network</label>
         <term>convolutional neural network</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t30" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+      <span xml:id="t29" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
         <label>standard-error</label>
         <term>standard-error</term>
-        <note>about this quote: 2026-08-25 terminal-a. DAMAGED GLYPHS IN THIS QUOTE: (cid:126). These are raw PDF font glyph indices that leaked out in place of the characters they stand for - usually a mathematical operator. The quote is verbatim to the staged text and its anchor is sound; the STAGED TEXT is what is damaged. NOT repaired: the cid-to-character mapping is defined by the font embedded in that particular PDF, so guessing it would produce a clean and unverifiable quote. Repair needs the source PDF and is a re-staging job.</note>
+        <note>about this quote: DAMAGED GLYPHS IN THIS QUOTE: (cid:126). These are raw PDF font glyph indices that leaked out in place of the characters they stand for - usually a mathematical operator. The quote is verbatim to the staged text and its anchor is sound; the STAGED TEXT is what is damaged. NOT repaired: the cid-to-character mapping is defined by the font embedded in that particular PDF, so guessing it would produce a clean and unverifiable quote. Repair needs the source PDF and is a re-staging job.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
     </spanGrp>

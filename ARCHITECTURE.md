@@ -2,24 +2,32 @@
 
 ## Implemented data flow
 
-`DATA/corpus.json` is the canonical metadata and annotation source.  A
-reproducible build performs the following stages in order:
+`DATA/corpus.json` is the canonical metadata and annotation source.  `python TOOLS/build.py`
+performs FOUR stages, in this order, and nothing else:
 
-1. audit all legacy paper–statistic assignments and attach a decision, reason,
-   role, source-body hash, evidence hash, and grounding status;
-2. validate identifiers, controlled vocabularies, audit resolution, evidence,
-   and provenance invariants;
-3. recalculate every statistic reported in preprint §5, including a strict
-   exact-local-body sensitivity analysis;
-4. derive sorted postings lists and lazy-loadable record shards;
-5. derive a typed adjacency list containing only relations present in the
-   canonical records;
-6. regenerate the audit report and the statistics panels in paper pages.
+1. validate identifiers, controlled vocabularies, audit resolution, evidence,
+   and provenance invariants (`validate_corpus.py`);
+2. derive sorted postings lists and lazy-loadable record shards
+   (`build_index.py`);
+3. derive a typed adjacency list containing only relations present in the
+   canonical records (`build_graph.py`);
+4. regenerate the audit report `report_statistics.html` from the frozen audit
+   (`build_audit_report.py`).
 
-Run the complete build with `python TOOLS/build.py`.  Derived files under
-`DATA/index/`, `DATA/graph/`, `DATA/statistics_audit.json`,
-`DATA/section5_statistics.json`, and `report_statistics.html` are disposable
-build products.
+**Three steps are NOT part of it, and cannot be reproduced from this bundle.**
+`audit_statistics.py` adjudicates statistical-tag candidates and its decisions
+are frozen in `DATA/statistics_audit_overrides.json`; `recalculate_section5.py`
+recomputes the grounding audit against each paper's FULL TEXT, which this
+bundle does not redistribute; `patch_paper_statistics.py` injects audited
+statistics into the per-paper pages, which is a publishing step. Run those
+explicitly only when re-auditing against full text.
+
+Derived files under `DATA/index/`, `DATA/graph/` and `report_statistics.html`
+are disposable build products: delete them and `build.py` rebuilds them.
+`DATA/statistics_audit.json` and `DATA/section5_statistics.json` are NOT
+disposable. They ship frozen and human-adjudicated, they are inputs to the
+build rather than outputs of it, and deleting them cannot be undone from this
+bundle.
 
 ## Query cost
 

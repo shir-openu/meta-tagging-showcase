@@ -25,7 +25,7 @@
           <idno type="DOI">10.1016/j.media.2019.01.012</idno>
           
           <idno type="record">schlemper2019-attention-gated-networks-learning</idno>
-          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\schlemper2019-attention-gated-networks-learning.txt</note>
+          <note type="staged-file">schlemper2019-attention-gated-networks-learning.txt, the project's staged copy</note>
           <note type="text-sha1">0ea854df39ee8627e4351e3db99424bfbf960f0b</note>
           <note type="rights">cc-by</note>
         </bibl>
@@ -40,8 +40,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-09-16"
-              who="build_paper_edition.py">0 spans placed by verified search</change>
+      <change when="2026-09-29"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -147,17 +147,17 @@
       </span>
       <span xml:id="t22" type="controls" ana="#controls[6]" resp="#tagger" cert="0.85">
         <label>ultrasound frames cropped to the central 208 x 272 so the network cannot read the annotations the scanner prints around the image</label>
-        <note>eliminates: the network reading the annotations the scanner prints around the image instead of the anatomy - a leak that would look like accuracy · outcome: held</note>
+        <note>eliminates: the network reading the annotations the scanner prints around the image instead of the anatomy - a leak that would look like accuracy · outcome (stated by the tagger, no quotation): held</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t23" type="controls" ana="#controls[7]" resp="#tagger" cert="0.95">
         <label>gating parameters initialised so that the gates pass every feature vector at every location, making the network start as its own baseline</label>
-        <note>eliminates: that the attention gates help only because they change the initialisation - starting open makes the network its own baseline at step zero · outcome: held</note>
+        <note>eliminates: that the attention gates help only because they change the initialisation - starting open makes the network its own baseline at step zero · outcome (stated by the tagger, no quotation): held</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t24" type="controls" ana="#controls[8]" resp="#tagger" cert="0.95">
         <label>class imbalance handled by weighted sampling for classification and a Dice loss for segmentation, in both the attention and the baseline networks</label>
-        <note>eliminates: the dominant background class carrying the score, and any difference between the two networks being a difference in how each one met the imbalance · outcome: held</note>
+        <note>eliminates: the dominant background class carrying the score, and any difference between the two networks being a difference in how each one met the imbalance · outcome (stated by the tagger, no quotation): held</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t25" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
@@ -253,106 +253,101 @@
         <label>attention gates —distinct-from→ cascaded</label>
         <term>attention gates</term>
         <term>cascaded</term>
-        <note>differs in: whether localisation is a separate model with its own parameters or a module inside the predictor · the relation itself is separately evidenced · strength of the relation: 0.95 · the relation stated: the gates suppress background progressively inside one network instead of cropping a region of interest between two</note>
+        <note>differs in: whether localisation is a separate model with its own parameters or a module inside the predictor · the relation itself is separately evidenced · strength of the relation: 0.95 · differs in (stated by the tagger, no quotation): whether localisation is a separate model with its own parameters or a module inside the predictor · the relation stated: the gates suppress background progressively inside one network instead of cropping a region of interest between two
+Audit 2026-09-28: DOUBTFUL - read against its span and kept, but attention gates remove the need for an external localisation module; distinct-from &#x27;cascaded&#x27; is terse.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t46" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
         <label>soft attention —distinct-from→ Hard attention</label>
         <term>soft attention</term>
         <term>Hard attention</term>
-        <note>differs in: whether the attention step can be differentiated through · the relation itself is separately evidenced · strength of the relation: 0.95 · the relation stated: hard attention crops and is non-differentiable, needing reinforcement learning; soft attention is probabilistic and trains by ordinary backpropagation</note>
+        <note>differs in: whether the attention step can be differentiated through · the relation itself is separately evidenced · strength of the relation: 0.95 · differs in (stated by the tagger, no quotation): whether the attention step can be differentiated through · the relation stated: hard attention crops and is non-differentiable, needing reinforcement learning; soft attention is probabilistic and trains by ordinary backpropagation</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t47" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
-        <label>discriminant region —distinct-from→ attention gates</label>
-        <term>discriminant region</term>
-        <term>attention gates</term>
-        <note>differs in: whether the highlighted area is the evidence or the thing · the relation itself is separately evidenced · strength of the relation: 0.95 · the relation stated: the map marks what the classifier uses, and the authors say it does not necessarily cover the whole object</note>
-        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
-      </span>
-      <span xml:id="t48" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+      <span xml:id="t47" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
         <label>attention gates —distinct-from→ trainable parameters</label>
         <term>attention gates</term>
         <term>trainable parameters</term>
-        <note>differs in: whether the extra parameters are spread across all layers or spent on localisation · the relation itself is separately evidenced · strength of the relation: 0.95 · the relation stated: a U-Net grown uniformly to the same size does not reach the gated model, so the gain is not capacity</note>
+        <note>differs in: whether the extra parameters are spread across all layers or spent on localisation · the relation itself is separately evidenced · strength of the relation: 0.95 · differs in (stated by the tagger, no quotation): whether the extra parameters are spread across all layers or spent on localisation · the relation stated: a U-Net grown uniformly to the same size does not reach the gated model, so the gain is not capacity
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span writes &#x27;AGs&#x27; and says they contribute more than simply increasing capacity; distinct-from is loose.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
         <label>attention gates beat a U-Net grown uniformly to the same parameter count, at p = .007, so the gain is the module and not the capacity</label>
         <term>attention gates beat a U-Net grown uniformly to the same parameter count, at p = .007, so the gain is the module and not the capacity</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t49" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
         <label>the improvement holds at 30 training images as well as 120, so it is not an artefact of one data budget</label>
         <term>the improvement holds at 30 training images as well as 120, so it is not an artefact of one data budget</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
-        <label>attention gates raise recall at p = .005 in pancreas segmentation, which is the quantity a localisation module is supposed to move</label>
-        <term>attention gates raise recall at p = .005 in pancreas segmentation, which is the quantity a localisation module is supposed to move</term>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>Attention gates increase recall in pancreas segmentation (p = .005).</label>
+        <term>Attention gates increase recall in pancreas segmentation (p = .005).</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
         <label>the attention map outlines the discriminant region and does not necessarily coincide with the entire object</label>
         <term>the attention map outlines the discriminant region and does not necessarily coincide with the entire object</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
-        <label>no conditional random field or other post-processing was used, so the reported numbers isolate the gate&#x27;s contribution at the cost of absolute performance</label>
-        <term>no conditional random field or other post-processing was used, so the reported numbers isolate the gate&#x27;s contribution at the cost of absolute performance</term>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>No post-processing such as a conditional random field was used, so as to isolate the gates&#x27; contribution.</label>
+        <term>No post-processing such as a conditional random field was used, so as to isolate the gates&#x27; contribution.</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
-        <label>a gated Sononet at capacity 8 performs close to an ungated Sononet with double the capacity</label>
-        <term>a gated Sononet at capacity 8 performs close to an ungated Sononet with double the capacity</term>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>AG-Sononet performs close to a Sononet with double the capacity.</label>
+        <term>AG-Sononet performs close to a Sononet with double the capacity.</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
         <label>each attention gate learns to focus on a particular subset of organs, starting from a uniform distribution and localising over training</label>
         <term>each attention gate learns to focus on a particular subset of organs, starting from a uniform distribution and localising over training</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t55" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
         <label>probabilistic, end-to-end differentiable attention using standard backpropagation without posterior sampling - as against hard attention, which crops and needs reinforcement learning</label>
         <term>soft attention</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t57" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
         <label>what an attention map outlines - the part of the object the classifier uses, which the authors state does not necessarily coincide with the entire object</label>
         <term>discriminant region</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t58" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t57" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
         <label>extra capacity added to the standard U-Net by the attention gates, for a 2-3% DSC improvement</label>
         <term>8%</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t59" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t58" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
         <label>mean pancreas DSC over 5-fold cross-validation on CT-82, with a standard deviation of 6.23</label>
         <term>81.48</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t60" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+      <span xml:id="t59" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
         <label>the bottom of the atlas-method DSC range on the TCIA pancreas benchmark</label>
         <term>69.6%</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
         <label>DSC</label>
         <term>DSC</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
         <label>p</label>
         <term>p</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t63" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+      <span xml:id="t62" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
         <label>recall</label>
         <term>recall</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
-      <span xml:id="t64" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+      <span xml:id="t63" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
         <label>trainable parameters</label>
         <term>trainable parameters</term>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>

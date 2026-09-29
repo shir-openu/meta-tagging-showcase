@@ -19,7 +19,7 @@
           <idno type="DOI">10.1093/nar/gky1049</idno>
           
           <idno type="record">dogan2018-uniprot-a-worldwide-hub-of-protein</idno>
-          <note type="staged-file">C:\Users\Lenovo\Desktop\DHSS\META-TAGGING-PROJECT\DATA\facet_queue\dogan2018-uniprot-a-worldwide-hub-of-protein.txt</note>
+          <note type="staged-file">dogan2018-uniprot-a-worldwide-hub-of-protein.txt, the project's staged copy</note>
           <note type="text-sha1">729d469428e47dab11ea367b301c26c90f6e1177</note>
           <note type="rights">cc-by</note>
         </bibl>
@@ -34,8 +34,8 @@
       </particDesc>
     </profileDesc>
     <revisionDesc>
-      <change when="2026-09-16"
-              who="build_paper_edition.py">0 spans placed by verified search</change>
+      <change when="2026-09-29"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
     </revisionDesc>
   </teiHeader>
   <standOff>
@@ -230,12 +230,12 @@
       </span>
       <span xml:id="t40" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
         <label>CAUTION → METTL14</label>
-        <note>A RECORD HOLDING A CLAIM AND A DOUBT ABOUT THAT CLAIM AT ONCE. The entry keeps the reported methyltransferase activity AND a comment saying the report is an unsafe observation. There is no edge type for `this annotation is flagged as unreliable` - all eight assert that a relation holds, and the whole content of a CAUTION is that something asserted elsewhere should not be relied on. This is CLAUDE_B&#x27;s quine1951 finding with a WORKING IMPLEMENTATION on the other side: UniProt can write it and we cannot</note>
+        <note>A RECORD HOLDING A CLAIM AND A DOUBT ABOUT THAT CLAIM AT ONCE. The entry keeps the reported methyltransferase activity AND a comment saying the report is an unsafe observation. There is no edge type for &#x27;this annotation is flagged as unreliable&#x27; - all eight assert that a relation holds, and the whole content of a CAUTION is that something asserted elsewhere should not be relied on. This is the project&#x27;s quine1951 finding with a WORKING IMPLEMENTATION on the other side: UniProt can write it and we cannot</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t41" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger">
         <label>expert biocuration → curatable literature</label>
-        <note>A COVERAGE RATIO, WHICH IS A RELATION BETWEEN AN ACTIVITY AND WHAT IT HAS NOT REACHED. Curation captures 35-45% of the curatable literature per species, 50% for humans. `part-of` is wrong, `causes` is wrong, and there is no type for `X covers this fraction of Y` - which is the single most useful thing a knowledge base can say about itself and the thing our own corpus has never stated about its own coverage</note>
+        <note>A COVERAGE RATIO, WHICH IS A RELATION BETWEEN AN ACTIVITY AND WHAT IT HAS NOT REACHED. Curation captures 35-45% of the curatable literature per species, 50% for humans. &#x27;part-of&#x27; is wrong, &#x27;causes&#x27; is wrong, and there is no type for &#x27;X covers this fraction of Y&#x27; - which is the single most useful thing a knowledge base can say about itself and the thing our own corpus has never stated about its own coverage</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t42" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
@@ -264,7 +264,7 @@
       </span>
       <span xml:id="t48" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
         <label>contradicts → the initial characterisation of METTL14 as a methyltransferase, based on reported activity and MT-A70 family membership</label>
-        <note>note: `contradicts` is right here and it was not for cruz-jentoft2018&#x27;s mass criterion. The paper does not demote the earlier claim, it reports that structural work showed the active site is degenerate and cannot accommodate the substrates - the earlier finding is not narrowed, it is wrong, and UniProt flags it as unsafe rather than deleting it</note>
+        <note>note: &#x27;contradicts&#x27; is right here and it was not for cruz-jentoft2018&#x27;s mass criterion. The paper does not demote the earlier claim, it reports that structural work showed the active site is degenerate and cannot accommodate the substrates - the earlier finding is not narrowed, it is wrong, and UniProt flags it as unsafe rather than deleting it</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t49" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.9">
@@ -295,14 +295,16 @@
         <label>evidences —part-of→ annotations</label>
         <term>evidences</term>
         <term>annotations</term>
-        <note>strength of the relation: 0.95 · note: RETYPED IN THE AUDIT from `annotations --operationalised-as--&gt; evidences`, where my own note conceded it was not a measurement relation. The quote says every piece of knowledge is ASSOCIATED WITH evidences, which is attachment - and attachment is what `part-of` says</note>
+        <note>strength of the relation: 0.95 · note: RETYPED IN THE AUDIT from &#x27;annotations --operationalised-as--&gt; evidences&#x27;, where my own note conceded it was not a measurement relation. The quote says every piece of knowledge is ASSOCIATED WITH evidences, which is attachment - and attachment is what &#x27;part-of&#x27; says
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span writes &#x27;every piece of knowledge we capture is associated with evidences&#x27;, not &#x27;annotations&#x27;.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t55" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
         <label>CAUTION —part-of→ annotations</label>
         <term>CAUTION</term>
         <term>annotations</term>
-        <note>strength of the relation: 0.9 · note: a comment type carried on an entry beside its annotation - the mechanism by which a record holds a claim and a doubt about that claim at the same time</note>
+        <note>strength of the relation: 0.9 · note: a comment type carried on an entry beside its annotation - the mechanism by which a record holds a claim and a doubt about that claim at the same time
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span writes &#x27;a CAUTION comment to the METTL14 entry&#x27;, not &#x27;annotations&#x27;.</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t56" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
@@ -316,7 +318,8 @@
         <label>redundancy removal —causes→ UniProtKB</label>
         <term>redundancy removal</term>
         <term>UniProtKB</term>
-        <note>direction on the measure: reduces · strength of the relation: 0.9 · note: and the reduction is the point - the paper reports that it made growth scalable rather than merely smaller</note>
+        <note>direction on the measure: reduces · strength of the relation: 0.9 · note: and the reduction is the point - the paper reports that it made growth scalable rather than merely smaller
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;this process&#x27; = the redundancy removal process (previous sentences).</note>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t58" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
@@ -328,15 +331,15 @@
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t60" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
-        <label>redundancy removal has taken about 38% of complete proteomes out of UniProtKB and into UniParc, which made growth scalable rather than merely smaller</label>
+        <label>Redundancy removal has taken about 38% of all complete proteomes (about 241 million proteins) out of UniProtKB.</label>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t61" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
-        <label>virus reference proteomes went from 428 - an order of magnitude below the known species count - after a concerted curation effort</label>
+        <label>Virus reference proteomes stood at 428 at the previous publication, about an order of magnitude below the 4405 known viral species.</label>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t62" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
-        <label>a claim overturned in the database: METTL14 was reported as a methyltransferase and structural work showed its active site is degenerate; the entry now carries a CAUTION</label>
+        <label>Structural studies showed only METTL3 is catalytic; METTL14 has a degenerate active site and a non-catalytic role.</label>
         <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
       </span>
       <span xml:id="t63" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">

@@ -1,5 +1,15 @@
 # The user flow — a researcher who has a corpus and needs a definition
 
+> **A SNAPSHOT OF 2026-08-09, AND ITS DEFECT IS FIXED.** This document is kept as written: it is the shape the
+> platform took and the order the work was done in. Its live numbers are NOT current. Where it says
+> **"0 of the 746 attestations carry a quotation"**, the corpus of 2026-09-21 carries **98,181 live quote
+> fields** — that count is every live row's quote fields of 40 characters or more, at all three addressing
+> levels the enumerator covers (the nine top-level layers, every `content_tags` sub-list, and the record
+> itself), on records that are not withdrawn, measured with `TOOLS/live_quote_fields.py` against corpus
+> `2b4c181902109cfa`. Of those, `TOOLS/verify_anchors.py` verifies **98,974 anchors with 0 problems**.
+> A number without its population is the fault this document is being corrected for, so both are stated.
+> Read the stages here; read the counts from the corpus.
+
 Written 2026-08-09. This is the shape the platform has to take, derived from the one user we
 actually have: a researcher who chooses a body of papers and wants to know what a concept
 means inside it, and which definition of it holds up.
@@ -38,7 +48,9 @@ appears, each attached to its paper.
 
 *Built:* `TOOLS/build_concept_records.py` produces one `ConceptNode` per concept, with a
 `PaperSource` per paper and an `Attestation` per mention. 510 concepts, 746 attestations.
-*Missing, and this is the live defect:* **0 of the 746 attestations carry a quotation.**
+*Missing ON 2026-08-09, and fixed since:* **0 of the 746 attestations carried a quotation** that day.
+(As of 2026-09-21, corpus `2b4c181902109cfa`: 98,181 live quote fields of 40+ characters on
+records that are not withdrawn, and 98,974 anchors verified with 0 problems.)
 Concept tags were stored as bare strings. `DATA/concept_grounding_todo.json` is the work
 order that fixes it — 746 jobs, each one "find the sentence that licenses this".
 
