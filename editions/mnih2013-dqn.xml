@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Playing Atari with Deep Reinforcement Learning</title>
+        <author>Volodymyr Mnih</author>
+        <author>Koray Kavukcuoglu</author>
+        <author>David Silver</author>
+        <author>et al.</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Playing Atari with Deep Reinforcement Learning</title>
+          <date>2013</date>
+          <publisher>NeurIPS Deep Learning Workshop / arXiv</publisher>
+          
+          <idno type="arXiv">1312.5602</idno>
+          <idno type="record">mnih2013-dqn</idno>
+          <note type="staged-file">mnih2013-dqn.txt, the project's staged copy</note>
+          <note type="text-sha1">e11591c9e31dbd181981f09f705b3dceedf06db1</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>reinforcement learning from raw visual input</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>experience replay: store past transitions and train on random minibatches of them, breaking the correlations between consecutive experiences and stabilizing deep Q-learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>reinforcement learning presents several challenges from a deep-learning perspective</label>
+        <note>what this limits: the transfer of supervised deep learning intuitions to this setting: REINFORCEMENT LEARNING PRESENTS SEVERAL CHALLENGES FROM A DEEP LEARNING PERSPECTIVE</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The replay memory is uniformly sampled and finite, so it neither prioritises informative transitions nor retains old ones.</label>
+        <note>what this limits: the sample efficiency and stability results: THE MEMORY BUFFER DOES NOT DIFFERENTIATE IMPORTANT TRANSITIONS AND ALWAYS OVERWRITES WITH RECENT TRANSITIONS DUE TO THE FINITE MEMORY SIZE N</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>Clipping all rewards to +1/-1 removes the agent&#x27;s ability to distinguish rewards of different magnitude.</label>
+        <note>what this limits: any task where reward magnitude matters: reward clipping means the agent CANNOT DIFFERENTIATE BETWEEN REWARDS OF DIFFERENT MAGNITUDE</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>Performance remains far below human level on games needing strategies over long time scales.</label>
+        <note>what this limits: the human-comparison headline: THE GAMES Q*BERT, SEAQUEST, SPACE INVADERS, ON WHICH WE ARE FAR FROM HUMAN PERFORMANCE, ARE MORE CHALLENGING BECAUSE THEY REQUIRE ... A STRATEGY THAT EXTENDS OVER LONG TIME SCALES</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+        <label>The claim that one setting spans all the games is enabled by the reward change, in the sentence that follows it.</label>
+        <note>what this limits: the claim that the same architecture and hyperparameters work across all seven games: the reward clipping is stated to limit the scale of the error derivatives and to make it easier to use the same learning rate across multiple games</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The reward the agent learns from is not the reward it is scored on.</label>
+        <note>what this limits: the scores reported for these agents: the agents were evaluated on the real and unmodified games while the reward structure was changed during training only</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The agent cannot see enough of the game to know what state it is in, and the paper says so.</label>
+        <note>what this limits: any description of this agent as learning from the game state: the task is partially observed, many emulator states are perceptually aliased, and the paper states it is impossible to fully understand the situation from the current screen alone</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The primary evaluation metric is too noisy to display the result, so a second one is introduced.</label>
+        <note>what this limits: the learning curves shown here: the averaged reward plots are described as quite noisy and as giving the impression that the algorithm is not making steady progress, which is why a more stable metric is also reported</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>a convolutional network taking raw pixels as input, used as the function approximator for the action-value function in reinforcement learning</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>one set of hyperparameter values held constant across every game, with a single documented exception (k = 3, to make the lasers visible)</label>
+        <note>eliminates: per-game tuning - a score that reflects hyperparameters chosen for that game rather than a method that transfers across games · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="concepts" ana="#concepts[3]" resp="#paper">
+        <label>experience replay</label>
+        <term>experience replay</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>perceptually aliased</label>
+        <term>perceptually aliased</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>evaluation metric</label>
+        <term>evaluation metric</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>replay memory</label>
+        <term>replay memory</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>action-value function</label>
+        <term>action-value function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>frame-skipping</label>
+        <term>frame-skipping</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>the reward - TRANSFORMED IN TRAINING, INTACT IN EVALUATION: positive rewards are fixed to 1 and negative to -1 while learning, and the agents are scored on the real unmodified games, so the signal the agent optimises and the number reported are two different quantities</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>the state - PARTIALLY OBSERVED AND PERCEPTUALLY ALIASED: the agent sees only the current screen, many emulator states look identical to it, and the paper states outright that the situation cannot be fully understood from one screen</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>progress - MEASURED TWICE, AND THE SECOND MEASURE CHOSEN FOR LEGIBILITY: average total reward is the metric taken from the literature but is so noisy it suggests no steady progress, so the estimated action-value is reported as a more stable alternative</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → convolutional neural networks + Q-learning</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → Q-learning [26]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the Arcade Learning Environment / Atari 2600 RL platform of [3]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → neural fitted Q-learning (NFQ) [20] and its autoencoder variant [12]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+        <label>extends → Q-learning combined with experience replay and a simple neural network [13]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+        <label>experience replay —operationalised-as→ replay memory</label>
+        <term>experience replay</term>
+        <term>replay memory</term>
+        <note>strength of the relation: 1 · note: RE-GROUNDS another row of this record: the old span named ONE endpoint.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>seven — number of games the single model was applied to</label>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>6 of 7 / 3 of 7 — games where DQN beat prior approaches / a human expert</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>The first deep-learning model to learn control policies directly from high-dimensional raw pixels via reinforcement learning: a CNN trained with a Q-learning variant whose output is a value function of future rewards.</label>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>raw pixels</label>
+        <term>raw pixels</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>value function</label>
+        <term>value function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>experience replay</label>
+        <term>experience replay</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>deep reinforcement learning</label>
+        <term>deep reinforcement learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>variance</label>
+        <term>variance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/1312.5602.</note></p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Recursive Partitioning for Heterogeneous Causal Effects</title>
+        <author>Susan Athey</author>
+        <author>Guido Imbens</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Recursive Partitioning for Heterogeneous Causal Effects</title>
+          <date>2016</date>
+          <publisher>PNAS / arXiv</publisher>
+          <idno type="DOI">10.1073/pnas.1510489113</idno>
+          <idno type="arXiv">1504.01132</idno>
+          <idno type="record">athey2016-causal-trees</idno>
+          <note type="staged-file">athey2016-causal-trees.txt, the project's staged copy</note>
+          <note type="text-sha1">85475cc600c207471c9cb7c2b05717aab7d2a550</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>economics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>heterogeneous treatment effects</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>simulation</label>
+        <term>simulation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>honest estimation: use one sample to construct the tree partition and a separate sample to estimate treatment effects, removing overfitting bias</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>requires the unconfoundedness (conditional randomization) assumption</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Sample splitting for honest estimation costs precision, which is only partly offset by the removal of bias.</label>
+        <note>what this limits: the precision of honest estimates: THERE IS A LOSS OF PRECISION DUE TO SAMPLE SPLITTING, offset in fit by the elimination of bias</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>In the simulations honest estimation is measurably worse than adaptive estimation on treatment-effect mean-squared error.</label>
+        <note>what this limits: the recommendation itself, with the cost measured: THERE IS A COST TO HONEST ESTIMATION IN TERMS OF MSE-tau, VARYING BY DESIGN AND ESTIMATOR</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The no-interference (SUTVA) assumption the methods rest on can fail when units are connected in a network.</label>
+        <note>what this limits: any application where units interact: the no-interference assumption MAY BE VIOLATED IN SETTINGS WHERE SOME UNITS ARE CONNECTED THROUGH NETWORKS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>Hybrid variants (adaptive tree construction combined with honest leaf estimation) are left unexamined.</label>
+        <note>what this limits: the hybrid variants: WE DO NOT CONSIDER THOSE VARIATIONS IN THIS PAPER</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The quantity the method estimates is never observed for any unit in the data.</label>
+        <note>what this limits: any treatment-effect estimate produced by this method: unit-level causal effects are not observed for any unit, so the target is never available to check an estimate against</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The paper&#x27;s central adjective is a stipulated property of data use, not a claim about candour.</label>
+        <note>what this limits: the word &#x27;honest&#x27; as used throughout this paper: a model is honest if it does not use the same information for selecting the model structure and for estimation given that structure</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The improvement claimed for honesty is measured in coverage, and the paper names what it costs.</label>
+        <note>what this limits: the benefit reported for honest estimation: it is an improvement in confidence-interval coverage, attaining nominal rates, and the authors describe the cost as not much sacrifice in fitting treatment effects</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+        <label>The comparison class is conventional tree estimation under a name the paper assigns it.</label>
+        <note>what this limits: the contrast drawn here between honest and adaptive estimation: adaptive is the label the authors give conventional CART, in which the same data builds the partition and estimates leaf effects</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>regression-tree (recursive partitioning) methods adapted to estimate heterogeneous treatment effects</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.8">
+        <label>three simulation designs differing in whether noise covariates are present and in how covariates enter the treatment effect</label>
+        <note>eliminates: that the advantage of honest estimation depends on one particular data-generating design, in particular on the absence of noise covariates · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>honest estimation</label>
+        <term>honest estimation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>adaptive</label>
+        <term>adaptive</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>unconfoundedness</label>
+        <term>unconfoundedness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>mean-squared error</label>
+        <term>mean-squared error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>coverage</label>
+        <term>coverage</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>&#x27;honest&#x27; - A STIPULATED PROPERTY OF DATA USE: a model is honest when the information selecting its structure is not the information estimating its parameters, which is sample splitting and nothing about truthfulness, candour or good faith - all of which the word carries anyway</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>&#x27;adaptive&#x27; - THE NAME GIVEN TO THE ALTERNATIVE: conventional CART, where one sample does both jobs, is labelled adaptive here so that the two can be compared; the word is the paper&#x27;s, applied to a practice that did not call itself that</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>the estimand - UNOBSERVABLE FOR EVERY UNIT: unit-level causal effects are not observed for any unit at all, so unlike an ordinary prediction problem there is no held-out truth anywhere in the data against which a per-unit estimate could be scored</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → regression tree methods (machine learning)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → standard CART regression trees ([4], [3])</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the Rubin Causal Model / potential outcome framework ([19], [11], [14])</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>EVIDENCE CORRECTED (RE-GROUNDED) · honest estimation —contrasted-with→ adaptive</label>
+        <term>honest estimation</term>
+        <term>adaptive</term>
+        <note>EVIDENCE CORRECTED: RE-GROUNDED. The old span named only one endpoint. This sentence names both and states the contrast WITH ITS DIRECTION - honest estimation improves on adaptive, not merely differs. — strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.9">
+        <label>honest estimation —contrasted-with→ adaptive</label>
+        <term>honest estimation</term>
+        <term>adaptive</term>
+        <note>strength of the relation: 1 · note: RE-GROUNDS another row of this record: the old span named only ONE endpoint.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>Honest estimation splits the sample: one half builds the partition, the other estimates each subpopulation&#x27;s treatment effect.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>covariates</label>
+        <term>covariates</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>treatment effects</label>
+        <term>treatment effects</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>honest estimation</label>
+        <term>honest estimation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>heterogeneous treatment effects</label>
+        <term>heterogeneous treatment effects</term>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Bayesian</label>
+        <term>Bayesian</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>confidence-interval</label>
+        <term>confidence-interval</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>false-discovery-rate</label>
+        <term>false-discovery-rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>hypothesis-testing</label>
+        <term>hypothesis-testing</term>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+        <label>null-hypothesis</label>
+        <term>null-hypothesis</term>
+        <note>about this quote: THE QUOTE STOPS WHERE THE EXTRACTED TEXT GOES OUT OF ORDER: the extraction splices another line of the page (&#x27;If the two leaves are denoted L (Left) and&#x27;) into this sentence, so the quote ends before that line, at &#x27;the two potential&#x27;, and the end of the sentence is not quoted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+        <label>p-value</label>
+        <term>p-value</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[8]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[9]" resp="#tagger">
+        <label>t-test</label>
+        <term>t-test</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[10]" resp="#tagger">
+        <label>variance</label>
+        <term>variance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1073/pnas.1510489113.</note></p>
+    </body>
+  </text>
+</TEI>

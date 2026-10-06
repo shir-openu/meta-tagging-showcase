@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>How the machine ‘thinks’: Understanding opacity in machine learning algorithms</title>
+        <author>Jenna Burrell</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>How the machine ‘thinks’: Understanding opacity in machine learning algorithms</title>
+          <date>2016</date>
+          <publisher>Big Data &amp; Society</publisher>
+          <idno type="DOI">10.1177/2053951715622512</idno>
+          
+          <idno type="record">burrell2016-how-the-machine-thinks-understandi</idno>
+          <note type="staged-file">burrell2016-how-the-machine-thinks-understandi.txt, the project's staged copy</note>
+          <note type="text-sha1">96cbbc866c7a0409cad50380d86b7bfbc8df2367</note>
+          <note type="rights">cc-by-nc</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>ai-ethics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>opacity in socially consequential algorithmic classification - spam filters, credit scoring, fraud detection, search ranking - and specifically what makes machine learning classifiers hard to understand</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what the reasons are for not knowing how a classification was arrived at - proprietary secrecy, technical difficulty, or something else</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a three-way typology of opacity - corporate secrecy, technical illiteracy, and the mismatch between high-dimensional optimisation and human interpretation - with the argument that each form needs a different remedy</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>the recipient of an algorithmic classification rarely has any concrete sense of how or why it was arrived at</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>conceptual-analysis</label>
+        <term>conceptual-analysis</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE MACHINE BUILDS ITS OWN REPRESENTATION WITHOUT REGARD FOR HUMAN COMPREHENSION - optimisation over training data does not naturally accord with human semantic explanation, so the opacity is a property of the method and not of anyone&#x27;s choice or skill</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>USEFULNESS REQUIRES COMPLEXITY: a machine learning algorithm CAN be implemented so its logic is fully comprehensible, but such an instance is unlikely to be useful - accuracy carries a degree of unavoidable complexity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE OPACITY IS IN THE INTERPLAY, NOT IN EITHER PART: the dataset may be large but comprehensible and the code may be written with clarity, and the complexity arises between them, in the mechanism of the algorithm operating on data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE DECISION LOGIC CHANGES AS THE ALGORITHM LEARNS, so reading the code as written does not tell you what it does after training</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>DIMENSIONALITY MANIPULATION BREAKS THE FEATURE-TO-DIMENSION CORRESPONDENCE: with PCA or the kernel trick the relation is not one-to-one, so a &#x27;weighted input&#x27; can no longer be traced to a human-readable property</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>INTUITION FAILS AT HIGH DIMENSIONS - each of thousands of features subtly and imperceptibly shifts the classification, so debugging and improvement get harder as inputs are added</term>
+        <note>status: Domingos (2012) notes that ‘intuition fails at high-dimensions.’</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>SOME ALGORITHMS ARE OPAQUE IN ORDER TO WORK: spam, scam and fraud detection face an adversary who adapts, so disclosure would defeat the system - opacity here is functional rather than merely protective</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.9">
+        <label>mechanisms</label>
+        <term>SECRECY MAY BE COVER RATHER THAN COMPETITIVE NECESSITY: Pasquale&#x27;s reading is that the adversary is regulation itself, which makes the same observable opacity a different problem with a different remedy</term>
+        <note>status: he argues that a kind of adversarial situation is indeed in play</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the audit&#x27;s explanation was produced by imposing human interpretive reasoning on a process of statistical optimisation - &#x27;machine thinking was resolved to human interpretation&#x27; - which the author flags as a limit of his own method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>ambiguities remained after the audit and the author doubts the explanation was necessarily a correct one</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>end-user explanations that list a few key criteria are at best incomplete and at worst false reassurance - which applies to the remedy the paper is closest to endorsing</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.9">
+        <label>the paper&#x27;s own examples are handwriting recognition and spam filtering, where the feature-to-dimension relation IS one-to-one, and it states that this is often not the case</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>no single tool or process will alleviate black-boxed classification, and the right combination is said to depend on the application space rather than being specified</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>the difficulty is stated to persist even for those with specialised training and even for computer scientists, which bounds what any literacy remedy can achieve</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[0]" resp="#tagger" cert="0.9">
+        <label>the code audit found the word &#x27;Nigeria&#x27; neutrally weighted in the spam classifier - a check that produced reassuring evidence rather than the expected discriminatory finding, and the paper reports it that way</label>
+        <note>eliminates: discriminatory weighting of the word &#x27;Nigeria&#x27; as the explanation of the spam classifier&#x27;s behaviour - the audit found it neutrally weighted · outcome: partial</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>the author states plainly that the explanation his own audit produced may not be correct: innocuous words like &#x27;visit&#x27; and &#x27;want&#x27; were weighted as spam indicators and remained unexplained</label>
+        <note>eliminates: the audit&#x27;s own explanation being taken as a description of what the classifier does, when words the author calls innocuous carry spam weight and remain unaccounted for · outcome: failed</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>opacity</label>
+        <term>opacity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>machine learning</label>
+        <term>machine learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>classification</label>
+        <term>classification</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>algorithm</label>
+        <term>algorithm</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>interpretability</label>
+        <term>interpretability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>remediable incomprehensibility</label>
+        <term>remediable incomprehensibility</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>curse of dimensionality</label>
+        <term>curse of dimensionality</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>training data</label>
+        <term>training data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>features</label>
+        <term>features</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>code audit</label>
+        <term>code audit</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.9">
+        <label>auditors</label>
+        <term>auditors</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>discrimination</label>
+        <term>discrimination</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>principal component analysis</label>
+        <term>principal component analysis</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>kernel trick</label>
+        <term>kernel trick</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>trade secrets</label>
+        <term>trade secrets</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.9">
+        <label>open source</label>
+        <term>open source</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>semantic interpretation</label>
+        <term>semantic interpretation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.9">
+        <label>spam</label>
+        <term>spam</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>opacity - THREE DIFFERENT THINGS UNDER ONE WORD, and the paper&#x27;s whole point is that they are routinely conflated: (1) intentional corporate or state secrecy, (2) the fact that reading code is a specialist skill, (3) the mismatch between high-dimensional mathematical optimisation and human-scale semantic reasoning. Only the third is intrinsic to machine learning</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>opacity - AND THE SECOND AND THIRD SENSES ARE THE PAIR THAT GET CONFUSED, both reading as &#x27;this is technical and complex&#x27;. The paper separates them because they have opposite remedies: education fixes illiteracy and cannot touch dimensionality</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[2]" resp="#tagger" cert="0.9">
+        <label>opacity (Pasquale&#x27;s sense) - &#x27;REMEDIABLE INCOMPREHENSIBILITY&#x27;, which builds the remedy into the definition. Burrell&#x27;s third form is precisely the case that definition cannot cover, since no disclosure makes it comprehensible</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>code audit - IN THIS PAPER, TWO INCOMPATIBLE THINGS: reading the source, which is what the legal literature proposes, and observing the algorithm in action on data, which is what the third form of opacity actually requires. The paper&#x27;s critique of audits turns entirely on which one is meant</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → proposals for code or algorithm audits as a way to evaluate for discriminatory classification, which the paper argues underestimate what reading the code of a complicated system entails and are non-specific about classes of algorithm</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.9">
+        <label>qualifies → Pasquale&#x27;s definition of opacity as &#x27;remediable incomprehensibility&#x27; and the regulatory-disclosure remedy that follows from it</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>qualifies → the emerging literature on the politics of algorithms, which treats algorithmic opacity as largely intentional corporate self-protection</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.9">
+        <label>extends → scholarship on digital inequality, which has focused on the distribution of computational resources and skills rather than on subjection to computational classification</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>curse of dimensionality —causes→ opacity</label>
+        <term>curse of dimensionality</term>
+        <term>opacity</term>
+        <note>strength of the relation: 0.9
+Audit 2026-09-28: DOUBTFUL - read against its span and kept, but the span shown does not name dimensionality in its opening; causes is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>machine learning —causes→ opacity</label>
+        <term>machine learning</term>
+        <term>opacity</term>
+        <note>strength of the relation: 0.9</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>opacity —renamed-across-fields→ interpretability</label>
+        <term>opacity</term>
+        <term>interpretability</term>
+        <note>strength of the relation: 0.95</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+        <label>trade secrets —causes→ opacity</label>
+        <term>trade secrets</term>
+        <term>opacity</term>
+        <note>strength of the relation: 0.9
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but trade-secret opacity is &#x27;one argument in the emerging literature&#x27;; attributed.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>Three forms of opacity are distinguished: corporate or institutional concealment, code literacy as a specialist skill, and the mismatch between high-dimensional optimisation and human-scale interpretation.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>The form of opacity in an application must be identified before choosing a course of action to mitigate it.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>The challenge is not only reading code but understanding the algorithm in action on data.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>machine learning opacity persists even for those with specialised training, even for computer scientists</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>opacity</label>
+        <term>opacity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>remediable incomprehensibility</label>
+        <term>remediable incomprehensibility</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>interpretability</label>
+        <term>interpretability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">
+        <label>curse of dimensionality</label>
+        <term>curse of dimensionality</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1177/2053951715622512.</note></p>
+    </body>
+  </text>
+</TEI>

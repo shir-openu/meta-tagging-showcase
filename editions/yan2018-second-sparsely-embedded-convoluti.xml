@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>SECOND: Sparsely Embedded Convolutional Detection</title>
+        <author>Yan Yan</author>
+        <author>Yuxing Mao</author>
+        <author>Bo Li</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>SECOND: Sparsely Embedded Convolutional Detection</title>
+          <date>2018</date>
+          <publisher>Sensors</publisher>
+          <idno type="DOI">10.3390/s18103337</idno>
+          
+          <idno type="record">yan2018-second-sparsely-embedded-convoluti</idno>
+          <note type="staged-file">yan2018-second-sparsely-embedded-convoluti.txt, the project's staged copy</note>
+          <note type="text-sha1">bc495a0da9775361b2a517c868886856670604ff</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>computer-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>3D object detection from LiDAR point clouds, and the speed and orientation-accuracy limits of voxel-based convolutional detectors</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to keep the information a 3D voxel representation preserves while removing the inference cost and the orientation error that come with it</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>sparse convolution with a GPU rule-generation algorithm, a sine-error angle loss with a separate direction classifier, and ground-truth sampling augmentation</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>an ill-posed regression target: two orientation values that describe the same box but generate maximal loss against each other</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>objects and their enclosed points are collected once into a database, then pasted into other point clouds during training, which multiplies the labelled objects per scene and simulates each object in new surroundings</label>
+        <term>sampling ground truths from a database</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>pasted objects are removed when they intersect existing ones, so the augmentation cannot produce a scene that could not physically exist</label>
+        <term>collision rejection after sampling</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>each ground truth and its points are transformed independently instead of the whole cloud being transformed together, so the augmentation varies objects relative to their scene</label>
+        <term>per-object rather than per-scene noise</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>performance is lower for pedestrians and cyclists and for bird&#x27;s-eye-view detection, which the paper states in its own conclusion</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>pedestrians and cyclists give fewer points per instance and higher instance density, so they are more easily confused with clutter</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>test-server access was limited, so the larger model was evaluated on the test set only and the validation assessment covers the smaller model alone</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>the focal loss, carried from single-stage 2D image detection into 3D point-cloud detection to handle the same foreground-background imbalance</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the same detector with dense convolution instead of sparse, to attribute the speed gain</label>
+        <note>eliminates: a speed gain produced by the rest of the detector rather than by sparse convolution · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>the angle encoding used by AVOD and ComplexYOLO, run as the comparison for the new angle loss</label>
+        <note>eliminates: a new angle loss credited with an improvement that the encoding used by the baselines would also have produced · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>a physical-plausibility check on the augmented scenes</label>
+        <note>eliminates: a detector trained on augmented scenes containing objects that could not physically coexist, which would teach it geometry no sensor will ever show it · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>a validation-set assessment of the larger model</label>
+        <note>eliminates: over-fitting of the larger model to the test set - the validation-set assessment that would show it exists only for the smaller model, because access to the test server was limited · outcome: absent-declared-unreported</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>sparse convolution</label>
+        <term>sparse convolution</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>angle regression</label>
+        <term>angle regression</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>corner encoding</label>
+        <term>corner encoding</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>direction classifier</label>
+        <term>direction classifier</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>ground truths</label>
+        <term>ground truths</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>anchors</label>
+        <term>anchors</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>VoxelNet</label>
+        <term>VoxelNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>KITTI</label>
+        <term>KITTI</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>&#x27;orientation error&#x27; was measuring the ANGLE and not the BOX - two angles describing one box produced maximal loss</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>the new loss treats boxes with opposite directions as the SAME by design, and a separate classifier recovers the direction</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>the direction target is defined by a sign test on yaw: positive above zero, negative otherwise</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>&#x27;state of the art&#x27; here is dataset-relative: 90% AP for 2D car detection against 15% for 3D image-based</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>&#x27;real-time&#x27; is stated as a run time, not a claim - 20 fps for the large model and 40 for the small</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → VoxelNet, which combines raw-point and voxel feature extraction end to end</label>
+        <note>note: keeps the voxel approach and replaces the dense 3D convolution that made it too slow</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>critiques → prior angle encodings - corner, direct and vector</label>
+        <note>note: each is rejected for a different failure, and the replacement is a loss that changes what is being measured rather than how well</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the focal loss introduced for single-stage detection</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>anchors —contrasted-with→ ground truths</label>
+        <term>anchors</term>
+        <term>ground truths</term>
+        <note>differs in: count - about 70,000 anchors against a few ground truths each yielding 4 to 6 positives · strength of the relation: 0.95
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span contrasts the NUMBERS of anchors and ground truths; contrasted-with is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>sparse convolution gives a large speed gain over dense convolution at slight cost in performance</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>the new angle loss outperforms the vector encoding used by two prior detectors</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the method reaches state-of-the-art results using LiDAR alone</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>performance remains lower for pedestrians and cyclists than for cars</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>angle regression</label>
+        <term>angle regression</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>direction classifier</label>
+        <term>direction classifier</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>90% AP for 2D car detection against 15% for 3D image-based car detection — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>a factor-of-4 training speedup and factor-of-3 inference speedup against dense convolution — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>about 0.025 s per frame for the small model on a GTX 1080 Ti — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
+        <label>20 fps for the larger model and 40 fps for the smaller — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">
+        <label>about 70,000 anchors per point cloud against a few ground truths giving 4 to 6 positives each — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>average precision (AP)</label>
+        <term>average precision (AP)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>orientation</label>
+        <term>orientation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>anchors</label>
+        <term>anchors</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.3390/s18103337.</note></p>
+    </body>
+  </text>
+</TEI>

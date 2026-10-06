@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Linked Open Data — Meta-Tagging Project</title>
+<style>
+ body{font-family:Calibri,"Segoe UI",Arial,sans-serif;max-width:900px;margin:1.4rem auto;padding:0 1.1rem;color:#1c1c1c;line-height:1.7;}
+ h1{font-size:1.6rem;margin-bottom:.15rem;} .sub{color:#666;font-size:.93rem;margin:.2rem 0 1.3rem;}
+ h2{font-size:1.16rem;margin:2rem 0 .4rem;color:#00838f;border-bottom:2px solid #eee;padding-bottom:.25rem;}
+ code{background:#f2f4f7;padding:.05em .35em;border-radius:4px;font-size:.86em;}
+ pre{background:#0f2733;color:#dbe9ef;padding:.85rem 1rem;border-radius:9px;overflow-x:auto;font-size:.78rem;line-height:1.5;}
+ pre .k{color:#7fd4c1;}
+ table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6rem 0;}
+ th{background:#173f70;color:#fff;text-align:left;padding:.35rem .55rem;font-size:.8rem;}
+ td{padding:.32rem .55rem;border-bottom:1px solid #eee;} td.n{text-align:right;width:6rem;color:#555;}
+ .box{background:#effcfb;border:1px solid #b6e6e6;border-left:5px solid #00838f;border-radius:9px;padding:.75rem 1.05rem;margin:1rem 0;}
+ .caveat{background:#fdf2f8;border:1px solid #f0c4dc;border-left:5px solid #9d1b6b;border-radius:9px;padding:.75rem 1.05rem;margin:1rem 0;}
+ .files a{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.3rem .7rem;border:1px solid #cfd8e3;border-radius:7px;text-decoration:none;color:#0b4f9c;font-size:.9rem;}
+ .files a:hover{background:#f2fbfb;border-color:#00838f;}
+ .sz{color:#6b7780;font-size:.82rem;margin-inline-end:.6rem;white-space:nowrap;}
+ .fi{display:inline-block;white-space:nowrap;}
+ .foot{color:#6e6e6e;font-size:.8rem;border-top:1px solid #eee;margin-top:2rem;padding-top:.7rem;}
+</style></head><body>
+<h1>Linked Open Data</h1>
+<p class="sub">The tag layer, expressed in two standards that are not ours — so that other people's tools can read it without knowing anything about this project.</p>
+
+<div class="box"><b>The short version.</b> This project normalises a verbatim sentence in one <i>discipline</i> to a shared tag. A gazetteer project like <a href="https://mehdie.org/">MEHDIE</a> or <a href="https://wiki.digitalclassicist.org/Kima">Kima</a> normalises a place name in one <i>language</i> to a shared identifier. Same operation, different axis — so the same two standards fit both:
+<ul>
+<li><b>SKOS</b> turns each tag into an addressable concept with a URI, labels in English and Hebrew, and a link to Wikidata.</li>
+<li><b>W3C Web Annotation</b> turns a grounded tag into an annotation whose target carries a <code>TextQuoteSelector</code>. That selector — exact, prefix, suffix — <i>is</i> this project's verbatim-grounding rule. The house rule turned out to be a W3C rule. This export publishes the five <code>content_tags</code> facets, which hold 34,121 of the corpus&rsquo;s 118,615 live quote fields (29%). The other layers&rsquo; quotes — concepts, limitations, concept edges, mechanisms, senses and the rest — are not annotations here yet, though their terms are in the vocabulary.</li>
+</ul></div>
+
+<h2>Files</h2>
+<p class="files">
+<a href="vocab.html">vocab.html — browse the vocabulary</a>
+<span class="fi"><a href="vocab.jsonld">vocab.jsonld</a> <span class="sz">11.6 MB · 525 KB gzipped</span></span>
+<span class="fi"><a href="vocab.ttl">vocab.ttl</a> <span class="sz">9.0 MB · 505 KB gzipped</span></span>
+<span class="fi"><a href="annotations.jsonld">annotations.jsonld</a> <span class="sz">82.0 MB · 5.2 MB gzipped</span></span>
+<span class="fi"><a href="corpus.jsonld">corpus.jsonld</a> <span class="sz">5.2 MB · 616 KB gzipped</span></span>
+</p>
+
+<div class="caveat"><b>Scope — read this before comparing counts.</b> This export is generated from the
+project's <i>working</i> corpus (1698 records; built from DATA/corpus.json, corpus md5 050fd81816850c73), which is larger than the frozen release corpus
+published at <a href="../DATA/corpus.json">DATA/corpus.json</a> (126 records) and uses a fuller
+schema. The two will not agree on totals, and are not meant to. Where a record has a published page the
+annotations target that page; where it does not, they target the paper's DOI. Regenerate with
+<code>python TOOLS/export_lod.py --validate</code>.</div>
+
+<h2>What is in here</h2>
+<table><thead><tr><th>Concept scheme</th><th>Concepts</th><th>Linked</th></tr></thead><tbody><tr><td>Disciplines</td><td class='n'>211</td><td class='n'>39</td></tr><tr><td>Methods</td><td class='n'>34</td><td class='n'>13</td></tr><tr><td>Domain concepts</td><td class='n'>22829</td><td class='n'>77</td></tr><tr><td>Statistical terms</td><td class='n'>1157</td><td class='n'>25</td></tr><tr><td>Places</td><td class='n'>70</td><td class='n'>64</td></tr></tbody></table>
+<p><b>34285</b> annotations over <b>34383</b> verbatim spans.
+<b>Each annotation carries up to two anchors, and they are not the same thing.</b></p>
+<p>Of the <b>15,165</b> annotations on papers that are not cleared, 12,538 carry a position (a start and an end) and 2,627 carry none: a position is published only where the quote was located. <b>2,013</b> annotations on papers that are not cleared carry no wording of ours, because our wording repeated part of the paper&rsquo;s text; each says so (<code>mt:bodyWithheld</code>). 1,687 of them carry a position, 326 carry none. <b>94</b> annotations carry <code>mt:unvouched</code>: their quote could not be confirmed mechanically as an exact substring of our copy of the paper, and the value says why.</p>
+<p><b>The source anchor</b> is the position of the quote in the paper's own staged text — the text every quote in
+this corpus is verified against — and it is the one to resolve against the article.
+<b>25482</b> of the spans have one, <b>25410</b>
+of those from offsets this project had already verified.
+<b>8,901</b> have none: for <b>8,818</b> the quote, exactly as this corpus stores it, is in that text: this export looked for a re-spelled form of the quote (curly quotation marks, dashes and ligatures made plain) and did not find that form, so the position the corpus holds for it is not published here yet; for 83 the quote as stored is not in that text as one string.</p>
+<p><b>The display anchor</b> is the position of the same quote in this project's own page for the paper, so a reader
+can be taken to the spot. It is not provenance: the pages interleave the paper's sentences with our tag layer, so a
+window of text around a quote on our page may be our words. Where it was,
+15985 of those windows were dropped and 3160 kept.</p>
+<p>
+Of the <b>19,187</b> spans on papers whose text we are cleared to publish, <b>19,145</b> were found on the paper&rsquo;s page (99.8%) and 42 were not. The other <b>15,196</b> spans are on papers whose text is not cleared. Their pages carry our tags and short quotations, not the article, so a quote is found there only where the page itself prints it: 2,881 were found, 12,315 were not. For those papers an annotation never carries the sentence. It carries a position where one was measured and none where it was not; the paragraph on wording above gives the counts.
+</p>
+
+<div class="caveat"><b>Two things this export deliberately does not contain.</b>
+The reliability layer is private and is never published. And paper-level facets are statements about the paper
+rather than annotations: the discipline and the concepts are <code>dcterms:subject</code>, the method is
+<code>mt:method</code>, and the other paper-level facets are not exported.
+<b>That is not because they have no quote behind them.</b>
+<b>8,782</b> paper-level evidence quotes of 40 or more characters are recorded on the exported records, and <b>every one of them is an exact substring</b> of the paper&rsquo;s own text.
+The reason is narrower: the annotation model here is scoped to the five <code>content_tags</code> facets, and the
+evidence behind a paper-level facet is not modelled as a target yet — work not done, not a property of the
+data. Whether it should be published is a question about the scope of this dataset, not about whether the
+quotes exist.</div>
+
+<h2>One annotation, in full</h2>
+<pre>{
+ &quot;id&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/lod/annotations.jsonld#mendel1866-plant-hybridization--findings-0&quot;,
+ &quot;type&quot;: &quot;Annotation&quot;,
+ &quot;motivation&quot;: &quot;describing&quot;,
+ &quot;mt:unvouched&quot;: &quot;declared-ellipsis&quot;,
+ &quot;mt:quotedInPieces&quot;: 2,
+ &quot;created&quot;: &quot;2026-07-15&quot;,
+ &quot;creator&quot;: {
+  &quot;id&quot;: &quot;https://orcid.org/0009-0000-2597-2824&quot;,
+  &quot;type&quot;: &quot;Person&quot;,
+  &quot;name&quot;: &quot;Shir Sivroni&quot;,
+  &quot;nickname&quot;: &quot;Shir Sivroni&quot;
+ },
+ &quot;generator&quot;: {
+  &quot;id&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/&quot;,
+  &quot;type&quot;: &quot;Software&quot;,
+  &quot;name&quot;: &quot;Meta-Tagging Project tag layer&quot;
+ },
+ &quot;body&quot;: [
+  {
+   &quot;type&quot;: &quot;TextualBody&quot;,
+   &quot;purpose&quot;: &quot;describing&quot;,
+   &quot;value&quot;: &quot;Crossing pea (Pisum) plants with constant differing characters, hybrids show one character (dominant) while the other becomes latent (recessive); in the next generation dominant and recessive forms appear in an average ratio of 2.98:1 ≈ 3:1.&quot;,
+   &quot;language&quot;: &quot;en&quot;
+  }
+ ],
+ &quot;target&quot;: [
+  {
+   &quot;type&quot;: &quot;SpecificResource&quot;,
+   &quot;source&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/#staged/mendel1866-plant-hybridization&quot;,
+   &quot;mt:role&quot;: &quot;source-anchor&quot;,
+   &quot;mt:anchorText&quot;: &quot;the staged body of this paper, the text every quote in this corpus is verified against&quot;,
+   &quot;mt:sourceSha1&quot;: &quot;d18eeb1aee9c697a1127a6cb4563657f9305ad98&quot;,
+   &quot;mt:extractedBy&quot;: &quot;the staged body of the paper, as ingested; verify_anchors.body(pid)&quot;,
+   &quot;selector&quot;: {
+    &quot;type&quot;: &quot;TextQuoteSelector&quot;,
+    &quot;exact&quot;: &quot;are termed the dominant, and those which become latent in the process recessive&quot;,
+    &quot;prefix&quot;: &quot;e the characters of the hybrid, &quot;,
+    &quot;suffix&quot;: &quot;. The expression recessive has b&quot;,
+    &quot;start&quot;: 16937,
+    &quot;end&quot;: 17016
+   }
+  },
+  {
+   &quot;type&quot;: &quot;SpecificResource&quot;,
+   &quot;source&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/#page-text/mendel1866-plant-hybridization&quot;,
+   &quot;mt:role&quot;: &quot;display-anchor&quot;,
+   &quot;mt:anchorText&quot;: &quot;THE EXTRACTED TEXT of this project&#x27;s page for the paper - the page with its scripts, its markup and our tag chips removed, which is the string these offsets were measured on and is not the bytes of the HTML file. The window around the quote may contain the tag layer, so it carries no context here.&quot;,
+   &quot;selector&quot;: {
+    &quot;type&quot;: &quot;TextQuoteSelector&quot;,
+    &quot;exact&quot;: &quot;are termed the dominant, and those which become latent in the process recessive&quot;,
+    &quot;start&quot;: 7611,
+    &quot;end&quot;: 7690
+   },
+   &quot;mt:sourceSha1&quot;: &quot;3c65024e79b4b236dd343aa31a14002566ed5b5a&quot;,
+   &quot;mt:extractedBy&quot;: &quot;export_lod.page_text (strips script/style, removes the tag chips, drops every tag, then norm_text); export_lod.py sha1 5dc4e39be8ba13505890f5d7c57b2a72ca504712&quot;,
+   &quot;mt:renderedAt&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/papers/mendel1866-plant-hybridization.html&quot;
+  },
+  {
+   &quot;type&quot;: &quot;SpecificResource&quot;,
+   &quot;source&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/#staged/mendel1866-plant-hybridization&quot;,
+   &quot;mt:role&quot;: &quot;source-anchor&quot;,
+   &quot;mt:anchorText&quot;: &quot;the staged body of this paper, the text every quote in this corpus is verified against&quot;,
+   &quot;mt:sourceSha1&quot;: &quot;d18eeb1aee9c697a1127a6cb4563657f9305ad98&quot;,
+   &quot;mt:extractedBy&quot;: &quot;the staged body of the paper, as ingested; verify_anchors.body(pid)&quot;,
+   &quot;selector&quot;: {
+    &quot;type&quot;: &quot;TextQuoteSelector&quot;,
+    &quot;exact&quot;: &quot;an average ratio of 2.98:1, or 3:1&quot;,
+    &quot;prefix&quot;: &quot;inant and recessive characters, &quot;,
+    &quot;suffix&quot;: &quot;. The dominant character can hav&quot;,
+    &quot;start&quot;: 24832,
+    &quot;end&quot;: 24866
+   }
+  },
+  {
+   &quot;type&quot;: &quot;SpecificResource&quot;,
+   &quot;source&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/#page-text/mendel1866-plant-hybridization&quot;,
+   &quot;mt:role&quot;: &quot;display-anchor&quot;,
+   &quot;mt:anchorText&quot;: &quot;THE EXTRACTED TEXT of this project&#x27;s page for the paper - the page with its scripts, its markup and our tag chips removed, which is the string these offsets were measured on and is not the bytes of the HTML file. The window around the quote may contain the tag layer, so it carries no context here.&quot;,
+   &quot;selector&quot;: {
+    &quot;type&quot;: &quot;TextQuoteSelector&quot;,
+    &quot;exact&quot;: &quot;an average ratio of 2.98:1, or 3:1&quot;,
+    &quot;prefix&quot;: &quot;inant and recessive characters, &quot;,
+    &quot;suffix&quot;: &quot;.\&quot;) and the independence stateme&quot;,
+    &quot;start&quot;: 862,
+    &quot;end&quot;: 896
+   },
+   &quot;mt:sourceSha1&quot;: &quot;3c65024e79b4b236dd343aa31a14002566ed5b5a&quot;,
+   &quot;mt:extractedBy&quot;: &quot;export_lod.page_text (strips script/style, removes the tag chips, drops every tag, then norm_text); export_lod.py sha1 5dc4e39be8ba13505890f5d7c57b2a72ca504712&quot;,
+   &quot;mt:renderedAt&quot;: &quot;https://shir-openu.github.io/meta-tagging-showcase/papers/mendel1866-plant-hybridization.html&quot;
+  }
+ ]
+}</pre>
+
+<h2>Reconciliation was not automatic, and says so</h2>
+<p>
+A link to an outside authority is asserted on one of three grounds. For <b>64</b> of the 218 linked terms: a label or alias that matched, and a Wikidata type statement (P31 or P279) licensing it. For <b>63</b>: a person&rsquo;s decision, recorded with the term as &lsquo;human adjudication&rsquo;; no type statement licensed it. For <b>91</b>: a matching label alone, in groups for which no type list was defined. Where none of these could be shown, the result is recorded as unmatched rather than guessed.
+Place names needed a further step — <code>Cambridge</code> is two of the most important
+academic cities in the world, and no string test settles which one a paper means. Those were
+decided by hand, one at a time, with the reason recorded next to the decision, and one string
+('Cambridge') had to be decided per paper rather than once. This is the same wall MEHDIE hits and
+answers with a reconciliation review interface.</p>
+
+<h2>Author, rights and how to cite</h2>
+<div class="box">
+<p style="margin:.2rem 0"><b>Shir Sivroni</b> — <a href="https://orcid.org/0009-0000-2597-2824">ORCID 0009-0000-2597-2824</a><br>
+<span style="color:#555">Department of Mathematics and Computer Science, The Open University of Israel</span></p>
+<p style="margin:.5rem 0 .2rem"><b>Licence:</b> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. You may reuse
+and redistribute this, including commercially, provided you attribute it.</p>
+<p style="margin:.2rem 0"><b>Archived and citable:</b> <a href="https://doi.org/10.5281/zenodo.21432188">https://doi.org/10.5281/zenodo.21432188</a>
+(Zenodo concept DOI — always resolves to the latest version)<br>
+<b>Source:</b> <a href="https://github.com/shir-openu/meta-tagging-showcase">https://github.com/shir-openu/meta-tagging-showcase</a></p>
+<p style="margin:.5rem 0 .2rem"><b>Cite as:</b><br><code style="white-space:normal">Sivroni, S. A Verbatim-Grounded, Field-Neutral Tag Layer for Cross-Disciplinary Reading of Academic Literature. doi:10.5281/zenodo.21432188 (CC BY 4.0).</code></p>
+<p style="margin:.5rem 0 .2rem;color:#555;font-size:.9rem">This attribution is carried
+<i>inside</i> the data as well as on this page: every annotation names the ORCID, and each file
+carries the licence, the DOI and the repository as triples — so a consumer who keeps only the
+graph still knows whose work it is and how to credit it.</p>
+</div>
+
+<p class="foot">&copy; 2026 Shir Sivroni<br>
+Meta-Tagging Project · CC BY 4.0 · generated by <code>TOOLS/export_lod.py</code> on 2026-10-06</p>
+
+<!-- page-load counter; GitHub publishes no analytics for Pages. Source: PRIMING_TOOLBOX/TOOLS/build_beacon.py -->
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+</body></html>

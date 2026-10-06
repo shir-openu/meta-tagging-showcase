@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Review of deep learning: concepts, CNN architectures, challenges, applications, future directions</title>
+        <author>Laith Alzubaidi</author>
+        <author>Jinglan Zhang</author>
+        <author>Amjad J. Humaidi</author>
+        <author>Ayad Q. Al-Dujaili</author>
+        <author>Ye Duan</author>
+        <author>Omran Al-Shamma</author>
+        <author>José Santamaría</author>
+        <author>Mohammed A. Fadhel</author>
+        <author>Muthana Al‐Amidie</author>
+        <author>Laith Farhan</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Review of deep learning: concepts, CNN architectures, challenges, applications, future directions</title>
+          <date>2021</date>
+          <publisher>Journal Of Big Data</publisher>
+          <idno type="DOI">10.1186/s40537-021-00444-8</idno>
+          
+          <idno type="record">alzubaidi2021-review-of-deep-learning-concepts-c</idno>
+          <note type="staged-file">alzubaidi2021-review-of-deep-learning-concepts-c.txt, the project's staged copy</note>
+          <note type="text-sha1">2a4a57bf85032245e99477483cce9077e78503e2</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>deep learning as a field - its concepts, network types, CNN architectures, named challenges, applications and computational substrate</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether one review can supply a full understanding of DL, against a review literature in which each paper covers a single aspect</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a holistic survey of DL with twelve named challenges and their proposed solutions, a CNN-architecture lineage from AlexNet to HRNet, and a declared search methodology</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>a field whose knowledge is fragmented across partial reviews, so that assembling a working understanding requires reading past the reviews</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>review</label>
+        <term>review</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>back-propagation multiplies each layer&#x27;s derivative down the network, so with a squashing activation like the sigmoid, N small derivatives multiplied together make the gradient decline exponentially - and the first layers, which recognise the essential elements of the input, are the ones that stop updating</label>
+        <term>vanishing gradient through repeated multiplication</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>incorporating new information into a trained model interferes with what it already learned; fine-tuning on only the new class leaves performance on the old classes unsuccessful, so continually renewed data forces retraining from scratch</label>
+        <term>catastrophic forgetting by fine-tuning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>pre-training transfers representations learned from the source distribution; where the source is natural images and the target is raw medical images the learned representation does not apply, so the transferred model performs no better than one trained from scratch</label>
+        <term>domain mismatch defeating transfer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>many parameter settings satisfy the training objective equally well, so the pipeline does not determine which one is chosen; small modifications force the model toward a completely different solution and hence different predictions in deployment</label>
+        <term>underspecification selecting among equivalent solutions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the paper recommends transfer learning for scarce data and then reports that cross-domain TL does not significantly affect medical imaging performance - its own central recommendation carries a negative result three paragraphs later</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>`RL` is defined as representation learning in the introduction and used for reinforcement learning in the classification section; a reader carrying the first definition forward misreads the second</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>underspecification puts major constraints on the credibility of ML predictions and the proposed remedy - stress tests - requires already knowing how the model can fail</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>CNN performance is greatly influenced by hyper-parameter selection, so any small change affects the result - which limits how much a reported architecture comparison can be attributed to architecture</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>labelling remains the binding constraint: crowdsourced workers cannot annotate medical or biological images, expert labelling is costly and slow, so producing the volume of labels deep networks need is called unfeasible</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>despite the stated transition toward semi-supervised and unsupervised learning, most current deep-learning models still use supervised learning - so the data constraint above is not being relieved</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>the architecture of the mammalian visual cortex, carried into network design - the CNN&#x27;s local receptive fields are presented as a simulation of cells that sense only small regions of a scene</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
+        <label>pre-trained representations carried from natural-image datasets into medical imaging, and the paper&#x27;s own report that this particular transfer does not work</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a declared corpus for the review - a stated floor on papers read and their distribution by year - so that &#x27;we focused on recent work&#x27; is a number rather than a claim</label>
+        <note>eliminates: a review&#x27;s coverage claim resting on the reviewers&#x27; sense of having read enough · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.85">
+        <label>declared review objectives - list and define approaches, list architectures, present challenges, assess applications and computational approaches - fixed in advance of the reading</label>
+        <note>eliminates: a review whose scope is settled after the reading, by fixing the five objectives in advance · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>cross-domain transfer learning checked against models trained from scratch - the control that decides whether transfer contributed anything, run by others and reported here</label>
+        <note>eliminates: that the reported performance is owed to the pre-trained source domain rather than to the architecture and the target data - models trained from scratch are the comparison that decides it · outcome: absent-stated-about-other</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>representation learning</label>
+        <term>representation learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>RL</label>
+        <term>RL</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>deep reinforcement learning</label>
+        <term>deep reinforcement learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>DL</label>
+        <term>DL</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>ML</label>
+        <term>ML</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>TL</label>
+        <term>TL</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>Same-domain TL</label>
+        <term>Same-domain TL</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>underspecification</label>
+        <term>underspecification</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>stress tests</label>
+        <term>stress tests</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>Sparse Connectivity</label>
+        <term>Sparse Connectivity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>Weight Sharing</label>
+        <term>Weight Sharing</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>Dropout</label>
+        <term>Dropout</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>Dying ReLU</label>
+        <term>Dying ReLU</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.85">
+        <label>catastrophic forgetting</label>
+        <term>catastrophic forgetting</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>vanishing gradient problem</label>
+        <term>vanishing gradient problem</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>overfitting</label>
+        <term>overfitting</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>black box</label>
+        <term>black box</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>imbalanced</label>
+        <term>imbalanced</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>hyper-parameter selection</label>
+        <term>hyper-parameter selection</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>lightweight models trained from scratch</label>
+        <term>lightweight models trained from scratch</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">
+        <label>feature engineering</label>
+        <term>feature engineering</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">
+        <label>histogram of oriented gradients (HOG)</label>
+        <term>histogram of oriented gradients (HOG)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">
+        <label>scale-invariant feature transform (SIFT)</label>
+        <term>scale-invariant feature transform (SIFT)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">
+        <label>bag of words (BoW)</label>
+        <term>bag of words (BoW)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.95">
+        <label>feature extraction</label>
+        <term>feature extraction</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="concepts" ana="#concepts[25]" resp="#paper" cert="0.95">
+        <label>multi-layer data representation architecture</label>
+        <term>multi-layer data representation architecture</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="concepts" ana="#concepts[26]" resp="#paper" cert="0.95">
+        <label>low-level features</label>
+        <term>low-level features</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="concepts" ana="#concepts[27]" resp="#paper" cert="0.95">
+        <label>high-level features</label>
+        <term>high-level features</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="concepts" ana="#concepts[28]" resp="#paper" cert="0.95">
+        <label>unsupervised</label>
+        <term>unsupervised</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="concepts" ana="#concepts[29]" resp="#paper" cert="0.95">
+        <label>partially supervised (semi-supervised)</label>
+        <term>partially supervised (semi-supervised)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="concepts" ana="#concepts[30]" resp="#paper" cert="0.95">
+        <label>supervised</label>
+        <term>supervised</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="concepts" ana="#concepts[31]" resp="#paper" cert="0.95">
+        <label>labeled data</label>
+        <term>labeled data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="concepts" ana="#concepts[32]" resp="#paper" cert="0.95">
+        <label>recurrent neural networks (RNNs)</label>
+        <term>recurrent neural networks (RNNs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="concepts" ana="#concepts[33]" resp="#paper" cert="0.95">
+        <label>convolutional neural networks (CNNs)</label>
+        <term>convolutional neural networks (CNNs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="concepts" ana="#concepts[34]" resp="#paper" cert="0.95">
+        <label>deep neural networks (DNNs)</label>
+        <term>deep neural networks (DNNs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="concepts" ana="#concepts[35]" resp="#paper" cert="0.95">
+        <label>gated recurrent units (GRUs)</label>
+        <term>gated recurrent units (GRUs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="concepts" ana="#concepts[36]" resp="#paper" cert="0.95">
+        <label>long short-term memory (LSTM) approaches</label>
+        <term>long short-term memory (LSTM) approaches</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="concepts" ana="#concepts[37]" resp="#paper" cert="0.95">
+        <label>decision boundary</label>
+        <term>decision boundary</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="concepts" ana="#concepts[38]" resp="#paper" cert="0.95">
+        <label>generative networks</label>
+        <term>generative networks</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="concepts" ana="#concepts[39]" resp="#paper" cert="0.95">
+        <label>dimensionality reduction</label>
+        <term>dimensionality reduction</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="concepts" ana="#concepts[40]" resp="#paper" cert="0.95">
+        <label>clustering</label>
+        <term>clustering</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="concepts" ana="#concepts[41]" resp="#paper" cert="0.95">
+        <label>restricted Boltzmann machines</label>
+        <term>restricted Boltzmann machines</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="concepts" ana="#concepts[42]" resp="#paper" cert="0.95">
+        <label>auto-encoders</label>
+        <term>auto-encoders</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="concepts" ana="#concepts[43]" resp="#paper" cert="0.95">
+        <label>GANs</label>
+        <term>GANs</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="concepts" ana="#concepts[44]" resp="#paper" cert="0.95">
+        <label>reward function</label>
+        <term>reward function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="concepts" ana="#concepts[45]" resp="#paper" cert="0.95">
+        <label>environment</label>
+        <term>environment</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="concepts" ana="#concepts[46]" resp="#paper" cert="0.95">
+        <label>supervised learning</label>
+        <term>supervised learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="concepts" ana="#concepts[47]" resp="#paper" cert="0.95">
+        <label>RNN</label>
+        <term>RNN</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="concepts" ana="#concepts[48]" resp="#paper" cert="0.95">
+        <label>sequential data</label>
+        <term>sequential data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="concepts" ana="#concepts[49]" resp="#paper" cert="0.95">
+        <label>short-term memory</label>
+        <term>short-term memory</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t71" type="concepts" ana="#concepts[50]" resp="#paper" cert="0.95">
+        <label>state (hidden) layer</label>
+        <term>state (hidden) layer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t72" type="concepts" ana="#concepts[51]" resp="#paper" cert="0.95">
+        <label>exploding gradient</label>
+        <term>exploding gradient</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t73" type="concepts" ana="#concepts[52]" resp="#paper" cert="0.95">
+        <label>LSTM</label>
+        <term>LSTM</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t74" type="concepts" ana="#concepts[53]" resp="#paper" cert="0.95">
+        <label>memory blocks</label>
+        <term>memory blocks</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t75" type="concepts" ana="#concepts[54]" resp="#paper" cert="0.95">
+        <label>memory cells</label>
+        <term>memory cells</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t76" type="concepts" ana="#concepts[55]" resp="#paper" cert="0.95">
+        <label>gated units</label>
+        <term>gated units</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t77" type="concepts" ana="#concepts[56]" resp="#paper" cert="0.95">
+        <label>conventional networks</label>
+        <term>conventional networks</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t78" type="concepts" ana="#concepts[57]" resp="#paper" cert="0.95">
+        <label>CNN</label>
+        <term>CNN</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t79" type="concepts" ana="#concepts[58]" resp="#paper" cert="0.95">
+        <label>equivalent representations</label>
+        <term>equivalent representations</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t80" type="concepts" ana="#concepts[59]" resp="#paper" cert="0.95">
+        <label>sparse interactions</label>
+        <term>sparse interactions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t81" type="concepts" ana="#concepts[60]" resp="#paper" cert="0.95">
+        <label>parameter sharing</label>
+        <term>parameter sharing</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t82" type="concepts" ana="#concepts[61]" resp="#paper" cert="0.95">
+        <label>shared weights</label>
+        <term>shared weights</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t83" type="concepts" ana="#concepts[62]" resp="#paper" cert="0.95">
+        <label>local connections</label>
+        <term>local connections</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t84" type="concepts" ana="#concepts[63]" resp="#paper" cert="0.95">
+        <label>2D input-data structures</label>
+        <term>2D input-data structures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t85" type="concepts" ana="#concepts[64]" resp="#paper" cert="0.95">
+        <label>convolution layers</label>
+        <term>convolution layers</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t86" type="concepts" ana="#concepts[65]" resp="#paper" cert="0.95">
+        <label>sub-sampling (pooling) layers</label>
+        <term>sub-sampling (pooling) layers</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t87" type="concepts" ana="#concepts[66]" resp="#paper" cert="0.95">
+        <label>FC layers</label>
+        <term>FC layers</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t88" type="concepts" ana="#concepts[67]" resp="#paper" cert="0.95">
+        <label>feature maps</label>
+        <term>feature maps</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t89" type="concepts" ana="#concepts[68]" resp="#paper" cert="0.95">
+        <label>softmax</label>
+        <term>softmax</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t90" type="concepts" ana="#concepts[69]" resp="#paper" cert="0.95">
+        <label>support vector machines (SVMs)</label>
+        <term>support vector machines (SVMs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t91" type="concepts" ana="#concepts[70]" resp="#paper" cert="0.95">
+        <label>kernel weight</label>
+        <term>kernel weight</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t92" type="concepts" ana="#concepts[71]" resp="#paper" cert="0.95">
+        <label>convolutional operation</label>
+        <term>convolutional operation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t93" type="concepts" ana="#concepts[72]" resp="#paper" cert="0.95">
+        <label>feature map</label>
+        <term>feature map</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t94" type="concepts" ana="#concepts[73]" resp="#paper" cert="0.95">
+        <label>stride</label>
+        <term>stride</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t95" type="concepts" ana="#concepts[74]" resp="#paper" cert="0.95">
+        <label>padding</label>
+        <term>padding</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t96" type="concepts" ana="#concepts[75]" resp="#paper" cert="0.95">
+        <label>convolutional layer</label>
+        <term>convolutional layer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t97" type="concepts" ana="#concepts[76]" resp="#paper" cert="0.95">
+        <label>convolutional filters</label>
+        <term>convolutional filters</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t98" type="concepts" ana="#concepts[77]" resp="#paper" cert="0.95">
+        <label>pooling layer</label>
+        <term>pooling layer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t99" type="concepts" ana="#concepts[78]" resp="#paper" cert="0.95">
+        <label>pooling methods</label>
+        <term>pooling methods</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t100" type="concepts" ana="#concepts[79]" resp="#paper" cert="0.95">
+        <label>max pooling</label>
+        <term>max pooling</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t101" type="concepts" ana="#concepts[80]" resp="#paper" cert="0.95">
+        <label>min pooling</label>
+        <term>min pooling</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t102" type="concepts" ana="#concepts[81]" resp="#paper" cert="0.95">
+        <label>global average pooling (GAP)</label>
+        <term>global average pooling (GAP)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t103" type="concepts" ana="#concepts[82]" resp="#paper" cert="0.95">
+        <label>global max pooling</label>
+        <term>global max pooling</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t104" type="concepts" ana="#concepts[83]" resp="#paper" cert="0.95">
+        <label>activation function</label>
+        <term>activation function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t105" type="concepts" ana="#concepts[84]" resp="#paper" cert="0.95">
+        <label>Sigmoid</label>
+        <term>Sigmoid</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t106" type="concepts" ana="#concepts[85]" resp="#paper" cert="0.95">
+        <label>Tanh</label>
+        <term>Tanh</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t107" type="concepts" ana="#concepts[86]" resp="#paper" cert="0.95">
+        <label>ReLU</label>
+        <term>ReLU</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t108" type="concepts" ana="#concepts[87]" resp="#paper" cert="0.95">
+        <label>Leaky ReLU</label>
+        <term>Leaky ReLU</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t109" type="concepts" ana="#concepts[88]" resp="#paper" cert="0.95">
+        <label>Noisy ReLU</label>
+        <term>Noisy ReLU</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t110" type="concepts" ana="#concepts[89]" resp="#paper" cert="0.95">
+        <label>Parametric Linear Units</label>
+        <term>Parametric Linear Units</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t111" type="concepts" ana="#concepts[90]" resp="#paper" cert="0.95">
+        <label>Fully Connected Layer</label>
+        <term>Fully Connected Layer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t112" type="concepts" ana="#concepts[91]" resp="#paper" cert="0.95">
+        <label>loss functions</label>
+        <term>loss functions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t113" type="concepts" ana="#concepts[92]" resp="#paper" cert="0.95">
+        <label>Cross-Entropy or Softmax Loss Function</label>
+        <term>Cross-Entropy or Softmax Loss Function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t114" type="concepts" ana="#concepts[93]" resp="#paper" cert="0.95">
+        <label>log loss function</label>
+        <term>log loss function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t115" type="concepts" ana="#concepts[94]" resp="#paper" cert="0.95">
+        <label>Euclidean Loss Function</label>
+        <term>Euclidean Loss Function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t116" type="concepts" ana="#concepts[95]" resp="#paper" cert="0.95">
+        <label>mean square error</label>
+        <term>mean square error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t117" type="concepts" ana="#concepts[96]" resp="#paper" cert="0.95">
+        <label>Hinge Loss Function</label>
+        <term>Hinge Loss Function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t118" type="concepts" ana="#concepts[97]" resp="#paper" cert="0.95">
+        <label>Drop-Weights</label>
+        <term>Drop-Weights</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t119" type="concepts" ana="#concepts[98]" resp="#paper" cert="0.95">
+        <label>Data Augmentation</label>
+        <term>Data Augmentation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t120" type="concepts" ana="#concepts[99]" resp="#paper" cert="0.95">
+        <label>Batch Normalization</label>
+        <term>Batch Normalization</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t121" type="concepts" ana="#concepts[100]" resp="#paper" cert="0.95">
+        <label>internal covariance shift</label>
+        <term>internal covariance shift</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t122" type="concepts" ana="#concepts[101]" resp="#paper" cert="0.95">
+        <label>over-fitted</label>
+        <term>over-fitted</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t123" type="concepts" ana="#concepts[102]" resp="#paper" cert="0.95">
+        <label>under-fitted model</label>
+        <term>under-fitted model</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t124" type="concepts" ana="#concepts[103]" resp="#paper" cert="0.95">
+        <label>just-fitted</label>
+        <term>just-fitted</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t125" type="concepts" ana="#concepts[104]" resp="#paper" cert="0.95">
+        <label>learning rate</label>
+        <term>learning rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t126" type="concepts" ana="#concepts[105]" resp="#paper" cert="0.95">
+        <label>training epoch</label>
+        <term>training epoch</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t127" type="concepts" ana="#concepts[106]" resp="#paper" cert="0.95">
+        <label>Batch Gradient Descent</label>
+        <term>Batch Gradient Descent</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t128" type="concepts" ana="#concepts[107]" resp="#paper" cert="0.95">
+        <label>Stochastic Gradient Descent</label>
+        <term>Stochastic Gradient Descent</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t129" type="concepts" ana="#concepts[108]" resp="#paper" cert="0.95">
+        <label>Mini-batch Gradient Descent</label>
+        <term>Mini-batch Gradient Descent</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t130" type="concepts" ana="#concepts[109]" resp="#paper" cert="0.95">
+        <label>Adaptive Moment Estimation (Adam)</label>
+        <term>Adaptive Moment Estimation (Adam)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t131" type="concepts" ana="#concepts[110]" resp="#paper" cert="0.95">
+        <label>Adam</label>
+        <term>Adam</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t132" type="concepts" ana="#concepts[111]" resp="#paper" cert="0.95">
+        <label>learning strategy</label>
+        <term>learning strategy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t133" type="concepts" ana="#concepts[112]" resp="#paper" cert="0.95">
+        <label>residual links</label>
+        <term>residual links</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t134" type="concepts" ana="#concepts[113]" resp="#paper" cert="0.95">
+        <label>deep network convergence</label>
+        <term>deep network convergence</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t135" type="concepts" ana="#concepts[114]" resp="#paper" cert="0.95">
+        <label>highway network</label>
+        <term>highway network</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t136" type="concepts" ana="#concepts[115]" resp="#paper" cert="0.95">
+        <label>ResNet</label>
+        <term>ResNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t137" type="concepts" ana="#concepts[116]" resp="#paper" cert="0.95">
+        <label>DenseNet</label>
+        <term>DenseNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t138" type="concepts" ana="#concepts[117]" resp="#paper" cert="0.95">
+        <label>CapsuleNet</label>
+        <term>CapsuleNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t139" type="concepts" ana="#concepts[118]" resp="#paper" cert="0.95">
+        <label>CapsNet</label>
+        <term>CapsNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t140" type="concepts" ana="#concepts[119]" resp="#paper" cert="0.95">
+        <label>High-Resolution Network (HRNet)</label>
+        <term>High-Resolution Network (HRNet)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t141" type="concepts" ana="#concepts[120]" resp="#paper" cert="0.95">
+        <label>HRNet</label>
+        <term>HRNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t142" type="concepts" ana="#concepts[121]" resp="#paper" cert="0.95">
+        <label>training data</label>
+        <term>training data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t143" type="concepts" ana="#concepts[122]" resp="#paper" cert="0.95">
+        <label>simulated data</label>
+        <term>simulated data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t144" type="concepts" ana="#concepts[123]" resp="#paper" cert="0.95">
+        <label>data augmentation techniques</label>
+        <term>data augmentation techniques</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t145" type="concepts" ana="#concepts[124]" resp="#paper" cert="0.95">
+        <label>data-space solutions</label>
+        <term>data-space solutions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t146" type="concepts" ana="#concepts[125]" resp="#paper" cert="0.95">
+        <label>model interpretability</label>
+        <term>model interpretability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t147" type="concepts" ana="#concepts[126]" resp="#paper" cert="0.95">
+        <label>perturbation-based approaches</label>
+        <term>perturbation-based approaches</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t148" type="concepts" ana="#concepts[127]" resp="#paper" cert="0.95">
+        <label>back-propagation-based techniques</label>
+        <term>back-propagation-based techniques</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t149" type="concepts" ana="#concepts[128]" resp="#paper" cert="0.95">
+        <label>score of confidence</label>
+        <term>score of confidence</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t150" type="concepts" ana="#concepts[129]" resp="#paper" cert="0.95">
+        <label>temperature scaling</label>
+        <term>temperature scaling</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t151" type="concepts" ana="#concepts[130]" resp="#paper" cert="0.95">
+        <label>incorporating new information into a plain DL model</label>
+        <term>incorporating new information into a plain DL model</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t152" type="concepts" ana="#concepts[131]" resp="#paper" cert="0.95">
+        <label>parameter pruning</label>
+        <term>parameter pruning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t153" type="concepts" ana="#concepts[132]" resp="#paper" cert="0.95">
+        <label>knowledge distillation</label>
+        <term>knowledge distillation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t154" type="concepts" ana="#concepts[133]" resp="#paper" cert="0.95">
+        <label>compact convolution filters</label>
+        <term>compact convolution filters</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t155" type="concepts" ana="#concepts[134]" resp="#paper" cert="0.95">
+        <label>low-rank factorization</label>
+        <term>low-rank factorization</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t156" type="concepts" ana="#concepts[135]" resp="#paper" cert="0.95">
+        <label>lack of training data</label>
+        <term>lack of training data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t157" type="concepts" ana="#concepts[136]" resp="#paper" cert="0.95">
+        <label>stress tests</label>
+        <term>stress tests</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t158" type="concepts" ana="#concepts[137]" resp="#paper" cert="0.95">
+        <label>classification</label>
+        <term>classification</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t159" type="concepts" ana="#concepts[138]" resp="#paper" cert="0.95">
+        <label>localization</label>
+        <term>localization</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t160" type="concepts" ana="#concepts[139]" resp="#paper" cert="0.95">
+        <label>detection</label>
+        <term>detection</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t161" type="concepts" ana="#concepts[140]" resp="#paper" cert="0.95">
+        <label>segmentation</label>
+        <term>segmentation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t162" type="concepts" ana="#concepts[141]" resp="#paper" cert="0.95">
+        <label>registration</label>
+        <term>registration</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t163" type="concepts" ana="#concepts[142]" resp="#paper" cert="0.95">
+        <label>Target Selection</label>
+        <term>Target Selection</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t164" type="concepts" ana="#concepts[143]" resp="#paper" cert="0.95">
+        <label>Feature Extraction</label>
+        <term>Feature Extraction</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t165" type="concepts" ana="#concepts[144]" resp="#paper" cert="0.95">
+        <label>Feature Matching</label>
+        <term>Feature Matching</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t166" type="concepts" ana="#concepts[145]" resp="#paper" cert="0.95">
+        <label>Pose Optimization</label>
+        <term>Pose Optimization</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t167" type="concepts" ana="#concepts[146]" resp="#paper" cert="0.95">
+        <label>CPU</label>
+        <term>CPU</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t168" type="concepts" ana="#concepts[147]" resp="#paper" cert="0.95">
+        <label>GPU</label>
+        <term>GPU</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t169" type="concepts" ana="#concepts[148]" resp="#paper" cert="0.95">
+        <label>FPGA</label>
+        <term>FPGA</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t170" type="concepts" ana="#concepts[149]" resp="#paper" cert="0.95">
+        <label>Accuracy</label>
+        <term>Accuracy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t171" type="concepts" ana="#concepts[150]" resp="#paper" cert="0.95">
+        <label>Sensitivity or Recall</label>
+        <term>Sensitivity or Recall</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t172" type="concepts" ana="#concepts[151]" resp="#paper" cert="0.95">
+        <label>Specificity</label>
+        <term>Specificity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t173" type="concepts" ana="#concepts[152]" resp="#paper" cert="0.95">
+        <label>Precision</label>
+        <term>Precision</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t174" type="concepts" ana="#concepts[153]" resp="#paper" cert="0.95">
+        <label>F1-Score</label>
+        <term>F1-Score</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t175" type="concepts" ana="#concepts[154]" resp="#paper" cert="0.95">
+        <label>J Score</label>
+        <term>J Score</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t176" type="concepts" ana="#concepts[155]" resp="#paper" cert="0.95">
+        <label>Youdens J statistic</label>
+        <term>Youdens J statistic</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t177" type="concepts" ana="#concepts[156]" resp="#paper" cert="0.95">
+        <label>Area Under the ROC Curve</label>
+        <term>Area Under the ROC Curve</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t178" type="concepts" ana="#concepts[157]" resp="#paper" cert="0.95">
+        <label>RNN category</label>
+        <term>RNN category</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t179" type="concepts" ana="#concepts[158]" resp="#paper" cert="0.95">
+        <label>increasing the stride value</label>
+        <term>increasing the stride value</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t180" type="concepts" ana="#concepts[159]" resp="#paper" cert="0.95">
+        <label>a feature map of lower dimensions</label>
+        <term>a feature map of lower dimensions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t181" type="concepts" ana="#concepts[160]" resp="#paper" cert="0.95">
+        <label>sub-sampling layers</label>
+        <term>sub-sampling layers</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t182" type="concepts" ana="#concepts[161]" resp="#paper" cert="0.95">
+        <label>a reduction in the network parameters</label>
+        <term>a reduction in the network parameters</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t183" type="concepts" ana="#concepts[162]" resp="#paper" cert="0.95">
+        <label>how confident the model is in its prediction</label>
+        <term>how confident the model is in its prediction</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t184" type="concepts" ana="#concepts[163]" resp="#paper" cert="0.95">
+        <label>overfitting problem</label>
+        <term>overfitting problem</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t185" type="concepts" ana="#concepts[164]" resp="#paper" cert="0.95">
+        <label>visual cortex</label>
+        <term>visual cortex</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t186" type="concepts" ana="#concepts[165]" resp="#paper" cert="0.95">
+        <label>exploding gradient and vanishing problems</label>
+        <term>exploding gradient and vanishing problems</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t187" type="concepts" ana="#concepts[166]" resp="#paper" cert="0.95">
+        <label>model compression</label>
+        <term>model compression</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t188" type="concepts" ana="#concepts[167]" resp="#paper" cert="0.95">
+        <label>DNN training</label>
+        <term>DNN training</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t189" type="concepts" ana="#concepts[168]" resp="#paper" cert="0.95">
+        <label>inference accelerators</label>
+        <term>inference accelerators</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t190" type="concepts" ana="#concepts[169]" resp="#paper" cert="0.95">
+        <label>Sensitivity</label>
+        <term>Sensitivity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t191" type="concepts" ana="#concepts[170]" resp="#paper" cert="0.95">
+        <label>Recall</label>
+        <term>Recall</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t192" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger" cert="0.95">
+        <label>CNN → visual cortex</label>
+        <note>CNN structure is described as inspired by visual-cortex organization; inspired-by is absent from the eight governed types. — the relation stated: Convolutional neural networks Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t193" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger" cert="0.95">
+        <label>LSTM → exploding gradient and vanishing problems</label>
+        <note>LSTM is presented as handling the recurrent network&#x27;s exploding/vanishing-gradient issue; mitigates is absent from the eight governed types. — the relation stated: Recurrent neural networks Typical unfolded RNN diagram Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t194" type="unhoused_relations" ana="#unhoused_relations[2]" resp="#tagger" cert="0.95">
+        <label>parameter pruning → model compression</label>
+        <note>Parameter pruning is one of four methods used for model compression; method-for is absent, and the prose does not support forcing an ontological part-of edge. — the relation stated: Model compression Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t195" type="unhoused_relations" ana="#unhoused_relations[3]" resp="#tagger" cert="0.95">
+        <label>knowledge distillation → model compression</label>
+        <note>Knowledge distillation trains a compact model from a larger model for compression; method-for is absent from the governed types. — the relation stated: Model compression Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t196" type="unhoused_relations" ana="#unhoused_relations[4]" resp="#tagger" cert="0.95">
+        <label>registration → Target Selection</label>
+        <note>Target Selection is the first named stage of image registration; stage-of is absent from the eight governed types. — the relation stated: Registration Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t197" type="unhoused_relations" ana="#unhoused_relations[5]" resp="#tagger" cert="0.95">
+        <label>registration → Pose Optimization</label>
+        <note>Pose Optimization is the distance-minimization stage of image registration; stage-of is absent from the eight governed types. — the relation stated: Registration Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t198" type="unhoused_relations" ana="#unhoused_relations[6]" resp="#tagger" cert="0.95">
+        <label>GPU → DNN training</label>
+        <note>The GPU is described as optimized for DNN training; optimized-for is absent from the eight governed types. — the relation stated: CPU-based approach Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t199" type="unhoused_relations" ana="#unhoused_relations[7]" resp="#tagger" cert="0.95">
+        <label>FPGA → inference accelerators</label>
+        <note>FPGAs are commonly used to implement inference accelerators; used-for is absent from the governed relation types. — the relation stated: FPGA-based approach Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t200" type="unhoused_relations" ana="#unhoused_relations[8]" resp="#tagger" cert="0.95">
+        <label>Sensitivity → Recall</label>
+        <note>Sensitivity and Recall are presented as alternate names for one metric; the slash/or naming construction lacks a governed same-as cue, so the alias is filed unhoused. — the relation stated: Evaluation metrics Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t201" type="unhoused_relations" ana="#unhoused_relations[9]" resp="#tagger" cert="0.95">
+        <label>CapsuleNet → CapsNet</label>
+        <note>CapsNet is the short form used for CapsuleNet; abbreviation expansion is absent from the eight governed types. — the relation stated: CapsuleNet Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t202" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>RL - REPRESENTATION LEARNING. Given in the introduction as another name for deep learning itself</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t203" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>RL - REINFORCEMENT LEARNING. Given 16,670 characters later as another name for deep reinforcement learning, a distinct technique the same paper classifies separately. Neither definition acknowledges the other</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t204" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>transfer learning - AS RECOMMENDED: enhances accuracy across pattern recognition and computer vision, and is the paper&#x27;s answer to insufficient training data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t205" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>transfer learning - AS MEASURED ACROSS DISSIMILAR DOMAINS: does not significantly affect performance, with models trained from scratch performing nearly as well. Same technique, opposite verdict, and the disambiguator is source-target similarity</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t206" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>Feature engineering versus deep representation learning - conventional ML constructs task-specific features manually, whereas DL extracts layered discriminative features automatically</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t207" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>Recurrent state - the hidden layer functions as short-term memory carrying information from earlier elements of a sequence</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t208" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>CNN locality - sparse local connections and shared weights exploit image structure while reducing parameter and memory requirements</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t209" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>Pooling trade-off - subsampling reduces parameters and computation but can discard the location of a detected feature</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t210" type="senses" ana="#senses[8]" resp="#tagger" cert="0.95">
+        <label>Activation-function family - ReLU reduces computation but can permanently deactivate neurons; leaky, noisy, and parametric variants modify that behavior</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t211" type="senses" ana="#senses[9]" resp="#tagger" cert="0.95">
+        <label>Fitting-state distinction - over-fitting fails on unseen data, under-fitting fails to learn enough, and just-fitting succeeds on both training and test sets</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t212" type="senses" ana="#senses[10]" resp="#tagger" cert="0.95">
+        <label>Dense connectivity - DenseNet concatenates all preceding feature maps, improving information flow at the cost of more feature maps and parameter expense</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t213" type="senses" ana="#senses[11]" resp="#tagger" cert="0.95">
+        <label>Uncertainty calibration - raw softmax probabilities may be overconfident and require post-scaling before they function as reliable confidence estimates</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t214" type="senses" ana="#senses[12]" resp="#tagger" cert="0.95">
+        <label>Compression taxonomy - parameter pruning, knowledge distillation, compact filters, and low-rank factorization reduce different sources of model cost</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t215" type="senses" ana="#senses[13]" resp="#tagger" cert="0.95">
+        <label>Application-task boundary - localization uses one bounding box, detection may use many, segmentation outlines pixels, and registration aligns images</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t216" type="senses" ana="#senses[14]" resp="#tagger" cert="0.95">
+        <label>Hardware specialization - CPU favors memory and generality, GPU favors parallel DNN training, and FPGA favors configurable low-latency inference</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t217" type="senses" ana="#senses[15]" resp="#tagger" cert="0.95">
+        <label>Metric-role distinction - evaluation metrics guide classifier selection during training and assess efficiency on hidden data during testing</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t218" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → existing DL review papers, each of which addresses a single application or topic and so leaves an overall lack of knowledge about the field</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t219" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>builds-on → the 2020 Google identification of underspecification as a distinct failure mode of ML pipelines</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t220" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>qualifies → transfer learning from ImageNet as the standard remedy for insufficient training data in medical imaging</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t221" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>DL —part-of→ ML</label>
+        <term>DL</term>
+        <term>ML</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.95 · the relation stated: deep learning is a subset of machine learning</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t222" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>representation learning —same-as→ RL</label>
+        <term>representation learning</term>
+        <term>RL</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 · the relation stated: given in apposition in the introduction</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t223" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>deep reinforcement learning —same-as→ RL</label>
+        <term>deep reinforcement learning</term>
+        <term>RL</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 · the relation stated: given as another name 16,670 characters later, for a different concept</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t224" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>TL —contrasted-with→ lightweight models trained from scratch</label>
+        <term>TL</term>
+        <term>lightweight models trained from scratch</term>
+        <note>differs in: performance on medical imaging tasks when source and target domains differ · the relation itself is separately evidenced · strength of the relation: 0.9 · differs in (stated by the tagger, no quotation): performance on medical imaging tasks when source and target domains differ · the relation stated: cross-domain transfer does not beat training from scratch on medical imaging</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t225" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">
+        <label>RNN —contrasted-with→ conventional networks</label>
+        <term>RNN</term>
+        <term>conventional networks</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The review explicitly contrasts recurrent use of sequential state with conventional networks.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t226" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.95">
+        <label>CNN —contrasted-with→ RNN</label>
+        <term>CNN</term>
+        <term>RNN</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper directly compares their power and feature compatibility.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t227" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">
+        <label>gated recurrent units (GRUs) —part-of→ RNN category</label>
+        <term>gated recurrent units (GRUs)</term>
+        <term>RNN category</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The RNN category is explicitly said to include GRUs.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t228" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.95">
+        <label>long short-term memory (LSTM) approaches —part-of→ RNN category</label>
+        <term>long short-term memory (LSTM) approaches</term>
+        <term>RNN category</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The RNN category is explicitly said to include LSTM approaches.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t229" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="0.95">
+        <label>convolutional filters —part-of→ convolutional layer</label>
+        <term>convolutional filters</term>
+        <term>convolutional layer</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The convolutional layer is stated to consist of a collection of filters.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t230" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.95">
+        <label>max pooling —part-of→ pooling methods</label>
+        <term>max pooling</term>
+        <term>pooling methods</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: Max pooling is explicitly included among pooling methods.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t231" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.95">
+        <label>global average pooling (GAP) —part-of→ pooling methods</label>
+        <term>global average pooling (GAP)</term>
+        <term>pooling methods</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: GAP is explicitly included among pooling methods.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t232" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.95">
+        <label>increasing the stride value —causes→ a feature map of lower dimensions</label>
+        <term>increasing the stride value</term>
+        <term>a feature map of lower dimensions</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The lower-dimensional map is stated to result from increasing stride.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t233" type="concept_edges" ana="#concept_edges[12]" resp="#tagger" cert="0.95">
+        <label>sub-sampling layers —causes→ a reduction in the network parameters</label>
+        <term>sub-sampling layers</term>
+        <term>a reduction in the network parameters</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: Down-sampling is stated to lead to fewer parameters.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t234" type="concept_edges" ana="#concept_edges[13]" resp="#tagger" cert="0.95">
+        <label>Cross-Entropy or Softmax Loss Function —same-as→ log loss function</label>
+        <term>Cross-Entropy or Softmax Loss Function</term>
+        <term>log loss function</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The review explicitly gives log loss as another name.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t235" type="concept_edges" ana="#concept_edges[14]" resp="#tagger" cert="0.95">
+        <label>Drop-Weights —contrasted-with→ Dropout</label>
+        <term>Drop-Weights</term>
+        <term>Dropout</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: Weights rather than neurons are dropped; the paper calls this the only difference.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but Drop-Weights is &#x27;highly similar to dropout&#x27;, differing in what is dropped; contrasted-with is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t236" type="concept_edges" ana="#concept_edges[15]" resp="#tagger" cert="0.95">
+        <label>Adam —is-a→ learning strategy</label>
+        <term>Adam</term>
+        <term>learning strategy</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper directly classifies Adam as a learning strategy.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t237" type="concept_edges" ana="#concept_edges[16]" resp="#tagger" cert="0.95">
+        <label>ResNet —contrasted-with→ highway network</label>
+        <term>ResNet</term>
+        <term>highway network</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The review contrasts ResNet&#x27;s always-open parameter-free shortcuts with highway gates.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t238" type="concept_edges" ana="#concept_edges[17]" resp="#tagger" cert="0.95">
+        <label>High-Resolution Network (HRNet) —same-as→ HRNet</label>
+        <term>High-Resolution Network (HRNet)</term>
+        <term>HRNet</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The long name is explicitly followed by the short name.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t239" type="concept_edges" ana="#concept_edges[18]" resp="#tagger" cert="0.95">
+        <label>catastrophic forgetting —operationalised-as→ incorporating new information into a plain DL model</label>
+        <term>catastrophic forgetting</term>
+        <term>incorporating new information into a plain DL model</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper gives an explicit definition. · the relation stated: Catastrophic forgetting Quotation withheld
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;This&#x27; = catastrophic forgetting (the heading immediately before); the definition is stated.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t240" type="concept_edges" ana="#concept_edges[19]" resp="#tagger" cert="0.95">
+        <label>score of confidence —operationalised-as→ how confident the model is in its prediction</label>
+        <term>score of confidence</term>
+        <term>how confident the model is in its prediction</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper explicitly defines the confidence score.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t241" type="concept_edges" ana="#concept_edges[20]" resp="#tagger" cert="0.95">
+        <label>FPGA —contrasted-with→ GPU</label>
+        <term>FPGA</term>
+        <term>GPU</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The processors are directly compared on floating-point performance and configuration.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t242" type="concept_edges" ana="#concept_edges[21]" resp="#tagger" cert="0.95">
+        <label>J Score —same-as→ Youdens J statistic</label>
+        <term>J Score</term>
+        <term>Youdens J statistic</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper explicitly states the alternate metric name.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t243" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>transfer learning from a dissimilar domain does not significantly affect medical imaging performance; models trained from scratch do nearly as well</label>
+        <term>transfer learning from a dissimilar domain does not significantly affect medical imaging performance; models trained from scratch do nearly as well</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t244" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>underspecification means small modifications force a model toward a completely different solution and different deployment predictions</label>
+        <term>underspecification means small modifications force a model toward a completely different solution and different deployment predictions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t245" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the remedy proposed for underspecification requires already understanding how the model can fail</label>
+        <term>the remedy proposed for underspecification requires already understanding how the model can fail</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t246" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>CNN performance is greatly influenced by hyper-parameter selection; any small change affects it.</label>
+        <term>CNN performance is greatly influenced by hyper-parameter selection; any small change affects it.</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t247" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>most current deep-learning models still use supervised learning despite the stated transition toward semi- and unsupervised methods</label>
+        <term>most current deep-learning models still use supervised learning despite the stated transition toward semi- and unsupervised methods</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t248" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>a ranking-type metric that, in contrast to probability and threshold metrics, exposes the entire classifier ranking performance</label>
+        <term>AUC</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t249" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>a subset of ML, inspired by the information processing patterns of the human brain, which requires no human-designed rules and maps input to labels from data</label>
+        <term>DL</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t250" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>only a few weights between two adjacent layers, against fully connected networks where every neuron links to every neuron in the next layer</label>
+        <term>Sparse Connectivity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t251" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">
+        <label>no weights allocated between any two neurons of neighbouring layers; one set of weights operates over every pixel of the input matrix</label>
+        <term>Weight Sharing</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t252" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger" cert="0.95">
+        <label>neurons randomly dropped during each training epoch, distributing feature-selection power across the whole group and forcing independent features</label>
+        <term>Dropout</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t253" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger" cert="0.85">
+        <label>incorporating new information into a plain DL model by interfering with the learned information - fine-tuning on a new class breaks the old ones</label>
+        <term>catastrophic forgetting</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t254" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger" cert="0.95">
+        <label>the reason ML models show surprisingly poor behaviour when tested in real-world applications despite passing their own validation</label>
+        <term>underspecification</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t255" type="content_tags" ana="#content_tags.definitions[7]" resp="#tagger" cert="0.95">
+        <label>using images that look similar to the target dataset for training - e.g. X-rays of other chest diseases before fine-tuning on COVID-19 chest X-rays</label>
+        <term>Same-domain TL</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t256" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>papers reviewed from 2020, of more than 300 total</label>
+        <term>108</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t257" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the floor on the number of papers reviewed</label>
+        <term>300</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t258" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>AUC</label>
+        <term>AUC</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t259" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>Sensitivity or Recall</label>
+        <term>Sensitivity or Recall</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t260" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
+        <label>Specificity</label>
+        <term>Specificity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t261" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>hyper-parameter selection</label>
+        <term>hyper-parameter selection</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t262" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>amount of data</label>
+        <term>amount of data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1186/s40537-021-00444-8.</note></p>
+    </body>
+  </text>
+</TEI>

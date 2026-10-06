@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Efficient Estimation of Word Representations in Vector Space</title>
+        <author>Tomas Mikolov</author>
+        <author>Kai Chen</author>
+        <author>Greg Corrado</author>
+        <author>Jeffrey Dean</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Efficient Estimation of Word Representations in Vector Space</title>
+          <date>2013</date>
+          <publisher>ICLR Workshop</publisher>
+          
+          <idno type="arXiv">1301.3781</idno>
+          <idno type="record">mikolov2013-word2vec</idno>
+          <note type="staged-file">mikolov2013-word2vec.txt, the project's staged copy</note>
+          <note type="text-sha1">1bc408302c036b05aa2d5c99878a5f30d44ecb64</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>linguistics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>distributed vector representations of words (word embeddings)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>learn distributed word vectors with a shallow model - CBOW predicts a word from its context, skip-gram predicts the context from the word - so words in similar contexts get similar vectors</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>for many languages the available training corpora are only a few billion words or less (a data constraint)</label>
+        <note>what this limits: the results for lower-resource languages: Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The exact-match accuracy metric makes 100% unreachable because the models have no morphological information and synonyms count as errors.</label>
+        <note>what this limits: the accuracy figures against their own ceiling: REACHING 100% ACCURACY IS LIKELY TO BE IMPOSSIBLE, AS THE CURRENT MODELS DO NOT HAVE ANY INPUT INFORMATION ABOUT WORD MORPHOLOGY</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The test set excludes multi-word entities.</label>
+        <note>what this limits: everything the evaluation can speak about: WE HAVE INCLUDED IN OUR TEST SET ONLY SINGLE TOKEN WORDS, THUS MULTI-WORD ENTITIES ARE NOT PRESENT (SUCH AS NEW YORK) - what falls outside is invisible, not wrong</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>Relationship accuracy in the qualitative examples still leaves much room for improvement.</label>
+        <note>what this limits: the qualitative relationship examples: ACCURACY IS QUITE GOOD, ALTHOUGH THERE IS CLEARLY A LOT OF ROOM FOR FURTHER IMPROVEMENTS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>On the Microsoft Sentence Completion Challenge the Skip-gram model alone is worse than LSA similarity; it only wins in combination with RNNLMs.</label>
+        <note>what this limits: the Sentence Completion result specifically: THE SKIP-GRAM MODEL ITSELF DOES NOT PERFORM ON THIS TASK BETTER THAN LSA SIMILARITY - it contributes only in combination</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The benchmark&#x27;s question count is combinatorial: questions are formed by pairing items from short hand-made lists, so the number of questions is far larger than the number of independent facts being tested.</label>
+        <note>what this limits: the size of this test set as a measure of evidence: a list of 68 hand-listed American cities and their states was expanded into about 2,500 questions by pairing entries at random, so questions within a category are not independent of one another</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>In the semantic half of a semantic benchmark, a correct-meaning answer is scored wrong unless it is the exact expected token.</label>
+        <note>what this limits: any accuracy figure from this test set: the answer must be the exact expected token, and synonyms are counted as mistakes</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The connection between the benchmark and any practical use is asserted as a belief, not shown.</label>
+        <note>what this limits: this accuracy as evidence that the vectors are useful: the authors state a belief that usefulness for certain applications should be positively correlated with the metric</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>distributed vector representations of words, taken from neural language models into large-scale computational linguistics and simplified until they could be trained on billions of words</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the same data used to train a previously published recurrent neural network language model, kept as the comparison point</label>
+        <note>eliminates: a speed or quality gain that comes from a different or larger corpus rather than from the model - the RNNLM baseline saw the same data · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="concepts" ana="#concepts[2]" resp="#paper">
+        <label>skip-gram</label>
+        <term>skip-gram</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>word vectors</label>
+        <term>word vectors</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>cosine distance</label>
+        <term>cosine distance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>CBOW</label>
+        <term>CBOW</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>semantic - AS FIVE HAND-CHOSEN RELATION TYPES: the semantic half of the test set is five relations (common capital city, all capital cities, currency, city-in-state, Man-Woman), so &#x27;captures semantics&#x27; means &#x27;answers analogies of those five kinds&#x27;</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>similarity - AS COSINE DISTANCE AFTER A VECTOR OFFSET, with the three input words removed from the search, so the answer is the nearest remaining word rather than the nearest word</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>the analogy relation - AS ARITHMETIC ON VECTORS: a relation between two words is the difference of their vectors, and it is applied to a third word by addition</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → neural-network language models</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → the two-step NNLM architecture of [13, 14]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the authors&#x27; earlier two-step word-vector training work [13, 14]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>builds-on → the model-complexity comparison framework of [18]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>CBOW —contrasted-with→ Skip-gram</label>
+        <term>CBOW</term>
+        <term>Skip-gram</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>1.6 billion — training corpus size; high-quality vectors learned in under a day</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>&lt; 1 day — training time for high-quality word vectors</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>The learned vectors capture linear regularities: vector(King) - vector(Man) + vector(Woman) is closest to vector(Queen).</label>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>model architecture</label>
+        <term>model architecture</term>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>Continuous Bag-of-Words</label>
+        <term>Continuous Bag-of-Words</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>Continuous Skip-gram Model</label>
+        <term>Continuous Skip-gram Model</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>correlation</label>
+        <term>correlation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/1301.3781.</note></p>
+    </body>
+  </text>
+</TEI>

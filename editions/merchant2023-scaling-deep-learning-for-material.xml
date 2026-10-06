@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Scaling deep learning for materials discovery</title>
+        <author>Amil Merchant</author>
+        <author>Simon Batzner</author>
+        <author>Samuel S. Schoenholz</author>
+        <author>Muratahan Aykol</author>
+        <author>Gowoon Cheon</author>
+        <author>Ekin D. Cubuk</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Scaling deep learning for materials discovery</title>
+          <date>2023</date>
+          <publisher>Nature</publisher>
+          <idno type="DOI">10.1038/s41586-023-06735-9</idno>
+          
+          <idno type="record">merchant2023-scaling-deep-learning-for-material</idno>
+          <note type="staged-file">merchant2023-scaling-deep-learning-for-material.txt, the project's staged copy</note>
+          <note type="text-sha1">e406ead7f08e8bb9543f1d540668f0df52bc0f80</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>materials-science</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>inorganic crystal structures and whether a graph neural network can predict which are thermodynamically stable</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether machine learning can estimate stability against the convex hull accurately enough to guide discovery, which prior methods could not</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>2.2 million structures stable with respect to the Materials Project, of which 381,000 sit on the updated convex hull, plus learned interatomic potentials from the resulting dataset</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>existence</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>emergent out-of-distribution generalisation in a graph network trained at scale</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>DFT verifies the model&#x27;s filtered candidates and the verified results become the next round&#x27;s training data, so the same computation both audits the model and improves it</label>
+        <term>the data flywheel</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>prediction quality improves as a power law in the amount of data, matching what has been observed in language and vision rather than being specific to materials</label>
+        <term>power-law scaling of prediction error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the discovered materials can themselves be bumped off the convex hull by future work - stability is a claim about a catalogue at a moment</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the experimental-match count is a lower bound, because the compositional match is enforced strictly</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the matching answer moves by about 100 structures depending on parser and matcher tolerance settings</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the discovery functional was chosen for a speed-accuracy trade-off rather than accuracy, and 84% rather than 100% survive the more accurate one</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>neural scaling laws, carried from language and vision into materials-stability prediction</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>recomputation under the more accurate r2SCAN functional, to test whether discovery overfitted the cheaper PBE one</label>
+        <note>eliminates: a discovery set that exists only under the cheap functional it was searched with · outcome: partial</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>an explicit check that model-based exploration did not overfit the simulation parameters</label>
+        <note>eliminates: model-based exploration finding materials that are artefacts of the simulation parameters it was trained against · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>matching against crystals experimentally realised by other groups after the training snapshot</label>
+        <note>eliminates: a match rate inflated by structures the model could have seen, since these were realised experimentally after the training snapshot · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>comparison against compositions added to the Materials Project after the March 2021 snapshot</label>
+        <note>eliminates: a match rate computed only against the database the model was trained on · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>a sensitivity check on the parser and matcher tolerances used to count experimental matches</label>
+        <note>eliminates: an experimental match count that exists only at one parser and matcher tolerance setting · outcome: partial</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>convex hull</label>
+        <term>convex hull</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>decomposition energy</label>
+        <term>decomposition energy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>hit rate</label>
+        <term>hit rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>active learning</label>
+        <term>active learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>GNoME</label>
+        <term>GNoME</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>Materials Project</label>
+        <term>Materials Project</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>r2SCAN</label>
+        <term>r2SCAN</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>experimental match</label>
+        <term>experimental match</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>prototypes</label>
+        <term>prototypes</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>graph networks trained at scale</label>
+        <term>graph networks trained at scale</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>efficiency of materials discovery</label>
+        <term>efficiency of materials discovery</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>human chemical intuition</label>
+        <term>human chemical intuition</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>learned interatomic potentials</label>
+        <term>learned interatomic potentials</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>condensed-phase molecular-dynamics simulations</label>
+        <term>condensed-phase molecular-dynamics simulations</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>zero-shot prediction of ionic conductivity</label>
+        <term>zero-shot prediction of ionic conductivity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>large-scale active learning</label>
+        <term>large-scale active learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>first models that accurately predict stability</label>
+        <term>first models that accurately predict stability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>diverse candidate structures</label>
+        <term>diverse candidate structures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>symmetry-aware partial substitutions (SAPS)</label>
+        <term>symmetry-aware partial substitutions (SAPS)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>random structure search</label>
+        <term>random structure search</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">
+        <label>graph neural networks (GNNs)</label>
+        <term>graph neural networks (GNNs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">
+        <label>material properties</label>
+        <term>material properties</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">
+        <label>candidate structures</label>
+        <term>candidate structures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">
+        <label>filtered candidates</label>
+        <term>filtered candidates</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.95">
+        <label>DFT</label>
+        <term>DFT</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="concepts" ana="#concepts[25]" resp="#paper" cert="0.95">
+        <label>data flywheel</label>
+        <term>data flywheel</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="concepts" ana="#concepts[26]" resp="#paper" cert="0.95">
+        <label>more robust models</label>
+        <term>more robust models</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="concepts" ana="#concepts[27]" resp="#paper" cert="0.95">
+        <label>larger datasets</label>
+        <term>larger datasets</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="concepts" ana="#concepts[28]" resp="#paper" cert="0.95">
+        <label>model-based filtration and DFT</label>
+        <term>model-based filtration and DFT</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="concepts" ana="#concepts[29]" resp="#paper" cert="0.95">
+        <label>predictions</label>
+        <term>predictions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="concepts" ana="#concepts[30]" resp="#paper" cert="0.95">
+        <label>structural candidates</label>
+        <term>structural candidates</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="concepts" ana="#concepts[31]" resp="#paper" cert="0.95">
+        <label>ionic substitution probabilities</label>
+        <term>ionic substitution probabilities</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="concepts" ana="#concepts[32]" resp="#paper" cert="0.95">
+        <label>incomplete replacements</label>
+        <term>incomplete replacements</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="concepts" ana="#concepts[33]" resp="#paper" cert="0.95">
+        <label>volume-based test-time augmentation</label>
+        <term>volume-based test-time augmentation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="concepts" ana="#concepts[34]" resp="#paper" cert="0.95">
+        <label>uncertainty quantification through deep ensembles</label>
+        <term>uncertainty quantification through deep ensembles</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="concepts" ana="#concepts[35]" resp="#paper" cert="0.95">
+        <label>polymorphs</label>
+        <term>polymorphs</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="concepts" ana="#concepts[36]" resp="#paper" cert="0.95">
+        <label>compositional models</label>
+        <term>compositional models</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="concepts" ana="#concepts[37]" resp="#paper" cert="0.95">
+        <label>reduced chemical formulas</label>
+        <term>reduced chemical formulas</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="concepts" ana="#concepts[38]" resp="#paper" cert="0.95">
+        <label>oxidation-state balancing</label>
+        <term>oxidation-state balancing</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="concepts" ana="#concepts[39]" resp="#paper" cert="0.95">
+        <label>relaxed constraints</label>
+        <term>relaxed constraints</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="concepts" ana="#concepts[40]" resp="#paper" cert="0.95">
+        <label>ab initio random structure searching (AIRSS)</label>
+        <term>ab initio random structure searching (AIRSS)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="concepts" ana="#concepts[41]" resp="#paper" cert="0.95">
+        <label>relative stability (decomposition energy)</label>
+        <term>relative stability (decomposition energy)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="concepts" ana="#concepts[42]" resp="#paper" cert="0.95">
+        <label>Vienna Ab initio Simulation Package (VASP)</label>
+        <term>Vienna Ab initio Simulation Package (VASP)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="concepts" ana="#concepts[43]" resp="#paper" cert="0.95">
+        <label>number of stable materials discovered</label>
+        <term>number of stable materials discovered</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="concepts" ana="#concepts[44]" resp="#paper" cert="0.95">
+        <label>total energy of a crystal</label>
+        <term>total energy of a crystal</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="concepts" ana="#concepts[45]" resp="#paper" cert="0.95">
+        <label>one-hot embedding of the elements</label>
+        <term>one-hot embedding of the elements</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="concepts" ana="#concepts[46]" resp="#paper" cert="0.95">
+        <label>message-passing formulation</label>
+        <term>message-passing formulation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="concepts" ana="#concepts[47]" resp="#paper" cert="0.95">
+        <label>shallow multilayer perceptrons (MLPs)</label>
+        <term>shallow multilayer perceptrons (MLPs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="concepts" ana="#concepts[48]" resp="#paper" cert="0.95">
+        <label>swish nonlinearities</label>
+        <term>swish nonlinearities</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="concepts" ana="#concepts[49]" resp="#paper" cert="0.95">
+        <label>average adjacency of atoms</label>
+        <term>average adjacency of atoms</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="concepts" ana="#concepts[50]" resp="#paper" cert="0.95">
+        <label>mean absolute error (MAE)</label>
+        <term>mean absolute error (MAE)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="concepts" ana="#concepts[51]" resp="#paper" cert="0.95">
+        <label>test loss performance</label>
+        <term>test loss performance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="concepts" ana="#concepts[52]" resp="#paper" cert="0.95">
+        <label>power law with further data</label>
+        <term>power law with further data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t71" type="concepts" ana="#concepts[53]" resp="#paper" cert="0.95">
+        <label>neural scaling laws</label>
+        <term>neural scaling laws</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t72" type="concepts" ana="#concepts[54]" resp="#paper" cert="0.95">
+        <label>out-of-distribution tasks</label>
+        <term>out-of-distribution tasks</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t73" type="concepts" ana="#concepts[55]" resp="#paper" cert="0.95">
+        <label>high-energy local minima</label>
+        <term>high-energy local minima</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t74" type="concepts" ana="#concepts[56]" resp="#paper" cert="0.95">
+        <label>universal energy predictor</label>
+        <term>universal energy predictor</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t75" type="concepts" ana="#concepts[57]" resp="#paper" cert="0.95">
+        <label>ionic relaxations</label>
+        <term>ionic relaxations</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t76" type="concepts" ana="#concepts[58]" resp="#paper" cert="0.95">
+        <label>first-principles energies and forces</label>
+        <term>first-principles energies and forces</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t77" type="concepts" ana="#concepts[59]" resp="#paper" cert="0.95">
+        <label>general-purpose machine-learning interatomic potential (MLIP)</label>
+        <term>general-purpose machine-learning interatomic potential (MLIP)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t78" type="concepts" ana="#concepts[60]" resp="#paper" cert="0.95">
+        <label>bulk solids</label>
+        <term>bulk solids</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t79" type="concepts" ana="#concepts[61]" resp="#paper" cert="0.95">
+        <label>ab initio molecular dynamics (AIMD)</label>
+        <term>ab initio molecular dynamics (AIMD)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t80" type="concepts" ana="#concepts[62]" resp="#paper" cert="0.95">
+        <label>general applicability and adoption</label>
+        <term>general applicability and adoption</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t81" type="concepts" ana="#concepts[63]" resp="#paper" cert="0.95">
+        <label>large-scale pretraining of MLIPs</label>
+        <term>large-scale pretraining of MLIPs</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t82" type="concepts" ana="#concepts[64]" resp="#paper" cert="0.95">
+        <label>unprecedented zero-shot accuracy</label>
+        <term>unprecedented zero-shot accuracy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t83" type="concepts" ana="#concepts[65]" resp="#paper" cert="0.95">
+        <label>superionic conductors</label>
+        <term>superionic conductors</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t84" type="concepts" ana="#concepts[66]" resp="#paper" cert="0.95">
+        <label>material-specific data</label>
+        <term>material-specific data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t85" type="concepts" ana="#concepts[67]" resp="#paper" cert="0.95">
+        <label>increasing the pretraining dataset</label>
+        <term>increasing the pretraining dataset</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t86" type="concepts" ana="#concepts[68]" resp="#paper" cert="0.95">
+        <label>power-law improvements in accuracy</label>
+        <term>power-law improvements in accuracy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t87" type="concepts" ana="#concepts[69]" resp="#paper" cert="0.95">
+        <label>pretrained GNoME potential</label>
+        <term>pretrained GNoME potential</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t88" type="concepts" ana="#concepts[70]" resp="#paper" cert="0.95">
+        <label>unseen compositions</label>
+        <term>unseen compositions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t89" type="concepts" ana="#concepts[71]" resp="#paper" cert="0.95">
+        <label>melted structures</label>
+        <term>melted structures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t90" type="concepts" ana="#concepts[72]" resp="#paper" cert="0.95">
+        <label>structures including vacancies</label>
+        <term>structures including vacancies</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t91" type="concepts" ana="#concepts[73]" resp="#paper" cert="0.95">
+        <label>transferability of MLIPs</label>
+        <term>transferability of MLIPs</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t92" type="concepts" ana="#concepts[74]" resp="#paper" cert="0.95">
+        <label>potential pretrained on GNoME data</label>
+        <term>potential pretrained on GNoME data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t93" type="concepts" ana="#concepts[75]" resp="#paper" cert="0.95">
+        <label>potential trained from scratch</label>
+        <term>potential trained from scratch</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t94" type="concepts" ana="#concepts[76]" resp="#paper" cert="0.95">
+        <label>GNoME-pretrained</label>
+        <term>GNoME-pretrained</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t95" type="concepts" ana="#concepts[77]" resp="#paper" cert="0.95">
+        <label>randomly initialized potential</label>
+        <term>randomly initialized potential</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t96" type="concepts" ana="#concepts[78]" resp="#paper" cert="0.95">
+        <label>distribution shift</label>
+        <term>distribution shift</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t97" type="concepts" ana="#concepts[79]" resp="#paper" cert="0.95">
+        <label>stable crystals</label>
+        <term>stable crystals</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t98" type="concepts" ana="#concepts[80]" resp="#paper" cert="0.95">
+        <label>identically distributed data at train and test times</label>
+        <term>identically distributed data at train and test times</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t99" type="concepts" ana="#concepts[81]" resp="#paper" cert="0.95">
+        <label>out-of-distribution effort</label>
+        <term>out-of-distribution effort</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t100" type="concepts" ana="#concepts[82]" resp="#paper" cert="0.95">
+        <label>emergent out-of-distribution capabilities</label>
+        <term>emergent out-of-distribution capabilities</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t101" type="concepts" ana="#concepts[83]" resp="#paper" cert="0.95">
+        <label>unseen chemical spaces</label>
+        <term>unseen chemical spaces</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t102" type="concepts" ana="#concepts[84]" resp="#paper" cert="0.95">
+        <label>kinetic properties</label>
+        <term>kinetic properties</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t103" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger" cert="0.95">
+        <label>graph neural networks (GNNs) → candidate structures</label>
+        <note>GNoME graph networks are used to filter candidate structures. Used-to-filter is absent from the eight types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t104" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger" cert="0.95">
+        <label>DFT → model predictions</label>
+        <note>DFT verifies the model predictions. Verifies is absent from the eight types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t105" type="unhoused_relations" ana="#unhoused_relations[2]" resp="#tagger" cert="0.95">
+        <label>GNoME dataset → general-purpose machine-learning interatomic potential (MLIP)</label>
+        <note>The GNoME dataset enables pretraining a general-purpose MLIP. Enablement is absent from the eight types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t106" type="unhoused_relations" ana="#unhoused_relations[3]" resp="#tagger" cert="0.95">
+        <label>final GNoME models → universal energy predictor</label>
+        <note>Final GNoME models are a substantial step toward a universal energy predictor. Progress-toward is absent from the eight types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t107" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>&#x27;stable&#x27; sense 1 = below the convex hull OF A PRIOR CATALOGUE - 2.2 million structures</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t108" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>&#x27;stable&#x27; sense 2 = ON the UPDATED convex hull after this work - 381,000 entries, six times fewer</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t109" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>stability is REVOCABLE: these materials can be bumped off the hull by future discoveries, exactly as this work bumps off 5,000 others</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t110" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>&#x27;meaningfully stable&#x27; = distributed like known stable phases, not merely filling gaps in the hull</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t111" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>&#x27;experimental match&#x27; = integer-rounded composition match AND a pymatgen structure match, declared a lower bound</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t112" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>GNoME discovery flywheel - generate candidates, filter with GNNs, verify energies with DFT, and reuse results as next-round training data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t113" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>Structural framework - modify known crystals, expand substitutions with SAPS, quantify uncertainty, cluster polymorphs, and rank for DFT</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t114" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>Compositional framework - predict from reduced formulas, relax oxidation constraints, filter compositions, and initialize AIRSS structures</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t115" type="senses" ana="#senses[8]" resp="#tagger" cert="0.95">
+        <label>GNoME graph model - element embeddings and message passing predict total crystal energy</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t116" type="senses" ana="#senses[9]" resp="#tagger" cert="0.95">
+        <label>Scaling law - GNoME test loss improves by a power law as training data increase</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t117" type="senses" ana="#senses[10]" resp="#tagger" cert="0.95">
+        <label>Universal energy predictor - model handling diverse material structures including random-search inputs outside the training distribution</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t118" type="senses" ana="#senses[11]" resp="#tagger" cert="0.95">
+        <label>General-purpose MLIP - potential pretrained on diverse ionic-relaxation energies and forces for zero-shot bulk-solid use</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t119" type="senses" ana="#senses[12]" resp="#tagger" cert="0.95">
+        <label>Zero-shot evaluation - pretrained potential applied to unseen compositions, melted structures, vacancies, and AIMD data without AIMD training</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t120" type="alternatives" ana="#alternatives.claim_type" resp="#tagger" cert="0.7">
+        <label>claim_type: method</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: existence — note: A BLIND second reading by the project on 2026-08-25: the record&#x27;s own claim type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no alternatives block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is).,</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t121" type="alternatives" ana="#alternatives.method" resp="#tagger" cert="0.8">
+        <label>method: system-or-tool-building</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: system-or-tool-building — note: A BLIND second reading by the project on 2026-08-25: the record&#x27;s own claim type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no alternatives block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is).,</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t122" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger" cert="0.85">
+        <label>phenomenon: discovery of energetically stable inorganic crystal structures at a scale experiment cannot reach</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: emergent out-of-distribution generalisation in a graph network trained at scale — note: A BLIND second reading by the project on 2026-08-25: the record&#x27;s own claim type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no alternatives block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is).,</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t123" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>contradicts → the prior position that machine learning cannot estimate stability against the convex hull</label>
+        <note>note: the paper states that position as the state of the art it overturns, and the hit-rate figures are what it offers against it</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t124" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → the Materials Project, OQMD, AFLOWLIB and NOMAD catalogues of computationally stable structures</label>
+        <note>note: extends by an order of magnitude AND revises downward - at least 5,000 of their entries are displaced</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t125" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>GNoME —contrasted-with→ Materials Project</label>
+        <term>GNoME</term>
+        <term>Materials Project</term>
+        <note>differs in: scale, and the direction of revision - GNoME removes at least 5,000 entries the Materials Project called stable · strength of the relation: 0.95
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span says GNoME displaces some &#x27;stable&#x27; materials from the Materials Project; contrasted-with is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t126" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>active learning —causes→ hit rate</label>
+        <term>active learning</term>
+        <term>hit rate</term>
+        <note>direction on the measure: increases · strength of the relation: 0.85 · direction on the measure (stated by the tagger, no quotation): increases</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t127" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>graph networks trained at scale —causes→ efficiency of materials discovery</label>
+        <term>graph networks trained at scale</term>
+        <term>efficiency of materials discovery</term>
+        <note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 1 · note: Scaled graph networks improve discovery efficiency by an order of magnitude.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t128" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">
+        <label>large-scale active learning —causes→ first models that accurately predict stability</label>
+        <term>large-scale active learning</term>
+        <term>first models that accurately predict stability</term>
+        <note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 1 · note: The paper says large-scale active learning yields the first accurate stability models.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t129" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.95">
+        <label>model-based filtration and DFT —causes→ predictions</label>
+        <term>model-based filtration and DFT</term>
+        <term>predictions</term>
+        <note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 1 · note: The combined filtration/DFT flywheel is stated to improve predictions.
+Audit 2026-09-28: DOUBTFUL - read against its span and kept, but filtration and DFT generate candidates; causes &#x27;predictions&#x27; is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t130" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.95">
+        <label>increasing the pretraining dataset —causes→ power-law improvements in accuracy</label>
+        <term>increasing the pretraining dataset</term>
+        <term>power-law improvements in accuracy</term>
+        <note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 1 · note: Increasing pretraining scale produces consistent power-law accuracy improvements.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t131" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="0.95">
+        <label>GNoME-pretrained —contrasted-with→ randomly initialized potential</label>
+        <term>GNoME-pretrained</term>
+        <term>randomly initialized potential</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The figure compares pretrained and randomly initialized potentials under distribution shift.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t132" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.95">
+        <label>potential pretrained on GNoME data —causes→ transferability of MLIPs</label>
+        <term>potential pretrained on GNoME data</term>
+        <term>transferability of MLIPs</term>
+        <note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 1 · note: The pretrained potential shows systematic, strong transferability improvements over training from scratch.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t133" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.95">
+        <label>graph neural networks (GNNs) —causes→ stable crystals</label>
+        <term>graph neural networks (GNNs)</term>
+        <term>stable crystals</term>
+        <note>direction on the measure: increases · the relation itself is separately evidenced · strength of the relation: 1 · note: Large, diverse first-principles training increases stable-crystal discovery by more than an order of magnitude.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span writes &#x27;GNNs&#x27;; endpoint abbreviated.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t134" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>GNoME found 2.2 million structures stable relative to the Materials Project, of which 381,000 lie on the updated convex hull.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t135" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>this work removes at least 5,000 entries that two prior catalogues had called stable</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t136" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>the networks generalise to structures with 5+ unique elements although such structures were omitted from training</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t137" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>the discovered materials are distributed like known stable phases rather than merely filling gaps in the hull</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t138" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>convex hull</label>
+        <term>convex hull</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t139" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>hit rate</label>
+        <term>hit rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t140" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>experimental match</label>
+        <term>experimental match</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t141" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>2.2 million structures stable with respect to the Materials Project; 381,000 on the updated hull — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t142" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>at least 5,000 previously &#x27;stable&#x27; materials displaced from the Materials Project and OQMD — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t143" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>energies predicted to 11 meV per atom; hit rate above 80% with structure, 33% per 100 trials with composition, against 1% before — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t144" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger" cert="0.95">
+        <label>736 of the ICSD&#x27;s experimental structures match GNoME discoveries; 184 are novel since the project began — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t145" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger" cert="0.95">
+        <label>4,235 composition matches narrowed to 4,180 parsed and then to 736 — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t146" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger" cert="0.95">
+        <label>84% of binaries and ternaries and 86.8% of quaternaries survive r2SCAN — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t147" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger" cert="0.95">
+        <label>45,500 novel prototypes, a 5.6 times increase on the Materials Project&#x27;s 8,000 — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t148" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger" cert="0.95">
+        <label>layered materials rise from about 1,000 to about 52,000 — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t149" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger" cert="0.95">
+        <label>the ICSD holds 20,000 computationally stable structures out of 200,000 entries — None</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t150" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>power-law improvement of test loss with data</label>
+        <term>power-law improvement of test loss with data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t151" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>precision of stable predictions, reported as a hit rate</label>
+        <term>precision of stable predictions, reported as a hit rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t152" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>decomposition energy</label>
+        <term>decomposition energy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t153" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>hit rate</label>
+        <term>hit rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1038/s41586-023-06735-9.</note></p>
+    </body>
+  </text>
+</TEI>

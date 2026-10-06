@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>xCell: digitally portraying the tissue cellular heterogeneity landscape</title>
+        <author>Dvir Aran</author>
+        <author>Zicheng Hu</author>
+        <author>Atul J. Butte</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>xCell: digitally portraying the tissue cellular heterogeneity landscape</title>
+          <date>2017</date>
+          <publisher>Genome biology</publisher>
+          <idno type="DOI">10.1186/s13059-017-1349-1</idno>
+          
+          <idno type="record">aran2017-xcell-digitally-portraying-the-tis</idno>
+          <note type="staged-file">aran2017-xcell-digitally-portraying-the-tis.txt, the project's staged copy</note>
+          <note type="text-sha1">6bf7a0f2984e3e44e3d6725310cdcd03bada5313</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>biology</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>inferring which cell types are present in a tissue from its bulk gene expression - and how far such an inference can be trusted</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether enrichment scores can be made comparable across cell types and freed of the correlation between closely related ones, which is what signature methods could not previously do</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>xCell - 489 signatures for 64 cell types chosen on held-out data, a power-law calibration onto a common scale, a spillover compensation borrowed from flow cytometry, and a null distribution for absence</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>a measurement that returns a non-zero score for cell types that are not in the sample, and scores that look like proportions without being them</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>closely related cell types share marker genes, so a signature for one is partly satisfied by the other - formally the same problem as fluorophores whose emission spectra overlap, and correctable by the same device, a compensation matrix estimated from mixtures where the true answer is known</label>
+        <term>spectral overlap as a statistical analogy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>before compensation each cell type&#x27;s score is computed alone, so one wrong inference cannot contaminate the rest; the correction couples them, which is exactly the property that makes deconvolution fragile - the paper accepts a limited amount of it and says how limited</label>
+        <term>compensation trading independence for separability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>a signature returns a score for any input, so a cell type absent from the mixture still receives one; only a null distribution built from mixtures that exclude it can say whether the score means presence</label>
+        <term>unbounded scores for absent cell types</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>signatures are learned from cells isolated and profiled alone, and applied to cells sitting in tissue; if marker expression differs between those two states the method is calibrated on a population it never meets</label>
+        <term>purified profiles differing from the same cells in a mixture</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the outputs are enrichment scores and cannot be interpreted as proportions, although they are calibrated to resemble them</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>every method, this one included, performs significantly better on simulated mixtures than on real ones, and the real-data correlations are called far from perfect</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>56.4% of scores for cell types absent from a test mixture were non-negligible; the significance test brings that to 28.8% and costs 13.5 points of the true positives</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>the spillover correction removes the independence between cell type inferences that was the signature approach&#x27;s main protection - limited, and the authors say so</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>on CD8+ T cells the method is beaten by using CD8A expression alone, with the caveat that the single gene may not be reliable in cancer</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.85">
+        <label>for five cell types the null distribution degenerated to zero and was replaced by a hand-set constant of 0.001</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>spillover compensation, carried from flow cytometry - where fluorophore emission spectra overlap - into gene signature scoring, where marker genes overlap</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
+        <label>null-distribution fitting for a presence test, carried from statistical hypothesis testing to ask whether a cell type is in a mixture at all</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>signatures selected only if they hold up in a data source they were NOT trained on</label>
+        <note>eliminates: overfitting to the source a signature was learned from as the explanation of its performance - the reliance on reference data that the paper names as the first of the field&#x27;s seven problems · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>simulated mixtures built from an independent data source never used in development (GSE60424), scored before and after spillover compensation</label>
+        <note>eliminates: the development data as the source of the improvement - a correction tuned on the training sources could otherwise be measuring itself · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>comparison against 53 previously published signatures and against CIBERSORT, a deconvolution method, on the same mixtures</label>
+        <note>eliminates: the possibility that any signature set would score as well - the comparison is to named alternatives on identical inputs rather than to nothing · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>validation against cytometry immunophenotyping in 165 individuals across two independent studies, rather than against simulations alone</label>
+        <note>eliminates: in-silico mixing as the reason the method works - arithmetic admixtures cannot test whether marker expression survives being in real tissue · outcome: partial</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>a null distribution per cell type, learned from random mixtures that EXCLUDE that cell type and its relatives, to test whether a score means presence at all</label>
+        <note>eliminates: a non-zero score as evidence of presence - without this the method reports something for every cell type in every sample · outcome: partial</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>the significance threshold set at 20% and the trade-off stated, rather than chosen silently</label>
+        <note>eliminates: a threshold tuned to flatter the result - the cost in true-positive power is reported alongside the gain in false-positive suppression · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>enrichment scores</label>
+        <term>enrichment scores</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>proportions</label>
+        <term>proportions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>spillover effect</label>
+        <term>spillover effect</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>deconvolution</label>
+        <term>deconvolution</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>gene signatures</label>
+        <term>gene signatures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>simulated mixtures</label>
+        <term>simulated mixtures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>real mixtures</label>
+        <term>real mixtures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>tumor microenvironment</label>
+        <term>tumor microenvironment</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>CD8A</label>
+        <term>CD8A</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>ssGSEA</label>
+        <term>ssGSEA</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>xCell&#x27;s performance - IN SIMULATED MIXTURES: outperforms every compared method in the large majority of cell types, across data sources and platforms</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>xCell&#x27;s performance - IN REAL MIXTURES: significantly better than the alternatives and still, in the authors&#x27; words, far from perfect - and beaten outright on CD8+ T cells by using one gene</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>an xCell score - AS COMPUTED: a single-sample gene-set enrichment score, interpretable only against other samples</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>an xCell score - AS CALIBRATED: deliberately transformed to resemble a proportion so cell types can be compared, and explicitly not usable as a proportion</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → in-silico cell-type dissection methods generally, on seven named grounds including reliance on the reference source, narrow cell-type coverage, and validation on few cell types in few samples</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>qualifies → CIBERSORT and other deconvolution approaches, whose strict inter-cell-type dependencies make them fragile on tumour expression profiles and tied to their reference matrix</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>extends → gene set enrichment analysis, by calibrating its scores onto a common scale and compensating the correlation between related signatures</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+        <label>qualifies → its own results and every comparable method&#x27;s - digital dissection findings must be validated by other technologies before they are believed</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>enrichment scores —distinct-from→ proportions</label>
+        <term>enrichment scores</term>
+        <term>proportions</term>
+        <note>differs in: whether the value can be read as a share of the mixture · the relation itself is separately evidenced · strength of the relation: 0.95 · differs in (stated by the tagger, no quotation): whether the value can be read as a share of the mixture · the relation stated: the score is calibrated to resemble a fraction and cannot be used as one</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>simulated mixtures —contrasted-with→ real mixtures</label>
+        <term>simulated mixtures</term>
+        <term>real mixtures</term>
+        <note>differs in: whether the cells were mixed by arithmetic or by biology · the relation itself is separately evidenced · strength of the relation: 0.95 · differs in (stated by the tagger, no quotation): whether the cells were mixed by arithmetic or by biology · the relation stated: every method scores better on in-silico admixtures than on tissue</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>every method, including this one, performs significantly better on simulated mixtures than on real ones</label>
+        <term>every method, including this one, performs significantly better on simulated mixtures than on real ones</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>the scores are calibrated to resemble proportions and cannot be used as proportions</label>
+        <term>the scores are calibrated to resemble proportions and cannot be used as proportions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>56.4% of scores for cell types absent from a mixture were non-negligible before the significance test, and 28.8% after</label>
+        <term>56.4% of scores for cell types absent from a mixture were non-negligible before the significance test, and 28.8% after</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>Spillover correction removes the strict independence between cell-type inferences, though compensation is limited and most inferences stay independent.</label>
+        <term>Spillover correction removes the strict independence between cell-type inferences, though compensation is limited and most inferences stay independent.</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>on CD8+ T cells a single gene outperforms the whole method, with the caveat that the gene may be unreliable in cancer</label>
+        <term>on CD8+ T cells a single gene outperforms the whole method, with the caveat that the gene may be unreliable in cancer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>a cell type&#x27;s score showing enrichment because a closely related cell type is present - the same shape as spectral overlap between fluorophores in flow cytometry</label>
+        <term>spillover effect</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the inferences this method produces - strictly scores, calibrated to resemble proportions and explicitly not interpretable as them</label>
+        <term>enrichment scores</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>scores for cell types absent from the mixture that were nonetheless non-negligible</label>
+        <term>56.4%</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the share of genes xCell requires that were actually present in one validation study</label>
+        <term>54.5%</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>the significance threshold, chosen as a stated trade-off</label>
+        <term>20%</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>ssGSEA</label>
+        <term>ssGSEA</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>p value</label>
+        <term>p value</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>enrichment scores</label>
+        <term>enrichment scores</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1186/s13059-017-1349-1.</note></p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials</title>
+        <author>Simon Batzner</author>
+        <author>Albert Musaelian</author>
+        <author>Lixin Sun</author>
+        <author>Mario Geiger</author>
+        <author>Jonathan P. Mailoa</author>
+        <author>Mordechai Kornbluth</author>
+        <author>Nicola Molinari</author>
+        <author>Tess Smidt</author>
+        <author>Boris Kozinsky</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials</title>
+          <date>2022</date>
+          <publisher>Nature Communications</publisher>
+          <idno type="DOI">10.1038/s41467-022-29939-5</idno>
+          
+          <idno type="record">batzner2022-e-3-equivariant-graph-neural-netwo</idno>
+          <note type="staged-file">batzner2022-e-3-equivariant-graph-neural-netwo.txt, the project's staged copy</note>
+          <note type="text-sha1">6bb97e4f1133194690da304ee0c796688ba1296c</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>learning the interatomic potential energy and forces of molecules and materials from first-principles calculations, at a training-set size small enough that the reference calculations are affordable</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>whether making a network&#x27;s internal features equivariant rather than invariant changes how much data it needs, and not merely how accurate it is at a fixed data budget</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>NequIP - E(3)-equivariant convolutions over geometric tensors giving state-of-the-art accuracy on molecules and materials with up to three orders of magnitude less training data, plus an ablation isolating equivariance as the cause and a learning-curve slope that no other method has</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>sample efficiency in learned interatomic potentials - and the fact that a symmetry built into the representation changes the exponent of the learning curve rather than only its offset</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>learning curves normally follow a power law whose exponent belongs to the data set - methods move the curve up or down and leave its slope alone. Building rotation equivariance into the features changes the slope itself, so the advantage grows with every additional training structure rather than staying constant</label>
+        <term>a symmetry that changes the exponent, not the offset</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>predicting force vectors directly leaves nothing enforcing that they are the gradient of any energy, so long molecular dynamics runs can drift; taking the forces as the gradient of the predicted potential makes energy conservation a property of the construction rather than something the training has to discover</label>
+        <term>conservation by differentiation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>a reported error is the sum of the model&#x27;s error and the reference calculation&#x27;s; running one model on two recomputations of the same molecules separates them, and here the energies move while the forces do not, which says the original benchmark&#x27;s energy noise was the larger term</label>
+        <term>an instrument reading its own reference</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>each configuration carries one energy and 3N force components, so M structures are M(3N + 1) labels; a data-efficiency claim counted in structures is counted in a unit that hides how much supervision each one supplies, and the authors raise this before making the claim</label>
+        <term>labels per structure as the hidden denominator</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the data-efficiency claim is counted in structures, and each structure carries 3N + 1 labels - the authors state the alternative denominator themselves</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>the energy comparison against DeepMD is confounded by there being 3N force targets and one energy target per frame, which the authors expect to favour the larger training set on energies</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the DeepMD version compared against is not the smooth one, and the smooth version does not report results on water and ice, so the comparison could not be made</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>how the many-body character of interactions arises in message-passing potentials has no clear theoretical understanding</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>long-range interactions are not explicitly included, and how much of them message passing captures is unmeasured</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>interpretability is an open challenge - classical potentials assign energy to named interaction types and this model does not</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[6]" resp="#tagger" cert="0.95">
+        <label>the tension is structural: the simple functional form that makes classical force fields interpretable is the same thing that limits their accuracy</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>group representation theory - E(3), tensor rank, parity and spherical harmonics - carried from physics into the design of a network&#x27;s internal feature space</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="transfers" ana="#transfers[1]" resp="#tagger" cert="0.95">
+        <label>power-law learning curves and their exponents, carried from statistical learning theory into a claim about what a symmetry does to sample complexity</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a convergence scan over rotation order l in {0, 1, 2, 3}, where l = 0 is the same network with equivariance switched off</label>
+        <note>eliminates: every other part of the architecture as the source of the accuracy - depth, cutoff, radial basis and training setup are identical across the scan, so only the tensor rank differs · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>interactions above l = 0 explicitly turned off to make the network a conventional invariant GNN-IP in a SchNet-style fashion, then run across training-set sizes from 10 to 1000 with identical hyperparameters</label>
+        <note>eliminates: training budget, capacity or hyperparameter tuning as the explanation of the sample efficiency - the comparison is the same network at every data size · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>weight- and feature-controlled versions of the same comparison, reported in the supplementary information</label>
+        <note>eliminates: parameter count as the explanation - a higher-l network has more weights, and without this the ablation would be measuring size rather than symmetry · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>separate models trained and tested on BOTH the original and the revised MD-17 data sets, with energy and force errors reported for each</label>
+        <note>eliminates: the benchmark&#x27;s own numerical noise being read as model error - the forces stay put while the energies move, which can only be a property of the reference data · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>comparison against kernel methods - sGDML and FCHL19/GPR - and not only against other neural networks</label>
+        <note>eliminates: the small-data claim being tested only against models with the same weakness; kernels are the methods that usually win on small training sets · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>the trained potential used to run molecular dynamics, with the radial and two angular distribution functions compared against the ab-initio trajectory at the same temperature</label>
+        <note>eliminates: a low force error being mistaken for correct dynamics - a potential can score well pointwise and still produce the wrong structure when integrated · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="controls" ana="#controls[6]" resp="#tagger" cert="0.95">
+        <label>training exclusively on the 3000 K molten trajectory and evaluating on the 600 K quenched glass</label>
+        <note>eliminates: memorisation of the training phase - the test structures are a different phase of the same material, which the model never saw · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="controls" ana="#controls[7]" resp="#tagger" cert="0.95">
+        <label>Li diffusivity measured from NequIP-driven MD started from ten different initial velocity draws and compared against the ab-initio value</label>
+        <note>eliminates: one lucky trajectory - diffusivity from a single run of a superionic conductor is a sample from a distribution, not a number · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="controls" ana="#controls[8]" resp="#tagger" cert="0.95">
+        <label>a published Behler-Parrinello network&#x27;s force RMSE on the same system quoted against NequIP models trained on 100 and 250 structures</label>
+        <note>eliminates: the data-efficiency comparison resting only on this paper&#x27;s own baselines · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="controls" ana="#controls[9]" resp="#tagger" cert="0.95">
+        <label>three different weightings of the energy and force terms in the loss function, reported side by side on the water and ice system</label>
+        <note>eliminates: that the reported accuracy is an artefact of one chosen energy/force weighting in the loss · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>equivariant</label>
+        <term>equivariant</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>invariant</label>
+        <term>invariant</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>rotation order</label>
+        <term>rotation order</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>NequIP</label>
+        <term>NequIP</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>interatomic potentials</label>
+        <term>interatomic potentials</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>log-log slope</label>
+        <term>log-log slope</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>learning curve</label>
+        <term>learning curve</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>noise floor</label>
+        <term>noise floor</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>MD-17</label>
+        <term>MD-17</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>DeepMD</label>
+        <term>DeepMD</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>DimeNet</label>
+        <term>DimeNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>diffusivity</label>
+        <term>diffusivity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>NequIP&#x27;s MD-17 energy error - ON THE ORIGINAL DATA SET: significantly higher, and the paper attributes the difference to that data set&#x27;s noise floor rather than to the model</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>NequIP&#x27;s MD-17 energy error - ON THE REVISED DATA SET: significantly lower, and the only version the authors say should be used for comparing methods</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>what raising the rotation order does - CROSSING l = 0 TO l = 1: changes the log-log slope of the learning curve, so the model learns faster from new data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>what raising the rotation order does - BEYOND l = 1: shifts the curve down without changing its slope, the same thing every other method does to it</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>a training set of M structures - COUNTED AS CONFIGURATIONS: M, which is the number the data-efficiency claim is made in</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>a training set of M structures - COUNTED AS LABELS: M(3N + 1), because each structure carries one energy and 3N force components - the authors raise this themselves before claiming efficiency</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → the belief that deep neural networks require massive training sets - contradicted here by matching or beating existing models with up to three orders of magnitude fewer reference calculations</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → invariant graph neural network interatomic potentials, whose features are scalars and which therefore discard the directional information equivariant filters can use</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>critiques → direct prediction of atomic force vectors, which is not guaranteed to conserve energy because the forces are not gradients of a potential</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.95">
+        <label>critiques → the original MD-17 benchmark, whose energy noise floor the authors say is too high for comparing methods - only the revised recomputation should be used</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">
+        <label>qualifies → the empirical rule that learning-curve exponents belong to the data set and methods only shift the curve - broken here by equivariance, and only by crossing l = 0 to 1</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="claim_relations" ana="#claim_relations[5]" resp="#tagger" cert="0.95">
+        <label>qualifies → its own DeepMD comparison, which used the non-smooth published version because the smooth one reports no results on water and ice</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>equivariant —distinct-from→ invariant</label>
+        <term>equivariant</term>
+        <term>invariant</term>
+        <note>differs in: whether the internal features have a direction that rotates with the molecule · the relation itself is separately evidenced · strength of the relation: 0.95 · differs in (stated by the tagger, no quotation): whether the internal features have a direction that rotates with the molecule · the relation stated: this method carries relative position vectors and higher-order tensors where invariant networks carry only distances
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;In contrast&#x27; refers to the rotation-invariant GNN-IPs of the previous sentence.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>equivariant networks with l &gt;= 1 outperform the identical network at l = 0 at every training-set size from 10 to 1000</label>
+        <term>equivariant networks with l &gt;= 1 outperform the identical network at l = 0 at every training-set size from 10 to 1000</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>crossing l = 0 to 1 changes the log-log slope of the learning curve; raising l beyond 1 only shifts it</label>
+        <term>crossing l = 0 to 1 changes the log-log slope of the learning curve; raising l beyond 1 only shifts it</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>identical models give lower energy error on revised MD-17 and similar force error, locating the difference in the benchmark&#x27;s noise floor rather than the method</label>
+        <term>identical models give lower energy error on revised MD-17 and similar force error, locating the difference in the benchmark&#x27;s noise floor rather than the method</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>With 1000x fewer training data, NequIP beats DeepMD on force error in all four parts of the data set.</label>
+        <term>With 1000x fewer training data, NequIP beats DeepMD on force error in all four parts of the data set.</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>Trained only on high-temperature molten data, NequIP reproduces the glass&#x27;s RDF and both ADFs.</label>
+        <term>Trained only on high-temperature molten data, NequIP reproduces the glass&#x27;s RDF and both ADFs.</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>Li diffusivity from NequIP-driven MD is 1.25e-5 cm2/s against 1.37e-5 from ab-initio MD, a 9% relative error</label>
+        <term>Li diffusivity from NequIP-driven MD is 1.25e-5 cm2/s against 1.37e-5 from ab-initio MD, a 9% relative error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>the method beats kernel approaches such as sGDML and FCHL19/GPR, which normally win on small training sets</label>
+        <term>the method beats kernel approaches such as sGDML and FCHL19/GPR, which normally win on small training sets</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>Each training configuration of N atoms supplies 3N + 1 labels.</label>
+        <term>Each training configuration of N atoms supplies 3N + 1 labels.</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the exponent of the learning-curve power law - how fast a learning algorithm improves as new data become available, normally fixed across methods for a given data set</label>
+        <term>log-log slope</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the reference data set&#x27;s own numerical error, identified here by training identical models on two recomputations of the same molecules and seeing which error moves</label>
+        <term>noise floor</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>fewer training structures than the DeepMD comparison on water and ice - 133 against 133,500</label>
+        <term>1000x</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger" cert="0.95">
+        <label>the relative error of the NequIP Li diffusivity against ab-initio MD</label>
+        <term>9%</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger" cert="0.95">
+        <label>structures the Behler-Parrinello baseline needed for an RMSE that NequIP matches with 100</label>
+        <term>1303</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>MAE</label>
+        <term>MAE</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>RMSE</label>
+        <term>RMSE</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>rotation order</label>
+        <term>rotation order</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger" cert="0.95">
+        <label>log-log slope</label>
+        <term>log-log slope</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1038/s41467-022-29939-5.</note></p>
+    </body>
+  </text>
+</TEI>

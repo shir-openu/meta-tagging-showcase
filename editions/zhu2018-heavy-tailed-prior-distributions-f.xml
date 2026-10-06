@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences</title>
+        <author>Anqi Zhu</author>
+        <author>Joseph G. Ibrahim</author>
+        <author>Michael I. Love</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences</title>
+          <date>2018</date>
+          <publisher>Bioinformatics</publisher>
+          <idno type="DOI">10.1093/bioinformatics/bty895</idno>
+          
+          <idno type="record">zhu2018-heavy-tailed-prior-distributions-f</idno>
+          <note type="staged-file">zhu2018-heavy-tailed-prior-distributions-f.txt, the project's staged copy</note>
+          <note type="text-sha1">a367122991886500fbe7bb1eb93e3fe9189ecf2a</note>
+          <note type="rights">cc-by-nc</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>statistics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the logarithmic fold change between conditions in RNA-seq, and what to do when the estimate of it is dominated by noise</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to shrink unreliable effect-size estimates without losing the genes whose large effects are real</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a heavy-tailed Cauchy prior that removes the need for filter thresholds and pseudocounts, with lower bias than earlier shrinkage estimators</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>maximum-likelihood effect sizes that blow up when counts are low, producing large estimates that are not differences</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>the estimate is unreliable exactly where the counts are small, so the maximum likelihood LFC has high variance and produces `large estimates not representative of true differences` - the noise appears as a big effect, not as a small one</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>a heavy tail on the prior is what lets shrinkage be aggressive near zero and gentle far from it: the Cauchy pulls in the noise-driven estimates while leaving genuinely large fold changes where they are</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>swapping a Normal prior for a Cauchy gives heavy tails, so small effects are still shrunk while genuinely large ones survive - shrinkage without flattening</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>the prior&#x27;s scale is fitted by subtracting each estimate&#x27;s own error variance from its squared value, so the prior learns how much of the observed spread is real</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>the scale is set from a Normal assumption even though the prior itself is Cauchy - the two roles come apart and the authors say the mismatch works in practice</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>EVERY STANDARD CORRECTION TRADES ONE ERROR FOR THE OPPOSITE ONE: `filtering or application of Normal priors each can have drawbacks, either leading to loss of genes with sufficient signal, or overly aggressive shrinkage of true, large LFCs`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>and the second-order cost is stated: filtering loses genes with real differences, and `pseudocounts provide a limited solution that must be adapted per dataset` - a correction re-tuned per dataset is a free parameter wearing a method&#x27;s name</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>choosing the filter is named as an act of judgement rather than a setting: `Setting the threshold requires careful consideration of which genes may be lost`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>if most genes move in the same direction the global normalisation breaks down - and the paper says this defeats EVERY method under comparison, not only theirs</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>that failure is detectable, and the paper names the diagnostics rather than leaving it as a caveat</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.9">
+        <label>where the maximum likelihood estimates are not supplied the prior scale falls back to a fixed value rather than being fitted</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the method is compared against BOTH failure modes rather than against one baseline - filtering, which loses genes, and Normal priors, which over-shrink</label>
+        <note>eliminates: a new estimator that beats the over-shrinking baseline by under-shrinking, or the reverse; the two-sided comparison is what makes &#x27;lower bias while still reducing variance&#x27; a claim rather than a trade · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>whether the correction needs a per-dataset parameter</label>
+        <note>eliminates: a method whose performance is really the analyst&#x27;s tuning - the proposed prior &#x27;avoids the use of filter thresholds or pseudocounts&#x27; entirely · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether the approach is tied to the negative-binomial likelihood it was developed on</label>
+        <note>eliminates: a method that works because of one distributional assumption - apeglm &#x27;accepts arbitrary likelihoods, as long as additional parameters are pre-specified&#x27; · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>testing robustness when the assumption of a unimodal symmetric distribution of effects is violated</label>
+        <note>eliminates: the possibility that the method only works when its own prior assumption happens to hold · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>quantifying the effect of substituting estimated standard errors where the derivation requires known ones, specifically at very low counts</label>
+        <note>eliminates: the possibility that the borrowed estimator breaks exactly where the data are weakest · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>trying an alternative posterior approximation by integrating over a fine grid instead of the Laplace method</label>
+        <note>eliminates: the possibility that the chosen approximation was adopted without a competitor · outcome: failed</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>logarithmic fold change</label>
+        <term>logarithmic fold change</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>pseudocounts</label>
+        <term>pseudocounts</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>shrinkage estimator</label>
+        <term>shrinkage estimator</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>Cauchy prior</label>
+        <term>Cauchy prior</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>local false sign rate</label>
+        <term>local false sign rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>Laplace approximation</label>
+        <term>Laplace approximation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>empirical Bayes</label>
+        <term>empirical Bayes</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.9">
+        <label>maximum a posteriori</label>
+        <term>maximum a posteriori</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>logarithmic fold change - AS ESTIMATED, NOT AS DEFINED. The definition is a ratio of average expression between conditions; the estimate at low counts is `large ... not representative of true differences`. THE SAME SYMBOL NAMES A QUANTITY AND A NUMBER THAT DOES NOT MEASURE IT</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>shrinkage - the family of corrections, and this paper&#x27;s point is that the family members fail in OPPOSITE directions: a filter loses true signal, a Normal prior flattens true large effects. WHICH ERROR YOU GET IS A CHOICE, AND USUALLY AN UNEXAMINED ONE</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>pseudocount - a correction that `must be adapted per dataset`. The paper&#x27;s remedy is to remove the parameter rather than to tune it, which is the same move a field makes when it replaces an inferred name with a measured one</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → count filtering as practised in edgeR and limma-voom, which removes genes before analysis and can lose those with sufficient signal</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → DESeq2&#x27;s adaptive Normal prior, which shrinks true large fold changes too aggressively</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>extends → the empirical Bayes shrinkage tradition itself - the method is offered as a replacement for the prior, not for the framework</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>filtering loses genes with sufficient signal, while Normal priors over-shrink true large LFCs</label>
+        <term>filtering loses genes with sufficient signal, while Normal priors over-shrink true large LFCs</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>pseudocounts provide only a limited solution that must be adapted to each dataset</label>
+        <term>pseudocounts provide only a limited solution that must be adapted to each dataset</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>setting the filter threshold requires careful thought about which genes may be lost</label>
+        <term>setting the filter threshold requires careful thought about which genes may be lost</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>at low or highly variable counts the maximum-likelihood LFC has high variance, giving large estimates not representative of true differences</label>
+        <term>at low or highly variable counts the maximum-likelihood LFC has high variance, giving large estimates not representative of true differences</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>the proposed heavy-tailed Cauchy prior avoids filter thresholds and pseudocounts</label>
+        <term>the proposed heavy-tailed Cauchy prior avoids filter thresholds and pseudocounts</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>the Laplace approximation was consistently more accurate than numerical integration over a grid</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>the resulting scale estimate is only slightly biased even at very low counts</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>shrinkage improves the ranking of genes by effect size relative to methods that do not shrink at all</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the difference between conditions, defined as the log ratio of average expression levels</label>
+        <term>logarithmic fold change</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the local false sign rate given as a two-case posterior probability keyed on the sign of the MAP estimate</label>
+        <term>local false sign rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>maximum likelihood</label>
+        <term>maximum likelihood</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>variance</label>
+        <term>variance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.85">
+        <label>posterior SD</label>
+        <term>posterior SD</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>library size</label>
+        <term>library size</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger" cert="0.95">
+        <label>runtimes for the pipeline on a ten-thousand-gene simulation - dispersion and MLE fitting, Normal-prior shrinkage, Cauchy-prior shrinkage, and MAP-only</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1093/bioinformatics/bty895.</note></p>
+    </body>
+  </text>
+</TEI>

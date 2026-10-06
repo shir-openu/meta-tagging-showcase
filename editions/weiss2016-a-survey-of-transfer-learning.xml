@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>A survey of transfer learning</title>
+        <author>Karl R. Weiss</author>
+        <author>Taghi M. Khoshgoftaar</author>
+        <author>Dingding Wang</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>A survey of transfer learning</title>
+          <date>2016</date>
+          <publisher>Journal Of Big Data</publisher>
+          <idno type="DOI">10.1186/s40537-016-0043-6</idno>
+          
+          <idno type="record">weiss2016-a-survey-of-transfer-learning</idno>
+          <note type="staged-file">weiss2016-a-survey-of-transfer-learning.txt, the project's staged copy</note>
+          <note type="text-sha1">d694ed6df017b78b36fa823211262f024c135317</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>machine-learning</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>the transfer learning literature - solutions, applications, and the terminology used to describe them</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what to do when the assumption that training and test data share a domain and a distribution does not hold</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a formal definition of transfer learning and an explicit account of where the literature&#x27;s own terms conflict</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>improving a target learner using information from a different but related source domain</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>review</label>
+        <term>review</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>WHY TRANSFER LEARNING EXISTS AT ALL: ordinary machine learning assumes train and test come from one domain with one distribution, and the method is what you do when that assumption is false and the target data is expensive to collect</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>NEGATIVE TRANSFER IS DEFINED BY COMPARISON, NOT BY DAMAGE: a learner trained on the target alone is compared against one trained with the source added, and transfer is negative when the plain learner wins</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>PSEUDO LABELS CORRECT A DISTRIBUTION USING GUESSES AT THE THING BEING CORRECTED FOR: with no labeled target data, labels are estimated and then used to fix the conditional distribution - which the paper itself calls problematic</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>instance transfer reweights source examples to correct MARGINAL distribution differences, and works best precisely when the CONDITIONAL distribution is already the same</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>the two feature approaches differ in direction: one bends the source onto the target, the other maps both into a shared latent space</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
+        <label>parameter transfer shares model parameters or combines multiple reweighted source learners into an ensemble for the target</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>source classifiers are weighted by how close their conditional distribution is to the target, summed, and used to manufacture pseudo labels for unlabelled target data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.95">
+        <label>THE FIELD IS DECLARED TERMINOLOGICALLY INCONSISTENT AND THE PAPER SAYS SO IN ITS OWN VOICE: `Quotation withheld` A survey opening by stipulating the vocabulary because the literature has none.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.95">
+        <label>THE SAME CONFIGURATION, RENAMED IN THE NEXT SENTENCE: `Quotation withheld.` The sentence immediately before it - quoted separately on this record - gives that exact configuration to Daume and Chattopadhyay as SUPERVISED. The full four-scheme enumeration spans several sentences with a journal running header splicing one of them, so it is carried across four tags on this record rather than asserted from one span.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.95">
+        <label>AND THE PAPER&#x27;S REPAIR IS TO REFUSE THE VOCABULARY ALTOGETHER: `Quotation withheld.` It does not pick a winner and does not coin a fifth term - it describes the configuration and drops the names. THE SAME MOVE CONSORT MADE IN 2010, replacing `intention to treat` with `a more explicit request for information` (schulz2010).</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE LITERATURE&#x27;S VOCABULARY IS INCONSISTENT AND THE PAPER SAYS SO: transfer learning and domain adaptation are used for similar processes, and the supervised / semi-supervised / unsupervised labels mean different things to different authors</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>Some surveyed solutions are tied to their application and are stated not to generalise to others</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>Correcting the conditional distribution rests on pseudo labels, which the paper names as problematic because the correction uses estimates of the very labels it lacks</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>No single repository exists for the surveyed solutions, so the software behind the literature is scattered - the paper asks for one</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>heterogeneous solutions mostly assume the domain distributions are the SAME, and need further adaptation steps when they are not</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.9">
+        <label>transferring on a defined relationship between domains is named as the least used of the four categories</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>transfer learning</label>
+        <term>transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>domain adaptation</label>
+        <term>domain adaptation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>negative transfer</label>
+        <term>negative transfer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>positive transfer</label>
+        <term>positive transfer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>feature space</label>
+        <term>feature space</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>domain D</label>
+        <term>domain D</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.85">
+        <label>task T</label>
+        <term>task T</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.85">
+        <label>label space</label>
+        <term>label space</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.85">
+        <label>predictive function</label>
+        <term>predictive function</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>supervised transfer learning</label>
+        <term>supervised transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>semi-supervised transfer learning</label>
+        <term>semi-supervised transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>inductive transfer learning</label>
+        <term>inductive transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>transductive transfer learning</label>
+        <term>transductive transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>unsupervised transfer learning</label>
+        <term>unsupervised transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>terminology inconsistencies</label>
+        <term>terminology inconsistencies</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>pseudo labels</label>
+        <term>pseudo labels</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>marginal distribution</label>
+        <term>marginal distribution</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>conditional distribution</label>
+        <term>conditional distribution</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>source domain</label>
+        <term>source domain</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>target domain</label>
+        <term>target domain</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">
+        <label>context feature bias</label>
+        <term>context feature bias</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">
+        <label>Transfer Categories</label>
+        <term>Transfer Categories</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">
+        <label>asymmetric feature transformation</label>
+        <term>asymmetric feature transformation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">
+        <label>symmetric feature transformation</label>
+        <term>symmetric feature transformation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.9">
+        <label>feature augmentation method</label>
+        <term>feature augmentation method</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="concepts" ana="#concepts[25]" resp="#paper" cert="0.95">
+        <label>informed supervised transfer learning</label>
+        <term>informed supervised transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="concepts" ana="#concepts[26]" resp="#paper" cert="0.95">
+        <label>transductive transfer learning</label>
+        <term>transductive transfer learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>supervised transfer learning - DAUME AND CHATTOPADHYAY&#x27;S SENSE: abundant labeled source data and LIMITED labeled target data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>semi-supervised transfer learning - DAUME AND CHATTOPADHYAY&#x27;S SENSE: abundant labeled source and NO labeled target. Gong and Blitzer use this same phrase for what Daume calls SUPERVISED - the two labels are swapped between literatures</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>unsupervised transfer learning - PAN&#x27;S SENSE: NO labeled source and NO labeled target, where the same phrase elsewhere in the literature means abundant labeled source and no labeled target. THREE GROUPS, ONE VOCABULARY, THREE MAPPINGS</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>transfer learning - the paper&#x27;s response to its own finding: it refuses the contested labels entirely and states the data conditions each time instead of naming them</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>`supervised transfer learning` - DAUME AND CHATTOPADHYAY&#x27;S SENSE: `abundant labeled source data and LIMITED labeled target data`. Gong and Blitzer give that same configuration to SEMI-SUPERVISED, and Cook and Feuz call it INFORMED SUPERVISED.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>`semi-supervised transfer learning` - GONG AND BLITZER&#x27;S SENSE: `abundant labeled source data and LIMITED labeled target data`. THAT IS THE CONFIGURATION Daume and Chattopadhyay CALL SUPERVISED - see senses[4] and the `daume` mechanism on this record, which quote their sentence. One name over two configurations and one configuration under two names, in consecutive sentences.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>`supervised` / `unsupervised` - COOK AND FEUZ MOVE THE AXIS: the pair refers to `the presence or absence of labeled data in the source domain` and a SECOND pair, `informed` / `uninformed`, carries the target. Two orthogonal axes where the other schemes have one.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>`domain adaptation` - AS STIPULATED HERE, because the field does not agree: `the process of adapting one or more source domains for the means of transferring information to improve the performance of a target learner`, by bringing the source&#x27;s distribution closer to the target&#x27;s.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>domain adaptation —part-of→ transfer learning</label>
+        <term>domain adaptation</term>
+        <term>transfer learning</term>
+        <note>strength of the relation: 0.9</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>negative transfer —distinct-from→ positive transfer</label>
+        <term>negative transfer</term>
+        <term>positive transfer</term>
+        <note>strength of the relation: 1
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;the definition above&#x27; = negative transfer (previous sentences); distinct-from is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>feature space —part-of→ domain D</label>
+        <term>feature space</term>
+        <term>domain D</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+        <label>label space —part-of→ task T</label>
+        <term>label space</term>
+        <term>task T</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="concept_edges" ana="#concept_edges[4]" resp="#tagger">
+        <label>predictive function —part-of→ task T</label>
+        <term>predictive function</term>
+        <term>task T</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>in the muscle-fatigue test EVERY transfer learning approach beat the non-transfer baseline, with the two proposed methods ranking first and second</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.9">
+        <label>an often-cited domain adaptation method is reported as requiring only ten lines of Perl - the simplicity is the claim</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>Homogeneous transfer learning is directly applicable to big data environments.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>the four transfer categories enumerated by what is carried across</label>
+        <term>transfer categories</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>context feature bias defined by its consequence - it makes the conditional distributions differ</label>
+        <term>context feature bias</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1186/s40537-016-0043-6.</note></p>
+    </body>
+  </text>
+</TEI>

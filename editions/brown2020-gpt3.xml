@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Language Models are Few-Shot Learners</title>
+        <author>Tom B. Brown</author>
+        <author>Benjamin Mann</author>
+        <author>Nick Ryder</author>
+        <author>Melanie Subbiah</author>
+        <author>et al. (OpenAI)</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Language Models are Few-Shot Learners</title>
+          <date>2020</date>
+          <publisher>Advances in Neural Information Processing Systems (NeurIPS)</publisher>
+          
+          <idno type="arXiv">2005.14165</idno>
+          <idno type="record">brown2020-gpt3</idno>
+          <note type="staged-file">brown2020-gpt3.txt, the project's staged copy</note>
+          <note type="text-sha1">bb619f4c9b8dabec21567c9aaf14059d9a5baf92</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>existence</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>in-context (few-shot) learning in large language models</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>in-context (few-shot) learning: a large pretrained language model performs a new task from a few demonstrations placed in its prompt, with no gradient updates - an ability that emerges from scale</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>one-shot/zero-shot are fairer human comparisons and remain targets for future work</label>
+        <note>what this limits: the human-comparison framing: one-shot and zero-shot are the fairer comparisons and remain IMPORTANT TARGETS FOR FUTURE WORK, not settled here</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Text synthesis still degrades over long passages: repetition, loss of coherence, self-contradiction, non-sequiturs.</label>
+        <note>what this limits: the text-synthesis results specifically: GPT-3 SAMPLES STILL SOMETIMES REPEAT THEMSELVES SEMANTICALLY AT THE DOCUMENT LEVEL, START TO LOSE COHERENCE over long passages</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The study covers only autoregressive models; no bidirectional architectures or denoising objectives were tested.</label>
+        <note>what this limits: the scope of every architectural conclusion: OUR EXPERIMENTS DO NOT INCLUDE ANY BIDIRECTIONAL ARCHITECTURES OR OTHER TRAINING OBJECTIVES SUCH AS DENOISING</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>Pre-training sample efficiency is poor compared with human learning.</label>
+        <note>what this limits: any comparison with human learning: POOR SAMPLE EFFICIENCY DURING PRE-TRAINING is shared by language models broadly</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>It is unclear whether few-shot learning genuinely learns new tasks at inference time or merely recognises tasks seen in training.</label>
+        <note>what this limits: the interpretation of few-shot learning itself: AMBIGUITY ABOUT WHETHER FEW-SHOT LEARNING ACTUALLY LEARNS NEW TASKS FROM SCRATCH AT INFERENCE time, or recognises tasks seen in training</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger">
+        <label>The model is uninterpretable, poorly calibrated on novel inputs, and retains its training data&#x27;s biases.</label>
+        <note>what this limits: any deployment or calibration use: ITS DECISIONS ARE NOT EASILY INTERPRETABLE, IT IS NOT NECESSARILY WELL-CALIBRATED, and it retains its training data&#x27;s biases</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger">
+        <label>A filtering bug left benchmark data in the training set and retraining was unaffordable.</label>
+        <note>what this limits: every benchmark number in the paper: A BUG IN THE FILTERING CAUSED US TO IGNORE SOME OVERLAPS, AND DUE TO THE COST OF TRAINING IT WAS NOT FEASIBLE TO RETRAIN THE MODEL - the contamination is known and was left in</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger">
+        <label>The contamination analysis cannot guarantee the &#x27;clean&#x27; subsets are distributionally comparable to the full benchmarks.</label>
+        <note>what this limits: the contamination correction specifically: WE CANNOT BE SURE THAT THE CLEAN SUBSET IS DRAWN FROM THE SAME DISTRIBUTION AS THE ORIGINAL DATASET - the remedy is unvalidated</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[8]" resp="#tagger">
+        <label>The bias analysis is preliminary and incomplete even for gender, race and religion.</label>
+        <note>what this limits: the bias findings only: THIS IS A PRELIMINARY ANALYSIS AND DOES NOT REFLECT ALL OF THE MODEL&#x27;S BIASES EVEN WITHIN THE STUDIED CATEGORIES</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.85">
+        <label>SAT analogy problems - 374 of them, an instrument built to test American secondary-school pupils - collected and used as a few-shot benchmark for a language model</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>a parallel experiment in the same format using intentionally BAD model-generated articles</label>
+        <note>eliminates: inattentive or low-effort raters as the explanation of the headline result - if participants cannot detect deliberately bad output either, their failure to detect good output means nothing · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[1]" resp="#paper">
+        <label>in-context learning</label>
+        <term>in-context learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[2]" resp="#paper">
+        <label>few-shot learning</label>
+        <term>few-shot learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>fine-tuning</label>
+        <term>fine-tuning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[6]" resp="#paper" cert="1.0">
+        <label>zero-shot transfer</label>
+        <term>zero-shot transfer</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[7]" resp="#paper" cert="1.0">
+        <label>meta-learning</label>
+        <term>meta-learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>zero-shot</label>
+        <term>zero-shot</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>one-shot</label>
+        <term>one-shot</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>few-shot - K demonstrations supplied at inference time as conditioning, with no weight updates; K typically 10 to 100</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>one-shot - exactly one demonstration, distinguished not on performance grounds but because it matches how tasks are communicated to people</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>zero-shot - no demonstrations at all, only a natural language instruction; described as the most convenient and the most challenging setting</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[3]" resp="#tagger" cert="1.0">
+        <label>in-context learning - a term the authors introduce for the inner loop that occurs within a single forward pass, not for weight change</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[4]" resp="#tagger" cert="1.0">
+        <label>`zero-shot transfer` - A TERM RETIRED FOR A NAMED AMBIGUITY, WITH THE TWO READINGS SEPARATED: `the method is “zero-shot” in the sense that no gradient updates are performed, but it often involves providing inference-time demonstrations to the model, so is not truly learning from zero examples.` TWO DIFFERENT ZEROS - zero weight updates and zero examples - collapsed into one word. The repair is a SPLIT: `meta-learning` for the outer structure and `in context-learning` for the inner loop, then `zero-`/`one-`/`few-shot` graded by demonstration count. NOT a redefinition; the old term is abandoned and its two senses are given separate names.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[5]" resp="#tagger" cert="1.0">
+        <label>THE VOCABULARY IS DELIBERATELY UNDER-SPECIFIED, AND THE AUTHORS SAY SO: `Quotation withheld.` A NAMING SCHEME BUILT NOT TO DECIDE A LIVE THEORETICAL DISPUTE. The word `learner` is in the paper&#x27;s own title, and this footnote withdraws the reading that title invites. MOST DEFINITIONAL WORK IN THIS CORPUS NARROWS A TERM; THIS ONE WIDENS IT ON PURPOSE, so that adopting the vocabulary does not commit a reader to either answer.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>`in-context learning` - THE COINAGE IS ATTACHED TO SOMEBODY ELSE&#x27;S WORK. `Recent work [RWC+19] attempts to do this via what we call “in-context learning”, using the text input of a pretrained language model as a form of task specification.` The naming and the doing are separated: the prior paper did it, this paper named it. `what we call` is doing that work explicitly, and the name is the one the field kept.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="senses" ana="#senses[7]" resp="#tagger" cert="0.9">
+        <label>&#x27;zero-shot&#x27; / &#x27;one-shot&#x27; / &#x27;few-shot&#x27; - THE PAPER REFUSES THE COMPARATIVE FRAME ITS OWN NAMES INVITE. &#x27;with the aim of comparing them not as competing alternatives, but as different problem settings which offer a varying trade-off between performance on specific benchmarks and sample efficiency.&#x27; A graded series of names - zero, one, few - reads as a ladder with a best rung, and the paper says in advance that it is not one. Compare mechanism 26 (&#x27;brown2020&#x27; again): there the vocabulary is agnostic on a live dispute; here the vocabulary is agnostic about its own ordering. NO EDGE PROPOSED, AND I WROTE ONE BEFORE DELETING IT. I had &#x27;in-context learning --part-of--&gt; zero-shot&#x27; with no relation evidence, which passes the gate because the type-specific cue test only fires when that field is present. Twenty minutes earlier I refused to do exactly that on &#x27;cragg2017&#x27; and called it the same shape. The cases are not even parallel in my favour: cragg2017&#x27;s paper DOES state its partition (&#x27;divided into three main components&#x27;) and only the cue list cannot see it, whereas this paper states the containment nowhere - which is the same reason the &#x27;gurnee2026&#x27; edge was dropped. An edge that survives only because I left out the field that would have tested it is not evidence.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>contradicts → the fine-tuning paradigm (task-specific fine-tuning)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → GPT-2 [RWC+19] and the Sparse Transformer [CGRS19]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>extends → the in-context learning of [RWC+19] (GPT-2)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>contradicts → [BHT+20]&#x27;s argument that continuing to expand hardware and data sizes is not the path forward</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[4]" resp="#tagger">
+        <label>replicates → the power-law scaling of language-model loss reported by [KMH+20]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[5]" resp="#tagger">
+        <label>extends → the closed-book QA result of [RRS20]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>few-shot learning —distinct-from→ fine-tuning</label>
+        <term>few-shot learning</term>
+        <term>fine-tuning</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>175 — size of the GPT-3 model</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>300 — total training tokens for every model</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>2048 — context window shared by all models</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+        <label>8 — models spanning three orders of magnitude</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+        <label>570 — filtered Common Crawl text size (from 45TB raw)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
+        <label>93 — share of training data that is English</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>scaling up language models greatly improves task-agnostic performance</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>GPT-3 is evaluated with no gradient updates or fine-tuning</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>GPT-3&#x27;s few-shot result of 71.2% is reported as state-of-the-art</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+        <label>GPT-3 can produce news articles humans struggle to distinguish from real ones</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+        <label>measured data contamination has minimal effect on most benchmark results</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>model size</label>
+        <term>model size</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>cross-entropy validation loss</label>
+        <term>cross-entropy validation loss</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>learning rate</label>
+        <term>learning rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>in-context learning</label>
+        <term>in-context learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>few-shot</label>
+        <term>few-shot</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>zero-shot</label>
+        <term>zero-shot</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>meta-learning</label>
+        <term>meta-learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
+        <label>data contamination</label>
+        <term>data contamination</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>effect-size</label>
+        <term>effect-size</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>hypothesis-testing</label>
+        <term>hypothesis-testing</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a unicode and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>p-value</label>
+        <term>p-value</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+        <label>standard-deviation</label>
+        <term>standard-deviation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+        <label>t-test</label>
+        <term>t-test</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[7]" resp="#tagger">
+        <label>variance</label>
+        <term>variance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/2005.14165.</note></p>
+    </body>
+  </text>
+</TEI>

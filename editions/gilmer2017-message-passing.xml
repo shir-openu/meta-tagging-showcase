@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Neural Message Passing for Quantum Chemistry</title>
+        <author>Justin Gilmer</author>
+        <author>Samuel S. Schoenholz</author>
+        <author>Patrick F. Riley</author>
+        <author>Oriol Vinyals</author>
+        <author>George E. Dahl</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Neural Message Passing for Quantum Chemistry</title>
+          <date>2017</date>
+          <publisher>ICML / arXiv</publisher>
+          
+          <idno type="arXiv">1704.01212</idno>
+          <idno type="record">gilmer2017-message-passing</idno>
+          <note type="staged-file">gilmer2017-message-passing.txt, the project's staged copy</note>
+          <note type="text-sha1">b3bbdb58f69b78b927542774a719ddd66e6eeced</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>chemistry</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>molecular property prediction from graphs</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>message passing on the molecular graph (atoms as nodes, bonds as edges): iteratively passing and aggregating messages between atoms</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>the models fit the DFT approximation, itself an approximation of true quantum properties</label>
+        <note>what this limits: every accuracy claim: the target is THE DFT APPROXIMATION, so &#x27;chemical accuracy&#x27; is accuracy to a model rather than to the quantum properties themselves</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The towers variant improves scalability but is still insufficient for much larger graphs.</label>
+        <note>what this limits: the scalability claim: THE TOWERS VARIATION MAKES THESE MODELS MORE SCALABLE, BUT ADDITIONAL IMPROVEMENTS WILL BE NEEDED TO SCALE TO MUCH LARGER GRAPHS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>Generalising to larger molecules is hard precisely when spatial information is used.</label>
+        <note>what this limits: the spatial-information variants specifically: GENERALIZING TO LARGER MOLECULE SIZES SEEMS PARTICULARLY CHALLENGING WHEN USING SPATIAL INFORMATION</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>Combining the towers variant with the edge-network message function did not work.</label>
+        <note>what this limits: the towers-plus-edge-network combination: UNFORTUNATELY, OUR ATTEMPTS SO FAR AT COMBINING THE TOWERS AND EDGE NETWORK MESSAGE FUNCTION HAVE FAILED TO FURTHER IMPROVE PERFORMANCE</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>Some ablation experiments used a partial-charge input feature that would not be available in a real application.</label>
+        <note>what this limits: the ablations using partial charge, which no deployment could reproduce: THIS FEATURE IS AN OUTPUT OF THE DFT CALCULATION AND THUS COULD NOT BE USED IN AN APPLIED SETTING</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[5]" resp="#tagger">
+        <label>Accuracy is measured against DFT approximations because experimentally true targets do not exist for the full dataset.</label>
+        <note>what this limits: every accuracy figure on this benchmark, which is agreement with a computation rather than with measurement: THE DATASET CONTAINING THE TRUE TARGETS ON ALL 134k MOLECULES DOES NOT CURRENTLY EXIST</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The paper&#x27;s headline term is redefined to mean error against its own labels rather than against nature, and it says so in one sentence.</label>
+        <note>what this limits: the claim that this model reaches chemical accuracy: the authors state that in the rest of the paper the phrase means accuracy with respect to their available ground truth labels, not the community&#x27;s target error relative to nature</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>Two different error standards are in play and the paper orders them.</label>
+        <note>what this limits: a comparison of the errors reported here against either standard: the paper states that Quotation withheld</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+        <label>Eight existing models are re-described in the authors&#x27; own framework, with the derivations placed outside the paper.</label>
+        <note>what this limits: the claim that this framework unifies prior work: at least eight models from the literature are described in it, and the exact expressions and the derivation of that reformulation are in the supplementary material rather than the paper</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>graph neural networks / deep learning, applied to predict quantum-chemical properties of molecules</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the model family evaluated on all 13 targets of the public QM9 benchmark</label>
+        <note>eliminates: a chemistry result earned on molecules of the authors&#x27; own choosing - QM9 is fixed, public and shared with the methods being compared against · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>chemical accuracy</label>
+        <term>chemical accuracy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>DFT error</label>
+        <term>DFT error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>Message Passing Neural Networks</label>
+        <term>Message Passing Neural Networks</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>ground truth labels</label>
+        <term>ground truth labels</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[9]" resp="#paper">
+        <label>QM9</label>
+        <term>QM9</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>&#x27;chemical accuracy&#x27; - TWO REFERENCE POINTS, AND THE PAPER PICKS THE NEARER ONE: the chemistry community&#x27;s target error is relative to nature, DFT error is the gap between the simulation and nature, and this paper states that its own use of the phrase means error against its available labels - so the headline measures agreement with a simulation, not with a molecule</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>MPNN - A NAME GIVEN TO EIGHT EXISTING MODELS AFTER THE FACT: the framework is introduced as a reformulation of models already in the literature under one label, which is the inverse of the usual naming failure - here a paper renames its field rather than being renamed by it</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>the prediction target - A MODEL OF A MODEL: what the network predicts is the outcome of a computationally expensive DFT calculation, so the object being learned is itself a simulation of the quantity of interest rather than the quantity</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → graph neural networks (invariant to molecular symmetries)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → Gated Graph Neural Networks (GG-NN), Li et al. (2016)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the set2set model, Vinyals et al. (2015)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → Interaction Networks, Battaglia et al. (2016)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>chemical accuracy —operationalised-as→ ground truth labels</label>
+        <term>chemical accuracy</term>
+        <term>ground truth labels</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>chemical accuracy —distinct-from→ DFT error</label>
+        <term>chemical accuracy</term>
+        <term>DFT error</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>130k — size of the QM9 benchmark with 13 properties each</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>300k — MPNN inference speedup over DFT simulation</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>11 — targets predicted within chemical accuracy by the best MPNN</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+        <label>5 — targets hit using molecular topology alone</label>
+        <note>about this quote: marked quote-not-in-current-staged-text - today&#x27;s merge gate would REFUSE this quote: Paper.locate() does not find it in the current staged text, and no disclosure on the row explains why. Update, 15 September 2026: CLEARED evidence status=&#x27;quote-not-in-current-staged-text&#x27; - the quote was replaced (EXTEND) and the new quote locates exactly once in the current staged text.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+        <label>8 — prior models unified under the MPNN framework</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>MPNN variants achieve a new state of the art on the QM9 dataset</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>neural inference is far cheaper than the DFT simulation it approximates</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>the readout must be permutation-invariant for graph-isomorphism invariance</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+        <label>Duvenaud-style message passing cannot capture edge-node correlations</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>hidden states</label>
+        <term>hidden states</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.variables[2]" resp="#tagger">
+        <label>time steps</label>
+        <term>time steps</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+        <label>node features</label>
+        <term>node features</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
+        <label>edge features</label>
+        <term>edge features</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.variables[6]" resp="#tagger">
+        <label>update functions</label>
+        <term>update functions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger">
+        <label>readout functions</label>
+        <term>readout functions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>Message Passing Neural Networks (MPNNs)</label>
+        <term>Message Passing Neural Networks (MPNNs)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>chemical accuracy</label>
+        <term>chemical accuracy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>DFT error</label>
+        <term>DFT error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>readout phase</label>
+        <term>readout phase</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/1704.01212.</note></p>
+    </body>
+  </text>
+</TEI>

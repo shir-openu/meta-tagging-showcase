@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Learning to schedule job-shop problems: representation and policy learning using graph neural network and reinforcement learning</title>
+        <author>Junyoung Park</author>
+        <author>Junyoung Park</author>
+        <author>Jaehyeong Chun</author>
+        <author>Sang Hun Kim</author>
+        <author>Youngkook Kim</author>
+        <author>Jinkyoo Park</author>
+        <author>Jinkyoo Park</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Learning to schedule job-shop problems: representation and policy learning using graph neural network and reinforcement learning</title>
+          <date>2021</date>
+          <publisher>International Journal of Production Research</publisher>
+          <idno type="DOI">10.1080/00207543.2020.1870013</idno>
+          
+          <idno type="record">park2021-learning-to-schedule-job-shop-prob</idno>
+          <note type="staged-file">park2021-learning-to-schedule-job-shop-prob.txt, the project's staged copy</note>
+          <note type="text-sha1">2b5385facbb28a4f7b21fa7e0e7cb32194f57c76</note>
+          <note type="rights">open-access</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>machine-learning</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>job-shop scheduling</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>Because the embedding layer works through pairwise interaction functions that are shared across all node pairs rather than tied to a fixed graph size, the same trained network can be run on graphs with different node counts and edge patterns, which is what carries the policy to unseen instance sizes</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>Training on a graph representation forces the policy to key on the structural regularities common to all job shops instead of memorising one instance, which is why it transfers with no further training</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>The learned policy beats fixed rules because it re-weights which state features matter at each decision, whereas a dispatching rule always consults the same predetermined features</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>The dense waiting-job reward is used instead of makespan because a reward delivered only at episode end leaves the algorithm unable to assign credit to individual dispatching actions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>Computation time for node embeddings grows rapidly (quadratically in the number of jobs) with instance size.</label>
+        <note>what this limits: the practical scalability claim, not the solution quality: THE COMPUTATIONAL TIME TO COMPUTE THE NODE EMBEDDINGS RAPIDLY INCREASES with instance size</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The MDP formulation omits practical shop-floor constraints such as batching, waiting-time regulations and flexible setups.</label>
+        <note>what this limits: any shop-floor deployment reading: THE CURRENT FORMULATION DOES NOT CONSIDER MORE PRACTICAL CONSTRAINTS SUCH AS BATCH PROCESSES AND WAITING TIME REGULATIONS AND FLEXIBLE SHOP SETUP</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>The distribution used to generate training and test instances does not cover real-world job shops.</label>
+        <note>what this limits: any claim of applicability to real job shops: THE DISTRIBUTION P0(g0) USED TO GENERATE THE TRAINING AND TEST JSSP INSTANCES IS NOT GENERAL ENOUGH TO COVER REAL-WORLD JSSPs</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The comparison with prior RL schedulers could only test limited generalisation, because those baselines require train and test instances of the same size.</label>
+        <note>what this limits: the comparison against prior RL schedulers: ONLY A LIMITED GENERALIZATION TEST COULD BE CONDUCTED FOR THE CASE WHERE THE CONJUNCTIVE CONSTRAINTS AND PROCESSING TIMES ARE DIFFERENT FROM THE TRAINING AND TEST DATA SETS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>The learned scheduler is slower at inference than simple priority dispatching rules.</label>
+        <note>what this limits: any deployment where scheduling latency matters: THE PROPOSED GNN-SCHEDULER REQUIRES MORE COMPUTATIONAL TIME THAN PDRs</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>The headline comparison is scoped to instances drawn from the training distribution, and the comparison against the other learned schedulers is scoped by a restriction on testing instances.</label>
+        <note>what this limits: the claim that the GNN scheduler beats dispatching rules and other RL schedulers in general: the PDR comparison is on instances from the training distribution, and the RL comparison carries a stated restriction on testing instances</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The method&#x27;s cost grows with problem size by the authors&#x27; own analysis, which is the quantity a scheduling practitioner would care about.</label>
+        <note>what this limits: applying this scheduler to large shops: the authors state embedding time grows in proportion to n2 + nm in the numbers of jobs and machines</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>The reference against which solution quality is judged is another solver&#x27;s output, not a proven optimum supplied independently.</label>
+        <note>what this limits: the optimality gaps reported for the validation set: the reference minimum makespan is computed by the Google OR tool rather than supplied independently</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[8]" resp="#tagger" cert="1.0">
+        <label>Training stops on a convergence criterion measured on the validation set, so the reported model is the one that stopped improving on that set.</label>
+        <note>what this limits: the trained policy as a fixed artefact: training was terminated when the validation-set makespan converged, so the model is defined by that stopping rule</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[9]" resp="#tagger" cert="1.0">
+        <label>The architecture search behind the reported hyperparameters is reported only as a negative result, with no numbers attached.</label>
+        <note>what this limits: the reported architecture as tuned: deeper and thicker networks were tested and are reported not to have improved performance, without the comparison being shown</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[0]" resp="#tagger">
+        <label>The size-agnostic transferability of graph neural networks, demonstrated in robot control, wind power estimation and weather prediction, is imported into production scheduling to make a scheduler that works on unseen shop sizes</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="transfers" ana="#transfers[1]" resp="#tagger">
+        <label>Proximal Policy Optimization, a policy-gradient algorithm from the RL literature, is adopted to train the representation and dispatching modules of a job-shop scheduler end to end</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the 6x6 instances were dropped from the performance evaluation because only one benchmark problem exists at that size</label>
+        <note>eliminates: that a mean over problem sizes is dominated by a size represented by a single instance · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[0]" resp="#paper">
+        <label>job shop scheduling problem</label>
+        <term>job shop scheduling problem</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[1]" resp="#paper">
+        <label>MDP</label>
+        <term>MDP</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[2]" resp="#paper">
+        <label>makespan</label>
+        <term>makespan</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[3]" resp="#paper">
+        <label>priority dispatching rules</label>
+        <term>priority dispatching rules</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>generalization - AS THE ABSTRACT CLAIMS IT: a superb capability, asserted without a scope</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>generalization - AS THE CONCLUSION SCOPES IT: trained on only small JSSPs and producing high-quality schedules for large ones, with the PDR comparison run on the training distribution</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>scheduling quality - operationalised entirely as makespan: the maximum completion time among jobs, which is the single quantity the reward function is built to minimise</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → Proximal Policy Optimization (Schulman et al., cited as [37]/[38])</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → MARL [10] and MDQN [24] RL-based JSSP schedulers</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>job shop scheduling problem —operationalised-as→ MDP</label>
+        <term>job shop scheduling problem</term>
+        <term>MDP</term>
+        <note>strength of the relation: 1
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span writes &#x27;JSSP&#x27;; endpoint abbreviated.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>regression (polynomial curve fitting)</label>
+        <term>regression (polynomial curve fitting)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>coefficient of determination</label>
+        <term>coefficient of determination</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger">
+        <label>standard deviation</label>
+        <term>standard deviation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>error bars (one standard deviation)</label>
+        <term>error bars (one standard deviation)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>On test instances the trained GNN scheduler reached 14.7% average relative error.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>On published benchmark sets the GNN scheduler gave average relative errors from 12.6% to 20.9%.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger">
+        <label>A scheduler trained only on small randomly generated instances transfers to much larger instances, since the gap between the generically trained GNN0 and the size-matched GNN1-3 was small.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger">
+        <label>The GNN scheduler reliably produced high-quality solutions across instance types.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger">
+        <label>Computation time grows roughly with the square of the number of jobs (quadratic fit R2 = 0.998).</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger">
+        <label>Stacking more than three embedding layers bought no measurable scheduling improvement while costing extra computation, so the message-passing depth was fixed at three.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger">
+        <label>The GNN scheduler needs more computation time than the priority dispatching rules.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger">
+        <label>Fewer than 20 episodes per parameter update left the state-value estimate with large variance, while more than 20 added no performance, fixing the batch size at 20 episodes.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>job shop scheduling problem (JSSP)</label>
+        <term>job shop scheduling problem (JSSP)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>priority dispatching rule</label>
+        <term>priority dispatching rule</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger">
+        <label>graph state for the JSSP</label>
+        <term>graph state for the JSSP</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger">
+        <label>non-trivial state</label>
+        <term>non-trivial state</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="content_tags" ana="#content_tags.definitions[4]" resp="#tagger">
+        <label>primitive transition</label>
+        <term>primitive transition</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="content_tags" ana="#content_tags.definitions[5]" resp="#tagger">
+        <label>graph neural network (GNN)</label>
+        <term>graph neural network (GNN)</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="content_tags" ana="#content_tags.definitions[6]" resp="#tagger">
+        <label>makespan</label>
+        <term>makespan</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>number of jobs</label>
+        <term>number of jobs</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.variables[1]" resp="#tagger">
+        <label>number of machines</label>
+        <term>number of machines</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.variables[3]" resp="#tagger">
+        <label>relative scheduling error</label>
+        <term>relative scheduling error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.variables[4]" resp="#tagger">
+        <label>computation time</label>
+        <term>computation time</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.variables[5]" resp="#tagger">
+        <label>additional training</label>
+        <term>additional training</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.variables[7]" resp="#tagger">
+        <label>discount factor</label>
+        <term>discount factor</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.variables[8]" resp="#tagger">
+        <label>learning rate</label>
+        <term>learning rate</term>
+        <note>about this quote: RULED, NOT PREVIOUSLY ADJUDICATED. This quote carries an unmapped font glyph and was not covered by the 2026-08-25 ruling, which reached only rows flagged with glyph damage. The same reasoning applies and the same decision follows: THE QUOTE IS NOT EDITED. The unmapped characters are the ones carrying the claim, and no code-to-character table is possible - in one sentence of this corpus the same code is &#x27;=&#x27; once and &#x27;tau&#x27; twice. Repair needs the source PDF and is a re-staging job, costed and refused (0 of 114 appendable; a per-record re-stage fixes 21 and breaks 223). Three sibling rows were found ALREADY ruled under this same pass and are untouched.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.variables[9]" resp="#tagger">
+        <label>GAE parameter</label>
+        <term>GAE parameter</term>
+        <note>about this quote: RULED, NOT PREVIOUSLY ADJUDICATED. This quote carries an unmapped font glyph and was not covered by the 2026-08-25 ruling, which reached only rows flagged with glyph damage. The same reasoning applies and the same decision follows: THE QUOTE IS NOT EDITED. The unmapped characters are the ones carrying the claim, and no code-to-character table is possible - in one sentence of this corpus the same code is &#x27;=&#x27; once and &#x27;tau&#x27; twice. Repair needs the source PDF and is a re-staging job, costed and refused (0 of 114 appendable; a per-record re-stage fixes 21 and breaks 223). Three sibling rows were found ALREADY ruled under this same pass and are untouched.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.variables[10]" resp="#tagger">
+        <label>clipping parameter</label>
+        <term>clipping parameter</term>
+        <note>about this quote: RULED, NOT PREVIOUSLY ADJUDICATED. This quote carries an unmapped font glyph and was not covered by the 2026-08-25 ruling, which reached only rows flagged with glyph damage. The same reasoning applies and the same decision follows: THE QUOTE IS NOT EDITED. The unmapped characters are the ones carrying the claim, and no code-to-character table is possible - in one sentence of this corpus the same code is &#x27;=&#x27; once and &#x27;tau&#x27; twice. Repair needs the source PDF and is a re-staging job, costed and refused (0 of 114 appendable; a per-record re-stage fixes 21 and breaks 223). Three sibling rows were found ALREADY ruled under this same pass and are untouched.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.variables[11]" resp="#tagger">
+        <label>value function coefficient</label>
+        <term>value function coefficient</term>
+        <note>about this quote: RULED, NOT PREVIOUSLY ADJUDICATED. This quote carries an unmapped font glyph and was not covered by the 2026-08-25 ruling, which reached only rows flagged with glyph damage. The same reasoning applies and the same decision follows: THE QUOTE IS NOT EDITED. The unmapped characters are the ones carrying the claim, and no code-to-character table is possible - in one sentence of this corpus the same code is &#x27;=&#x27; once and &#x27;tau&#x27; twice. Repair needs the source PDF and is a re-staging job, costed and refused (0 of 114 appendable; a per-record re-stage fixes 21 and breaks 223). Three sibling rows were found ALREADY ruled under this same pass and are untouched.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.variables[12]" resp="#tagger">
+        <label>entropy bonus coefficient</label>
+        <term>entropy bonus coefficient</term>
+        <note>about this quote: RULED, NOT PREVIOUSLY ADJUDICATED. This quote carries an unmapped font glyph and was not covered by the 2026-08-25 ruling, which reached only rows flagged with glyph damage. The same reasoning applies and the same decision follows: THE QUOTE IS NOT EDITED. The unmapped characters are the ones carrying the claim, and no code-to-character table is possible - in one sentence of this corpus the same code is &#x27;=&#x27; once and &#x27;tau&#x27; twice. Repair needs the source PDF and is a re-staging job, costed and refused (0 of 114 appendable; a per-record re-stage fixes 21 and breaks 223). Three sibling rows were found ALREADY ruled under this same pass and are untouched.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>14.7% — average relative makespan error of the trained scheduler on the 100 in-distribution test instances</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>over 20% — average relative error of every dispatching rule except MOR on the same test set</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>12.6% to 20.9% — range of the scheduler&#x27;s average relative error across the published benchmark families</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="content_tags" ana="#content_tags.quantities[3]" resp="#tagger">
+        <label>4.4% and 2.7% — the two cases where the scheduler was second-best by instance size (20x30 and 20x50), and by how much it trailed the best rule</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="content_tags" ana="#content_tags.quantities[4]" resp="#tagger">
+        <label>R2 = 0.9984 — fit quality of the quadratic model relating runtime to the number of jobs</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="content_tags" ana="#content_tags.quantities[5]" resp="#tagger">
+        <label>R2 = 0.9815 — fit quality of the linear model relating runtime to the number of machines</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="content_tags" ana="#content_tags.quantities[6]" resp="#tagger">
+        <label>K = 3 — number of stacked embedding layers (hops of message passing) used in the GNN</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="content_tags" ana="#content_tags.quantities[7]" resp="#tagger">
+        <label>100 — number of held-out test instances sampled from the training distribution</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="content_tags" ana="#content_tags.quantities[8]" resp="#tagger">
+        <label>20 machines and 100 jobs — size of the largest instance the scheduler was tested on</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="content_tags" ana="#content_tags.quantities[9]" resp="#tagger">
+        <label>20 — episodes collected per PPO parameter update</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1080/00207543.2020.1870013.</note></p>
+    </body>
+  </text>
+</TEI>

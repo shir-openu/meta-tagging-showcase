@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Very Deep Convolutional Networks for Large-Scale Image Recognition</title>
+        <author>Karen Simonyan</author>
+        <author>Andrew Zisserman</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Very Deep Convolutional Networks for Large-Scale Image Recognition</title>
+          <date>2014</date>
+          <publisher>ICLR / arXiv</publisher>
+          
+          <idno type="arXiv">1409.1556</idno>
+          <idno type="record">simonyan2014-vgg</idno>
+          <note type="staged-file">simonyan2014-vgg.txt, the project's staged copy</note>
+          <note type="text-sha1">3483e747b87c494d94350db046b7471ec28bf9c5</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>convolutional network depth in large-scale image recognition</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger">
+        <label>mechanisms</label>
+        <term>stack many very small (3x3) convolution filters to build very deep networks - depth (16-19 layers), not filter size, drives accuracy, while small filters keep parameters low and grow the effective receptive field</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>Accuracy stops improving once depth reaches 19 layers on this dataset, so the depth benefit is shown to saturate.</label>
+        <note>what this limits: the depth claim on this dataset: THE ERROR RATE OF OUR ARCHITECTURE SATURATES WHEN THE DEPTH REACHES 19 LAYERS, BUT EVEN DEEPER MODELS MIGHT BE BENEFICIAL FOR LARGER DATASETS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>The approach is computationally expensive: a single network takes weeks to train even on four high-end GPUs.</label>
+        <note>what this limits: anyone planning to reproduce or extend the training: ON A SYSTEM EQUIPPED WITH FOUR NVIDIA TITAN BLACK GPUs, TRAINING A SINGLE NET TOOK 2-3 WEEKS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="limitations" ana="#limitations[2]" resp="#tagger" cert="1.0">
+        <label>The depth result is licensed by a control: every other parameter was deliberately held fixed.</label>
+        <note>what this limits: the claim that depth improves accuracy: the authors fixed the other architectural parameters and increased depth alone, so the result holds for the family of configurations that control defines</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="limitations" ana="#limitations[3]" resp="#tagger" cert="1.0">
+        <label>The configurations being compared were built to one recipe, which is what makes the comparison fair and also what bounds it.</label>
+        <note>what this limits: a comparison between these networks and others: all the configurations compared here were designed using the same principles in order to isolate depth</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[4]" resp="#tagger" cert="1.0">
+        <label>The explanation offered for faster convergence is labelled a conjecture by the authors.</label>
+        <note>what this limits: the claim that greater depth speeds convergence: the authors conjecture the nets required fewer epochs owing to implicit regularisation imposed by greater depth and smaller filters</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>multi-crop and dense evaluation run against each other, and in combination</label>
+        <note>eliminates: an accuracy figure that belongs to one evaluation protocol - running both shows what the protocol contributes and what the network does · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>ConvNet</label>
+        <term>ConvNet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>weight layers</label>
+        <term>weight layers</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>receptive field</label>
+        <term>receptive field</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>implicit regularisation</label>
+        <term>implicit regularisation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="concepts" ana="#concepts[8]" resp="#paper">
+        <label>depth</label>
+        <term>depth</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>depth - AS A COUNT OF WEIGHT LAYERS: the configurations differ only in this number, from 11 in network A to 19 in E, so &#x27;depth&#x27; here is an integer in a controlled series and not a general property of an architecture</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>ConvNet - THE PAPER&#x27;S OWN WORD, AND THE ONLY ONE IT USES: it says ConvNet 44 times and never writes &#x27;convolutional neural network&#x27; or &#x27;deep learning&#x27;, both of which this record is filed under; the expanded name and the field&#x27;s later label are absent from the paper that made them famous</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>the conclusion - ABOUT REPRESENTATION DEPTH ON A CONVENTIONAL ARCHITECTURE: the paper&#x27;s own summary is that depth is beneficial and that the state of the art can be reached with a conventional architecture substantially deepened, which is a narrower claim than &#x27;deeper is better&#x27;</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>extends → prior convolutional network configurations</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>builds-on → Krizhevsky et al. (2012) ConvNet training procedure</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>extends → the classical ConvNet architecture of LeCun et al. (1989)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="claim_relations" ana="#claim_relations[3]" resp="#tagger">
+        <label>extends → Ciresan et al. (2011) small-filter networks</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>depth —operationalised-as→ weight layers</label>
+        <term>depth</term>
+        <term>weight layers</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concept_edges" ana="#concept_edges[1]" resp="#tagger">
+        <label>depth —causes→ implicit regularisation</label>
+        <term>depth</term>
+        <term>implicit regularisation</term>
+        <note>strength of the relation: 0.6 — the record marks this weak
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span says &#x27;we conjecture&#x27; the faster convergence is due to implicit regularisation; hedged.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="content_tags" ana="#content_tags.quantities[0]" resp="#tagger">
+        <label>3 × 3 — very small convolution filter (receptive field) used throughout the network</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="content_tags" ana="#content_tags.quantities[1]" resp="#tagger">
+        <label>16–19 — network depth that yields the improvement</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="content_tags" ana="#content_tags.quantities[2]" resp="#tagger">
+        <label>1000 — ILSVRC classification output dimension</label>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS. The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>Pushing ConvNet depth to 16-19 weight layers was the basis of an ImageNet Challenge 2014 submission that took first place in localisation and second in classification.</label>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>The learned deep representations generalise well, achieving state-of-the-art results on other image datasets.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger">
+        <label>convolutional network depth</label>
+        <term>convolutional network depth</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>top-5 error</label>
+        <term>top-5 error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>receptive field</label>
+        <term>receptive field</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <note>about this quote: QUOTE RECOVERED FROM THE PAPER&#x27;S OWN CHARACTERS. The recorded quote was LETTERS-ONLY IDENTICAL to this stretch of the staged text but not an exact substring of it - spaces, hyphens, ligature glyphs or mathematical operators differed, so it could never anchor. This is the file&#x27;s own text between the same two letters: not produced by a rule about the damage, copied out of the file. Round-trip checked (the recovered span is letters-only equal to the original) and length-checked. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/1409.1556.</note></p>
+    </body>
+  </text>
+</TEI>

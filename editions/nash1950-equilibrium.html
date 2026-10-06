@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<title>Equilibrium Points in N-Person Games — tagged edition</title>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],processEnvironments:false}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><meta name="description" content="John F. Nash · 1950 · economics. Equilibrium points in n-person games"><meta property="og:type" content="article"><meta property="og:url" content="https://shir-openu.github.io/meta-tagging-showcase/editions/nash1950-equilibrium.html"><meta property="og:title" content="Equilibrium Points in N-Person Games"><meta property="og:description" content="John F. Nash · 1950 · economics. Equilibrium points in n-person games"><meta property="og:site_name" content="The Meta-Tagging Project"><meta name="twitter:card" content="summary">
+<style>
+ :root { --ink:#1e2530; --dim:#5a6472; --line:#e6eaee; }
+ body { font:16px/1.85 Georgia,"Segoe UI",serif; color:var(--ink); background:#f7f9fa; margin:0 }
+ .wrap { max-width:900px; margin:0 auto; padding:1.6rem 1.3rem 4rem; background:#fff;
+          box-shadow:0 0 0 1px var(--line) }
+ h1 { font-size:1.45rem; line-height:1.3; margin:.2rem 0 .3rem }
+ .meta { color:var(--dim); font-size:.9rem; margin-bottom:1.2rem }
+ h2 { font-size:1.05rem; margin:2rem 0 .6rem; padding-bottom:.3rem; border-bottom:1px solid var(--line) }
+ .tg { background:var(--b); box-shadow:inset 0 -2px 0 var(--c); border-radius:3px; padding:0 1px }
+ .tg.tagger { box-shadow:inset 0 -2px 0 var(--c); background:transparent;
+               border-bottom:1px dotted var(--c) }
+ .lbl { font:600 .58em/1 Consolas,monospace; vertical-align:super; color:var(--c);
+         text-decoration:none; margin-inline-end:2px }
+ .lbl:hover { text-decoration:underline }
+ .xr { font:600 .62em/1 Consolas,monospace; vertical-align:super; text-decoration:none;
+        margin-inline-start:1px }
+ .xr:hover { text-decoration:underline }
+ .xrs { font-size:.82em; color:var(--dim); margin-top:.15rem }
+ .rq { font-size:.92em; color:var(--ink); font-style:italic; margin:.25rem 0 .1rem; line-height:1.6; }
+ .rqcut { font-size:.8em; font-style:normal; color:var(--muted,#6b7280); white-space:nowrap; margin-inline-start:.35rem; }
+ .rq-withheld { font-style:normal; opacity:.75; }
+ .rq-fault { font-style:normal; opacity:.85; border-inline-start:2px solid var(--dim); padding-inline-start:.5rem; }
+ .rnote { font-size:.86em; color:var(--ink); margin-top:.3rem; padding-inline-start:.6rem;
+           border-inline-start:2px solid var(--line); white-space:pre-wrap }
+ .xrs a { text-decoration:none; border-bottom:1px dotted currentColor }
+ .xrs a:hover { border-bottom-style:solid }
+ .chipt { display:inline-block; border:1px solid #9fb2c4; border-radius:5px; padding:0 7px;
+           margin:2px 3px 2px 0; font-size:.82rem; background:#fff }
+ .chipt a.xr { vertical-align:baseline; font:inherit }
+ .sw { display:inline-block; padding:0 7px; border-radius:4px; color:var(--c);
+        background:var(--b); font:600 .8rem/1.7 "Segoe UI",sans-serif; white-space:nowrap }
+ table { border-collapse:collapse; width:100%; font-size:.86rem }
+ td,th { border-bottom:1px solid var(--line); padding:.35rem .5rem; vertical-align:top;
+          text-align:left }
+ code { font:.85em Consolas,monospace; background:#f0f2f4; padding:0 3px; border-radius:3px }
+ .note { background:#fbfcfd; border:1px solid var(--line); border-radius:10px;
+          padding:.8rem 1rem; font-size:.9rem; color:var(--dim) }
+ .prov { border:1px solid #d6dfe8; border-inline-start:4px solid #3d5f7a; background:#f7f9fb;
+          border-radius:10px; padding:.7rem 1rem; margin:1rem 0; font-size:.9rem;
+          color:#33404d; line-height:1.75 }
+ .prov b { color:#3d5f7a }
+ .reading p { margin:1rem 0 }
+ /* PHONE. This file had NO media query at all, and every one of the 907 editions scrolled
+    sideways: measured at 390px, shannon1948 was 583 wide, friis2017 610 and love2014 628.
+    Three causes and I found them one at a time, each by measuring after fixing the last:
+
+      the facet TABLE, which is the same fault make_report54 already solved - and its note
+      says `display:block;overflow-x:auto` moved the number by ZERO across three variants,
+      because the rows still paint outside the scroll box. table-layout:fixed works because
+      the table never asks to be wider than its container. Reused, not re-derived.
+      the `.tg` tag spans, 411px of concept names run together with no break opportunity.
+      a `<p>` in the reading column holding an unbroken LaTeX run - a documentclass line
+      with its whole package list and no break opportunity - 524 wide inside a 348 column.
+      (Written without the braces on purpose: this whole block is an f-string, and the
+      first version of this comment quoted the LaTeX verbatim, so `{minimal}` became a
+      substitution and the renderer raised NameError on every record. It refused to build
+      rather than writing 907 broken pages, which is why nothing was lost.)
+
+    After all three: 390, 390, 390, with nothing past the edge on any of them. */
+ @media (max-width:700px) {
+   table { table-layout:fixed; width:100%; max-width:100% }
+   th, td { overflow-wrap:anywhere !important; white-space:normal !important }
+   .tg, .reading, .reading p, .wrap { overflow-wrap:anywhere }
+   /* AND THE LEGEND STACKS, because fitting it was not the same as making it readable.
+      table-layout:fixed stopped the sideways scroll and then split three columns evenly,
+      so the description wrapped at 1.7 words a line. Percentage widths took that to 3.3 and
+      CLIPPED THE CHIPS instead - `relation to ot`, `concept edg`, `phenomenor` - and broke
+      the field names mid-word: `claim_re / lations`, `limitati / ons`. The numbers said the
+      page fitted; the screenshot said it did not read. A row that becomes a block gives
+      every cell the full width and cannot overflow by construction.
+
+      SCOPED TO .legend ON PURPOSE. The other table on this page is the five-column facet
+      table - facet, tag, field, conf., whose words - and stacking that one would drop its
+      header row and leave five unlabelled values in a column. It keeps table-layout:fixed,
+      which the sweep shows already fits: 0 of 40 sampled editions overflow. */
+   table.legend, table.legend tbody, table.legend tr, table.legend td {
+     display:block; width:auto; }
+   table.legend thead { display:none }
+   table.legend tr { border-bottom:1px solid #eee; padding:.45rem 0 }
+   table.legend td { border:0; padding:.1rem 0 }
+ }
+</style></head><body><div class="wrap">
+
+<h1>Equilibrium Points in N-Person Games</h1>
+<div class="meta"><a class="xr" href="../AUTHORS.html#a-nash" style="color:#1b5e9d" title="3 paper(s) by this surname">John F. Nash</a> · Proceedings of the National Academy of Sciences ·
+ 1950 ·
+ economics
+  · <a href="https://doi.org/10.1073/pnas.36.1.48">10.1073/pnas.36.1.48</a>
+ · record <code>nash1950-equilibrium</code>
+ <br><a href="../papers/nash1950-equilibrium.html">tag layer</a> · <a href="../index.html">index</a> · <a href="../CONCEPTS.html">concepts</a> ·
+ <a href="../AUTHORS.html">authors</a> ·
+ <a href="../index-he.html" hreflang="he" title="עבור לעברית"
+    ><span style="unicode-bidi:isolate">עברית</span></a></div>
+<div class="prov"><b>Where this record's text came from.</b> faceted 2026-08 by reading the locally held text (pdftext); every evidence string verified as an exact substring of that text before merging. The extracted text is a raw PNAS page dump: Nash&#x27;s note is preceded by the reference list of an unrelated MacLane/Whitehead paper and followed by the opening of a Polya note, and OCR has scrambled word order inside two sentences (the limitation quote is a contiguous but internally jumbled span, quoted exactly as it appears). method has no match in the suggested vocabulary - the whole contribution is a two-page existence proof, so &#x27;mathematical-proof&#x27; is used. The paper also relates itself to the von Neumann-Morgenstern minimax result, but in the body that work is referred to only as &#x27;the &quot;main theorem&quot;2&#x27;, with the authors&#x27; names appearing solely in the (unquotable) footnote list, so no claim_relation is recorded for it. Replication status is &#x27;untested&#x27; because a theorem is not the kind of claim the paper submits to replication and the text says nothing about replication.</div><div class="prov" style="border-inline-start-color:#8324c4"><b style="color:#8324c4">The quality of the text these quotes were cut from.</b> corrupt-text-layer: extraction lost inter-word spaces (wordsjammedtogether); 1950 PNAS scan, no clean OA source found. Not enriched. [AMENDED 2026-08-23 - THE COPY WAS NEVER NAMED AND IT IS THE WRONG ONE. The space loss is in the web page we fetched (space ratio 0.034). an internal file is intact at 0.171 and is the copy all 13 live quotes resolve against. &#x27;Not enriched&#x27; therefore records a decision taken against the publishing artefact, not against the grounding text.]</div>
+<!-- The 300-odd edition pages are NOT translated: they are per-paper editions of English
+     papers, and translating a page whose content is another author's English text would be
+     inventing a Hebrew paper. What a Hebrew-speaking reader needs from here is a way back to
+     a hub they can read, which is the link above. Stated rather than silently skipped. -->
+
+<div class="note"><b>How to read this page.</b> The article itself is not reproduced here &mdash; this paper is not cleared for redistribution, so what follows is the tag layer alone. The evidence sentences are withheld with the article. The table at the foot lists every tag the record carries; each row names the facet it belongs to, and the <i>whose words</i> column says whether the tag records the paper's own wording or the tagger's sentence about the paper. Every tag links to each other paper in the corpus carrying it. The machine-readable edition of the same thing is the TEI file beside this one, where the tags live in <code>standOff</code>, and the article is at its publisher via the link below. <b>When we have changed our mind.</b> Some entries in the table begin with a word in capitals and the reason for it. <b>EVIDENCE CORRECTED</b> &mdash; the finding still stands, but we had quoted the wrong sentence from the paper, and the quotation has been replaced with the right one. <b>RETRACTED</b> &mdash; the entry itself was wrong; it stays on the page, marked, with the reason, rather than being deleted. <b>WITHDRAWN AND REPLACED</b> &mdash; the entry was wrong, and a corrected version of it appears in the entries below. Each mark carries its own reason, in brackets, because the reasons differ from one entry to the next. An entry we have <b>WITHDRAWN</b> is removed from this page and kept in the record, with its reason. A line reading <b>Audit</b> and a date is a later re-reading of the entry against its whole sentence: <b>DOUBTFUL</b> means it was kept, and the reason says what is loose about it. <b>Quotation marks inside the tagger's sentence.</b> Where a tag is the tagger's own sentence, a phrase in quotation marks inside it is borrowed from the paper &mdash; the tagger's wording around it is not. The paper's own sentence is the evidence quote for that row; on this page it is withheld with the article, and the article is at its publisher. Nothing inside quotation marks anywhere on this page is ours: if it is quoted, it is the paper's. <b>Whose words a concept carries.</b> A concept entry records a term the paper itself uses, so the term, the sense given for it, and its evidence are the paper's own words, quoted where the paper fixes them. This is the opposite of a <i>sense</i> entry in the tag table, which is the tagger's sentence about how the paper uses a term. Where a concept entry could not be grounded in the paper's words, the entry says so on its own row.</div>
+
+<h2>Tags on this paper</h2><div class="note" style="margin-bottom:1rem">Every tag the record carries, each linking to every other paper in the corpus that carries it. A tag appears here whether or not its words occur in the article &mdash; the spans below are only the ones a sentence in this paper licenses. Of the 4 concept tags on this paper, none is grounded in a quoted sentence.<div style="margin-top:.5rem"><span class="chipt" title="concept"><a class="xr" href="../CONCEPTS.html#c-nash-equilibrium" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">Nash equilibrium</a></span> <span class="chipt" title="concept"><a class="xr" href="../CONCEPTS.html#c-non-cooperative-game" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">non-cooperative game</a></span> <span class="chipt" title="concept"><a class="xr" href="../CONCEPTS.html#c-mixed-strategy" style="color:#1b5e9d" title="2 papers in the corpus carry this tag">mixed strategy</a></span> <span class="chipt" title="concept"><a class="xr" href="../CONCEPTS.html#c-fixed-point-theorem" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">fixed-point theorem</a></span> <span class="chipt" title="mechanism"><a class="xr" href="../CONCEPTS.html#c-because-the-countering-correspondence-is-convex-valued-and-h" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">Because the countering correspondence is convex-valued and has a closed graph, a fixed-point theorem applies to it, and any fixed point of that correspondence is by definition a self-countering n-tuple, i.e. an equilibrium.</a></span> <span class="chipt" title="definition"><a class="xr" href="../CONCEPTS.html#c-n-person-game" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">n-person game</a></span> <span class="chipt" title="definition"><a class="xr" href="../CONCEPTS.html#c-equilibrium-point" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">equilibrium point</a></span> <span class="chipt" title="definition"><a class="xr" href="../CONCEPTS.html#c-pay-off-functions" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">pay-off functions</a></span> <span class="chipt" title="definition"><a class="xr" href="../CONCEPTS.html#c-mapping-of-the-product-space" style="color:#1b5e9d" title="1 paper in the corpus carries this tag">mapping of the product space</a></span> <span class="chipt" title="method"><a class="xr" href="../CONCEPTS.html#c-mathematical-proof" style="color:#1b5e9d" title="27 papers in the corpus carry this tag">mathematical-proof</a></span></div></div>
+<h2>Legend</h2>
+<table class="legend"><tr><td><span class="sw" style="--c:#b5179e;--b:#fbeaf6">relation to other work</span></td><td><code>claim_relations</code></td><td>how this paper stands to another: agrees, contradicts, extends, qualifies</td></tr><tr><td><span class="sw" style="--c:#7b1fa2;--b:#f3eafb">claim type</span></td><td><code>claim_type</code></td><td>the shape of the claim: existence, mechanism, method, critique, prediction, null</td></tr><tr><td><span class="sw" style="--c:#455a64;--b:#eceff1">content tag</span></td><td><code>content_tags</code></td><td>a finding, definition, quantity, statistic or variable named in the paper</td></tr><tr><td><span class="sw" style="--c:#985a06;--b:#fdf3e2">limitation</span></td><td><code>limitations</code></td><td>what the paper says its evidence cannot support</td></tr><tr><td><span class="sw" style="--c:#00695c;--b:#e0f2f1">mechanism</span></td><td><code>mechanisms</code></td><td>how the reported effect is said to come about</td></tr><tr><td><span class="sw" style="--c:#1565c0;--b:#e8f0fa">method</span></td><td><code>method</code></td><td>how the paper produced its evidence</td></tr><tr><td><span class="sw" style="--c:#9d1b6b;--b:#fbeaf1">phenomenon</span></td><td><code>phenomenon</code></td><td>the effect or regularity under study</td></tr><tr><td><span class="sw" style="--c:#0b4f9c;--b:#e8f1fc">transfer</span></td><td><code>transfers</code></td><td>a method or concept carried in from another field</td></tr></table>
+
+<h2>The paper</h2><div class="note"><b>The full text is not reproduced here.</b> This article is not cleared for redistribution, so the page carries the tag layer only. Its evidence sentences are withheld; the grounding status remains with each tag, and the article itself is at <a href="https://doi.org/10.1073/pnas.36.1.48">https://doi.org/10.1073/pnas.36.1.48</a>. The reading view exists for the papers whose licence permits it.</div>
+
+<h2>Every tag on this page</h2>
+<p class="meta">claim_relations 1 · claim_type 1 · content_tags 9 · limitations 1 · mechanisms 1 · method 1 · phenomenon 1 · transfers 1</p>
+<p class="ftnote">This record holds no relations between concepts, controls or senses of a term. A layer is empty when the tagger recorded nothing in it &mdash; which is not the same as the paper having nothing to record.</p>
+<table><tr><th>facet</th><th>tag</th><th>field</th><th>conf.</th><th>whose words</th></tr>
+<tr id="t0"><td><span class="sw" style="--c:#7b1fa2;--b:#f3eafb">claim_type</span></td><td>existence<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>claim_type</code></td><td></td><td>the paper's words</td></tr><tr id="t1"><td><span class="sw" style="--c:#9d1b6b;--b:#fbeaf1">phenomenon</span></td><td>equilibrium points in n-person games<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>phenomenon</code></td><td></td><td>the paper's words</td></tr><tr id="t2"><td><span class="sw" style="--c:#1565c0;--b:#e8f0fa">method</span></td><td>mathematical-proof<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div><div class="xrs">also in: <a class="xr" href="../CONCEPTS.html#c-mathematical-proof" style="color:#1565c0" title="27 papers in the corpus carry this tag">mathematical-proof</a></div></td><td><code>method</code></td><td></td><td>the paper's words</td></tr><tr id="t3"><td><span class="sw" style="--c:#00695c;--b:#e0f2f1">mechanisms</span></td><td>mechanisms<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div><div class="xrs">also in: <a class="xr" href="../CONCEPTS.html#c-because-the-countering-correspondence-is-convex-valued-and-h" style="color:#00695c" title="1 paper in the corpus carries this tag">Because the countering correspondence is convex-valued and has a closed graph, a fixed-point theorem applies to it, and any fixed point of that correspondence is by definition a self-countering n-tuple, i.e. an equilibrium.</a></div></td><td><code>mechanisms[0]</code></td><td></td><td>the tagger's words</td></tr><tr id="t4"><td><span class="sw" style="--c:#985a06;--b:#fdf3e2">limitations</span></td><td>Equilibrium points are not interchangeable in general: outside the two-person zero-sum case, distinct equilibrium points need not give the players the same expectations.<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>limitations[0]</code></td><td></td><td>the tagger's words</td></tr><tr id="t5"><td><span class="sw" style="--c:#0b4f9c;--b:#e8f1fc">transfers</span></td><td>The existence proof imports Kakutani&#x27;s fixed-point theorem for convex-valued closed-graph set correspondences and applies it to the game&#x27;s countering correspondence.<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>transfers[0]</code></td><td></td><td>the tagger's words</td></tr><tr id="t6"><td><span class="sw" style="--c:#b5179e;--b:#fbeaf6">claim_relations</span></td><td>builds-on → Kakutani&#x27;s fixed point theorem<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>claim_relations[0]</code></td><td></td><td>the tagger's words</td></tr><tr id="t7"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>Every finite n-person game has at least one equilibrium point.<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>content_tags.findings[0]</code></td><td></td><td>the tagger's words</td></tr><tr id="t8"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>The set of n-tuples that counter a given n-tuple is convex.<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>content_tags.findings[1]</code></td><td></td><td>the tagger's words</td></tr><tr id="t9"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>Continuity of the pay-off functions implies that the graph of the countering correspondence is closed.<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>content_tags.findings[2]</code></td><td></td><td>the tagger's words</td></tr><tr id="t10"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>Outside the two-person zero-sum case, different equilibrium points need not give the players the same expectations.<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div><div class="rnote">about this quote: THE QUOTE&#x27;S OPENING WAS MOVED BY THE TEXT EXTRACTION: the paper&#x27;s sentence begins &#x27;In this case any two equilibrium&#x27; (printed earlier in this copy, inside the sentence before), and &#x27;this case&#x27; is the two-person zero-sum case.</div></td><td><code>content_tags.findings[3]</code></td><td></td><td>the tagger's words</td></tr><tr id="t11"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>In the two-person zero-sum case, existence of an equilibrium point is equivalent to von Neumann&#x27;s main theorem.<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div></td><td><code>content_tags.findings[4]</code></td><td></td><td>the tagger's words</td></tr><tr id="t12"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>n-person game<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div><div class="xrs">also in: <a class="xr" href="../CONCEPTS.html#c-n-person-game" style="color:#455a64" title="1 paper in the corpus carries this tag">n-person game</a></div></td><td><code>content_tags.definitions[0]</code></td><td></td><td>the tagger's words</td></tr><tr id="t13"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>equilibrium point<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div><div class="xrs">also in: <a class="xr" href="../CONCEPTS.html#c-equilibrium-point" style="color:#455a64" title="1 paper in the corpus carries this tag">equilibrium point</a></div></td><td><code>content_tags.definitions[1]</code></td><td></td><td>the tagger's words</td></tr><tr id="t14"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>pay-off functions<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div><div class="xrs">also in: <a class="xr" href="../CONCEPTS.html#c-pay-off-functions" style="color:#455a64" title="1 paper in the corpus carries this tag">pay-off functions</a></div></td><td><code>content_tags.definitions[2]</code></td><td></td><td>the tagger's words</td></tr><tr id="t15"><td><span class="sw" style="--c:#455a64;--b:#eceff1">content_tags</span></td><td>mapping of the product space<div class="rq rq-withheld" data-withheld="licence">Quotation withheld &mdash; this record is not cleared for redistribution. The sentence is in the paper at the link above.</div><div class="xrs">also in: <a class="xr" href="../CONCEPTS.html#c-mapping-of-the-product-space" style="color:#455a64" title="1 paper in the corpus carries this tag">mapping of the product space</a></div></td><td><code>content_tags.definitions[3]</code></td><td></td><td>the tagger's words</td></tr></table>
+
+<h2>Interpretive choices</h2>
+<div class="note">
+ <p><b>Tags that could not be placed in the text:</b></p>
+ <ul><li>none — every tag was located in the text</li></ul>
+ <p>What was deliberately <i>not</i> tagged, and why, is recorded per paper by the tagger.
+ Where a paper has no such record, this page says so rather than implying that nothing was
+ declined.</p>
+</div>
+
+<p class="meta" dir="ltr" style="text-align:start"><span class="credit">&copy; 2026 Shir Sivroni · <a href="https://orcid.org/0009-0000-2597-2824">ORCID 0009-0000-2597-2824</a></span></p>
+
+</div>
+<!-- page-load counter; GitHub publishes no analytics for Pages. Source: PRIMING_TOOLBOX/TOOLS/build_beacon.py -->
+<script src="https://shir-openu.github.io/beacon.js" defer></script>
+</body></html>

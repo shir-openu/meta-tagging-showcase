@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>A survey on semi-supervised learning</title>
+        <author>Jesper E. van Engelen</author>
+        <author>Holger H. Hoos</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>A survey on semi-supervised learning</title>
+          <date>2019</date>
+          <publisher>Machine Learning</publisher>
+          <idno type="DOI">10.1007/s10994-019-05855-6</idno>
+          
+          <idno type="record">engelen2019-a-survey-on-semi-supervised-learni</idno>
+          <note type="staged-file">engelen2019-a-survey-on-semi-supervised-learni.txt, the project's staged copy</note>
+          <note type="text-sha1">4d1e90293a2c88dc14f2fe75d881c61f8307aff9</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>artificial-intelligence</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>semi-supervised classification - using unlabelled data to beat a learner trained on the labelled data alone - and the assumptions that have to hold for it to be possible at all</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what the field&#x27;s methods assume, how those assumptions relate to one another, and when unlabelled data actually helps</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a taxonomy of semi-supervised classifiers, and the argument that the field&#x27;s three named assumptions are one assumption under three definitions of &#x27;similar&#x27;</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>unlabelled data carrying information about the label distribution - when it does, and the fact that nobody can tell in advance whether it does</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>review</label>
+        <term>review</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>THE CATEGORY IS DECIDED BY A CHOICE THE PRACTITIONER USUALLY DOES NOT KNOW THEY ARE MAKING: `The concept of similarity we choose, often implicitly, dictates what constitutes a cluster`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>and the field&#x27;s three named assumptions differ only in what they mean by `close` - smoothness says near in input space, low-density says in the same dense region, manifold says on the same low-dimensional surface</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>so all three are instances of the cluster assumption, which is itself the necessary condition for the whole enterprise: that p(x) carries information about p(y|x)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>A TAXONOMY PAPER THAT DIAGNOSES WHAT IS WRONG WITH TAXONOMIES: `Existing categorizations ... are typically relatively flat, thereby failing to capture similarities between different groups of methods. Furthermore, the categorizations are often fine-tuned towards existing work, making them less suited for the inclusion of new approaches.` Two named failure modes - too shallow to show kinship, and overfitted to the papers that existed when it was drawn.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.9">
+        <label>AND THE PROPOSED REPAIR IS STATED AS A DESIGN GOAL, NOT A RESULT: `we propose a new way to represent the spectrum ... we ATTEMPT to group them in a clear, FUTURE-PROOF way`. `attempt` and `future-proof` in one sentence - the second is a property no survey can demonstrate about itself at publication.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.9">
+        <label>THE FIELD&#x27;S OWN NAME FOR KNOWINGLY USING THE WRONG WORD: `in a slight abuse of notation`, used twice in this paper for two different acts - once to call lists `sets`, once to reassign X and x to random variables. Mathematics has a standard phrase for declaring a deliberate terminological error and continuing, and this survey uses it in a footnote and in body text without further comment.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>THE NECESSARY CONDITION CANNOT BE CHECKED. `if the data points ... cannot be meaningfully clustered, it is impossible for a semi-supervised learning method to improve on a supervised learning method` - and whether they can is exactly what cannot be established in advance</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>stated twice over, at both levels: it is difficult to DEFINE the conditions under which an algorithm works, and `rarely straightforward to evaluate to what extent these conditions are satisfied`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>IT IS IMPOSSIBLE TO GUARANTEE THAT UNLABELLED DATA WILL NOT DEGRADE PERFORMANCE - the method can do worse than ignoring the extra data, and no test tells you beforehand</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>and no method exists to choose the algorithm a priori, exactly as in supervised learning - so the practitioner picks the assumption and finds out afterwards</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.85">
+        <label>THE CENTRAL CLAIM ABOUT THE TAXONOMY IS UNFALSIFIABLE AT TIME OF WRITING: `allowing researchers and practitioners alike to gain insight into the way semi-supervised learning methods relate to each other`, built in a `future-proof way`. The paper&#x27;s stated advantage over prior categorizations is that new methods will fit it - a claim only later work can test, and the same claim the superseded categorizations could have made.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="transfers" ana="#transfers[0]" resp="#tagger" cert="0.95">
+        <label>the matching problem - find a subset of edges sharing no vertices - is taken from graph theory and used to pair unlabelled samples in a semi-supervised learner</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>the published empirical comparisons are surveyed rather than a single one cited - eight data sets in one study, several neural methods on two image problems in another</label>
+        <note>eliminates: a field-level claim resting on the studies that happened to work; the answer reported is that NO ALGORITHM UNIFORMLY OUTPERFORMED THE OTHERS and relative performance varied with the amount of unlabelled data · outcome: failed</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>where degradation was observed, the condition producing it is isolated - a mismatch between the classes in the labelled and the unlabelled data</label>
+        <note>eliminates: degradation being treated as unexplained noise; here it has a named cause that a practitioner can check for · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether the conditions for a given method to work can be evaluated on a given dataset</label>
+        <note>eliminates: nothing - it is &#x27;rarely straightforward to evaluate to what extent these conditions are satisfied&#x27;, which is why the necessary condition is not a test · outcome: failed</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>cluster assumption</label>
+        <term>cluster assumption</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>smoothness</label>
+        <term>smoothness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>low-density</label>
+        <term>low-density</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>manifold</label>
+        <term>manifold</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>local similarity measure</label>
+        <term>local similarity measure</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>taxonomy</label>
+        <term>taxonomy</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>inductive</label>
+        <term>inductive</term>
+        <note>about this quote: THE TERM IS NOT IN THE QUOTE - the quote&#x27;s former and latter terms are inductive and transductive methods, named in the sentence just before it (&#x27;between inductive and transductive methods&#x27;). That sentence is not quoted because reference-list text is spliced into its citation.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>transductive</label>
+        <term>transductive</term>
+        <note>about this quote: THE TERM IS NOT IN THE QUOTE - the quote&#x27;s former and latter terms are inductive and transductive methods, named in the sentence just before it (&#x27;between inductive and transductive methods&#x27;). That sentence is not quoted because reference-list text is spliced into its citation.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>self-training</label>
+        <term>self-training</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.9">
+        <label>self-learning</label>
+        <term>self-learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.9">
+        <label>sets</label>
+        <term>sets</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[11]" resp="#paper" cert="1.0">
+        <label>margin</label>
+        <term>margin</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[12]" resp="#paper" cert="1.0">
+        <label>intrinsically semi-supervised</label>
+        <term>intrinsically semi-supervised</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.9">
+        <label>Transductive graph-based methods</label>
+        <term>Transductive graph-based methods</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.9">
+        <label>graph construction</label>
+        <term>graph construction</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.9">
+        <label>graph weighting</label>
+        <term>graph weighting</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>pseudo-labelled data</label>
+        <term>pseudo-labelled data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>Semi-supervised learning</label>
+        <term>Semi-supervised learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>wrapper methods</label>
+        <term>wrapper methods</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>unsupervised preprocessing methods</label>
+        <term>unsupervised preprocessing methods</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">
+        <label>co-training</label>
+        <term>co-training</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">
+        <label>pseudo-labelled boosting methods</label>
+        <term>pseudo-labelled boosting methods</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">
+        <label>inference</label>
+        <term>inference</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">
+        <label>two alternating steps of _training</label>
+        <term>two alternating steps of _training</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.95">
+        <label>pseudo-labelling</label>
+        <term>pseudo-labelling</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger" cert="0.95">
+        <label>co-training → self-training</label>
+        <note>The paper says co-training extends self-training to multiple classifiers. Extension is not is-a, part-of, same-as, distinct-from, contrasted-with, operationalised-as, causes, or renamed-across-fields; the concept-edge schema has no extends type.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>`similar` - THE LOAD-BEARING WORD OF THE WHOLE FIELD AND IT IS A CHOICE. Smoothness, low-density and manifold are three definitions of it, and the survey&#x27;s contribution is showing they are the same assumption differently parameterised. WHICH ONE YOU PICKED IS USUALLY IMPLICIT</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>the cluster assumption - AS RE-READ HERE: not one assumption among several but the genus of which the other three are species, and equivalent to the necessary condition that p(x) carries information about p(y|x)</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>`semi-supervised learning works` - AS THE SURVEY IS FORCED TO QUALIFY IT: it can help, it can do nothing, and it can DEGRADE performance, with no way to know which in advance. The literature&#x27;s record of the third case is described as UNDER-REPORTED</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>`sets` - A DECLARED TYPE ERROR, KEPT ON PURPOSE: `the collections of data points referred to here are technically lists. However, following common usage, in this survey, we refer to them as ‘sets’ and, in a slight abuse of notation, apply standard set-theoretic concepts to them.` The authors know the word is wrong, say so in a footnote, and use it anyway because the field does.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>`abuse of notation` IS USED TWICE IN THIS PAPER FOR TWO DIFFERENT ACTS. The second is symbol reuse: `we use X and x to denote random variables and their realizations, respectively, rather than data points` - the same symbols carry a new meaning from that point on.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>`inductive` / `transductive` - the split is defined by WHAT THE METHOD RETURNS, not by how it works: `the former attempt to find a classification model, whereas the latter are solely concerned with obtaining label predictions for the given unlabelled data points`.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="senses" ana="#senses[6]" resp="#tagger" cert="1.0">
+        <label>&#x27;margin&#x27; - ONE TERM, TWO DIFFERENT KINDS OF OBJECT, AND THE SURVEY RECORDS BOTH WITHOUT CHOOSING: &#x27;the _margin_, which is defined as the distance between the decision boundary and the data points closest to it. The term is also commonly used to describe the area extruding from the decision boundary in which no data points lie.&#x27; A SCALAR AND A REGION. Not two readings of one quantity - two different types, so &#x27;maximise the margin&#x27; and &#x27;lies within the margin&#x27; are grammatical with different referents, and only one of them can be a number. This record already carries the survey&#x27;s declared type error over &#x27;sets&#x27;, kept on purpose, and its two senses of &#x27;abuse of notation&#x27;; this is the same survey&#x27;s third type-level observation, and the only one it does not flag as its own.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>`pseudo-labelled data` - A NAME WHOSE PREFIX CARRIES THE ONLY WARNING. `Quotation withheld` `pseudo-` is doing all the epistemic work: the data is treated exactly like labelled data by the algorithm, and only the name records that the labels are the model&#x27;s own guesses. Drop the prefix in a citation and the caution is gone with it.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="senses" ana="#senses[8]" resp="#tagger" cert="0.95">
+        <label>Semi-supervised learning - a machine-learning branch that performs tasks using both labelled and unlabelled data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="senses" ana="#senses[9]" resp="#tagger" cert="0.95">
+        <label>Wrapper methods - pseudo-label unlabelled data externally while the supervised learner remains unaware of label provenance</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="senses" ana="#senses[10]" resp="#tagger" cert="0.95">
+        <label>Unsupervised preprocessing methods - use unlabelled data for features, clustering, or initial parameters but give the classifier only original labels</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="senses" ana="#senses[11]" resp="#tagger" cert="0.95">
+        <label>Intrinsically semi-supervised - no intermediate step and no supervised base learner</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="senses" ana="#senses[12]" resp="#tagger" cert="0.95">
+        <label>Co-training - self-training extended to multiple classifiers that learn from one another&#x27;s most confident predictions</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="senses" ana="#senses[13]" resp="#tagger" cert="0.95">
+        <label>Pseudo-labelled boosting methods - sequential ensembles whose classifiers use labels plus earlier classifiers&#x27; confident unlabelled predictions</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="senses" ana="#senses[14]" resp="#tagger" cert="0.95">
+        <label>Inference - the final transductive graph-based phase, where the graph assigns labels to unlabelled data points</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="senses" ana="#senses[15]" resp="#tagger" cert="0.95">
+        <label>Training in wrapper methods - fitting classifiers on labelled and possibly prior pseudo-labelled data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="senses" ana="#senses[16]" resp="#tagger" cert="0.95">
+        <label>Pseudo-labelling in wrapper methods - turning confident predictions for unlabelled objects into labels for the next iteration</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>critiques → the presentation of smoothness, low-density and manifold as separate assumptions, when they are one assumption under three definitions of similarity</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>critiques → the semi-supervised literature&#x27;s record of when its methods fail, whose prevalence is described as likely under-reported</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>supports → Oliver et al.&#x27;s finding that degradation appeared only under a class mismatch between the labelled and unlabelled sets</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>smoothness —is-a→ cluster assumption</label>
+        <term>smoothness</term>
+        <term>cluster assumption</term>
+        <note>Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;the semi-supervised learning assumptions&#x27; = the smoothness, low-density and manifold assumptions of the previous sentence; is-a is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.85">
+        <label>manifold —is-a→ cluster assumption</label>
+        <term>manifold</term>
+        <term>cluster assumption</term>
+        <note>Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span introduces the cluster assumption as an additional assumption beside manifolds; is-a is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>self-training —same-as→ self-learning</label>
+        <term>self-training</term>
+        <term>self-learning</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 · note: Given parenthetically and without preference, in a sentence that cites a survey whose own title uses a THIRD name - &#x27;Self-labeled techniques for semi-supervised learning…&#x27;. Three names for one method inside one sentence, and the paper treats the multiplicity as unremarkable. · the relation stated: one method, two names, offered parenthetically and without preference</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>inductive —distinct-from→ transductive</label>
+        <term>inductive</term>
+        <term>transductive</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.95 · note: The top-level split of the taxonomy, and the differentiating property is the OUTPUT TYPE - a model versus a label vector. · the relation stated: the taxonomy&#x27;s top-level split, and the differentiating property is the OUTPUT TYPE - a model versus a label vector</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t71" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.9">
+        <label>graph construction —part-of→ Transductive graph-based methods</label>
+        <term>graph construction</term>
+        <term>Transductive graph-based methods</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 · note: &#x27;consist of&#x27; is in the containment cue list, so this edge is cue-tested. Weight 0.9 rather than 1.0 - &#x27;GENERALLY consist of&#x27; is the survey hedging across the family it is describing.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t72" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.9">
+        <label>graph weighting —part-of→ Transductive graph-based methods</label>
+        <term>graph weighting</term>
+        <term>Transductive graph-based methods</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 · note: Second of the three steps, same sentence, same hedge.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t73" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">
+        <label>inference —part-of→ Transductive graph-based methods</label>
+        <term>inference</term>
+        <term>Transductive graph-based methods</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 · note: The survey says these methods generally have the three steps, so the paper-level hedge is 0.9.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t74" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="0.95">
+        <label>pseudo-labelling —part-of→ wrapper methods</label>
+        <term>pseudo-labelling</term>
+        <term>wrapper methods</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 0.9 · note: The procedure usually has these two alternating steps; weight 0.9 preserves that hedge.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span writes &#x27;The procedure ... pseudo-labelling step&#x27;; &#x27;wrapper methods&#x27; is named only in the preceding text.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t75" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.95">
+        <label>unsupervised preprocessing methods —distinct-from→ wrapper methods</label>
+        <term>unsupervised preprocessing methods</term>
+        <term>wrapper methods</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper explicitly contrasts what the supervised classifier receives under the two method families.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t76" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>the concept of similarity chosen, often implicitly, dictates what counts as a cluster</label>
+        <term>the concept of similarity chosen, often implicitly, dictates what counts as a cluster</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t77" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>THREE NAMES, ONE ASSUMPTION: smoothness, low-density and manifold boil down to different definitions of the similarity between points</label>
+        <term>THREE NAMES, ONE ASSUMPTION: smoothness, low-density and manifold boil down to different definitions of the similarity between points</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t78" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>if the data cannot be meaningfully clustered, semi-supervised learning cannot improve on supervised learning</label>
+        <term>if the data cannot be meaningfully clustered, semi-supervised learning cannot improve on supervised learning</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t79" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>it is impossible to guarantee that adding unlabelled data will not degrade performance</label>
+        <term>it is impossible to guarantee that adding unlabelled data will not degrade performance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t80" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>no algorithm uniformly outperformed the others, and relative performance varied with the amount of unlabelled data</label>
+        <term>no algorithm uniformly outperformed the others, and relative performance varied with the amount of unlabelled data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t81" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>where degradation was observed it had a named condition - a mismatch between the classes present in the labelled data and those in the unlabelled data</label>
+        <term>where degradation was observed it had a named condition - a mismatch between the classes present in the labelled data and those in the unlabelled data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t82" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>that similar points tend to belong to the same group - and the survey argues the field&#x27;s other assumptions are more specific instances of it</label>
+        <term>cluster assumption</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t83" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>similarity</label>
+        <term>similarity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t84" type="content_tags" ana="#content_tags.variables[0]" resp="#tagger" cert="0.95">
+        <label>unlabelled data</label>
+        <term>unlabelled data</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1007/s10994-019-05855-6.</note></p>
+    </body>
+  </text>
+</TEI>

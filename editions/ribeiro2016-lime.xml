@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Why Should I Trust You? Explaining the Predictions of Any Classifier</title>
+        <author>Marco Tulio Ribeiro</author>
+        <author>Sameer Singh</author>
+        <author>Carlos Guestrin</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Why Should I Trust You? Explaining the Predictions of Any Classifier</title>
+          <date>2016</date>
+          <publisher>KDD / arXiv</publisher>
+          
+          <idno type="arXiv">1602.04938</idno>
+          <idno type="record">ribeiro2016-lime</idno>
+          <note type="staged-file">ribeiro2016-lime.txt, the project's staged copy</note>
+          <note type="text-sha1">a7d1281b5d00af5e68d9a3c7ca17907abce14a20</note>
+          <note type="rights">arxiv-open</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>statistics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>human trust in individual predictions of black-box classifiers</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE EXPLANATION&#x27;S VOCABULARY IS NOT THE MODEL&#x27;S: an interpretable representation is defined separately from the features the classifier actually uses - presence or absence of a word, or of a contiguous patch of similar pixels - while the model may work over embeddings or a three-channel tensor</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>INTERPRETABILITY IS DEFINED AS AUDIENCE-RELATIVE, not as a property of the model class: the authors state that a linear model, a gradient vector or an additive model MAY OR MAY NOT be interpretable, because the criterion has to take the user&#x27;s limitations into account</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>and the audience-relativity is made concrete rather than left as a caveat: practitioners may be able to read a small Bayesian network where laymen are better served by a few weighted features</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE IMPOSSIBILITY IS STATED BEFORE THE CRITERION IS WEAKENED: an explanation cannot be completely faithful unless it IS the complete description of the model, so the requirement imposed instead is that it be faithful in the vicinity of the instance being explained</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[4]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>AND THE IMPLICATION IS STATED TO RUN ONE WAY ONLY: local fidelity does not imply global fidelity - a feature that matters globally may not matter locally, and the reverse - while global fidelity would imply local, and globally faithful interpretable explanations are said to remain a challenge</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[5]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the explainer is required to treat the model as a BLACK BOX, and the reason given is not only that current classifiers are uninterpretable but that model-agnosticism buys the ability to explain classifiers that do not exist yet</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[6]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>THE TRADE-OFF IS PUT IN THE OBJECTIVE RATHER THAN LEFT TO JUDGEMENT: unfaithfulness in the neighbourhood is minimised while a separate measure of the explanation&#x27;s own complexity is held low enough for a human to read, and the authors note the same formulation admits different explanation families, fidelity functions and complexity measures</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="mechanisms" ana="#mechanisms[7]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>the neighbourhood is explored BY SAMPLING rather than by assumption, precisely to keep the method model-agnostic: no assumption is made about the model, and the local loss is approximated by drawing samples weighted by proximity to the instance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="mechanisms" ana="#mechanisms[8]" resp="#tagger" cert="0.95">
+        <label>mechanisms</label>
+        <term>samples are drawn both near the instance and FAR from it, weighted by proximity - which is what lets a globally complex model still be approximated locally, and what the authors say makes the method fairly robust to sampling noise</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="mechanisms" ana="#mechanisms[9]" resp="#tagger" cert="0.85">
+        <label>mechanisms</label>
+        <term>A CLASSIFIER AT 94% HELD-OUT ACCURACY IS SHOWN TO BE UNTRUSTWORTHY BY ITS EXPLANATIONS: the words it relies on are said to have no connection to either class, and one of them appears in 22% of training examples with 99% of those in a single class - and removing the headers only substitutes the names of prolific posters, which would not generalise either</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[0]" resp="#tagger">
+        <label>explanations are only locally faithful (learned locally around each prediction)</label>
+        <note>what this limits: the reach of any explanation the method produces: it works Quotation withheld, so faithfulness is local and not global</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[1]" resp="#tagger">
+        <label>Some model behaviours cannot be captured at all by the chosen interpretable representation.</label>
+        <note>what this limits: the choice of interpretable representation: CERTAIN INTERPRETABLE REPRESENTATIONS WILL NOT BE POWERFUL ENOUGH TO EXPLAIN CERTAIN BEHAVIORS</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[2]" resp="#tagger">
+        <label>Sparse linear explanations may be unfaithful where the underlying model is highly non-linear even locally.</label>
+        <note>what this limits: any guarantee that an explanation exists at all: IF THE UNDERLYING MODEL IS HIGHLY NON-LINEAR EVEN IN THE LOCALITY OF THE PREDICTION, THERE MAY NOT BE A FAITHFUL EXPLANATION</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="limitations" ana="#limitations[3]" resp="#tagger">
+        <label>The submodular pick step is not worked out for images.</label>
+        <note>what this limits: image applications of the global pick step: HOW TO PERFORM THE PICK STEP FOR IMAGES ... WE WOULD LIKE TO ADDRESS THIS LIMITATION IN THE FUTURE</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="limitations" ana="#limitations[4]" resp="#tagger">
+        <label>The husky-versus-wolf human-subject experiment had a small sample.</label>
+        <note>what this limits: the husky-versus-wolf human-subject result: ALTHOUGH OUR SAMPLE SIZE IS SMALL</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="limitations" ana="#limitations[5]" resp="#tagger" cert="1.0">
+        <label>Interpretability is a property of the reader, not of the explanation: the same model may or may not be interpretable depending on who is looking at it.</label>
+        <note>what this limits: any claim that a method produces interpretable explanations: interpretability is stated to depend on the user&#x27;s limitations, so a linear model, a gradient vector or an additive model may or may not be interpretable depending on the audience</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="limitations" ana="#limitations[6]" resp="#tagger" cert="1.0">
+        <label>The vocabulary of the explanation is deliberately not the vocabulary of the model.</label>
+        <note>what this limits: an explanation read as a description of what the model computes: the input variables in the explanation may need to differ from the model&#x27;s features, so the two are stated in different terms by design</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="limitations" ana="#limitations[7]" resp="#tagger" cert="1.0">
+        <label>Complete faithfulness is stated to be impossible short of reproducing the model itself.</label>
+        <note>what this limits: an explanation offered as an account of the model: the paper states complete faithfulness is often impossible unless the explanation is the complete description of the model, so what is offered instead is local fidelity</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[0]" resp="#tagger" cert="0.85">
+        <label>the explanation-based trust assessment checked against human experts</label>
+        <note>eliminates: an explanation that satisfies a metric without helping a person - the human check is the only thing that can test a claim about trust · outcome (stated by the tagger, no quotation): held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[0]" resp="#paper">
+        <label>interpretability</label>
+        <term>interpretability</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[4]" resp="#paper">
+        <label>local fidelity</label>
+        <term>local fidelity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[5]" resp="#paper">
+        <label>global fidelity</label>
+        <term>global fidelity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[6]" resp="#paper">
+        <label>LIME</label>
+        <term>LIME</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[7]" resp="#paper">
+        <label>model-agnostic</label>
+        <term>model-agnostic</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="senses" ana="#senses[0]" resp="#tagger" cert="1.0">
+        <label>trust - SENSE 1, IN A PREDICTION: whether a user is willing to act on one individual output, which is the question an explanation of a single prediction addresses</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="senses" ana="#senses[1]" resp="#tagger" cert="1.0">
+        <label>interpretability - AUDIENCE-RELATIVE: it depends on the target audience, so practitioners may read a small Bayesian network while laymen need a few weighted features, and the same artefact is interpretable for one and not the other</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="senses" ana="#senses[2]" resp="#tagger" cert="1.0">
+        <label>fidelity - LOCAL AND GLOBAL, AND THE IMPLICATION RUNS ONE WAY ONLY: local fidelity does not give global fidelity, and features that matter globally may not matter locally</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="alternatives" ana="#alternatives.claim_type" resp="#tagger" cert="0.9">
+        <label>claim_type: method</label>
+        <note>a second reading reaching the same value. Recorded: method — note: A BLIND second reading by the project on 2026-08-25: the record&#x27;s own claim type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no alternatives block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is).,</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="alternatives" ana="#alternatives.method" resp="#tagger" cert="0.8">
+        <label>method: system-or-tool-building</label>
+        <note>a second reading reaching the same value. Recorded: system-or-tool-building — note: A BLIND second reading by the project on 2026-08-25: the record&#x27;s own claim type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no alternatives block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is).,</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="alternatives" ana="#alternatives.phenomenon" resp="#tagger" cert="0.85">
+        <label>phenomenon: trust in the predictions of black-box classifiers, and whether a prediction can be understood well enough to act on</label>
+        <note>a second reading DIFFERING from the recorded value. Recorded: human trust in individual predictions of black-box classifiers — note: A BLIND second reading by the project on 2026-08-25: the record&#x27;s own claim type/method/phenomenon were not looked at until every value here was written and substring-verified. Not applied - a person decides. Sampling frame: the 504 staged records carrying no alternatives block, so this never re-measures the 202. All 11 records with 130+ tags were taken as a census and 19 more spread one per discipline across 22 disciplines - the dense non-neuroscience cell is the one the 202 do not contain (inside them, 94-100% of the densest bands are neuroscience; among these 11, one is).,</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="claim_relations" ana="#claim_relations[0]" resp="#tagger">
+        <label>builds-on → model-agnostic explanation by learning an interpretable model on the original model&#x27;s predictions [2, 7, 22]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="claim_relations" ana="#claim_relations[1]" resp="#tagger">
+        <label>extends → prior perturbation-based explanation work [24]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="claim_relations" ana="#claim_relations[2]" resp="#tagger">
+        <label>builds-on → the 1-1/e greedy approximation guarantee for submodular coverage maximisation [15]</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concept_edges" ana="#concept_edges[0]" resp="#tagger">
+        <label>local fidelity —distinct-from→ global fidelity</label>
+        <term>local fidelity</term>
+        <term>global fidelity</term>
+        <note>strength of the relation: 1</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger">
+        <label>LIME explains the predictions of any classifier in an interpretable and faithful way by learning an interpretable model locally around each prediction.</label>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger">
+        <label>SP-LIME selects a set of representative instances with explanations to address the problem of trusting the model.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger">
+        <label>LIME</label>
+        <term>LIME</term>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger">
+        <label>model-agnostic explanation</label>
+        <term>model-agnostic explanation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger">
+        <label>Bayesian</label>
+        <term>Bayesian</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger">
+        <label>mean</label>
+        <term>mean</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="content_tags" ana="#content_tags.statistics[3]" resp="#tagger">
+        <label>regression</label>
+        <term>regression</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="content_tags" ana="#content_tags.statistics[4]" resp="#tagger">
+        <label>sample-size</label>
+        <term>sample-size</term>
+        <note>about this quote: QUOTE REPAIRED: the extractor split a hyphen-space and the quote was recorded faithfully with the damage in it, which made it unanchorable. The repaired string is an EXACT SUBSTRING of the staged text - that is why it was accepted, not because a rule produced it. The text as originally recorded is kept in evidence as extracted.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="content_tags" ana="#content_tags.statistics[5]" resp="#tagger">
+        <label>standard-error</label>
+        <term>standard-error</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="content_tags" ana="#content_tags.statistics[6]" resp="#tagger">
+        <label>statistical-significance</label>
+        <term>statistical-significance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://arxiv.org/abs/1602.04938.</note></p>
+    </body>
+  </text>
+</TEI>

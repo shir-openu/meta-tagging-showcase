@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Integrated analysis of multimodal single-cell data</title>
+        <author>Yuhan Hao</author>
+        <author>Stephanie Hao</author>
+        <author>Erica Andersen‐Nissen</author>
+        <author>William M. Mauck</author>
+        <author>Shiwei Zheng</author>
+        <author>Andrew Butler</author>
+        <author>Madeline J. Lee</author>
+        <author>Aaron J. Wilk</author>
+        <author>Charlotte A. Darby</author>
+        <author>Michael Zager</author>
+        <author>Paul Hoffman</author>
+        <author>Marlon Stoeckius</author>
+        <author>Efthymia Papalexi</author>
+        <author>Eleni P. Mimitou</author>
+        <author>Jaison Jain</author>
+        <author>Avi Srivastava</author>
+        <author>Tim Stuart</author>
+        <author>Lamar M. Fleming</author>
+        <author>Bertrand Z. Yeung</author>
+        <author>Angela J. Rogers</author>
+        <author>M. Juliana McElrath</author>
+        <author>Catherine A. Blish</author>
+        <author>Raphaël Gottardo</author>
+        <author>Peter Smibert</author>
+        <author>Rahul Satija</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Integrated analysis of multimodal single-cell data</title>
+          <date>2021</date>
+          <publisher>Cell</publisher>
+          <idno type="DOI">10.1016/j.cell.2021.04.048</idno>
+          
+          <idno type="record">hao2021-integrated-analysis-of-multimodal</idno>
+          <note type="staged-file">hao2021-integrated-analysis-of-multimodal.txt, the project's staged copy</note>
+          <note type="text-sha1">b0985d6f1a9efbac81f98ba177bd4377b44e5764</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>genetics</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>cells measured two ways at once - transcriptome plus surface protein, or plus chromatin accessibility - and the problem of deciding which measurement to believe</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>how to combine several simultaneous measurements of one cell into a single definition of its state, without being told in advance which measurement matters</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>weighted-nearest-neighbor analysis: a per-cell, unsupervised weight for each modality, plus a 211,000-cell multimodal reference atlas and a way to map new datasets onto it</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>method</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>cell states that one measurement type cannot separate and another can - CD4 and CD8 T cells blend in the transcriptome and separate in protein; dendritic cells do the reverse</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>system-or-tool-building</label>
+        <term>system-or-tool-building</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>the core move: if a cell&#x27;s neighbours in one modality predict its measured profile well, that modality is capturing its state; if they predict badly, it is not. The weight is the ratio of those two accuracies</label>
+        <term>prediction accuracy as evidence of informativeness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>why rare cells are not penalised: a fixed neighbour count for the kernel bandwidth would hold common and rare states to the same scale, so the bandwidth is set from the 20 cells with the LOWEST non-zero Jaccard similarity - similar enough to matter, unlikely to be the same state</label>
+        <term>adaptive kernel bandwidth</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="mechanisms" ana="#mechanisms[2]" resp="#tagger" cert="0.95">
+        <label>how a spurious edge is told from a real one - the Jaccard metric counts shared nearest neighbours, so local density separates well-supported links from coincidental similarity</label>
+        <term>shared-neighbour filtering</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="mechanisms" ana="#mechanisms[3]" resp="#tagger" cert="0.9">
+        <label>what the weighting buys: one data type is allowed to make up for another&#x27;s weakness, cell by cell, so the combined analysis is not limited by whichever measurement happens to be poor for that cell</label>
+        <term>compensation between modalities</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>WNN needs a dimensional reduction to describe neighbourhood structure, so it does not work on categorical or low-dimensional data</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>IT ASSUMES THE MODALITIES DO NOT DEFINE CONFLICTING SETS OF CELL STATES - and the authors say the assumption may be problematic when integrating morphological, functional and molecular data. An integration method whose premise is that its inputs agree</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the atlas is built from peripheral blood mononuclear cells, so it contains almost no erythrocytes or granulocytes - and any query containing them will have nowhere to map them</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>demonstrated on exactly that: neutrophil populations present in a COVID-19 query and absent from the reference could not be mapped</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>the enrichment panels achieve high fold-enrichment and still cannot sort a truly homogeneous population - the precision and recall figures are published alongside the enrichment ones</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="limitations" ana="#limitations[5]" resp="#tagger" cert="0.95">
+        <label>heterogeneity in monocyte inflammatory genes was left undivided BECAUSE it varied across volunteers - a cluster the authors declined to call a cell state</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>adding increasing amounts of random Gaussian noise to the protein data, to mimic nonspecific antibody binding, and watching what the learned weights do</label>
+        <note>eliminates: the modality weights being an artefact of the method rather than a measurement of information content - THE WEIGHTS FELL DOSE-DEPENDENTLY AND REACHED ZERO, which is the behaviour the method claims and could have failed to show · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>calculating the modality weights with no knowledge of cell-type labels, then checking whether they line up with known biology</label>
+        <note>eliminates: the weights being read off the answer - CD8 T cells got high protein weights and dendritic cells high RNA weights, and the labels were not available to the calculation · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>counting incorrect CD8/CD4 edges in each graph as a hard number rather than judging the UMAP pictures</label>
+        <note>eliminates: a visual impression of better separation standing in for a measurement - 944 wrong edges in RNA, 12 in protein, 20 in the combined graph · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="controls" ana="#controls[3]" resp="#tagger" cert="0.95">
+        <label>varying k from 10 to 50 and re-running the whole procedure</label>
+        <note>eliminates: the result depending on the neighbourhood size, which is the one free parameter a reader would suspect first · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="controls" ana="#controls[4]" resp="#tagger" cert="0.95">
+        <label>benchmarking against two named alternative methods, totalVI and MOFA+, on a stated metric - how well each integrated space reconstructs a cell&#x27;s molecular state from its neighbours</label>
+        <note>eliminates: &#x27;our method is better&#x27; resting on the authors&#x27; own preferred view of the output; the metric is declared before the comparison and applies equally to all three · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="controls" ana="#controls[5]" resp="#tagger" cert="0.95">
+        <label>HOLDING THE QUERY DATASET&#x27;S PROTEIN MEASUREMENTS OUT of the reference mapping, then using them to check the annotations the transcriptome alone produced</label>
+        <note>eliminates: the mapping being scored on the data it was given - the protein data is a true held-out test, and the predicted cell types carried the protein markers they should · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="controls" ana="#controls[6]" resp="#tagger" cert="0.95">
+        <label>validating a computational prediction on a different instrument - CyTOF on the original samples plus 16 more, against the scRNA-seq-predicted MAIT abundance</label>
+        <note>eliminates: a depletion that exists only in the pipeline; the correlation between the two methods was 0.911 and the CyTOF cohort reproduced the depletion independently · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="controls" ana="#controls[7]" resp="#tagger" cert="0.95">
+        <label>sorting cells by the predicted marker panels and sequencing them in bulk, using THE EXACT ANTIBODY CLONES from the CITE-seq panel</label>
+        <note>eliminates: a discrepancy between the two assays caused by different antibodies binding different epitopes - the authors name this as the reason for using the same clones · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>modality weights</label>
+        <term>modality weights</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>modalities</label>
+        <term>modalities</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>spurious edges</label>
+        <term>spurious edges</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>Jaccard metric</label>
+        <term>Jaccard metric</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>cell states</label>
+        <term>cell states</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>transcriptome</label>
+        <term>transcriptome</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>scRNA-seq</label>
+        <term>scRNA-seq</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>CITE-seq</label>
+        <term>CITE-seq</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>CyTOF</label>
+        <term>CyTOF</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>totalVI</label>
+        <term>totalVI</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>sPCA</label>
+        <term>sPCA</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>neutrophils</label>
+        <term>neutrophils</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger">
+        <label>modality weights → cell states</label>
+        <note>A NUMBER WHOSE MEANING IS UNDECIDED, AND THE PAPER SAYS SO. The weight is a proxy for the technical quality of a measurement AND may reflect the biological importance of that modality to the cell&#x27;s identity. Those are different claims about different things and the same float carries both. There is no relation type for &#x27;this measure has two candidate interpretations and we cannot separate them&#x27; - the nearest available, &#x27;operationalised-as&#x27;, would pick one and hide the other</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger">
+        <label>modalities → cell states</label>
+        <note>AN ASSUMPTION OF NON-CONFLICT, WHICH IS THE METHOD&#x27;S PREMISE AND ITS SECOND STATED LIMITATION. &#x27;WNN assumes that…&#x27;, and the authors flag that the assumption may fail for morphological and functional data. Every one of the eight relation types asserts something HOLDS between two concepts; none can say &#x27;these two are assumed not to disagree, and the method has no behaviour if they do&#x27;</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>modality weight - A PER-CELL NUMBER, NOT A PER-DATASET ONE, AND THE PAPER SAYS IT HAS TWO POSSIBLE MEANINGS. It is a proxy for the TECHNICAL QUALITY of a measurement in that cell, and it `may also reflect the biological importance of each modality in determining cellular identity` - progenitors and differentiated cells came out with divergent weights. The same figure can mean `this instrument worked here` or `this axis is what this cell is`, and nothing in the number distinguishes them</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>weight, as computed here - EARNED BY A PREDICTION TEST, not assigned. Each cell is predicted from its neighbours within each modality and across them, the predictions are compared with the cell&#x27;s actual measurements, and the RATIO of those accuracies becomes the weight after a softmax. Non-negative, unique to each cell, summing to 1</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>unsupervised, of this procedure - MEANS UNAWARE OF CELL-TYPE LABELS, AND THAT IS WHAT MAKES THE AGREEMENT EVIDENCE. CD8 T cells got high protein weights and dendritic cells high RNA weights, `despite the fact that the calculation of modality weights was unsupervised and unaware of cell-type labels`. The recapitulation of a known biology is the check, and it only counts because the labels were withheld</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>spurious edge - A LINK BETWEEN CELLS THAT RESEMBLE EACH OTHER WITHOUT BEING IN THE SAME STATE, and the paper counts them rather than describing them: 944 wrong CD8/CD4 edges in the RNA graph, 12 in the protein graph, 20 in the combined one. A quality claim with an integer behind it</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>annotation, in this atlas - THREE NESTED TIERS AND A CELL CARRIES ALL THREE. Level 1 has 8 categories, level 2 has 30, level 3 has 57. A result reported at one tier is not comparable with a result reported at another, and the granularity is a choice the reader has to make rather than one the data settles</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>supervised, in `supervised principal component analysis` - SUPERVISED BY THE WNN GRAPH, NOT BY A HUMAN. sPCA finds the transcriptomic projection that best captures the structure the multimodal analysis already found, so the supervision comes from the other modality rather than from labels. `Supervised` and `unsupervised` are both used in this paper about the same pipeline, meaning different things</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>distinguishes-from → totalVI and MOFA+, two recently introduced multimodal integration methods based on deep neural networks with a hierarchical Bayesian model and on factor analysis respectively</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>distinguishes-from → scArches, a method for mapping single-cell RNA-seq queries onto reference datasets</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>critiques → the practice of defining cell states from the transcriptome alone, which cannot separate functionally distinct T cell populations however sensitive the technology</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="claim_relations" ana="#claim_relations[3]" resp="#tagger" cert="0.9">
+        <label>extends → the unsupervised clustering analysis of Wilk et al.&#x27;s COVID-19 PBMC dataset, which found six T cell clusters where reference mapping resolved twelve</label>
+        <note>note: and the extension is not one-directional - the same comparison shows what the reference CANNOT do: neutrophils that the original unsupervised analysis found, because they were absent from the reference, could not be mapped at all</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="claim_relations" ana="#claim_relations[4]" resp="#tagger" cert="0.95">
+        <label>builds-on → Barshan et al.&#x27;s supervised principal component analysis, applied here with the WNN graph as the supervising structure</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="concept_edges" ana="#concept_edges[2]" resp="#tagger">
+        <label>transcriptome —contrasted-with→ modalities</label>
+        <term>transcriptome</term>
+        <term>modalities</term>
+        <note>strength of the relation: 0.8 · note: the paper&#x27;s whole framing: the transcriptome is one modality among several and has been treated as the definition of cell state
+Audit 2026-09-28: DOUBTFUL - read against its span and kept, but the span questions defining cell states from the transcriptome alone; contrasted-with &#x27;modalities&#x27; is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="concept_edges" ana="#concept_edges[3]" resp="#tagger">
+        <label>CITE-seq —distinct-from→ CyTOF</label>
+        <term>CITE-seq</term>
+        <term>CyTOF</term>
+        <note>strength of the relation: 0.9 · note: and the distinctness is what makes the agreement worth something - the MAIT depletion was found in one and confirmed in the other at R = 0.911
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but CITE-seq provides a &#x27;unique opportunity&#x27; beside flow cytometry and CyTOF; distinct-from is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>per-cell modality weights, learned unsupervised, recover known biology: CD8 T cells weight protein highly, dendritic cells weight RNA highly</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>The RNA KNN graph had 944 incorrect CD8+/CD4+ edges, the protein graph 12.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>adding Gaussian noise to the protein data drove protein weights down dose-dependently and to zero, correctly redirecting the analysis to RNA alone</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>The final multimodal dataset has 210,911 cells covering resting and post-vaccination immune states.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>MAIT-cell fractions predicted by scRNA-seq agreed with CyTOF measurements at R = 0.911.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>WNN matched or beat alternative approaches in reconstructing each of 25 proteins.</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>modality weights = per-cell values reflecting the relative information content of each data type in that cell; non-negative, unique per cell, summing to 1</label>
+        <term>modality weights</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="content_tags" ana="#content_tags.definitions[1]" resp="#tagger" cert="0.95">
+        <label>the four steps: build a KNN graph per modality, predict within and across modalities, compute per-cell weights, build the WNN graph</label>
+        <term>weighted nearest neighbor analysis</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="content_tags" ana="#content_tags.definitions[2]" resp="#tagger" cert="0.95">
+        <label>spurious edge = a link between cells that share some molecular similarity but are not in a matched molecular state</label>
+        <term>spurious edges</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="content_tags" ana="#content_tags.definitions[3]" resp="#tagger" cert="0.95">
+        <label>sPCA = the transcriptomic projection that maximally captures the structure defined in the WNN graph, rather than the one maximising total variance</label>
+        <term>sPCA</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>the weights come from a softmax over the ratio of within-modality to cross-modality prediction affinities</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>the kernel bandwidth is set from the 20 cells with the LOWEST non-zero Jaccard similarity - similar enough to matter, unlikely to be the same state</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="content_tags" ana="#content_tags.statistics[2]" resp="#tagger" cert="0.95">
+        <label>results held across k from 10 to 50, and the protein information did not cost transcriptomic neighbourhood coherence</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1016/j.cell.2021.04.048.</note></p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Algorithmic Fairness: Choices, Assumptions, and Definitions</title>
+        <author>Shira Mitchell</author>
+        <author>Eric Potash</author>
+        <author>Solon Barocas</author>
+        <author>Alexander D’Amour</author>
+        <author>Kristian Lum</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Tag layer of the DHSS Meta-Tagging Project. The article text is reproduced from the
+           staged copy named in sourceDesc and is not altered; the tags are held separately in
+           standOff so that overlapping and nested spans are preserved.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title>Algorithmic Fairness: Choices, Assumptions, and Definitions</title>
+          <date>2020</date>
+          <publisher>Annual Review of Statistics and Its Application</publisher>
+          <idno type="DOI">10.1146/annurev-statistics-042720-125902</idno>
+          
+          <idno type="record">mitchell2020-algorithmic-fairness-choices-assum</idno>
+          <note type="staged-file">mitchell2020-algorithmic-fairness-choices-assum.txt, the project's staged copy</note>
+          <note type="text-sha1">d29dcd008a6c1fada70884d36c88db4216f90e38</note>
+          <note type="rights">cc-by</note>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass><keywords><term>social-sciences</term></keywords></textClass>
+      <particDesc>
+        <person xml:id="paper"><p>the paper's own words</p></person>
+        <person xml:id="tagger"><p>the tag layer; a sentence written by the tagger about the
+          paper, always anchored to a quotation but not itself a quotation</p></person>
+      </particDesc>
+    </profileDesc>
+    <revisionDesc>
+      <change when="2026-10-06"
+              who="build_paper_edition.py">0 spans located by searching the stored text for the quote's exact words, allowing any whitespace between them</change>
+    </revisionDesc>
+  </teiHeader>
+  <standOff>
+    <spanGrp type="tags">
+      <span xml:id="t0" type="object_of_study" ana="#object_of_study" resp="#paper">
+        <label>THE COMPETING QUANTITATIVE DEFINITIONS OF &#x27;FAIRNESS&#x27; THEMSELVES - catalogued, put into one notation, and then shown to be mutually unsatisfiable</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t1" type="research_question" ana="#research_question" resp="#paper">
+        <label>what the definitions of algorithmic fairness are, what each one assumes, and whether they can be held together</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t2" type="contribution" ana="#contribution" resp="#paper">
+        <label>a notationally consistent catalogue of fairness definitions, the choices and assumptions each rests on, and the impossibility results that separate them</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t3" type="claim_type" ana="#claim_type" resp="#paper">
+        <label>critique</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t4" type="phenomenon" ana="#phenomenon" resp="#paper">
+        <label>a young field in which one word carries several formal meanings that cannot all be satisfied at once, so that two competing analyses of the same tool can both be arithmetically correct</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t5" type="method" ana="#method" resp="#paper">
+        <label>review</label>
+        <term>review</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t6" type="mechanisms" ana="#mechanisms[0]" resp="#tagger" cert="0.95">
+        <label>THE INCOMPATIBILITY IS NOT A PROPERTY OF ALGORITHMS. `the trade-off between different notions of fairness would apply even if a human were the one making the prediction`, and `Rejecting model-driven or automated decision-making is not a way to avoid these problems`. It is a property of predicting at all, under inequality</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t7" type="mechanisms" ana="#mechanisms[1]" resp="#tagger" cert="0.95">
+        <label>and the conditions under which the definitions COULD agree are named and are both unreachable: equal base rates or perfect prediction. The paper calls them `trivial, degenerate, or even utopian (representing two very different utopias)`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t8" type="limitations" ana="#limitations[0]" resp="#tagger" cert="0.95">
+        <label>the paper declines the job most readers want done: `The goal of this article is not to advance axiomatic definitions of fairness but to summarize the definitions and results ... formalized to date`. It catalogues a disagreement rather than settling it, and says so in the introduction</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t9" type="limitations" ana="#limitations[1]" resp="#tagger" cert="0.95">
+        <label>and it names the gap its own subject cannot close: `gaps between mathematically convenient formalism and the larger social goals that many of these concepts were introduced to address`. THAT IS THE OPERATIONALISATION GAP, NAMED AS SUCH, by a paper whose subject is operationalisations</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t10" type="limitations" ana="#limitations[2]" resp="#tagger" cert="0.95">
+        <label>the object being predicted is already an abstraction of the thing anyone cares about: policy goals are `sometimes clumsily, abstracted and formulated to fit into a prediction task`, and the choices that do it sit outside the model</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t11" type="limitations" ana="#limitations[3]" resp="#tagger" cert="0.95">
+        <label>and the decision itself is flattened before any of this begins: a judge&#x27;s options are many, `in this literature, this decision is often reduced to A BINARY DECISION - RELEASE OR DETAIN`. Every fairness metric in the catalogue is defined over that binary</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t12" type="limitations" ana="#limitations[4]" resp="#tagger" cert="0.95">
+        <label>the authors record the standing criticism of their own field without dismissing it: quantitative notions of fairness `can funnel our thinking into narrow silos where we aim to make adjustments to a decision-making process, rather than to address the structural conditions that sustain inequality in society`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t13" type="controls" ana="#controls[0]" resp="#tagger" cert="0.95">
+        <label>whether the incompatibility is an artefact of using algorithms at all</label>
+        <note>eliminates: the algorithmic explanation - the trade-off &#x27;would apply even if a human were the one making the prediction&#x27;, so refusing automation does not avoid it · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t14" type="controls" ana="#controls[1]" resp="#tagger" cert="0.95">
+        <label>under what conditions the two COMPAS criteria COULD both hold, worked out formally</label>
+        <note>eliminates: any hope of reconciliation in practice - it requires equal recidivism rates across racial groups, or a group that never experiences an outcome, or perfect prediction · outcome: held</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t15" type="controls" ana="#controls[2]" resp="#tagger" cert="0.95">
+        <label>whether formal fairness work is worth doing at all, against its own critics</label>
+        <note>eliminates: nothing on either side, and the paper says so: the criticisms are &#x27;rightly pointed out&#x27;, and formalism &#x27;should not be dismissed as necessarily preserving the status quo&#x27;. Both are asserted; neither is tested · outcome: partial</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t16" type="concepts" ana="#concepts[0]" resp="#paper" cert="0.95">
+        <label>algorithmic fairness</label>
+        <term>algorithmic fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t17" type="concepts" ana="#concepts[1]" resp="#paper" cert="0.95">
+        <label>equal false positive rates</label>
+        <term>equal false positive rates</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t18" type="concepts" ana="#concepts[2]" resp="#paper" cert="0.95">
+        <label>equal positive predictive values</label>
+        <term>equal positive predictive values</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t19" type="concepts" ana="#concepts[3]" resp="#paper" cert="0.95">
+        <label>calibration within groups</label>
+        <term>calibration within groups</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t20" type="concepts" ana="#concepts[4]" resp="#paper" cert="0.95">
+        <label>sufficiency</label>
+        <term>sufficiency</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t21" type="concepts" ana="#concepts[5]" resp="#paper" cert="0.95">
+        <label>separation</label>
+        <term>separation</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t22" type="concepts" ana="#concepts[6]" resp="#paper" cert="0.95">
+        <label>bias</label>
+        <term>bias</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t23" type="concepts" ana="#concepts[7]" resp="#paper" cert="0.95">
+        <label>quantitative notions of fairness</label>
+        <term>quantitative notions of fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t24" type="concepts" ana="#concepts[8]" resp="#paper" cert="0.95">
+        <label>structural conditions</label>
+        <term>structural conditions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t25" type="concepts" ana="#concepts[9]" resp="#paper" cert="0.95">
+        <label>equality of true positive rates</label>
+        <term>equality of true positive rates</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t26" type="concepts" ana="#concepts[10]" resp="#paper" cert="0.95">
+        <label>equality of false negative rates</label>
+        <term>equality of false negative rates</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t27" type="concepts" ana="#concepts[11]" resp="#paper" cert="0.95">
+        <label>equal opportunity</label>
+        <term>equal opportunity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t28" type="concepts" ana="#concepts[12]" resp="#paper" cert="0.95">
+        <label>error rate balance</label>
+        <term>error rate balance</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t29" type="concepts" ana="#concepts[13]" resp="#paper" cert="0.95">
+        <label>equalized odds</label>
+        <term>equalized odds</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t30" type="concepts" ana="#concepts[14]" resp="#paper" cert="0.95">
+        <label>equality of negative predictive value</label>
+        <term>equality of negative predictive value</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t31" type="concepts" ana="#concepts[15]" resp="#paper" cert="0.95">
+        <label>equality of false omission rate</label>
+        <term>equality of false omission rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t32" type="concepts" ana="#concepts[16]" resp="#paper" cert="0.95">
+        <label>equality of positive predictive value</label>
+        <term>equality of positive predictive value</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t33" type="concepts" ana="#concepts[17]" resp="#paper" cert="0.95">
+        <label>equality of false discovery rate</label>
+        <term>equality of false discovery rate</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t34" type="concepts" ana="#concepts[18]" resp="#paper" cert="0.95">
+        <label>predictive parity</label>
+        <term>predictive parity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t35" type="concepts" ana="#concepts[19]" resp="#paper" cert="0.95">
+        <label>avoiding disparate mistreatment</label>
+        <term>avoiding disparate mistreatment</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t36" type="concepts" ana="#concepts[20]" resp="#paper" cert="0.95">
+        <label>treatment equality</label>
+        <term>treatment equality</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t37" type="concepts" ana="#concepts[21]" resp="#paper" cert="0.95">
+        <label>demographic parity</label>
+        <term>demographic parity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t38" type="concepts" ana="#concepts[22]" resp="#paper" cert="0.95">
+        <label>statistical parity</label>
+        <term>statistical parity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t39" type="concepts" ana="#concepts[23]" resp="#paper" cert="0.95">
+        <label>group fairness</label>
+        <term>group fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t40" type="concepts" ana="#concepts[24]" resp="#paper" cert="0.95">
+        <label>Conditional demographic parity</label>
+        <term>Conditional demographic parity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t41" type="concepts" ana="#concepts[25]" resp="#paper" cert="0.95">
+        <label>fairness through unawareness</label>
+        <term>fairness through unawareness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t42" type="concepts" ana="#concepts[26]" resp="#paper" cert="0.95">
+        <label>anticlassification</label>
+        <term>anticlassification</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t43" type="concepts" ana="#concepts[27]" resp="#paper" cert="0.95">
+        <label>treatment parity</label>
+        <term>treatment parity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t44" type="concepts" ana="#concepts[28]" resp="#paper" cert="0.95">
+        <label>metric fairness</label>
+        <term>metric fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t45" type="concepts" ana="#concepts[29]" resp="#paper" cert="0.95">
+        <label>individual fairness</label>
+        <term>individual fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t46" type="concepts" ana="#concepts[30]" resp="#paper" cert="0.95">
+        <label>m-Lipschitz property</label>
+        <term>m-Lipschitz property</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t47" type="concepts" ana="#concepts[31]" resp="#paper" cert="0.95">
+        <label>perfect metric fairness</label>
+        <term>perfect metric fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t48" type="concepts" ana="#concepts[32]" resp="#paper" cert="0.95">
+        <label>individual counterfactual fairness</label>
+        <term>individual counterfactual fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t49" type="concepts" ana="#concepts[33]" resp="#paper" cert="0.95">
+        <label>conditional counterfactual fairness</label>
+        <term>conditional counterfactual fairness</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t50" type="concepts" ana="#concepts[34]" resp="#paper" cert="0.95">
+        <label>counterfactual parity</label>
+        <term>counterfactual parity</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t51" type="unhoused_relations" ana="#unhoused_relations[0]" resp="#tagger" cert="0.95">
+        <label>Calibration within groups → sufficiency</label>
+        <note>The paper says calibration within groups implies sufficiency, and describes a converse after applying a function to a sufficient score. Logical implication between criteria is not one of the eight edge types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t52" type="unhoused_relations" ana="#unhoused_relations[1]" resp="#tagger" cert="0.95">
+        <label>metric fairness → unawareness</label>
+        <note>When the metric uses only insensitive variables, the paper says metric fairness implies unawareness. Logical implication is not one of the eight edge types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t53" type="unhoused_relations" ana="#unhoused_relations[2]" resp="#tagger" cert="0.95">
+        <label>individual counterfactual fairness → conditional counterfactual fairness</label>
+        <note>The paper orders individual counterfactual fairness above conditional counterfactual fairness in strength. A stronger-than relation is not one of the eight edge types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t54" type="unhoused_relations" ana="#unhoused_relations[3]" resp="#tagger" cert="0.95">
+        <label>conditional counterfactual fairness → counterfactual parity</label>
+        <note>The paper orders conditional counterfactual fairness above counterfactual parity in strength. A stronger-than relation is not one of the eight edge types.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t55" type="senses" ana="#senses[0]" resp="#tagger" cert="0.95">
+        <label>fairness - NOT ONE DEFINITION BUT SEVERAL FORMAL ONES, AND THE PAPER&#x27;S RESULT IS THAT THEY CANNOT ALL HOLD: `Although each flavor of fairness definition ... formalizes an intuitive notion of fairness, these definitions are not mathematically or morally compatible in general`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t56" type="senses" ana="#senses[1]" resp="#tagger" cert="0.95">
+        <label>`bias` - THE PAPER CALLS IT OVERLOADED AND GIVES THE DRIFT: `a now overloaded word that, in popular media, has come to mean that the model&#x27;s performance (however defined) unjustifiably differs along social axes such as race, gender, and class`. The parenthesis is the point</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t57" type="senses" ana="#senses[2]" resp="#tagger" cert="0.95">
+        <label>THE COMPAS DISPUTE - two analyses of one tool, both correct. ProPublica: it `does not satisfy equal false positive rates by race`. Northpointe: it `satisfies equal positive predictive values` and calibration within groups. NEITHER SIDE MISCALCULATED. They used different definitions of the same word</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t58" type="senses" ana="#senses[3]" resp="#tagger" cert="0.95">
+        <label>`no harmony` - the paper&#x27;s verdict on the attempts to reconcile them: `Much of the subsequent conversation consisted of either trying to harmonize these definitions ... or asserting that one or the other is correct. As it turns out, there can be no harmony among definitions in a world where inequality and imperfect prediction are the reality`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t59" type="senses" ana="#senses[4]" resp="#tagger" cert="0.95">
+        <label>the formal conditions for agreement, stated exactly: SUFFICIENCY implies equality of positive predictive values, SEPARATION implies equality of false positive rates, and both hold together only if recidivism rates and score distributions are the same across racial groups, or some group never experiences an outcome at all</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t60" type="senses" ana="#senses[5]" resp="#tagger" cert="0.95">
+        <label>algorithmic fairness - a name for a research field, and the paper notes the questions are older than it: `it resembles older work ... since the 1960s, psychometricians have studied the fairness of educational tests based on their ability to predict performance`</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t61" type="senses" ana="#senses[6]" resp="#tagger" cert="0.95">
+        <label>equality of true positive rates - equality across groups in the true-positive rate</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t62" type="senses" ana="#senses[7]" resp="#tagger" cert="0.95">
+        <label>equality of false negative rates - equality across groups in the false-negative rate</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t63" type="senses" ana="#senses[8]" resp="#tagger" cert="0.95">
+        <label>equal opportunity - the paper&#x27;s name for equality of true-positive and false-negative rates considered alone</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t64" type="senses" ana="#senses[9]" resp="#tagger" cert="0.95">
+        <label>error rate balance - Chouldechova&#x27;s name for the combined outcome-conditioned fairness notions</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t65" type="senses" ana="#senses[10]" resp="#tagger" cert="0.95">
+        <label>equalized odds - Hardt and colleagues&#x27; name for the combined outcome-conditioned fairness notions</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t66" type="senses" ana="#senses[11]" resp="#tagger" cert="0.95">
+        <label>equality of negative predictive value - equality across groups in negative predictive value</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t67" type="senses" ana="#senses[12]" resp="#tagger" cert="0.95">
+        <label>equality of false omission rate - equality across groups in false omission rate</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t68" type="senses" ana="#senses[13]" resp="#tagger" cert="0.95">
+        <label>equality of positive predictive value - equality across groups in positive predictive value</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t69" type="senses" ana="#senses[14]" resp="#tagger" cert="0.95">
+        <label>equality of false discovery rate - equality across groups in false discovery rate</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t70" type="senses" ana="#senses[15]" resp="#tagger" cert="0.95">
+        <label>predictive parity - another name for equality of positive predictive value and false discovery rate</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t71" type="senses" ana="#senses[16]" resp="#tagger" cert="0.95">
+        <label>avoiding disparate mistreatment - Zafar and colleagues&#x27; collective name for the four predictive-measure pairs plus equal accuracy</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t72" type="senses" ana="#senses[17]" resp="#tagger" cert="0.95">
+        <label>treatment equality - a fairness definition based on the ratio of false negatives to false positives</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t73" type="senses" ana="#senses[18]" resp="#tagger" cert="0.95">
+        <label>demographic parity - equal decision rates across groups irrespective of outcome</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t74" type="senses" ana="#senses[19]" resp="#tagger" cert="0.95">
+        <label>statistical parity - an alternative name for demographic parity</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t75" type="senses" ana="#senses[20]" resp="#tagger" cert="0.95">
+        <label>group fairness - an alternative name for demographic parity</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t76" type="senses" ana="#senses[21]" resp="#tagger" cert="0.95">
+        <label>Conditional demographic parity - parity within strata, expressed as conditional independence of decision and sensitive group</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t77" type="senses" ana="#senses[22]" resp="#tagger" cert="0.95">
+        <label>fairness through unawareness - conditional demographic parity when conditioning on insensitive variables</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t78" type="senses" ana="#senses[23]" resp="#tagger" cert="0.95">
+        <label>anticlassification - conditional demographic parity when conditioning on insensitive variables</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t79" type="senses" ana="#senses[24]" resp="#tagger" cert="0.95">
+        <label>treatment parity - conditional demographic parity when conditioning on insensitive variables</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t80" type="senses" ana="#senses[25]" resp="#tagger" cert="0.95">
+        <label>metric fairness - requiring closeness under a similarity metric to imply closeness in decisions</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t81" type="senses" ana="#senses[26]" resp="#tagger" cert="0.95">
+        <label>individual fairness - an alternative name for metric fairness</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t82" type="senses" ana="#senses[27]" resp="#tagger" cert="0.95">
+        <label>m-Lipschitz property - an alternative mathematical name for metric fairness</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t83" type="senses" ana="#senses[28]" resp="#tagger" cert="0.95">
+        <label>perfect metric fairness - Rothblum and Yona&#x27;s name for metric fairness</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t84" type="senses" ana="#senses[29]" resp="#tagger" cert="0.95">
+        <label>individual counterfactual fairness - the strongest listed counterfactual criterion, requiring decision equality for every individual</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t85" type="senses" ana="#senses[30]" resp="#tagger" cert="0.95">
+        <label>conditional counterfactual fairness - the intermediate counterfactual criterion, requiring conditional mean-decision equality</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t86" type="senses" ana="#senses[31]" resp="#tagger" cert="0.95">
+        <label>counterfactual parity - the weakest listed counterfactual criterion, requiring population mean-decision equality</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t87" type="claim_relations" ana="#claim_relations[0]" resp="#tagger" cert="0.95">
+        <label>contradicts → both positions in the COMPAS dispute, insofar as either claimed to be THE fairness answer - &#x27;there can be no harmony among definitions in a world where inequality and imperfect prediction are the reality&#x27;</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t88" type="claim_relations" ana="#claim_relations[1]" resp="#tagger" cert="0.95">
+        <label>extends → the impossibility results of Kleinberg et al. and Chouldechova, restated here in one notation and set against a public case</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t89" type="claim_relations" ana="#claim_relations[2]" resp="#tagger" cert="0.95">
+        <label>supports → the psychometric literature on test fairness running back to the 1960s, named as the older form of the same question</label>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t90" type="concept_edges" ana="#concept_edges[0]" resp="#tagger" cert="0.95">
+        <label>equal false positive rates —distinct-from→ equal positive predictive values</label>
+        <term>equal false positive rates</term>
+        <term>equal positive predictive values</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t91" type="concept_edges" ana="#concept_edges[1]" resp="#tagger" cert="0.95">
+        <label>quantitative notions of fairness —contrasted-with→ structural conditions</label>
+        <term>quantitative notions of fairness</term>
+        <term>structural conditions</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t92" type="concept_edges" ana="#concept_edges[2]" resp="#tagger" cert="0.95">
+        <label>equality of true positive rates —renamed-across-fields→ equal opportunity</label>
+        <term>equality of true positive rates</term>
+        <term>equal opportunity</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper reports Hardt et al.&#x27;s unhedged name for this condition.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but the span says this condition &#x27;has been called equal opportunity&#x27; by one author; a name, and renamed-across-fields is loose.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t93" type="concept_edges" ana="#concept_edges[3]" resp="#tagger" cert="0.95">
+        <label>separation —renamed-across-fields→ error rate balance</label>
+        <term>separation</term>
+        <term>error rate balance</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper gives source-specific names for the same combined outcome-conditioned fairness notions.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t94" type="concept_edges" ana="#concept_edges[4]" resp="#tagger" cert="0.95">
+        <label>separation —renamed-across-fields→ equalized odds</label>
+        <term>separation</term>
+        <term>equalized odds</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper gives source-specific names for the same combined outcome-conditioned fairness notions.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t95" type="concept_edges" ana="#concept_edges[5]" resp="#tagger" cert="0.95">
+        <label>Conditional demographic parity —same-as→ separation</label>
+        <term>Conditional demographic parity</term>
+        <term>separation</term>
+        <note>holds when: Data = Y · the relation itself is separately evidenced · strength of the relation: 1 · note: The equivalence is asserted without epistemic hedge but explicitly scoped to conditioning on outcome Y.
+Audit 2026-09-28: DOUBTFUL - read against its span and kept, but conditional demographic parity equals separation only when Data = Y; same-as is conditional.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t96" type="concept_edges" ana="#concept_edges[6]" resp="#tagger" cert="0.95">
+        <label>Conditional demographic parity —same-as→ fairness through unawareness</label>
+        <term>Conditional demographic parity</term>
+        <term>fairness through unawareness</term>
+        <note>holds when: Data = X (the insensitive variables) · the relation itself is separately evidenced · strength of the relation: 1 · note: The equivalence is asserted without epistemic hedge under the paper&#x27;s explicit Data = X condition.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;it&#x27; = conditional demographic parity (previous sentence); the equivalence holds only when Data = X.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t97" type="concept_edges" ana="#concept_edges[7]" resp="#tagger" cert="0.95">
+        <label>Conditional demographic parity —same-as→ anticlassification</label>
+        <term>Conditional demographic parity</term>
+        <term>anticlassification</term>
+        <note>holds when: Data = X (the insensitive variables) · the relation itself is separately evidenced · strength of the relation: 1 · note: The equivalence is asserted without epistemic hedge under the paper&#x27;s explicit Data = X condition.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;it&#x27; = conditional demographic parity (previous sentence); the equivalence holds only when Data = X.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t98" type="concept_edges" ana="#concept_edges[8]" resp="#tagger" cert="0.95">
+        <label>Conditional demographic parity —same-as→ treatment parity</label>
+        <term>Conditional demographic parity</term>
+        <term>treatment parity</term>
+        <note>holds when: Data = X (the insensitive variables) · the relation itself is separately evidenced · strength of the relation: 1 · note: The equivalence is asserted without epistemic hedge under the paper&#x27;s explicit Data = X condition.
+Audit 2026-09-28: DOUBTFUL - read against its full span and kept, but endpoint by anaphora: &#x27;it&#x27; = conditional demographic parity (previous sentence); the equivalence holds only when Data = X.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t99" type="concept_edges" ana="#concept_edges[9]" resp="#tagger" cert="0.95">
+        <label>metric fairness —same-as→ individual fairness</label>
+        <term>metric fairness</term>
+        <term>individual fairness</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper unhedgedly says metric fairness is also known as individual fairness.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t100" type="concept_edges" ana="#concept_edges[10]" resp="#tagger" cert="0.95">
+        <label>metric fairness —same-as→ m-Lipschitz property</label>
+        <term>metric fairness</term>
+        <term>m-Lipschitz property</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper unhedgedly gives the m-Lipschitz property as another name for metric fairness.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t101" type="concept_edges" ana="#concept_edges[11]" resp="#tagger" cert="0.95">
+        <label>metric fairness —same-as→ perfect metric fairness</label>
+        <term>metric fairness</term>
+        <term>perfect metric fairness</term>
+        <note>the relation itself is separately evidenced · strength of the relation: 1 · note: The paper unhedgedly gives perfect metric fairness as another name for metric fairness.</note>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t102" type="content_tags" ana="#content_tags.findings[0]" resp="#tagger" cert="0.95">
+        <label>THE FIELD&#x27;S OWN ABSTRACT DIAGNOSES IT: rapid growth has led to `wildly inconsistent motivations, terminology, and notation, presenting a serious challenge for cataloging and comparing definitions`</label>
+        <term>THE FIELD&#x27;S OWN ABSTRACT DIAGNOSES IT: rapid growth has led to `wildly inconsistent motivations, terminology, and notation, presenting a serious challenge for cataloging and comparing definitions`</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t103" type="content_tags" ana="#content_tags.findings[1]" resp="#tagger" cert="0.95">
+        <label>AND THE DEFINITIONS ARE NOT MERELY INCONSISTENT, THEY ARE INCOMPATIBLE: `these definitions are not mathematically or morally compatible in general`</label>
+        <term>AND THE DEFINITIONS ARE NOT MERELY INCONSISTENT, THEY ARE INCOMPATIBLE: `these definitions are not mathematically or morally compatible in general`</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t104" type="content_tags" ana="#content_tags.findings[2]" resp="#tagger" cert="0.95">
+        <label>ProPublica found COMPAS fails equal false positive rates by race; Northpointe showed it satisfies equal positive predictive values and calibration within groups</label>
+        <term>ProPublica found COMPAS fails equal false positive rates by race; Northpointe showed it satisfies equal positive predictive values and calibration within groups</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t105" type="content_tags" ana="#content_tags.findings[3]" resp="#tagger" cert="0.95">
+        <label>there can be no harmony among fairness definitions where inequality and imperfect prediction are real</label>
+        <term>there can be no harmony among fairness definitions where inequality and imperfect prediction are real</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t106" type="content_tags" ana="#content_tags.findings[4]" resp="#tagger" cert="0.95">
+        <label>the two criteria can hold together only if recidivism rates and score distributions are equal across racial groups, or some group never experiences an outcome</label>
+        <term>the two criteria can hold together only if recidivism rates and score distributions are equal across racial groups, or some group never experiences an outcome</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t107" type="content_tags" ana="#content_tags.findings[5]" resp="#tagger" cert="0.95">
+        <label>and those conditions are named as unreachable: `trivial, degenerate, or even utopian (representing two very different utopias)`</label>
+        <term>and those conditions are named as unreachable: `trivial, degenerate, or even utopian (representing two very different utopias)`</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t108" type="content_tags" ana="#content_tags.findings[6]" resp="#tagger" cert="0.95">
+        <label>THE TRADE-OFF IS NOT ABOUT ALGORITHMS: it `would apply even if a human were the one making the prediction`, and rejecting automation `is not a way to avoid these problems`</label>
+        <term>THE TRADE-OFF IS NOT ABOUT ALGORITHMS: it `would apply even if a human were the one making the prediction`, and rejecting automation `is not a way to avoid these problems`</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t109" type="content_tags" ana="#content_tags.findings[7]" resp="#tagger" cert="0.95">
+        <label>the paper names the operationalisation gap in its own introduction: `gaps between mathematically convenient formalism and the larger social goals that many of these concepts were introduced to address`</label>
+        <term>the paper names the operationalisation gap in its own introduction: `gaps between mathematically convenient formalism and the larger social goals that many of these concepts were introduced to address`</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t110" type="content_tags" ana="#content_tags.findings[8]" resp="#tagger" cert="0.95">
+        <label>policy goals are `sometimes clumsily, abstracted and formulated to fit into a prediction task` before any fairness metric applies</label>
+        <term>policy goals are `sometimes clumsily, abstracted and formulated to fit into a prediction task` before any fairness metric applies</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t111" type="content_tags" ana="#content_tags.findings[9]" resp="#tagger" cert="0.95">
+        <label>a judge&#x27;s many options are often reduced in this literature to a binary decision, release or detain</label>
+        <term>a judge&#x27;s many options are often reduced in this literature to a binary decision, release or detain</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t112" type="content_tags" ana="#content_tags.findings[10]" resp="#tagger" cert="0.95">
+        <label>the questions are older than the field&#x27;s name: `since the 1960s, PSYCHOMETRICIANS have studied the fairness of educational tests based on their ability to predict performance`</label>
+        <term>the questions are older than the field&#x27;s name: `since the 1960s, PSYCHOMETRICIANS have studied the fairness of educational tests based on their ability to predict performance`</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t113" type="content_tags" ana="#content_tags.findings[11]" resp="#tagger" cert="0.95">
+        <label>the paper declines to arbitrate: `the goal ... is not to advance axiomatic definitions of fairness but to summarize` what has been formalized</label>
+        <term>the paper declines to arbitrate: `the goal ... is not to advance axiomatic definitions of fairness but to summarize` what has been formalized</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t114" type="content_tags" ana="#content_tags.definitions[0]" resp="#tagger" cert="0.95">
+        <label>declared A NOW OVERLOADED WORD which, in popular media, has come to mean that a model&#x27;s performance - HOWEVER DEFINED - unjustifiably differs along social axes such as race, gender and class</label>
+        <term>bias</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t115" type="content_tags" ana="#content_tags.statistics[0]" resp="#tagger" cert="0.95">
+        <label>false positive rates</label>
+        <term>false positive rates</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+      <span xml:id="t116" type="content_tags" ana="#content_tags.statistics[1]" resp="#tagger" cert="0.95">
+        <label>positive predictive values</label>
+        <term>positive predictive values</term>
+        <note type="quotation-withheld">Quotation withheld because this record is not cleared for redistribution.</note>
+      </span>
+    </spanGrp>
+  </standOff>
+  <text>
+    <body>
+      <p><note type="rights">The full text of this article is not redistributable, so it is
+      not included here. The evidence sentences are withheld with it; the tag layer and its
+      grounding status remain. The article itself is at https://doi.org/10.1146/annurev-statistics-042720-125902.</note></p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shir-openu.github.io/meta-tagging-showcase/schema/corpus.schema.json",
+  "title": "Verbatim-grounded scholarly corpus",
+  "type": "object",
+  "required": ["schema_version", "vocabularies", "records"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "vocabularies": {"type": "object"},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "discipline", "statistics"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "title": {"type": "string"},
+          "discipline": {"type": "string"},
+          "statistics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["term", "evidence", "decision", "role", "reason", "provenance"],
+              "properties": {
+                "term": {"type": "string"},
+                "evidence": {"type": "string"},
+                "decision": {
+                  "enum": ["accepted", "rejected", "needs-review"]
+                },
+                "role": {
+                  "enum": [
+                    "focal-use",
+                    "substantive-mention",
+                    "bibliography",
+                    "non-statistical-sense",
+                    "symbol-collision",
+                    "insufficient-evidence",
+                    "lexical-significance",
+                    "unclassified"
+                  ]
+                },
+                "reason": {"type": "string"},
+                "provenance": {
+                  "type": "object",
+                  "required": [
+                    "source_path",
+                    "source_body_sha256",
+                    "evidence_sha256",
+                    "grounding_status"
+                  ],
+                  "properties": {
+                    "source_path": {"type": "string"},
+                    "source_body_sha256": {"type": ["string", "null"]},
+                    "evidence_sha256": {"type": "string"},
+                    "grounding_status": {
+                      "enum": [
+                        "verified-main-text",
+                        "verified-reference",
+                        "source-unavailable",
+                        "not-exactly-located",
+                        "empty-evidence"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
