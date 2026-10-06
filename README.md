@@ -24,12 +24,13 @@ claimed discovery**.
 ## What's here
 
 - **[`index.html`](index.html)** — the report + a catalogue of every tagged paper with its facets.
-- **`papers/`** — for the **19** papers under a verified redistributable licence (CC-BY / CC0 / public
-  domain), the full colour-tagged text; for every other paper, our tag layer with short licensing
-  excerpts and a link to the source (full text **not** reproduced).
-- **[`DATA/rights_manifest.json`](DATA/rights_manifest.json)** — the per-paper rights audit: each source's
-  licence verified against its landing page **and** the Crossref API, with an explicit
-  `full_text_redistributable` flag.
+- **`papers/`** — 1,673 paper pages. For the **1,161** papers cleared for redistribution, the full
+  colour-tagged text; for the other **512**, our tag layer with short excerpts and a link to the
+  source where one is on record (full text **not** reproduced).
+- **[`DATA/rights_manifest.json`](DATA/rights_manifest.json)** — the per-paper rights record: one row
+  for each of the 1,673 paper pages, written at every build from the project's rights record. A row gives
+  the licence found for the paper, the address where that licence can be checked, and the explicit
+  `full_text_redistributable` flag that the site obeys.
 - **[`untaggable.html`](untaggable.html)** — a study of papers whose source text could not be faceted.
 
 ## Reproducibility
@@ -44,9 +45,10 @@ ship as a fixed input rather than being recomputed from the redistributed (parti
 
 ## Copyright
 
-Full text is reproduced **only** for papers under a licence that permits redistribution, verified
-per paper in [`DATA/rights_manifest.json`](DATA/rights_manifest.json) against both the source landing
-page and the Crossref API. Being free-to-read (e.g. on arXiv under its non-exclusive-distribution
-licence) is **not** treated as permission to redistribute; those papers are **linked, not reproduced**.
+Full text is reproduced **only** where the paper's licence was verified as CC BY, CC BY-SA or CC0, or
+where an older work is recorded in [`DATA/rights_manifest.json`](DATA/rights_manifest.json) as public
+domain by its age — a status we recorded and did not verify against a licence statement. Being
+free-to-read (e.g. on arXiv under its non-exclusive-distribution licence) is **not** treated as
+permission to redistribute; those papers are **linked, not reproduced**.
 The catalogue still shows our facets and short licensing excerpts for them. Our tag layer (facets,
 colour coding, catalogue) is our own contribution, released under CC-BY-4.0.
